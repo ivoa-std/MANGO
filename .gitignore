@@ -20,6 +20,10 @@
 *.war
 *.ear
 *.sar
+*.log
+*.aux
+*.out
+*.toc
 *.class
 
 # Maven 
