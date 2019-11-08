@@ -1,0 +1,93 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Bradner}{1997}{std:RFC2119}
+Bradner, S.  \harvardyearleft 1997\harvardyearright , `Key words for use in
+  {RFCs} to indicate requirement levels', RFC 2119.
+\newline\url{http://www.ietf.org/rfc/rfc2119.txt}
+
+\harvarditem[Demleitner \harvardand\ Ochsenbein et~al.]{Demleitner, Ochsenbein,
+  McDowell \harvardand\ Rots}{2016}{note:stcvot}
+Demleitner, M., Ochsenbein, F., McDowell, J. \harvardand\ Rots, A.
+  \harvardyearleft 2016\harvardyearright , `Referencing stc in votable', {Note
+  2010-06-18}.
+\newline\url{http://ivoa.net/documents/Notes/VOTableSTC/}
+
+\harvarditem{Derriere}{2016}{note:seb}
+Derriere, S.  \harvardyearleft 2016\harvardyearright , `Referencing stc in
+  votable', {Note 2011-05-12}.
+\newline\url{https://wiki.ivoa.net/internal/IVOA/PhotometryDataModel/NOTE-PPDMDesc-0.2-20110512.pdf}
+
+\harvarditem{Dittmar \harvardand\ Rots}{2019}{wiki:stc2}
+Dittmar, M.~C. \harvardand\ Rots, A.  \harvardyearleft 2019\harvardyearright ,
+  `Stc version 2.0', {Wiki Page 2016-09-16}.
+\newline\url{https://wiki.ivoa.net/twiki/bin/view/IVOA/STC}
+
+\harvarditem[Dowler \harvardand\ Bonnarel et~al.]{Dowler, Bonnarel, Michel
+  \harvardand\ Demleitner}{2015}{std:DataLink}
+Dowler, P., Bonnarel, F., Michel, L. \harvardand\ Demleitner, M.
+  \harvardyearleft 2015\harvardyearright , `{IVOA} datalink', IVOA
+  Recommendation 17 June 2015.
+\newline\url{http://www.ivoa.net/documents/DataLink/}
+
+\harvarditem[{Lemson} \harvardand\ {Laurino} et~al.]{{Lemson}, {Laurino},
+  {Bourges}, {Cresitello-Dittmar}, {Demleitner}, {Donaldson}, {Dowler},
+  {Graham}, {Gray}, {Michel} \harvardand\ {Salgado}}{2018}{2018ivoa.spec.0910L}
+{Lemson}, G., {Laurino}, O., {Bourges}, L., {Cresitello-Dittmar}, M.,
+  {Demleitner}, M., {Donaldson}, T., {Dowler}, P., {Graham}, M., {Gray}, N.,
+  {Michel}, L. \harvardand\ {Salgado}, J.  \harvardyearleft
+  2018\harvardyearright , {VO-DML: a consistent modeling language for IVOA data
+  models Version 1.0}, Technical report.
+\newline\url{http://doi.org/10.5479/ADS/bib/2018ivoa.spec.0910L}
+
+\harvarditem[Lemson \harvardand\ Laurino et~al.]{Lemson, Laurino, Donaldson,
+  Cresitello-Dittmar, Michel, Dowler, Demleitner, Graham \harvardand\
+  Salgado}{2017}{wd:wdmapping}
+Lemson, G., Laurino, O., Donaldson, T., Cresitello-Dittmar, M., Michel, L.,
+  Dowler, P., Demleitner, M., Graham, M. \harvardand\ Salgado, J.
+  \harvardyearleft 2017\harvardyearright , `Mapping data models to votable',
+  {WD 20170323}.
+\newline\url{https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml-mapping/doc/VO-DML_mapping_WD.pdf}
+
+\harvarditem{Michel}{2017}{talk:lmanything}
+Michel, L.  \harvardyearleft 2017\harvardyearright , `Mapping time domain data
+  in votables', {Talk 2017-07-12}.
+\newline\url{https://wiki.ivoa.net/internal/IVOA/InterOpOct2017TDIG/TimeDomainMapping.pdf}
+
+\harvarditem{Michel}{2018a}{talk:lmgaia}
+Michel, L.  \harvardyearleft 2018a\harvardyearright , `Annotating gaia time
+  series with vo-dml', {Talk 2018-11-01}.
+\newline\url{https://wiki.ivoa.net/internal/IVOA/InterOpNov2018TDIG/VODML_Lite_TS.pdf}
+
+\harvarditem{Michel}{2018b}{talk:lmparser}
+Michel, L.  \harvardyearleft 2018b\harvardyearright , `Reading vo-dml
+  annotations with java code', {Talk 2018-11-01}.
+\newline\url{https://wiki.ivoa.net/internal/IVOA/InterOpNov2018Apps/VODML_Lite_JAVA_API.pdf}
+
+\harvarditem{Michel}{2018c}{talk:lmlite}
+Michel, L.  \harvardyearleft 2018c\harvardyearright , `Serializing time domain
+  data a (simplified) vo-dml approach', {Talk 2018-05-10}.
+\newline\url{https://wiki.ivoa.net/internal/IVOA/InterOpMay2018TDIG/Talk_VODML_Lite_at_a_glance_en.pdf}
+
+\harvarditem{Osuna et~al.}{2006}{wd:catalog}
+Osuna, P. et~al.  \harvardyearleft 2006\harvardyearright , `Catalog data
+  model', {Catalog Data Model Work Package}.
+\newline\url{https://wiki.ivoa.net/twiki/bin/view/IVOA/IVAODMCatalogsWP}
+
+\harvarditem[Salgado \harvardand\ Lemson et~al.]{Salgado, Lemson \harvardand\
+  Demleitner}{2016}{wd:jesusdm}
+Salgado, J., Lemson, G. \harvardand\ Demleitner, M.  \harvardyearleft
+  2016\harvardyearright , `Source dm', {Source DM 2016-05-10}.
+\newline\url{https://wiki.ivoa.net/twiki/bin/view/IVOA/SourceDataModel}
+
+\harvarditem[{Salgado} \harvardand\ {Osuna} et~al.]{{Salgado}, {Osuna},
+  {Rodrigo}, {Allen}, {Louys}, {McDowell}, {Baines}, {Maiz Apellaniz},
+  {Hatziminaoglou}, {Derriere} \harvardand\
+  {Lemson}}{2013}{2013ivoa.spec.1005s}
+{Salgado}, J., {Osuna}, P., {Rodrigo}, C., {Allen}, M., {Louys}, M.,
+  {McDowell}, J., {Baines}, D., {Maiz Apellaniz}, J., {Hatziminaoglou}, E.,
+  {Derriere}, S. \harvardand\ {Lemson}, G.  \harvardyearleft
+  2013\harvardyearright , `{IVOA Photometry Data Model Version 1.0}', IVOA
+  Recommendation 05 October 2013,  arXiv:1402.4752.
+\newline\url{http://doi.org/10.5479/ADS/bib/2013ivoa.spec.1005S}
+
+\end{thebibliography}

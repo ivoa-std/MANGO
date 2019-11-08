@@ -1,4 +1,3 @@
-
 #
 # Project specific excludes
 #
@@ -20,6 +19,10 @@
 *.war
 *.ear
 *.sar
+*.log
+*.aux
+*.out
+*.toc
 *.class
 
 # Maven 
