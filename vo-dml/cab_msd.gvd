@@ -1,0 +1,135 @@
+
+digraph GVmap {  
+	label = "\n\ncab_msd data model"
+	rankdir=TB
+	
+	node [ 
+	  shape=tab
+	  style=filled
+	]
+	subgraph cluster_packages {
+	  label="Model"
+	  rankdir=TB
+      style=filled
+      fillcolor="/set312/1"
+	  
+    "phot_dm" [
+    URL="#phot_dm"
+    label = "phot_dm"
+    fillcolor="/set312/2"
+    ] ;
+    
+	}
+	
+	node [
+	shape=record
+	fontsize=8
+	style=filled] 
+    
+  ":Measure" [
+    URL="#Measure"
+    label = "{:Measure}"
+    fillcolor="grey"
+    ] ;
+      
+    "cab_msd:LinkSemantic" [
+    URL="#LinkSemantic"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+downloadLink\l+detection\l+compagnon\l+counterpart\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:ParamSemantic" [
+    URL="#ParamSemantic"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:Source" [
+    URL="#Source"
+    label = "{Source|+identifier : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:AssociatedData" [
+    URL="#AssociatedData"
+    label = "{AssociatedData|+semantic : cab_msd:LinkSemantic\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:WebEndpoint" [
+    URL="#WebEndpoint"
+    label = "{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:VOService" [
+    URL="#VOService"
+    label = "{VOService|+ivoid : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:VOModelInstance" [
+    URL="#VOModelInstance"
+    label = "{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:ModelInstance" [
+    URL="#ModelInstance"
+    label = "{ModelInstance}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:CabmsdInstance" [
+    URL="#CabmsdInstance"
+    label = "{CabmsdInstance}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:Luminosity" [
+    URL="#Luminosity"
+    label = "{Luminosity}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:Shape" [
+    URL="#Shape"
+    label = "{Shape}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:Quality" [
+    URL="#Quality"
+    label = "{Quality}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:Parameter" [
+    URL="#Parameter"
+    label = "{Parameter|+semantic : cab_msd:ParamSemantic\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:ToBeDefined" [
+    URL="#ToBeDefined"
+    label = "{ToBeDefined}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:phot_dm.Filter" [
+    URL="#phot_dm.Filter"
+    label = "{phot_dm/Filter}"
+    fillcolor="/set312/2"
+    ] ;
+  
+ 
+    edge [color="red", arrowtail="none", arrowhead="empty"]
+    "cab_msd:WebEndpoint" -> "cab_msd:AssociatedData" ;
+  "cab_msd:VOService" -> "cab_msd:WebEndpoint" ;
+  "cab_msd:VOModelInstance" -> "cab_msd:AssociatedData" ;
+  "cab_msd:CabmsdInstance" -> "cab_msd:AssociatedData" ;
+  
+ 
+    edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
+    "cab_msd:Source" -> "cab_msd:AssociatedData" [headlabel="0..*",label="associatedData",labelfontsize=10] ;
+  "cab_msd:Source" -> "cab_msd:Parameter" [headlabel="0..*",label="parameters",labelfontsize=10] ;
+  "cab_msd:VOModelInstance" -> "cab_msd:ModelInstance" [headlabel="1",label="modelInstance",labelfontsize=10] ;
+  "cab_msd:CabmsdInstance" -> "cab_msd:Source" [headlabel="1",label="cadmsdInstance",labelfontsize=10] ;
+  "cab_msd:Luminosity" -> "cab_msd:phot_dm.Filter" [headlabel="0..1",label="filter",labelfontsize=10] ;
+  
+ 
+    edge [color="green", arrowhead="open", arrowtail="none"]
+    "cab_msd:Parameter" -> "cab_msd:Shape" [headlabel="0..1",label="shape",labelfontsize=10] ;
+  "cab_msd:Parameter" -> ":Measure" [headlabel="0..1",label="measure",labelfontsize=10] ;
+  "cab_msd:Parameter" -> "cab_msd:Quality" [headlabel="0..1",label="quality",labelfontsize=10] ;
+  "cab_msd:Parameter" -> "cab_msd:Luminosity" [headlabel="0..1",label="luminosity",labelfontsize=10] ;
+  "cab_msd:Parameter" -> "cab_msd:ToBeDefined" [headlabel="0..1",label="toBeDefined",labelfontsize=10] ;
+    
+}
+  

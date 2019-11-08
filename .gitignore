@@ -24,7 +24,7 @@
 *.out
 *.toc
 *.class
-
+*.validation-report.txt 
 # Maven 
 target/
 
