@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: cab-msd.aux
+The style file: ivoatex/ivoa.bst
+Database file #1: myrefs.bib
+Database file #2: ivoatex/ivoabib.bib
+Database file #3: ivoatex/docrepo.bib
+Repeated entry---line 17 of file ivoatex/docrepo.bib
+ : @misc{2018ivoa.spec.0910L
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--empty institution in 2018ivoa.spec.0910L
+You've used 14 entries,
+            2967 wiz_defined-function locations,
+            745 strings with 7934 characters,
+and the built_in function-call counts, 88849 in all, are:
+= -- 14795
+> -- 1162
+< -- 0
++ -- 7350
+- -- 364
+* -- 7910
+:= -- 17405
+add.period$ -- 14
+call.type$ -- 14
+change.case$ -- 197
+chr.to.int$ -- 12
+cite$ -- 15
+duplicate$ -- 141
+empty$ -- 363
+format.name$ -- 422
+if$ -- 15937
+int.to.chr$ -- 7
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 59
+num.names$ -- 146
+pop$ -- 89
+preamble$ -- 1
+purify$ -- 210
+quote$ -- 0
+skip$ -- 161
+stack$ -- 0
+substring$ -- 21318
+swap$ -- 13
+text.length$ -- 196
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 1
+while$ -- 294
+width$ -- 0
+write$ -- 197
+(There was 1 error message)
