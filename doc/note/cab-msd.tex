@@ -29,13 +29,13 @@ This note proposes a possible way to make source data interoperable. It takes in
 
 \section*{Acknowledgments}
 
-Paris session speakers TDIG members
+Paris session speakers, TDIG and DMWG members
 
 \section*{Conformance-related definitions}
 
-The words ``MUST'', ``SHALL'', ``SHOULD'', ``MAY'', ``RECOMMENDED'', and
-``OPTIONAL'' (in upper or lower case) used in this document are to be
-interpreted as described in IETF standard RFC2119 \citep{std:RFC2119}.
+%The words ``MUST'', ``SHALL'', ``SHOULD'', ``MAY'', ``RECOMMENDED'', and
+%``OPTIONAL'' (in upper or lower case) used in this document are to be
+%interpreted as described in IETF standard RFC2119 \citep{std:RFC2119}.
 
 The \emph{Virtual Observatory (VO)} is a
 general term for a collection of federated resources that can be used
@@ -45,6 +45,8 @@ Virtual Observatory Alliance (IVOA)} is a global
 collaboration of separately funded projects to develop standards and
 infrastructure that enable VO applications.
 
+\section*{reader information}
+This note has been written by the end of 2019. Some models features might have changed at te publication date, but both motivations and model skeleton keep unchanged.
 
 \section{Introduction}
 
@@ -290,6 +292,12 @@ In fact, CAB-MSD is more a container than a model. The nature of the quantities 
 \label{fig:workflow}
 \end{figure}
 
+\begin{figure}
+\centering
+\includegraphics[width=1.0\textwidth]{CABSDM_diagram.png}
+\caption{Class diagram (red: imported VO models, blue: CAB-MSD classes, green: associated data)}
+\label{fig:classdiag}
+\end{figure}
 
 \subsection{Model}
 
@@ -313,12 +321,7 @@ The class diagram of figure \ref{fig:classdiag} shows the coarse components of C
 \end{itemize}
 
 
-\begin{figure}
-\centering
-\includegraphics[width=1.0\textwidth]{CABSDM_diagram.png}
-\caption{Class diagram (red: imported VO models, blue: CAB-MSD classes, green: associated data)}
-\label{fig:classdiag}
-\end{figure}
+
 
 Table \ref{table:tclass} gives a few details on the model classes.
 
@@ -464,13 +467,13 @@ A large part of the requirements have been issued from the Paris Interop, but th
 This is why we are confident to have a solid basis for a model for source data. Paying attention to the interest of the community for CAB-MSD, we need now to check, keyboard on the table, that the use cases are really supported by the model, that the annotation process is acceptable and that coding parsers is easy, especially with AstroPy.
 This is a big job, thus contributors are welcome. We think it's worth it.
 
-\appendix
+%\appendix
 
-\section{TAP response annotation}
-\subsection{Storing CAB-MSD instance in a TAP service}
-The relational mapping of CAB-MSD is quite straightforward. We have one master table for the Source class and one table for each set of associated data (e.g. companions).
-If must be possible to provide the TAP server with the VO-DML identifiers attached to all of these tables. This can be done with either the TAP\_SCHEMA or with some external resources.
-This information can then be used by the server to set the mapping elements necessary to annotate the response. This should work as long as there is no joint tables, but this discussion is out of the scope of the note.
+%\section{TAP response annotation}
+%\subsection{Storing CAB-MSD instance in a TAP service}
+%The relational mapping of CAB-MSD is quite straightforward. We have one master table for the Source class and one table for each set of associated data (e.g. companions).
+I%f must be possible to provide the TAP server with the VO-DML identifiers attached to all of these tables. This can be done with either the TAP\_SCHEMA or with some external resources.
+%This information can then be used by the server to set the mapping elements necessary to annotate the response. This should work as long as there is no joint tables, but this discussion is out of the scope of the note.
 %Th
 %In the TAP\_SCHEMA , all UType columns related to the  CAB-MSD stuff can be tagged with CAB-MSD identifiers (VO-DML ids): 
 %\begin{table}[!ht]
@@ -507,19 +510,18 @@ This information can then be used by the server to set the mapping elements nece
 %        \item The result is stacked in one denormalized table difficult to process
 %    \end{itemize}
 %\end{itemize}
+%\section{A proposal to query CAB-MSD instances in one shot}
+%ADQL is a  tabular oriented query language, thus there is no way to use it to get a set of model components in one shot.
+%This can be worked around whether the TAP server is informed that the request concerns model instances. It can then trigger right actions.
+%This notification could done by a specific statement in the SELECT clause. Below is an example of such a hack:
+%\begin{lstlisting}[language=SQL]
+%SELECT ivoa.cabmsd FROM master_table WHERE . . . 
+%\end{lstlisting}
+%This hides the requested columns and thus makes sure that all model quantities will be returned.
+%Once the server has understood that CAB-MSD instances are requested, it can run first the query on the master\_table (Source in the model) and then on all the joined tables.
+%All result tables can be stored in the resulting VOTable and properly mapped by using the models tags from either the TAP\_SCHEMA or the inner mapping template.
 
-\section{A proposal to query CAB-MSD instances in one shot}
-ADQL is a  tabular oriented query language, thus there is no way to use it to get a set of model components in one shot.
-This can be worked around whether the TAP server is informed that the request concerns model instances. It can then trigger right actions.
-This notification could done by a specific statement in the SELECT clause. Below is an example of such a hack:
-\begin{lstlisting}[language=SQL]
-SELECT ivoa.cabmsd FROM master_table WHERE . . . 
-\end{lstlisting}
-This hides the requested columns and thus makes sure that all model quantities will be returned.
-Once the server has understood that CAB-MSD instances are requested, it can run first the query on the master\_table (Source in the model) and then on all the joined tables.
-All result tables can be stored in the resulting VOTable and properly mapped by using the models tags from either the TAP\_SCHEMA or the inner mapping template.
-
-This could work in a simple way as long as the WHERE clause is restricted to master\_table. 
+%This could work in a simple way as long as the WHERE clause is restricted to master\_table. 
 
 \bibliography{myrefs,ivoatex/ivoabib,ivoatex/docrepo}
 
