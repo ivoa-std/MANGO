@@ -9,7 +9,7 @@
   <uri/>
   <title/>
   <version>0.x</version>
-  <lastModified>2019-10-03T13:48:55</lastModified>
+  <lastModified>2020-04-21T17:33:39</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -17,12 +17,12 @@
   </import>
   <import>
     <name>meas</name>
-    <url>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml</url>
+    <url>http://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml</url>
     <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html</documentationURL>
   </import>
   <import>
     <name>coords</name>
-    <url>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</url>
+    <url>http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</url>
     <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html</documentationURL>
   </import>
   <enumeration>
@@ -53,29 +53,29 @@
         </description>
     </literal>
     <literal>
-      <vodml-id>LinkSemantic.downloadLink</vodml-id>
-      <name>downloadLink</name>
+      <vodml-id>LinkSemantic.DownloadLink</vodml-id>
+      <name>DownloadLink</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     </literal>
     <literal>
-      <vodml-id>LinkSemantic.detection</vodml-id>
-      <name>detection</name>
+      <vodml-id>LinkSemantic.Detection</vodml-id>
+      <name>Detection</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     </literal>
     <literal>
-      <vodml-id>LinkSemantic.compagnon</vodml-id>
-      <name>compagnon</name>
+      <vodml-id>LinkSemantic.Compagnon</vodml-id>
+      <name>Compagnon</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     </literal>
     <literal>
-      <vodml-id>LinkSemantic.counterpart</vodml-id>
-      <name>counterpart</name>
+      <vodml-id>LinkSemantic.Counterpart</vodml-id>
+      <name>Counterpart</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -124,6 +124,128 @@
         </description>
     </literal>
   </enumeration>
+
+  <enumeration>
+    <vodml-id>ShapeFrame</vodml-id>
+    <name>ShapeFrame</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <literal>
+      <vodml-id>ShapeFrame.MOC</vodml-id>
+      <name>MOC</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    </literal>
+    <literal>
+      <vodml-id>ShapeFrame.STCs</vodml-id>
+      <name>STCs</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    </literal>
+  </enumeration>
+
+  <dataType>
+    <vodml-id>STCSphericalPoint</vodml-id>
+    <name>STCSphericalPoint</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:Coordinate</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCSphericalPoint.longitude</vodml-id>
+      <name>longitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>STCSphericalPoint.latitude</vodml-id>
+      <name>latitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>STCStatusState</vodml-id>
+    <name>STCStatusState</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:Coordinate</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCStatusState.status</vodml-id>
+      <name>status</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>StatusLabel</vodml-id>
+    <name>StatusLabel</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <vodml-id>StatusLabel.value</vodml-id>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>StatusLabel.label</vodml-id>
+      <name>label</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
 
   <objectType>
     <vodml-id>Source</vodml-id>
@@ -370,49 +492,15 @@
   </objectType>
 
   <objectType>
-    <vodml-id>Luminosity</vodml-id>
-    <name>Luminosity</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <composition>
-      <vodml-id>Luminosity.filter</vodml-id>
-      <name>filter</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <datatype>
-        <vodml-ref>cab_msd:phot_dm.Filter</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-  </objectType>
-
-  <objectType>
-    <vodml-id>Shape</vodml-id>
-    <name>Shape</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-  </objectType>
-
-  <objectType>
-    <vodml-id>Quality</vodml-id>
-    <name>Quality</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-  </objectType>
-
-  <objectType>
     <vodml-id>Parameter</vodml-id>
     <name>Parameter</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
+    <constraint>
+      <description>One association at the time
+</description>
+    </constraint>
     <attribute>
       <vodml-id>Parameter.semantic</vodml-id>
       <name>semantic</name>
@@ -427,20 +515,20 @@
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
-    <reference>
-      <vodml-id>Parameter.shape</vodml-id>
-      <name>shape</name>
+    <attribute>
+      <vodml-id>Parameter.ucd</vodml-id>
+      <name>ucd</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>cab_msd:Shape</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>0</minOccurs>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </reference>
+    </attribute>
     <reference>
       <vodml-id>Parameter.measure</vodml-id>
       <name>measure</name>
@@ -448,49 +536,7 @@
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>:Measure</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </reference>
-    <reference>
-      <vodml-id>Parameter.quality</vodml-id>
-      <name>quality</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <datatype>
-        <vodml-ref>cab_msd:Quality</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </reference>
-    <reference>
-      <vodml-id>Parameter.luminosity</vodml-id>
-      <name>luminosity</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <datatype>
-        <vodml-ref>cab_msd:Luminosity</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </reference>
-    <reference>
-      <vodml-id>Parameter.toBeDefined</vodml-id>
-      <name>toBeDefined</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <datatype>
-        <vodml-ref>cab_msd:ToBeDefined</vodml-ref>
+        <vodml-ref>meas:Measure</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -500,29 +546,262 @@
   </objectType>
 
   <objectType>
-    <vodml-id>ToBeDefined</vodml-id>
-    <name>ToBeDefined</name>
+    <vodml-id>STCSphericalSkyPosition</vodml-id>
+    <name>STCSphericalSkyPosition</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-  </objectType>
-
-
-
-  <package>
-    <vodml-id>phot_dm</vodml-id>
-    <name>phot_dm</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <objectType>
-      <vodml-id>phot_dm.Filter</vodml-id>
-      <name>Filter</name>
+    <extends>
+      <vodml-ref>meas:Measure</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCSphericalSkyPosition.coord</vodml-id>
+      <name>coord</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-    </objectType>
+      <datatype>
+        <vodml-ref>cab_msd:STCSphericalPoint</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
 
-  </package>
+  <objectType>
+    <vodml-id>STCStatus</vodml-id>
+    <name>STCStatus</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>meas:Measure</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCStatus.coord</vodml-id>
+      <name>coord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>cab_msd:STCStatusState</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>STCStatusSys</vodml-id>
+    <name>STCStatusSys</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:CoordSys</vodml-ref>
+    </extends>
+    <composition>
+      <vodml-id>STCStatusSys.statusLabel</vodml-id>
+      <name>statusLabel</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>cab_msd:StatusLabel</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>HRFrame</vodml-id>
+    <name>HRFrame</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:CoordFrame</vodml-ref>
+    </extends>
+    <composition>
+      <vodml-id>HRFrame.low</vodml-id>
+      <name>low</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>cab_msd:STCFilter</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>HRFrame.high</vodml-id>
+      <name>high</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>cab_msd:STCFilter</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>STCShape</vodml-id>
+    <name>STCShape</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>meas:Measure</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCShape.shape</vodml-id>
+      <name>shape</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>STCShapeSys</vodml-id>
+    <name>STCShapeSys</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:CoordSys</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCShapeSys.shapeFrame</vodml-id>
+      <name>shapeFrame</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>cab_msd:ShapeFrame</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>STCFilter</vodml-id>
+    <name>STCFilter</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:CoordFrame</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>STCFilter.name</vodml-id>
+      <name>name</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>STCFilter.zeroPointFlux</vodml-id>
+      <name>zeroPointFlux</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>STCFilter.magnitudeSystem</vodml-id>
+      <name>magnitudeSystem</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>STCFilter.effectiveWavelength</vodml-id>
+      <name>effectiveWavelength</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>STCFilter.unit</vodml-id>
+      <name>unit</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:Unit</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>STCFilter.bandWidth</vodml-id>
+      <name>bandWidth</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
 
 </vo-dml:model>

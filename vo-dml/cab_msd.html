@@ -32,11 +32,11 @@
         </tr>
         <tr>
           <td>2.1.3</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LinkSemantic">enumeration:LinkSemantic</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#HRFrame">objectType:HRFrame</a></td>
         </tr>
         <tr>
           <td>2.1.4</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Luminosity">objectType:Luminosity</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LinkSemantic">enumeration:LinkSemantic</a></td>
         </tr>
         <tr>
           <td>2.1.5</td>
@@ -52,39 +52,59 @@
         </tr>
         <tr>
           <td>2.1.8</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Quality">objectType:Quality</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCFilter">objectType:STCFilter</a></td>
         </tr>
         <tr>
           <td>2.1.9</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Shape">objectType:Shape</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCShape">objectType:STCShape</a></td>
         </tr>
         <tr>
           <td>2.1.10</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Source">objectType:Source</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCShapeSys">objectType:STCShapeSys</a></td>
         </tr>
         <tr>
           <td>2.1.11</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ToBeDefined">objectType:ToBeDefined</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCSphericalPoint">dataType:STCSphericalPoint</a></td>
         </tr>
         <tr>
           <td>2.1.12</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#VOModelInstance">objectType:VOModelInstance</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCSphericalSkyPosition">objectType:STCSphericalSkyPosition</a></td>
         </tr>
         <tr>
           <td>2.1.13</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#VOService">objectType:VOService</a></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCStatus">objectType:STCStatus</a></td>
         </tr>
         <tr>
           <td>2.1.14</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCStatusState">dataType:STCStatusState</a></td>
+        </tr>
+        <tr>
+          <td>2.1.15</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#STCStatusSys">objectType:STCStatusSys</a></td>
+        </tr>
+        <tr>
+          <td>2.1.16</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ShapeFrame">enumeration:ShapeFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.1.17</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Source">objectType:Source</a></td>
+        </tr>
+        <tr>
+          <td>2.1.18</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#StatusLabel">dataType:StatusLabel</a></td>
+        </tr>
+        <tr>
+          <td>2.1.19</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#VOModelInstance">objectType:VOModelInstance</a></td>
+        </tr>
+        <tr>
+          <td>2.1.20</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#VOService">objectType:VOService</a></td>
+        </tr>
+        <tr>
+          <td>2.1.21</td>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WebEndpoint">objectType:WebEndpoint</a></td>
-        </tr>
-        <tr>
-          <td>2.2</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#phot_dm">package: phot_dm</a></td>
-        </tr>
-        <tr>
-          <td>2.2.1</td>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#phot_dm.Filter">objectType: Filter</a></td>
         </tr>
         <tr>
           <td>3.</td>
@@ -124,7 +144,7 @@
       <tr>
         <td align="right"><b>Date</b></td>
         <td> : </td>
-        <td>2019-10-03T13:48:55</td>
+        <td>2020-04-21T17:33:39</td>
       </tr>
       <tr>
         <td align="right"><b>Version</b></td>
@@ -152,23 +172,31 @@
         <td colspan="3"></td>
       </tr>
     </table><img src="cab_msd.png" usemap="#GVmap"><map id="GVmap" name="GVmap">
-<area shape="rect" id="node1" href="#phot_dm" title="phot_dm" alt="" coords="73,57,159,105"/>
-<area shape="rect" id="node2" href="#Measure" title="{:Measure}" alt="" coords="271,467,343,516"/>
-<area shape="rect" id="node3" href="#LinkSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+downloadLink\l+detection\l+compagnon\l+counterpart\l}" alt="" coords="455,16,553,147"/>
-<area shape="rect" id="node4" href="#ParamSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}" alt="" coords="577,28,676,135"/>
-<area shape="rect" id="node5" href="#Source" title="{Source|+identifier : ivoa:string\l}" alt="" coords="379,226,501,275"/>
-<area shape="rect" id="node6" href="#AssociatedData" title="{AssociatedData|+semantic : cab_msd:LinkSemantic\l}" alt="" coords="194,355,369,404"/>
-<area shape="rect" id="node15" href="#Parameter" title="{Parameter|+semantic : cab_msd:ParamSemantic\l}" alt="" coords="407,355,590,404"/>
-<area shape="rect" id="node7" href="#WebEndpoint" title="{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}" alt="" coords="166,221,303,280"/>
-<area shape="rect" id="node8" href="#VOService" title="{VOService|+ivoid : ivoa:string\l}" alt="" coords="183,57,286,106"/>
-<area shape="rect" id="node9" href="#VOModelInstance" title="{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}" alt="" coords="5,209,141,292"/>
-<area shape="rect" id="node10" href="#ModelInstance" title="{ModelInstance}" alt="" coords="31,355,116,404"/>
-<area shape="rect" id="node11" href="#CabmsdInstance" title="{CabmsdInstance}" alt="" coords="338,57,430,106"/>
-<area shape="rect" id="node12" href="#Luminosity" title="{Luminosity}" alt="" coords="367,467,439,516"/>
-<area shape="rect" id="node17" href="#phot_dm.Filter" title="{phot_dm/Filter}" alt="" coords="360,579,445,628"/>
-<area shape="rect" id="node13" href="#Shape" title="{Shape}" alt="" coords="463,467,535,516"/>
-<area shape="rect" id="node14" href="#Quality" title="{Quality}" alt="" coords="559,467,631,516"/>
-<area shape="rect" id="node16" href="#ToBeDefined" title="{ToBeDefined}" alt="" coords="655,467,737,516"/>
+<area shape="rect" id="node1" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate" title="{coords:Coordinate}" alt="" coords="377,229,479,278"/>
+<area shape="rect" id="node2" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure" title="{meas:Measure}" alt="" coords="362,494,445,543"/>
+<area shape="rect" id="node3" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys" title="{coords:CoordSys}" alt="" coords="1235,229,1331,278"/>
+<area shape="rect" id="node4" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame" title="{coords:CoordFrame}" alt="" coords="1345,375,1452,425"/>
+<area shape="rect" id="node5" href="#LinkSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+DownloadLink\l+Detection\l+Compagnon\l+Counterpart\l}" alt="" coords="1510,5,1609,136"/>
+<area shape="rect" id="node6" href="#ParamSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}" alt="" coords="1634,17,1733,124"/>
+<area shape="rect" id="node7" href="#ShapeFrame" title="{&lt;&lt;enumeration&gt;&gt;\nShapeFrame|+MOC\l+STCs\l}" alt="" coords="1758,35,1857,106"/>
+<area shape="rect" id="node8" href="#STCSphericalPoint" title="{&lt;&lt;datatype&gt;&gt;\nSTCSphericalPoint|+longitude : ivoa:RealQuantity\l+latitude : ivoa:RealQuantity\l}" alt="" coords="295,35,449,106"/>
+<area shape="rect" id="node9" href="#STCStatusState" title="{&lt;&lt;datatype&gt;&gt;\nSTCStatusState|+status : ivoa:integer\l}" alt="" coords="473,41,585,100"/>
+<area shape="rect" id="node10" href="#StatusLabel" title="{&lt;&lt;datatype&gt;&gt;\nStatusLabel|+value : ivoa:integer\l+label : ivoa:string\l}" alt="" coords="1085,218,1195,289"/>
+<area shape="rect" id="node11" href="#Source" title="{Source|+identifier : ivoa:string\l}" alt="" coords="559,229,679,278"/>
+<area shape="rect" id="node12" href="#AssociatedData" title="{AssociatedData|+semantic : cab_msd:LinkSemantic\l}" alt="" coords="743,375,917,425"/>
+<area shape="rect" id="node18" href="#Parameter" title="{Parameter|+semantic : cab_msd:ParamSemantic\l+ucd : ivoa:string\l}" alt="" coords="5,371,187,429"/>
+<area shape="rect" id="node13" href="#WebEndpoint" title="{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}" alt="" coords="762,224,899,283"/>
+<area shape="rect" id="node14" href="#VOService" title="{VOService|+ivoid : ivoa:string\l}" alt="" coords="779,46,883,95"/>
+<area shape="rect" id="node15" href="#VOModelInstance" title="{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}" alt="" coords="924,212,1060,295"/>
+<area shape="rect" id="node16" href="#ModelInstance" title="{ModelInstance}" alt="" coords="949,375,1035,425"/>
+<area shape="rect" id="node17" href="#CabmsdInstance" title="{CabmsdInstance}" alt="" coords="637,46,728,95"/>
+<area shape="rect" id="node19" href="#STCSphericalSkyPosition" title="{STCSphericalSkyPosition|+coord : cab_msd:STCSphericalPoint\l}" alt="" coords="212,375,396,425"/>
+<area shape="rect" id="node20" href="#STCStatus" title="{STCStatus|+coord : cab_msd:STCStatusState\l}" alt="" coords="420,375,588,425"/>
+<area shape="rect" id="node21" href="#STCStatusSys" title="{STCStatusSys}" alt="" coords="1099,46,1181,95"/>
+<area shape="rect" id="node22" href="#HRFrame" title="{HRFrame}" alt="" coords="1413,46,1485,95"/>
+<area shape="rect" id="node25" href="#STCFilter" title="{STCFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}" alt="" coords="1420,200,1583,307"/>
+<area shape="rect" id="node23" href="#STCShape" title="{STCShape|+shape : ivoa:string\l}" alt="" coords="612,375,719,425"/>
+<area shape="rect" id="node24" href="#STCShapeSys" title="{STCShapeSys|+shapeFrame : cab_msd:ShapeFrame\l}" alt="" coords="1206,46,1388,95"/>
 </map>
 
     <hr>
@@ -187,18 +215,18 @@
         <td class="objecttype-name">cab_msd</td>
       </tr>
       <tr>
-        <td width="20%" class="info-title">child package(s)</td>
-        <td colspan="2" class="feature-detail"><a href="#phot_dm">phot_dm</a> 
+        <td width="20%" class="info-title">Object types</td>
+        <td colspan="2" class="feature-detail"><a href="#AssociatedData">AssociatedData</a> <a href="#CabmsdInstance">CabmsdInstance</a> <a href="#HRFrame">HRFrame</a> <a href="#ModelInstance">ModelInstance</a> <a href="#Parameter">Parameter</a> <a href="#STCFilter">STCFilter</a> <a href="#STCShape">STCShape</a> <a href="#STCShapeSys">STCShapeSys</a> <a href="#STCSphericalSkyPosition">STCSphericalSkyPosition</a> <a href="#STCStatus">STCStatus</a> <a href="#STCStatusSys">STCStatusSys</a> <a href="#Source">Source</a> <a href="#VOModelInstance">VOModelInstance</a> <a href="#VOService">VOService</a> <a href="#WebEndpoint">WebEndpoint</a> 
         </td>
       </tr>
       <tr>
-        <td width="20%" class="info-title">Object types</td>
-        <td colspan="2" class="feature-detail"><a href="#AssociatedData">AssociatedData</a> <a href="#CabmsdInstance">CabmsdInstance</a> <a href="#Luminosity">Luminosity</a> <a href="#ModelInstance">ModelInstance</a> <a href="#Parameter">Parameter</a> <a href="#Quality">Quality</a> <a href="#Shape">Shape</a> <a href="#Source">Source</a> <a href="#ToBeDefined">ToBeDefined</a> <a href="#VOModelInstance">VOModelInstance</a> <a href="#VOService">VOService</a> <a href="#WebEndpoint">WebEndpoint</a> 
+        <td width="20%" class="info-title">Data types</td>
+        <td colspan="2" class="feature-detail"><a href="#STCSphericalPoint">STCSphericalPoint</a> <a href="#STCStatusState">STCStatusState</a> <a href="#StatusLabel">StatusLabel</a> 
         </td>
       </tr>
       <tr>
         <td width="20%" class="info-title">Enumerations</td>
-        <td colspan="2" class="feature-detail"><a href="#LinkSemantic">LinkSemantic</a> <a href="#ParamSemantic">ParamSemantic</a> 
+        <td colspan="2" class="feature-detail"><a href="#LinkSemantic">LinkSemantic</a> <a href="#ParamSemantic">ParamSemantic</a> <a href="#ShapeFrame">ShapeFrame</a> 
         </td>
       </tr>
     </table>
@@ -327,7 +355,95 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="LinkSemantic"></a>2.1.3 enumeration: LinkSemantic
+    </div><br><h3><a name="HRFrame"></a>2.1.3 objectType: HRFrame
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">HRFrame</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame">CoordFrame</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="HRFrame.high"></a><b>high</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#STCFilter">STCFilter [cab_msd:STCFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">HRFrame.high</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="HRFrame.low"></a><b>low</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#STCFilter">STCFilter [cab_msd:STCFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">HRFrame.low</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="LinkSemantic"></a>2.1.4 enumeration: LinkSemantic
     </h3>
     <table border="1" width="100%" cellspacing="2">
       <tr>
@@ -389,10 +505,10 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.downloadLink"></a>downloadLink
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.DownloadLink"></a>DownloadLink
         </td>
         <td class="feature-heading">vodml-id</td>
-        <td class="feature-detail">LinkSemantic.downloadLink</td>
+        <td class="feature-detail">LinkSemantic.DownloadLink</td>
       </tr>
       <tr>
         <td class="feature-heading">description</td>
@@ -402,10 +518,10 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.detection"></a>detection
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Detection"></a>Detection
         </td>
         <td class="feature-heading">vodml-id</td>
-        <td class="feature-detail">LinkSemantic.detection</td>
+        <td class="feature-detail">LinkSemantic.Detection</td>
       </tr>
       <tr>
         <td class="feature-heading">description</td>
@@ -415,10 +531,10 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.compagnon"></a>compagnon
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Compagnon"></a>Compagnon
         </td>
         <td class="feature-heading">vodml-id</td>
-        <td class="feature-detail">LinkSemantic.compagnon</td>
+        <td class="feature-detail">LinkSemantic.Compagnon</td>
       </tr>
       <tr>
         <td class="feature-heading">description</td>
@@ -428,10 +544,10 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.counterpart"></a>counterpart
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Counterpart"></a>Counterpart
         </td>
         <td class="feature-heading">vodml-id</td>
-        <td class="feature-detail">LinkSemantic.counterpart</td>
+        <td class="feature-detail">LinkSemantic.Counterpart</td>
       </tr>
       <tr>
         <td class="feature-heading">description</td>
@@ -440,72 +556,7 @@
           
         </td>
       </tr>
-    </table><br><h3><a name="Luminosity"></a>2.1.4 objectType: Luminosity
-    </h3>
-    <div align="center">
-      <table border="1" width="100%" cellspacing="2">
-        <tr>
-          <td class="objecttype-title" width="20%">vodml-id</td>
-          <td class="objecttype-name" colspan="1">Luminosity</td>
-        </tr>
-        <tr>
-          <td class="info-title">description</td>
-          <td class="feature-detail" colspan="1">
-            TODO : Missing description : please, update your UML model asap.
-            
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td colspan="2" bgcolor="#cacaca">
-                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
-                    <tr>
-                      <td class="info-title">referrers</td>
-                      <td class="feature-detail" colspan="3"><a href="#Parameter">Parameter</a> 
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" class="info-title">compositions</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading" width="20%">name</td>
-                      <td class="feature-heading" width="10%">feature</td>
-                      <td class="feature-heading" width="70%">value</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-detail" valign="top" rowspan="5"><a name="Luminosity.filter"></a><b>filter</b></td>
-                      <td class="feature-heading">type</td>
-                      <td class="feature-detail"><a href="#phot_dm.Filter">Filter [cab_msd:phot_dm.Filter]</a></td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">vodml-id</td>
-                      <td class="feature-detail">Luminosity.filter</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">multiplicity</td>
-                      <td class="feature-detail">0..1</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">isOrdered</td>
-                      <td class="feature-detail">false</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">description</td>
-                      <td class="feature-detail">
-                        TODO : Missing description : please, update your UML model asap.
-                        
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </div><br><h3><a name="ModelInstance"></a>2.1.5 objectType: ModelInstance
+    </table><br><h3><a name="ModelInstance"></a>2.1.5 objectType: ModelInstance
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
@@ -668,25 +719,17 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" class="info-title">references</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading" width="20%">name</td>
-                      <td class="feature-heading" width="10%">feature</td>
-                      <td class="feature-heading" width="70%">value</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.luminosity"></a><b>luminosity</b></td>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.ucd"></a><b>ucd</b></td>
                       <td class="feature-heading">type</td>
-                      <td class="feature-detail"><a href="#Luminosity">Luminosity [cab_msd:Luminosity]</a></td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
                     </tr>
                     <tr>
                       <td class="feature-heading">vodml-id</td>
-                      <td class="feature-detail">Parameter.luminosity</td>
+                      <td class="feature-detail">Parameter.ucd</td>
                     </tr>
                     <tr>
                       <td class="feature-heading">multiplicity</td>
-                      <td class="feature-detail">0..1</td>
+                      <td class="feature-detail">1</td>
                     </tr>
                     <tr>
                       <td class="feature-heading">description</td>
@@ -696,9 +739,17 @@
                       </td>
                     </tr>
                     <tr>
+                      <td colspan="3" class="info-title">references</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
                       <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.measure"></a><b>measure</b></td>
                       <td class="feature-heading">type</td>
-                      <td class="feature-detail"><a href="#"></a>:<a href="#Measure">Measure</a></td>
+                      <td class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
                     </tr>
                     <tr>
                       <td class="feature-heading">vodml-id</td>
@@ -716,62 +767,10 @@
                       </td>
                     </tr>
                     <tr>
-                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.quality"></a><b>quality</b></td>
-                      <td class="feature-heading">type</td>
-                      <td class="feature-detail"><a href="#Quality">Quality [cab_msd:Quality]</a></td>
+                      <td colspan="3" class="info-title">constraints</td>
                     </tr>
                     <tr>
-                      <td class="feature-heading">vodml-id</td>
-                      <td class="feature-detail">Parameter.quality</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">multiplicity</td>
-                      <td class="feature-detail">0..1</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">description</td>
-                      <td class="feature-detail">
-                        TODO : Missing description : please, update your UML model asap.
-                        
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.shape"></a><b>shape</b></td>
-                      <td class="feature-heading">type</td>
-                      <td class="feature-detail"><a href="#Shape">Shape [cab_msd:Shape]</a></td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">vodml-id</td>
-                      <td class="feature-detail">Parameter.shape</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">multiplicity</td>
-                      <td class="feature-detail">0..1</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">description</td>
-                      <td class="feature-detail">
-                        TODO : Missing description : please, update your UML model asap.
-                        
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.toBeDefined"></a><b>toBeDefined</b></td>
-                      <td class="feature-heading">type</td>
-                      <td class="feature-detail"><a href="#ToBeDefined">ToBeDefined [cab_msd:ToBeDefined]</a></td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">vodml-id</td>
-                      <td class="feature-detail">Parameter.toBeDefined</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">multiplicity</td>
-                      <td class="feature-detail">0..1</td>
-                    </tr>
-                    <tr>
-                      <td class="feature-heading">description</td>
-                      <td class="feature-detail">
-                        TODO : Missing description : please, update your UML model asap.
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
                         
                       </td>
                     </tr>
@@ -782,13 +781,13 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="Quality"></a>2.1.8 objectType: Quality
+    </div><br><h3><a name="STCFilter"></a>2.1.8 objectType: STCFilter
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
         <tr>
           <td class="objecttype-title" width="20%">vodml-id</td>
-          <td class="objecttype-name" colspan="1">Quality</td>
+          <td class="objecttype-name" colspan="1">STCFilter</td>
         </tr>
         <tr>
           <td class="info-title">description</td>
@@ -804,8 +803,135 @@
                 <td colspan="2" bgcolor="#cacaca">
                   <table width="100%" border="0" cellpadding="3" cellspacing="1">
                     <tr>
-                      <td class="info-title">referrers</td>
-                      <td class="feature-detail" colspan="3"><a href="#Parameter">Parameter</a> 
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame">CoordFrame</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCFilter.name"></a><b>name</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCFilter.name</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCFilter.zeroPointFlux"></a><b>zeroPointFlux</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCFilter.zeroPointFlux</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCFilter.magnitudeSystem"></a><b>magnitudeSystem</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCFilter.magnitudeSystem</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCFilter.effectiveWavelength"></a><b>effectiveWavelength</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCFilter.effectiveWavelength</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCFilter.unit"></a><b>unit</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Unit">Unit</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCFilter.unit</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCFilter.bandWidth"></a><b>bandWidth</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCFilter.bandWidth</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
                       </td>
                     </tr>
                   </table>
@@ -815,13 +941,13 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="Shape"></a>2.1.9 objectType: Shape
+    </div><br><h3><a name="STCShape"></a>2.1.9 objectType: STCShape
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
         <tr>
           <td class="objecttype-title" width="20%">vodml-id</td>
-          <td class="objecttype-name" colspan="1">Shape</td>
+          <td class="objecttype-name" colspan="1">STCShape</td>
         </tr>
         <tr>
           <td class="info-title">description</td>
@@ -837,8 +963,35 @@
                 <td colspan="2" bgcolor="#cacaca">
                   <table width="100%" border="0" cellpadding="3" cellspacing="1">
                     <tr>
-                      <td class="info-title">referrers</td>
-                      <td class="feature-detail" colspan="3"><a href="#Parameter">Parameter</a> 
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCShape.shape"></a><b>shape</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCShape.shape</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
                       </td>
                     </tr>
                   </table>
@@ -848,7 +1001,439 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="Source"></a>2.1.10 objectType: Source
+    </div><br><h3><a name="STCShapeSys"></a>2.1.10 objectType: STCShapeSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">STCShapeSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys">CoordSys</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCShapeSys.shapeFrame"></a><b>shapeFrame</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ShapeFrame">ShapeFrame [cab_msd:ShapeFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCShapeSys.shapeFrame</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="STCSphericalPoint"></a>2.1.11 dataType: STCSphericalPoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">STCSphericalPoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate">Coordinate</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCSphericalPoint.longitude"></a><b>longitude</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#RealQuantity">RealQuantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCSphericalPoint.longitude</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCSphericalPoint.latitude"></a><b>latitude</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#RealQuantity">RealQuantity</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCSphericalPoint.latitude</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="STCSphericalSkyPosition"></a>2.1.12 objectType: STCSphericalSkyPosition
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">STCSphericalSkyPosition</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCSphericalSkyPosition.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#STCSphericalPoint">STCSphericalPoint [cab_msd:STCSphericalPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCSphericalSkyPosition.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="STCStatus"></a>2.1.13 objectType: STCStatus
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">STCStatus</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCStatus.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#STCStatusState">STCStatusState [cab_msd:STCStatusState]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCStatus.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="STCStatusState"></a>2.1.14 dataType: STCStatusState
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">STCStatusState</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate">Coordinate</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="STCStatusState.status"></a><b>status</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCStatusState.status</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="STCStatusSys"></a>2.1.15 objectType: STCStatusSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">STCStatusSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys">CoordSys</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="STCStatusSys.statusLabel"></a><b>statusLabel</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#StatusLabel">StatusLabel [cab_msd:StatusLabel]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">STCStatusSys.statusLabel</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="ShapeFrame"></a>2.1.16 enumeration: ShapeFrame
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">ShapeFrame</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ShapeFrame.MOC"></a>MOC
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ShapeFrame.MOC</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ShapeFrame.STCs"></a>STCs
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ShapeFrame.STCs</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+    </table><br><h3><a name="Source"></a>2.1.17 objectType: Source
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
@@ -960,13 +1545,13 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="ToBeDefined"></a>2.1.11 objectType: ToBeDefined
+    </div><br><h3><a name="StatusLabel"></a>2.1.18 dataType: StatusLabel
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
         <tr>
           <td class="objecttype-title" width="20%">vodml-id</td>
-          <td class="objecttype-name" colspan="1">ToBeDefined</td>
+          <td class="objecttype-name" colspan="1">StatusLabel</td>
         </tr>
         <tr>
           <td class="info-title">description</td>
@@ -982,8 +1567,51 @@
                 <td colspan="2" bgcolor="#cacaca">
                   <table width="100%" border="0" cellpadding="3" cellspacing="1">
                     <tr>
-                      <td class="info-title">referrers</td>
-                      <td class="feature-detail" colspan="3"><a href="#Parameter">Parameter</a> 
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="StatusLabel.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">StatusLabel.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="StatusLabel.label"></a><b>label</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">StatusLabel.label</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
                       </td>
                     </tr>
                   </table>
@@ -993,7 +1621,7 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="VOModelInstance"></a>2.1.12 objectType: VOModelInstance
+    </div><br><h3><a name="VOModelInstance"></a>2.1.19 objectType: VOModelInstance
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
@@ -1138,7 +1766,7 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="VOService"></a>2.1.13 objectType: VOService
+    </div><br><h3><a name="VOService"></a>2.1.20 objectType: VOService
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
@@ -1198,7 +1826,7 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="WebEndpoint"></a>2.1.14 objectType: WebEndpoint
+    </div><br><h3><a name="WebEndpoint"></a>2.1.21 objectType: WebEndpoint
     </h3>
     <div align="center">
       <table border="1" width="100%" cellspacing="2">
@@ -1283,62 +1911,6 @@
           </td>
         </tr>
       </table>
-    </div><br><h3><a name="phot_dm"></a>2.2 package: phot_dm
-    </h3>
-    <table border="1" cellspacing="2" width="100%">
-      <tr>
-        <td class="objecttype-title" width="20%">vodml-id</td>
-        <td class="objecttype-name" colspan="1">phot_dm</td>
-      </tr>
-      <tr>
-        <td class="info-title">description</td>
-        <td class="feature-detail" colspan="1">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td width="20%" class="info-title">parent</td>
-        <td colspan="2" class="feature-detail"><a href="#model_section">cab_msd</a></td>
-      </tr>
-      <tr>
-        <td width="20%" class="info-title">Object types</td>
-        <td colspan="2" class="feature-detail"><a href="#phot_dm.Filter">Filter</a> 
-        </td>
-      </tr>
-    </table>
-    <h3><a name="phot_dm.Filter"></a>2.2.1 objectType: Filter
-    </h3>
-    <div align="center">
-      <table border="1" width="100%" cellspacing="2">
-        <tr>
-          <td class="objecttype-title" width="20%">vodml-id</td>
-          <td class="objecttype-name" colspan="1">phot_dm.Filter</td>
-        </tr>
-        <tr>
-          <td class="info-title">description</td>
-          <td class="feature-detail" colspan="1">
-            TODO : Missing description : please, update your UML model asap.
-            
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td colspan="2" bgcolor="#cacaca">
-                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
-                    <tr>
-                      <td width="20%" class="info-title">package</td>
-                      <td colspan="3" class="feature-detail"><a href="#phot_dm">phot_dm</a></td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
     </div><br><hr>
     <h1>3.<a name="vodml-ids">Element Identifiers/VO-DMLrefs</a></h1>  
     The following table shows all fully qualified vodml-ids for this data model.
@@ -1393,8 +1965,64 @@
         </td>
       </tr>
       <tr>
+        <td class="feature-detail"><a href="#HRFrame">HRFrame</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#HRFrame.high">HRFrame.high</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#HRFrame.low">HRFrame.low</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
         <td class="feature-detail"><a href="#LinkSemantic">LinkSemantic</a></td>
         <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Compagnon">LinkSemantic.Compagnon</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Counterpart">LinkSemantic.Counterpart</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Detection">LinkSemantic.Detection</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.DownloadLink">LinkSemantic.DownloadLink</a></td>
+        <td class="feature-detail">literal</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
           
@@ -1419,54 +2047,6 @@
       <tr>
         <td class="feature-detail"><a href="#LinkSemantic.VOService">LinkSemantic.VOService</a></td>
         <td class="feature-detail">literal</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#LinkSemantic.compagnon">LinkSemantic.compagnon</a></td>
-        <td class="feature-detail">literal</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#LinkSemantic.counterpart">LinkSemantic.counterpart</a></td>
-        <td class="feature-detail">literal</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#LinkSemantic.detection">LinkSemantic.detection</a></td>
-        <td class="feature-detail">literal</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#LinkSemantic.downloadLink">LinkSemantic.downloadLink</a></td>
-        <td class="feature-detail">literal</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#Luminosity">Luminosity</a></td>
-        <td class="feature-detail">objectType</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#Luminosity.filter">Luminosity.filter</a></td>
-        <td class="feature-detail">composition</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
           
@@ -1536,23 +2116,7 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail"><a href="#Parameter.luminosity">Parameter.luminosity</a></td>
-        <td class="feature-detail">reference</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
         <td class="feature-detail"><a href="#Parameter.measure">Parameter.measure</a></td>
-        <td class="feature-detail">reference</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#Parameter.quality">Parameter.quality</a></td>
         <td class="feature-detail">reference</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
@@ -1568,23 +2132,15 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail"><a href="#Parameter.shape">Parameter.shape</a></td>
-        <td class="feature-detail">reference</td>
+        <td class="feature-detail"><a href="#Parameter.ucd">Parameter.ucd</a></td>
+        <td class="feature-detail">attribute</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
           
         </td>
       </tr>
       <tr>
-        <td class="feature-detail"><a href="#Parameter.toBeDefined">Parameter.toBeDefined</a></td>
-        <td class="feature-detail">reference</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#Quality">Quality</a></td>
+        <td class="feature-detail"><a href="#STCFilter">STCFilter</a></td>
         <td class="feature-detail">objectType</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
@@ -1592,8 +2148,192 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail"><a href="#Shape">Shape</a></td>
+        <td class="feature-detail"><a href="#STCFilter.bandWidth">STCFilter.bandWidth</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCFilter.effectiveWavelength">STCFilter.effectiveWavelength</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCFilter.magnitudeSystem">STCFilter.magnitudeSystem</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCFilter.name">STCFilter.name</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCFilter.unit">STCFilter.unit</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCFilter.zeroPointFlux">STCFilter.zeroPointFlux</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCShape">STCShape</a></td>
         <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCShape.shape">STCShape.shape</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCShapeSys">STCShapeSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCShapeSys.shapeFrame">STCShapeSys.shapeFrame</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCSphericalPoint">STCSphericalPoint</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCSphericalPoint.latitude">STCSphericalPoint.latitude</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCSphericalPoint.longitude">STCSphericalPoint.longitude</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCSphericalSkyPosition">STCSphericalSkyPosition</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCSphericalSkyPosition.coord">STCSphericalSkyPosition.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCStatus">STCStatus</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCStatus.coord">STCStatus.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCStatusState">STCStatusState</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCStatusState.status">STCStatusState.status</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCStatusSys">STCStatusSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#STCStatusSys.statusLabel">STCStatusSys.statusLabel</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ShapeFrame">ShapeFrame</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ShapeFrame.MOC">ShapeFrame.MOC</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ShapeFrame.STCs">ShapeFrame.STCs</a></td>
+        <td class="feature-detail">literal</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
           
@@ -1632,8 +2372,24 @@
         </td>
       </tr>
       <tr>
-        <td class="feature-detail"><a href="#ToBeDefined">ToBeDefined</a></td>
-        <td class="feature-detail">objectType</td>
+        <td class="feature-detail"><a href="#StatusLabel">StatusLabel</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#StatusLabel.label">StatusLabel.label</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#StatusLabel.value">StatusLabel.value</a></td>
+        <td class="feature-detail">attribute</td>
         <td class="feature-detail">
           TODO : Missing description : please, update your UML model asap.
           
@@ -1720,22 +2476,6 @@
           
         </td>
       </tr>
-      <tr>
-        <td class="feature-detail"><a href="#phot_dm">phot_dm</a></td>
-        <td class="feature-detail">package</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="feature-detail"><a href="#phot_dm.Filter">phot_dm.Filter</a></td>
-        <td class="feature-detail">objectType</td>
-        <td class="feature-detail">
-          TODO : Missing description : please, update your UML model asap.
-          
-        </td>
-      </tr>
     </table>
     <hr>
     <h1>4.<a name="modelimports">Imported Models</a></h1>
@@ -1752,7 +2492,7 @@
       </tr>
       <tr>
         <td width="30%" class="info-title">url</td>
-        <td><a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml">https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</a></td>
+        <td><a href="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml">http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</a></td>
       </tr>
       <tr>
         <td width="30%" class="info-title">documentation url</td>
@@ -1784,7 +2524,7 @@
       </tr>
       <tr>
         <td width="30%" class="info-title">url</td>
-        <td><a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml">https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml</a></td>
+        <td><a href="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml">http://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml</a></td>
       </tr>
       <tr>
         <td width="30%" class="info-title">documentation url</td>

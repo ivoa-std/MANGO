@@ -13,12 +13,6 @@ digraph GVmap {
       style=filled
       fillcolor="/set312/1"
 	  
-    "phot_dm" [
-    URL="#phot_dm"
-    label = "phot_dm"
-    fillcolor="/set312/2"
-    ] ;
-    
 	}
 	
 	node [
@@ -26,20 +20,61 @@ digraph GVmap {
 	fontsize=8
 	style=filled] 
     
-  ":Measure" [
-    URL="#Measure"
-    label = "{:Measure}"
+  "coords:Coordinate" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate"
+    label = "{coords:Coordinate}"
+    fillcolor="grey"
+    ] ;
+      
+    
+  "meas:Measure" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure"
+    label = "{meas:Measure}"
+    fillcolor="grey"
+    ] ;
+      
+    
+  "coords:CoordSys" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys"
+    label = "{coords:CoordSys}"
+    fillcolor="grey"
+    ] ;
+      
+    
+  "coords:CoordFrame" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame"
+    label = "{coords:CoordFrame}"
     fillcolor="grey"
     ] ;
       
     "cab_msd:LinkSemantic" [
     URL="#LinkSemantic"
-    label = "{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+downloadLink\l+detection\l+compagnon\l+counterpart\l}"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+DownloadLink\l+Detection\l+Compagnon\l+Counterpart\l}"
     fillcolor="/set312/1"
     ] ;
   "cab_msd:ParamSemantic" [
     URL="#ParamSemantic"
     label = "{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:ShapeFrame" [
+    URL="#ShapeFrame"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nShapeFrame|+MOC\l+STCs\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:STCSphericalPoint" [
+    URL="#STCSphericalPoint"
+    label = "{&lt;&lt;datatype&gt;&gt;\nSTCSphericalPoint|+longitude : ivoa:RealQuantity\l+latitude : ivoa:RealQuantity\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:STCStatusState" [
+    URL="#STCStatusState"
+    label = "{&lt;&lt;datatype&gt;&gt;\nSTCStatusState|+status : ivoa:integer\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:StatusLabel" [
+    URL="#StatusLabel"
+    label = "{&lt;&lt;datatype&gt;&gt;\nStatusLabel|+value : ivoa:integer\l+label : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
   "cab_msd:Source" [
@@ -77,43 +112,62 @@ digraph GVmap {
     label = "{CabmsdInstance}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:Luminosity" [
-    URL="#Luminosity"
-    label = "{Luminosity}"
-    fillcolor="/set312/1"
-    ] ;
-  "cab_msd:Shape" [
-    URL="#Shape"
-    label = "{Shape}"
-    fillcolor="/set312/1"
-    ] ;
-  "cab_msd:Quality" [
-    URL="#Quality"
-    label = "{Quality}"
-    fillcolor="/set312/1"
-    ] ;
   "cab_msd:Parameter" [
     URL="#Parameter"
-    label = "{Parameter|+semantic : cab_msd:ParamSemantic\l}"
+    label = "{Parameter|+semantic : cab_msd:ParamSemantic\l+ucd : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:ToBeDefined" [
-    URL="#ToBeDefined"
-    label = "{ToBeDefined}"
+  "cab_msd:STCSphericalSkyPosition" [
+    URL="#STCSphericalSkyPosition"
+    label = "{STCSphericalSkyPosition|+coord : cab_msd:STCSphericalPoint\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:phot_dm.Filter" [
-    URL="#phot_dm.Filter"
-    label = "{phot_dm/Filter}"
-    fillcolor="/set312/2"
+  "cab_msd:STCStatus" [
+    URL="#STCStatus"
+    label = "{STCStatus|+coord : cab_msd:STCStatusState\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:STCStatusSys" [
+    URL="#STCStatusSys"
+    label = "{STCStatusSys}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:HRFrame" [
+    URL="#HRFrame"
+    label = "{HRFrame}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:STCShape" [
+    URL="#STCShape"
+    label = "{STCShape|+shape : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:STCShapeSys" [
+    URL="#STCShapeSys"
+    label = "{STCShapeSys|+shapeFrame : cab_msd:ShapeFrame\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "cab_msd:STCFilter" [
+    URL="#STCFilter"
+    label = "{STCFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}"
+    fillcolor="/set312/1"
     ] ;
   
  
     edge [color="red", arrowtail="none", arrowhead="empty"]
-    "cab_msd:WebEndpoint" -> "cab_msd:AssociatedData" ;
+    "cab_msd:STCSphericalPoint" -> "coords:Coordinate" ;
+  "cab_msd:STCStatusState" -> "coords:Coordinate" ;
+  "cab_msd:WebEndpoint" -> "cab_msd:AssociatedData" ;
   "cab_msd:VOService" -> "cab_msd:WebEndpoint" ;
   "cab_msd:VOModelInstance" -> "cab_msd:AssociatedData" ;
   "cab_msd:CabmsdInstance" -> "cab_msd:AssociatedData" ;
+  "cab_msd:STCSphericalSkyPosition" -> "meas:Measure" ;
+  "cab_msd:STCStatus" -> "meas:Measure" ;
+  "cab_msd:STCStatusSys" -> "coords:CoordSys" ;
+  "cab_msd:HRFrame" -> "coords:CoordFrame" ;
+  "cab_msd:STCShape" -> "meas:Measure" ;
+  "cab_msd:STCShapeSys" -> "coords:CoordSys" ;
+  "cab_msd:STCFilter" -> "coords:CoordFrame" ;
   
  
     edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
@@ -121,15 +175,13 @@ digraph GVmap {
   "cab_msd:Source" -> "cab_msd:Parameter" [headlabel="0..*",label="parameters",labelfontsize=10] ;
   "cab_msd:VOModelInstance" -> "cab_msd:ModelInstance" [headlabel="1",label="modelInstance",labelfontsize=10] ;
   "cab_msd:CabmsdInstance" -> "cab_msd:Source" [headlabel="1",label="cadmsdInstance",labelfontsize=10] ;
-  "cab_msd:Luminosity" -> "cab_msd:phot_dm.Filter" [headlabel="0..1",label="filter",labelfontsize=10] ;
+  "cab_msd:STCStatusSys" -> "cab_msd:StatusLabel" [headlabel="0..*",label="statusLabel",labelfontsize=10] ;
+  "cab_msd:HRFrame" -> "cab_msd:STCFilter" [headlabel="1",label="low",labelfontsize=10] ;
+  "cab_msd:HRFrame" -> "cab_msd:STCFilter" [headlabel="1",label="high",labelfontsize=10] ;
   
  
     edge [color="green", arrowhead="open", arrowtail="none"]
-    "cab_msd:Parameter" -> "cab_msd:Shape" [headlabel="0..1",label="shape",labelfontsize=10] ;
-  "cab_msd:Parameter" -> ":Measure" [headlabel="0..1",label="measure",labelfontsize=10] ;
-  "cab_msd:Parameter" -> "cab_msd:Quality" [headlabel="0..1",label="quality",labelfontsize=10] ;
-  "cab_msd:Parameter" -> "cab_msd:Luminosity" [headlabel="0..1",label="luminosity",labelfontsize=10] ;
-  "cab_msd:Parameter" -> "cab_msd:ToBeDefined" [headlabel="0..1",label="toBeDefined",labelfontsize=10] ;
+    "cab_msd:Parameter" -> "meas:Measure" [headlabel="0..1",label="measure",labelfontsize=10] ;
     
 }
   
