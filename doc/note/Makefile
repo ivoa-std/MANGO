@@ -4,10 +4,10 @@
 DOCNAME = cab-msd
 
 # count up; you probably do not want to bother with versions <1.0
-DOCVERSION = 0.1
+DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2019-09-22
+DOCDATE = 2020-04-22
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = NOTE
