@@ -1,0 +1,374 @@
+
+% -------------------------------------------
+% Items to substitute into the ivoatex document template.
+%
+%\ivoagroup{Data Model Working Group}
+
+%\title{}
+
+
+% -------------------------------------------
+
+\pagebreak
+\section{Model: cabmsd }
+  
+  % INSERT FIGURE HERE
+  %\begin{figure}[h]
+  %\begin{center}
+  %  \includegraphics[width=\textwidth]{????.png}
+  %  \caption{???}\label{fig:????}
+  %\end{center}
+  %\end{figure}
+
+  Data model based oon components and data association for source data
+
+  \subsection{AssociatedData (Abstract)}
+  \label{sect:AssociatedData}
+    Abstract reference to a particular dataset associated to the Source. This class is used to specify the type of the dataset as well as its role.
+
+    \subsubsection{AssociatedData.semantic}
+      \textbf{vodml-id: AssociatedData.semantic} \newline
+      \textbf{type: \hyperref[sect:LinkSemantic]{cabmsd:LinkSemantic}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Reference to a semantic concept giving the nature of the associated data. As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration.
+
+    \subsubsection{AssociatedData.dataType}
+      \textbf{vodml-id: AssociatedData.dataType} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Type of the associated data (not defined yet)
+
+  \subsection{CabmsdInstance}
+  \label{sect:CabmsdInstance}
+    Reference to another CAB-MSD instance that is part of the associated data.
+
+    \subsubsection{CabmsdInstance.cadmsdInstance}
+      \textbf{vodml-id: CabmsdInstance.cadmsdInstance} \newline
+      \textbf{type: \hyperref[sect:Source]{cabmsd:Source}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Composition link pointing on one cab\_msd instance associated with the source.
+
+  \subsection{ModelInstance}
+  \label{sect:ModelInstance}
+    Placeholder for the mapping of the model instance
+
+  \subsection{Parameter}
+  \label{sect:Parameter}
+    Reference to a particular measure of the Source. This class is used to specify the type of the measure as well as its role.
+
+    \noindent \textbf{constraint} \newline
+    \indent    \textbf{detail: Parameter.One association at the time
+ }\newline
+
+
+    \subsubsection{Parameter.semantic}
+      \textbf{vodml-id: Parameter.semantic} \newline
+      \textbf{type: \hyperref[sect:ParamSemantic]{cabmsd:ParamSemantic}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Reference to a semantic concept giving the nature of the parameter As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration.
+
+    \subsubsection{Parameter.ucd}
+      \textbf{vodml-id: Parameter.ucd} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      UCD1+ giving the type of the physical measure
+
+    \subsubsection{Parameter.measure}
+      \textbf{vodml-id: Parameter.measure} \newline
+      \textbf{type: meas:Measure} \newline
+      \textbf{multiplicity: 1} \newline 
+      Composition link pointing to the meas:Measure instance
+
+  \subsection{Source}
+  \label{sect:Source}
+    Root class of the model. CAB\_MSF instance are meant ot be Source instances. A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.
+
+    \subsubsection{Source.identifier}
+      \textbf{vodml-id: Source.identifier} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Unique identifier for a Source. The uniqness of that identifier is not managed by the model. The format is free.
+
+    \subsubsection{Source.associatedData}
+      \textbf{vodml-id: Source.associatedData} \newline
+      \textbf{type: \hyperref[sect:AssociatedData]{cabmsd:AssociatedData}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Composition link pointing on all data associated with the source.
+
+    \subsubsection{Source.parameters}
+      \textbf{vodml-id: Source.parameters} \newline
+      \textbf{type: \hyperref[sect:Parameter]{cabmsd:Parameter}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Composition link pointing on all parameters attached to the source.
+
+  \subsection{VOModelInstance}
+  \label{sect:VOModelInstance}
+    Reference to a VO model instance that is part of the associated data.
+
+    \subsubsection{VOModelInstance.ivoid}
+      \textbf{vodml-id: VOModelInstance.ivoid} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      VO-DML id of the referenced model
+
+    \subsubsection{VOModelInstance.modelUrl}
+      \textbf{vodml-id: VOModelInstance.modelUrl} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
+      \textbf{multiplicity: 1} \newline 
+      URL on the VO-DML model
+
+    \subsubsection{VOModelInstance.modelName}
+      \textbf{vodml-id: VOModelInstance.modelName} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Name of the referenced model
+
+    \subsubsection{VOModelInstance.modelDoc}
+      \textbf{vodml-id: VOModelInstance.modelDoc} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Documentation URL of the model
+
+    \subsubsection{VOModelInstance.modelInstance}
+      \textbf{vodml-id: VOModelInstance.modelInstance} \newline
+      \textbf{type: \hyperref[sect:ModelInstance]{cabmsd:ModelInstance}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Composition link pointing on one VO instance instance associated with the source.
+
+  \subsection{VOService}
+  \label{sect:VOService}
+    Class for associated data referenced by an URL that is a VO service
+
+    \subsubsection{VOService.ivoid}
+      \textbf{vodml-id: VOService.ivoid} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      IVOA id attached to the URI
+
+  \subsection{WebEndpoint}
+  \label{sect:WebEndpoint}
+    Class for associated data referenced by an URL
+
+    \subsubsection{WebEndpoint.ContentType}
+      \textbf{vodml-id: WebEndpoint.ContentType} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Mime type of the URL
+
+    \subsubsection{WebEndpoint.url}
+      \textbf{vodml-id: WebEndpoint.url} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Web endpoint
+
+  \subsection{LinkSemantic}
+  \label{sect:LinkSemantic}
+
+  Literal enumeration of the possible values for the associated data semantic. This stands for an example before we have defined a vocabulary.
+
+  \noindent \underline{Enumeration Literals}
+  \vspace{-\parsep}
+  \small
+  \begin{itemize}
+  
+    \item[\textbf{VOService}]: \textbf{vodml-id:} LinkSemantic.VOService \newline
+          \textbf{description:} Data returned by a VO service
+    \item[\textbf{VOInstance}]: \textbf{vodml-id:} LinkSemantic.VOInstance \newline
+          \textbf{description:} Data Serialized in a VO model
+    \item[\textbf{Preview}]: \textbf{vodml-id:} LinkSemantic.Preview \newline
+          \textbf{description:} data preview
+    \item[\textbf{DownloadLink}]: \textbf{vodml-id:} LinkSemantic.DownloadLink \newline
+          \textbf{description:} Data download link
+    \item[\textbf{Detection}]: \textbf{vodml-id:} LinkSemantic.Detection \newline
+          \textbf{description:} Particular detection
+    \item[\textbf{Compagnon}]: \textbf{vodml-id:} LinkSemantic.Compagnon \newline
+          \textbf{description:} Compagnon source
+    \item[\textbf{Counterpart}]: \textbf{vodml-id:} LinkSemantic.Counterpart \newline
+          \textbf{description:} Counter part source
+  \end{itemize}
+  \normalsize
+
+
+  \subsection{ParamSemantic}
+  \label{sect:ParamSemantic}
+
+  Literal enumeration of the possible values for the parameter semantic. This stands for an example beforewe have defined a vocabulary.
+
+  \noindent \underline{Enumeration Literals}
+  \vspace{-\parsep}
+  \small
+  \begin{itemize}
+  
+    \item[\textbf{Main}]: \textbf{vodml-id:} ParamSemantic.Main \newline
+          \textbf{description:} Main measurment
+    \item[\textbf{Computed}]: \textbf{vodml-id:} ParamSemantic.Computed \newline
+          \textbf{description:} Computed measurement
+    \item[\textbf{Native}]: \textbf{vodml-id:} ParamSemantic.Native \newline
+          \textbf{description:} Mative measurement
+    \item[\textbf{Raw}]: \textbf{vodml-id:} ParamSemantic.Raw \newline
+          \textbf{description:} raw measure
+    \item[\textbf{Corrected}]: \textbf{vodml-id:} ParamSemantic.Corrected \newline
+          \textbf{description:} Corrected measure
+  \end{itemize}
+  \normalsize
+
+
+\pagebreak
+\section{Package: stcextend }
+
+  % INSERT FIGURE HERE
+  %\begin{figure}[h]
+  %\begin{center}
+  %  \includegraphics[width=\textwidth]{????.png}
+  %  \caption{???}\label{fig:????}
+  %\end{center}
+  %\end{figure}
+
+  This package contains all object and type classes that has been extended from the Measure and Coordinates models. This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
+
+  \subsection{HRFrame}
+  \label{sect:stcextend.HRFrame}
+    Hardness ratio frame. Defined by 2 energy bands Eheigh ELow. HR = (Eheigh - Elow)/(Eheigh + Elow) Energy bands are deemed to special photometric filters
+
+    \subsubsection{HRFrame.low}
+      \textbf{vodml-id: stcextend.HRFrame.low} \newline
+      \textbf{type: \hyperref[sect:stcextend.STCFilter]{cabmsd:stcextend.STCFilter}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Low energy band
+
+    \subsubsection{HRFrame.high}
+      \textbf{vodml-id: stcextend.HRFrame.high} \newline
+      \textbf{type: \hyperref[sect:stcextend.STCFilter]{cabmsd:stcextend.STCFilter}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Heigh energy band
+
+  \subsection{STCFilter}
+  \label{sect:stcextend.STCFilter}
+    Photometric filter description, compliant with photDM
+
+    \subsubsection{STCFilter.name}
+      \textbf{vodml-id: stcextend.STCFilter.name} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Filter name
+
+    \subsubsection{STCFilter.zeroPointFlux}
+      \textbf{vodml-id: stcextend.STCFilter.zeroPointFlux} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Zero point flux of the filter
+
+    \subsubsection{STCFilter.magnitudeSystem}
+      \textbf{vodml-id: stcextend.STCFilter.magnitudeSystem} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Magnitude system used by the filter
+
+    \subsubsection{STCFilter.effectiveWavelength}
+      \textbf{vodml-id: stcextend.STCFilter.effectiveWavelength} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Effective wavelength of the filter
+
+    \subsubsection{STCFilter.unit}
+      \textbf{vodml-id: stcextend.STCFilter.unit} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:Unit}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Wavelength unit used for that filter
+
+    \subsubsection{STCFilter.bandWidth}
+      \textbf{vodml-id: stcextend.STCFilter.bandWidth} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Band width of the filter
+
+  \subsection{STCShape}
+  \label{sect:stcextend.STCShape}
+    Measure giving the shape of a source
+
+    \subsubsection{STCShape.shape}
+      \textbf{vodml-id: stcextend.STCShape.shape} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      String serialization of the source shape
+
+  \subsection{STCShapeSys}
+  \label{sect:stcextend.STCShapeSys}
+    Coordinate systen to be used for shape measure
+
+    \subsubsection{STCShapeSys.shapeFrame}
+      \textbf{vodml-id: stcextend.STCShapeSys.shapeFrame} \newline
+      \textbf{type: \hyperref[sect:stcextend.ShapeFrame]{cabmsd:stcextend.ShapeFrame}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Frame of the shape measure. Gives a enumeration of the supported serializations.
+
+  \subsection{STCSphericalSkyPosition}
+  \label{sect:stcextend.STCSphericalSkyPosition}
+    Measure to used for sky points expressed with a spherical coordinate system
+
+    \subsubsection{STCSphericalSkyPosition.coord}
+      \textbf{vodml-id: stcextend.STCSphericalSkyPosition.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.STCSphericalPoint]{cabmsd:stcextend.STCSphericalPoint}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Coordinate of spherical sky position
+
+  \subsection{STCStatus}
+  \label{sect:stcextend.STCStatus}
+    Measure to be used for status parameters
+
+    \subsubsection{STCStatus.coord}
+      \textbf{vodml-id: stcextend.STCStatus.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.STCStatusState]{cabmsd:stcextend.STCStatusState}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Coordinate holding the statsu value
+
+  \subsection{STCStatusSys}
+  \label{sect:stcextend.STCStatusSys}
+    Coordinate system to be used for statur measures.
+
+    \subsubsection{STCStatusSys.statusLabel}
+      \textbf{vodml-id: stcextend.STCStatusSys.statusLabel} \newline
+      \textbf{type: \hyperref[sect:stcextend.StatusLabel]{cabmsd:stcextend.StatusLabel}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Composition loink to all possible status values for this system
+
+  \subsection{StatusLabel}
+  \label{sect:stcextend.StatusLabel}
+    Possible value of a status
+
+    \subsubsection{StatusLabel.value}
+      \textbf{vodml-id: stcextend.StatusLabel.value} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Status value
+
+    \subsubsection{StatusLabel.label}
+      \textbf{vodml-id: stcextend.StatusLabel.label} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Label attached to that status value
+
+  \subsection{STCSphericalPoint}
+  \label{sect:stcextend.STCSphericalPoint}
+  Coordinate of a point on the sky sphere expressed in spherical coordinates.
+
+  \subsection{STCStatusState}
+  \label{sect:stcextend.STCStatusState}
+  Coordinate of a status Measure
+
+  \subsection{ShapeFrame}
+  \label{sect:stcextend.ShapeFrame}
+
+  Enumeration of the possible options to encode a shape in a string.
+
+  \noindent \underline{Enumeration Literals}
+  \vspace{-\parsep}
+  \small
+  \begin{itemize}
+  
+    \item[\textbf{MOC}]: \textbf{vodml-id:} stcextend.ShapeFrame.MOC \newline
+          \textbf{description:} MOC serialization
+    \item[\textbf{STCs}]: \textbf{vodml-id:} stcextend.ShapeFrame.STCs \newline
+          \textbf{description:} STCs serialization
+  \end{itemize}
+  \normalsize

@@ -1,6 +1,6 @@
 
 digraph GVmap {  
-	label = "\n\ncab_msd data model"
+	label = "\n\ncabmsd data model"
 	rankdir=TB
 	
 	node [ 
@@ -13,19 +13,18 @@ digraph GVmap {
       style=filled
       fillcolor="/set312/1"
 	  
+    "stcextend" [
+    URL="#stcextend"
+    label = "stcextend"
+    fillcolor="/set312/2"
+    ] ;
+    
 	}
 	
 	node [
 	shape=record
 	fontsize=8
 	style=filled] 
-    
-  "coords:Coordinate" [
-    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate"
-    label = "{coords:Coordinate}"
-    fillcolor="grey"
-    ] ;
-      
     
   "meas:Measure" [
     URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure"
@@ -34,9 +33,9 @@ digraph GVmap {
     ] ;
       
     
-  "coords:CoordSys" [
-    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys"
-    label = "{coords:CoordSys}"
+  "coords:Coordinate" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate"
+    label = "{coords:Coordinate}"
     fillcolor="grey"
     ] ;
       
@@ -47,141 +46,145 @@ digraph GVmap {
     fillcolor="grey"
     ] ;
       
-    "cab_msd:LinkSemantic" [
+    
+  "coords:CoordSys" [
+    URL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys"
+    label = "{coords:CoordSys}"
+    fillcolor="grey"
+    ] ;
+      
+    "cabmsd:LinkSemantic" [
     URL="#LinkSemantic"
     label = "{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+DownloadLink\l+Detection\l+Compagnon\l+Counterpart\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:ParamSemantic" [
+  "cabmsd:ParamSemantic" [
     URL="#ParamSemantic"
     label = "{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:ShapeFrame" [
-    URL="#ShapeFrame"
-    label = "{&lt;&lt;enumeration&gt;&gt;\nShapeFrame|+MOC\l+STCs\l}"
-    fillcolor="/set312/1"
-    ] ;
-  "cab_msd:STCSphericalPoint" [
-    URL="#STCSphericalPoint"
-    label = "{&lt;&lt;datatype&gt;&gt;\nSTCSphericalPoint|+longitude : ivoa:RealQuantity\l+latitude : ivoa:RealQuantity\l}"
-    fillcolor="/set312/1"
-    ] ;
-  "cab_msd:STCStatusState" [
-    URL="#STCStatusState"
-    label = "{&lt;&lt;datatype&gt;&gt;\nSTCStatusState|+status : ivoa:integer\l}"
-    fillcolor="/set312/1"
-    ] ;
-  "cab_msd:StatusLabel" [
-    URL="#StatusLabel"
-    label = "{&lt;&lt;datatype&gt;&gt;\nStatusLabel|+value : ivoa:integer\l+label : ivoa:string\l}"
-    fillcolor="/set312/1"
-    ] ;
-  "cab_msd:Source" [
+  "cabmsd:Source" [
     URL="#Source"
     label = "{Source|+identifier : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:AssociatedData" [
+  "cabmsd:AssociatedData" [
     URL="#AssociatedData"
-    label = "{AssociatedData|+semantic : cab_msd:LinkSemantic\l}"
+    label = "{AssociatedData|+semantic : cabmsd:LinkSemantic\l+dataType : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:WebEndpoint" [
+  "cabmsd:WebEndpoint" [
     URL="#WebEndpoint"
     label = "{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:VOService" [
+  "cabmsd:VOService" [
     URL="#VOService"
     label = "{VOService|+ivoid : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:VOModelInstance" [
+  "cabmsd:VOModelInstance" [
     URL="#VOModelInstance"
     label = "{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:ModelInstance" [
+  "cabmsd:ModelInstance" [
     URL="#ModelInstance"
     label = "{ModelInstance}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:CabmsdInstance" [
+  "cabmsd:CabmsdInstance" [
     URL="#CabmsdInstance"
     label = "{CabmsdInstance}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:Parameter" [
+  "cabmsd:Parameter" [
     URL="#Parameter"
-    label = "{Parameter|+semantic : cab_msd:ParamSemantic\l+ucd : ivoa:string\l}"
+    label = "{Parameter|+semantic : cabmsd:ParamSemantic\l+ucd : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
-  "cab_msd:STCSphericalSkyPosition" [
-    URL="#STCSphericalSkyPosition"
-    label = "{STCSphericalSkyPosition|+coord : cab_msd:STCSphericalPoint\l}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.STCSphericalPoint"[
+    URL="#stcextend.STCSphericalPoint"
+    label = "{&lt;&lt;primitive type&gt;&gt;\nstcextend/STCSphericalPoint}"
+    fillcolor="/set312/2"
     ] ;
-  "cab_msd:STCStatus" [
-    URL="#STCStatus"
-    label = "{STCStatus|+coord : cab_msd:STCStatusState\l}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.STCStatusState"[
+    URL="#stcextend.STCStatusState"
+    label = "{&lt;&lt;primitive type&gt;&gt;\nstcextend/STCStatusState}"
+    fillcolor="/set312/2"
     ] ;
-  "cab_msd:STCStatusSys" [
-    URL="#STCStatusSys"
-    label = "{STCStatusSys}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.ShapeFrame" [
+    URL="#stcextend.ShapeFrame"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nstcextend/ShapeFrame|+MOC\l+STCs\l}"
+    fillcolor="/set312/2"
     ] ;
-  "cab_msd:HRFrame" [
-    URL="#HRFrame"
-    label = "{HRFrame}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.StatusLabel" [
+    URL="#stcextend.StatusLabel"
+    label = "{&lt;&lt;datatype&gt;&gt;\nstcextend/StatusLabel|+value : ivoa:integer\l+label : ivoa:string\l}"
+    fillcolor="/set312/2"
     ] ;
-  "cab_msd:STCShape" [
-    URL="#STCShape"
-    label = "{STCShape|+shape : ivoa:string\l}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.HRFrame" [
+    URL="#stcextend.HRFrame"
+    label = "{stcextend/HRFrame}"
+    fillcolor="/set312/2"
     ] ;
-  "cab_msd:STCShapeSys" [
-    URL="#STCShapeSys"
-    label = "{STCShapeSys|+shapeFrame : cab_msd:ShapeFrame\l}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.STCSphericalSkyPosition" [
+    URL="#stcextend.STCSphericalSkyPosition"
+    label = "{stcextend/STCSphericalSkyPosition|+coord : cabmsd:stcextend.STCSphericalPoint\l}"
+    fillcolor="/set312/2"
     ] ;
-  "cab_msd:STCFilter" [
-    URL="#STCFilter"
-    label = "{STCFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}"
-    fillcolor="/set312/1"
+  "cabmsd:stcextend.STCStatus" [
+    URL="#stcextend.STCStatus"
+    label = "{stcextend/STCStatus|+coord : cabmsd:stcextend.STCStatusState\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "cabmsd:stcextend.STCStatusSys" [
+    URL="#stcextend.STCStatusSys"
+    label = "{stcextend/STCStatusSys}"
+    fillcolor="/set312/2"
+    ] ;
+  "cabmsd:stcextend.STCShape" [
+    URL="#stcextend.STCShape"
+    label = "{stcextend/STCShape|+shape : ivoa:string\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "cabmsd:stcextend.STCShapeSys" [
+    URL="#stcextend.STCShapeSys"
+    label = "{stcextend/STCShapeSys|+shapeFrame : cabmsd:stcextend.ShapeFrame\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "cabmsd:stcextend.STCFilter" [
+    URL="#stcextend.STCFilter"
+    label = "{stcextend/STCFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}"
+    fillcolor="/set312/2"
     ] ;
   
  
     edge [color="red", arrowtail="none", arrowhead="empty"]
-    "cab_msd:STCSphericalPoint" -> "coords:Coordinate" ;
-  "cab_msd:STCStatusState" -> "coords:Coordinate" ;
-  "cab_msd:WebEndpoint" -> "cab_msd:AssociatedData" ;
-  "cab_msd:VOService" -> "cab_msd:WebEndpoint" ;
-  "cab_msd:VOModelInstance" -> "cab_msd:AssociatedData" ;
-  "cab_msd:CabmsdInstance" -> "cab_msd:AssociatedData" ;
-  "cab_msd:STCSphericalSkyPosition" -> "meas:Measure" ;
-  "cab_msd:STCStatus" -> "meas:Measure" ;
-  "cab_msd:STCStatusSys" -> "coords:CoordSys" ;
-  "cab_msd:HRFrame" -> "coords:CoordFrame" ;
-  "cab_msd:STCShape" -> "meas:Measure" ;
-  "cab_msd:STCShapeSys" -> "coords:CoordSys" ;
-  "cab_msd:STCFilter" -> "coords:CoordFrame" ;
+    "cabmsd:WebEndpoint" -> "cabmsd:AssociatedData" ;
+  "cabmsd:VOService" -> "cabmsd:WebEndpoint" ;
+  "cabmsd:VOModelInstance" -> "cabmsd:AssociatedData" ;
+  "cabmsd:CabmsdInstance" -> "cabmsd:AssociatedData" ;
+  "cabmsd:stcextend.STCSphericalPoint" -> "coords:Coordinate" ;
+  "cabmsd:stcextend.STCStatusState" -> "coords:Coordinate" ;
+  "cabmsd:stcextend.HRFrame" -> "coords:CoordFrame" ;
+  "cabmsd:stcextend.STCSphericalSkyPosition" -> "meas:Measure" ;
+  "cabmsd:stcextend.STCStatus" -> "meas:Measure" ;
+  "cabmsd:stcextend.STCStatusSys" -> "coords:CoordSys" ;
+  "cabmsd:stcextend.STCShape" -> "meas:Measure" ;
+  "cabmsd:stcextend.STCShapeSys" -> "coords:CoordSys" ;
+  "cabmsd:stcextend.STCFilter" -> "coords:CoordFrame" ;
   
  
     edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
-    "cab_msd:Source" -> "cab_msd:AssociatedData" [headlabel="0..*",label="associatedData",labelfontsize=10] ;
-  "cab_msd:Source" -> "cab_msd:Parameter" [headlabel="0..*",label="parameters",labelfontsize=10] ;
-  "cab_msd:VOModelInstance" -> "cab_msd:ModelInstance" [headlabel="1",label="modelInstance",labelfontsize=10] ;
-  "cab_msd:CabmsdInstance" -> "cab_msd:Source" [headlabel="1",label="cadmsdInstance",labelfontsize=10] ;
-  "cab_msd:STCStatusSys" -> "cab_msd:StatusLabel" [headlabel="0..*",label="statusLabel",labelfontsize=10] ;
-  "cab_msd:HRFrame" -> "cab_msd:STCFilter" [headlabel="1",label="low",labelfontsize=10] ;
-  "cab_msd:HRFrame" -> "cab_msd:STCFilter" [headlabel="1",label="high",labelfontsize=10] ;
-  
- 
-    edge [color="green", arrowhead="open", arrowtail="none"]
-    "cab_msd:Parameter" -> "meas:Measure" [headlabel="0..1",label="measure",labelfontsize=10] ;
+    "cabmsd:Source" -> "cabmsd:AssociatedData" [headlabel="0..*",label="associatedData",labelfontsize=10] ;
+  "cabmsd:Source" -> "cabmsd:Parameter" [headlabel="0..*",label="parameters",labelfontsize=10] ;
+  "cabmsd:VOModelInstance" -> "cabmsd:ModelInstance" [headlabel="1",label="modelInstance",labelfontsize=10] ;
+  "cabmsd:CabmsdInstance" -> "cabmsd:Source" [headlabel="1",label="cadmsdInstance",labelfontsize=10] ;
+  "cabmsd:Parameter" -> "meas:Measure" [headlabel="1",label="measure",labelfontsize=10] ;
+  "cabmsd:stcextend.HRFrame" -> "cabmsd:stcextend.STCFilter" [headlabel="1",label="low",labelfontsize=10] ;
+  "cabmsd:stcextend.HRFrame" -> "cabmsd:stcextend.STCFilter" [headlabel="1",label="high",labelfontsize=10] ;
+  "cabmsd:stcextend.STCStatusSys" -> "cabmsd:stcextend.StatusLabel" [headlabel="0..*",label="statusLabel",labelfontsize=10] ;
     
 }
   

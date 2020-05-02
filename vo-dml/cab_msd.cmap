@@ -1,27 +1,28 @@
 <map id="GVmap" name="GVmap">
-<area shape="rect" id="node1" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate" title="{coords:Coordinate}" alt="" coords="377,229,479,278"/>
-<area shape="rect" id="node2" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure" title="{meas:Measure}" alt="" coords="362,494,445,543"/>
-<area shape="rect" id="node3" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys" title="{coords:CoordSys}" alt="" coords="1235,229,1331,278"/>
-<area shape="rect" id="node4" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame" title="{coords:CoordFrame}" alt="" coords="1345,375,1452,425"/>
-<area shape="rect" id="node5" href="#LinkSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+DownloadLink\l+Detection\l+Compagnon\l+Counterpart\l}" alt="" coords="1510,5,1609,136"/>
-<area shape="rect" id="node6" href="#ParamSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}" alt="" coords="1634,17,1733,124"/>
-<area shape="rect" id="node7" href="#ShapeFrame" title="{&lt;&lt;enumeration&gt;&gt;\nShapeFrame|+MOC\l+STCs\l}" alt="" coords="1758,35,1857,106"/>
-<area shape="rect" id="node8" href="#STCSphericalPoint" title="{&lt;&lt;datatype&gt;&gt;\nSTCSphericalPoint|+longitude : ivoa:RealQuantity\l+latitude : ivoa:RealQuantity\l}" alt="" coords="295,35,449,106"/>
-<area shape="rect" id="node9" href="#STCStatusState" title="{&lt;&lt;datatype&gt;&gt;\nSTCStatusState|+status : ivoa:integer\l}" alt="" coords="473,41,585,100"/>
-<area shape="rect" id="node10" href="#StatusLabel" title="{&lt;&lt;datatype&gt;&gt;\nStatusLabel|+value : ivoa:integer\l+label : ivoa:string\l}" alt="" coords="1085,218,1195,289"/>
-<area shape="rect" id="node11" href="#Source" title="{Source|+identifier : ivoa:string\l}" alt="" coords="559,229,679,278"/>
-<area shape="rect" id="node12" href="#AssociatedData" title="{AssociatedData|+semantic : cab_msd:LinkSemantic\l}" alt="" coords="743,375,917,425"/>
-<area shape="rect" id="node18" href="#Parameter" title="{Parameter|+semantic : cab_msd:ParamSemantic\l+ucd : ivoa:string\l}" alt="" coords="5,371,187,429"/>
-<area shape="rect" id="node13" href="#WebEndpoint" title="{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}" alt="" coords="762,224,899,283"/>
-<area shape="rect" id="node14" href="#VOService" title="{VOService|+ivoid : ivoa:string\l}" alt="" coords="779,46,883,95"/>
-<area shape="rect" id="node15" href="#VOModelInstance" title="{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}" alt="" coords="924,212,1060,295"/>
-<area shape="rect" id="node16" href="#ModelInstance" title="{ModelInstance}" alt="" coords="949,375,1035,425"/>
-<area shape="rect" id="node17" href="#CabmsdInstance" title="{CabmsdInstance}" alt="" coords="637,46,728,95"/>
-<area shape="rect" id="node19" href="#STCSphericalSkyPosition" title="{STCSphericalSkyPosition|+coord : cab_msd:STCSphericalPoint\l}" alt="" coords="212,375,396,425"/>
-<area shape="rect" id="node20" href="#STCStatus" title="{STCStatus|+coord : cab_msd:STCStatusState\l}" alt="" coords="420,375,588,425"/>
-<area shape="rect" id="node21" href="#STCStatusSys" title="{STCStatusSys}" alt="" coords="1099,46,1181,95"/>
-<area shape="rect" id="node22" href="#HRFrame" title="{HRFrame}" alt="" coords="1413,46,1485,95"/>
-<area shape="rect" id="node25" href="#STCFilter" title="{STCFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}" alt="" coords="1420,200,1583,307"/>
-<area shape="rect" id="node23" href="#STCShape" title="{STCShape|+shape : ivoa:string\l}" alt="" coords="612,375,719,425"/>
-<area shape="rect" id="node24" href="#STCShapeSys" title="{STCShapeSys|+shapeFrame : cab_msd:ShapeFrame\l}" alt="" coords="1206,46,1388,95"/>
+<area shape="rect" id="node1" href="#stcextend" title="stcextend" alt="" coords="573,57,664,105"/>
+<area shape="rect" id="node2" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure" title="{meas:Measure}" alt="" coords="394,505,477,554"/>
+<area shape="rect" id="node3" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate" title="{coords:Coordinate}" alt="" coords="1159,239,1260,289"/>
+<area shape="rect" id="node4" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame" title="{coords:CoordFrame}" alt="" coords="1263,386,1369,435"/>
+<area shape="rect" id="node5" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys" title="{coords:CoordSys}" alt="" coords="1693,239,1789,289"/>
+<area shape="rect" id="node6" href="#LinkSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+DownloadLink\l+Detection\l+Compagnon\l+Counterpart\l}" alt="" coords="1914,16,2013,147"/>
+<area shape="rect" id="node7" href="#ParamSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}" alt="" coords="2038,28,2137,135"/>
+<area shape="rect" id="node8" href="#Source" title="{Source|+identifier : ivoa:string\l}" alt="" coords="631,239,751,289"/>
+<area shape="rect" id="node9" href="#AssociatedData" title="{AssociatedData|+semantic : cabmsd:LinkSemantic\l+dataType : ivoa:string\l}" alt="" coords="818,381,987,440"/>
+<area shape="rect" id="node15" href="#Parameter" title="{Parameter|+semantic : cabmsd:ParamSemantic\l+ucd : ivoa:string\l}" alt="" coords="5,381,181,440"/>
+<area shape="rect" id="node10" href="#WebEndpoint" title="{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}" alt="" coords="834,235,971,293"/>
+<area shape="rect" id="node11" href="#VOService" title="{VOService|+ivoid : ivoa:string\l}" alt="" coords="851,57,955,106"/>
+<area shape="rect" id="node12" href="#VOModelInstance" title="{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}" alt="" coords="996,223,1132,305"/>
+<area shape="rect" id="node13" href="#ModelInstance" title="{ModelInstance}" alt="" coords="1021,386,1107,435"/>
+<area shape="rect" id="node14" href="#CabmsdInstance" title="{CabmsdInstance}" alt="" coords="689,57,780,106"/>
+<area shape="rect" id="node16" href="#stcextend.STCSphericalPoint" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/STCSphericalPoint}" alt="" coords="979,57,1127,106"/>
+<area shape="rect" id="node17" href="#stcextend.STCStatusState" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/STCStatusState}" alt="" coords="1151,57,1283,106"/>
+<area shape="rect" id="node18" href="#stcextend.ShapeFrame" title="{&lt;&lt;enumeration&gt;&gt;\nstcextend/ShapeFrame|+MOC\l+STCs\l}" alt="" coords="2162,46,2280,117"/>
+<area shape="rect" id="node19" href="#stcextend.StatusLabel" title="{&lt;&lt;datatype&gt;&gt;\nstcextend/StatusLabel|+value : ivoa:integer\l+label : ivoa:string\l}" alt="" coords="1525,229,1640,299"/>
+<area shape="rect" id="node20" href="#stcextend.HRFrame" title="{stcextend/HRFrame}" alt="" coords="1313,57,1420,106"/>
+<area shape="rect" id="node26" href="#stcextend.STCFilter" title="{stcextend/STCFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}" alt="" coords="1337,211,1500,317"/>
+<area shape="rect" id="node21" href="#stcextend.STCSphericalSkyPosition" title="{stcextend/STCSphericalSkyPosition|+coord : cabmsd:stcextend.STCSphericalPoint\l}" alt="" coords="207,386,428,435"/>
+<area shape="rect" id="node22" href="#stcextend.STCStatus" title="{stcextend/STCStatus|+coord : cabmsd:stcextend.STCStatusState\l}" alt="" coords="453,386,659,435"/>
+<area shape="rect" id="node23" href="#stcextend.STCStatusSys" title="{stcextend/STCStatusSys}" alt="" coords="1519,57,1645,106"/>
+<area shape="rect" id="node24" href="#stcextend.STCShape" title="{stcextend/STCShape|+shape : ivoa:string\l}" alt="" coords="683,386,793,435"/>
+<area shape="rect" id="node25" href="#stcextend.STCShapeSys" title="{stcextend/STCShapeSys|+shapeFrame : cabmsd:stcextend.ShapeFrame\l}" alt="" coords="1670,57,1889,106"/>
 </map>
