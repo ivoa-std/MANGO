@@ -44,7 +44,16 @@ infrastructure that enable VO applications.
 
 \section{Introduction}
 
-???? Write something ????
+The source DM is a long term concern for the DM working group and more generally for the IVOA.
+In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} of for catalogs \citep{wd:catalog}.
+Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity…).
+None of these proposals succeeded for various reasons. 
+
+The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focused on the tools available to work with VO data models and especially with VO-DML. The goal of this session was to annotate data from different origins in order to make them interoperable with each other. The main concern expressed during this session was not related to the tools themselves but to the lack of models for sources. 
+This is a big paradox in the VO world ; source data which represent the basic bricks of the astronomer work, have no model. This paradox can be explained by the fact that sources data are multifaceted. The way of which source data are organized depends on the survey they come from, one the way they have been generated  and on the expected use. In a more general way, it depends on the science we want to do with them. This diversity cannot be endorsed by a single model. Having a global source model would lead to a very complex solution not usable in practice.
+
+This standard proposes to overcome this paradox presenting model based on independent components and associayted data thata can be embedded on deman in a container.
+
 
 \subsection{Role within the VO Architecture}
 
@@ -69,8 +78,29 @@ IVOA architecture \citep{note:VOARCH}.
 
 \section{Use Cases and  Requirements}
 
+\subsection{Use Cases}
+\begin{itemize}
+    \item archival data    
+    \item mission data    
+    \item exoplanet data    
+    \item crossmatch data   
+    \item client data
+\end{itemize}
 
-\input{model.tex}
+
+
+\subsection{Requirements}
+\begin{itemize}
+    \item identifier, reference position, proper motion, parallax + distance, correlation, source extension, radial velocity (redshift), luminosity, date, multiple detection
+   \item identifier, position, Reshift, correlation with Gaia, photometry (ground + sat), morphology, reshift, photometric redshift
+   \item Exoplanets: position, orbit, different source level (star, planet, moon), status and classification, orbiting system description
+  \item Morphologically Complex Structures
+  \item detection (name, pos, time, extension, PHA)
+  \item Vizier pre-existing data, grouping columns, lots of available metadata, column name formatting, filter service implemented, one column different frames
+All quantities are time dependant, Dependant on calibration + physical model
+  \item multiple instances of the same component
+\end{itemize}
+
 
 
 \section{Model}
@@ -81,13 +111,15 @@ IVOA architecture \citep{note:VOARCH}.
 \label{fig:archdiag}
 \end{figure}
 
-\subsection{STC Extensions}
+
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{../model/stc_ext_diagram.png}
 \caption{Architecture diagram for this document}
 \label{fig:archdiag}
 \end{figure}
+
+\input{model.tex}
 
 \appendix
 \section{Changes from Previous Versions}
@@ -99,7 +131,7 @@ No previous versions yet.
 
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
-\bibliography{ivoatex/ivoabib,ivoatex/docrepo}
+\bibliography{myrefs,ivoatex/ivoabib,ivoatex/docrepo}
 
 
 \end{document}

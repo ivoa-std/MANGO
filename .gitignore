@@ -23,6 +23,8 @@
 *.aux
 *.out
 *.toc
+*.bbl
+*.blg
 *.class
 *.validation-report.txt 
 # Maven 
