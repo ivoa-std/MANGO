@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
 
-\title{A componant based model for source data}
+\title{Mango: A Componant and Association Based Model for Source Data}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
@@ -20,7 +20,10 @@
 
 \begin{document}
 \begin{abstract}
-???? Abstract ????
+The Mango model proposes a flexible way to make source data interoperable. It takes into account the huge diversity of source data in term of both format and usage. 
+Each Mango source is defined by an identifier on which  one can attach a set of parameters and a set of associated data. Parameters are modeled by  MCT both native and extended classes. Their roles are given by UCDs and semantic tags.
+Associated data can be simple URLs, VO service endpoints or VO data model instances. Their roles are given by semantic tags.
+
 \end{abstract}
 
 
@@ -48,12 +51,12 @@ infrastructure that enable VO applications.
 The source DM is a long term concern for the DM working group and more generally for the IVOA.
 In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} of for catalogs \citep{wd:catalog}.
 Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity…).
-None of these proposals succeeded for various reasons. 
+None of these proposals have come to completion
 
 The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focused on the tools available to work with VO data models and especially with VO-DML. The goal of this session was to annotate data from different origins in order to make them interoperable with each other. The main concern expressed during this session was not related to the tools themselves but to the lack of models for sources. 
 This is a big paradox in the VO world ; source data which represent the basic bricks of the astronomer work, have no model. This paradox can be explained by the fact that sources data are multifaceted. The way of which source data are organized depends on the survey they come from, one the way they have been generated  and on the expected use. In a more general way, it depends on the science we want to do with them. This diversity cannot be endorsed by a single model. Having a global source model would lead to a very complex solution not usable in practice.
 
-This standard proposes to overcome this paradox presenting model based on independent components and associayted data thata can be embedded on deman in a container.
+This standard proposes to overcome this paradox presenting model based on independent components and associated data thata can be embedded on deman in a container.
 
 
 \subsection{Role within the VO Architecture}
@@ -80,32 +83,176 @@ IVOA architecture \citep{note:VOARCH}.
 \section{Use Cases and  Requirements}
 
 \subsection{Use Cases}
+The use case below have been collected in 2019 they were collected from representative of the missions, archive or tools.
+
+\subsubsection{Gaia}
 \begin{itemize}
-    \item archival data    
-    \item mission data    
-    \item exoplanet data    
-    \item crossmatch data   
-    \item client data
+    \item identifier
+    \item reference position
+    \item proper motion
+    \item parallax and distance
+    \item correlation,
+    \item source extension
+    \item radial velocity
+    \item redshift
+    \item luminosity
+    \item date
+    \item multiple detection
 \end{itemize}
 
 
+\subsubsection{Euclid}
+\begin{itemize}    
+    \item identifier
+    \item position
+    \item correlation with Gaia
+    \item photometry (ground + sat),
+    \item morphology
+    \item redshift
+    \item photometric redshift
+\end{itemize}
 
-\subsection{Requirements}
+\subsubsection{Exoplanets}
 \begin{itemize}
-    \item identifier, reference position, proper motion, parallax + distance, correlation, source extension, radial velocity (redshift), luminosity, date, multiple detection
-   \item identifier, position, Reshift, correlation with Gaia, photometry (ground + sat), morphology, reshift, photometric redshift
-   \item Exoplanets: position, orbit, different source level (star, planet, moon), status and classification, orbiting system description
-  \item Morphologically Complex Structures
-  \item detection (name, pos, time, extension, PHA)
-  \item Vizier pre-existing data, grouping columns, lots of available metadata, column name formatting, filter service implemented, one column different frames
-All quantities are time dependant, Dependant on calibration + physical model
-  \item multiple instances of the same component
+    \item position
+    \item orbit
+    \item different source level(star, planet, moon)
+    \item status and classification
+    \item orbiting system description
+\end{itemize}
+
+\subsubsection{Morphologically Complex Structures}
+\begin{itemize}    
+    \item morphology
+\end{itemize}
+
+\subsubsection{Chandra} 
+All quantities are time dependant,
+Dependant on calibration + physical
+model
+\begin{itemize}    
+    \item name
+    \item pos
+    \item time
+    \item extension
+    \item PHA 
+\end{itemize}
+
+\subsubsection{Vizier} 
+All possible measure are present in Vizier in addition to lots of associated data 
+\begin{itemize}    
+    \item pre-existing data
+    \item grouping columns
+    \item lots of available metadata
+    \item column name formatting
+    \item one column different frames
+\end{itemize}
+
+\subsubsection{Aladin}
+
+Quantities possibly plotted or matched with some of other datasets
+\begin{itemize}
+    \item position
+    \item time
+    \item flux
+    \item link
+    \item FoV
+    \item column grouping
+\end{itemize}
+
+\subsubsection{X\-match}
+\begin{itemize}
+    \item Identifier
+    \item position
+    \item proper motion
+    \item photometry
+\end{itemize}
+
+\subsubsection{Time Domain}
+\begin{itemize}
+    \item Identifier: object identifier
+    \item Position: moving object
+    \item Associated products: time series of e.g. a spectrum or an image
+    \item Photometry: for light curves
+    \item Timestamp: Independent axis of the time series
 \end{itemize}
 
 
+\begin{table}[ht!]
+     \begin{tabular}{|p{2.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.6cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|}
+       \hline Quantity &  Ga &  Eu &  Ex &  MCS  &  Ch&  Vi &  Al &  Xm&  TD \\
+       \hline  \texttt{identifier}      &  p & P  &P& &P&P &P&  & P \\              
+       \hline  \texttt{position}      &  p & P  &P& &P&P &P&  & P \\       
+       \hline  \texttt{pr. motion}   & p &   &   &    &  &   &P&P&    \\       
+       \hline  \texttt{distance}     & p &   &   &    &  &   &P&  &    \\       
+       \hline  \texttt{correlation}   & AP &AP&   &    &  &AP &   &  &    \\       
+       \hline  \texttt{extension}     &P&   &P&P &P&P& P&  &    \\       
+       \hline  \texttt{rad. vel.}       &  P &   &   &    &  &P&   &  &    \\       
+       \hline  \texttt{redshift}        &  P &P&   &    &  &P&   &  &    \\             
+       \hline  \texttt{phot. rsft}      &   &P&   &    &  &P&   &  &    \\       
+       \hline  \texttt{luminosity}    & P&P&   &    &  &P&P&P&P\\       
+       \hline  \texttt{date}             & P  &   &   &    & P&P&   &  &P\\       
+       \hline  \texttt{detections}    &  AP &   &   &    &  &   &   &  &    \\       
+       \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\       
+       \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\      
+       \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\       
+       \hline  \texttt{orb. sys.}      &   &   &   &    &  &   &   &  &    \\       
+       \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\       
+       \hline  \texttt{ass. prd.}     &   &   &   &    &  &AP&   &  &AP \\       
+       \hline 
+     \end{tabular}
+     \caption{ \texttt{P} parameter, \texttt{AP} Associated data} 
+ \end{table}
 
-\section{Model}
-\subsection{Overview}
+
+\begin{table}[ht!]
+     \begin{tabular}{|p{2.4cm}|p{1.8cm}|p{7cm}|}
+       \hline Quantity &  Model &  \\
+       \hline  \texttt{identifier}      & Mango & required for anu instance\\                    
+       \hline  \texttt{position}      &  Meas &  \\       
+       \hline  \texttt{pr. motion}   & Meas &     \\       
+       \hline  \texttt{distance}     & Ext Meas &     \\       
+       \hline  \texttt{correlation}   & Ass data & reference to other Mango instances     \\       
+       \hline  \texttt{extension}     & Ext Meas & Can be used for FoV, morphlogy or shape\\       
+       \hline  \texttt{rad. vel.}       &  Ext Meas  &       \\       
+       \hline  \texttt{redshift}        &   Ext Meas  &  \\             
+       \hline  \texttt{phot. rsft}      & Ext Meas&    \\       
+       \hline  \texttt{luminosity}    & Ext Meas&\\       
+       \hline  \texttt{date}             & Meas & date or time stamp\\       
+       \hline  \texttt{detections}    & Ass data & reference to other Mango instances   \\       
+       \hline  \texttt{orbit}             & Ext Meas&      \\       
+       \hline  \texttt{type}             &Ext Meas&     \\      
+       \hline  \texttt{status}          &Ext Meas&     \\       
+       \hline  \texttt{orb. sys.}      &Ext Meas&     \\       
+       \hline  \texttt{PHA}            &Ext Meas&     \\       
+       \hline  \texttt{ass. prd.}     &Ass data&  \\       
+       \hline 
+     \end{tabular}
+     \caption{ \texttt{Meas} Measue class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mangno associated data} 
+ \end{table}
+
+\section{Model Overview}
+
+The root class of the model is the Source class that has one attribute, the identifier. The identifier is the only quantity common to  all  Mango instances.
+
+Each quantity or associated data attached to the source is represented by a connector describing the nature of the quantity or of the associated data.
+
+There is no restriction on the set of connectors attached to one source.
+There are 2 classes of connectors
+
+\subsection{The parameters} 
+Parameter connectors are used to bind measures with the source. One connector can only reference one measure. The measure itself is modeled by a class of the Measure model or by an extension of this model. Measure extensions are part of Mango. 
+In addition to its class, the nature of a measure is given by a UCD and a semantic tag. The UCD gives the physical meaning of the measure whereas the semantic tag says more about the usage context of the measure. This can be for instance the reduction status (raw, corrected). The vocabulary allowed for the semantic is managed as a VO vocabulary. 
+
+\subsection{The associated data} 
+Associated data connectors are used to bind any sort of complex data with the source. One connector can only refer to one dataset. Associated data can be either URIs (VO services or not) or reference to instances of other VO models (Obscore, Provenance…).
+
+Attaching VO model instances to sources does not mean that these  models must be imported. The merge between a Mango instance and one associated instance is operated by the data annotation process. The indication given by Mango tell the client how to interpret the embedded instance
+
+
+
+
+
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{../model/overview_diagram.png}
 \caption{Architecture diagram for this document}
