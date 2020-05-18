@@ -27,6 +27,8 @@
 *.blg
 *.class
 *.validation-report.txt 
+*.cmap
+8.svrlt
 # Maven 
 target/
 
