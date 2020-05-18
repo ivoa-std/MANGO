@@ -1,0 +1,2923 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/ivoa_wg.css" type="text/css">
+    <link rel="stylesheet" href="http://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/style/xmi.css" type="text/css">
+  </head>
+  <body>
+    <h1></h1>
+    <h2><a id="contents" name="contents">Table of Contents</a></h2>
+    <div class="head">
+      <table class=".toc">
+        <tr>
+          <td>1.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#model_section">model: cabmsd</a></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#packages">Packages and Types</a></td>
+        </tr>
+        <tr>
+          <td>2.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rootpackage">[root package]</a></td>
+        </tr>
+        <tr>
+          <td>2.1.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AssociatedData">objectType:AssociatedData</a></td>
+        </tr>
+        <tr>
+          <td>2.1.2</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CabmsdInstance">objectType:CabmsdInstance</a></td>
+        </tr>
+        <tr>
+          <td>2.1.3</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LinkSemantic">enumeration:LinkSemantic</a></td>
+        </tr>
+        <tr>
+          <td>2.1.4</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ModelInstance">objectType:ModelInstance</a></td>
+        </tr>
+        <tr>
+          <td>2.1.5</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ParamSemantic">enumeration:ParamSemantic</a></td>
+        </tr>
+        <tr>
+          <td>2.1.6</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Parameter">objectType:Parameter</a></td>
+        </tr>
+        <tr>
+          <td>2.1.7</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Source">objectType:Source</a></td>
+        </tr>
+        <tr>
+          <td>2.1.8</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#VOModelInstance">objectType:VOModelInstance</a></td>
+        </tr>
+        <tr>
+          <td>2.1.9</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#VOService">objectType:VOService</a></td>
+        </tr>
+        <tr>
+          <td>2.1.10</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WebEndpoint">objectType:WebEndpoint</a></td>
+        </tr>
+        <tr>
+          <td>2.2</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend">package: stcextend</a></td>
+        </tr>
+        <tr>
+          <td>2.2.1</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.Flag">objectType: Flag</a></td>
+        </tr>
+        <tr>
+          <td>2.2.2</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.FlagCoord">primitiveType: FlagCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.3</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.FlagState">dataType: FlagState</a></td>
+        </tr>
+        <tr>
+          <td>2.2.4</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.FlagSys">objectType: FlagSys</a></td>
+        </tr>
+        <tr>
+          <td>2.2.5</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.HRFrame">objectType: HRFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.2.6</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.HardnessRatio">objectType: HardnessRatio</a></td>
+        </tr>
+        <tr>
+          <td>2.2.7</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.HardnessRatioCoord">primitiveType: HardnessRatioCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.8</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.Luminosity">objectType: Luminosity</a></td>
+        </tr>
+        <tr>
+          <td>2.2.9</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.LuminosityCoord">primitiveType: LuminosityCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.10</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.ObjectType">objectType: ObjectType</a></td>
+        </tr>
+        <tr>
+          <td>2.2.11</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.ObjectTypeCoord">primitiveType: ObjectTypeCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.12</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.ObjectTypeSys">objectType: ObjectTypeSys</a></td>
+        </tr>
+        <tr>
+          <td>2.2.13</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.Orbit">objectType: Orbit</a></td>
+        </tr>
+        <tr>
+          <td>2.2.14</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.OrbitCoord">primitiveType: OrbitCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.15</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.PhotFilter">objectType: PhotFilter</a></td>
+        </tr>
+        <tr>
+          <td>2.2.16</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.Redshift">objectType: Redshift</a></td>
+        </tr>
+        <tr>
+          <td>2.2.17</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.RedshiftCoord">primitiveType: RedshiftCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.18</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.RedshiftSys">objectType: RedshiftSys</a></td>
+        </tr>
+        <tr>
+          <td>2.2.19</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.Shape">objectType: Shape</a></td>
+        </tr>
+        <tr>
+          <td>2.2.20</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.ShapeCoord">primitiveType: ShapeCoord</a></td>
+        </tr>
+        <tr>
+          <td>2.2.21</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.ShapeFrame">enumeration: ShapeFrame</a></td>
+        </tr>
+        <tr>
+          <td>2.2.22</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.ShapeSys">objectType: ShapeSys</a></td>
+        </tr>
+        <tr>
+          <td>2.2.23</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.SphericalPoint">primitiveType: SphericalPoint</a></td>
+        </tr>
+        <tr>
+          <td>2.2.24</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stcextend.SphericalSkyPosition">objectType: SphericalSkyPosition</a></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#vodml-ids">vodml-id-s</a></td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#modelimports">Imported Models</a></td>
+        </tr>
+        <tr>
+          <td>4.1</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#coords">coords</a></td>
+        </tr>
+        <tr>
+          <td>4.2</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#ivoa">ivoa</a></td>
+        </tr>
+        <tr>
+          <td>4.3</td>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#meas">meas</a></td>
+        </tr>
+      </table>
+    </div>
+    <hr>
+    <h1><a name="model_section">1. Model:  (cabmsd)</a></h1>
+    <table>
+      <tr>
+        <td align="right"><b>Authors</b></td>
+        <td> : </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Date</b></td>
+        <td> : </td>
+        <td>2020-05-18T14:39:54</td>
+      </tr>
+      <tr>
+        <td align="right"><b>Version</b></td>
+        <td> : </td>
+        <td>0.x</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Abstract</b></td>
+        <td valign="top"> : </td>
+        <td>Data model based oon components and data association for source data</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top"><b>Diagram</b></td>
+        <td valign="top"> : </td>
+        <td>The following diagram has been generated from the model using the <a href="http://www.graphviz.org/" target="_blank">GraphViz</a> tool.<br>
+          The classes and packages in the diagram can be clicked and are mapped to the descriptions of the corresponding element elsewhere
+          in the document. 
+          
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </table><img src="cabmsd.png" usemap="#GVmap"><map id="GVmap" name="GVmap">
+<area shape="rect" id="node1" href="#stcextend" title="stcextend" alt="" coords="66,57,157,105"/>
+<area shape="rect" id="node2" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure" title="{meas:Measure}" alt="" coords="1326,505,1409,554"/>
+<area shape="rect" id="node3" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#Coordinate" title="{coords:Coordinate}" alt="" coords="988,239,1089,289"/>
+<area shape="rect" id="node4" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame" title="{coords:CoordFrame}" alt="" coords="2401,386,2508,435"/>
+<area shape="rect" id="node5" href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys" title="{coords:CoordSys}" alt="" coords="2928,239,3024,289"/>
+<area shape="rect" id="node6" href="#LinkSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nLinkSemantic|+VOService\l+VOInstance\l+Preview\l+DownloadLink\l+Detection\l+Compagnon\l+Counterpart\l}" alt="" coords="3311,16,3411,147"/>
+<area shape="rect" id="node7" href="#ParamSemantic" title="{&lt;&lt;enumeration&gt;&gt;\nParamSemantic|+Main\l+Computed\l+Native\l+Raw\l+Corrected\l}" alt="" coords="3435,28,3535,135"/>
+<area shape="rect" id="node8" href="#Source" title="{Source|+identifier : ivoa:string\l}" alt="" coords="379,239,499,289"/>
+<area shape="rect" id="node9" href="#AssociatedData" title="{AssociatedData|+semantic : cabmsd:LinkSemantic\l+dataType : ivoa:string\l}" alt="" coords="198,381,367,440"/>
+<area shape="rect" id="node15" href="#Parameter" title="{Parameter|+semantic : cabmsd:ParamSemantic\l+ucd : ivoa:string\l}" alt="" coords="407,381,584,440"/>
+<area shape="rect" id="node10" href="#WebEndpoint" title="{WebEndpoint|+ContentType : ivoa:string\l+url : ivoa:anyURI\l}" alt="" coords="166,235,303,293"/>
+<area shape="rect" id="node11" href="#VOService" title="{VOService|+ivoid : ivoa:string\l}" alt="" coords="183,57,287,106"/>
+<area shape="rect" id="node12" href="#VOModelInstance" title="{VOModelInstance|+ivoid : ivoa:string\l+modelUrl : ivoa:anyURI\l+modelName : ivoa:string\l+modelDoc : ivoa:anyURI\l}" alt="" coords="5,223,141,305"/>
+<area shape="rect" id="node13" href="#ModelInstance" title="{ModelInstance}" alt="" coords="31,386,116,435"/>
+<area shape="rect" id="node14" href="#CabmsdInstance" title="{CabmsdInstance}" alt="" coords="346,57,437,106"/>
+<area shape="rect" id="node16" href="#stcextend.SphericalPoint" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/SphericalPoint}" alt="" coords="476,57,604,106"/>
+<area shape="rect" id="node17" href="#stcextend.FlagCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/FlagCoord}" alt="" coords="629,57,739,106"/>
+<area shape="rect" id="node18" href="#stcextend.ShapeCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/ShapeCoord}" alt="" coords="764,57,881,106"/>
+<area shape="rect" id="node19" href="#stcextend.OrbitCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/OrbitCoord}" alt="" coords="905,57,1020,106"/>
+<area shape="rect" id="node20" href="#stcextend.ObjectTypeCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/ObjectTypeCoord}" alt="" coords="1045,57,1187,106"/>
+<area shape="rect" id="node21" href="#stcextend.LuminosityCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/LuminosityCoord}" alt="" coords="1212,57,1353,106"/>
+<area shape="rect" id="node22" href="#stcextend.HardnessRatioCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/HardnessRatioCoord}" alt="" coords="1377,57,1532,106"/>
+<area shape="rect" id="node23" href="#stcextend.RedshiftCoord" title="{&lt;&lt;primitive type&gt;&gt;\nstcextend/RedshiftCoord}" alt="" coords="1556,57,1684,106"/>
+<area shape="rect" id="node24" href="#stcextend.ShapeFrame" title="{&lt;&lt;enumeration&gt;&gt;\nstcextend/ShapeFrame|+MOC\l+STCs\l}" alt="" coords="3559,46,3677,117"/>
+<area shape="rect" id="node25" href="#stcextend.FlagState" title="{&lt;&lt;datatype&gt;&gt;\nstcextend/FlagState|+value : ivoa:integer\l+label : ivoa:string\l}" alt="" coords="2641,229,2751,299"/>
+<area shape="rect" id="node26" href="#stcextend.HRFrame" title="{stcextend/HRFrame}" alt="" coords="2429,57,2536,106"/>
+<area shape="rect" id="node32" href="#stcextend.PhotFilter" title="{stcextend/PhotFilter|+name : ivoa:string\l+zeroPointFlux : ivoa:real\l+magnitudeSystem : ivoa:string\l+effectiveWavelength : ivoa:real\l+unit : ivoa:Unit\l+bandWidth : ivoa:real\l}" alt="" coords="2453,211,2616,317"/>
+<area shape="rect" id="node27" href="#stcextend.SphericalSkyPosition" title="{stcextend/SphericalSkyPosition|+coord : cabmsd:stcextend.SphericalPoint\l}" alt="" coords="609,386,809,435"/>
+<area shape="rect" id="node28" href="#stcextend.Flag" title="{stcextend/Flag|+coord : cabmsd:stcextend.FlagCoord\l}" alt="" coords="834,386,1019,435"/>
+<area shape="rect" id="node29" href="#stcextend.FlagSys" title="{stcextend/FlagSys}" alt="" coords="2646,57,2745,106"/>
+<area shape="rect" id="node30" href="#stcextend.Shape" title="{stcextend/Shape|+coord : cabmsd:stcextend.ShapeCoord\l}" alt="" coords="1044,386,1236,435"/>
+<area shape="rect" id="node31" href="#stcextend.ShapeSys" title="{stcextend/ShapeSys|+shapeFrame : cabmsd:stcextend.ShapeFrame\l}" alt="" coords="2770,57,2989,106"/>
+<area shape="rect" id="node33" href="#stcextend.Luminosity" title="{stcextend/Luminosity|+coord : cabmsd:stcextend.LuminosityCoord\l}" alt="" coords="1261,386,1475,435"/>
+<area shape="rect" id="node34" href="#stcextend.HardnessRatio" title="{stcextend/HardnessRatio|+coord : cabmsd:stcextend.HardnessRatioCoord\l}" alt="" coords="1499,386,1727,435"/>
+<area shape="rect" id="node35" href="#stcextend.Redshift" title="{stcextend/Redshift|+coord : cabmsd:stcextend.RedshiftCoord\l}" alt="" coords="1751,386,1952,435"/>
+<area shape="rect" id="node36" href="#stcextend.ObjectType" title="{stcextend/ObjectType|+coord : cabmsd:stcextend.OrbitCoord\l}" alt="" coords="1977,386,2164,435"/>
+<area shape="rect" id="node37" href="#stcextend.Orbit" title="{stcextend/Orbit|+coord : cabmsd:stcextend.OrbitCoord\l}" alt="" coords="2189,386,2376,435"/>
+<area shape="rect" id="node38" href="#stcextend.RedshiftSys" title="{stcextend/RedshiftSys}" alt="" coords="3015,57,3132,106"/>
+<area shape="rect" id="node39" href="#stcextend.ObjectTypeSys" title="{stcextend/ObjectTypeSys}" alt="" coords="3156,57,3287,106"/>
+</map>
+
+    <hr>
+    <h1>2.<a name="packages">Model contents: Packages and Types</a></h1>
+    <p>
+      The following sub-sections present all packages in the model with their types.
+      The packages are listed here in alphabetical order.
+      Each sub-section contains a description of the package and a table containing its various features.
+      
+    </p>
+    <h3><a name="rootpackage"></a>2.1 [root package]
+    </h3>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model</td>
+        <td class="objecttype-name">cabmsd</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">child package(s)</td>
+        <td colspan="2" class="feature-detail"><a href="#stcextend">stcextend</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Object types</td>
+        <td colspan="2" class="feature-detail"><a href="#AssociatedData">AssociatedData</a> <a href="#CabmsdInstance">CabmsdInstance</a> <a href="#ModelInstance">ModelInstance</a> <a href="#Parameter">Parameter</a> <a href="#Source">Source</a> <a href="#VOModelInstance">VOModelInstance</a> <a href="#VOService">VOService</a> <a href="#WebEndpoint">WebEndpoint</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Enumerations</td>
+        <td colspan="2" class="feature-detail"><a href="#LinkSemantic">LinkSemantic</a> <a href="#ParamSemantic">ParamSemantic</a> 
+        </td>
+      </tr>
+    </table>
+    <h3><a name="AssociatedData"></a>2.1.1 objectType: AssociatedData
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">AssociatedData</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Abstract reference to a particular dataset associated to the Source.
+            This class is used to specify the type of the dataset as well as its role.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td class="info-title" width="20%">abstract</td>
+                      <td class="feature-detail" colspan="3">True</td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#CabmsdInstance">CabmsdInstance</a> <a href="#VOModelInstance">VOModelInstance</a> <a href="#WebEndpoint">WebEndpoint</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="AssociatedData.semantic"></a><b>semantic</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#LinkSemantic">LinkSemantic [cabmsd:LinkSemantic]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">AssociatedData.semantic</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Reference to a semantic concept giving the nature of the associated data.
+                        As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="AssociatedData.dataType"></a><b>dataType</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">AssociatedData.dataType</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Type of the associated data (not defined yet)</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="CabmsdInstance"></a>2.1.2 objectType: CabmsdInstance
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">CabmsdInstance</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Reference to another CAB-MSD instance that is part of the associated data.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#AssociatedData">AssociatedData [cabmsd:AssociatedData]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="CabmsdInstance.cadmsdInstance"></a><b>cadmsdInstance</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Source">Source [cabmsd:Source]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">CabmsdInstance.cadmsdInstance</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Composition link pointing on one cab_msd instance associated with the source.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="LinkSemantic"></a>2.1.3 enumeration: LinkSemantic
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">LinkSemantic</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">Literal enumeration of the possible values for the associated data semantic.
+          This stands for an example before we have defined a vocabulary.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.VOService"></a>VOService
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.VOService</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Data returned by a VO service</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.VOInstance"></a>VOInstance
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.VOInstance</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Data Serialized in a VO model</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Preview"></a>Preview
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.Preview</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">data preview</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.DownloadLink"></a>DownloadLink
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.DownloadLink</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Data download link</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Detection"></a>Detection
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.Detection</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Particular detection</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Compagnon"></a>Compagnon
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.Compagnon</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Compagnon source</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="LinkSemantic.Counterpart"></a>Counterpart
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">LinkSemantic.Counterpart</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Counter part source</td>
+      </tr>
+    </table><br><h3><a name="ModelInstance"></a>2.1.4 objectType: ModelInstance
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">ModelInstance</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Placeholder for the mapping of the model instance
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1"></table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="ParamSemantic"></a>2.1.5 enumeration: ParamSemantic
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">ParamSemantic</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">Literal enumeration of the possible values for the parameter semantic.
+          This stands for an example beforewe have defined a vocabulary.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ParamSemantic.Main"></a>Main
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ParamSemantic.Main</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Main measurment</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ParamSemantic.Computed"></a>Computed
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ParamSemantic.Computed</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Computed measurement</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ParamSemantic.Native"></a>Native
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ParamSemantic.Native</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Mative measurement</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ParamSemantic.Raw"></a>Raw
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ParamSemantic.Raw</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">raw measure</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="ParamSemantic.Corrected"></a>Corrected
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">ParamSemantic.Corrected</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">Corrected measure</td>
+      </tr>
+    </table><br><h3><a name="Parameter"></a>2.1.6 objectType: Parameter
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Parameter</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Reference to a particular measure of the Source.
+            This class is used to specify the type of the measure as well as its role.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.semantic"></a><b>semantic</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ParamSemantic">ParamSemantic [cabmsd:ParamSemantic]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Parameter.semantic</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Reference to a semantic concept giving the nature of the parameter
+                        As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Parameter.ucd"></a><b>ucd</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Parameter.ucd</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">UCD1+ giving the type of the physical measure</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="Parameter.measure"></a><b>measure</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Parameter.measure</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Composition link pointing to the meas:Measure instance</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" colspan="3">One association at the time
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="Source"></a>2.1.7 objectType: Source
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">Source</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Root class of the model. CAB_MSF instance are meant ot be Source instances.
+            A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="Source.identifier"></a><b>identifier</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Source.identifier</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Unique identifier for a Source.
+                        The uniqness of that identifier is not managed by the model.
+                        The format is free.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="Source.associatedData"></a><b>associatedData</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#AssociatedData">AssociatedData [cabmsd:AssociatedData]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Source.associatedData</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Composition link pointing on all data associated with the source.</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="Source.parameters"></a><b>parameters</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#Parameter">Parameter [cabmsd:Parameter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">Source.parameters</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Composition link pointing on all parameters attached to the source.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="VOModelInstance"></a>2.1.8 objectType: VOModelInstance
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">VOModelInstance</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Reference to a VO model instance that is part of the associated data.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#AssociatedData">AssociatedData [cabmsd:AssociatedData]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="VOModelInstance.ivoid"></a><b>ivoid</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">VOModelInstance.ivoid</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">VO-DML id of the referenced model
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="VOModelInstance.modelUrl"></a><b>modelUrl</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#anyURI">anyURI</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">VOModelInstance.modelUrl</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">URL on the VO-DML model</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="VOModelInstance.modelName"></a><b>modelName</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">VOModelInstance.modelName</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Name of the referenced model</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="VOModelInstance.modelDoc"></a><b>modelDoc</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#anyURI">anyURI</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">VOModelInstance.modelDoc</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Documentation URL of the model</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="VOModelInstance.modelInstance"></a><b>modelInstance</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ModelInstance">ModelInstance [cabmsd:ModelInstance]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">VOModelInstance.modelInstance</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Composition link pointing on one VO instance instance associated with the source.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="VOService"></a>2.1.9 objectType: VOService
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">VOService</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Class for associated data referenced by an URL that is a VO service</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#WebEndpoint">WebEndpoint [cabmsd:WebEndpoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="VOService.ivoid"></a><b>ivoid</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">VOService.ivoid</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">IVOA id attached to the URI</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="WebEndpoint"></a>2.1.10 objectType: WebEndpoint
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">WebEndpoint</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Class for associated data referenced by an URL</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#AssociatedData">AssociatedData [cabmsd:AssociatedData]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title" width="20%">Subclasses in this model</td>
+                      <td class="feature-detail" colspan="3"><a href="#VOService">VOService</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="WebEndpoint.ContentType"></a><b>ContentType</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">WebEndpoint.ContentType</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Mime type of the URL
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="WebEndpoint.url"></a><b>url</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#anyURI">anyURI</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">WebEndpoint.url</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Web endpoint</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend"></a>2.2 package: stcextend
+    </h3>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">This package contains all object and type classes that has been extended from the Measure and Coordinates models.
+          This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">parent</td>
+        <td colspan="2" class="feature-detail"><a href="#model_section">cabmsd</a></td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Object types</td>
+        <td colspan="2" class="feature-detail"><a href="#stcextend.Flag">Flag</a> <a href="#stcextend.FlagSys">FlagSys</a> <a href="#stcextend.HRFrame">HRFrame</a> <a href="#stcextend.HardnessRatio">HardnessRatio</a> <a href="#stcextend.Luminosity">Luminosity</a> <a href="#stcextend.ObjectType">ObjectType</a> <a href="#stcextend.ObjectTypeSys">ObjectTypeSys</a> <a href="#stcextend.Orbit">Orbit</a> <a href="#stcextend.PhotFilter">PhotFilter</a> <a href="#stcextend.Redshift">Redshift</a> <a href="#stcextend.RedshiftSys">RedshiftSys</a> <a href="#stcextend.Shape">Shape</a> <a href="#stcextend.ShapeSys">ShapeSys</a> <a href="#stcextend.SphericalSkyPosition">SphericalSkyPosition</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Data types</td>
+        <td colspan="2" class="feature-detail"><a href="#stcextend.FlagState">FlagState</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Enumerations</td>
+        <td colspan="2" class="feature-detail"><a href="#stcextend.ShapeFrame">ShapeFrame</a> 
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">Primitive types</td>
+        <td colspan="2" class="feature-detail"><a href="#stcextend.FlagCoord">FlagCoord</a> <a href="#stcextend.HardnessRatioCoord">HardnessRatioCoord</a> <a href="#stcextend.LuminosityCoord">LuminosityCoord</a> <a href="#stcextend.ObjectTypeCoord">ObjectTypeCoord</a> <a href="#stcextend.OrbitCoord">OrbitCoord</a> <a href="#stcextend.RedshiftCoord">RedshiftCoord</a> <a href="#stcextend.ShapeCoord">ShapeCoord</a> <a href="#stcextend.SphericalPoint">SphericalPoint</a> 
+        </td>
+      </tr>
+    </table>
+    <h3><a name="stcextend.Flag"></a>2.2.1 objectType: Flag
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.Flag</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Measure to be used for status parameters</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.Flag.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.FlagCoord">FlagCoord [cabmsd:stcextend.FlagCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.Flag.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Coordinate holding the statsu value</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.FlagCoord"></a>2.2.2 primitiveType: FlagCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.FlagCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">Coordinate of a status Measure</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.FlagState"></a>2.2.3 dataType: FlagState
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.FlagState</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Possible value of a status</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.FlagState.value"></a><b>value</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#integer">integer</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.FlagState.value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Status value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.FlagState.label"></a><b>label</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.FlagState.label</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Label attached to that status value
+                        
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.FlagSys"></a>2.2.4 objectType: FlagSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.FlagSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Coordinate system to be used for statur measures.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys">CoordSys</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">compositions</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="5"><a name="stcextend.FlagSys.statusLabel"></a><b>statusLabel</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.FlagState">FlagState [cabmsd:stcextend.FlagState]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.FlagSys.statusLabel</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">0..*</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">isOrdered</td>
+                      <td class="feature-detail">false</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Composition loink to all possible status values for this system</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.HRFrame"></a>2.2.5 objectType: HRFrame
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.HRFrame</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Hardness ratio frame.
+            Defined by 2 energy bands Eheigh ELow.
+            HR = (Eheigh - Elow)/(Eheigh + Elow)
+            Energy bands are deemed to special photometric filters
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame">CoordFrame</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">references</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.HRFrame.high"></a><b>high</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.PhotFilter">PhotFilter [cabmsd:stcextend.PhotFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.HRFrame.high</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Heigh energy band</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.HRFrame.low"></a><b>low</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.PhotFilter">PhotFilter [cabmsd:stcextend.PhotFilter]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.HRFrame.low</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Low energy band</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.HardnessRatio"></a>2.2.6 objectType: HardnessRatio
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.HardnessRatio</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.HardnessRatio.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.HardnessRatioCoord">HardnessRatioCoord [cabmsd:stcextend.HardnessRatioCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.HardnessRatio.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.HardnessRatioCoord"></a>2.2.7 primitiveType: HardnessRatioCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.HardnessRatioCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.Luminosity"></a>2.2.8 objectType: Luminosity
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.Luminosity</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.Luminosity.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.LuminosityCoord">LuminosityCoord [cabmsd:stcextend.LuminosityCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.Luminosity.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.LuminosityCoord"></a>2.2.9 primitiveType: LuminosityCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.LuminosityCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.ObjectType"></a>2.2.10 objectType: ObjectType
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.ObjectType</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.ObjectType.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.OrbitCoord">OrbitCoord [cabmsd:stcextend.OrbitCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.ObjectType.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.ObjectTypeCoord"></a>2.2.11 primitiveType: ObjectTypeCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.ObjectTypeCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.ObjectTypeSys"></a>2.2.12 objectType: ObjectTypeSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.ObjectTypeSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys">CoordSys</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.Orbit"></a>2.2.13 objectType: Orbit
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.Orbit</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.Orbit.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.OrbitCoord">OrbitCoord [cabmsd:stcextend.OrbitCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.Orbit.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.OrbitCoord"></a>2.2.14 primitiveType: OrbitCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.OrbitCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.PhotFilter"></a>2.2.15 objectType: PhotFilter
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.PhotFilter</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Photometric filter description, compliant with photDM</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordFrame">CoordFrame</a></td>
+                    </tr>
+                    <tr>
+                      <td class="info-title">referrers</td>
+                      <td class="feature-detail" colspan="3"><a href="#stcextend.HRFrame">HRFrame</a> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.PhotFilter.name"></a><b>name</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.PhotFilter.name</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Filter name</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.PhotFilter.zeroPointFlux"></a><b>zeroPointFlux</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.PhotFilter.zeroPointFlux</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Zero point flux of the filter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.PhotFilter.magnitudeSystem"></a><b>magnitudeSystem</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#string">string</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.PhotFilter.magnitudeSystem</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Magnitude system used by the filter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.PhotFilter.effectiveWavelength"></a><b>effectiveWavelength</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.PhotFilter.effectiveWavelength</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Effective wavelength of the filter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.PhotFilter.unit"></a><b>unit</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#Unit">Unit</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.PhotFilter.unit</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Wavelength unit used for that filter</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.PhotFilter.bandWidth"></a><b>bandWidth</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#ivoa">ivoa</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html#real">real</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.PhotFilter.bandWidth</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Band width of the filter</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.Redshift"></a>2.2.16 objectType: Redshift
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.Redshift</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.Redshift.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.RedshiftCoord">RedshiftCoord [cabmsd:stcextend.RedshiftCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.Redshift.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">
+                        TODO : Missing description : please, update your UML model asap.
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.RedshiftCoord"></a>2.2.17 primitiveType: RedshiftCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.RedshiftCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.RedshiftSys"></a>2.2.18 objectType: RedshiftSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.RedshiftSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">
+            TODO : Missing description : please, update your UML model asap.
+            
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys">CoordSys</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.Shape"></a>2.2.19 objectType: Shape
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.Shape</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Measure giving the shape of a source</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.Shape.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.ShapeCoord">ShapeCoord [cabmsd:stcextend.ShapeCoord]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.Shape.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">String serialization of the source shape</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">role constraints</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="30%">Constrained Role</td>
+                      <td class="feature-heading" width="20%">Constraint Feature</td>
+                      <td class="feature-heading" width="50%">Constraint Value</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="feature-detail" valign="top"><a href="#"></a>:<a href="#"></a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail"></td>
+                      <td class="feature-heading" valign="top">
+                        	  datatype
+                      </td>
+                      <td class="feature-detail"><a href="#"></a>:<a href="#"></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.ShapeCoord"></a>2.2.20 primitiveType: ShapeCoord
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.ShapeCoord</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.ShapeFrame"></a>2.2.21 enumeration: ShapeFrame
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="2">stcextend.ShapeFrame</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="2">Enumeration of the possible options to encode a shape in  a string.</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+      <tr>
+        <td colspan="3" class="info-title" align="center">literals</td>
+      </tr>
+      <tr>
+        <td class="feature-heading" width="25%">name</td>
+        <td class="feature-heading" width="25%">feature</td>
+        <td class="feature-heading" width="50%">value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="stcextend.ShapeFrame.MOC"></a>MOC
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">stcextend.ShapeFrame.MOC</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">MOC serialization</td>
+      </tr>
+      <tr>
+        <td class="feature-detail" rowspan="2" valign="top"><a name="stcextend.ShapeFrame.STCs"></a>STCs
+        </td>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-detail">stcextend.ShapeFrame.STCs</td>
+      </tr>
+      <tr>
+        <td class="feature-heading">description</td>
+        <td class="feature-detail">STCs serialization</td>
+      </tr>
+    </table><br><h3><a name="stcextend.ShapeSys"></a>2.2.22 objectType: ShapeSys
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.ShapeSys</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Coordinate systen to be used for shape measure</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#coords">coords</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html#CoordSys">CoordSys</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.ShapeSys.shapeFrame"></a><b>shapeFrame</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.ShapeFrame">ShapeFrame [cabmsd:stcextend.ShapeFrame]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.ShapeSys.shapeFrame</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Frame of the shape measure. Gives a enumeration of the supported serializations.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><h3><a name="stcextend.SphericalPoint"></a>2.2.23 primitiveType: SphericalPoint
+    </h3>
+    <table border="1" width="100%" cellspacing="2">
+      <tr>
+        <td class="objecttype-title" width="20%">vodml-id</td>
+        <td class="objecttype-name" colspan="1">stcextend.SphericalPoint</td>
+      </tr>
+      <tr>
+        <td class="info-title">description</td>
+        <td class="feature-detail" colspan="1">Coordinate of a point on the sky sphere expressed in spherical coordinates.</td>
+      </tr>
+      <tr>
+        <td width="20%" class="info-title">package</td>
+        <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+      </tr>
+    </table><br><h3><a name="stcextend.SphericalSkyPosition"></a>2.2.24 objectType: SphericalSkyPosition
+    </h3>
+    <div align="center">
+      <table border="1" width="100%" cellspacing="2">
+        <tr>
+          <td class="objecttype-title" width="20%">vodml-id</td>
+          <td class="objecttype-name" colspan="1">stcextend.SphericalSkyPosition</td>
+        </tr>
+        <tr>
+          <td class="info-title">description</td>
+          <td class="feature-detail" colspan="1">Measure to used for sky points expressed with a spherical coordinate system</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td colspan="2" bgcolor="#cacaca">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr>
+                      <td width="20%" class="info-title">package</td>
+                      <td colspan="3" class="feature-detail"><a href="#stcextend">stcextend</a></td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="info-title">extends</td>
+                      <td colspan="3" class="feature-detail"><a href="#meas">meas</a>:<a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html#Measure">Measure</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="info-title">attributes</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading" width="20%">name</td>
+                      <td class="feature-heading" width="10%">feature</td>
+                      <td class="feature-heading" width="70%">value</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-detail" valign="top" rowspan="4"><a name="stcextend.SphericalSkyPosition.coord"></a><b>coord</b></td>
+                      <td class="feature-heading">type</td>
+                      <td class="feature-detail"><a href="#stcextend.SphericalPoint">SphericalPoint [cabmsd:stcextend.SphericalPoint]</a></td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">vodml-id</td>
+                      <td class="feature-detail">stcextend.SphericalSkyPosition.coord</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">multiplicity</td>
+                      <td class="feature-detail">1</td>
+                    </tr>
+                    <tr>
+                      <td class="feature-heading">description</td>
+                      <td class="feature-detail">Coordinate of spherical sky position</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div><br><hr>
+    <h1>3.<a name="vodml-ids">Element Identifiers/VO-DMLrefs</a></h1>  
+    The following table shows all fully qualified vodml-ids for this data model.
+    It is ordered alphabetically and the identifiers are hyper-linked to the location
+    in the document where the actual element is fully defined.
+    
+    
+    <table style="border-style:solid;border-width:1px;" border="1" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="feature-heading">vodml-id</td>
+        <td class="feature-heading">feature type</td>
+        <td class="feature-heading">description</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#"></a></td>
+        <td class="feature-detail">vo-dml:model</td>
+        <td class="feature-detail">Data model based oon components and data association for source data</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AssociatedData">AssociatedData</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Abstract reference to a particular dataset associated to the Source.
+          This class is used to specify the type of the dataset as well as its role.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AssociatedData.dataType">AssociatedData.dataType</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Type of the associated data (not defined yet)</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#AssociatedData.semantic">AssociatedData.semantic</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Reference to a semantic concept giving the nature of the associated data.
+          As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. 
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CabmsdInstance">CabmsdInstance</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Reference to another CAB-MSD instance that is part of the associated data.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#CabmsdInstance.cadmsdInstance">CabmsdInstance.cadmsdInstance</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Composition link pointing on one cab_msd instance associated with the source.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic">LinkSemantic</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">Literal enumeration of the possible values for the associated data semantic.
+          This stands for an example before we have defined a vocabulary.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Compagnon">LinkSemantic.Compagnon</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Compagnon source</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Counterpart">LinkSemantic.Counterpart</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Counter part source</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Detection">LinkSemantic.Detection</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Particular detection</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.DownloadLink">LinkSemantic.DownloadLink</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Data download link</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.Preview">LinkSemantic.Preview</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">data preview</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.VOInstance">LinkSemantic.VOInstance</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Data Serialized in a VO model</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#LinkSemantic.VOService">LinkSemantic.VOService</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Data returned by a VO service</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ModelInstance">ModelInstance</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Placeholder for the mapping of the model instance
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ParamSemantic">ParamSemantic</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">Literal enumeration of the possible values for the parameter semantic.
+          This stands for an example beforewe have defined a vocabulary.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ParamSemantic.Computed">ParamSemantic.Computed</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Computed measurement</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ParamSemantic.Corrected">ParamSemantic.Corrected</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Corrected measure</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ParamSemantic.Main">ParamSemantic.Main</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Main measurment</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ParamSemantic.Native">ParamSemantic.Native</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">Mative measurement</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#ParamSemantic.Raw">ParamSemantic.Raw</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">raw measure</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Parameter">Parameter</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Reference to a particular measure of the Source.
+          This class is used to specify the type of the measure as well as its role.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Parameter.measure">Parameter.measure</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Composition link pointing to the meas:Measure instance</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Parameter.semantic">Parameter.semantic</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Reference to a semantic concept giving the nature of the parameter
+          As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. 
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Parameter.ucd">Parameter.ucd</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">UCD1+ giving the type of the physical measure</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Source">Source</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Root class of the model. CAB_MSF instance are meant ot be Source instances.
+          A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Source.associatedData">Source.associatedData</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Composition link pointing on all data associated with the source.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Source.identifier">Source.identifier</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Unique identifier for a Source.
+          The uniqness of that identifier is not managed by the model.
+          The format is free.
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#Source.parameters">Source.parameters</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Composition link pointing on all parameters attached to the source.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOModelInstance">VOModelInstance</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Reference to a VO model instance that is part of the associated data.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOModelInstance.ivoid">VOModelInstance.ivoid</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">VO-DML id of the referenced model
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOModelInstance.modelDoc">VOModelInstance.modelDoc</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Documentation URL of the model</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOModelInstance.modelInstance">VOModelInstance.modelInstance</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Composition link pointing on one VO instance instance associated with the source.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOModelInstance.modelName">VOModelInstance.modelName</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Name of the referenced model</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOModelInstance.modelUrl">VOModelInstance.modelUrl</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">URL on the VO-DML model</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOService">VOService</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Class for associated data referenced by an URL that is a VO service</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#VOService.ivoid">VOService.ivoid</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">IVOA id attached to the URI</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#WebEndpoint">WebEndpoint</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Class for associated data referenced by an URL</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#WebEndpoint.ContentType">WebEndpoint.ContentType</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Mime type of the URL
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#WebEndpoint.url">WebEndpoint.url</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Web endpoint</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend">stcextend</a></td>
+        <td class="feature-detail">package</td>
+        <td class="feature-detail">This package contains all object and type classes that has been extended from the Measure and Coordinates models.
+          This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Flag">stcextend.Flag</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Measure to be used for status parameters</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Flag.coord">stcextend.Flag.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Coordinate holding the statsu value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.FlagCoord">stcextend.FlagCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">Coordinate of a status Measure</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.FlagState">stcextend.FlagState</a></td>
+        <td class="feature-detail">dataType</td>
+        <td class="feature-detail">Possible value of a status</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.FlagState.label">stcextend.FlagState.label</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Label attached to that status value
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.FlagState.value">stcextend.FlagState.value</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Status value</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.FlagSys">stcextend.FlagSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Coordinate system to be used for statur measures.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.FlagSys.statusLabel">stcextend.FlagSys.statusLabel</a></td>
+        <td class="feature-detail">composition</td>
+        <td class="feature-detail">Composition loink to all possible status values for this system</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.HRFrame">stcextend.HRFrame</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Hardness ratio frame.
+          Defined by 2 energy bands Eheigh ELow.
+          HR = (Eheigh - Elow)/(Eheigh + Elow)
+          Energy bands are deemed to special photometric filters
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.HRFrame.high">stcextend.HRFrame.high</a></td>
+        <td class="feature-detail">reference</td>
+        <td class="feature-detail">Heigh energy band</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.HRFrame.low">stcextend.HRFrame.low</a></td>
+        <td class="feature-detail">reference</td>
+        <td class="feature-detail">Low energy band</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.HardnessRatio">stcextend.HardnessRatio</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.HardnessRatio.coord">stcextend.HardnessRatio.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.HardnessRatioCoord">stcextend.HardnessRatioCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Luminosity">stcextend.Luminosity</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Luminosity.coord">stcextend.Luminosity.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.LuminosityCoord">stcextend.LuminosityCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ObjectType">stcextend.ObjectType</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ObjectType.coord">stcextend.ObjectType.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ObjectTypeCoord">stcextend.ObjectTypeCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ObjectTypeSys">stcextend.ObjectTypeSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Orbit">stcextend.Orbit</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Orbit.coord">stcextend.Orbit.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.OrbitCoord">stcextend.OrbitCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter">stcextend.PhotFilter</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Photometric filter description, compliant with photDM</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter.bandWidth">stcextend.PhotFilter.bandWidth</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Band width of the filter</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter.effectiveWavelength">stcextend.PhotFilter.effectiveWavelength</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Effective wavelength of the filter</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter.magnitudeSystem">stcextend.PhotFilter.magnitudeSystem</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Magnitude system used by the filter</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter.name">stcextend.PhotFilter.name</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Filter name</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter.unit">stcextend.PhotFilter.unit</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Wavelength unit used for that filter</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.PhotFilter.zeroPointFlux">stcextend.PhotFilter.zeroPointFlux</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Zero point flux of the filter</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Redshift">stcextend.Redshift</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Redshift.coord">stcextend.Redshift.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.RedshiftCoord">stcextend.RedshiftCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.RedshiftSys">stcextend.RedshiftSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Shape">stcextend.Shape</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Measure giving the shape of a source</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.Shape.coord">stcextend.Shape.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">String serialization of the source shape</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ShapeCoord">stcextend.ShapeCoord</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">
+          TODO : Missing description : please, update your UML model asap.
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ShapeFrame">stcextend.ShapeFrame</a></td>
+        <td class="feature-detail">enumeration</td>
+        <td class="feature-detail">Enumeration of the possible options to encode a shape in  a string.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ShapeFrame.MOC">stcextend.ShapeFrame.MOC</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">MOC serialization</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ShapeFrame.STCs">stcextend.ShapeFrame.STCs</a></td>
+        <td class="feature-detail">literal</td>
+        <td class="feature-detail">STCs serialization</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ShapeSys">stcextend.ShapeSys</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Coordinate systen to be used for shape measure</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.ShapeSys.shapeFrame">stcextend.ShapeSys.shapeFrame</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Frame of the shape measure. Gives a enumeration of the supported serializations.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.SphericalPoint">stcextend.SphericalPoint</a></td>
+        <td class="feature-detail">primitiveType</td>
+        <td class="feature-detail">Coordinate of a point on the sky sphere expressed in spherical coordinates.</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.SphericalSkyPosition">stcextend.SphericalSkyPosition</a></td>
+        <td class="feature-detail">objectType</td>
+        <td class="feature-detail">Measure to used for sky points expressed with a spherical coordinate system</td>
+      </tr>
+      <tr>
+        <td class="feature-detail"><a href="#stcextend.SphericalSkyPosition.coord">stcextend.SphericalSkyPosition.coord</a></td>
+        <td class="feature-detail">attribute</td>
+        <td class="feature-detail">Coordinate of spherical sky position</td>
+      </tr>
+    </table>
+    <hr>
+    <h1>4.<a name="modelimports">Imported Models</a></h1>
+    <p>This section lists the external models imported by the current data model.
+      For each imported model we list URLs to the VO-DML and HTML representations and the prefix used for vodml-ids from inside
+      the model.
+    </p>
+    <h2><a name="coords"></a>4.1 coords
+    </h2>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model vodml-id</td>
+        <td class="objecttype-name">coords</td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">url</td>
+        <td><a href="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml">http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</a></td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">documentation url</td>
+        <td><a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html">https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html</a></td>
+      </tr>
+    </table>
+    <h2><a name="ivoa"></a>4.2 ivoa
+    </h2>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model vodml-id</td>
+        <td class="objecttype-name">ivoa</td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">url</td>
+        <td><a href="http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml">http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</a></td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">documentation url</td>
+        <td><a href="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html">https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html</a></td>
+      </tr>
+    </table>
+    <h2><a name="meas"></a>4.3 meas
+    </h2>
+    <table border="1" cellspacing="2" width="100%">
+      <tr>
+        <td class="objecttype-title" width="20%">Model vodml-id</td>
+        <td class="objecttype-name">meas</td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">url</td>
+        <td><a href="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml">http://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml</a></td>
+      </tr>
+      <tr>
+        <td width="30%" class="info-title">documentation url</td>
+        <td><a href="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html">https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html</a></td>
+      </tr>
+    </table>
+  </body>
+</html>

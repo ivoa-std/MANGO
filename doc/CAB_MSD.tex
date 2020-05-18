@@ -11,6 +11,8 @@
 \author{Gilles Landais}
 \author{Laurent Michel}
 \author{Jesus Salgado}
+\author{Mireille Louys}
+\author{Marco Molinaro}
 
 \editor{Laurent Michel}
 
@@ -179,33 +181,35 @@ Quantities possibly plotted or matched with some of other datasets
 
 
 \begin{table}[ht!]
+     \tiny
      \begin{tabular}{|p{2.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.6cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|}
        \hline Quantity &  Ga &  Eu &  Ex &  MCS  &  Ch&  Vi &  Al &  Xm&  TD \\
        \hline  \texttt{identifier}      &  p & P  &P& &P&P &P&  & P \\              
        \hline  \texttt{position}      &  p & P  &P& &P&P &P&  & P \\       
        \hline  \texttt{pr. motion}   & p &   &   &    &  &   &P&P&    \\       
        \hline  \texttt{distance}     & p &   &   &    &  &   &P&  &    \\       
-       \hline  \texttt{correlation}   & AP &AP&   &    &  &AP &   &  &    \\       
+       \hline  \texttt{correlation}   & AD &AD&   &    &  &AD &   &  &    \\       
        \hline  \texttt{extension}     &P&   &P&P &P&P& P&  &    \\       
        \hline  \texttt{rad. vel.}       &  P &   &   &    &  &P&   &  &    \\       
        \hline  \texttt{redshift}        &  P &P&   &    &  &P&   &  &    \\             
        \hline  \texttt{phot. rsft}      &   &P&   &    &  &P&   &  &    \\       
        \hline  \texttt{luminosity}    & P&P&   &    &  &P&P&P&P\\       
        \hline  \texttt{date}             & P  &   &   &    & P&P&   &  &P\\       
-       \hline  \texttt{detections}    &  AP &   &   &    &  &   &   &  &    \\       
+       \hline  \texttt{detections}    &  AD &   &   &    &  &   &   &  &    \\       
        \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\       
        \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\      
        \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\       
        \hline  \texttt{orb. sys.}      &   &   &   &    &  &   &   &  &    \\       
        \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\       
-       \hline  \texttt{ass. prd.}     &   &   &   &    &  &AP&   &  &AP \\       
+       \hline  \texttt{ass. prd.}     &   &   &   &    &  &AD&   &  &AD \\       
        \hline 
      \end{tabular}
-     \caption{ \texttt{P} parameter, \texttt{AP} Associated data} 
+     \caption{ \texttt{P} parameter, \texttt{AD} Associated data} 
  \end{table}
 
 
 \begin{table}[ht!]
+     \tiny
      \begin{tabular}{|p{2.4cm}|p{1.8cm}|p{7cm}|}
        \hline Quantity &  Model &  \\
        \hline  \texttt{identifier}      & Mango & required for anu instance\\                    
@@ -233,6 +237,12 @@ Quantities possibly plotted or matched with some of other datasets
 
 \section{Model Overview}
 
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../model/overview_diagram.png}
+\caption{Mango overview}
+\label{fig:overview}
+\end{figure}
+
 The root class of the model is the Source class that has one attribute, the identifier. The identifier is the only quantity common to  all  Mango instances.
 
 Each quantity or associated data attached to the source is represented by a connector describing the nature of the quantity or of the associated data.
@@ -249,25 +259,47 @@ Associated data connectors are used to bind any sort of complex data with the so
 
 Attaching VO model instances to sources does not mean that these  models must be imported. The merge between a Mango instance and one associated instance is operated by the data annotation process. The indication given by Mango tell the client how to interpret the embedded instance
 
+\subsection{STC Extension} 
 
-
-
-
+All STC measures are built upon the same pattern (see fig \ref{fig:stcpattern}). The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. The coordinate is attached to a system (class \texttt{CoordSys}). The system has 2 components 1) the space  (class \texttt{CoordSpace}) that describes the axis and 2) the frame    \texttt{CoordFrame}).  All Mango parameters are based on this pattern. Native STC classes are used when possible. Others parameters are built by extending STC classes . Figure \ref{fig:stcpattern}) shows the extended STC classes being part of Mango 
 \begin{figure}
-\includegraphics[width=0.9\textwidth]{../model/overview_diagram.png}
-\caption{Architecture diagram for this document}
-\label{fig:archdiag}
+     \includegraphics[width=0.9\textwidth]{stc_pattern.png}
+     \caption{STC pattern (simplified view)}
+     \label{fig:stcpattern}
 \end{figure}
 
-
-
 \begin{figure}
-\includegraphics[width=0.9\textwidth]{../model/stc_ext_diagram.png}
-\caption{Architecture diagram for this document}
-\label{fig:archdiag}
+  \includegraphics[angle=90,origin=c,width=1\textwidth]{../model/stc_ext_diagram.png}
+  \caption{STC extension diagram }
+  \label{fig:stcextension}
 \end{figure}
+
 
 \input{model.tex}
+
+\section{TAP and Mango}
+This not normative section gives possible tips to save and discover Mango instances in TAP services.
+Se suppose that the TAP service hosts catalogs which sources are Mango instances. These catalogs are named \emph{Mango Catalogs}.
+
+\subsection{Storing Mango Catalogs in TAP}
+For now this section only concerns the parameter. The associated data will be taken into account later
+We supps
+
+\begin{itemize}
+  \item One master table for the catalogs with various meta-data out of the scope Mango plus a unique identifier
+  \item One master sources table for the source instances with the catalog identifier and a primary key safer than the mango identifier.
+  \item One table for each supported parameter with a foreign key for the join with the master source table
+\end{itemize}
+
+Although the model of the Measures is hierarchical, it should be possible to flatten them in one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations (TBC) 
+
+This schema requires the server to explore all the parameter tables to retrieve  whole Mango instances. This process can be speed up by using the \emph{MangoCore} table.
+
+\subsection{ \emph{MangoCore} Table}
+
+The discovery of \emph{Mango Catalogs} can be helped by a  \emph{MangoCore} table located in the  \emph{schema} schema. As Mango is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}. This selection is left at the discretion of the curator.
+The \emph{MangoCore} table has set of columns per parameter class plus one for the catalog ID. It has one row per stored catalog. Each parameter has at least 2 columns: one woth the UCD an one with the \emph{Core} flag. TBC
+
 
 \appendix
 \section{Changes from Previous Versions}

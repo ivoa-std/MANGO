@@ -226,135 +226,222 @@
 
   This package contains all object and type classes that has been extended from the Measure and Coordinates models. This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
 
+  \subsection{Flag}
+  \label{sect:stcextend.Flag}
+    Measure to be used for status parameters
+
+    \subsubsection{Flag.coord}
+      \textbf{vodml-id: stcextend.Flag.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.FlagCoord]{cabmsd:stcextend.FlagCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Coordinate holding the statsu value
+
+  \subsection{FlagState}
+  \label{sect:stcextend.FlagState}
+    Possible value of a status
+
+    \subsubsection{FlagState.value}
+      \textbf{vodml-id: stcextend.FlagState.value} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Status value
+
+    \subsubsection{FlagState.label}
+      \textbf{vodml-id: stcextend.FlagState.label} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Label attached to that status value
+
+  \subsection{FlagSys}
+  \label{sect:stcextend.FlagSys}
+    Coordinate system to be used for statur measures.
+
+    \subsubsection{FlagSys.statusLabel}
+      \textbf{vodml-id: stcextend.FlagSys.statusLabel} \newline
+      \textbf{type: \hyperref[sect:stcextend.FlagState]{cabmsd:stcextend.FlagState}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Composition loink to all possible status values for this system
+
   \subsection{HRFrame}
   \label{sect:stcextend.HRFrame}
     Hardness ratio frame. Defined by 2 energy bands Eheigh ELow. HR = (Eheigh - Elow)/(Eheigh + Elow) Energy bands are deemed to special photometric filters
 
     \subsubsection{HRFrame.low}
       \textbf{vodml-id: stcextend.HRFrame.low} \newline
-      \textbf{type: \hyperref[sect:stcextend.STCFilter]{cabmsd:stcextend.STCFilter}} \newline
+      \textbf{type: \hyperref[sect:stcextend.PhotFilter]{cabmsd:stcextend.PhotFilter}} \newline
       \textbf{multiplicity: 1} \newline 
       Low energy band
 
     \subsubsection{HRFrame.high}
       \textbf{vodml-id: stcextend.HRFrame.high} \newline
-      \textbf{type: \hyperref[sect:stcextend.STCFilter]{cabmsd:stcextend.STCFilter}} \newline
+      \textbf{type: \hyperref[sect:stcextend.PhotFilter]{cabmsd:stcextend.PhotFilter}} \newline
       \textbf{multiplicity: 1} \newline 
       Heigh energy band
 
-  \subsection{STCFilter}
-  \label{sect:stcextend.STCFilter}
+  \subsection{HardnessRatio}
+  \label{sect:stcextend.HardnessRatio}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{HardnessRatio.coord}
+      \textbf{vodml-id: stcextend.HardnessRatio.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.HardnessRatioCoord]{cabmsd:stcextend.HardnessRatioCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{Luminosity}
+  \label{sect:stcextend.Luminosity}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{Luminosity.coord}
+      \textbf{vodml-id: stcextend.Luminosity.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.LuminosityCoord]{cabmsd:stcextend.LuminosityCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{ObjectType}
+  \label{sect:stcextend.ObjectType}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{ObjectType.coord}
+      \textbf{vodml-id: stcextend.ObjectType.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{cabmsd:stcextend.OrbitCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{ObjectTypeSys}
+  \label{sect:stcextend.ObjectTypeSys}
+    TODO : Missing description : please, update your UML model asap.
+
+  \subsection{Orbit}
+  \label{sect:stcextend.Orbit}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{Orbit.coord}
+      \textbf{vodml-id: stcextend.Orbit.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{cabmsd:stcextend.OrbitCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{PhotFilter}
+  \label{sect:stcextend.PhotFilter}
     Photometric filter description, compliant with photDM
 
-    \subsubsection{STCFilter.name}
-      \textbf{vodml-id: stcextend.STCFilter.name} \newline
+    \subsubsection{PhotFilter.name}
+      \textbf{vodml-id: stcextend.PhotFilter.name} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Filter name
 
-    \subsubsection{STCFilter.zeroPointFlux}
-      \textbf{vodml-id: stcextend.STCFilter.zeroPointFlux} \newline
+    \subsubsection{PhotFilter.zeroPointFlux}
+      \textbf{vodml-id: stcextend.PhotFilter.zeroPointFlux} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Zero point flux of the filter
 
-    \subsubsection{STCFilter.magnitudeSystem}
-      \textbf{vodml-id: stcextend.STCFilter.magnitudeSystem} \newline
+    \subsubsection{PhotFilter.magnitudeSystem}
+      \textbf{vodml-id: stcextend.PhotFilter.magnitudeSystem} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Magnitude system used by the filter
 
-    \subsubsection{STCFilter.effectiveWavelength}
-      \textbf{vodml-id: stcextend.STCFilter.effectiveWavelength} \newline
+    \subsubsection{PhotFilter.effectiveWavelength}
+      \textbf{vodml-id: stcextend.PhotFilter.effectiveWavelength} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Effective wavelength of the filter
 
-    \subsubsection{STCFilter.unit}
-      \textbf{vodml-id: stcextend.STCFilter.unit} \newline
+    \subsubsection{PhotFilter.unit}
+      \textbf{vodml-id: stcextend.PhotFilter.unit} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:Unit}} \newline
       \textbf{multiplicity: 1} \newline 
       Wavelength unit used for that filter
 
-    \subsubsection{STCFilter.bandWidth}
-      \textbf{vodml-id: stcextend.STCFilter.bandWidth} \newline
+    \subsubsection{PhotFilter.bandWidth}
+      \textbf{vodml-id: stcextend.PhotFilter.bandWidth} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Band width of the filter
 
-  \subsection{STCShape}
-  \label{sect:stcextend.STCShape}
+  \subsection{Redshift}
+  \label{sect:stcextend.Redshift}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{Redshift.coord}
+      \textbf{vodml-id: stcextend.Redshift.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.RedshiftCoord]{cabmsd:stcextend.RedshiftCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{RedshiftSys}
+  \label{sect:stcextend.RedshiftSys}
+    TODO : Missing description : please, update your UML model asap.
+
+  \subsection{Shape}
+  \label{sect:stcextend.Shape}
     Measure giving the shape of a source
 
-    \subsubsection{STCShape.shape}
-      \textbf{vodml-id: stcextend.STCShape.shape} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: } \newline
+    \indent   \textbf{type: <Enter constraint text here>} \newline
+
+
+    \subsubsection{Shape.coord}
+      \textbf{vodml-id: stcextend.Shape.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.ShapeCoord]{cabmsd:stcextend.ShapeCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       String serialization of the source shape
 
-  \subsection{STCShapeSys}
-  \label{sect:stcextend.STCShapeSys}
+  \subsection{ShapeSys}
+  \label{sect:stcextend.ShapeSys}
     Coordinate systen to be used for shape measure
 
-    \subsubsection{STCShapeSys.shapeFrame}
-      \textbf{vodml-id: stcextend.STCShapeSys.shapeFrame} \newline
+    \subsubsection{ShapeSys.shapeFrame}
+      \textbf{vodml-id: stcextend.ShapeSys.shapeFrame} \newline
       \textbf{type: \hyperref[sect:stcextend.ShapeFrame]{cabmsd:stcextend.ShapeFrame}} \newline
       \textbf{multiplicity: 1} \newline 
       Frame of the shape measure. Gives a enumeration of the supported serializations.
 
-  \subsection{STCSphericalSkyPosition}
-  \label{sect:stcextend.STCSphericalSkyPosition}
+  \subsection{SphericalSkyPosition}
+  \label{sect:stcextend.SphericalSkyPosition}
     Measure to used for sky points expressed with a spherical coordinate system
 
-    \subsubsection{STCSphericalSkyPosition.coord}
-      \textbf{vodml-id: stcextend.STCSphericalSkyPosition.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.STCSphericalPoint]{cabmsd:stcextend.STCSphericalPoint}} \newline
+    \subsubsection{SphericalSkyPosition.coord}
+      \textbf{vodml-id: stcextend.SphericalSkyPosition.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.SphericalPoint]{cabmsd:stcextend.SphericalPoint}} \newline
       \textbf{multiplicity: 1} \newline 
       Coordinate of spherical sky position
 
-  \subsection{STCStatus}
-  \label{sect:stcextend.STCStatus}
-    Measure to be used for status parameters
-
-    \subsubsection{STCStatus.coord}
-      \textbf{vodml-id: stcextend.STCStatus.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.STCStatusState]{cabmsd:stcextend.STCStatusState}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Coordinate holding the statsu value
-
-  \subsection{STCStatusSys}
-  \label{sect:stcextend.STCStatusSys}
-    Coordinate system to be used for statur measures.
-
-    \subsubsection{STCStatusSys.statusLabel}
-      \textbf{vodml-id: stcextend.STCStatusSys.statusLabel} \newline
-      \textbf{type: \hyperref[sect:stcextend.StatusLabel]{cabmsd:stcextend.StatusLabel}} \newline
-      \textbf{multiplicity: 0..*} \newline 
-      Composition loink to all possible status values for this system
-
-  \subsection{StatusLabel}
-  \label{sect:stcextend.StatusLabel}
-    Possible value of a status
-
-    \subsubsection{StatusLabel.value}
-      \textbf{vodml-id: stcextend.StatusLabel.value} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Status value
-
-    \subsubsection{StatusLabel.label}
-      \textbf{vodml-id: stcextend.StatusLabel.label} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Label attached to that status value
-
-  \subsection{STCSphericalPoint}
-  \label{sect:stcextend.STCSphericalPoint}
+  \subsection{SphericalPoint}
+  \label{sect:stcextend.SphericalPoint}
   Coordinate of a point on the sky sphere expressed in spherical coordinates.
 
-  \subsection{STCStatusState}
-  \label{sect:stcextend.STCStatusState}
+  \subsection{FlagCoord}
+  \label{sect:stcextend.FlagCoord}
   Coordinate of a status Measure
+
+  \subsection{ShapeCoord}
+  \label{sect:stcextend.ShapeCoord}
+  TODO : Missing description : please, update your UML model asap.
+
+  \subsection{OrbitCoord}
+  \label{sect:stcextend.OrbitCoord}
+  TODO : Missing description : please, update your UML model asap.
+
+  \subsection{ObjectTypeCoord}
+  \label{sect:stcextend.ObjectTypeCoord}
+  TODO : Missing description : please, update your UML model asap.
+
+  \subsection{LuminosityCoord}
+  \label{sect:stcextend.LuminosityCoord}
+  TODO : Missing description : please, update your UML model asap.
+
+  \subsection{HardnessRatioCoord}
+  \label{sect:stcextend.HardnessRatioCoord}
+  TODO : Missing description : please, update your UML model asap.
+
+  \subsection{RedshiftCoord}
+  \label{sect:stcextend.RedshiftCoord}
+  TODO : Missing description : please, update your UML model asap.
 
   \subsection{ShapeFrame}
   \label{sect:stcextend.ShapeFrame}
