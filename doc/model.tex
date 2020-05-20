@@ -4,13 +4,27 @@
 %
 %\ivoagroup{Data Model Working Group}
 
-%\title{}
+%\title{Mango}
 
 
+%\author{Laurent Michel}
+    
+%\author{François Bonnarel}
+    
+%\author{Gilles Landais}
+    
+%\author{Mireille Louys}
+    
+%\author{Marco Molinaro}
+    
+%\author{Jesue Salgado}
+    
+%\previousversion{0.0}
+      
 % -------------------------------------------
 
 \pagebreak
-\section{Model: cabmsd }
+\section{Model: mango }
   
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -28,7 +42,7 @@
 
     \subsubsection{AssociatedData.semantic}
       \textbf{vodml-id: AssociatedData.semantic} \newline
-      \textbf{type: \hyperref[sect:LinkSemantic]{cabmsd:LinkSemantic}} \newline
+      \textbf{type: \hyperref[sect:RDFWord]{mango:RDFWord}} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to a semantic concept giving the nature of the associated data. As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration.
 
@@ -38,13 +52,26 @@
       \textbf{multiplicity: 1} \newline 
       Type of the associated data (not defined yet)
 
-  \subsection{CabmsdInstance}
-  \label{sect:CabmsdInstance}
+  \subsection{LonLatCoordSys}
+  \label{sect:LonLatCoordSys}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: } \newline
+    \indent   \textbf{type: frame: coords:SpaceFrame} \newline
+
+
+    \noindent \textbf{constraint} \newline
+    \indent    \textbf{detail: LonLatCoordSys.coordSpace[0] }\newline
+
+
+  \subsection{MangoInstance}
+  \label{sect:MangoInstance}
     Reference to another CAB-MSD instance that is part of the associated data.
 
-    \subsubsection{CabmsdInstance.cadmsdInstance}
-      \textbf{vodml-id: CabmsdInstance.cadmsdInstance} \newline
-      \textbf{type: \hyperref[sect:Source]{cabmsd:Source}} \newline
+    \subsubsection{MangoInstance.mangoInstance}
+      \textbf{vodml-id: MangoInstance.mangoInstance} \newline
+      \textbf{type: \hyperref[sect:Source]{mango:Source}} \newline
       \textbf{multiplicity: 1} \newline 
       Composition link pointing on one cab\_msd instance associated with the source.
 
@@ -63,7 +90,7 @@
 
     \subsubsection{Parameter.semantic}
       \textbf{vodml-id: Parameter.semantic} \newline
-      \textbf{type: \hyperref[sect:ParamSemantic]{cabmsd:ParamSemantic}} \newline
+      \textbf{type: \hyperref[sect:RDFWord]{mango:RDFWord}} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to a semantic concept giving the nature of the parameter As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration.
 
@@ -91,15 +118,25 @@
 
     \subsubsection{Source.associatedData}
       \textbf{vodml-id: Source.associatedData} \newline
-      \textbf{type: \hyperref[sect:AssociatedData]{cabmsd:AssociatedData}} \newline
+      \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
       \textbf{multiplicity: 0..*} \newline 
       Composition link pointing on all data associated with the source.
 
     \subsubsection{Source.parameters}
       \textbf{vodml-id: Source.parameters} \newline
-      \textbf{type: \hyperref[sect:Parameter]{cabmsd:Parameter}} \newline
+      \textbf{type: \hyperref[sect:Parameter]{mango:Parameter}} \newline
       \textbf{multiplicity: 0..*} \newline 
       Composition link pointing on all parameters attached to the source.
+
+  \subsection{Temperature}
+  \label{sect:Temperature}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{Temperature.coord}
+      \textbf{vodml-id: Temperature.coord} \newline
+      \textbf{type: } \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{VOModelInstance}
   \label{sect:VOModelInstance}
@@ -131,7 +168,7 @@
 
     \subsubsection{VOModelInstance.modelInstance}
       \textbf{vodml-id: VOModelInstance.modelInstance} \newline
-      \textbf{type: \hyperref[sect:ModelInstance]{cabmsd:ModelInstance}} \newline
+      \textbf{type: \hyperref[sect:ModelInstance]{mango:ModelInstance}} \newline
       \textbf{multiplicity: 1} \newline 
       Composition link pointing on one VO instance instance associated with the source.
 
@@ -160,6 +197,10 @@
       \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
       \textbf{multiplicity: 1} \newline 
       Web endpoint
+
+  \subsection{RDFWord}
+  \label{sect:RDFWord}
+  Datatype for vocabulary word. Provides a pointer to the word description and a label.
 
   \subsection{LinkSemantic}
   \label{sect:LinkSemantic}
@@ -192,7 +233,7 @@
   \subsection{ParamSemantic}
   \label{sect:ParamSemantic}
 
-  Literal enumeration of the possible values for the parameter semantic. This stands for an example beforewe have defined a vocabulary.
+  Literal enumeration of the possible values for the parameter semantic. This stands for an example before we have defined a vocabulary.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -232,7 +273,7 @@
 
     \subsubsection{Flag.coord}
       \textbf{vodml-id: stcextend.Flag.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.FlagCoord]{cabmsd:stcextend.FlagCoord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.FlagCoord]{mango:stcextend.FlagCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       Coordinate holding the statsu value
 
@@ -258,7 +299,7 @@
 
     \subsubsection{FlagSys.statusLabel}
       \textbf{vodml-id: stcextend.FlagSys.statusLabel} \newline
-      \textbf{type: \hyperref[sect:stcextend.FlagState]{cabmsd:stcextend.FlagState}} \newline
+      \textbf{type: \hyperref[sect:stcextend.FlagState]{mango:stcextend.FlagState}} \newline
       \textbf{multiplicity: 0..*} \newline 
       Composition loink to all possible status values for this system
 
@@ -268,13 +309,13 @@
 
     \subsubsection{HRFrame.low}
       \textbf{vodml-id: stcextend.HRFrame.low} \newline
-      \textbf{type: \hyperref[sect:stcextend.PhotFilter]{cabmsd:stcextend.PhotFilter}} \newline
+      \textbf{type: \hyperref[sect:stcextend.PhotFilter]{mango:stcextend.PhotFilter}} \newline
       \textbf{multiplicity: 1} \newline 
       Low energy band
 
     \subsubsection{HRFrame.high}
       \textbf{vodml-id: stcextend.HRFrame.high} \newline
-      \textbf{type: \hyperref[sect:stcextend.PhotFilter]{cabmsd:stcextend.PhotFilter}} \newline
+      \textbf{type: \hyperref[sect:stcextend.PhotFilter]{mango:stcextend.PhotFilter}} \newline
       \textbf{multiplicity: 1} \newline 
       Heigh energy band
 
@@ -284,19 +325,19 @@
 
     \subsubsection{HardnessRatio.coord}
       \textbf{vodml-id: stcextend.HardnessRatio.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.HardnessRatioCoord]{cabmsd:stcextend.HardnessRatioCoord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.HardnessRatioCoord]{mango:stcextend.HardnessRatioCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
-  \subsection{Luminosity}
-  \label{sect:stcextend.Luminosity}
-    TODO : Missing description : please, update your UML model asap.
+  \subsection{LonLatSkyPosition}
+  \label{sect:stcextend.LonLatSkyPosition}
+    Measure to used for sky points expressed with a spherical coordinate system
 
-    \subsubsection{Luminosity.coord}
-      \textbf{vodml-id: stcextend.Luminosity.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.LuminosityCoord]{cabmsd:stcextend.LuminosityCoord}} \newline
+    \subsubsection{LonLatSkyPosition.coord}
+      \textbf{vodml-id: stcextend.LonLatSkyPosition.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.LonLatPoint]{mango:stcextend.LonLatPoint}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Coordinate of spherical sky position
 
   \subsection{ObjectType}
   \label{sect:stcextend.ObjectType}
@@ -304,7 +345,7 @@
 
     \subsubsection{ObjectType.coord}
       \textbf{vodml-id: stcextend.ObjectType.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{cabmsd:stcextend.OrbitCoord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{mango:stcextend.OrbitCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
@@ -318,7 +359,7 @@
 
     \subsubsection{Orbit.coord}
       \textbf{vodml-id: stcextend.Orbit.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{cabmsd:stcextend.OrbitCoord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{mango:stcextend.OrbitCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
@@ -362,13 +403,23 @@
       \textbf{multiplicity: 1} \newline 
       Band width of the filter
 
+  \subsection{Photometry}
+  \label{sect:stcextend.Photometry}
+    TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{Photometry.coord}
+      \textbf{vodml-id: stcextend.Photometry.coord} \newline
+      \textbf{type: \hyperref[sect:stcextend.PhotometryCoord]{mango:stcextend.PhotometryCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{Redshift}
   \label{sect:stcextend.Redshift}
     TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Redshift.coord}
       \textbf{vodml-id: stcextend.Redshift.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.RedshiftCoord]{cabmsd:stcextend.RedshiftCoord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.RedshiftCoord]{mango:stcextend.RedshiftCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
@@ -387,7 +438,7 @@
 
     \subsubsection{Shape.coord}
       \textbf{vodml-id: stcextend.Shape.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.ShapeCoord]{cabmsd:stcextend.ShapeCoord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.ShapeCoord]{mango:stcextend.ShapeCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       String serialization of the source shape
 
@@ -397,22 +448,12 @@
 
     \subsubsection{ShapeSys.shapeFrame}
       \textbf{vodml-id: stcextend.ShapeSys.shapeFrame} \newline
-      \textbf{type: \hyperref[sect:stcextend.ShapeFrame]{cabmsd:stcextend.ShapeFrame}} \newline
+      \textbf{type: \hyperref[sect:stcextend.ShapeFrame]{mango:stcextend.ShapeFrame}} \newline
       \textbf{multiplicity: 1} \newline 
       Frame of the shape measure. Gives a enumeration of the supported serializations.
 
-  \subsection{SphericalSkyPosition}
-  \label{sect:stcextend.SphericalSkyPosition}
-    Measure to used for sky points expressed with a spherical coordinate system
-
-    \subsubsection{SphericalSkyPosition.coord}
-      \textbf{vodml-id: stcextend.SphericalSkyPosition.coord} \newline
-      \textbf{type: \hyperref[sect:stcextend.SphericalPoint]{cabmsd:stcextend.SphericalPoint}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Coordinate of spherical sky position
-
-  \subsection{SphericalPoint}
-  \label{sect:stcextend.SphericalPoint}
+  \subsection{LonLatPoint}
+  \label{sect:stcextend.LonLatPoint}
   Coordinate of a point on the sky sphere expressed in spherical coordinates.
 
   \subsection{FlagCoord}
@@ -431,8 +472,8 @@
   \label{sect:stcextend.ObjectTypeCoord}
   TODO : Missing description : please, update your UML model asap.
 
-  \subsection{LuminosityCoord}
-  \label{sect:stcextend.LuminosityCoord}
+  \subsection{PhotometryCoord}
+  \label{sect:stcextend.PhotometryCoord}
   TODO : Missing description : please, update your UML model asap.
 
   \subsection{HardnessRatioCoord}

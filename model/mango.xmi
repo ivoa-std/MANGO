@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IVOA_UML_Profile="http:///schemas/IVOA_UML_Profile/_hh7TsJqlEeqrNchmaLvlWw/0" xmlns:default="http:///schemas/default/_hiFEsJqlEeqrNchmaLvlWw/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:version="2.1" xsi:schemaLocation="http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 http:///schemas/IVOA_UML_Profile/_hh7TsJqlEeqrNchmaLvlWw/0 IVOA_UML_Profile.profile.xmi#_hiHg95qlEeqrNchmaLvlWw http:///schemas/default/_hiFEsJqlEeqrNchmaLvlWw/0 default.profile.xmi#_hi_qsJqlEeqrNchmaLvlWw">
+  <uml:Model xmi:id="_hh43cJqlEeqrNchmaLvlWw" name="mango">
+    <eAnnotations xmi:id="_hh43cZqlEeqrNchmaLvlWw" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_hh43cpqlEeqrNchmaLvlWw" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_hh43c5qlEeqrNchmaLvlWw" value="3.0.0"/>
+      </contents>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_hh43dJqlEeqrNchmaLvlWw">
+      <body>Data model based oon components and data association for source data</body>
+    </ownedComment>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43dZqlEeqrNchmaLvlWw" constrainedElement="_hh4395qlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43dpqlEeqrNchmaLvlWw" value="One association at the time&#10;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43d5qlEeqrNchmaLvlWw" constrainedElement="_hh44K5qlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43eJqlEeqrNchmaLvlWw" value="&lt;Enter constraint text here&gt;"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43eZqlEeqrNchmaLvlWw" constrainedElement="_hh44RJqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43epqlEeqrNchmaLvlWw" value="coordSys: LonLatCoordSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43e5qlEeqrNchmaLvlWw" constrainedElement="_hh5ehpqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43fJqlEeqrNchmaLvlWw" value="coordSys: FlagSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43fZqlEeqrNchmaLvlWw" constrainedElement="_hh5eppqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43fpqlEeqrNchmaLvlWw" value="coordSys:ShapeSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43f5qlEeqrNchmaLvlWw" constrainedElement="_hh5eqZqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43gJqlEeqrNchmaLvlWw" value="coordSys: coords:SpaceSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43gZqlEeqrNchmaLvlWw" constrainedElement="_hh5eq5qlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43gpqlEeqrNchmaLvlWw" value="coordSys: ObjectTypeSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43g5qlEeqrNchmaLvlWw" constrainedElement="_hh5erpqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43hJqlEeqrNchmaLvlWw" value="coordFrame: PhotFilter"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43hZqlEeqrNchmaLvlWw" constrainedElement="_hh5esZqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43hpqlEeqrNchmaLvlWw" value="coordFrame: HRFrame&#10;coordSys: coords:GenericSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43h5qlEeqrNchmaLvlWw" constrainedElement="_hh5etJqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43iJqlEeqrNchmaLvlWw" value="coordSys: RedshiftSys"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43iZqlEeqrNchmaLvlWw" constrainedElement="_hh5exJqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43ipqlEeqrNchmaLvlWw" value="coordSpace[0]"/>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_hh43i5qlEeqrNchmaLvlWw" constrainedElement="_hh5exJqlEeqrNchmaLvlWw">
+      <specification xmi:type="uml:LiteralString" xmi:id="_hh43jJqlEeqrNchmaLvlWw" value="frame: coords:SpaceFrame"/>
+    </ownedRule>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hh43jZqlEeqrNchmaLvlWw" name="ivoa">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43jpqlEeqrNchmaLvlWw" name="real"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43j5qlEeqrNchmaLvlWw" name="datetime"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43kJqlEeqrNchmaLvlWw" name="anyURI">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh43kZqlEeqrNchmaLvlWw" general="_hh43kpqlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43kpqlEeqrNchmaLvlWw" name="string"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43k5qlEeqrNchmaLvlWw" name="nonnegativeInteger"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43lJqlEeqrNchmaLvlWw" name="boolean"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43lZqlEeqrNchmaLvlWw" name="integer"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43lpqlEeqrNchmaLvlWw" name="rational"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43l5qlEeqrNchmaLvlWw" name="complex"/>
+      <packagedElement xmi:type="uml:InformationItem" xmi:id="_hh43mJqlEeqrNchmaLvlWw" name="IVOA Base Types V1.0 (2016)"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43mZqlEeqrNchmaLvlWw" name="Unit">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh43mpqlEeqrNchmaLvlWw" general="_hh43kpqlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_hh43m5qlEeqrNchmaLvlWw" name="Quantity" isAbstract="true">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43nJqlEeqrNchmaLvlWw" name="unit" visibility="public" type="_hh43mZqlEeqrNchmaLvlWw" isUnique="false">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hh43nZqlEeqrNchmaLvlWw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_hh43npqlEeqrNchmaLvlWw" name="IntegerQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh43n5qlEeqrNchmaLvlWw" general="_hh43m5qlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43oJqlEeqrNchmaLvlWw" name="value" visibility="public" type="_hh43lZqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_hh43oZqlEeqrNchmaLvlWw" name="RealQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh43opqlEeqrNchmaLvlWw" general="_hh43m5qlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43o5qlEeqrNchmaLvlWw" name="value" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationItem" xmi:id="_hh43pJqlEeqrNchmaLvlWw" name="Template Model V1.0 (2018)"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hh43pZqlEeqrNchmaLvlWw" name="meas">
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh43ppqlEeqrNchmaLvlWw" name="Measure"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hh43p5qlEeqrNchmaLvlWw" memberEnd="_hh43-ZqlEeqrNchmaLvlWw _hh43qJqlEeqrNchmaLvlWw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hh43qJqlEeqrNchmaLvlWw" visibility="public" type="_hh4395qlEeqrNchmaLvlWw" association="_hh43p5qlEeqrNchmaLvlWw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hh43qZqlEeqrNchmaLvlWw" name="coords">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh43qpqlEeqrNchmaLvlWw" name="Coordinate"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh43q5qlEeqrNchmaLvlWw" name="CoordSys"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh43rJqlEeqrNchmaLvlWw" name="CoordFrame"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh43rZqlEeqrNchmaLvlWw" name="Source">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh43rpqlEeqrNchmaLvlWw">
+        <body>Root class of the model. CAB_MSF instance are meant ot be Source instances.
+A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43r5qlEeqrNchmaLvlWw" name="associatedData" visibility="public" type="_hh43zZqlEeqrNchmaLvlWw" aggregation="composite" association="_hh43uZqlEeqrNchmaLvlWw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43sJqlEeqrNchmaLvlWw">
+          <body>Composition link pointing on all data associated with the source.</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hh43sZqlEeqrNchmaLvlWw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hh43spqlEeqrNchmaLvlWw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43s5qlEeqrNchmaLvlWw" name="parameters" visibility="public" type="_hh4395qlEeqrNchmaLvlWw" aggregation="composite" association="_hh43u5qlEeqrNchmaLvlWw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43tJqlEeqrNchmaLvlWw">
+          <body>Composition link pointing on all parameters attached to the source.</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hh43tZqlEeqrNchmaLvlWw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hh43tpqlEeqrNchmaLvlWw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43t5qlEeqrNchmaLvlWw" name="identifier" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43uJqlEeqrNchmaLvlWw">
+          <body>Unique identifier for a Source.
+The uniqness of that identifier is not managed by the model.
+The format is free.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hh43uZqlEeqrNchmaLvlWw" memberEnd="_hh43r5qlEeqrNchmaLvlWw _hh43upqlEeqrNchmaLvlWw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hh43upqlEeqrNchmaLvlWw" visibility="public" type="_hh43rZqlEeqrNchmaLvlWw" association="_hh43uZqlEeqrNchmaLvlWw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hh43u5qlEeqrNchmaLvlWw" memberEnd="_hh43s5qlEeqrNchmaLvlWw _hh43vJqlEeqrNchmaLvlWw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hh43vJqlEeqrNchmaLvlWw" visibility="public" type="_hh43rZqlEeqrNchmaLvlWw" association="_hh43u5qlEeqrNchmaLvlWw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_hh43vZqlEeqrNchmaLvlWw" name="LinkSemantic">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh43vpqlEeqrNchmaLvlWw">
+        <body>Literal enumeration of the possible values for the associated data semantic.
+This stands for an example before we have defined a vocabulary.</body>
+      </ownedComment>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43v5qlEeqrNchmaLvlWw" name="VOService">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43wJqlEeqrNchmaLvlWw">
+          <body>Data returned by a VO service</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43wZqlEeqrNchmaLvlWw" name="VOInstance">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43wpqlEeqrNchmaLvlWw">
+          <body>Data Serialized in a VO model</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43w5qlEeqrNchmaLvlWw" name="Preview">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43xJqlEeqrNchmaLvlWw">
+          <body>data preview</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43xZqlEeqrNchmaLvlWw" name="DownloadLink">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43xpqlEeqrNchmaLvlWw">
+          <body>Data download link</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43x5qlEeqrNchmaLvlWw" name="Detection">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43yJqlEeqrNchmaLvlWw">
+          <body>Particular detection</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43yZqlEeqrNchmaLvlWw" name="Compagnon">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43ypqlEeqrNchmaLvlWw">
+          <body>Compagnon source</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh43y5qlEeqrNchmaLvlWw" name="Counterpart">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43zJqlEeqrNchmaLvlWw">
+          <body>Counter part source</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh43zZqlEeqrNchmaLvlWw" name="AssociatedData" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh43zpqlEeqrNchmaLvlWw">
+        <body>Abstract reference to a particular dataset associated to the Source.
+This class is used to specify the type of the dataset as well as its role.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43z5qlEeqrNchmaLvlWw" name="semantic" visibility="public" type="_hh5evpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh430JqlEeqrNchmaLvlWw">
+          <body>Reference to a semantic concept giving the nature of the associated data.
+As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh430ZqlEeqrNchmaLvlWw" name="dataType" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh430pqlEeqrNchmaLvlWw">
+          <body>Type of the associated data (not defined yet)</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh4305qlEeqrNchmaLvlWw" name="WebEndpoint">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh431JqlEeqrNchmaLvlWw">
+        <body>Class for associated data referenced by an URL</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hh431ZqlEeqrNchmaLvlWw" general="_hh43zZqlEeqrNchmaLvlWw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh431pqlEeqrNchmaLvlWw" name="ContentType" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh4315qlEeqrNchmaLvlWw">
+          <body>Mime type of the URL
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh432JqlEeqrNchmaLvlWw" name="url" visibility="public" type="_hh43kJqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh432ZqlEeqrNchmaLvlWw">
+          <body>Web endpoint</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh432pqlEeqrNchmaLvlWw" name="VOService">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh4325qlEeqrNchmaLvlWw">
+        <body>Class for associated data referenced by an URL that is a VO service</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hh433JqlEeqrNchmaLvlWw" general="_hh4305qlEeqrNchmaLvlWw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh433ZqlEeqrNchmaLvlWw" name="ivoid" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh433pqlEeqrNchmaLvlWw">
+          <body>IVOA id attached to the URI</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh4335qlEeqrNchmaLvlWw" name="VOModelInstance">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh434JqlEeqrNchmaLvlWw">
+        <body>Reference to a VO model instance that is part of the associated data.</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hh434ZqlEeqrNchmaLvlWw" general="_hh43zZqlEeqrNchmaLvlWw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh434pqlEeqrNchmaLvlWw" name="modelInstance" visibility="public" type="_hh437pqlEeqrNchmaLvlWw" aggregation="composite" association="_hh437JqlEeqrNchmaLvlWw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh4345qlEeqrNchmaLvlWw">
+          <body>Composition link pointing on one VO instance instance associated with the source.</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh435JqlEeqrNchmaLvlWw" name="ivoid" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh435ZqlEeqrNchmaLvlWw">
+          <body>VO-DML id of the referenced model
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh435pqlEeqrNchmaLvlWw" name="modelUrl" visibility="public" type="_hh43kJqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh4355qlEeqrNchmaLvlWw">
+          <body>URL on the VO-DML model</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh436JqlEeqrNchmaLvlWw" name="modelName" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh436ZqlEeqrNchmaLvlWw">
+          <body>Name of the referenced model</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh436pqlEeqrNchmaLvlWw" name="modelDoc" visibility="public" type="_hh43kJqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh4365qlEeqrNchmaLvlWw">
+          <body>Documentation URL of the model</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hh437JqlEeqrNchmaLvlWw" memberEnd="_hh434pqlEeqrNchmaLvlWw _hh437ZqlEeqrNchmaLvlWw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hh437ZqlEeqrNchmaLvlWw" visibility="public" type="_hh4335qlEeqrNchmaLvlWw" association="_hh437JqlEeqrNchmaLvlWw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh437pqlEeqrNchmaLvlWw" name="ModelInstance">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh4375qlEeqrNchmaLvlWw">
+        <body>Placeholder for the mapping of the model instance
+ </body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh438JqlEeqrNchmaLvlWw" name="MangoInstance">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh438ZqlEeqrNchmaLvlWw">
+        <body>Reference to another CAB-MSD instance that is part of the associated data.</body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hh438pqlEeqrNchmaLvlWw" general="_hh43zZqlEeqrNchmaLvlWw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh4385qlEeqrNchmaLvlWw" name="mangoInstance" visibility="public" type="_hh43rZqlEeqrNchmaLvlWw" aggregation="composite" association="_hh439ZqlEeqrNchmaLvlWw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh439JqlEeqrNchmaLvlWw">
+          <body>Composition link pointing on one cab_msd instance associated with the source.</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hh439ZqlEeqrNchmaLvlWw" memberEnd="_hh4385qlEeqrNchmaLvlWw _hh439pqlEeqrNchmaLvlWw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hh439pqlEeqrNchmaLvlWw" visibility="public" type="_hh438JqlEeqrNchmaLvlWw" association="_hh439ZqlEeqrNchmaLvlWw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh4395qlEeqrNchmaLvlWw" name="Parameter">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh43-JqlEeqrNchmaLvlWw">
+        <body>Reference to a particular measure of the Source.
+This class is used to specify the type of the measure as well as its role.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43-ZqlEeqrNchmaLvlWw" name="measure" visibility="public" type="_hh43ppqlEeqrNchmaLvlWw" aggregation="composite" association="_hh43p5qlEeqrNchmaLvlWw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43-pqlEeqrNchmaLvlWw">
+          <body>Composition link pointing to the meas:Measure instance</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43-5qlEeqrNchmaLvlWw" name="semantic" visibility="public" type="_hh5evpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43_JqlEeqrNchmaLvlWw">
+          <body>Reference to a semantic concept giving the nature of the parameter
+As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh43_ZqlEeqrNchmaLvlWw" name="ucd" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh43_pqlEeqrNchmaLvlWw">
+          <body>UCD1+ giving the type of the physical measure</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_hh43_5qlEeqrNchmaLvlWw" name="ParamSemantic">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh44AJqlEeqrNchmaLvlWw">
+        <body>Literal enumeration of the possible values for the parameter semantic.
+This stands for an example before we have defined a vocabulary.</body>
+      </ownedComment>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh44AZqlEeqrNchmaLvlWw" name="Main">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44ApqlEeqrNchmaLvlWw">
+          <body>Main measurment</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh44A5qlEeqrNchmaLvlWw" name="Computed">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44BJqlEeqrNchmaLvlWw">
+          <body>Computed measurement</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh44BZqlEeqrNchmaLvlWw" name="Native">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44BpqlEeqrNchmaLvlWw">
+          <body>Mative measurement</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh44B5qlEeqrNchmaLvlWw" name="Raw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44CJqlEeqrNchmaLvlWw">
+          <body>raw measure</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh44CZqlEeqrNchmaLvlWw" name="Corrected">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44CpqlEeqrNchmaLvlWw">
+          <body>Corrected measure</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hh44C5qlEeqrNchmaLvlWw" name="stcextend">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh44DJqlEeqrNchmaLvlWw">
+        <body>This package contains all object and type classes that has been extended from the Measure and Coordinates models.
+This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
+</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44DZqlEeqrNchmaLvlWw" name="HRFrame">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44DpqlEeqrNchmaLvlWw">
+          <body>Hardness ratio frame.
+Defined by 2 energy bands Eheigh ELow.
+HR = (Eheigh - Elow)/(Eheigh + Elow)
+Energy bands are deemed to special photometric filters</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44D5qlEeqrNchmaLvlWw" general="_hh43rJqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44EJqlEeqrNchmaLvlWw" name="low" visibility="public" type="_hh44NZqlEeqrNchmaLvlWw" association="_hh44FJqlEeqrNchmaLvlWw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44EZqlEeqrNchmaLvlWw">
+            <body>Low energy band</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44EpqlEeqrNchmaLvlWw" name="high" visibility="public" type="_hh44NZqlEeqrNchmaLvlWw" association="_hh44FpqlEeqrNchmaLvlWw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44E5qlEeqrNchmaLvlWw">
+            <body>Heigh energy band</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hh44FJqlEeqrNchmaLvlWw" memberEnd="_hh44EJqlEeqrNchmaLvlWw _hh44FZqlEeqrNchmaLvlWw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hh44FZqlEeqrNchmaLvlWw" visibility="public" type="_hh44DZqlEeqrNchmaLvlWw" association="_hh44FJqlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hh44FpqlEeqrNchmaLvlWw" memberEnd="_hh44EpqlEeqrNchmaLvlWw _hh44F5qlEeqrNchmaLvlWw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hh44F5qlEeqrNchmaLvlWw" visibility="public" type="_hh44DZqlEeqrNchmaLvlWw" association="_hh44FpqlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44GJqlEeqrNchmaLvlWw" name="LonLatSkyPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44GZqlEeqrNchmaLvlWw">
+          <body>Measure to used for sky points expressed with a spherical coordinate system</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44GpqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44G5qlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh44RJqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44HJqlEeqrNchmaLvlWw">
+            <body>Coordinate of spherical sky position</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44HZqlEeqrNchmaLvlWw" name="Flag">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44HpqlEeqrNchmaLvlWw">
+          <body>Measure to be used for status parameters</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44H5qlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44IJqlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5ehpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44IZqlEeqrNchmaLvlWw">
+            <body>Coordinate holding the statsu value</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44IpqlEeqrNchmaLvlWw" name="FlagSys">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44I5qlEeqrNchmaLvlWw">
+          <body>Coordinate system to be used for statur measures.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44JJqlEeqrNchmaLvlWw" general="_hh43q5qlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44JZqlEeqrNchmaLvlWw" name="statusLabel" visibility="public" type="_hh5ei5qlEeqrNchmaLvlWw" aggregation="composite" association="_hh44KZqlEeqrNchmaLvlWw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44JpqlEeqrNchmaLvlWw">
+            <body>Composition loink to all possible status values for this system</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hh44J5qlEeqrNchmaLvlWw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hh44KJqlEeqrNchmaLvlWw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hh44KZqlEeqrNchmaLvlWw" memberEnd="_hh44JZqlEeqrNchmaLvlWw _hh44KpqlEeqrNchmaLvlWw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hh44KpqlEeqrNchmaLvlWw" visibility="public" type="_hh44IpqlEeqrNchmaLvlWw" association="_hh44KZqlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44K5qlEeqrNchmaLvlWw" name="Shape">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44LJqlEeqrNchmaLvlWw">
+          <body>Measure giving the shape of a source</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44LZqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44LpqlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5eppqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44L5qlEeqrNchmaLvlWw">
+            <body>String serialization of the source shape</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44MJqlEeqrNchmaLvlWw" name="ShapeSys">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44MZqlEeqrNchmaLvlWw">
+          <body>Coordinate systen to be used for shape measure</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44MpqlEeqrNchmaLvlWw" general="_hh43q5qlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44M5qlEeqrNchmaLvlWw" name="shapeFrame" visibility="public" type="_hh5ekZqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44NJqlEeqrNchmaLvlWw">
+            <body>Frame of the shape measure. Gives a enumeration of the supported serializations.</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh44NZqlEeqrNchmaLvlWw" name="PhotFilter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh44NpqlEeqrNchmaLvlWw">
+          <body>Photometric filter description, compliant with photDM</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh44N5qlEeqrNchmaLvlWw" general="_hh43rJqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44OJqlEeqrNchmaLvlWw" name="name" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44OZqlEeqrNchmaLvlWw">
+            <body>Filter name</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44OpqlEeqrNchmaLvlWw" name="zeroPointFlux" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44O5qlEeqrNchmaLvlWw">
+            <body>Zero point flux of the filter</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44PJqlEeqrNchmaLvlWw" name="magnitudeSystem" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44PZqlEeqrNchmaLvlWw">
+            <body>Magnitude system used by the filter</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44PpqlEeqrNchmaLvlWw" name="effectiveWavelength" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44P5qlEeqrNchmaLvlWw">
+            <body>Effective wavelength of the filter</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44QJqlEeqrNchmaLvlWw" name="unit" visibility="public" type="_hh43mZqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44QZqlEeqrNchmaLvlWw">
+            <body>Wavelength unit used for that filter</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh44QpqlEeqrNchmaLvlWw" name="bandWidth" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh44Q5qlEeqrNchmaLvlWw">
+            <body>Band width of the filter</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh44RJqlEeqrNchmaLvlWw" name="LonLatPoint" isLeaf="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh5egJqlEeqrNchmaLvlWw">
+          <body>Coordinate of a point on the sky sphere expressed in spherical coordinates.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5egZqlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5egpqlEeqrNchmaLvlWw" name="longitude" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5eg5qlEeqrNchmaLvlWw">
+            <body>longitude of the point
+</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5ehJqlEeqrNchmaLvlWw" name="latitude" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ehZqlEeqrNchmaLvlWw">
+            <body>Latitude of the point</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5ehpqlEeqrNchmaLvlWw" name="FlagCoord" isLeaf="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh5eh5qlEeqrNchmaLvlWw">
+          <body>Coordinate of a status Measure</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5eiJqlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5eiZqlEeqrNchmaLvlWw" name="status" visibility="public" type="_hh43lZqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5eipqlEeqrNchmaLvlWw">
+            <body>Value of the status</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_hh5ei5qlEeqrNchmaLvlWw" name="FlagState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ejJqlEeqrNchmaLvlWw">
+          <body>Possible value of a status</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5ejZqlEeqrNchmaLvlWw" name="value" visibility="public" type="_hh43lZqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ejpqlEeqrNchmaLvlWw">
+            <body>Status value</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5ej5qlEeqrNchmaLvlWw" name="label" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ekJqlEeqrNchmaLvlWw">
+            <body>Label attached to that status value
+
+</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_hh5ekZqlEeqrNchmaLvlWw" name="ShapeFrame">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ekpqlEeqrNchmaLvlWw">
+          <body>Enumeration of the possible options to encode a shape in  a string.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh5ek5qlEeqrNchmaLvlWw" name="MOC">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5elJqlEeqrNchmaLvlWw">
+            <body>MOC serialization</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hh5elZqlEeqrNchmaLvlWw" name="STCs">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hh5elpqlEeqrNchmaLvlWw">
+            <body>STCs serialization</body>
+          </ownedComment>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5el5qlEeqrNchmaLvlWw" name="Photometry">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5emJqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5emZqlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5erpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5empqlEeqrNchmaLvlWw" name="HardnessRatio">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5em5qlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5enJqlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5esZqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5enZqlEeqrNchmaLvlWw" name="Redshift">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5enpqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5en5qlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5etJqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5eoJqlEeqrNchmaLvlWw" name="ObjectType">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5eoZqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5eopqlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5eqZqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5eo5qlEeqrNchmaLvlWw" name="Orbit">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5epJqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5epZqlEeqrNchmaLvlWw" name="coord" visibility="public" type="_hh5eqZqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5eppqlEeqrNchmaLvlWw" name="ShapeCoord">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5ep5qlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5eqJqlEeqrNchmaLvlWw" name="shape" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5eqZqlEeqrNchmaLvlWw" name="OrbitCoord">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5eqpqlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5eq5qlEeqrNchmaLvlWw" name="ObjectTypeCoord">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5erJqlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5erZqlEeqrNchmaLvlWw" name="objectType" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5erpqlEeqrNchmaLvlWw" name="PhotometryCoord">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5er5qlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5esJqlEeqrNchmaLvlWw" name="luminosity" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5esZqlEeqrNchmaLvlWw" name="HardnessRatioCoord">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5espqlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5es5qlEeqrNchmaLvlWw" name="hardnessRatio" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5etJqlEeqrNchmaLvlWw" name="RedshiftCoord">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5etZqlEeqrNchmaLvlWw" general="_hh43qpqlEeqrNchmaLvlWw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5etpqlEeqrNchmaLvlWw" name="redshift" visibility="public" type="_hh43jpqlEeqrNchmaLvlWw" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5et5qlEeqrNchmaLvlWw" name="RedshiftSys">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5euJqlEeqrNchmaLvlWw" general="_hh43q5qlEeqrNchmaLvlWw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hh5euZqlEeqrNchmaLvlWw" name="ObjectTypeSys">
+        <generalization xmi:type="uml:Generalization" xmi:id="_hh5eupqlEeqrNchmaLvlWw" general="_hh43q5qlEeqrNchmaLvlWw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh5eu5qlEeqrNchmaLvlWw" name="Temperature">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hh5evJqlEeqrNchmaLvlWw" general="_hh43ppqlEeqrNchmaLvlWw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5evZqlEeqrNchmaLvlWw" name="coord" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hh5evpqlEeqrNchmaLvlWw" name="RDFWord">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ev5qlEeqrNchmaLvlWw">
+        <body>Datatype  for vocabulary word. Provides a pointer to the word description and a label.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5ewJqlEeqrNchmaLvlWw" name="rdf_uri" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ewZqlEeqrNchmaLvlWw">
+          <body>URI extarcted from the DRF document and refering ot the word
+
+</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hh5ewpqlEeqrNchmaLvlWw" name="label" visibility="public" type="_hh43kpqlEeqrNchmaLvlWw" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hh5ew5qlEeqrNchmaLvlWw">
+          <body>RDF label. Matched the URL fragment for IVOA vocabularies
+
+</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hh5exJqlEeqrNchmaLvlWw" name="LonLatCoordSys">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hh5exZqlEeqrNchmaLvlWw" general="_hh43q5qlEeqrNchmaLvlWw"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_hh43cJqlEeqrNchmaLvlWw" xmi:id="_hkkYAJqlEeqrNchmaLvlWw">
+      <eAnnotations xmi:id="_hkkYAZqlEeqrNchmaLvlWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_hiHg95qlEeqrNchmaLvlWw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_hkkYAJqlEeqrNchmaLvlWw" href="IVOA_UML_Profile.profile.xmi#_hiHg8JqlEeqrNchmaLvlWw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_hh43cJqlEeqrNchmaLvlWw" xmi:id="_hkm0QJqlEeqrNchmaLvlWw">
+      <eAnnotations xmi:id="_hknbUJqlEeqrNchmaLvlWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.xmi#_hi_qsJqlEeqrNchmaLvlWw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_hkm0QJqlEeqrNchmaLvlWw" href="default.profile.xmi#_hi_DoJqlEeqrNchmaLvlWw"/>
+    </profileApplication>
+  </uml:Model>
+  <IVOA_UML_Profile:model xmi:id="_hkp3kJqlEeqrNchmaLvlWw" base_Package="_hh43cJqlEeqrNchmaLvlWw" title="Mango" version="1.0" authors="Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado" previousVersion="0.0"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_hkqeoJqlEeqrNchmaLvlWw" base_Package="_hh43jZqlEeqrNchmaLvlWw" name="ivoa" version="1.0" url="http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" documentationURL="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkrFsJqlEeqrNchmaLvlWw" base_DataType="_hh43jpqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43jpqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkrFsZqlEeqrNchmaLvlWw" base_NamedElement="_hh43jpqlEeqrNchmaLvlWw" vodmlid="real"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkrFspqlEeqrNchmaLvlWw" base_DataType="_hh43j5qlEeqrNchmaLvlWw" base_PrimitiveType="_hh43j5qlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkrFs5qlEeqrNchmaLvlWw" base_NamedElement="_hh43j5qlEeqrNchmaLvlWw" vodmlid="datetime"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkrswJqlEeqrNchmaLvlWw" base_DataType="_hh43kJqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43kJqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkrswZqlEeqrNchmaLvlWw" base_NamedElement="_hh43kJqlEeqrNchmaLvlWw" vodmlid="anyURI"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkrswpqlEeqrNchmaLvlWw" base_DataType="_hh43kpqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43kpqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hksT0JqlEeqrNchmaLvlWw" base_NamedElement="_hh43kpqlEeqrNchmaLvlWw" vodmlid="string"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hks64JqlEeqrNchmaLvlWw" base_DataType="_hh43k5qlEeqrNchmaLvlWw" base_PrimitiveType="_hh43k5qlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hks64ZqlEeqrNchmaLvlWw" base_NamedElement="_hh43k5qlEeqrNchmaLvlWw" vodmlid="nonnegativeInteger"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hks64pqlEeqrNchmaLvlWw" base_DataType="_hh43lJqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43lJqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hks645qlEeqrNchmaLvlWw" base_NamedElement="_hh43lJqlEeqrNchmaLvlWw" vodmlid="boolean"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkth8JqlEeqrNchmaLvlWw" base_DataType="_hh43lZqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43lZqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkth8ZqlEeqrNchmaLvlWw" base_NamedElement="_hh43lZqlEeqrNchmaLvlWw" vodmlid="integer"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkth8pqlEeqrNchmaLvlWw" base_DataType="_hh43lpqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43lpqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkth85qlEeqrNchmaLvlWw" base_NamedElement="_hh43lpqlEeqrNchmaLvlWw" vodmlid="rational"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkth9JqlEeqrNchmaLvlWw" base_DataType="_hh43l5qlEeqrNchmaLvlWw" base_PrimitiveType="_hh43l5qlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkuJAJqlEeqrNchmaLvlWw" base_NamedElement="_hh43l5qlEeqrNchmaLvlWw" vodmlid="complex"/>
+  <IVOA_UML_Profile:primitive xmi:id="_hkuJAZqlEeqrNchmaLvlWw" base_DataType="_hh43mZqlEeqrNchmaLvlWw" base_PrimitiveType="_hh43mZqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkuwEJqlEeqrNchmaLvlWw" base_NamedElement="_hh43mZqlEeqrNchmaLvlWw" vodmlid="quantity.Unit"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkuwEZqlEeqrNchmaLvlWw" base_NamedElement="_hh43m5qlEeqrNchmaLvlWw" vodmlid="Quantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkvXIJqlEeqrNchmaLvlWw" base_NamedElement="_hh43npqlEeqrNchmaLvlWw" vodmlid="IntegerQuantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkvXIZqlEeqrNchmaLvlWw" base_NamedElement="_hh43oZqlEeqrNchmaLvlWw" vodmlid="RealQuantity"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_hkvXIpqlEeqrNchmaLvlWw" base_Package="_hh43pZqlEeqrNchmaLvlWw" name="meas" url="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml" documentationURL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.html"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkv-MJqlEeqrNchmaLvlWw" base_NamedElement="_hh43ppqlEeqrNchmaLvlWw" vodmlid="Measure"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_hkv-MZqlEeqrNchmaLvlWw" base_Package="_hh43qZqlEeqrNchmaLvlWw" name="coords" url="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml" documentationURL="https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkwlQJqlEeqrNchmaLvlWw" base_NamedElement="_hh43qpqlEeqrNchmaLvlWw" vodmlid="Coordinate"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkwlQZqlEeqrNchmaLvlWw" base_NamedElement="_hh43q5qlEeqrNchmaLvlWw" vodmlid="CoordSys"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_hkwlQpqlEeqrNchmaLvlWw" base_NamedElement="_hh43rJqlEeqrNchmaLvlWw" vodmlid="coords:CoordFrame"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_hkwlQ5qlEeqrNchmaLvlWw" base_NamedElement="_hh43z5qlEeqrNchmaLvlWw"/>
+  <default:xor xmi:id="_hkwlRJqlEeqrNchmaLvlWw" base_Constraint="_hh43dZqlEeqrNchmaLvlWw"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_hkxMUJqlEeqrNchmaLvlWw" base_NamedElement="_hh43-5qlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxMUZqlEeqrNchmaLvlWw" base_Constraint="_hh43d5qlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxMUpqlEeqrNchmaLvlWw" base_Constraint="_hh43eZqlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxMU5qlEeqrNchmaLvlWw" base_Constraint="_hh43e5qlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxMVJqlEeqrNchmaLvlWw" base_Constraint="_hh43fZqlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxMVZqlEeqrNchmaLvlWw" base_Constraint="_hh43f5qlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxzYJqlEeqrNchmaLvlWw" base_Constraint="_hh43gZqlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxzYZqlEeqrNchmaLvlWw" base_Constraint="_hh43g5qlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxzYpqlEeqrNchmaLvlWw" base_Constraint="_hh43hZqlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxzY5qlEeqrNchmaLvlWw" base_Constraint="_hh43h5qlEeqrNchmaLvlWw"/>
+  <default:subset xmi:id="_hkxzZJqlEeqrNchmaLvlWw" base_Constraint="_hh43i5qlEeqrNchmaLvlWw"/>
+</xmi:XMI>

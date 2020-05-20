@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
 
-\title{Mango: A Componant and Association Based Model for Source Data}
+\title{Mango: A Component and Association Based Model for Source Data}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
@@ -26,12 +26,24 @@ The Mango model proposes a flexible way to make source data interoperable. It ta
 Each Mango source is defined by an identifier on which  one can attach a set of parameters and a set of associated data. Parameters are modeled by  MCT both native and extended classes. Their roles are given by UCDs and semantic tags.
 Associated data can be simple URLs, VO service endpoints or VO data model instances. Their roles are given by semantic tags.
 
+
+
 \end{abstract}
 
 
 \section*{Acknowledgments}
 
-???? Or remove the section header ????
+We would like to thank all those who took the time to present their own use cases (INAF, CDS, CFA, ESAC) on which the model has been built.
+
+We would also like to thank all the people having tested Mango on their own data.
+
+
+We would like to thank all those who took the time to present their own use cases (INAF, CDS, CFA, ESAC) on which the model has been built.
+We would also like to thank all the people having tested Mango on their own data.
+
+\section*{Model Name}
+This model was initialy named with a very explicit but hard to remember acronym, \texttt{CAB-MSD} standing for Component and Association Based Model for Source Data. We decided later to rename it \texttt{Mango} with reference to the inside out mango picture used to introduce the model in Groningen. As the tradition requires that such unexpected names are acronyms, let's assume that \texttt{Mango} stands for Model Adding Necessaries to Generic Objects
+
 
 \section*{Conformance-related definitions}
 
@@ -243,9 +255,9 @@ Quantities possibly plotted or matched with some of other datasets
 \label{fig:overview}
 \end{figure}
 
-The root class of the model is the \texttt{Source} class that has only one attribute, the identifier. The identifier is the only quantity common to  all  Mango instances.
+The root class of the model is the \texttt{Source} class that has only one attribute, the identifier, that is the only quantity common to  all  Mango instances.
 
-Each quantity or associated data attached to the source is represented by a connector describing the nature of the quantity or of the associated data.
+Each quantity or associated data attached to a source is represented by a connector describing the nature of either the quantity or of the associated data.
 
 There is no restriction on the set of connectors attached to one source.
 There are 2 classes of connectors
@@ -264,15 +276,15 @@ In addition to its class, the nature of a measure is given by a UCD and a semant
        \hline  \texttt{Proper motion}    & Measure & pos.pm    \\       
        \hline  \texttt{Time}                   & Measure &  time.epoch   \\       
        \hline  \texttt{Polarization}         & Measure & phys.polarization \\      
-       \hline  \texttt{SphericalSkyPosition}    &  Mango  &  pos \\       
+       \hline  \texttt{SphericalSkyPosition}    &  Mango  &  pos.eq \\       
        \hline  \texttt{ObjectType}                   &  Mango  & src.class \\       
        \hline  \texttt{Redshift}                        &  Mango  & src.redshift \\       
-       \hline  \texttt{Luminosity}                    &  Mango  & phys.luminosity \\
+       \hline  \texttt{Luminosity}                    &  Mango  & phot.qqqchose \\
        \hline  \texttt{HardnessRatio}             &  Mango  & phot.flux;arith.ratio \\
-       \hline  \texttt{Shape}                    &  Mango  & src.morph \\
-       \hline  \texttt{Flag}                    &  Mango  & meta.code  \\
-       \hline  \texttt{Orbit}                    &  Mango  & src.orbital\\    
-       \hline  \texttt{GenericMeasure}                    &  Measure  &  free \\    
+       \hline  \texttt{Shape}                     &  Mango  & phys.area \\
+       \hline  \texttt{Flag}                        &  Mango  & meta.code  \\
+       \hline  \texttt{Orbit}                       &  Mango  & src.orbital \\    
+       \hline  \texttt{GenericMeasure}    &  Measure  &  Appropiate physical UCD \\    
        \hline 
      \end{tabular}
      \caption{ UCDs to be set for the supported parameters} 
@@ -280,6 +292,7 @@ In addition to its class, the nature of a measure is given by a UCD and a semant
  \end{table}
 
 TBC phys.luminosity  vs phot.flux
+ajoutdr une temperature
 
 \subsection{Associated Data} 
 Associated data connectors are used to bind any sort of complex data with the source. One connector can only refer to one dataset. Associated data can be either URIs (VO services or not) or reference to instances of other VO models (Obscore, Provenance…).

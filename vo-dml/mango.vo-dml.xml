@@ -2,12 +2,14 @@
 <vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
-  <name>cabmsd</name>
+  <name>mango</name>
   <description>Data model based oon components and data association for source data</description>
   <uri/>
-  <title/>
-  <version>0.x</version>
-  <lastModified>2020-05-02T17:07:50</lastModified>
+  <title>Mango</title>
+  <author>Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
+  <version>1.0</version>
+  <previousVersion>0.0</previousVersion>
+  <lastModified>2020-05-20T16:23:50</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -23,6 +25,12 @@
     <url>http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</url>
     <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html</documentationURL>
   </import>
+  <primitiveType>
+    <vodml-id>RDFWord</vodml-id>
+    <name>RDFWord</name>
+    <description>Datatype  for vocabulary word. Provides a pointer to the word description and a label.</description>
+  </primitiveType>
+
   <enumeration>
     <vodml-id>LinkSemantic</vodml-id>
     <name>LinkSemantic</name>
@@ -69,7 +77,7 @@ This stands for an example before we have defined a vocabulary.</description>
     <vodml-id>ParamSemantic</vodml-id>
     <name>ParamSemantic</name>
     <description>Literal enumeration of the possible values for the parameter semantic.
-This stands for an example beforewe have defined a vocabulary.</description>
+This stands for an example before we have defined a vocabulary.</description>
     <literal>
       <vodml-id>ParamSemantic.Main</vodml-id>
       <name>Main</name>
@@ -121,7 +129,7 @@ The format is free.</description>
       <name>associatedData</name>
       <description>Composition link pointing on all data associated with the source.</description>
       <datatype>
-        <vodml-ref>cabmsd:AssociatedData</vodml-ref>
+        <vodml-ref>mango:AssociatedData</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -133,7 +141,7 @@ The format is free.</description>
       <name>parameters</name>
       <description>Composition link pointing on all parameters attached to the source.</description>
       <datatype>
-        <vodml-ref>cabmsd:Parameter</vodml-ref>
+        <vodml-ref>mango:Parameter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -153,7 +161,7 @@ This class is used to specify the type of the dataset as well as its role.</desc
       <description>Reference to a semantic concept giving the nature of the associated data.
 As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
       <datatype>
-        <vodml-ref>cabmsd:LinkSemantic</vodml-ref>
+        <vodml-ref>mango:RDFWord</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -179,7 +187,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <name>WebEndpoint</name>
     <description>Class for associated data referenced by an URL</description>
     <extends>
-      <vodml-ref>cabmsd:AssociatedData</vodml-ref>
+      <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>WebEndpoint.ContentType</vodml-id>
@@ -213,7 +221,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <name>VOService</name>
     <description>Class for associated data referenced by an URL that is a VO service</description>
     <extends>
-      <vodml-ref>cabmsd:WebEndpoint</vodml-ref>
+      <vodml-ref>mango:WebEndpoint</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>VOService.ivoid</vodml-id>
@@ -234,7 +242,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <name>VOModelInstance</name>
     <description>Reference to a VO model instance that is part of the associated data.</description>
     <extends>
-      <vodml-ref>cabmsd:AssociatedData</vodml-ref>
+      <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>VOModelInstance.ivoid</vodml-id>
@@ -290,7 +298,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <name>modelInstance</name>
       <description>Composition link pointing on one VO instance instance associated with the source.</description>
       <datatype>
-        <vodml-ref>cabmsd:ModelInstance</vodml-ref>
+        <vodml-ref>mango:ModelInstance</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -307,18 +315,18 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>CabmsdInstance</vodml-id>
-    <name>CabmsdInstance</name>
+    <vodml-id>MangoInstance</vodml-id>
+    <name>MangoInstance</name>
     <description>Reference to another CAB-MSD instance that is part of the associated data.</description>
     <extends>
-      <vodml-ref>cabmsd:AssociatedData</vodml-ref>
+      <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
     <composition>
-      <vodml-id>CabmsdInstance.cadmsdInstance</vodml-id>
-      <name>cadmsdInstance</name>
+      <vodml-id>MangoInstance.mangoInstance</vodml-id>
+      <name>mangoInstance</name>
       <description>Composition link pointing on one cab_msd instance associated with the source.</description>
       <datatype>
-        <vodml-ref>cabmsd:Source</vodml-ref>
+        <vodml-ref>mango:Source</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -342,7 +350,7 @@ This class is used to specify the type of the measure as well as its role.</desc
       <description>Reference to a semantic concept giving the nature of the parameter
 As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </description>
       <datatype>
-        <vodml-ref>cabmsd:ParamSemantic</vodml-ref>
+        <vodml-ref>mango:RDFWord</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -375,6 +383,50 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </composition>
   </objectType>
 
+  <objectType>
+    <vodml-id>Temperature</vodml-id>
+    <name>Temperature</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>meas:Measure</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>Temperature.coord</vodml-id>
+      <name>coord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>LonLatCoordSys</vodml-id>
+    <name>LonLatCoordSys</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:CoordSys</vodml-ref>
+    </extends>
+    <constraint>
+      <description>coordSpace[0]</description>
+    </constraint>
+    <constraint xsi:type="vo-dml:SubsettedRole">
+      <role>
+        <vodml-ref/>
+      </role>
+      <datatype>
+        <vodml-ref>frame: coords:SpaceFrame</vodml-ref>
+      </datatype>
+    </constraint>
+  </objectType>
+
 
 
   <package>
@@ -384,8 +436,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
 This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
 </description>
     <primitiveType>
-      <vodml-id>stcextend.STCSphericalPoint</vodml-id>
-      <name>STCSphericalPoint</name>
+      <vodml-id>stcextend.LonLatPoint</vodml-id>
+      <name>LonLatPoint</name>
       <description>Coordinate of a point on the sky sphere expressed in spherical coordinates.</description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
@@ -393,9 +445,75 @@ This extension mechanism is used to add new types of measures while staying whit
     </primitiveType>
 
     <primitiveType>
-      <vodml-id>stcextend.STCStatusState</vodml-id>
-      <name>STCStatusState</name>
+      <vodml-id>stcextend.FlagCoord</vodml-id>
+      <name>FlagCoord</name>
       <description>Coordinate of a status Measure</description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>stcextend.ShapeCoord</vodml-id>
+      <name>ShapeCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>stcextend.OrbitCoord</vodml-id>
+      <name>OrbitCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>stcextend.ObjectTypeCoord</vodml-id>
+      <name>ObjectTypeCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>stcextend.PhotometryCoord</vodml-id>
+      <name>PhotometryCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>stcextend.HardnessRatioCoord</vodml-id>
+      <name>HardnessRatioCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>stcextend.RedshiftCoord</vodml-id>
+      <name>RedshiftCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
       </extends>
@@ -418,11 +536,11 @@ This extension mechanism is used to add new types of measures while staying whit
     </enumeration>
 
     <dataType>
-      <vodml-id>stcextend.StatusLabel</vodml-id>
-      <name>StatusLabel</name>
+      <vodml-id>stcextend.FlagState</vodml-id>
+      <name>FlagState</name>
       <description>Possible value of a status</description>
       <attribute>
-        <vodml-id>stcextend.StatusLabel.value</vodml-id>
+        <vodml-id>stcextend.FlagState.value</vodml-id>
         <name>value</name>
         <description>Status value</description>
         <datatype>
@@ -434,7 +552,7 @@ This extension mechanism is used to add new types of measures while staying whit
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.StatusLabel.label</vodml-id>
+        <vodml-id>stcextend.FlagState.label</vodml-id>
         <name>label</name>
         <description>Label attached to that status value
 
@@ -459,45 +577,45 @@ Energy bands are deemed to special photometric filters</description>
       <extends>
         <vodml-ref>coords:CoordFrame</vodml-ref>
       </extends>
-      <composition>
+      <reference>
         <vodml-id>stcextend.HRFrame.low</vodml-id>
         <name>low</name>
         <description>Low energy band</description>
         <datatype>
-          <vodml-ref>cabmsd:stcextend.STCFilter</vodml-ref>
+          <vodml-ref>mango:stcextend.PhotFilter</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
-      </composition>
-      <composition>
+      </reference>
+      <reference>
         <vodml-id>stcextend.HRFrame.high</vodml-id>
         <name>high</name>
         <description>Heigh energy band</description>
         <datatype>
-          <vodml-ref>cabmsd:stcextend.STCFilter</vodml-ref>
+          <vodml-ref>mango:stcextend.PhotFilter</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
-      </composition>
+      </reference>
     </objectType>
 
     <objectType>
-      <vodml-id>stcextend.STCSphericalSkyPosition</vodml-id>
-      <name>STCSphericalSkyPosition</name>
+      <vodml-id>stcextend.LonLatSkyPosition</vodml-id>
+      <name>LonLatSkyPosition</name>
       <description>Measure to used for sky points expressed with a spherical coordinate system</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>stcextend.STCSphericalSkyPosition.coord</vodml-id>
+        <vodml-id>stcextend.LonLatSkyPosition.coord</vodml-id>
         <name>coord</name>
         <description>Coordinate of spherical sky position</description>
         <datatype>
-          <vodml-ref>cabmsd:stcextend.STCSphericalPoint</vodml-ref>
+          <vodml-ref>mango:stcextend.LonLatPoint</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -507,18 +625,18 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>stcextend.STCStatus</vodml-id>
-      <name>STCStatus</name>
+      <vodml-id>stcextend.Flag</vodml-id>
+      <name>Flag</name>
       <description>Measure to be used for status parameters</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>stcextend.STCStatus.coord</vodml-id>
+        <vodml-id>stcextend.Flag.coord</vodml-id>
         <name>coord</name>
         <description>Coordinate holding the statsu value</description>
         <datatype>
-          <vodml-ref>cabmsd:stcextend.STCStatusState</vodml-ref>
+          <vodml-ref>mango:stcextend.FlagCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -528,18 +646,18 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>stcextend.STCStatusSys</vodml-id>
-      <name>STCStatusSys</name>
+      <vodml-id>stcextend.FlagSys</vodml-id>
+      <name>FlagSys</name>
       <description>Coordinate system to be used for statur measures.</description>
       <extends>
         <vodml-ref>coords:CoordSys</vodml-ref>
       </extends>
       <composition>
-        <vodml-id>stcextend.STCStatusSys.statusLabel</vodml-id>
+        <vodml-id>stcextend.FlagSys.statusLabel</vodml-id>
         <name>statusLabel</name>
         <description>Composition loink to all possible status values for this system</description>
         <datatype>
-          <vodml-ref>cabmsd:stcextend.StatusLabel</vodml-ref>
+          <vodml-ref>mango:stcextend.FlagState</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>
@@ -549,18 +667,26 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>stcextend.STCShape</vodml-id>
-      <name>STCShape</name>
+      <vodml-id>stcextend.Shape</vodml-id>
+      <name>Shape</name>
       <description>Measure giving the shape of a source</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref/>
+        </role>
+        <datatype>
+          <vodml-ref>&lt;Enter constraint text here&gt;</vodml-ref>
+        </datatype>
+      </constraint>
       <attribute>
-        <vodml-id>stcextend.STCShape.shape</vodml-id>
-        <name>shape</name>
+        <vodml-id>stcextend.Shape.coord</vodml-id>
+        <name>coord</name>
         <description>String serialization of the source shape</description>
         <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
+          <vodml-ref>mango:stcextend.ShapeCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -570,18 +696,18 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>stcextend.STCShapeSys</vodml-id>
-      <name>STCShapeSys</name>
+      <vodml-id>stcextend.ShapeSys</vodml-id>
+      <name>ShapeSys</name>
       <description>Coordinate systen to be used for shape measure</description>
       <extends>
         <vodml-ref>coords:CoordSys</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>stcextend.STCShapeSys.shapeFrame</vodml-id>
+        <vodml-id>stcextend.ShapeSys.shapeFrame</vodml-id>
         <name>shapeFrame</name>
         <description>Frame of the shape measure. Gives a enumeration of the supported serializations.</description>
         <datatype>
-          <vodml-ref>cabmsd:stcextend.ShapeFrame</vodml-ref>
+          <vodml-ref>mango:stcextend.ShapeFrame</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -591,14 +717,14 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>stcextend.STCFilter</vodml-id>
-      <name>STCFilter</name>
+      <vodml-id>stcextend.PhotFilter</vodml-id>
+      <name>PhotFilter</name>
       <description>Photometric filter description, compliant with photDM</description>
       <extends>
         <vodml-ref>coords:CoordFrame</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>stcextend.STCFilter.name</vodml-id>
+        <vodml-id>stcextend.PhotFilter.name</vodml-id>
         <name>name</name>
         <description>Filter name</description>
         <datatype>
@@ -610,7 +736,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.STCFilter.zeroPointFlux</vodml-id>
+        <vodml-id>stcextend.PhotFilter.zeroPointFlux</vodml-id>
         <name>zeroPointFlux</name>
         <description>Zero point flux of the filter</description>
         <datatype>
@@ -622,7 +748,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.STCFilter.magnitudeSystem</vodml-id>
+        <vodml-id>stcextend.PhotFilter.magnitudeSystem</vodml-id>
         <name>magnitudeSystem</name>
         <description>Magnitude system used by the filter</description>
         <datatype>
@@ -634,7 +760,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.STCFilter.effectiveWavelength</vodml-id>
+        <vodml-id>stcextend.PhotFilter.effectiveWavelength</vodml-id>
         <name>effectiveWavelength</name>
         <description>Effective wavelength of the filter</description>
         <datatype>
@@ -646,7 +772,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.STCFilter.unit</vodml-id>
+        <vodml-id>stcextend.PhotFilter.unit</vodml-id>
         <name>unit</name>
         <description>Wavelength unit used for that filter</description>
         <datatype>
@@ -658,7 +784,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.STCFilter.bandWidth</vodml-id>
+        <vodml-id>stcextend.PhotFilter.bandWidth</vodml-id>
         <name>bandWidth</name>
         <description>Band width of the filter</description>
         <datatype>
@@ -669,6 +795,153 @@ Energy bands are deemed to special photometric filters</description>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.Photometry</vodml-id>
+      <name>Photometry</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>stcextend.Photometry.coord</vodml-id>
+        <name>coord</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:stcextend.PhotometryCoord</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.HardnessRatio</vodml-id>
+      <name>HardnessRatio</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>stcextend.HardnessRatio.coord</vodml-id>
+        <name>coord</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:stcextend.HardnessRatioCoord</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.Redshift</vodml-id>
+      <name>Redshift</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>stcextend.Redshift.coord</vodml-id>
+        <name>coord</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:stcextend.RedshiftCoord</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.ObjectType</vodml-id>
+      <name>ObjectType</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>stcextend.ObjectType.coord</vodml-id>
+        <name>coord</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:stcextend.OrbitCoord</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.Orbit</vodml-id>
+      <name>Orbit</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>stcextend.Orbit.coord</vodml-id>
+        <name>coord</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:stcextend.OrbitCoord</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.RedshiftSys</vodml-id>
+      <name>RedshiftSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:CoordSys</vodml-ref>
+      </extends>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.ObjectTypeSys</vodml-id>
+      <name>ObjectTypeSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:CoordSys</vodml-ref>
+      </extends>
     </objectType>
 
   </package>
