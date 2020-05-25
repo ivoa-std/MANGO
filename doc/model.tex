@@ -42,7 +42,7 @@
 
     \subsubsection{AssociatedData.semantic}
       \textbf{vodml-id: AssociatedData.semantic} \newline
-      \textbf{type: \hyperref[sect:RDFWord]{mango:RDFWord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.RDFWord]{mango:stcextend.RDFWord}} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to a semantic concept giving the nature of the associated data. As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration.
 
@@ -52,17 +52,13 @@
       \textbf{multiplicity: 1} \newline 
       Type of the associated data (not defined yet)
 
-  \subsection{LonLatCoordSys}
-  \label{sect:LonLatCoordSys}
+  \subsection{HardnessRatioSys}
+  \label{sect:HardnessRatioSys}
     TODO : Missing description : please, update your UML model asap.
 
     \noindent \textbf{subset} \newline
-    \indent   \textbf{role: } \newline
-    \indent   \textbf{type: frame: coords:SpaceFrame} \newline
-
-
-    \noindent \textbf{constraint} \newline
-    \indent    \textbf{detail: LonLatCoordSys.coordSpace[0] }\newline
+    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
+    \indent   \textbf{type: mango:HRFrame} \newline
 
 
   \subsection{MangoInstance}
@@ -90,7 +86,7 @@
 
     \subsubsection{Parameter.semantic}
       \textbf{vodml-id: Parameter.semantic} \newline
-      \textbf{type: \hyperref[sect:RDFWord]{mango:RDFWord}} \newline
+      \textbf{type: \hyperref[sect:stcextend.RDFWord]{mango:stcextend.RDFWord}} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to a semantic concept giving the nature of the parameter As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration.
 
@@ -105,6 +101,15 @@
       \textbf{type: meas:Measure} \newline
       \textbf{multiplicity: 1} \newline 
       Composition link pointing to the meas:Measure instance
+
+  \subsection{PhotometryCoordSys}
+  \label{sect:PhotometryCoordSys}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
+    \indent   \textbf{type: mango:PhotFilter} \newline
+
 
   \subsection{Source}
   \label{sect:Source}
@@ -134,7 +139,7 @@
 
     \subsubsection{Temperature.coord}
       \textbf{vodml-id: Temperature.coord} \newline
-      \textbf{type: } \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
@@ -197,10 +202,6 @@
       \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
       \textbf{multiplicity: 1} \newline 
       Web endpoint
-
-  \subsection{RDFWord}
-  \label{sect:RDFWord}
-  Datatype for vocabulary word. Provides a pointer to the word description and a label.
 
   \subsection{LinkSemantic}
   \label{sect:LinkSemantic}
@@ -329,6 +330,19 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{LonLatCoordSys}
+  \label{sect:stcextend.LonLatCoordSys}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
+    \indent   \textbf{type: coords:SpaceFrame} \newline
+
+
+    \noindent \textbf{constraint} \newline
+    \indent    \textbf{detail: LonLatCoordSys.coordSpace[0] }\newline
+
+
   \subsection{LonLatSkyPosition}
   \label{sect:stcextend.LonLatSkyPosition}
     Measure to used for sky points expressed with a spherical coordinate system
@@ -431,11 +445,6 @@
   \label{sect:stcextend.Shape}
     Measure giving the shape of a source
 
-    \noindent \textbf{subset} \newline
-    \indent   \textbf{role: } \newline
-    \indent   \textbf{type: <Enter constraint text here>} \newline
-
-
     \subsubsection{Shape.coord}
       \textbf{vodml-id: stcextend.Shape.coord} \newline
       \textbf{type: \hyperref[sect:stcextend.ShapeCoord]{mango:stcextend.ShapeCoord}} \newline
@@ -483,6 +492,10 @@
   \subsection{RedshiftCoord}
   \label{sect:stcextend.RedshiftCoord}
   TODO : Missing description : please, update your UML model asap.
+
+  \subsection{RDFWord}
+  \label{sect:stcextend.RDFWord}
+  Datatype for vocabulary word. Provides a pointer to the word description and a label.
 
   \subsection{ShapeFrame}
   \label{sect:stcextend.ShapeFrame}

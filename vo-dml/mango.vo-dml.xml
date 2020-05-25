@@ -9,7 +9,7 @@
   <author>Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2020-05-20T16:23:50</lastModified>
+  <lastModified>2020-05-25T17:41:34</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -25,12 +25,6 @@
     <url>http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml</url>
     <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html</documentationURL>
   </import>
-  <primitiveType>
-    <vodml-id>RDFWord</vodml-id>
-    <name>RDFWord</name>
-    <description>Datatype  for vocabulary word. Provides a pointer to the word description and a label.</description>
-  </primitiveType>
-
   <enumeration>
     <vodml-id>LinkSemantic</vodml-id>
     <name>LinkSemantic</name>
@@ -161,7 +155,7 @@ This class is used to specify the type of the dataset as well as its role.</desc
       <description>Reference to a semantic concept giving the nature of the associated data.
 As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
       <datatype>
-        <vodml-ref>mango:RDFWord</vodml-ref>
+        <vodml-ref>mango:stcextend.RDFWord</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -350,7 +344,7 @@ This class is used to specify the type of the measure as well as its role.</desc
       <description>Reference to a semantic concept giving the nature of the parameter
 As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </description>
       <datatype>
-        <vodml-ref>mango:RDFWord</vodml-ref>
+        <vodml-ref>mango:stcextend.RDFWord</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -398,6 +392,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
@@ -406,23 +403,39 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>LonLatCoordSys</vodml-id>
-    <name>LonLatCoordSys</name>
+    <vodml-id>HardnessRatioSys</vodml-id>
+    <name>HardnessRatioSys</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     <extends>
-      <vodml-ref>coords:CoordSys</vodml-ref>
+      <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
     </extends>
-    <constraint>
-      <description>coordSpace[0]</description>
-    </constraint>
     <constraint xsi:type="vo-dml:SubsettedRole">
       <role>
-        <vodml-ref/>
+        <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
       </role>
       <datatype>
-        <vodml-ref>frame: coords:SpaceFrame</vodml-ref>
+        <vodml-ref>mango:HRFrame</vodml-ref>
+      </datatype>
+    </constraint>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PhotometryCoordSys</vodml-id>
+    <name>PhotometryCoordSys</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
+    </extends>
+    <constraint xsi:type="vo-dml:SubsettedRole">
+      <role>
+        <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
+      </role>
+      <datatype>
+        <vodml-ref>mango:PhotFilter</vodml-ref>
       </datatype>
     </constraint>
   </objectType>
@@ -436,84 +449,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
 This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
 </description>
     <primitiveType>
-      <vodml-id>stcextend.LonLatPoint</vodml-id>
-      <name>LonLatPoint</name>
-      <description>Coordinate of a point on the sky sphere expressed in spherical coordinates.</description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
       <vodml-id>stcextend.FlagCoord</vodml-id>
       <name>FlagCoord</name>
       <description>Coordinate of a status Measure</description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>stcextend.ShapeCoord</vodml-id>
-      <name>ShapeCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>stcextend.OrbitCoord</vodml-id>
-      <name>OrbitCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>stcextend.ObjectTypeCoord</vodml-id>
-      <name>ObjectTypeCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>stcextend.PhotometryCoord</vodml-id>
-      <name>PhotometryCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>stcextend.HardnessRatioCoord</vodml-id>
-      <name>HardnessRatioCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>stcextend.RedshiftCoord</vodml-id>
-      <name>RedshiftCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
       </extends>
@@ -536,6 +474,48 @@ This extension mechanism is used to add new types of measures while staying whit
     </enumeration>
 
     <dataType>
+      <vodml-id>stcextend.LonLatPoint</vodml-id>
+      <name>LonLatPoint</name>
+      <description>Coordinate of a point on the sky sphere expressed in spherical coordinates.</description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>mango:LonLatCoordSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.LonLatPoint.longitude</vodml-id>
+        <name>longitude</name>
+        <description>longitude of the point
+</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>stcextend.LonLatPoint.latitude</vodml-id>
+        <name>latitude</name>
+        <description>Latitude of the point</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
       <vodml-id>stcextend.FlagState</vodml-id>
       <name>FlagState</name>
       <description>Possible value of a status</description>
@@ -555,6 +535,224 @@ This extension mechanism is used to add new types of measures while staying whit
         <vodml-id>stcextend.FlagState.label</vodml-id>
         <name>label</name>
         <description>Label attached to that status value
+
+</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.ShapeCoord</vodml-id>
+      <name>ShapeCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>ShapeSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.ShapeCoord.shape</vodml-id>
+        <name>shape</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.OrbitCoord</vodml-id>
+      <name>OrbitCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>coords:SpaceSys</vodml-ref>
+        </datatype>
+      </constraint>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.ObjectTypeCoord</vodml-id>
+      <name>ObjectTypeCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>ObjectTypeSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.ObjectTypeCoord.objectType</vodml-id>
+        <name>objectType</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.PhotometryCoord</vodml-id>
+      <name>PhotometryCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>PhotometryCoordSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.PhotometryCoord.luminosity</vodml-id>
+        <name>luminosity</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.HardnessRatioCoord</vodml-id>
+      <name>HardnessRatioCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>mango:HardnessRatioSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.HardnessRatioCoord.hardnessRatio</vodml-id>
+        <name>hardnessRatio</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.RedshiftCoord</vodml-id>
+      <name>RedshiftCoord</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>RedshiftSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.RedshiftCoord.redshift</vodml-id>
+        <name>redshift</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.RDFWord</vodml-id>
+      <name>RDFWord</name>
+      <description>Datatype  for vocabulary word. Provides a pointer to the word description and a label.</description>
+      <attribute>
+        <vodml-id>stcextend.RDFWord.rdf_uri</vodml-id>
+        <name>rdf_uri</name>
+        <description>URI extarcted from the DRF document and refering ot the word
+
+</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>stcextend.RDFWord.label</vodml-id>
+        <name>label</name>
+        <description>RDF label. Matched the URL fragment for IVOA vocabularies
 
 </description>
         <datatype>
@@ -673,14 +871,6 @@ Energy bands are deemed to special photometric filters</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
-      <constraint xsi:type="vo-dml:SubsettedRole">
-        <role>
-          <vodml-ref/>
-        </role>
-        <datatype>
-          <vodml-ref>&lt;Enter constraint text here&gt;</vodml-ref>
-        </datatype>
-      </constraint>
       <attribute>
         <vodml-id>stcextend.Shape.coord</vodml-id>
         <name>coord</name>
@@ -929,7 +1119,7 @@ Energy bands are deemed to special photometric filters</description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <extends>
-        <vodml-ref>coords:CoordSys</vodml-ref>
+        <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
       </extends>
     </objectType>
 
@@ -942,6 +1132,28 @@ Energy bands are deemed to special photometric filters</description>
       <extends>
         <vodml-ref>coords:CoordSys</vodml-ref>
       </extends>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.LonLatCoordSys</vodml-id>
+      <name>LonLatCoordSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
+      </extends>
+      <constraint>
+        <description>coordSpace[0]</description>
+      </constraint>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>coords:SpaceFrame</vodml-ref>
+        </datatype>
+      </constraint>
     </objectType>
 
   </package>
