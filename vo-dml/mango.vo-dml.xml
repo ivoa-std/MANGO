@@ -9,7 +9,7 @@
   <author>Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2020-05-25T17:41:34</lastModified>
+  <lastModified>2020-05-29T11:10:55</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -166,6 +166,18 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <vodml-id>AssociatedData.dataType</vodml-id>
       <name>dataType</name>
       <description>Type of the associated data (not defined yet)</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>AssociatedData.description</vodml-id>
+      <name>description</name>
+      <description>Free text description of the associated data</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -363,6 +375,19 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
+    <attribute>
+      <vodml-id>Parameter.description</vodml-id>
+      <name>description</name>
+      <description>Free text description of the measure
+</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
       <vodml-id>Parameter.measure</vodml-id>
       <name>measure</name>
@@ -448,15 +473,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <description>This package contains all object and type classes that has been extended from the Measure and Coordinates models.
 This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
 </description>
-    <primitiveType>
-      <vodml-id>stcextend.FlagCoord</vodml-id>
-      <name>FlagCoord</name>
-      <description>Coordinate of a status Measure</description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-    </primitiveType>
-
     <enumeration>
       <vodml-id>stcextend.ShapeFrame</vodml-id>
       <name>ShapeFrame</name>
@@ -507,6 +523,35 @@ This extension mechanism is used to add new types of measures while staying whit
         <description>Latitude of the point</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>stcextend.FlagCoord</vodml-id>
+      <name>FlagCoord</name>
+      <description>Coordinate of a status Measure</description>
+      <extends>
+        <vodml-ref>coords:Coordinate</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>FlagSys</vodml-ref>
+        </datatype>
+      </constraint>
+      <attribute>
+        <vodml-id>stcextend.FlagCoord.status</vodml-id>
+        <name>status</name>
+        <description>Value of the status</description>
+        <datatype>
+          <vodml-ref>ivoa:integer</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
