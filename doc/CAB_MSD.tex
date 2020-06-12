@@ -98,7 +98,7 @@ IVOA architecture \citep{note:VOARCH}.
 \section{Use Cases and  Requirements}
 
 \subsection{Use Cases}
-The use case below have been collected in 2019 they were collected from representative of the missions, archive or tools.
+The use case below have been collected in 2019 from representative of some missions, archive or tools. The contribution was totally open. This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.
 
 \subsubsection{Gaia}
 \begin{itemize}
@@ -192,6 +192,8 @@ Quantities possibly plotted or matched with some of other datasets
     \item Timestamp: Independent axis of the time series
 \end{itemize}
 
+There are 2 big categories of quantities , the measures and the associated data. The measures
+ can be numerical values or simple strings and the associated data. The Mango measures must rely on the Meas model. The associated data are related to data with a complex structe or t data just referenced by a URI. table  \ref{tab:q_breakup} shows the breaking up of the quantities liste above in these 2 categories
 
 \begin{table}[ht!]
      \tiny
@@ -212,13 +214,70 @@ Quantities possibly plotted or matched with some of other datasets
        \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\       
        \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\      
        \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\       
-       \hline  \texttt{orb. sys.}      &   &   &   &    &  &   &   &  &    \\       
+       \hline  \texttt{orb. sys.}      &   &   &  P &    &  &   &   &  &    \\       
        \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\       
        \hline  \texttt{ass. prd.}     &   &   &   &    &  &AD&   &  &AD \\       
        \hline 
      \end{tabular}
-     \caption{ \texttt{P} parameter, \texttt{AD} Associated data} 
+     \caption{ Break up of the requested quantities \texttt{P} parameter, \texttt{AD} Associated data} 
+     \label{tab:q_breakup}
  \end{table}
+
+
+\subsection{Requirements}
+
+\subsubsection{R01: Supported Quantities}
+\begin{itemize}
+    \item Mango must provide unique source identifiers.
+    \item Mango must provide modeling classes for both parameters and associated data.
+    \item The number of parameters attaches to Mango instances must be free.
+    \item The number of associated data attached to Mango instances must be free.
+\end{itemize}
+
+\subsubsection{R02: Parameters}
+The concept of parameter matches the concept of measure of the Meas model. Mango may support parameter classes that are not  Meas classes though.
+  
+\begin{itemize}
+    \item Mango must support explict classes for the most used parameters.
+    \item Mang must provide a generic way to support parameters that have not specif classes.
+    \item Mango instances must support multiple instances of the same parameter class.
+    \item The presence of any parameter in Mango instances must be optional.
+    \item Mango must provide a way to identify the role of each parameter.
+    \item The role of each parameter should be machine-readable.
+    \item Each parameter must be able to be attached to a timestamp or a flag. The meaning of these flag is not part of Mango, but Mango must provide a way to describe it.
+\end{itemize}
+
+\subsubsection{R03: Associated Data}
+The notion of associated data relates to any sort of complex data. This can be a pointer to a service or a data set, a data table or  other data structure.
+\begin{itemize}
+    \item Mango must support references to external datasets.
+    \item Mango must support references to external services.
+    \item Mango must support references to other Mango instances.
+    \item Mango  must support references to instances of models serialized in VO-DML. 
+    \item Mango instances must support multiple instances of the same associated data class.
+    \item The presence of any associated data in Mango instances must be optional.
+    \item Mango must provide a way to identify the role of each associated data.
+    \item The role of each associated data should be machine-readable.
+ \end{itemize}
+
+\section{Model Overview}
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../model/overview_diagram.png}
+\caption{Mango overview}
+\label{fig:overview}
+\end{figure}
+
+The root class of the model is the \texttt{Source} class that has only one attribute, the identifier, that is the only quantity common to  all  Mango instances.
+
+Each quantity or associated data attached to a source is represented by a connector describing the nature of either the quantity or of the associated data.
+
+There is no restriction on the set of connectors attached to one source.
+There are 2 classes of connectors
+
+\subsection{The parameters} 
+Parameter connectors are used to bind measures with the source. One connector can only reference one measure. The measure itself is modeled by a class of the Measure model or by an extension of this model. Measure extensions are part of Mango. 
+In addition to its class, the nature of a measure is given by a UCD and a semantic tag. The UCD gives the physical meaning of the measure whereas the semantic tag says more about the usage context of the measure. This can be for instance the reduction status (raw, corrected). The vocabulary allowed for the semantic is managed as a VO vocabulary. 
 
 
 \begin{table}[ht!]
@@ -248,24 +307,6 @@ Quantities possibly plotted or matched with some of other datasets
      \caption{ \texttt{Meas} Measue class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mangno associated data} 
  \end{table}
 
-\section{Model Overview}
-
-\begin{figure}
-\includegraphics[width=0.9\textwidth]{../model/overview_diagram.png}
-\caption{Mango overview}
-\label{fig:overview}
-\end{figure}
-
-The root class of the model is the \texttt{Source} class that has only one attribute, the identifier, that is the only quantity common to  all  Mango instances.
-
-Each quantity or associated data attached to a source is represented by a connector describing the nature of either the quantity or of the associated data.
-
-There is no restriction on the set of connectors attached to one source.
-There are 2 classes of connectors
-
-\subsection{The parameters} 
-Parameter connectors are used to bind measures with the source. One connector can only reference one measure. The measure itself is modeled by a class of the Measure model or by an extension of this model. Measure extensions are part of Mango. 
-In addition to its class, the nature of a measure is given by a UCD and a semantic tag. The UCD gives the physical meaning of the measure whereas the semantic tag says more about the usage context of the measure. This can be for instance the reduction status (raw, corrected). The vocabulary allowed for the semantic is managed as a VO vocabulary. 
 
 \subsubsection{Parameter UCD}
 
