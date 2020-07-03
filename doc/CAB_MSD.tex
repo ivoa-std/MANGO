@@ -1,7 +1,10 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
 
-\title{Mango: A Component and Association Based Model for Source Data}
+% suggestions by Mireille tagged as %mir
+
+%mir \title{Mango: A Component and Association Based Model for Source Data}
+\title{Mango: A Component and Association Based Model for representing data for astronomical sources}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
@@ -18,15 +21,18 @@
 
 % \previousversion[????URL????]{????Concise Document Label????}
 \previousversion{This is the first public release}
-       
+%mir 
+\today
 
 \begin{document}
 \begin{abstract}
-The Mango model proposes a flexible way to make source data interoperable. It takes into account the huge diversity of source data in term of both format and usage. 
-Each Mango source is defined by an identifier on which  one can attach a set of parameters and a set of associated data. Parameters are modeled by  MCT both native and extended classes. Their roles are given by UCDs and semantic tags.
-Associated data can be simple URLs, VO service endpoints or VO data model instances. Their roles are given by semantic tags.
+The Mango model proposes a flexible way to expose data related to astronomical source objects in an interoperable way. 
+It takes into account the huge diversity of source data in terms of feature description, format and usage. 
+The Mango model attaches an identifier on an astronomical source and associates to it all data related : observed physical quantities called parameters in this context, and other information like spectra, time series, preview image, etc ... for that source. 
+Parameters usually appear in the columns of a source catalogue. Additionnal dataproducts are bound to the source to contribute to the science analysis and enhance data understanding.
 
-
+Parameters are modeled by the IVOA MCT DM reusing both native and extended classes. Parameters' roles are given by UCDs and semantic tags.
+Associated data can be simple URLs, VO service endpoints or VO data model instances. Their roles are also qualified by semantic tags.
 
 \end{abstract}
 
