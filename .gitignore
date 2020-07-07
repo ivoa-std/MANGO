@@ -31,6 +31,7 @@
 *.svrlt
 *.gvd
 *.fdb_latexmk
+*.fls
 draft-background.*
 # Maven 
 target/
