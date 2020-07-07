@@ -27,7 +27,9 @@ jobs:
         sudo snap install pdftk
     
     - name: Build the document
-      run: make biblio ${{ env.doc_name }}-draft.pdf
+      run: |
+       cd doc
+       make biblio ${{ env.doc_name }}-draft.pdf
     
     - name: Check the output
       run: |
