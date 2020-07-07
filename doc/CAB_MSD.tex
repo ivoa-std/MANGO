@@ -42,7 +42,7 @@ We would like to thank all those who took the time to present their own use case
 We would also like to thank all the people having tested Mango on their own data.
 
 \section*{Model Name}
-This model was initialy named with a very explicit but hard to remember acronym, \texttt{CAB-MSD} standing for Component and Association Based Model for Source Data. We decided later to rename it \texttt{Mango} with reference to the inside out mango picture used to introduce the model in Groningen. As the tradition requires that such unexpected names are acronyms, let's assume that \texttt{Mango} stands for Model Adding Necessaries to Generic Objects
+This model was initially named with a very explicit but hard to remember acronym, \texttt{CAB-MSD} standing for Component and Association Based Model for Source Data. We decided later to rename it \texttt{Mango} with reference to the inside out mango picture used to introduce the model in Groningen. As the tradition requires that such unexpected names are acronyms, let's assume that \texttt{Mango} stands for Model for ANnotating Generic Objects.
 
 
 \section*{Conformance-related definitions}
@@ -192,8 +192,8 @@ Quantities possibly plotted or matched with some of other datasets
     \item Timestamp: Independent axis of the time series
 \end{itemize}
 
-There are 2 big categories of quantities , the measures and the associated data. The measures
- can be numerical values or simple strings and the associated data. The Mango measures must rely on the Meas model. The associated data are related to data with a complex structe or t data just referenced by a URI. table  \ref{tab:q_breakup} shows the breaking up of the quantities liste above in these 2 categories
+There are 2 distinct categories of requested quantities , the measures and the associated data. The measures
+ can be numerical values or simple strings. The Mango measures rely on the Meas model. The associated data are related to data with a complex structures or to references. table  \ref{tab:q_breakup} shows the breaking up of the quantities liste above in these 2 categories
 
 \begin{table}[ht!]
      \tiny
@@ -230,12 +230,12 @@ There are 2 big categories of quantities , the measures and the associated data.
 \begin{itemize}
     \item Mango must provide unique source identifiers.
     \item Mango must provide modeling classes for both parameters and associated data.
-    \item The number of parameters attaches to Mango instances must be free.
+    \item The number of parameters attached to Mango instances must be free.
     \item The number of associated data attached to Mango instances must be free.
 \end{itemize}
 
 \subsubsection{R02: Parameters}
-The concept of parameter matches the concept of measure of the Meas model. Mango may support parameter classes that are not  Meas classes though.
+The notion of parameter matches the concept of measure in the Meas model. Mango may support parameter classes that are not  Meas classes though.
   
 \begin{itemize}
     \item Mango must support explict classes for the most used parameters.
