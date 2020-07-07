@@ -1,7 +1,7 @@
 name: Update PDF Preview
 
 env:
-  doc_name: CAB-MSD
+  doc_name: CAB_MSD
 
 on:
   push:
@@ -27,7 +27,9 @@ jobs:
         sudo snap install pdftk
     
     - name: Build the document
-      run: make biblio ${{ env.doc_name }}-draft.pdf
+      run: |
+       cd doc
+       make biblio ${{ env.doc_name }}-draft.pdf
     
     - name: Check the output
       run: |
