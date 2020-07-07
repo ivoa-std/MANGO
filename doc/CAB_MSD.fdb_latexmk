@@ -1,14 +1,5 @@
 # Fdb version 3
-["bibtex CAB_MSD"] 1594110252 "CAB_MSD.aux" "CAB_MSD.bbl" "CAB_MSD" 1594110252
-  "./ivoatex/ivoa.bst" 1588085141 25850 b05bac1a5825dbe032faed5f5831f141 ""
-  "CAB_MSD.aux" 1592301931 17065 0b9587e9932843c717fcaf076b38fda7 ""
-  "CAB_MSD.bcf" 0 -1 0 ""
-  "ivoatex/docrepo.bib" 1594109189 67292 2006a85cb45a4f0ec0054d26a4d89858 ""
-  "ivoatex/ivoabib.bib" 1594109189 40006 c08dfdd3ad89aad18bf09b7f7afc1df9 ""
-  "myrefs.bib" 1588500451 3839 eb374ddf0d42f7c1efb0ece231b0815e ""
-  (generated)
-  "CAB_MSD.bbl"
-["pdflatex"] 1594110253 "CAB_MSD.tex" "CAB_MSD.pdf" "CAB_MSD" 1594110253
+["pdflatex"] 1594111315 "CAB_MSD.tex" "CAB_MSD.pdf" "CAB_MSD" 1594111363
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -60,11 +51,11 @@
   "CAB_MSD.aux" 1592301931 17065 0b9587e9932843c717fcaf076b38fda7 ""
   "CAB_MSD.tex" 1594109245 20562 8c6144214af8fdbdf2a5285a11c37bcb ""
   "ivoa.cls" 1588087499 11293 f32831e11dcdb0a49254723e0718d2d5 ""
-  "ivoatexmeta.tex" 1588086511 225 f0f5386bf901c643103a0828eddab341 ""
+  "ivoatexmeta.tex" 1594111315 211 bfd177cc48514339052a252326df350b ""
   "tthdefs.tex" 1588087516 4680 dca17df41aef0ca816f3aff7f0f1df68 ""
   (generated)
+  "CAB_MSD.pdf"
+  "CAB_MSD.aux"
   "CAB_MSD.log"
   "CAB_MSD.out"
-  "CAB_MSD.aux"
   "CAB_MSD.toc"
-  "CAB_MSD.pdf"
