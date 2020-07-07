@@ -11,6 +11,7 @@ The MANGO model proposes a flexible way to expose data related to astronomical s
 # PDF preview
 
 The PDF preview can be seen [here](https://github.com/ivoa-std/CAB-MSD/releases/download/auto-pdf-preview/MANGO-draft.pdf)
+Thanks for the ADQL team for having written a workflow generating this preview.
 
 # Licence
 
