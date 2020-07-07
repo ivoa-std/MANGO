@@ -8,3 +8,4 @@ document template
   This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
   Creative Commons Attribution-ShareAlike 4.0 International License</a>.
   
+The PDF preview can be seen [https://github.com/ivoa-std/CAB-MSD/releases/download/auto-pdf-preview/MANGO-draft.pdf](here)
