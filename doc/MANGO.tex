@@ -1,14 +1,11 @@
 \documentclass[11pt,a4paper]{ivoa}
-%\input tthdefs
+\input tthdefs
 
-% suggestions by Mireille tagged as %mir
-
-%mir \title{MANGO: A Component and Association Based Model for Source Data}
 \title{MANGO: A Component and Association Based Model for representing \\data for astronomical sources}
-%\TODO{try better}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
+
 
 % mire commands
 % borrowed from Prov WD - Kristin - own definitions
@@ -55,7 +52,6 @@
 % \previousversion[????URL????]{????Concise Document Label????}
 \previousversion{This is the first public release}
 
-
 \begin{document}
 \begin{abstract}
 The MANGO model proposes a flexible way to expose data related to astronomical source objects in an interoperable way.
@@ -64,6 +60,7 @@ The MANGO model attaches an identifier on an astronomical source and associates 
 Parameters usually appear in the columns of a source catalogue. Additionnal dataproducts are bound to the source to contribute to the science analysis and enhance data understanding.
 Parameters are modeled by the IVOA MCT DM reusing both native and extended classes. Parameters' roles are given by UCDs and semantic tags.
 Associated data can be simple URLs, VO service endpoints or VO data model instances. Their roles are also qualified by semantic tags.
+
 \end{abstract}
 
 
@@ -188,7 +185,7 @@ The physical parameters recorded for each source in the various projects are lis
 \end{itemize}
 
 \subsubsection{Chandra Archive}
-This Xray mission has produced a very large catalog of sources. ( ?? TB) \cite{chandra catalog, 2019}.
+This Xray mission has produced a very large catalog of sources. %( ?? TB) \cite{chandra catalog, 2019}.
 All quantities are time dependant, depend on calibration methods as well as on appropriate physical
 models that selects energy models for the origin of the recorded photons ...
 \TODO{to be developed, explained ...}
@@ -229,7 +226,8 @@ Quantities possibly plotted or matched with some of other datasets
 
 \subsubsection{X\-match tool }
 The Xmatch operation relies on the comparison of the quantities recorded for each source between several catalogs in order to identify or disentagle counterparts .
-\cite{F-X algo}, Chandra X match ??? , others ???
+%\cite{F-X algo}, 
+Chandra X match ??? , others ???
 the mandatory quantities to operate such comparison involve:
 \begin{itemize}
     \item identifier
@@ -256,7 +254,8 @@ for one or multiple sources
 \end{itemize}
 
 There are two categories of information features supported, the measures and the associated data. The measures
- can be numerical values or simple strings. The MANGO datamodel describes measures by relying on the IVOA Meas data model.\cite{MEAS}. Associated data are related to data with a complex structure or to data just referenced by a URI. Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+ can be numerical values or simple strings. The MANGO datamodel describes measures by relying on the IVOA Meas data model.%\cite{MEAS}.
+ Associated data are related to data with a complex structure or to data just referenced by a URI. Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
 
 \begin{table}[ht!]
      \tiny
@@ -463,3 +462,4 @@ No previous versions yet.
 
 
 \end{document}
+
