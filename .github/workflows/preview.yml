@@ -1,5 +1,10 @@
 name: Update PDF Preview
 
+defaults:
+  run:
+    shell: bash
+    working-directory: doc
+
 env:
   doc_name: MANGO
 
@@ -28,7 +33,6 @@ jobs:
     
     - name: Build the document
       run: |
-       cd doc
        make biblio ${{ env.doc_name }}-draft.pdf
     
     - name: Check the output
