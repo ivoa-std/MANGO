@@ -3,11 +3,44 @@
 
 % suggestions by Mireille tagged as %mir
 
-%mir \title{Mango: A Component and Association Based Model for Source Data}
-\title{Mango: A Component and Association Based Model for representing data for astronomical sources}
+%mir \title{MANGO: A Component and Association Based Model for Source Data}
+\title{MANGO: A Component and Association Based Model for representing \\data for astronomical sources}
+\TODO{try better}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
+
+% mire commands
+% borrowed from Prov WD - Kristin - own definitions
+\definecolor{todocolor}{rgb}{1,1,0.8}
+\definecolor{darkred}{rgb}{0.6,0,0}
+\definecolor{rose}{rgb}{1.0,0.88,0.88}
+\definecolor{darkgrey}{rgb}{0.35,0.35,0.35}
+%\newcommand{\TODO}[1]{%
+%    \noindent%
+%    \textcolor{todocolor}{\sffamily [\textbf{TODO:} #1]}%
+%}
+
+\newcommand{\TODO}[1]{%
+    \noindent%
+    \colorbox{todocolor}{%
+            \parbox{0.85\linewidth}{\sffamily \textbf{TODO:}\\
+            #1}
+    }%
+    \vspace{2pt}
+
+}
+
+\newcommand{\note}[1]{%
+    \noindent%
+    \textcolor{darkgrey}{{\sffamily Note:} \emph{#1}}%
+}
+
+\newcommand{\comment}[1]{%
+    \noindent%
+    \textcolor{red}{{\sffamily Comment:} \emph{#1}}%
+}
+% end mir commands
 
 
 \author{François Bonnarel}
@@ -21,34 +54,29 @@
 
 % \previousversion[????URL????]{????Concise Document Label????}
 \previousversion{This is the first public release}
-%mir 
-\today
+
 
 \begin{document}
 \begin{abstract}
-The Mango model proposes a flexible way to expose data related to astronomical source objects in an interoperable way. (petite modif pour tester)
-It takes into account the huge diversity of source data in terms of feature description, format and usage. 
-The Mango model attaches an identifier on an astronomical source and associates to it all data related : observed physical quantities called parameters in this context, and other information like spectra, time series, preview image, etc ... for that source. 
+The MANGO model proposes a flexible way to expose data related to astronomical source objects in an interoperable way.
+It takes into account the huge diversity of source data in terms of feature description, format and usage.
+The MANGO model attaches an identifier on an astronomical source and associates to it all data related : observed physical quantities called parameters in this context, and other information like spectra, time series, preview image, for instance,for that source.
 Parameters usually appear in the columns of a source catalogue. Additionnal dataproducts are bound to the source to contribute to the science analysis and enhance data understanding.
-
 Parameters are modeled by the IVOA MCT DM reusing both native and extended classes. Parameters' roles are given by UCDs and semantic tags.
 Associated data can be simple URLs, VO service endpoints or VO data model instances. Their roles are also qualified by semantic tags.
-
 \end{abstract}
 
 
 \section*{Acknowledgments}
 
 We would like to thank all those who took the time to present their own use cases (INAF, CDS, CFA, ESAC) on which the model has been built.
-
-We would also like to thank all the people having tested Mango on their own data.
-
-
-We would like to thank all those who took the time to present their own use cases (INAF, CDS, CFA, ESAC) on which the model has been built.
-We would also like to thank all the people having tested Mango on their own data.
+We would also like to thank all the people having tested MANGO on their own data.
 
 \section*{Model Name}
-This model was initially named with a very explicit but hard to remember acronym, \texttt{CAB-MSD} standing for Component and Association Based Model for Source Data. We decided later to rename it \texttt{Mango} with reference to the inside out mango picture used to introduce the model in Groningen. As the tradition requires that such unexpected names are acronyms, let's assume that \texttt{Mango} stands for Model for ANnotating Generic Objects.
+This model was initially named with a very explicit but hard to remember acronym, \texttt{CAB-MSD} standing for Component and Association Based Model for Source Data. We decided later to rename it \texttt{MANGO} with reference to the inside out MANGO picture used to introduce the model in Groningen. As the tradition requires that such unexpected names are acronyms, let's assume that \texttt{MANGO} stands for
+%mir Model Adding Necessaries to Generic Objects.
+Metadata ANnotation for Generic Objects (in astronomy).
+Model for AstroNomical generic Objects sociation of
 
 
 \section*{Conformance-related definitions}
@@ -68,15 +96,20 @@ infrastructure that enable VO applications.
 
 \section{Introduction}
 
-The source DM is a long term concern for the DM working group and more generally for the IVOA.
-In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} of for catalogs \citep{wd:catalog}.
+Modeling data collected to study astronomical source objects has been a long term concern for the DM working group and more generally for the IVOA.
+In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} as well as for catalogs \citep{wd:catalog}.
 Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity…).
-None of these proposals have come to completion
+None of these proposals have come to completion.
 
-The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focused on the tools available to work with VO data models and especially with VO-DML. The goal of this session was to annotate data from different origins in order to make them interoperable with each other. The main concern expressed during this session was not related to the tools themselves but to the lack of models for sources. 
-This is a big paradox in the VO world ; source data which represent the basic bricks of the astronomer work, have no model. This paradox can be explained by the fact that sources data are multifaceted. The way of which source data are organized depends on the survey they come from, one the way they have been generated  and on the expected use. In a more general way, it depends on the science we want to do with them. This diversity cannot be endorsed by a single model. Having a global source model would lead to a very complex solution not usable in practice.
+The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focusing on the tools available to work with VO data models and especially with VO-DML. The goal of this session was to annotate data from different origins in order to make them interoperable with each other.
+%mir The main concern expressed during this session was not much related to the tools themselves but indeed to the lack of models for sources.
+One of the main concerns outside de tools necessary to workout this notation was the lack of models for source objects.
+This is a big paradox in the VO world: source data which represent the basic building blocks of astronomers' work, is not modeled. This paradox can be explained by the fact that the observation of source objects is multi-faceted.
+In a general way, the way features for source data are described and organized depends on the targeted science case. Principal investigators and archive designers set up the data profile and structure it according to this goal which varies from one project to another. Therefore this diversity cannot be served by a single static data model describing a source item for all possible cases.
+Having a global source model would lead to a very complex solution not usable in practice.
 
-This standard proposes to overcome this paradox presenting model based on independent components and associated data that can be embedded on demand in a container.
+This standard proposes to overcome this paradox and presents a template model gathering independent components from VO existings models together with VO data products and files embedded on demand in a container.
+The template supports fine grain association by composing classes as well as coarse grain relations to data products and files distributed within projects archive.
 
 \emph{Not designed to describe what a source is nut to help clients to discover and to understand the quantities available for a particular source instance TBC}
 
@@ -101,67 +134,80 @@ IVOA architecture \citep{note:VOARCH}.
 
 
 
-\section{Use Cases and  Requirements}
+\section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
-The use case below have been collected in 2019 from representative of some missions, archive or tools. The contribution was totally open. This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.
+The following uses-cases have been collected since 2019 from representatives of various astronomical missions, archive designers and tools developers.
+\TODO{ may be too early to conclude about this ?? The contribution was totally open. This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
 
+The physical parameters recorded for each source in the various projects are listed below:
 \subsubsection{Gaia}
 \begin{itemize}
     \item identifier
-    \item reference position
+    \item sky reference position
     \item proper motion
     \item parallax and distance
-    \item correlation,
+
     \item source extension
     \item radial velocity
     \item redshift
-    \item luminosity
-    \item date
+    \item photometry
+    \item date of observation ?
+    \item correlation ( with other sources ?)
     \item multiple detection
 \end{itemize}
 
 
 \subsubsection{Euclid}
-\begin{itemize}    
+\begin{itemize}
     \item identifier
-    \item position
-    \item correlation with Gaia
-    \item photometry (ground + sat),
-    \item morphology
+    \item sky position
+    \item correlation with Gaia counterpart?
+    \item photometry (ground + satellite )
+    \item morphology class?
     \item redshift
     \item photometric redshift
 \end{itemize}
 
-\subsubsection{Exoplanets}
+\subsubsection{Exoplanets missions}
+\TODO{mention the involved projects : examples ? GASP , TESS? }
+
 \begin{itemize}
     \item position
     \item orbit
-    \item different source level(star, planet, moon)
+    \item different source level (source types instead?)(star, planet, moon)
     \item status and classification
     \item orbiting system description
 \end{itemize}
 
 \subsubsection{Morphologically Complex Structures}
-\begin{itemize}    
+
+\TODO{to be developed ...}
+\begin{itemize}
     \item morphology
 \end{itemize}
 
-\subsubsection{Chandra} 
-All quantities are time dependant,
-Dependant on calibration + physical
-model
-\begin{itemize}    
+\subsubsection{Chandra Archive}
+This Xray mission has produced a very large catalog of sources. ( ?? TB) \cite{chandra catalog, 2019}.
+All quantities are time dependant, depend on calibration methods as well as on appropriate physical
+models that selects energy models for the origin of the recorded photons ...
+\TODO{to be developed, explained ...}
+\begin{itemize}
     \item name
     \item pos
     \item time
     \item extension
-    \item PHA 
+    \item PHA ???
 \end{itemize}
 
-\subsubsection{Vizier} 
-All possible measure are present in Vizier in addition to lots of associated data 
-\begin{itemize}    
+\subsubsection{Vizier catalog archive  }
+Vizier gathers and delivers a curated version of published catalogs from various missions and experiments.
+It also distributes results of scientific papers, based on the computation , comparison and classification of sources extracted from archived data after science analysis.
+Vizier handles a very large set of measures in position, photometry, redshift, source type, etc. as authors original data.
+It adds value to it by recomputing additional quantities in various reference frames or equivalent spectral bands, units conversions , etc .
+It binds the resulting object description to other data sets representing the object, or its conterpart, or neighbourhood (image), its spectral behaviour (spectrum) or evolution through time (light curve, radial velocity curve, timeseries, etc.).
+Currently the binding and structure of the quantities is done by column grouping.
+\begin{itemize}
     \item pre-existing data
     \item grouping columns
     \item lots of available metadata
@@ -176,56 +222,67 @@ Quantities possibly plotted or matched with some of other datasets
     \item position
     \item time
     \item flux
-    \item link
-    \item FoV
+    \item Field of view (FoV)
     \item column grouping
+    \item link to other data products?
 \end{itemize}
 
-\subsubsection{X\-match}
+\subsubsection{X\-match tool }
+The Xmatch operation relies on the comparison of the quantities recorded for each source between several catalogs in order to identify or disentagle counterparts .
+\cite{F-X algo}, Chandra X match ??? , others ???
+the mandatory quantities to operate such comparison involve:
 \begin{itemize}
-    \item Identifier
+    \item identifier
     \item position
     \item proper motion
     \item photometry
+    \item extension?
 \end{itemize}
 
-\subsubsection{Time Domain}
-\begin{itemize}
+\subsubsection{Time Domain }
+
+This Use-case involves measured parameters varying with time
+for one or multiple sources
+
+ \begin{itemize}
     \item Identifier: object identifier
-    \item Position: moving object
-    \item Associated products: time series of e.g. a spectrum or an image
-    \item Photometry: for light curves
     \item Timestamp: Independent axis of the time series
+    \item Position: depends on t for a moving object
+    \item Photometry: depends on t for light curves
+    \item Radial velocity: depends on t for moving objects along the line of sight(?)
+    \item Period
+    \item Associated products: time series of e.g. a spectrum or an image
+
 \end{itemize}
 
-There are 2 distinct categories of requested quantities , the measures and the associated data. The measures
- can be numerical values or simple strings. The Mango measures rely on the Meas model. The associated data are related to data with a complex structures or to references. table  \ref{tab:q_breakup} shows the breaking up of the quantities liste above in these 2 categories
+There are two categories of information features supported, the measures and the associated data. The measures
+ can be numerical values or simple strings. The MANGO datamodel describes measures by relying on the IVOA Meas data model.\cite{MEAS}. Associated data are related to data with a complex structure or to data just referenced by a URI. Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
 
 \begin{table}[ht!]
      \tiny
      \begin{tabular}{|p{2.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.6cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|}
-       \hline Quantity &  Ga &  Eu &  Ex &  MCS  &  Ch&  Vi &  Al &  Xm&  TD \\
-       \hline  \texttt{identifier}      &  p & P  &P& &P&P &P&  & P \\              
-       \hline  \texttt{position}      &  p & P  &P& &P&P &P&  & P \\       
-       \hline  \texttt{pr. motion}   & p &   &   &    &  &   &P&P&    \\       
-       \hline  \texttt{distance}     & p &   &   &    &  &   &P&  &    \\       
-       \hline  \texttt{correlation}   & AD &AD&   &    &  &AD &   &  &    \\       
-       \hline  \texttt{extension}     &P&   &P&P &P&P& P&  &    \\       
-       \hline  \texttt{rad. vel.}       &  P &   &   &    &  &P&   &  &    \\       
-       \hline  \texttt{redshift}        &  P &P&   &    &  &P&   &  &    \\             
-       \hline  \texttt{phot. rsft}      &   &P&   &    &  &P&   &  &    \\       
-       \hline  \texttt{luminosity}    & P&P&   &    &  &P&P&P&P\\       
-       \hline  \texttt{date}             & P  &   &   &    & P&P&   &  &P\\       
-       \hline  \texttt{detections}    &  AD &   &   &    &  &   &   &  &    \\       
-       \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\       
-       \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\      
-       \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\       
-       \hline  \texttt{orb. sys.}      &   &   &  P &    &  &   &   &  &    \\       
-       \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\       
-       \hline  \texttt{ass. prd.}     &   &   &   &    &  &AD&   &  &AD \\       
-       \hline 
+       \hline Quantity/ Survey &  Ga &  Eu &  Ex &  MCS  &  Ch&  Vi &  Al &  Xm&  TD \\
+       \hline  \texttt{identifier}      &  p & P  &P& &P&P &P&  & P \\
+       \hline  \texttt{position}      &  p & P  &P& &P&P &P&  & P \\
+       \hline  \texttt{pr. motion}   & p &   &   &    &  &   &P&P&    \\
+       \hline  \texttt{distance}     & p &   &   &    &  &   &P&  &    \\
+       \hline  \texttt{correlation}   & AD &AD&   &    &  &AD &   &  &    \\
+       \hline  \texttt{extension}     &P&   &P&P &P&P& P&  &    \\
+       \hline  \texttt{rad. vel.}       &  P &   &   &    &  &P&   &  &    \\
+       \hline  \texttt{redshift}        &  P &P&   &    &  &P&   &  &    \\
+       \hline  \texttt{phot. rsft}      &   &P&   &    &  &P&   &  &    \\
+       \hline  \texttt{luminosity}    & P&P&   &    &  &P&P&P&P\\
+       \hline  \texttt{date}             & P  &   &   &    & P&P&   &  &P\\
+       \hline  \texttt{detections}    &  AD &   &   &    &  &   &   &  &    \\
+       \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\
+       \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\
+       \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\
+       \hline  \texttt{orb. sys.}      &   &   &  P &    &  &   &   &  &    \\
+       \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\
+       \hline  \texttt{ass. prd.}     &   &   &   &    &  &AD&   &  &AD \\
+       \hline
      \end{tabular}
-     \caption{ Break up of the requested quantities \texttt{P} parameter, \texttt{AD} Associated data} 
+     \caption{ Break up of the requested quantities \texttt{P} parameter, \texttt{AD} Associated data}
      \label{tab:q_breakup}
  \end{table}
 
@@ -234,35 +291,36 @@ There are 2 distinct categories of requested quantities , the measures and the a
 
 \subsubsection{R01: Supported Quantities}
 \begin{itemize}
-    \item Mango must provide unique source identifiers.
-    \item Mango must provide modeling classes for both parameters and associated data.
-    \item The number of parameters attached to Mango instances must be free.
-    \item The number of associated data attached to Mango instances must be free.
+    \item MANGO must provide unique source identifiers.
+    \item MANGO must provide modeling classes for both parameters and associated data.
+    \item The number of parameters attached to a MANGO instance must be free.
+    \item The number of associated data attached to a MANGO instance must be free.
 \end{itemize}
 
 \subsubsection{R02: Parameters}
-The notion of parameter matches the concept of measure in the Meas model. Mango may support parameter classes that are not  Meas classes though.
-  
+The concept of "Parameter" matches the concept of measure of the Meas model. MANGO may support Parameter classes that are not Meas classes though.
+
+
 \begin{itemize}
-    \item Mango must support explict classes for the most used parameters.
+    \item MANGO must support explict classes for the most used parameters.
     \item Mang must provide a generic way to support parameters that have not specif classes.
-    \item Mango instances must support multiple instances of the same parameter class.
-    \item The presence of any parameter in Mango instances must be optional.
-    \item Mango must provide a way to identify the role of each parameter.
+    \item MANGO instances must support multiple instances of the same parameter class.
+    \item The presence of any parameter in MANGO instances must be optional.
+    \item MANGO must provide a way to identify the role of each parameter.
     \item The role of each parameter should be machine-readable.
-    \item Each parameter must be able to be attached to a timestamp or a flag. The meaning of these flag is not part of Mango, but Mango must provide a way to describe it.
+    \item Each parameter must be possibly tagged by a timestamp or a flag. The meaning of this flag is not part of MANGO, but MANGO must provide a way to describe it.
 \end{itemize}
 
 \subsubsection{R03: Associated Data}
 The notion of associated data relates to any sort of complex data. This can be a pointer to a service or a data set, a data table or  other data structure.
 \begin{itemize}
-    \item Mango must support references to external datasets.
-    \item Mango must support references to external services.
-    \item Mango must support references to other Mango instances.
-    \item Mango  must support references to instances of models serialized in VO-DML. 
-    \item Mango instances must support multiple instances of the same associated data class.
-    \item The presence of any associated data in Mango instances must be optional.
-    \item Mango must provide a way to identify the role of each associated data.
+    \item MANGO must support references to external datasets.
+    \item MANGO must support references to external services.
+    \item MANGO must support references to other MANGO instances.
+    \item MANGO  must support references to instances of models serialized in VO-DML.
+    \item MANGO instances must support multiple instances of the same associated data class.
+    \item The presence of any associated data in MANGO instances must be optional.
+    \item MANGO must provide a way to identify the role of each associated data.
     \item The role of each associated data should be machine-readable.
  \end{itemize}
 
@@ -270,47 +328,50 @@ The notion of associated data relates to any sort of complex data. This can be a
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{../model/overview_diagram.png}
-\caption{Mango overview}
+\caption{MANGO overview}
 \label{fig:overview}
 \end{figure}
+\TODO{ change name of MANGO instance .
+explain central root class : here Source .
+A MANGO instance is a specialised VOMOdel instance  that composes other sources related to the central one ....TBC}
 
-The root class of the model is the \texttt{Source} class that has only one attribute, the identifier, that is the only quantity common to  all  Mango instances.
+The root class of the model is the \texttt{Source} class that has only one attribute, the identifier, that is the only quantity common to  all  MANGO instances.
 
 Each quantity or associated data attached to a source is represented by a connector describing the nature of either the quantity or of the associated data.
 
 There is no restriction on the set of connectors attached to one source.
 There are 2 classes of connectors
 
-\subsection{The parameters} 
-Parameter connectors are used to bind measures with the source. One connector can only reference one measure. The measure itself is modeled by a class of the Measure model or by an extension of this model. Measure extensions are part of Mango. 
-In addition to its class, the nature of a measure is given by a UCD and a semantic tag. The UCD gives the physical meaning of the measure whereas the semantic tag says more about the usage context of the measure. This can be for instance the reduction status (raw, corrected). The vocabulary allowed for the semantic is managed as a VO vocabulary. 
+\subsection{The parameters}
+Parameter connectors are used to bind measures with the source. One connector can only reference one measure. The measure itself is modeled by a class of the Measure model or by an extension of this model. Measure extensions are part of MANGO.
+In addition to its class, the nature of a measure is given by a UCD and a semantic tag. The UCD gives the physical meaning of the measure whereas the semantic tag says more about the usage context of the measure. This can be for instance the reduction status (raw, corrected). The vocabulary allowed for the semantic is managed as a VO vocabulary.
 
 
 \begin{table}[ht!]
      \tiny
      \begin{tabular}{|p{2.4cm}|p{1.8cm}|p{7cm}|}
        \hline Quantity &  Model &  \\
-       \hline  \texttt{identifier}      & Mango & required for anu instance\\                    
-       \hline  \texttt{position}      &  Meas &  \\       
-       \hline  \texttt{pr. motion}   & Meas &     \\       
-       \hline  \texttt{distance}     & Ext Meas &     \\       
-       \hline  \texttt{correlation}   & Ass data & reference to other Mango instances     \\       
-       \hline  \texttt{extension}     & Ext Meas & Can be used for FoV, morphlogy or shape\\       
-       \hline  \texttt{rad. vel.}       &  Ext Meas  &       \\       
-       \hline  \texttt{redshift}        &   Ext Meas  &  \\             
-       \hline  \texttt{phot. rsft}      & Ext Meas&    \\       
-       \hline  \texttt{luminosity}    & Ext Meas&\\       
-       \hline  \texttt{date}             & Meas & date or time stamp\\       
-       \hline  \texttt{detections}    & Ass data & reference to other Mango instances   \\       
-       \hline  \texttt{orbit}             & Ext Meas&      \\       
-       \hline  \texttt{type}             &Ext Meas&     \\      
-       \hline  \texttt{status}          &Ext Meas&     \\       
-       \hline  \texttt{orb. sys.}      &Ext Meas&     \\       
-       \hline  \texttt{PHA}            &Ext Meas&     \\       
-       \hline  \texttt{ass. prd.}     &Ass data&  \\       
-       \hline 
+       \hline  \texttt{identifier}      & MANGO & required for anu instance\\
+       \hline  \texttt{position}      &  Meas &  \\
+       \hline  \texttt{pr. motion}   & Meas &     \\
+       \hline  \texttt{distance}     & Ext Meas &     \\
+       \hline  \texttt{correlation}   & Ass data & reference to other MANGO instances     \\
+       \hline  \texttt{extension}     & Ext Meas & Can be used for FoV, morphlogy or shape\\
+       \hline  \texttt{rad. vel.}       &  Ext Meas  &       \\
+       \hline  \texttt{redshift}        &   Ext Meas  &  \\
+       \hline  \texttt{phot. rsft}      & Ext Meas&    \\
+       \hline  \texttt{luminosity}    & Ext Meas&\\
+       \hline  \texttt{date}             & Meas & date or time stamp\\
+       \hline  \texttt{detections}    & Ass data & reference to other MANGO instances   \\
+       \hline  \texttt{orbit}             & Ext Meas&      \\
+       \hline  \texttt{type}             &Ext Meas&     \\
+       \hline  \texttt{status}          &Ext Meas&     \\
+       \hline  \texttt{orb. sys.}      &Ext Meas&     \\
+       \hline  \texttt{PHA}            &Ext Meas&     \\
+       \hline  \texttt{ass. prd.}     &Ass data&  \\
+       \hline
      \end{tabular}
-     \caption{ \texttt{Meas} Measue class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mangno associated data} 
+     \caption{ \texttt{Meas} Measue class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mangno associated data}
  \end{table}
 
 
@@ -319,37 +380,37 @@ In addition to its class, the nature of a measure is given by a UCD and a semant
 \begin{table}[ht!]
      \begin{tabular}{|p{4cm}|p{3cm}|p{3.5cm}|}
        \hline Parameter &  Original model & UCDs 1+ first word  \\
-       \hline  \texttt{Position}             &  Measure  &  pos \\       
-       \hline  \texttt{Velocity  }            &  Measure & phys.veloc      \\              
-       \hline  \texttt{Proper motion}    & Measure & pos.pm    \\       
-       \hline  \texttt{Time}                   & Measure &  time.epoch   \\       
-       \hline  \texttt{Polarization}         & Measure & phys.polarization \\      
-       \hline  \texttt{SphericalSkyPosition}    &  Mango  &  pos.eq \\       
-       \hline  \texttt{ObjectType}                   &  Mango  & src.class \\       
-       \hline  \texttt{Redshift}                        &  Mango  & src.redshift \\       
-       \hline  \texttt{Luminosity}                    &  Mango  & phot.qqqchose \\
-       \hline  \texttt{HardnessRatio}             &  Mango  & phot.flux;arith.ratio \\
-       \hline  \texttt{Shape}                     &  Mango  & phys.area \\
-       \hline  \texttt{Flag}                        &  Mango  & meta.code  \\
-       \hline  \texttt{Orbit}                       &  Mango  & src.orbital \\    
-       \hline  \texttt{GenericMeasure}    &  Measure  &  Appropiate physical UCD \\    
-       \hline 
+       \hline  \texttt{Position}             &  Measure  &  pos \\
+       \hline  \texttt{Velocity  }            &  Measure & phys.veloc      \\
+       \hline  \texttt{Proper motion}    & Measure & pos.pm    \\
+       \hline  \texttt{Time}                   & Measure &  time.epoch   \\
+       \hline  \texttt{Polarization}         & Measure & phys.polarization \\
+       \hline  \texttt{SphericalSkyPosition}    &  MANGO  &  pos.eq \\
+       \hline  \texttt{ObjectType}                   &  MANGO  & src.class \\
+       \hline  \texttt{Redshift}                        &  MANGO  & src.redshift \\
+       \hline  \texttt{Luminosity}                    &  MANGO  & phot.qqqchose \\
+       \hline  \texttt{HardnessRatio}             &  MANGO  & phot.flux;arith.ratio \\
+       \hline  \texttt{Shape}                     &  MANGO  & phys.area \\
+       \hline  \texttt{Flag}                        &  MANGO  & meta.code  \\
+       \hline  \texttt{Orbit}                       &  MANGO  & src.orbital \\
+       \hline  \texttt{GenericMeasure}    &  Measure  &  Appropiate physical UCD \\
+       \hline
      \end{tabular}
-     \caption{ UCDs to be set for the supported parameters} 
+     \caption{ UCDs to be set for the supported parameters}
      \label{tab:ucds}
  \end{table}
 
 TBC phys.luminosity  vs phot.flux
-ajoutdr une temperature
+ajouter une temperature
 
-\subsection{Associated Data} 
+\subsection{Associated Data}
 Associated data connectors are used to bind any sort of complex data with the source. One connector can only refer to one dataset. Associated data can be either URIs (VO services or not) or reference to instances of other VO models (Obscore, Provenance…).
 
-Attaching VO model instances to sources does not mean that these  models must be imported. The merge between a Mango instance and one associated instance is operated by the data annotation process. The indication given by Mango tell the client how to interpret the embedded instance
+Attaching VO model instances to sources does not mean that these  models must be imported. The merge between a MANGO instance and one associated instance is operated by the data annotation process. The indication given by MANGO tell the client how to interpret the embedded instance
 
-\subsection{STC Extension} 
+\subsection{STC Extension}
 
-All STC measures are built upon the same pattern (see fig \ref{fig:stcpattern}). The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. The coordinate is attached to a system (class \texttt{CoordSys}). The system has 2 components 1) the space  (class \texttt{CoordSpace}) that describes the axis and 2) the frame    \texttt{CoordFrame}).  All Mango parameters are based on this pattern. Native STC classes are used when possible. Others parameters are built by extending STC classes . Figure \ref{fig:stcpattern}) shows the extended STC classes being part of Mango 
+All STC measures are built upon the same pattern (see Fig \ref{fig:stcpattern}). The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. The coordinate is attached to a system  (\texttt{CoordSys} class). The system has two components : 1) the space  ( \texttt{CoordSpace} class) that describes the axis and 2) the frame ()\texttt{CoordFrame} class).  Parameters in MANGO data model are based on this pattern. Native STC classes are used whenever possible. Others Parameters are built by extending STC classes . Figure \ref{fig:stcpattern}) shows the extended STC classes being part of MANGO.
 \begin{figure}
      \includegraphics[width=0.9\textwidth]{stc_pattern.png}
      \caption{STC pattern (simplified view)}
@@ -358,40 +419,40 @@ All STC measures are built upon the same pattern (see fig \ref{fig:stcpattern}).
 
 \begin{figure}
   \includegraphics[angle=90,origin=c,width=1\textwidth]{../model/stc_ext_diagram.png}
-  \caption{STC extension diagram }
+  \caption{Extension Pattern for STC classes.}
   \label{fig:stcextension}
 \end{figure}
 
 
 \input{model.tex}
 
-\section{TAP and Mango}
-This not normative section gives possible tips to save and discover Mango instances in TAP services.
-We suppose that the TAP service hosts catalogs which sources are Mango instances. These catalogs are named \emph{Mango Catalogs}.
+\section{TAP and MANGO}
+This not normative section gives possible tips to save and discover MANGO instances in TAP services.
+We suppose that the TAP service hosts catalogs which sources are MANGO instances. These catalogs are named \emph{MANGO Catalogs}.
 
-\subsection{Storing Mango Catalogs in TAP}
+\subsection{Storing MANGO Catalogs in TAP}
 For now this section only concerns the parameter. The associated data will be taken into account later.
 
 \begin{itemize}
-  \item One master table for the catalogs with various meta-data out of the Mango scope plus a unique identifier (primary key)
-  \item One master sources table for the source instances with the catalog identifier and a primary key safer than the Mango identifier.
+  \item One master table for the catalogs with various meta-data out of the MANGO scope plus a unique identifier (primary key)
+  \item One master sources table for the source instances with the catalog identifier and a primary key safer than the MANGO identifier.
   \item One table for each supported parameter with a foreign key for the join with the master source table
 \end{itemize}
 
-Although the model of the measures is hierarchical, it should be possible to flatten them in one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations (TBC) 
+Although the model of the measures is hierarchical, it should be possible to flatten them in one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations (TBC)
 
-This schema requires the server to explore all the parameter tables to retrieve  whole Mango instances. This process can be speed up by using the \emph{MangoCore} table.
+This schema requires the server to explore all the parameter tables to retrieve  whole MANGO instances. This process can be speed up by using the \emph{MANGOCore} table.
 
-\subsection{ \emph{MangoCore} Table}
+\subsection{ \emph{MANGOCore} Table}
 
-The discovery of \emph{Mango Catalogs} can be helped by a  \emph{MangoCore} table located in the  \emph{schema} schema. As Mango is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}. This selection is left at the discretion of the curator.
-The \emph{MangoCore} table has set of columns per parameter class plus one for the catalog ID. It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD an one with the \emph{Core} flag. TBC
+The discovery of \emph{MANGO Catalogs} can be helped by a  \emph{MANGOCore} table located in the  \emph{schema} schema. As MANGO is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}. This selection is left at the discretion of the curator.
+The \emph{MANGOCore} table has set of columns per parameter class plus one for the catalog ID. It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD an one with the \emph{Core} flag. TBC
 
 
 \appendix
 \section{Changes from Previous Versions}
 
-No previous versions yet.  
+No previous versions yet.
 % these would be subsections "Changes from v. WD-..."
 % Use itemize environments.
 
