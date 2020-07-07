@@ -33,6 +33,7 @@ jobs:
     
     - name: Check the output
       run: |
+        ls
         test -f ${{ env.doc_name }}-draft.pdf
         test -f ${{ env.doc_name }}.bbl
     
