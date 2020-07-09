@@ -95,7 +95,7 @@ infrastructure that enable VO applications.
 
 Modeling data collected to study astronomical source objects has been a long term concern for the DM working group and more generally for the IVOA.
 In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} as well as for catalogs \citep{wd:catalog}.
-Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity…).
+Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity, fluxes, magnitudes…).
 None of these proposals have come to completion.
 
 The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focusing on the tools available to work with VO data models and especially with VO-DML. The goal of this session was to annotate data from different origins in order to make them interoperable with each other.
@@ -167,7 +167,7 @@ The physical parameters recorded for each source in the various projects are lis
 \end{itemize}
 
 \subsubsection{Exoplanets missions}
-\TODO{mention the involved projects : examples ? GASP , TESS? }
+\TODO{mention the involved projects : examples ? GAPS, TESS? }
 
 \begin{itemize}
     \item position
@@ -200,7 +200,8 @@ models that selects energy models for the origin of the recorded photons ...
 \subsubsection{Vizier catalog archive  }
 Vizier gathers and delivers a curated version of published catalogs from various missions and experiments.
 It also distributes results of scientific papers, based on the computation , comparison and classification of sources extracted from archived data after science analysis.
-Vizier handles a very large set of measures in position, photometry, redshift, source type, etc. as authors original data.
+Vizier handles a very large set of measures in position, photometry, redshift, source type, etc.
+% FB : I don't think the end of this sentences was correct : "as authors original data."
 It adds value to it by recomputing additional quantities in various reference frames or equivalent spectral bands, units conversions , etc .
 It binds the resulting object description to other data sets representing the object, or its conterpart, or neighbourhood (image), its spectral behaviour (spectrum) or evolution through time (light curve, radial velocity curve, timeseries, etc.).
 Currently the binding and structure of the quantities is done by column grouping.
@@ -247,7 +248,8 @@ for one or multiple sources
     \item Timestamp: Independent axis of the time series
     \item Position: depends on t for a moving object
     \item Photometry: depends on t for light curves
-    \item Radial velocity: depends on t for moving objects along the line of sight(?)
+    \item Radial velocity: depends on t for objects submitted to gravitational perturbations
+    % I don't think you can see long term variation of radial velocities except in solar system. (FB)
     \item Period
     \item Associated products: time series of e.g. a spectrum or an image
 
@@ -301,8 +303,8 @@ The concept of "Parameter" matches the concept of measure of the Meas model. MAN
 
 
 \begin{itemize}
-    \item MANGO must support explict classes for the most used parameters.
-    \item Mang must provide a generic way to support parameters that have not specif classes.
+    \item MANGO must support explicit classes imported from an IVOA datamodel for the most used parameters.
+    \item MANGO must provide a generic way to support parameters that do not enter the above category.
     \item MANGO instances must support multiple instances of the same parameter class.
     \item The presence of any parameter in MANGO instances must be optional.
     \item MANGO must provide a way to identify the role of each parameter.
@@ -370,7 +372,7 @@ In addition to its class, the nature of a measure is given by a UCD and a semant
        \hline  \texttt{ass. prd.}     &Ass data&  \\
        \hline
      \end{tabular}
-     \caption{ \texttt{Meas} Measue class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mangno associated data}
+     \caption{ Mango quantities with  corresponding complex type  \texttt{Native Meas} Measure class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mango associated data}
  \end{table}
 
 
@@ -396,6 +398,7 @@ In addition to its class, the nature of a measure is given by a UCD and a semant
        \hline
      \end{tabular}
      \caption{ UCDs to be set for the supported parameters}
+     %FB : table 2 and 3 are not referenced in the text
      \label{tab:ucds}
  \end{table}
 
