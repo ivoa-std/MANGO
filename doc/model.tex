@@ -52,6 +52,12 @@
       \textbf{multiplicity: 1} \newline 
       Type of the associated data (not defined yet)
 
+    \subsubsection{AssociatedData.description}
+      \textbf{vodml-id: AssociatedData.description} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Free text description of the associated data
+
   \subsection{HardnessRatioSys}
   \label{sect:HardnessRatioSys}
     TODO : Missing description : please, update your UML model asap.
@@ -96,11 +102,23 @@
       \textbf{multiplicity: 1} \newline 
       UCD1+ giving the type of the physical measure
 
+    \subsubsection{Parameter.description}
+      \textbf{vodml-id: Parameter.description} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Free text description of the measure
+
     \subsubsection{Parameter.measure}
       \textbf{vodml-id: Parameter.measure} \newline
       \textbf{type: meas:Measure} \newline
       \textbf{multiplicity: 1} \newline 
       Composition link pointing to the meas:Measure instance
+
+    \subsubsection{Parameter.associatedParameters}
+      \textbf{vodml-id: Parameter.associatedParameters} \newline
+      \textbf{type: \hyperref[sect:Parameter]{mango:Parameter}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{PhotometryCoordSys}
   \label{sect:PhotometryCoordSys}
@@ -278,6 +296,21 @@
       \textbf{multiplicity: 1} \newline 
       Coordinate holding the statsu value
 
+  \subsection{FlagCoord}
+  \label{sect:stcextend.FlagCoord}
+    Coordinate of a status Measure
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: FlagSys} \newline
+
+
+    \subsubsection{FlagCoord.status}
+      \textbf{vodml-id: stcextend.FlagCoord.status} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Value of the status
+
   \subsection{FlagState}
   \label{sect:stcextend.FlagState}
     Possible value of a status
@@ -330,6 +363,21 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{HardnessRatioCoord}
+  \label{sect:stcextend.HardnessRatioCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: mango:HardnessRatioSys} \newline
+
+
+    \subsubsection{HardnessRatioCoord.hardnessRatio}
+      \textbf{vodml-id: stcextend.HardnessRatioCoord.hardnessRatio} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{LonLatCoordSys}
   \label{sect:stcextend.LonLatCoordSys}
     TODO : Missing description : please, update your UML model asap.
@@ -342,6 +390,27 @@
     \noindent \textbf{constraint} \newline
     \indent    \textbf{detail: LonLatCoordSys.coordSpace[0] }\newline
 
+
+  \subsection{LonLatPoint}
+  \label{sect:stcextend.LonLatPoint}
+    Coordinate of a point on the sky sphere expressed in spherical coordinates.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: mango:LonLatCoordSys} \newline
+
+
+    \subsubsection{LonLatPoint.longitude}
+      \textbf{vodml-id: stcextend.LonLatPoint.longitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      longitude of the point
+
+    \subsubsection{LonLatPoint.latitude}
+      \textbf{vodml-id: stcextend.LonLatPoint.latitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Latitude of the point
 
   \subsection{LonLatSkyPosition}
   \label{sect:stcextend.LonLatSkyPosition}
@@ -363,6 +432,21 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{ObjectTypeCoord}
+  \label{sect:stcextend.ObjectTypeCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: ObjectTypeSys} \newline
+
+
+    \subsubsection{ObjectTypeCoord.objectType}
+      \textbf{vodml-id: stcextend.ObjectTypeCoord.objectType} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{ObjectTypeSys}
   \label{sect:stcextend.ObjectTypeSys}
     TODO : Missing description : please, update your UML model asap.
@@ -376,6 +460,15 @@
       \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{mango:stcextend.OrbitCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
+
+  \subsection{OrbitCoord}
+  \label{sect:stcextend.OrbitCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: coords:SpaceSys} \newline
+
 
   \subsection{PhotFilter}
   \label{sect:stcextend.PhotFilter}
@@ -427,6 +520,37 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{PhotometryCoord}
+  \label{sect:stcextend.PhotometryCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: PhotometryCoordSys} \newline
+
+
+    \subsubsection{PhotometryCoord.luminosity}
+      \textbf{vodml-id: stcextend.PhotometryCoord.luminosity} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{RDFWord}
+  \label{sect:stcextend.RDFWord}
+    Datatype for vocabulary word. Provides a pointer to the word description and a label.
+
+    \subsubsection{RDFWord.rdf\_uri}
+      \textbf{vodml-id: stcextend.RDFWord.rdf\_uri} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      URI extarcted from the DRF document and refering ot the word
+
+    \subsubsection{RDFWord.label}
+      \textbf{vodml-id: stcextend.RDFWord.label} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      RDF label. Matched the URL fragment for IVOA vocabularies
+
   \subsection{Redshift}
   \label{sect:stcextend.Redshift}
     TODO : Missing description : please, update your UML model asap.
@@ -434,6 +558,21 @@
     \subsubsection{Redshift.coord}
       \textbf{vodml-id: stcextend.Redshift.coord} \newline
       \textbf{type: \hyperref[sect:stcextend.RedshiftCoord]{mango:stcextend.RedshiftCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{RedshiftCoord}
+  \label{sect:stcextend.RedshiftCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: RedshiftSys} \newline
+
+
+    \subsubsection{RedshiftCoord.redshift}
+      \textbf{vodml-id: stcextend.RedshiftCoord.redshift} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
@@ -451,6 +590,21 @@
       \textbf{multiplicity: 1} \newline 
       String serialization of the source shape
 
+  \subsection{ShapeCoord}
+  \label{sect:stcextend.ShapeCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: ShapeSys} \newline
+
+
+    \subsubsection{ShapeCoord.shape}
+      \textbf{vodml-id: stcextend.ShapeCoord.shape} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{ShapeSys}
   \label{sect:stcextend.ShapeSys}
     Coordinate systen to be used for shape measure
@@ -460,42 +614,6 @@
       \textbf{type: \hyperref[sect:stcextend.ShapeFrame]{mango:stcextend.ShapeFrame}} \newline
       \textbf{multiplicity: 1} \newline 
       Frame of the shape measure. Gives a enumeration of the supported serializations.
-
-  \subsection{LonLatPoint}
-  \label{sect:stcextend.LonLatPoint}
-  Coordinate of a point on the sky sphere expressed in spherical coordinates.
-
-  \subsection{FlagCoord}
-  \label{sect:stcextend.FlagCoord}
-  Coordinate of a status Measure
-
-  \subsection{ShapeCoord}
-  \label{sect:stcextend.ShapeCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{OrbitCoord}
-  \label{sect:stcextend.OrbitCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{ObjectTypeCoord}
-  \label{sect:stcextend.ObjectTypeCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{PhotometryCoord}
-  \label{sect:stcextend.PhotometryCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{HardnessRatioCoord}
-  \label{sect:stcextend.HardnessRatioCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{RedshiftCoord}
-  \label{sect:stcextend.RedshiftCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{RDFWord}
-  \label{sect:stcextend.RDFWord}
-  Datatype for vocabulary word. Provides a pointer to the word description and a label.
 
   \subsection{ShapeFrame}
   \label{sect:stcextend.ShapeFrame}
