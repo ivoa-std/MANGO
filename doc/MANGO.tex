@@ -257,7 +257,8 @@ for one or multiple sources
 
 There are two categories of information features supported, the measures and the associated data. The measures
  can be numerical values or simple strings. The MANGO datamodel describes measures by relying on the IVOA Meas data model.%\cite{MEAS}.
- Associated data are related to data with a complex structure or to data just referenced by a URI. Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+ Asociated data are related to data with a complex structure or to data just referenced by a URI. Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+
 
 \begin{table}[ht!]
      \tiny
@@ -332,52 +333,40 @@ The notion of associated data relates to any sort of complex data. This can be a
 \caption{MANGO overview}
 \label{fig:overview}
 \end{figure}
-\TODO{ change name of MANGO instance .
-explain central root class : here Source .
-A MANGO instance is a specialised VOMOdel instance  that composes other sources related to the central one ....TBC}
-
-The root class of the model is the \texttt{Source} class that has only one attribute, the identifier, that is the only quantity common to  all  MANGO instances.
-
-Each quantity or associated data attached to a source is represented by a connector describing the nature of either the quantity or of the associated data.
-
-There is no restriction on the set of connectors attached to one source.
-There are 2 classes of connectors
-
-\subsection{The parameters}
-Parameter connectors are used to bind measures with the source. One connector can only reference one measure. The measure itself is modeled by a class of the Measure model or by an extension of this model. Measure extensions are part of MANGO.
-In addition to its class, the nature of a measure is given by a UCD and a semantic tag. The UCD gives the physical meaning of the measure whereas the semantic tag says more about the usage context of the measure. This can be for instance the reduction status (raw, corrected). The vocabulary allowed for the semantic is managed as a VO vocabulary.
 
 
-\begin{table}[ht!]
-     \tiny
-     \begin{tabular}{|p{2.4cm}|p{1.8cm}|p{7cm}|}
-       \hline Quantity &  Model &  \\
-       \hline  \texttt{identifier}      & MANGO & required for anu instance\\
-       \hline  \texttt{position}      &  Meas &  \\
-       \hline  \texttt{pr. motion}   & Meas &     \\
-       \hline  \texttt{distance}     & Ext Meas &     \\
-       \hline  \texttt{correlation}   & Ass data & reference to other MANGO instances     \\
-       \hline  \texttt{extension}     & Ext Meas & Can be used for FoV, morphlogy or shape\\
-       \hline  \texttt{rad. vel.}       &  Ext Meas  &       \\
-       \hline  \texttt{redshift}        &   Ext Meas  &  \\
-       \hline  \texttt{phot. rsft}      & Ext Meas&    \\
-       \hline  \texttt{luminosity}    & Ext Meas&\\
-       \hline  \texttt{date}             & Meas & date or time stamp\\
-       \hline  \texttt{detections}    & Ass data & reference to other MANGO instances   \\
-       \hline  \texttt{orbit}             & Ext Meas&      \\
-       \hline  \texttt{type}             &Ext Meas&     \\
-       \hline  \texttt{status}          &Ext Meas&     \\
-       \hline  \texttt{orb. sys.}      &Ext Meas&     \\
-       \hline  \texttt{PHA}            &Ext Meas&     \\
-       \hline  \texttt{ass. prd.}     &Ass data&  \\
-       \hline
-     \end{tabular}
-     \caption{ Mango quantities with  corresponding complex type  \texttt{Native Meas} Measure class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mango associated data}
- \end{table}
+Sky objects are represented by instances of the class \texttt{mangoInstance} which has only one mandatory attribute, the source \texttt{identifier}.
+It is recommended the identifiers to be unique within a source collection e.g. a catalog.   
 
+The \texttt{mangoInstance} is a dock for all source parameters and for all data associated to that source.
+The pattern of either parameters or associated data attached to a source is not specified by the model. It depends of the datase on which the model is applied.
 
-\subsubsection{Parameter UCD}
+The \texttt{mangoInstance} has one connector for the paremeters,  the \texttt{parameters} relation, and another for the associatedData, the  \texttt{associatedData}  relations.
+Both connectors have an open-ended cardinality.
 
+Each source paremeter is hooked to the \texttt{mangoInstance} by a wrapping class (\texttt{Parameter} ) that contains anything necessary to identify its nature and roler.
+Parameters can linked together to represent logical parameter sets. These logical sets have no semantic. Their interpretation is in charge  of the clients.
+
+Each associated data or data pointer is hooked to the \texttt{mangoInstance} by a wrapping class (\texttt{AssociatedData} ) that contains anything necessary to identify its nature and its role.
+
+\subsection{Parameters}
+
+\texttt{Parameter}  connectors are used to bind measures with the source. 
+A parameters is composed  by some semantic tags and one measure, instance of \texttt{Measure}. \texttt{Measure} is an abstract class imported from \texttt{meas} model. Concrete classes referended by a parameter are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
+
+\subsubsection{Parameters Identification}
+As the parameter set  attached to a particular instance is not defined by Mango, the model must provide an accurate parameter description to allow the client to figure out what it can do with each of them.
+Mango provides 5 description levels for each parameter:
+
+\begin{itemize}
+    \item \textbf{Measure class (vodml type)}: The most current measures are represented by specific  \texttt{Measure} sub-classes. Knowing that class tell the clients  how to interpret the corresponding measure but does help to get its role e.g. a position can be either a source postion or a pointing direction. Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} . In that case, the vodml type does not help at all.
+    \item \textbf{UCD}: A valid UCD must be attached to each parameter. Mango provides a UCD space for each \texttt{Measure} sub-class . UCDs used for specific measures must be compliant with table \ref{tab:ucds}. For generic measures, the UCD choice is in charge of the data provider. In any cases, the consistance between UCDs and measure is the responsability of the data provider.
+\TODO{TBC phys.luminosity  vs phot.flux}
+    \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter. 
+    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.    
+    \item \textbf{Description}: A free text description may be attached to each parameter.
+ \end{itemize}
+ 
 \begin{table}[ht!]
      \begin{tabular}{|p{4cm}|p{3cm}|p{3.5cm}|}
        \hline Parameter &  Original model & UCDs 1+ first word  \\
@@ -394,36 +383,84 @@ In addition to its class, the nature of a measure is given by a UCD and a semant
        \hline  \texttt{Shape}                     &  MANGO  & phys.area \\
        \hline  \texttt{Flag}                        &  MANGO  & meta.code  \\
        \hline  \texttt{Orbit}                       &  MANGO  & src.orbital \\
+       \hline  \texttt{Temperature}                &  MANGO  & phys.temperature \\
        \hline  \texttt{GenericMeasure}    &  Measure  &  Appropiate physical UCD \\
        \hline
      \end{tabular}
      \caption{ UCDs to be set for the supported parameters}
-     %FB : table 2 and 3 are not referenced in the text
      \label{tab:ucds}
  \end{table}
 
-TBC phys.luminosity  vs phot.flux
-ajouter une temperature
 
-\subsection{Associated Data}
-Associated data connectors are used to bind any sort of complex data with the source. One connector can only refer to one dataset. Associated data can be either URIs (VO services or not) or reference to instances of other VO models (Obscore, Provenance…).
 
-Attaching VO model instances to sources does not mean that these  models must be imported. The merge between a MANGO instance and one associated instance is operated by the data annotation process. The indication given by MANGO tell the client how to interpret the embedded instance
+\subsubsection{Measure Extension}
 
-\subsection{STC Extension}
-
-All STC measures are built upon the same pattern (see Fig \ref{fig:stcpattern}). The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. The coordinate is attached to a system  (\texttt{CoordSys} class). The system has two components : 1) the space  ( \texttt{CoordSpace} class) that describes the axis and 2) the frame ()\texttt{CoordFrame} class).  Parameters in MANGO data model are based on this pattern. Native STC classes are used whenever possible. Others Parameters are built by extending STC classes . Figure \ref{fig:stcpattern}) shows the extended STC classes being part of MANGO.
+All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:stcpattern}). The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. The coordinate is attached to a system  (\texttt{CoordSys} class). The system has two components : 1) the space  ( \texttt{CoordSpace} class) that describes the axis and 2) the frame ()\texttt{CoordFrame} class).  Parameters in MANGO data model are based on this pattern. Native  \texttt{Measure} classes are used whenever possible. Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}). These extended classes are part of MANGO.
 \begin{figure}
      \includegraphics[width=0.9\textwidth]{stc_pattern.png}
-     \caption{STC pattern (simplified view)}
+     \caption{Measure/Coordinate pattern (simplified view)}
      \label{fig:stcpattern}
 \end{figure}
 
 \begin{figure}
   \includegraphics[angle=90,origin=c,width=1\textwidth]{../model/mangoMctExt.png}
-  \caption{Extension Pattern for STC classes.}
+  \caption{Mango extensions of Measure.}
   \label{fig:stcextension}
 \end{figure}
+
+
+
+%\begin{table}[ht!]
+ %    \tiny
+%     \begin{tabular}{|p{2.4cm}|p{1.8cm}|p{7cm}|}
+%       \hline Quantity &  Model &  \\
+%       \hline  \texttt{identifier}      & MANGO & required for anu instance\\
+%       \hline  \texttt{position}      &  Meas &  \\
+%       \hline  \texttt{pr. motion}   & Meas &     \\
+%       \hline  \texttt{distance}     & Ext Meas &     \\
+%       \hline  \texttt{correlation}   & Ass data & reference to other MANGO instances     \\
+%       \hline  \texttt{extension}     & Ext Meas & Can be used for FoV, morphlogy or shape\\
+%       \hline  \texttt{rad. vel.}       &  Ext Meas  &       \\
+ %      \hline  \texttt{redshift}        &   Ext Meas  &  \\
+%       \hline  \texttt{phot. rsft}      & Ext Meas&    \\
+%       \hline  \texttt{luminosity}    & Ext Meas&\\
+ %      \hline  \texttt{date}             & Meas & date or time stamp\\
+ %      \hline  \texttt{detections}    & Ass data & reference to other MANGO instances   \\
+ %      \hline  \texttt{orbit}             & Ext Meas&      \\
+ %      \hline  \texttt{type}             &Ext Meas&     \\
+ %      \hline  \texttt{status}          &Ext Meas&     \\
+ %      \hline  \texttt{orb. sys.}      &Ext Meas&     \\
+ %      \hline  \texttt{PHA}            &Ext Meas&     \\
+ %      \hline  \texttt{ass. prd.}     &Ass data&  \\
+ %      \hline
+%     \end{tabular}
+ %    \caption{ Mango quantities with  corresponding complex type  \texttt{Native Meas} Measure class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mango associated data}
+% \end{table}
+
+
+
+\subsection{Associated Data}
+\texttt{AssociatedData} connectors are used to bind any sort of complex data with the source. 
+One connector can only refer to one dataset. 
+Associated data can be either URIs (VO services or not), other mango instances or reference to instances of other VO models (e.g. Obscore, Provenance…).
+
+\subsubsection{AssociatedData Identification}
+As the associated data set  attached to a particular instance is not defined by Mango, the model must provide an accurate parameter description to allow the client to figure out what it can do with each of them.
+Mango provides 3 description levels for each category of associated data:
+
+\begin{itemize}
+    \item \textbf{Data class (vodml type)}: Knowing the class representing associated data tells the clients  how to interpret it but does help to get its role.
+    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set. The choice of that vocabulary is totally free as long as it is published.    
+    \item \textbf{Description}: A free text description may be attached to each associated data .
+ \end{itemize}
+ 
+\subsubsection{Associated Model Instances}
+The way to attach VO model instances to MANGO sources is very specific in a sense of that Mango gives the model reference by tells nothing about the way import  the instance.  
+The model of associated instances must be available as a vodml file.
+The \texttt{ModelInstance} is an empty class without sub classes. 
+We assumes  that the serialization mechanism is enable to replace the \texttt{ModelInstance} instance with an actual instance of the model. An example in given in appendix xx.
+
+
 
 
 \input{model.tex}
@@ -452,6 +489,9 @@ The \emph{MANGOCore} table has set of columns per parameter class plus one for t
 
 
 \appendix
+
+\section{Imported Models Instance}
+
 \section{Changes from Previous Versions}
 
 No previous versions yet.
