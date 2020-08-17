@@ -7,7 +7,7 @@
 \ivoagroup{DM}
 
 
-% mire commands
+% mireille commands
 % borrowed from Prov WD - Kristin - own definitions
 \definecolor{todocolor}{rgb}{1,1,0.8}
 \definecolor{darkred}{rgb}{0.6,0,0}
@@ -135,6 +135,7 @@ IVOA architecture \citep{note:VOARCH}.
 
 \subsection{Use Cases}
 The following uses-cases have been collected since 2019 from representatives of various astronomical missions, archive designers and tools developers.
+
 \TODO{ may be too early to conclude about this ?? The contribution was totally open. This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
 
 The physical parameters recorded for each source in the various projects are listed below:
@@ -167,7 +168,6 @@ The physical parameters recorded for each source in the various projects are lis
 \end{itemize}
 
 \subsubsection{Exoplanets missions}
-\TODO{mention the involved projects : examples ? GAPS, TESS? }
 
 \begin{itemize}
     \item position
@@ -177,17 +177,21 @@ The physical parameters recorded for each source in the various projects are lis
     \item orbiting system description
 \end{itemize}
 
+\TODO{mention the involved projects : examples ? GAPS, TESS? }
 \subsubsection{Morphologically Complex Structures}
 
-\TODO{to be developed ...}
 \begin{itemize}
     \item morphology
 \end{itemize}
 
+\TODO{to be developed ...}
+
 \subsubsection{Chandra Archive}
-This Xray mission has produced a very large catalog of sources. %( ?? TB) \cite{chandra catalog, 2019}.
+This X-ray mission has produced a very large catalog of sources. %( ?? TB) \cite{chandra catalog, 2019}.
 All quantities are time dependant, depend on calibration methods as well as on appropriate physical
 models that selects energy models for the origin of the recorded photons ...
+
+
 \TODO{to be developed, explained ...}
 \begin{itemize}
     \item name
@@ -203,7 +207,7 @@ It also distributes results of scientific papers, based on the computation , com
 Vizier handles a very large set of measures in position, photometry, redshift, source type, etc.
 % FB : I don't think the end of this sentences was correct : "as authors original data."
 It adds value to it by recomputing additional quantities in various reference frames or equivalent spectral bands, units conversions , etc .
-It binds the resulting object description to other data sets representing the object, or its conterpart, or neighbourhood (image), its spectral behaviour (spectrum) or evolution through time (light curve, radial velocity curve, timeseries, etc.).
+It binds the resulting object description to other data sets representing the object, or its counterparts, or neighbourhood on sky (image), its spectral behaviour (spectrum, spectral energy distribution) or evolution through time (light curve, radial velocity curve, timeseries, etc.).
 Currently the binding and structure of the quantities is done by column grouping.
 \begin{itemize}
     \item pre-existing data
@@ -227,7 +231,8 @@ Quantities possibly plotted or matched with some of other datasets
 
 \subsubsection{X\-match tool }
 The Xmatch operation relies on the comparison of the quantities recorded for each source between several catalogs in order to identify or disentagle counterparts .
-%\cite{F-X algo}, 
+%\cite{F-X algo},
+
 Chandra X match ??? , others ???
 the mandatory quantities to operate such comparison involve:
 \begin{itemize}
@@ -240,8 +245,8 @@ the mandatory quantities to operate such comparison involve:
 
 \subsubsection{Time Domain }
 
-This Use-case involves measured parameters varying with time
-for one or multiple sources
+This use-case involves measured physical quantities varying with time for one or multiple sources.
+
 
  \begin{itemize}
     \item Identifier: object identifier
@@ -255,9 +260,19 @@ for one or multiple sources
 
 \end{itemize}
 
-There are two categories of information features supported, the measures and the associated data. The measures
- can be numerical values or simple strings. The MANGO datamodel describes measures by relying on the IVOA Meas data model.%\cite{MEAS}.
- Asociated data are related to data with a complex structure or to data just referenced by a URI. Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+From the use-cases' description, two categories of features are provided or foreseen by the projects, the results from the analysis of the observed or simulated data for sources on one side, expressed as physical measures and classification results like types, status, etc. and extra information provided for interpretation purpose on the other side and expressed as \emph{associated data}.
+Features in each project are measures provided as numerical values or classification tags exposed as numbers or simple strings. They are the source \emph{parameters} astronomers will investigate for their science.
+They are usually described in astronomical catalogs by columns description in a table. The source instances recorded by the projects feed the rows of such tables.
+VOTable has been till today the format of choice to distribute such data.
+
+% mir trop tot ds la partie uses-cases --> partie model ? The MANGO datamodel describes measures by relying on the IVOA Meas data model.%\cite{MEAS}.
+Associated data are generally science ready dataproducts either from the same project, or shared by other projects within the IVOA interoperability framework.
+They bring a complement of information to interpret the source's  parameters under study and compare visually (or computationnaly) the sky neighbourhood of detected sources, their variation through time or spectral behaviour.
+Referencing such datasets by a URI or by a service endpoint already works for existing VO products. ( It has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and DataLink for service endpoints).
+Associated data can also present a complex structure designed to bring a very advanced context of interpretation (CTA model assumptions, energy model for Xray sources, etc.) which need to be described in the attachement.
+
+Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+
 
 
 \begin{table}[ht!]
@@ -281,15 +296,18 @@ There are two categories of information features supported, the measures and the
        \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\
        \hline  \texttt{orb. sys.}      &   &   &  P &    &  &   &   &  &    \\
        \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\
-       \hline  \texttt{ass. prd.}     &   &   &   &    &  &AD&   &  &AD \\
+       \hline  \texttt{assoc. products}     &   &   &   &    &  &AD&   &  &AD \\
        \hline
      \end{tabular}
-     \caption{ Break up of the requested quantities \texttt{P} parameter, \texttt{AD} Associated data}
+     \caption{ Break up of the requested quantities:  \texttt{P} stands for Parameter, \texttt{AD} for Associated Data}
+
      \label{tab:q_breakup}
  \end{table}
 
 
 \subsection{Requirements}
+% mir
+\TODO{mir: can we use MANGO DM all along the requirement section instead of MANGO?  }
 
 \subsubsection{R01: Supported Quantities}
 \begin{itemize}
@@ -322,7 +340,7 @@ The notion of associated data relates to any sort of complex data. This can be a
     \item MANGO  must support references to instances of models serialized in VO-DML.
     \item MANGO instances must support multiple instances of the same associated data class.
     \item The presence of any associated data in MANGO instances must be optional.
-    \item MANGO must provide a way to identify the role of each associated data.
+    \item MANGO must provide a way to identify the role of each associated data in order to explain which purpose is served when associating this data to the source object.
     \item The role of each associated data should be machine-readable.
  \end{itemize}
 
@@ -336,7 +354,7 @@ The notion of associated data relates to any sort of complex data. This can be a
 
 
 Sky objects are represented by instances of the class \texttt{mangoInstance} which has only one mandatory attribute, the source \texttt{identifier}.
-It is recommended the identifiers to be unique within a source collection e.g. a catalog.   
+It is recommended the identifiers to be unique within a source collection e.g. a catalog.
 
 The \texttt{mangoInstance} is a dock for all source parameters and for all data associated to that source.
 The pattern of either parameters or associated data attached to a source is not specified by the model. It depends of the datase on which the model is applied.
@@ -351,7 +369,7 @@ Each associated data or data pointer is hooked to the \texttt{mangoInstance} by 
 
 \subsection{Parameters}
 
-\texttt{Parameter}  connectors are used to bind measures with the source. 
+\texttt{Parameter}  connectors are used to bind measures with the source.
 A parameters is composed  by some semantic tags and one measure, instance of \texttt{Measure}. \texttt{Measure} is an abstract class imported from \texttt{meas} model. Concrete classes referended by a parameter are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
 
 \subsubsection{Parameters Identification}
@@ -362,11 +380,11 @@ Mango provides 5 description levels for each parameter:
     \item \textbf{Measure class (vodml type)}: The most current measures are represented by specific  \texttt{Measure} sub-classes. Knowing that class tell the clients  how to interpret the corresponding measure but does help to get its role e.g. a position can be either a source postion or a pointing direction. Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} . In that case, the vodml type does not help at all.
     \item \textbf{UCD}: A valid UCD must be attached to each parameter. Mango provides a UCD space for each \texttt{Measure} sub-class . UCDs used for specific measures must be compliant with table \ref{tab:ucds}. For generic measures, the UCD choice is in charge of the data provider. In any cases, the consistance between UCDs and measure is the responsability of the data provider.
 \TODO{TBC phys.luminosity  vs phot.flux}
-    \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter. 
-    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.    
+    \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter.
+    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each parameter.
  \end{itemize}
- 
+
 \begin{table}[ht!]
      \begin{tabular}{|p{4cm}|p{3cm}|p{3.5cm}|}
        \hline Parameter &  Original model & UCDs 1+ first word  \\
@@ -440,8 +458,9 @@ All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:s
 
 
 \subsection{Associated Data}
-\texttt{AssociatedData} connectors are used to bind any sort of complex data with the source. 
-One connector can only refer to one dataset. 
+\texttt{AssociatedData} connectors are used to bind any sort of complex data with the source.
+One connector can only refer to one dataset.
+
 Associated data can be either URIs (VO services or not), other mango instances or reference to instances of other VO models (e.g. Obscore, Provenance…).
 
 \subsubsection{AssociatedData Identification}
@@ -450,14 +469,15 @@ Mango provides 3 description levels for each category of associated data:
 
 \begin{itemize}
     \item \textbf{Data class (vodml type)}: Knowing the class representing associated data tells the clients  how to interpret it but does help to get its role.
-    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set. The choice of that vocabulary is totally free as long as it is published.    
+    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set. The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each associated data .
  \end{itemize}
- 
+
 \subsubsection{Associated Model Instances}
-The way to attach VO model instances to MANGO sources is very specific in a sense of that Mango gives the model reference by tells nothing about the way import  the instance.  
+The way to attach VO model instances to MANGO sources is very specific in a sense of that Mango gives the model reference by tells nothing about the way import  the instance.
 The model of associated instances must be available as a vodml file.
-The \texttt{ModelInstance} is an empty class without sub classes. 
+The \texttt{ModelInstance} is an empty class without sub classes.
+
 We assumes  that the serialization mechanism is enable to replace the \texttt{ModelInstance} instance with an actual instance of the model. An example in given in appendix xx.
 
 
