@@ -9,7 +9,7 @@
   <author>Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2020-05-29T11:10:55</lastModified>
+  <lastModified>2020-07-21T12:00:38</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -26,86 +26,62 @@
     <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.html</documentationURL>
   </import>
   <enumeration>
-    <vodml-id>LinkSemantic</vodml-id>
-    <name>LinkSemantic</name>
-    <description>Literal enumeration of the possible values for the associated data semantic.
-This stands for an example before we have defined a vocabulary.</description>
+    <vodml-id>MangoInstanceRole</vodml-id>
+    <name>MangoInstanceRole</name>
+    <description>Enumeration of the possible roles of associated Mango Instances</description>
     <literal>
-      <vodml-id>LinkSemantic.VOService</vodml-id>
-      <name>VOService</name>
-      <description>Data returned by a VO service</description>
-    </literal>
-    <literal>
-      <vodml-id>LinkSemantic.VOInstance</vodml-id>
-      <name>VOInstance</name>
-      <description>Data Serialized in a VO model</description>
-    </literal>
-    <literal>
-      <vodml-id>LinkSemantic.Preview</vodml-id>
-      <name>Preview</name>
-      <description>data preview</description>
-    </literal>
-    <literal>
-      <vodml-id>LinkSemantic.DownloadLink</vodml-id>
-      <name>DownloadLink</name>
-      <description>Data download link</description>
-    </literal>
-    <literal>
-      <vodml-id>LinkSemantic.Detection</vodml-id>
+      <vodml-id>MangoInstanceRole.Detection</vodml-id>
       <name>Detection</name>
-      <description>Particular detection</description>
+      <description>The associated Mango instance is another dectection of the same object</description>
     </literal>
     <literal>
-      <vodml-id>LinkSemantic.Compagnon</vodml-id>
-      <name>Compagnon</name>
-      <description>Compagnon source</description>
+      <vodml-id>MangoInstanceRole.Companion</vodml-id>
+      <name>Companion</name>
+      <description>The associated Mango instance is a companion object e.g. binary star</description>
     </literal>
     <literal>
-      <vodml-id>LinkSemantic.Counterpart</vodml-id>
+      <vodml-id>MangoInstanceRole.Counterpart</vodml-id>
       <name>Counterpart</name>
-      <description>Counter part source</description>
+      <description>The associated Mango instance is a source counterpart taken out of another dataset e.g cross-match result</description>
     </literal>
   </enumeration>
 
   <enumeration>
-    <vodml-id>ParamSemantic</vodml-id>
-    <name>ParamSemantic</name>
-    <description>Literal enumeration of the possible values for the parameter semantic.
-This stands for an example before we have defined a vocabulary.</description>
+    <vodml-id>ReductionStatus</vodml-id>
+    <name>ReductionStatus</name>
+    <description>Enumeration of the possible reduction status of a parameter
+</description>
     <literal>
-      <vodml-id>ParamSemantic.Main</vodml-id>
-      <name>Main</name>
-      <description>Main measurment</description>
-    </literal>
-    <literal>
-      <vodml-id>ParamSemantic.Computed</vodml-id>
-      <name>Computed</name>
-      <description>Computed measurement</description>
-    </literal>
-    <literal>
-      <vodml-id>ParamSemantic.Native</vodml-id>
-      <name>Native</name>
-      <description>Mative measurement</description>
-    </literal>
-    <literal>
-      <vodml-id>ParamSemantic.Raw</vodml-id>
+      <vodml-id>ReductionStatus.Raw</vodml-id>
       <name>Raw</name>
-      <description>raw measure</description>
+      <description>The parameter carry a raw value</description>
     </literal>
     <literal>
-      <vodml-id>ParamSemantic.Corrected</vodml-id>
+      <vodml-id>ReductionStatus.Calibrated</vodml-id>
+      <name>Calibrated</name>
+      <description>The parameter value is calibrated
+</description>
+    </literal>
+    <literal>
+      <vodml-id>ReductionStatus.Corrected</vodml-id>
       <name>Corrected</name>
-      <description>Corrected measure</description>
+      <description>The paramter value has been corrected this the reduction software. The operation usually comes after the calibration process e.g. adding a systematic error.
+</description>
+    </literal>
+    <literal>
+      <vodml-id>ReductionStatus.Computed</vodml-id>
+      <name>Computed</name>
+      <description>The parameter value has been computed. It is not directly derived from the raw data e.g. deetction flag</description>
     </literal>
   </enumeration>
 
   <objectType>
-    <vodml-id>Source</vodml-id>
-    <name>Source</name>
-    <description>Root class of the model. CAB_MSF instance are meant ot be Source instances.
-A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.</description>
+    <vodml-id>MangoInstance</vodml-id>
+    <name>MangoInstance</name>
+    <description>Root class of the model. Mango instance are meant ot be Source instances.
+A source has an identifier and to sets of hooks either for parameters or for associated data.</description>
     <attribute>
-      <vodml-id>Source.identifier</vodml-id>
+      <vodml-id>MangoInstance.identifier</vodml-id>
       <name>identifier</name>
       <description>Unique identifier for a Source.
 The uniqness of that identifier is not managed by the model.
@@ -119,7 +95,7 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>Source.associatedData</vodml-id>
+      <vodml-id>MangoInstance.associatedData</vodml-id>
       <name>associatedData</name>
       <description>Composition link pointing on all data associated with the source.</description>
       <datatype>
@@ -131,7 +107,7 @@ The format is free.</description>
       </multiplicity>
     </composition>
     <composition>
-      <vodml-id>Source.parameters</vodml-id>
+      <vodml-id>MangoInstance.parameters</vodml-id>
       <name>parameters</name>
       <description>Composition link pointing on all parameters attached to the source.</description>
       <datatype>
@@ -152,25 +128,12 @@ This class is used to specify the type of the dataset as well as its role.</desc
     <attribute>
       <vodml-id>AssociatedData.semantic</vodml-id>
       <name>semantic</name>
-      <description>Reference to a semantic concept giving the nature of the associated data.
-As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
+      <description>Optional vocabulary term giving a standard description of the associated data. This term does not necessary relate to a VO vocabulary e.g. UAT.</description>
       <datatype>
-        <vodml-ref>mango:stcextend.RDFWord</vodml-ref>
+        <vodml-ref>mango:stcextend.VocabularyTerm</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>AssociatedData.dataType</vodml-id>
-      <name>dataType</name>
-      <description>Type of the associated data (not defined yet)</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -182,7 +145,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -225,14 +188,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>VOService</vodml-id>
     <name>VOService</name>
-    <description>Class for associated data referenced by an URL that is a VO service</description>
+    <description>Class for associated data referenced by a fixed URL that is a VO service.</description>
     <extends>
       <vodml-ref>mango:WebEndpoint</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>VOService.ivoid</vodml-id>
       <name>ivoid</name>
-      <description>IVOA id attached to the URI</description>
+      <description>IVOA id of the service (for example in the registry)</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -316,23 +279,35 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>ModelInstance</vodml-id>
     <name>ModelInstance</name>
-    <description>Placeholder for the mapping of the model instance
+    <description>Placeholder for the mapping block of the model instance
  </description>
   </objectType>
 
   <objectType>
-    <vodml-id>MangoInstance</vodml-id>
-    <name>MangoInstance</name>
-    <description>Reference to another CAB-MSD instance that is part of the associated data.</description>
+    <vodml-id>AssociatedMangoInstance</vodml-id>
+    <name>AssociatedMangoInstance</name>
+    <description>Reference to another MANGO instance that is part of the associated data.</description>
     <extends>
       <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
+    <attribute>
+      <vodml-id>AssociatedMangoInstance.role</vodml-id>
+      <name>role</name>
+      <description>Role of the associated Mango Source</description>
+      <datatype>
+        <vodml-ref>mango:MangoInstanceRole</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
-      <vodml-id>MangoInstance.mangoInstance</vodml-id>
-      <name>mangoInstance</name>
+      <vodml-id>AssociatedMangoInstance.associatedMangoInstance</vodml-id>
+      <name>associatedMangoInstance</name>
       <description>Composition link pointing on one cab_msd instance associated with the source.</description>
       <datatype>
-        <vodml-ref>mango:Source</vodml-ref>
+        <vodml-ref>mango:MangoInstance</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -351,12 +326,11 @@ This class is used to specify the type of the measure as well as its role.</desc
 </description>
     </constraint>
     <attribute>
-      <vodml-id>Parameter.semantic</vodml-id>
-      <name>semantic</name>
-      <description>Reference to a semantic concept giving the nature of the parameter
-As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </description>
+      <vodml-id>Parameter.ucd</vodml-id>
+      <name>ucd</name>
+      <description>UCD1+ giving the type of the physical measure. The model defines a UCD space for each Measure class.</description>
       <datatype>
-        <vodml-ref>mango:stcextend.RDFWord</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -364,34 +338,46 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>Parameter.ucd</vodml-id>
-      <name>ucd</name>
-      <description>UCD1+ giving the type of the physical measure</description>
+      <vodml-id>Parameter.reductionStatus</vodml-id>
+      <name>reductionStatus</name>
+      <description>Reduction  status of the Measure carried by the Parameter.</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>mango:ReductionStatus</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Parameter.semantic</vodml-id>
+      <name>semantic</name>
+      <description>Optional vocabulary term giving a standard description of the Parameter. This term does not necessary relate to a VO vocabulary e.g. UAT.</description>
+      <datatype>
+        <vodml-ref>mango:stcextend.VocabularyTerm</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
     <attribute>
       <vodml-id>Parameter.description</vodml-id>
       <name>description</name>
-      <description>Free text description of the measure
+      <description>Free text description of the measure. 
 </description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
     <composition>
       <vodml-id>Parameter.measure</vodml-id>
       <name>measure</name>
-      <description>Composition link pointing to the meas:Measure instance</description>
+      <description>Reference to the meas:Measure subclass instance carrying the Parameter value(s)</description>
       <datatype>
         <vodml-ref>meas:Measure</vodml-ref>
       </datatype>
@@ -400,69 +386,19 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </composition>
-  </objectType>
-
-  <objectType>
-    <vodml-id>Temperature</vodml-id>
-    <name>Temperature</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <extends>
-      <vodml-ref>meas:Measure</vodml-ref>
-    </extends>
-    <attribute>
-      <vodml-id>Temperature.coord</vodml-id>
-      <name>coord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <reference>
+      <vodml-id>Parameter.associatedParameters</vodml-id>
+      <name>associatedParameters</name>
+      <description>This relation allows to build logical sets of parameters e.g. associating a flag with a position. Such parameter sets have no particular semantic.
+</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>mango:Parameter</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
       </multiplicity>
-    </attribute>
-  </objectType>
-
-  <objectType>
-    <vodml-id>HardnessRatioSys</vodml-id>
-    <name>HardnessRatioSys</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <extends>
-      <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
-    </extends>
-    <constraint xsi:type="vo-dml:SubsettedRole">
-      <role>
-        <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
-      </role>
-      <datatype>
-        <vodml-ref>mango:HRFrame</vodml-ref>
-      </datatype>
-    </constraint>
-  </objectType>
-
-  <objectType>
-    <vodml-id>PhotometryCoordSys</vodml-id>
-    <name>PhotometryCoordSys</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <extends>
-      <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
-    </extends>
-    <constraint xsi:type="vo-dml:SubsettedRole">
-      <role>
-        <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
-      </role>
-      <datatype>
-        <vodml-ref>mango:PhotFilter</vodml-ref>
-      </datatype>
-    </constraint>
+    </reference>
   </objectType>
 
 
@@ -470,9 +406,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <package>
     <vodml-id>stcextend</vodml-id>
     <name>stcextend</name>
-    <description>This package contains all object and type classes that has been extended from the Measure and Coordinates models.
-This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
-</description>
+    <description>This package contains all object and type classes that has been extended from the Measure and Coordinates datamodels. 
+This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.</description>
     <enumeration>
       <vodml-id>stcextend.ShapeFrame</vodml-id>
       <name>ShapeFrame</name>
@@ -777,12 +712,12 @@ This extension mechanism is used to add new types of measures while staying whit
     </dataType>
 
     <dataType>
-      <vodml-id>stcextend.RDFWord</vodml-id>
-      <name>RDFWord</name>
+      <vodml-id>stcextend.VocabularyTerm</vodml-id>
+      <name>VocabularyTerm</name>
       <description>Datatype  for vocabulary word. Provides a pointer to the word description and a label.</description>
       <attribute>
-        <vodml-id>stcextend.RDFWord.rdf_uri</vodml-id>
-        <name>rdf_uri</name>
+        <vodml-id>stcextend.VocabularyTerm.uri</vodml-id>
+        <name>uri</name>
         <description>URI extarcted from the DRF document and refering ot the word
 
 </description>
@@ -795,7 +730,7 @@ This extension mechanism is used to add new types of measures while staying whit
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>stcextend.RDFWord.label</vodml-id>
+        <vodml-id>stcextend.VocabularyTerm.label</vodml-id>
         <name>label</name>
         <description>RDF label. Matched the URL fragment for IVOA vocabularies
 
@@ -1197,6 +1132,66 @@ Energy bands are deemed to special photometric filters</description>
         </role>
         <datatype>
           <vodml-ref>coords:SpaceFrame</vodml-ref>
+        </datatype>
+      </constraint>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.Temperature</vodml-id>
+      <name>Temperature</name>
+      <description>TBC
+</description>
+      <extends>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>stcextend.Temperature.coord</vodml-id>
+        <name>coord</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.HardnessRatioSys</vodml-id>
+      <name>HardnessRatioSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>mango:HRFrame</vodml-ref>
+        </datatype>
+      </constraint>
+    </objectType>
+
+    <objectType>
+      <vodml-id>stcextend.PhotometryCoordSys</vodml-id>
+      <name>PhotometryCoordSys</name>
+      <description>TBC with photDM</description>
+      <extends>
+        <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
+      </extends>
+      <constraint xsi:type="vo-dml:SubsettedRole">
+        <role>
+          <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
+        </role>
+        <datatype>
+          <vodml-ref>mango:PhotFilter</vodml-ref>
         </datatype>
       </constraint>
     </objectType>

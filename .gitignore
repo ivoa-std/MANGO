@@ -30,6 +30,10 @@
 *.cmap
 *.svrlt
 *.gvd
+*.fdb_latexmk
+*.fls
+*.gz
+draft-background.*
 # Maven 
 target/
 

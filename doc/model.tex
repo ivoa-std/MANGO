@@ -42,38 +42,57 @@
 
     \subsubsection{AssociatedData.semantic}
       \textbf{vodml-id: AssociatedData.semantic} \newline
-      \textbf{type: \hyperref[sect:stcextend.RDFWord]{mango:stcextend.RDFWord}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Reference to a semantic concept giving the nature of the associated data. As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration.
+      \textbf{type: \hyperref[sect:stcextend.VocabularyTerm]{mango:stcextend.VocabularyTerm}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Optional vocabulary term giving a standard description of the associated data. This term does not necessary relate to a VO vocabulary e.g. UAT.
 
-    \subsubsection{AssociatedData.dataType}
-      \textbf{vodml-id: AssociatedData.dataType} \newline
+    \subsubsection{AssociatedData.description}
+      \textbf{vodml-id: AssociatedData.description} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Type of the associated data (not defined yet)
+      \textbf{multiplicity: 0..1} \newline 
+      Free text description of the associated data
 
-  \subsection{HardnessRatioSys}
-  \label{sect:HardnessRatioSys}
-    TODO : Missing description : please, update your UML model asap.
+  \subsection{AssociatedMangoInstance}
+  \label{sect:AssociatedMangoInstance}
+    Reference to another MANGO instance that is part of the associated data.
 
-    \noindent \textbf{subset} \newline
-    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
-    \indent   \textbf{type: mango:HRFrame} \newline
+    \subsubsection{AssociatedMangoInstance.role}
+      \textbf{vodml-id: AssociatedMangoInstance.role} \newline
+      \textbf{type: \hyperref[sect:MangoInstanceRole]{mango:MangoInstanceRole}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Role of the associated Mango Source
 
-
-  \subsection{MangoInstance}
-  \label{sect:MangoInstance}
-    Reference to another CAB-MSD instance that is part of the associated data.
-
-    \subsubsection{MangoInstance.mangoInstance}
-      \textbf{vodml-id: MangoInstance.mangoInstance} \newline
-      \textbf{type: \hyperref[sect:Source]{mango:Source}} \newline
+    \subsubsection{AssociatedMangoInstance.associatedMangoInstance}
+      \textbf{vodml-id: AssociatedMangoInstance.associatedMangoInstance} \newline
+      \textbf{type: \hyperref[sect:MangoInstance]{mango:MangoInstance}} \newline
       \textbf{multiplicity: 1} \newline 
       Composition link pointing on one cab\_msd instance associated with the source.
 
+  \subsection{MangoInstance}
+  \label{sect:MangoInstance}
+    Root class of the model. Mango instance are meant ot be Source instances. A source has an identifier and to sets of hooks either for parameters or for associated data.
+
+    \subsubsection{MangoInstance.identifier}
+      \textbf{vodml-id: MangoInstance.identifier} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Unique identifier for a Source. The uniqness of that identifier is not managed by the model. The format is free.
+
+    \subsubsection{MangoInstance.associatedData}
+      \textbf{vodml-id: MangoInstance.associatedData} \newline
+      \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Composition link pointing on all data associated with the source.
+
+    \subsubsection{MangoInstance.parameters}
+      \textbf{vodml-id: MangoInstance.parameters} \newline
+      \textbf{type: \hyperref[sect:Parameter]{mango:Parameter}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Composition link pointing on all parameters attached to the source.
+
   \subsection{ModelInstance}
   \label{sect:ModelInstance}
-    Placeholder for the mapping of the model instance
+    Placeholder for the mapping block of the model instance
 
   \subsection{Parameter}
   \label{sect:Parameter}
@@ -84,64 +103,41 @@
  }\newline
 
 
-    \subsubsection{Parameter.semantic}
-      \textbf{vodml-id: Parameter.semantic} \newline
-      \textbf{type: \hyperref[sect:stcextend.RDFWord]{mango:stcextend.RDFWord}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Reference to a semantic concept giving the nature of the parameter As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration.
-
     \subsubsection{Parameter.ucd}
       \textbf{vodml-id: Parameter.ucd} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      UCD1+ giving the type of the physical measure
+      UCD1+ giving the type of the physical measure. The model defines a UCD space for each Measure class.
+
+    \subsubsection{Parameter.reductionStatus}
+      \textbf{vodml-id: Parameter.reductionStatus} \newline
+      \textbf{type: \hyperref[sect:ReductionStatus]{mango:ReductionStatus}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Reduction status of the Measure carried by the Parameter.
+
+    \subsubsection{Parameter.semantic}
+      \textbf{vodml-id: Parameter.semantic} \newline
+      \textbf{type: \hyperref[sect:stcextend.VocabularyTerm]{mango:stcextend.VocabularyTerm}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Optional vocabulary term giving a standard description of the Parameter. This term does not necessary relate to a VO vocabulary e.g. UAT.
+
+    \subsubsection{Parameter.description}
+      \textbf{vodml-id: Parameter.description} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Free text description of the measure.
 
     \subsubsection{Parameter.measure}
       \textbf{vodml-id: Parameter.measure} \newline
       \textbf{type: meas:Measure} \newline
       \textbf{multiplicity: 1} \newline 
-      Composition link pointing to the meas:Measure instance
+      Reference to the meas:Measure subclass instance carrying the Parameter value(s)
 
-  \subsection{PhotometryCoordSys}
-  \label{sect:PhotometryCoordSys}
-    TODO : Missing description : please, update your UML model asap.
-
-    \noindent \textbf{subset} \newline
-    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
-    \indent   \textbf{type: mango:PhotFilter} \newline
-
-
-  \subsection{Source}
-  \label{sect:Source}
-    Root class of the model. CAB\_MSF instance are meant ot be Source instances. A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.
-
-    \subsubsection{Source.identifier}
-      \textbf{vodml-id: Source.identifier} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Unique identifier for a Source. The uniqness of that identifier is not managed by the model. The format is free.
-
-    \subsubsection{Source.associatedData}
-      \textbf{vodml-id: Source.associatedData} \newline
-      \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
-      \textbf{multiplicity: 0..*} \newline 
-      Composition link pointing on all data associated with the source.
-
-    \subsubsection{Source.parameters}
-      \textbf{vodml-id: Source.parameters} \newline
+    \subsubsection{Parameter.associatedParameters}
+      \textbf{vodml-id: Parameter.associatedParameters} \newline
       \textbf{type: \hyperref[sect:Parameter]{mango:Parameter}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Composition link pointing on all parameters attached to the source.
-
-  \subsection{Temperature}
-  \label{sect:Temperature}
-    TODO : Missing description : please, update your UML model asap.
-
-    \subsubsection{Temperature.coord}
-      \textbf{vodml-id: Temperature.coord} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-      \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      This relation allows to build logical sets of parameters e.g. associating a flag with a position. Such parameter sets have no particular semantic.
 
   \subsection{VOModelInstance}
   \label{sect:VOModelInstance}
@@ -179,13 +175,13 @@
 
   \subsection{VOService}
   \label{sect:VOService}
-    Class for associated data referenced by an URL that is a VO service
+    Class for associated data referenced by a fixed URL that is a VO service.
 
     \subsubsection{VOService.ivoid}
       \textbf{vodml-id: VOService.ivoid} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      IVOA id attached to the URI
+      IVOA id of the service (for example in the registry)
 
   \subsection{WebEndpoint}
   \label{sect:WebEndpoint}
@@ -203,54 +199,44 @@
       \textbf{multiplicity: 1} \newline 
       Web endpoint
 
-  \subsection{LinkSemantic}
-  \label{sect:LinkSemantic}
+  \subsection{MangoInstanceRole}
+  \label{sect:MangoInstanceRole}
 
-  Literal enumeration of the possible values for the associated data semantic. This stands for an example before we have defined a vocabulary.
+  Enumeration of the possible roles of associated Mango Instances
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
   \small
   \begin{itemize}
   
-    \item[\textbf{VOService}]: \textbf{vodml-id:} LinkSemantic.VOService \newline
-          \textbf{description:} Data returned by a VO service
-    \item[\textbf{VOInstance}]: \textbf{vodml-id:} LinkSemantic.VOInstance \newline
-          \textbf{description:} Data Serialized in a VO model
-    \item[\textbf{Preview}]: \textbf{vodml-id:} LinkSemantic.Preview \newline
-          \textbf{description:} data preview
-    \item[\textbf{DownloadLink}]: \textbf{vodml-id:} LinkSemantic.DownloadLink \newline
-          \textbf{description:} Data download link
-    \item[\textbf{Detection}]: \textbf{vodml-id:} LinkSemantic.Detection \newline
-          \textbf{description:} Particular detection
-    \item[\textbf{Compagnon}]: \textbf{vodml-id:} LinkSemantic.Compagnon \newline
-          \textbf{description:} Compagnon source
-    \item[\textbf{Counterpart}]: \textbf{vodml-id:} LinkSemantic.Counterpart \newline
-          \textbf{description:} Counter part source
+    \item[\textbf{Detection}]: \textbf{vodml-id:} MangoInstanceRole.Detection \newline
+          \textbf{description:} The associated Mango instance is another dectection of the same object
+    \item[\textbf{Companion}]: \textbf{vodml-id:} MangoInstanceRole.Companion \newline
+          \textbf{description:} The associated Mango instance is a companion object e.g. binary star
+    \item[\textbf{Counterpart}]: \textbf{vodml-id:} MangoInstanceRole.Counterpart \newline
+          \textbf{description:} The associated Mango instance is a source counterpart taken out of another dataset e.g cross-match result
   \end{itemize}
   \normalsize
 
 
-  \subsection{ParamSemantic}
-  \label{sect:ParamSemantic}
+  \subsection{ReductionStatus}
+  \label{sect:ReductionStatus}
 
-  Literal enumeration of the possible values for the parameter semantic. This stands for an example before we have defined a vocabulary.
+  Enumeration of the possible reduction status of a parameter
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
   \small
   \begin{itemize}
   
-    \item[\textbf{Main}]: \textbf{vodml-id:} ParamSemantic.Main \newline
-          \textbf{description:} Main measurment
-    \item[\textbf{Computed}]: \textbf{vodml-id:} ParamSemantic.Computed \newline
-          \textbf{description:} Computed measurement
-    \item[\textbf{Native}]: \textbf{vodml-id:} ParamSemantic.Native \newline
-          \textbf{description:} Mative measurement
-    \item[\textbf{Raw}]: \textbf{vodml-id:} ParamSemantic.Raw \newline
-          \textbf{description:} raw measure
-    \item[\textbf{Corrected}]: \textbf{vodml-id:} ParamSemantic.Corrected \newline
-          \textbf{description:} Corrected measure
+    \item[\textbf{Raw}]: \textbf{vodml-id:} ReductionStatus.Raw \newline
+          \textbf{description:} The parameter carry a raw value
+    \item[\textbf{Calibrated}]: \textbf{vodml-id:} ReductionStatus.Calibrated \newline
+          \textbf{description:} The parameter value is calibrated
+    \item[\textbf{Corrected}]: \textbf{vodml-id:} ReductionStatus.Corrected \newline
+          \textbf{description:} The paramter value has been corrected this the reduction software. The operation usually comes after the calibration process e.g. adding a systematic error.
+    \item[\textbf{Computed}]: \textbf{vodml-id:} ReductionStatus.Computed \newline
+          \textbf{description:} The parameter value has been computed. It is not directly derived from the raw data e.g. deetction flag
   \end{itemize}
   \normalsize
 
@@ -266,7 +252,7 @@
   %\end{center}
   %\end{figure}
 
-  This package contains all object and type classes that has been extended from the Measure and Coordinates models. This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
+  This package contains all object and type classes that has been extended from the Measure and Coordinates datamodels. This extension mechanism is used to add new types of measures while staying whithin the Mes/Coords pattern.
 
   \subsection{Flag}
   \label{sect:stcextend.Flag}
@@ -277,6 +263,21 @@
       \textbf{type: \hyperref[sect:stcextend.FlagCoord]{mango:stcextend.FlagCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       Coordinate holding the statsu value
+
+  \subsection{FlagCoord}
+  \label{sect:stcextend.FlagCoord}
+    Coordinate of a status Measure
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: FlagSys} \newline
+
+
+    \subsubsection{FlagCoord.status}
+      \textbf{vodml-id: stcextend.FlagCoord.status} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Value of the status
 
   \subsection{FlagState}
   \label{sect:stcextend.FlagState}
@@ -330,6 +331,30 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{HardnessRatioCoord}
+  \label{sect:stcextend.HardnessRatioCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: mango:HardnessRatioSys} \newline
+
+
+    \subsubsection{HardnessRatioCoord.hardnessRatio}
+      \textbf{vodml-id: stcextend.HardnessRatioCoord.hardnessRatio} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{HardnessRatioSys}
+  \label{sect:stcextend.HardnessRatioSys}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
+    \indent   \textbf{type: mango:HRFrame} \newline
+
+
   \subsection{LonLatCoordSys}
   \label{sect:stcextend.LonLatCoordSys}
     TODO : Missing description : please, update your UML model asap.
@@ -342,6 +367,27 @@
     \noindent \textbf{constraint} \newline
     \indent    \textbf{detail: LonLatCoordSys.coordSpace[0] }\newline
 
+
+  \subsection{LonLatPoint}
+  \label{sect:stcextend.LonLatPoint}
+    Coordinate of a point on the sky sphere expressed in spherical coordinates.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: mango:LonLatCoordSys} \newline
+
+
+    \subsubsection{LonLatPoint.longitude}
+      \textbf{vodml-id: stcextend.LonLatPoint.longitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      longitude of the point
+
+    \subsubsection{LonLatPoint.latitude}
+      \textbf{vodml-id: stcextend.LonLatPoint.latitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Latitude of the point
 
   \subsection{LonLatSkyPosition}
   \label{sect:stcextend.LonLatSkyPosition}
@@ -363,6 +409,21 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{ObjectTypeCoord}
+  \label{sect:stcextend.ObjectTypeCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: ObjectTypeSys} \newline
+
+
+    \subsubsection{ObjectTypeCoord.objectType}
+      \textbf{vodml-id: stcextend.ObjectTypeCoord.objectType} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{ObjectTypeSys}
   \label{sect:stcextend.ObjectTypeSys}
     TODO : Missing description : please, update your UML model asap.
@@ -376,6 +437,15 @@
       \textbf{type: \hyperref[sect:stcextend.OrbitCoord]{mango:stcextend.OrbitCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
+
+  \subsection{OrbitCoord}
+  \label{sect:stcextend.OrbitCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: coords:SpaceSys} \newline
+
 
   \subsection{PhotFilter}
   \label{sect:stcextend.PhotFilter}
@@ -427,6 +497,30 @@
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
+  \subsection{PhotometryCoord}
+  \label{sect:stcextend.PhotometryCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: PhotometryCoordSys} \newline
+
+
+    \subsubsection{PhotometryCoord.luminosity}
+      \textbf{vodml-id: stcextend.PhotometryCoord.luminosity} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{PhotometryCoordSys}
+  \label{sect:stcextend.PhotometryCoordSys}
+    TBC with photDM
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
+    \indent   \textbf{type: mango:PhotFilter} \newline
+
+
   \subsection{Redshift}
   \label{sect:stcextend.Redshift}
     TODO : Missing description : please, update your UML model asap.
@@ -434,6 +528,21 @@
     \subsubsection{Redshift.coord}
       \textbf{vodml-id: stcextend.Redshift.coord} \newline
       \textbf{type: \hyperref[sect:stcextend.RedshiftCoord]{mango:stcextend.RedshiftCoord}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+  \subsection{RedshiftCoord}
+  \label{sect:stcextend.RedshiftCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: RedshiftSys} \newline
+
+
+    \subsubsection{RedshiftCoord.redshift}
+      \textbf{vodml-id: stcextend.RedshiftCoord.redshift} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
@@ -451,6 +560,21 @@
       \textbf{multiplicity: 1} \newline 
       String serialization of the source shape
 
+  \subsection{ShapeCoord}
+  \label{sect:stcextend.ShapeCoord}
+    TODO : Missing description : please, update your UML model asap.
+
+    \noindent \textbf{subset} \newline
+    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
+    \indent   \textbf{type: ShapeSys} \newline
+
+
+    \subsubsection{ShapeCoord.shape}
+      \textbf{vodml-id: stcextend.ShapeCoord.shape} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{ShapeSys}
   \label{sect:stcextend.ShapeSys}
     Coordinate systen to be used for shape measure
@@ -461,41 +585,31 @@
       \textbf{multiplicity: 1} \newline 
       Frame of the shape measure. Gives a enumeration of the supported serializations.
 
-  \subsection{LonLatPoint}
-  \label{sect:stcextend.LonLatPoint}
-  Coordinate of a point on the sky sphere expressed in spherical coordinates.
+  \subsection{Temperature}
+  \label{sect:stcextend.Temperature}
+    TBC
 
-  \subsection{FlagCoord}
-  \label{sect:stcextend.FlagCoord}
-  Coordinate of a status Measure
+    \subsubsection{Temperature.coord}
+      \textbf{vodml-id: stcextend.Temperature.coord} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
 
-  \subsection{ShapeCoord}
-  \label{sect:stcextend.ShapeCoord}
-  TODO : Missing description : please, update your UML model asap.
+  \subsection{VocabularyTerm}
+  \label{sect:stcextend.VocabularyTerm}
+    Datatype for vocabulary word. Provides a pointer to the word description and a label.
 
-  \subsection{OrbitCoord}
-  \label{sect:stcextend.OrbitCoord}
-  TODO : Missing description : please, update your UML model asap.
+    \subsubsection{VocabularyTerm.uri}
+      \textbf{vodml-id: stcextend.VocabularyTerm.uri} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      URI extarcted from the DRF document and refering ot the word
 
-  \subsection{ObjectTypeCoord}
-  \label{sect:stcextend.ObjectTypeCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{PhotometryCoord}
-  \label{sect:stcextend.PhotometryCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{HardnessRatioCoord}
-  \label{sect:stcextend.HardnessRatioCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{RedshiftCoord}
-  \label{sect:stcextend.RedshiftCoord}
-  TODO : Missing description : please, update your UML model asap.
-
-  \subsection{RDFWord}
-  \label{sect:stcextend.RDFWord}
-  Datatype for vocabulary word. Provides a pointer to the word description and a label.
+    \subsubsection{VocabularyTerm.label}
+      \textbf{vodml-id: stcextend.VocabularyTerm.label} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      RDF label. Matched the URL fragment for IVOA vocabularies
 
   \subsection{ShapeFrame}
   \label{sect:stcextend.ShapeFrame}
