@@ -9,7 +9,7 @@
   <author>Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2020-07-21T12:00:38</lastModified>
+  <lastModified>2020-08-25T17:03:18</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -76,12 +76,12 @@
   </enumeration>
 
   <objectType>
-    <vodml-id>MangoInstance</vodml-id>
-    <name>MangoInstance</name>
+    <vodml-id>MangoObject</vodml-id>
+    <name>MangoObject</name>
     <description>Root class of the model. Mango instance are meant ot be Source instances.
 A source has an identifier and to sets of hooks either for parameters or for associated data.</description>
     <attribute>
-      <vodml-id>MangoInstance.identifier</vodml-id>
+      <vodml-id>MangoObject.identifier</vodml-id>
       <name>identifier</name>
       <description>Unique identifier for a Source.
 The uniqness of that identifier is not managed by the model.
@@ -95,19 +95,7 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>MangoInstance.associatedData</vodml-id>
-      <name>associatedData</name>
-      <description>Composition link pointing on all data associated with the source.</description>
-      <datatype>
-        <vodml-ref>mango:AssociatedData</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>-1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>MangoInstance.parameters</vodml-id>
+      <vodml-id>MangoObject.parameters</vodml-id>
       <name>parameters</name>
       <description>Composition link pointing on all parameters attached to the source.</description>
       <datatype>
@@ -118,15 +106,30 @@ The format is free.</description>
         <maxOccurs>-1</maxOccurs>
       </multiplicity>
     </composition>
+    <reference>
+      <vodml-id>MangoObject.dataDock</vodml-id>
+      <name>dataDock</name>
+      <description>Link pointing on all data associated with the source.
+This is an association because associated data have likely their proper live cycles.
+ </description>
+      <datatype>
+        <vodml-ref>mango:DataDock</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </reference>
   </objectType>
 
   <objectType abstract="true">
-    <vodml-id>AssociatedData</vodml-id>
-    <name>AssociatedData</name>
+    <vodml-id>DataDock</vodml-id>
+    <name>DataDock</name>
     <description>Abstract reference to a particular dataset associated to the Source.
+These data set have a life cycle different from the this of the Mango object.
 This class is used to specify the type of the dataset as well as its role.</description>
     <attribute>
-      <vodml-id>AssociatedData.semantic</vodml-id>
+      <vodml-id>DataDock.semantic</vodml-id>
       <name>semantic</name>
       <description>Optional vocabulary term giving a standard description of the associated data. This term does not necessary relate to a VO vocabulary e.g. UAT.</description>
       <datatype>
@@ -138,7 +141,7 @@ This class is used to specify the type of the dataset as well as its role.</desc
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>AssociatedData.description</vodml-id>
+      <vodml-id>DataDock.description</vodml-id>
       <name>description</name>
       <description>Free text description of the associated data</description>
       <datatype>
@@ -156,7 +159,7 @@ This class is used to specify the type of the dataset as well as its role.</desc
     <name>WebEndpoint</name>
     <description>Class for associated data referenced by an URL</description>
     <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
+      <vodml-ref>mango:DataDock</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>WebEndpoint.ContentType</vodml-id>
@@ -211,7 +214,7 @@ This class is used to specify the type of the dataset as well as its role.</desc
     <name>VOModelInstance</name>
     <description>Reference to a VO model instance that is part of the associated data.</description>
     <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
+      <vodml-ref>mango:DataDock</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>VOModelInstance.ivoid</vodml-id>
@@ -262,10 +265,11 @@ This class is used to specify the type of the dataset as well as its role.</desc
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
-    <composition>
+    <reference>
       <vodml-id>VOModelInstance.modelInstance</vodml-id>
       <name>modelInstance</name>
-      <description>Composition link pointing on one VO instance instance associated with the source.</description>
+      <description>Link pointing on one VO instance instance associated with the source.
+This is an association because associated instances have likely their proper live cycles </description>
       <datatype>
         <vodml-ref>mango:ModelInstance</vodml-ref>
       </datatype>
@@ -273,7 +277,7 @@ This class is used to specify the type of the dataset as well as its role.</desc
         <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
+    </reference>
   </objectType>
 
   <objectType>
@@ -284,14 +288,14 @@ This class is used to specify the type of the dataset as well as its role.</desc
   </objectType>
 
   <objectType>
-    <vodml-id>AssociatedMangoInstance</vodml-id>
-    <name>AssociatedMangoInstance</name>
+    <vodml-id>AssociatedMangoObject</vodml-id>
+    <name>AssociatedMangoObject</name>
     <description>Reference to another MANGO instance that is part of the associated data.</description>
     <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
+      <vodml-ref>mango:DataDock</vodml-ref>
     </extends>
     <attribute>
-      <vodml-id>AssociatedMangoInstance.role</vodml-id>
+      <vodml-id>AssociatedMangoObject.role</vodml-id>
       <name>role</name>
       <description>Role of the associated Mango Source</description>
       <datatype>
@@ -303,11 +307,11 @@ This class is used to specify the type of the dataset as well as its role.</desc
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>AssociatedMangoInstance.associatedMangoInstance</vodml-id>
-      <name>associatedMangoInstance</name>
+      <vodml-id>AssociatedMangoObject.associatedMangoObject</vodml-id>
+      <name>associatedMangoObject</name>
       <description>Composition link pointing on one cab_msd instance associated with the source.</description>
       <datatype>
-        <vodml-ref>mango:MangoInstance</vodml-ref>
+        <vodml-ref>mango:MangoObject</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>

@@ -36,59 +36,59 @@
 
   Data model based oon components and data association for source data
 
-  \subsection{AssociatedData (Abstract)}
-  \label{sect:AssociatedData}
-    Abstract reference to a particular dataset associated to the Source. This class is used to specify the type of the dataset as well as its role.
-
-    \subsubsection{AssociatedData.semantic}
-      \textbf{vodml-id: AssociatedData.semantic} \newline
-      \textbf{type: \hyperref[sect:stcextend.VocabularyTerm]{mango:stcextend.VocabularyTerm}} \newline
-      \textbf{multiplicity: 0..1} \newline 
-      Optional vocabulary term giving a standard description of the associated data. This term does not necessary relate to a VO vocabulary e.g. UAT.
-
-    \subsubsection{AssociatedData.description}
-      \textbf{vodml-id: AssociatedData.description} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-      \textbf{multiplicity: 0..1} \newline 
-      Free text description of the associated data
-
-  \subsection{AssociatedMangoInstance}
-  \label{sect:AssociatedMangoInstance}
+  \subsection{AssociatedMangoObject}
+  \label{sect:AssociatedMangoObject}
     Reference to another MANGO instance that is part of the associated data.
 
-    \subsubsection{AssociatedMangoInstance.role}
-      \textbf{vodml-id: AssociatedMangoInstance.role} \newline
+    \subsubsection{AssociatedMangoObject.role}
+      \textbf{vodml-id: AssociatedMangoObject.role} \newline
       \textbf{type: \hyperref[sect:MangoInstanceRole]{mango:MangoInstanceRole}} \newline
       \textbf{multiplicity: 0..1} \newline 
       Role of the associated Mango Source
 
-    \subsubsection{AssociatedMangoInstance.associatedMangoInstance}
-      \textbf{vodml-id: AssociatedMangoInstance.associatedMangoInstance} \newline
-      \textbf{type: \hyperref[sect:MangoInstance]{mango:MangoInstance}} \newline
+    \subsubsection{AssociatedMangoObject.associatedMangoObject}
+      \textbf{vodml-id: AssociatedMangoObject.associatedMangoObject} \newline
+      \textbf{type: \hyperref[sect:MangoObject]{mango:MangoObject}} \newline
       \textbf{multiplicity: 1} \newline 
       Composition link pointing on one cab\_msd instance associated with the source.
 
-  \subsection{MangoInstance}
-  \label{sect:MangoInstance}
+  \subsection{DataDock (Abstract)}
+  \label{sect:DataDock}
+    Abstract reference to a particular dataset associated to the Source. These data set have a life cycle different from the this of the Mango object. This class is used to specify the type of the dataset as well as its role.
+
+    \subsubsection{DataDock.semantic}
+      \textbf{vodml-id: DataDock.semantic} \newline
+      \textbf{type: \hyperref[sect:stcextend.VocabularyTerm]{mango:stcextend.VocabularyTerm}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Optional vocabulary term giving a standard description of the associated data. This term does not necessary relate to a VO vocabulary e.g. UAT.
+
+    \subsubsection{DataDock.description}
+      \textbf{vodml-id: DataDock.description} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Free text description of the associated data
+
+  \subsection{MangoObject}
+  \label{sect:MangoObject}
     Root class of the model. Mango instance are meant ot be Source instances. A source has an identifier and to sets of hooks either for parameters or for associated data.
 
-    \subsubsection{MangoInstance.identifier}
-      \textbf{vodml-id: MangoInstance.identifier} \newline
+    \subsubsection{MangoObject.identifier}
+      \textbf{vodml-id: MangoObject.identifier} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Unique identifier for a Source. The uniqness of that identifier is not managed by the model. The format is free.
 
-    \subsubsection{MangoInstance.associatedData}
-      \textbf{vodml-id: MangoInstance.associatedData} \newline
-      \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
-      \textbf{multiplicity: 0..*} \newline 
-      Composition link pointing on all data associated with the source.
-
-    \subsubsection{MangoInstance.parameters}
-      \textbf{vodml-id: MangoInstance.parameters} \newline
+    \subsubsection{MangoObject.parameters}
+      \textbf{vodml-id: MangoObject.parameters} \newline
       \textbf{type: \hyperref[sect:Parameter]{mango:Parameter}} \newline
       \textbf{multiplicity: 0..*} \newline 
       Composition link pointing on all parameters attached to the source.
+
+    \subsubsection{MangoObject.dataDock}
+      \textbf{vodml-id: MangoObject.dataDock} \newline
+      \textbf{type: \hyperref[sect:DataDock]{mango:DataDock}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Link pointing on all data associated with the source. This is an association because associated data have likely their proper live cycles.
 
   \subsection{ModelInstance}
   \label{sect:ModelInstance}
@@ -171,7 +171,7 @@
       \textbf{vodml-id: VOModelInstance.modelInstance} \newline
       \textbf{type: \hyperref[sect:ModelInstance]{mango:ModelInstance}} \newline
       \textbf{multiplicity: 1} \newline 
-      Composition link pointing on one VO instance instance associated with the source.
+      Link pointing on one VO instance instance associated with the source. This is an association because associated instances have likely their proper live cycles
 
   \subsection{VOService}
   \label{sect:VOService}
