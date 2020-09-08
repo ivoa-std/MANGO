@@ -73,7 +73,6 @@ We would also like to thank all the people having tested MANGO on their own data
 This model was initially named with a very explicit but hard to remember acronym, \texttt{CAB-MSD} standing for Component and Association Based Model for Source Data. We decided later to rename it \texttt{MANGO} with reference to the inside out MANGO picture used to introduce the model in Groningen. As the tradition requires that such unexpected names are acronyms, let's assume that \texttt{MANGO} stands for
 %mir Model Adding Necessaries to Generic Objects.
 Metadata ANnotation for Generic Objects (in astronomy).
-Model for AstroNomical generic Objects sociation of
 
 
 \section*{Conformance-related definitions}
@@ -95,20 +94,26 @@ infrastructure that enable VO applications.
 
 Modeling data collected to study astronomical source objects has been a long term concern for the DM working group and more generally for the IVOA.
 In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} as well as for catalogs \citep{wd:catalog}.
-Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity, fluxes, magnitudes…).
+Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. 
+In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity, fluxes, magnitudes…).
 None of these proposals have come to completion.
 
-The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focusing on the tools available to work with VO data models and especially with VO-DML. The goal of this session was to annotate data from different origins in order to make them interoperable with each other.
+The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focusing on the tools available to work with VO data models and especially with VO-DML. 
+The goal of this session was to annotate data from different origins in order to make them interoperable with each other.
 %mir The main concern expressed during this session was not much related to the tools themselves but indeed to the lack of models for sources.
 One of the main concerns outside de tools necessary to workout this notation was the lack of models for source objects.
-This is a big paradox in the VO world: source data which represent the basic building blocks of astronomers' work, is not modeled. This paradox can be explained by the fact that the observation of source objects is multi-faceted.
-In a general way, the way features for source data are described and organized depends on the targeted science case. Principal investigators and archive designers set up the data profile and structure it according to this goal which varies from one project to another. Therefore this diversity cannot be served by a single static data model describing a source item for all possible cases.
+This is a big paradox in the VO world: source data which represent the basic building blocks of astronomers' work, is not modeled. 
+This paradox can be explained by the fact that the observation of source objects is multi-faceted.
+In a general way, the way features for source data are described and organized depends on the targeted science case. 
+Principal investigators and archive designers set up the data profile and structure it according to this goal which varies from one project to another. 
+Therefore this diversity cannot be served by a single static data model describing a source item for all possible cases.
 Having a global source model would lead to a very complex solution not usable in practice.
 
-This standard proposes to overcome this paradox and presents a template model gathering independent components from VO existings models together with VO data products and files embedded on demand in a container.
+This standard proposes to overcome this paradox and presents a template model gathering independent components from VO existings models 
+together with VO data products and files embedded on demand in a container.
 The template supports fine grain association by composing classes as well as coarse grain relations to data products and files distributed within projects archive.
 
-\emph{Not designed to describe what a source is nut to help clients to discover and to understand the quantities available for a particular source instance TBC}
+\emph{Not designed to describe what a source is but to help clients to discover and to understand the quantities available for a particular source instance TBC}
 
 \subsection{Role within the VO Architecture}
 
@@ -136,7 +141,8 @@ IVOA architecture \citep{note:VOARCH}.
 \subsection{Use Cases}
 The following uses-cases have been collected since 2019 from representatives of various astronomical missions, archive designers and tools developers.
 
-\TODO{ may be too early to conclude about this ?? The contribution was totally open. This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
+\TODO{ may be too early to conclude about this ?? The contribution was totally open. 
+This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
 
 The physical parameters recorded for each source in the various projects are listed below:
 \subsubsection{Gaia}
@@ -318,7 +324,7 @@ Table  \ref{tab:q_breakup} summarizes the features and related quantities expose
 \end{itemize}
 
 \subsubsection{R02: Parameters}
-The concept of "Parameter" matches the concept of measure of the Meas model. MANGO may support Parameter classes that are not Meas classes though.
+The concept of \textt{Parameter} matches the concept of measure of the Meas model. MANGO may support Parameter classes that are not Meas classes though.
 
 
 \begin{itemize}
@@ -370,15 +376,24 @@ Each associated data or data pointer is hooked to the \texttt{mangoInstance} by 
 \subsection{Parameters}
 
 \texttt{Parameter}  connectors are used to bind measures with the source.
-A parameters is composed  by some semantic tags and one measure, instance of \texttt{Measure}. \texttt{Measure} is an abstract class imported from \texttt{meas} model. Concrete classes referended by a parameter are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
+A parameters is composed  by some semantic tags and one measure, instance of \texttt{Measure}.
+ \texttt{Measure} is an abstract class imported from \texttt{meas} model. 
+Concrete classes referended by a parameter are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
 
 \subsubsection{Parameters Identification}
 As the parameter set  attached to a particular instance is not defined by Mango, the model must provide an accurate parameter description to allow the client to figure out what it can do with each of them.
 Mango provides 5 description levels for each parameter:
 
 \begin{itemize}
-    \item \textbf{Measure class (vodml type)}: The most current measures are represented by specific  \texttt{Measure} sub-classes. Knowing that class tell the clients  how to interpret the corresponding measure but does help to get its role e.g. a position can be either a source postion or a pointing direction. Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} . In that case, the vodml type does not help at all.
-    \item \textbf{UCD}: A valid UCD must be attached to each parameter. Mango provides a UCD space for each \texttt{Measure} sub-class . UCDs used for specific measures must be compliant with table \ref{tab:ucds}. For generic measures, the UCD choice is in charge of the data provider. In any cases, the consistance between UCDs and measure is the responsability of the data provider.
+    \item \textbf{Measure class (vodml type)}: The most current measures are represented by specific  \texttt{Measure} sub-classes.
+              Knowing that class tell the clients  how to interpret the corresponding measure but does help to get its role e.g. a position can be either a source postion or a pointing direction.
+              Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} . 
+              In that case, the vodml type does not help at all.
+    \item \textbf{UCD}: A valid UCD must be attached to each parameter. 
+                                 Mango provides a UCD space for each \texttt{Measure} sub-class . 
+                                 UCDs used for specific measures must be compliant with table \ref{tab:ucds}. 
+                                 For generic measures, the UCD choice is in charge of the data provider. 
+                                 In any cases, the consistance between UCDs and measure is the responsability of the data provider.
 \TODO{TBC phys.luminosity  vs phot.flux}
     \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter.
     \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.
@@ -413,7 +428,14 @@ Mango provides 5 description levels for each parameter:
 
 \subsubsection{Measure Extension}
 
-All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:stcpattern}). The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. The coordinate is attached to a system  (\texttt{CoordSys} class). The system has two components : 1) the space  ( \texttt{CoordSpace} class) that describes the axis and 2) the frame ()\texttt{CoordFrame} class).  Parameters in MANGO data model are based on this pattern. Native  \texttt{Measure} classes are used whenever possible. Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}). These extended classes are part of MANGO.
+All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:stcpattern}). 
+The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. 
+The coordinate is attached to a system  (\texttt{CoordSys} class). 
+The system has two components : 1) the space  ( \texttt{CoordSpace} class) that describes the axis and 2) the frame ()\texttt{CoordFrame} class).  
+MANGO parameters are based on this pattern. 
+Native  \texttt{Measure} classes are used whenever possible. 
+Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}). 
+These extended classes are part of MANGO.
 \begin{figure}
      \includegraphics[width=0.9\textwidth]{stc_pattern.png}
      \caption{Measure/Coordinate pattern (simplified view)}
@@ -469,7 +491,8 @@ Mango provides 3 description levels for each category of associated data:
 
 \begin{itemize}
     \item \textbf{Data class (vodml type)}: Knowing the class representing associated data tells the clients  how to interpret it but does help to get its role.
-    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set. The choice of that vocabulary is totally free as long as it is published.
+    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set. 
+             The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each associated data .
  \end{itemize}
 
@@ -478,8 +501,7 @@ The way to attach VO model instances to MANGO sources is very specific in a sens
 The model of associated instances must be available as a vodml file.
 The \texttt{ModelInstance} is an empty class without sub classes.
 
-We assumes  that the serialization mechanism is enable to replace the \texttt{ModelInstance} instance with an actual instance of the model. An example in given in appendix xx.
-
+%We assumes  that the serialization mechanism is enable to replace the \texttt{ModelInstance} instance with an actual instance of the model. An example in given in appendix xx.
 
 
 
