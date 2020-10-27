@@ -325,7 +325,7 @@ Table  \ref{tab:q_breakup} summarizes the features and related quantities expose
 \end{itemize}
 
 \subsubsection{R02: Parameters}
-The concept of \textt{Parameter} matches the concept of measure of the Meas model. MANGO may support Parameter classes that are not Meas classes though.
+The concept of \texttt{Parameter} matches the concept of measure of the Meas model. MANGO may support Parameter classes that are not Meas classes though.
 
 
 \begin{itemize}
@@ -360,19 +360,19 @@ The notion of associated data relates to any sort of complex data. This can be a
 \end{figure}
 
 
-Sky objects are represented by instances of the class \texttt{mangoInstance} which has only one mandatory attribute, the source \texttt{identifier}.
+Sky objects are represented by instances of the class \texttt{MangoObject} which has only one mandatory attribute, the source \texttt{identifier}.
 It is recommended the identifiers to be unique within a source collection e.g. a catalog.
 
-The \texttt{mangoInstance} is a dock for all source parameters and for all data associated to that source.
+The \texttt{MangoObject} is a dock for all source parameters and for all data associated to that source.
 The pattern of either parameters or associated data attached to a source is not specified by the model. It depends of the datase on which the model is applied.
 
-The \texttt{mangoInstance} has one connector for the paremeters,  the \texttt{parameters} relation, and another for the associatedData, the  \texttt{associatedData}  relations.
+The \texttt{MangoObject} has one connector for the paremeters,  the \texttt{parameters} relation, and another for the associatedData, the  \texttt{associatedData}  relations.
 Both connectors have an open-ended cardinality.
 
-Each source paremeter is hooked to the \texttt{mangoInstance} by a wrapping class (\texttt{Parameter} ) that contains anything necessary to identify its nature and roler.
+Each source paremeter is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Parameter} ) that contains anything necessary to identify its nature and roler.
 Parameters can linked together to represent logical parameter sets. These logical sets have no semantic. Their interpretation is in charge  of the clients.
 
-Each associated data or data pointer is hooked to the \texttt{mangoInstance} by a wrapping class (\texttt{AssociatedData} ) that contains anything necessary to identify its nature and its role.
+Each associated data or data pointer is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{AssociatedData} ) that contains anything necessary to identify its nature and its role.
 
 \subsection{Parameters}
 
