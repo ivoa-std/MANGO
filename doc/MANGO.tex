@@ -113,8 +113,7 @@ Having a global source model would lead to a very complex solution not usable in
 This standard proposes to overcome this paradox and presents a template model gathering independent components from VO existings models 
 together with VO data products and files embedded on demand in a container.
 The template supports fine grain association by composing classes as well as coarse grain relations to data products and files distributed within projects archive.
-
-\emph{Not designed to describe what a source is but to help clients to discover and to understand the quantities available for a particular source instance TBC}
+Mango is not designed to describe what a source is but to help clients to discover and to understand the quantities available for a particular source instance.
 
 \subsection{Role within the VO Architecture}
 
@@ -141,9 +140,10 @@ IVOA architecture \citep{note:VOARCH}.
 
 \subsection{Use Cases}
 The following uses-cases have been collected since 2019 from representatives of various astronomical missions, archive designers and tools developers.
+The contribution was totally open. This gave a good picture of the needs but we don not pretend that everything will be supported by this first version.
 
-\TODO{ may be too early to conclude about this ?? The contribution was totally open. 
-This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
+%\TODO{ may be too early to conclude about this ?? The contribution was totally open. 
+%This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
 
 The physical parameters recorded for each source in the various projects are listed below:
 \subsubsection{Gaia}
@@ -194,7 +194,7 @@ The physical parameters recorded for each source in the various projects are lis
 \TODO{to be developed ...}
 
 \subsubsection{Chandra Archive}
-This X-ray mission has produced a very large catalog of sources. %( ?? TB) \cite{chandra catalog, 2019}.
+This X-ray mission has produced a very large catalog of sources. %( ?? TB) \cite{chandra catalog, 2019}. https://cxc.harvard.edu/csc/organization.html
 All quantities are time dependant, depend on calibration methods as well as on appropriate physical
 models that selects energy models for the origin of the recorded photons ...
 
@@ -544,7 +544,7 @@ No previous versions yet.
 
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
-\bibliography{myrefs,ivoatex/ivoabib,ivoatex/docrepo}
+\bibliography{ivoatex/ivoabib,ivoatex/docrepo,MANGO}
 
 
 \end{document}
