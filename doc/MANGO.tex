@@ -1,6 +1,13 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
 
+\usepackage{array}
+\usepackage{tabulary}  % for nicer tables
+\usepackage{calc}
+\usepackage{placeins}
+\setlength\extrarowheight{2pt}
+
+\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 \title{MANGO: A Component and Association Based Model for representing data for astronomical sources}
 
 % see ivoatexDoc for what group names to use here
@@ -212,17 +219,45 @@ models that selects energy models for the origin of the recorded photons ...
 
 % GILLLES proposal:
 %
-%VizieR provides science ready catalogues coming from space agencies and articles. 
-%The data published handles a very large set of measures in position, photometry, redshift, source type, etc. depending of the data origin. 
-%Content can be observation, simulation, model, compilation, etc. The most frequent are observation tables which can serialize a single object to one or more records.
+VizieR provides science ready catalogues coming from space agencies or articles and covering number of different science cases. 
+Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.) depending on their origin. 
+They can result from  observations, simulations, models or catalog compilations.
+Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.  
+%The most frequent are observation tables which can serialize a single object to one or more records.
 %
+Data sets are ingested in Vizier on author request. Before to be put online they are processed and documented by documentalists so as to ensure a certain level of interoperability.
+This work relies on the analyse of both data content and scientific paper.
+\begin{itemize}
+\item Missing meta-data, e.g. space frames or filters, are added when available in the paper.
+\item Columns are renamed following the Vizier nomenclature in order make them compliant with the DBMS and to facilitate the grouping of all values related to one particular quantities (e.g. quality flag for a radial velocity)
+\item UCDs are checked or set for all columns.
+\item README files are generated. A README is a text file with a specific layout making it machine readable.
+\item Some values, not part of the original data but assigned by the CDS, are added to the tables (e.g. identifier, ICRS positions)  
+\item Ancillary data pointing on associated data (e.g.  spectra) or on linked services (e.g. visualization), can also be added to enrich the table content.  
+\end{itemize}
+
+All Vizier meta data are gathered in a specific resource in a way to facilitate the localisation of data of interest.
+The main specificity of the data is their heterogeneity 
+\begin{itemize}
+\item Huge variety of data provenance and processing 
+\item Meta data heterogneneity
+\item Table content heterogneneity
+\item Huge variety of possible measures
+\item Huge variety of patterns of measure groups
+\item Use of different coodinate systems 
+\item Large variety of associated data
+\end{itemize}
+
+The Mango model must be able to provide a standard representation of most of the metadata contained in Vizier query responses, whether native or computed  by the CDS, simple quantities or associated complex data.
+Mango is not meant to replace the current management of the meta-data, it is a way to make those meta-data understandable for a wide panel of VO-compliant clients.
+
 %The tables processed are documented and standardized in order to be interoperable. The metadata includes coordinates systems  and  the magnitudes columns can be completed with photometric paremeters –these last metadata are not part of the original data but are assigned by CDS.
 %
 %The records can also be competed with added columns like links to local or remote URL, visualization of time-series,  etc.
 %
 %The table output allows for anyone aware of the VizieR nomenclature to group columns related to a given measure. 
 %
-% The VizieR tables can be charcterized by :
+% The VizieR tables can be charcterized by :
 %\begin{itemize}
 %\item the heterogneneity of the table contents
 %\item a large variety of possible measure that can be grouped by type
@@ -250,97 +285,206 @@ Currently the binding and structure of the quantities is done by column grouping
     \item one column different frames
 \end{itemize}
 
-\subsubsection{Aladin}
+\subsubsection{Client on (MT behalf)}
 
-Quantities possibly plotted or matched with some of other datasets
+Right now, the meta-data provided within the VOTable allow clients such Aladin or Topcat to run most of the functionalities expected by the user, either for data analysis of plotting.
+This information is often guess from UCDs, UTypes or columns name. It can aloso be given by the user.
+Clients have no expectations of working with full model instances but in some cases models can help to know how quantities in an input table relate to each other.
+In most cases this is for visualisation, e.g.:
 \begin{itemize}
-    \item position
-    \item time
-    \item flux
-    \item Field of view (FoV)
-    \item column grouping
-    \item link to other data products?
+    \item what is the sky position for this row
+    (what columns contain lat and lon, and what sky system are they in)
+
+     \item what +/-ERR error bars should I plot for these points
+    (what column is a simple error for column A)
+
+    \item what error ellipses should I plot for these sky positions
+    (what columns provide ra\_error, dec\_error, ra\_dec\_corr,
+     or how can I derive those from columns that do exist)
+
+    \item where do I get the grid information for a column containing
+    a vector of samples so I can label the X axis of a spectrogram
+    (what column or parameter contains an axis vector matching
+     the sample vectors)
+
+    \item does this table contain sky positions, or HEALPix tiles, or both?
+    What's the best way to represent it on the sky?
+    
+    \item What is the meaning of such URL found out in a table?s
 \end{itemize}
 
-\subsubsection{X\-match tool }
-The Xmatch operation relies on the comparison of the quantities recorded for each source between several catalogs in order to identify or disentagle counterparts .
-%\cite{F-X algo},
-
-Chandra X match ??? , others ???
-the mandatory quantities to operate such comparison involve:
+But there are some other places too:
 \begin{itemize}
-    \item identifier
-    \item position
-    \item proper motion
-    \item photometry
-    \item extension?
+    \item how do I propagate this sky position to a future epoch
+    (what columns contain pmra, pmdec, and maybe all the
+     associated errors and correlation coefficients)
+
+    \item what is the error ellipse/oid to use for a sky/Cartesian crossmatch
+    (what columns provide the relevant errors and, if available,
+     correlations)
 \end{itemize}
 
-\subsubsection{Time Domain }
-
-This use-case involves measured physical quantities varying with time for one or multiple sources.
+This usage shows that MANGO must be designed in a way that individual measurements or quantities can be easily be identified as such and manipulated independently of the whole instance.
 
 
- \begin{itemize}
-    \item Identifier: object identifier
-    \item Timestamp: Independent axis of the time series
-    \item Position: depends on t for a moving object
-    \item Photometry: depends on t for light curves
-    \item Radial velocity: depends on t for objects submitted to gravitational perturbations
-    % I don't think you can see long term variation of radial velocities except in solar system. (FB)
-    \item Period
-    \item Associated products: time series of e.g. a spectrum or an image
+\subsubsection{Xmatch tool }
 
-\end{itemize}
+The basic cross-match of two astronomical tables consists in associating pairs of sources -- one from each table -- fulfilling a given angular distance based criterion.
+In relational algebra terms, it is a theta-join on a distance predicate.
 
-From the use-cases' description, two categories of features are provided or foreseen by the projects, the results from the analysis of the observed or simulated data for sources on one side, expressed as physical measures and classification results like types, status, etc. and extra information provided for interpretation purpose on the other side and expressed as \emph{associated data}.
-Features in each project are measures provided as numerical values or classification tags exposed as numbers or simple strings. They are the source \emph{parameters} astronomers will investigate for their science.
-They are usually described in astronomical catalogs by columns description in a table. The source instances recorded by the projects feed the rows of such tables.
-VOTable has been till today the format of choice to distribute such data.
+More generally, a cross-match is the association of sources from different tables given their proximity in an astrometrical (but also possibly photometric, statistical, ...) parameter space \citep{2017A&A...597A..89P} .
 
-% mir trop tot ds la partie uses-cases --> partie model ? The MANGO datamodel describes measures by relying on the IVOA Meas data model.%\cite{MEAS}.
-Associated data are generally science ready dataproducts either from the same project, or shared by other projects within the IVOA interoperability framework.
-They bring a complement of information to interpret the source's  parameters under study and compare visually (or computationnaly) the sky neighbourhood of detected sources, their variation through time or spectral behaviour.
-Referencing such datasets by a URI or by a service endpoint already works for existing VO products. ( It has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and DataLink for service endpoints).
-Associated data can also present a complex structure designed to bring a very advanced context of interpretation (CTA model assumptions, energy model for Xray sources, etc.) which need to be described in the attachement.
+If proper motions (plus parallax and radial velocities) are available, the cross-match tool may propagate the positions of each table to a common epoch.
+It may also take into account positional uncertainties to reject the statistically unlikely associations.
 
-Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+In the latter case (cross-match between two tables taking into account positional errors), the tool needs to be able to retrieve the errors associated to the each position in each table.
+
+UCDs may help in identifying the errors associated to a positional columns as shown in table \ref{tbl::pos-errors}.
 
 
-
-\begin{table}[ht!]
-     \tiny
-     \begin{tabular}{|p{2.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.6cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|}
-       \hline Quantity/ Survey &  Ga &  Eu &  Ex &  MCS  &  Ch&  Vi &  Al &  Xm&  TD \\
-       \hline  \texttt{identifier}      &  p & P  &P& &P&P &P&  & P \\
-       \hline  \texttt{position}      &  p & P  &P& &P&P &P&  & P \\
-       \hline  \texttt{pr. motion}   & p &   &   &    &  &   &P&P&    \\
-       \hline  \texttt{distance}     & p &   &   &    &  &   &P&  &    \\
-       \hline  \texttt{correlation}   & AD &AD&   &    &  &AD &   &  &    \\
-       \hline  \texttt{extension}     &P&   &P&P &P&P& P&  &    \\
-       \hline  \texttt{rad. vel.}       &  P &   &   &    &  &P&   &  &    \\
-       \hline  \texttt{redshift}        &  P &P&   &    &  &P&   &  &    \\
-       \hline  \texttt{phot. rsft}      &   &P&   &    &  &P&   &  &    \\
-       \hline  \texttt{luminosity}    & P&P&   &    &  &P&P&P&P\\
-       \hline  \texttt{date}             & P  &   &   &    & P&P&   &  &P\\
-       \hline  \texttt{detections}    &  AD &   &   &    &  &   &   &  &    \\
-       \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\
-       \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\
-       \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\
-       \hline  \texttt{orb. sys.}      &   &   &  P &    &  &   &   &  &    \\
-       \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\
-       \hline  \texttt{assoc. products}     &   &   &   &    &  &AD&   &  &AD \\
+\begin{table}[!htbp]
+\small
+\centering
+\begin{tabulary}{\linewidth}{|L|C|J|}
        \hline
-     \end{tabular}
-     \caption{ Break up of the requested quantities:  \texttt{P} stands for Parameter, \texttt{AD} for Associated Data}
+           \textbf{Error type  \newline Parameters} &  
+           \textbf{UCD} &        
+           \textbf{Description} \\
+       \hline 
+           \multicolumn{3}{c}{\textbf{Circular error}} \\
+       \hline
+           \texttt{epos}&
 
-     \label{tab:q_breakup}
- \end{table}
+           \texttt{stat.error;pos.eq}    & 
+           See "possible ambiguity for circular errors" \\     
+        \hline  
+           \multicolumn{3}{c}{\textbf{Uncorrelated errors}} \\
+        \hline
+           \texttt{eRA}     &            
+           \texttt{stat.error;pos.eq.ra}    & 
+            Error on `RA cos(Dec)` \\              
+         \hline
+            \texttt{eDec}  &
+           \texttt{stat.error;pos.eq.dec}    & 
+            Error on `Dec`\\              
+         \hline  
+            \multicolumn{3}{c}{\textbf{Correlated errors}} \\
+        \hline
+           \texttt{eRa}  &            
+           \texttt{stat.error;pos.eq.ra}    & 
+           Error on `RA cos(Dec)` \\              
+        \hline
+           \texttt{eDec}&
+           \texttt{stat.error;pos.eq.dec}   &
+           Error on `Dec`     \\              
+        \hline
+            \texttt{corRADec}&
+           \texttt{stat.covariance; pos.eq.ra; pos.eq.dec }    & 
+            Correlation factor\\              
+        \hline
+             \multicolumn{3}{c}{\textbf{Oriented Ellipse}} \\
+        \hline
+           \texttt{a}   &            
+           \texttt{phys.angSize.smajAxis; pos.errorEllipse}    & 
+           Error ellipse semi-major axis \\              
+        \hline
+            \texttt{b} &
+           \texttt{phys.angSize.sminAxis; pos.errorEllipse }    & 
+            Error ellipse semi-minor axis \\              
+        \hline
+            \texttt{theta}  &
+           \texttt{pos.posAng; pos.errorEllipse}    & 
+           Error ellipse position angle \\              
+       \hline 
+\end{tabulary}
+\caption{Table of the different possible representations of positional errors that can be found in astronomical catalogues} 
+\label{tbl::pos-errors}
+\end{table}
+
+But this is not sufficient to takle with more complex cases based on multi-parameter cases: 
+
+\begin{itemize}
+	\item Catalogues like AllWISE provides a co-sigma instead of the correlation factor of the covariance matrix.
+	Co-sigma is the sign of the correlation factor time the square root of the covariance.
+	\item Table fields UCDs  may be too loose: for example  \texttt{stat.error;pos.eq} is often used in place of \texttt{phys.angSize.smajAxis;pos.errorEllipse} or \texttt{phys.angSize.sminAxis;pos.errorEllipse}.
+	\item The location  of the column to be used for the Xmatch can be ambigous. For instance, if several pairs of position are provided in a table, there is currently 
+	no way to associate unambiguously uncertainties with the (right) pair of coordinates.
+	\item  Possible ambiguity for circular errors. When the provided uncertainty is the parameter of a circular error, it may be:
+	\begin{itemize}
+		\item either the 1 dimensional component on each axis of a symmetric 2-dimentional Gaussian distribution: $\sigma=\sigma_{\alpha\cos\delta}=\sigma_\delta$;
+		\item or the parameter of the radial error distribution (i.e. of the Rayleigh distribution): $\sigma=\sqrt{\sigma_{\alpha\cos\delta}^2 + \sigma_\delta^2}$
+                 with $\sigma_{\alpha\cos\delta} = \sigma_\delta$
+         \end{itemize}
+
+	\item   Possible ambiguity on the confidence level
+	The provided error is usually the 1sigma error.
+	It (theoretically) means that the "true" position has:
+	\begin{itemize}	
+		\item either 68\% chances to be at a distance lower than the radial error from the position's mean value.
+		\item or 39\% chances to be inside the error ellipse (or circle) around the position's mean value.
+	\end{itemize}
+	But depending on the catalogue, the provided error parameters can correspond todifferent confidence levels.
+
+\end{itemize}
 
 
 \subsection{Requirements}
-% mir
-\TODO{mir: can we use MANGO DM all along the requirement section instead of MANGO?  }
+
+\subsubsection{Parameters and Associated Data}
+From the use-cases' description, two categories of features must provided or foreseen by the projects:
+
+  \begin{itemize}
+    \item The source \emph{parameters} astronomers will investigate for their science. They are measures provided as numerical values or classification tags exposed as numbers or simple strings. Usually on measure corresponds to one individual column or one group of columns .
+     \item The \emph{Associated data} are generally science ready dataproducts either from the same project, or shared by other projects within the IVOA interoperability framework.
+They bring a complement of information to interpret the source's  parameters under study and compare visually (or computationnaly) the sky neighbourhood of detected sources, their variation through time or spectral behaviour.
+Referencing such datasets by a URI or by a service endpoint already works for existing VO products. ( It has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and DataLink for service endpoints REFS).
+Associated data can also present a complex structure designed to bring a very advanced context of interpretation (CTA model assumptions, energy model for Xray sources, etc. REFS) which need to be described in the attachement.
+ \end{itemize}     
+  %   They are usually described in astronomical catalogs by columns description in a table. 
+ % \end{itemize}
+%  , the results from the analysis of the observed or simulated data for sources on one side, expressed as physical measures and classification results like types, status, etc. and extra information provided for interpretation purpose on the other side and expressed as % % %%\emph{associated data}.
+%Features in each project are measures provided as numerical values or classification tags exposed as numbers or simple strings. They are the source \emph{parameters} astronomers will investigate for their science.
+%They are usually described in astronomical catalogs by columns description in a table. The source instances recorded by the projects feed the rows of such tables.
+%VOTable has been till today the format of choice to distribute such data.
+
+% mir trop tot ds la partie uses-cases --> partie model ? The MANGO datamodel describes measures by relying on the IVOA Meas data model.%\cite{MEAS}.
+%Associated data are generally science ready dataproducts either from the same project, or shared by other projects within the IVOA interoperability framework.
+%They bring a complement of information to interpret the source's  parameters under study and compare visually (or computationnaly) the sky neighbourhood of detected sources, their variation through time or spectral behaviour.
+%Referencing such datasets by a URI or by a service endpoint already works for existing VO products. ( It has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and DataLink for service endpoints).
+%Associated data can also present a complex structure designed to bring a very advanced context of interpretation (CTA model assumptions, energy model for Xray sources, etc.) which need to be described in the attachement.
+
+%Table  \ref{tab:q_breakup} summarizes the features and related quantities exposed in the various use-cases. The two categories clearly show up.
+
+
+
+%\begin{table}[ht!]
+  %   \tiny
+ %    \begin{tabular}{|p{2.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.6cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|}
+%       \hline Quantity/ Survey &  Ga &  Eu &  Ex &  MCS  &  Ch&  Vi &  Al &  Xm&  TD \\
+%       \hline  \texttt{identifier}      &  p & P  &P& &P&P &P&  & P \\
+%       \hline  \texttt{position}      &  p & P  &P& &P&P &P&  & P \\
+%       \hline  \texttt{pr. motion}   & p &   &   &    &  &   &P&P&    \\
+%       \hline  \texttt{distance}     & p &   &   &    &  &   &P&  &    \\
+%       \hline  \texttt{correlation}   & AD &AD&   &    &  &AD &   &  &    \\
+%       \hline  \texttt{extension}     &P&   &P&P &P&P& P&  &    \\
+ %      \hline  \texttt{rad. vel.}       &  P &   &   &    &  &P&   &  &    \\
+%       \hline  \texttt{redshift}        &  P &P&   &    &  &P&   &  &    \\
+ %      \hline  \texttt{phot. rsft}      &   &P&   &    &  &P&   &  &    \\
+ %      \hline  \texttt{luminosity}    & P&P&   &    &  &P&P&P&P\\
+ %      \hline  \texttt{date}             & P  &   &   &    & P&P&   &  &P\\
+ %      \hline  \texttt{detections}    &  AD &   &   &    &  &   &   &  &    \\
+  %     \hline  \texttt{orbit}             &   &   &P& &  &   &   &  &    \\
+ %      \hline  \texttt{type}             &   &   & P& &  &P&   &  &    \\
+ %      \hline  \texttt{status}          &   &   &   &    &  &P&   &  &    \\
+ %      \hline  \texttt{orb. sys.}      &   &   &  P &    &  &   &   &  &    \\
+  %     \hline  \texttt{PHA}            &   &   &   &    &P&   &   &  &    \\
+ %      \hline  \texttt{assoc. products}     &   &   &   &    &  &AD&   &  &AD \\
+ %      \hline
+ %    \end{tabular}
+ %    \caption{ Break up of the requested quantities:  \texttt{P} stands for Parameter, \texttt{AD} for Associated Data}
+
+ %    \label{tab:q_breakup}
+% \end{table}
 
 \subsubsection{R01: Supported Quantities}
 \begin{itemize}
@@ -360,8 +504,9 @@ The concept of \texttt{Parameter} matches the concept of measure of the Meas mod
     \item MANGO instances must support multiple instances of the same parameter class.
     \item The presence of any parameter in MANGO instances must be optional.
     \item MANGO must provide a way to identify the role of each parameter.
+     \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
     \item The role of each parameter should be machine-readable.
-    \item Each parameter must be possibly tagged by a timestamp or a flag. The meaning of this flag is not part of MANGO, but MANGO must provide a way to describe it.
+    \item It must be possible to group parameters in a free way. This allows to tag quantities with timestamps or a flags. 
 \end{itemize}
 
 \subsubsection{R03: Associated Data}
@@ -390,64 +535,64 @@ Sky objects are represented by instances of the class \texttt{MangoObject} which
 It is recommended the identifiers to be unique within a source collection e.g. a catalog.
 
 The \texttt{MangoObject} is a dock for all source parameters and for all data associated to that source.
-The pattern of either parameters or associated data attached to a source is not specified by the model. It depends of the datase on which the model is applied.
+The pattern of either parameters or associated data attached to a source is not specified by the model. It depends of the data set on which the model is applied.
 
 The \texttt{MangoObject} has one connector for the paremeters,  the \texttt{parameters} relation, and another for the associatedData, the  \texttt{associatedData}  relations.
 Both connectors have an open-ended cardinality.
 
 Each source paremeter is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Parameter} ) that contains anything necessary to identify its nature and roler.
-Parameters can linked together to represent logical parameter sets. These logical sets have no semantic. Their interpretation is in charge  of the clients.
+Parameters can be linked together to represent logical parameter sets. These logical sets have no semantic. Their interpretation is in charge  of the clients.
 
-Each associated data or data pointer is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{AssociatedData} ) that contains anything necessary to identify its nature and its role.
+Each associated data or data pointer is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{AssociatedData}) that contains anything necessary to identify its nature and its role.
 
 \subsection{Parameters}
 
 \texttt{Parameter}  connectors are used to bind measures with the source.
-A parameters is composed  by some semantic tags and one measure, instance of \texttt{Measure}.
+A parameters is composed  by semantic tags in addition to the measure itself, instance of \texttt{Measure}.
+
  \texttt{Measure} is an abstract class imported from \texttt{meas} model. 
-Concrete classes referended by a parameter are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
+Concrete classes referended by a \texttt{Parameter} instances are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
 
 \subsubsection{Parameters Identification}
 As the parameter set  attached to a particular instance is not defined by Mango, the model must provide an accurate parameter description to allow the client to figure out what it can do with each of them.
 Mango provides 5 description levels for each parameter:
 
 \begin{itemize}
-    \item \textbf{Measure class (vodml type)}: The most current measures are represented by specific  \texttt{Measure} sub-classes.
-              Knowing that class tell the clients  how to interpret the corresponding measure but does help to get its role e.g. a position can be either a source postion or a pointing direction.
+    \item \textbf{Measure class (vodml type)}: measures are modeled by specific  \texttt{Measure} sub-classes.
+              Knowing that class tells the clients  how to interpret the corresponding measure but does not help much to get its role e.g. a position can be either a source postion or a pointing direction.
               Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} . 
               In that case, the vodml type does not help at all.
     \item \textbf{UCD}: A valid UCD must be attached to each parameter. 
-                                 Mango provides a UCD space for each \texttt{Measure} sub-class . 
-                                 UCDs used for specific measures must be compliant with table \ref{tab:ucds}. 
-                                 For generic measures, the UCD choice is in charge of the data provider. 
-                                 In any cases, the consistance between UCDs and measure is the responsability of the data provider.
-\TODO{TBC phys.luminosity  vs phot.flux}
+              Mango provides a UCD space for each \texttt{Measure} sub-class . 
+              UCDs used for specific measures must be compliant with table \ref{tab:ucds}. 
+              For generic measures, the UCD choice is in charge of the data provider. 
+              In any cases, the consistance between UCDs and measure is the responsability of the data provider.
+ 
     \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter.
     \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each parameter.
  \end{itemize}
 
+\TODO{TBC phys.luminosity  vs phot.flux}
 \begin{table}[ht!]
-     \begin{tabular}{|p{4cm}|p{3cm}|p{3.5cm}|}
+     \begin{tabular}{|p{4.2cm}|p{3cm}|p{3.5cm}|}
        \hline Parameter &  Original model & UCDs 1+ first word  \\
        \hline  \texttt{Position}             &  Measure  &  pos \\
        \hline  \texttt{Velocity  }            &  Measure & phys.veloc      \\
        \hline  \texttt{Proper motion}    & Measure & pos.pm    \\
        \hline  \texttt{Time}                   & Measure &  time.epoch   \\
        \hline  \texttt{Polarization}         & Measure & phys.polarization \\
-       \hline  \texttt{SphericalSkyPosition}    &  MANGO  &  pos.eq \\
-       \hline  \texttt{ObjectType}                   &  MANGO  & src.class \\
+       \hline  \texttt{LonLatSkyPosition}    &  MANGO  &  pos.eq \\
        \hline  \texttt{Redshift}                        &  MANGO  & src.redshift \\
        \hline  \texttt{Luminosity}                    &  MANGO  & phot.qqqchose \\
        \hline  \texttt{HardnessRatio}             &  MANGO  & phot.flux;arith.ratio \\
        \hline  \texttt{Shape}                     &  MANGO  & phys.area \\
        \hline  \texttt{Flag}                        &  MANGO  & meta.code  \\
        \hline  \texttt{Orbit}                       &  MANGO  & src.orbital \\
-       \hline  \texttt{Temperature}                &  MANGO  & phys.temperature \\
-       \hline  \texttt{GenericMeasure}    &  Measure  &  Appropiate physical UCD \\
+       \hline  \texttt{Generic(String)Measure}    &  Measure  &  Appropiate physical UCD \\
        \hline
      \end{tabular}
-     \caption{ UCDs to be set for the supported parameters}
+     \caption{ UCDs soace to be used for the supported parameters}
      \label{tab:ucds}
  \end{table}
 
@@ -456,23 +601,38 @@ Mango provides 5 description levels for each parameter:
 \subsubsection{Measure Extension}
 
 All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:stcpattern}). 
-The value(s) \texttt{Measure} object is carried by a \texttt{Coordinate} object. 
-The coordinate is attached to a system  (\texttt{CoordSys} class). 
-The system has two components : 1) the space  ( \texttt{CoordSpace} class) that describes the axis and 2) the frame ()\texttt{CoordFrame} class).  
-MANGO parameters are based on this pattern. 
+\begin{itemize}
+  \item  \texttt{Measure} instances are made with an \texttt{Error} and a \texttt{Coordinate} that contains the measure value(s).
+   \item  The  \texttt{Coordinate} includes a  \texttt{CoordSys} instance describing the coordinate system relevant for that measure.
+   \item The coordinate system has two components : the space  ( \texttt{CoordSpace} class) that describes the axis and the frame (\texttt{CoordFrame} class).  
+ \end{itemize}
+ 
+MANGO parameters are all based on this pattern. 
 Native  \texttt{Measure} classes are used whenever possible. 
 Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}). 
 These extended classes are part of MANGO.
 \begin{figure}
-     \includegraphics[width=0.9\textwidth]{stc_pattern.png}
+     \includegraphics[width=1.0\textwidth]{stc_pattern.png}
      \caption{Measure/Coordinate pattern (simplified view)}
      \label{fig:stcpattern}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[angle=90,origin=c,width=1\textwidth]{../model/mangoMctExt.png}
+  \includegraphics[width=1.0\textwidth]{../model/mangoMeasures.png}
   \caption{Mango extensions of Measure.}
-  \label{fig:stcextension}
+  \label{fig:measures}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=1.0\textwidth]{../model/mangoCoordinates.png}
+  \caption{Mango extensions of Coordinates.}
+  \label{fig:coordinates}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=1.0\textwidth]{../model/mangoErrors.png}
+  \caption{Mango correlated errors.}
+  \label{fig:errors}
 \end{figure}
 
 
@@ -507,9 +667,9 @@ These extended classes are part of MANGO.
 
 
 \subsection{Associated Data}
+
 \texttt{AssociatedData} connectors are used to bind any sort of complex data with the source.
 One connector can only refer to one dataset.
-
 Associated data can be either URIs (VO services or not), other mango instances or reference to instances of other VO models (e.g. Obscore, Provenance…).
 
 \subsubsection{AssociatedData Identification}
