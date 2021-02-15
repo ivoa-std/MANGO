@@ -687,7 +687,7 @@ Mango provides 5 description levels for each parameter:
 \centering
 \begin{tabulary}{\linewidth}{|L|C|J|}  
        \hline Parameter &  Original model & UCDs 1+ first word  \\
-       \hline  \texttt{GenericMeasure}             &  Measure  &   Appropriate physical UCD \ \\
+       \hline  \texttt{GenericMeasure}             &  Measure  &   Appropriate UCD \ \\
        \hline  \texttt{Position}             &  Measure  &  pos.* \\
        \hline  \texttt{Velocity  }            &  Measure & phys.veloc      \\
        \hline  \texttt{Proper motion}    & Measure & pos.pm    \\
@@ -700,8 +700,8 @@ Mango provides 5 description levels for each parameter:
        \hline  \texttt{Shape}                     &  MANGO  & phys.area \\
        \hline  \texttt{Flag}                        &  MANGO  & meta.code  \\
        \hline  \texttt{Orbit}                       &  MANGO  & src.orbital \\
-       \hline  \texttt{GenericStringMeasure}    &  MANGO  &  Appropriate physical UCD \\
-       \hline  \texttt{GenericVocabMeasure}    &  MANGO  &  Appropriate physical UCD \\
+       \hline  \texttt{GenericStringMeasure }    &  MANGO  &  Appropriate UCD \\
+       \hline  \texttt{GenericVocabMeasure }    &  MANGO  &  Appropriate UCD \\
        \hline
      \end{tabulary}
      \caption{ UCDs space to be used for the supported measures}
@@ -712,7 +712,7 @@ Mango provides 5 description levels for each parameter:
 
 \subsubsection{Measure Extension}
 
-All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:stcpattern}). 
+All \texttt{Measure} classes are built upon the MCT pattern (see Fig \ref{fig:stcpattern}). 
 \begin{itemize}
   \item  \texttt{Measure} instances are made with an \texttt{Error} and a \texttt{Coordinate} that contains the measure value(s).
    \item  The  \texttt{Coordinate} includes a  \texttt{CoordSys} instance describing the coordinate system relevant for that measure.
@@ -722,6 +722,11 @@ All \texttt{Measure} classes are built upon the same pattern (see Fig \ref{fig:s
 MANGO parameters are all based on this pattern. 
 Native  \texttt{Measure} classes are used whenever possible. 
 Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}). 
+
+The scope of the MCT \texttt{Measure}  concept has been extended to quantities that are not physical measurements such as e.g. flags, object types or orbits. 
+This lexical deviation allows us to place all quantities describing a source in a single container since all measurements in the Mango sense are derived from the MCT \texttt{Measure} class.
+The same approach has been used for the coordinate systems since e.g the way to serialise a complex shape (e.g. as a MOC) is considered as a coordinate system in sense of \texttt{Coords}.
+
 These extended classes are part of MANGO.
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{stc_pattern.png}
