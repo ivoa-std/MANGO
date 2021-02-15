@@ -542,6 +542,7 @@ From the use-cases' description, two categories of features must provided or for
     \item The source \emph{parameters} astronomers will investigate for their science. They are measures provided as numerical values or classification tags exposed as numbers or simple strings. Usually on measure corresponds to one individual column or one group of columns .
      \item The \emph{Associated data} are generally science ready data-products either from the same project, or shared by other projects within the IVOA interoperability framework.
 They bring a complement of information to interpret the source's  parameters under study and compare visually (or computationally) the sky neighbourhood of detected sources, their variation through time or spectral behaviour.
+
 Referencing such datasets by a URI or by a service endpoint already works for existing VO products. ( It has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and DataLink for service endpoints REFS).
 Associated data can also present a complex structure designed to bring a very advanced context of interpretation (CTA model assumptions, energy model for Xray sources, etc. REFS) which need to be described in the attachement.
  \end{itemize}     
@@ -646,6 +647,7 @@ The \texttt{MangoObject} has one connector for the parameters,  the \texttt{para
 Both connectors have an open-ended cardinality.
 
 Each source parameter is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Parameter} ) that contains anything necessary to identify both its nature and its role.
+
 Parameters can be linked together to represent logical parameter sets. These logical sets have no semantic. Their interpretation is in charge  of the clients.
 
 Each associated data or data pointer is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{AssociatedData}) that contains anything necessary to identify its nature and its role.
