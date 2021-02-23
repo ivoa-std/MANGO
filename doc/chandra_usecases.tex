@@ -1,0 +1,228 @@
+The Chandra Source Catalog(CSC) is the definitive catalog of serendipitous X-ray sources identified in
+publicly released imaging observations obtained by NASA’s ChandraX-ray Observatory (CXO).  The CSC is
+developed and published by the ChandraX-ray Center (CXC) and is supported by NASA contract NAS 8-3060
+to the Smithsonian Astrophysical Observatory for operation of the CXC.  Release 2.0 of the CSC, including
+properties for approximately 316,000 X-ray sources on the sky extracted from about 375,000 detections,
+will be released in the next few months. \TODO{ cite\{chandra\_whitepaper, 2019\} }
+
+The catalog itself consists of approximately 1,700 columns covering properites at the individual observation and stacked analysis levels.
+Table \ref{tab:chandra_props} summarizes some of the 'more interesting' catalog properties derived from standard CSCView queries.
+
+\begin{table}[ht!]
+  \tiny
+  \begin{tabular}{|p{0.4cm}p{10.0cm}|}
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Per Source:}} \\
+    & \texttt{ Source name } \\
+    & \texttt{ Source position and position errors } \\
+    & \texttt{ Significance of the source (signal to noise) } \\
+    & \texttt{ Likelihood of the source  (True, False, or Marginal detection) } \\
+    & \texttt{ Source extent flag } \\
+    & \texttt{ Variability flag } \\
+    & \texttt{ Spectral variability flag } \\
+    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
+    & \texttt{ Flux and flux error in  HRC band w } \\
+    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
+    & \texttt{ Short term (intra-obs) variability probability for each band } \\
+    & \texttt{ Long term (inter-obs) variability probability for each band } \\
+    & \texttt{ Spectral (hardness ratios) variability for each color } \\
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Per Detection (at the stack level):}} \\
+    & \texttt{ Detection ID } \\
+    & \texttt{ Detection position and position errors } \\
+    & \texttt{ Flux significance of the detection (S/N) } \\
+    & \texttt{ Detection likelihood (True, False, or marginal detection?) } \\
+    & \texttt{ Source extent code (codification of source extent in different bands) } \\
+    & \texttt{ Variability flag } \\
+    & \texttt{ Spectral variability flag } \\
+    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
+    & \texttt{ Flux and flux error in  HRC band w } \\
+    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
+    & \texttt{ Short term (intra-obs) variability probability for each band } \\
+    & \texttt{ Long term (inter-obs) variability probability for each band } \\
+    & \texttt{ Spectral (hardness ratios) variability probability for each color } \\
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Per Detection (at the observation level):}} \\
+    \multicolumn{2}{|l|}{ Note that source detection is done at the stack level, but properties are estimated for the } \\
+    \multicolumn{2}{|l|}{detections at each observation using the detection region from the stack level.} \\
+    & \texttt{ Detection ID } \\
+    & \texttt{ Detection position and position errors } \\
+    & \texttt{ Flux significance of the detection (S/N) } \\
+    & \texttt{ Detection likelihood } \\
+    & \texttt{ Source extent code (codification of source extent in different bands) } \\
+    & \texttt{ Variability code (applies to intra-obs only) } \\
+    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
+    & \texttt{ Flux and flux error in  HRC band w } \\
+    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
+    & \texttt{ Short term (intra-obs) variability probability for each band } \\
+    \hline
+
+  \end{tabular}
+  \caption{ Example Chandra Source Catalog Properties }
+  \label{tab:chandra_props}
+
+ \end{table}
+
+The following are some example usage threads which can be facilitated by this model.
+We provide a high-level summary here described in generic terms.  For each case, we
+are generating detailed threads describing how each would be implemented using the
+Chandra Source Catalog.
+
+Note: Most of these cases have been simplified to a level appropriate for this version
+of the model.  More complete and accurate science threads could be defined using more
+complex types and associations which are out of the the current scope.
+
+\begin{enumerate}
+\item  Searching for spectrally variable or flaring point sources:
+  \begin{itemize}
+  \item Identifying spectrally variable point sources
+    \begin{enumerate}
+    \item From a catalog, identify a set of point sources with multiple spectrally-resolved observations
+      \begin{itemize}
+        \item Sources are classified as point sources or have a source extent that is consistent with being a point source
+        \item Observations include detection properties in at least two user-specified wavebands
+        \item There are multiple observations associated with the source
+        \item If the catalog differentiates between detections and sources, each included detection must be uniquely associated with the source
+      \end{itemize}
+    \item From the set identified in (a), identify the subset of sources with significant spectral variability between observations
+      \begin{itemize}
+      \item If the catalog includes hardness ratios in the user-specified wavebands, then identify sources with hardness ratios that vary by more than a user-specified confidence limit between observations
+      \item If the catalog does not include hardness ratios in the user-specified wavebands, then extract individual observation fluxes and associated confidence limits from the catalog and construct hardness ratios and associated confidence limits for each of the observations and then compare with the user-specified confidence limit
+      \item If hardness ratios and/or fluxes are computed using multiple methods, allow the user to specify which properties to use
+      \item If measurement probability density functions are provided rather than confidence intervals, allow those to be used instead
+      \end{itemize}
+    \end{enumerate}
+  \item Identifying flaring point sources
+    \begin{enumerate}
+    \item From a catalog, identify a set of point sources
+      \begin{itemize}
+      \item Sources are classified as point sources or have a source extent that is consistent with being a point source
+      \item If the catalog differentiates between detections and sources, each included detection must be uniquely associated with the source
+      \end{itemize}
+    \item From the set identified in (a), identify the subset of sources with intra-observation variability greater than a user-specified amount in any waveband
+    \item From the set identified in (b), extract the intra-observation lightcurves and associated confidence intervals
+      \begin{itemize}
+      \item Apply a user-specified matched filter to the lightcurve and confidence information to search for flares
+      \end{itemize}
+    \end{enumerate}
+  \end{itemize}
+% ----------------------------------------------------------------------
+\item Find sources with changing properties: \\
+Look for sources with changes of spectral slope and column density between observations so as function of time; this can easily be done across X-ray catalogs provided that the same spectral model (absorbed power-law) is used in the different catalogs. The changes in spectral slope and column density are measured in sigma using the errors as well on each quantity to evaluate the statistical significance of the changes. 
+
+Properties needed:
+  \begin{itemize}
+  \item time of observation
+  \item spectral parameters and their errors
+  \item measure of the quality of the spectral fit
+  \end{itemize}
+Procedure: \\
+  For each source.. 
+  \begin{enumerate}
+  \item retrieve all available spectral properties as function of time
+  \item compare the properties
+  \item select sources with extreme changes (3 sigma difference with respect to the average)
+  \end{enumerate}
+% ----------------------------------------------------------------------
+\item Building a lgN-lgS:\\
+Source number counts are really important for comparison with population synthesis models. Moreover, number counts tell us the total resolved fraction of the CXB for comparison between different catalogs.
+Properties needed:
+  \begin{itemize}
+  \item Fluxes computed in a homegeneous way by all the different catalogs and reported in the same band. \\
+    (e.g. flux in the same 90\% PSF fraction for each telescope and computed with the same spectral model)
+  \end{itemize}
+Procedure: \\
+  For each source..
+  \begin{enumerate}
+  \item retrieve the fluxes and compute the lgN-lgS given the catalog sensitivity
+  \item compare between telescopes, only possible if fluxes are computed with the same assumptions for sources in different X-ray telescopes.
+  \end{enumerate}
+% ----------------------------------------------------------------------
+\item Finding Tidal Disruption Events in the CSC: \\
+  Tidal Disruption Events (TDEs) happen when a star falls into the tidal radius
+  of a super-massive black hole and gets disrupted by the ensuing forces
+  exerted. Non-thermal X-ray emission is produced from a relativistic jet
+  associated with the accretion, but thermal X-ray emission is also generated in
+  the inner part of the accretion disk formed from the stellar debris. The
+  transition between non-thermal and thermal emission results in an outburst
+  that is spectrally soft during the luminosity peak, and stays soft in
+  timescales of several years as their X-ray luminosity decreases.
+  %
+  Properties needed:
+  \begin{itemize}
+  \item A measurement of the time-dependent fluxes of the source in different bands, for all epochs in which the source is observed. Source model should either provide access to band-specific fluxes and flux errors for each epoch the source was observed, or to measurements of the hardness ratios (colors) for the different epochs, with associated errors.
+  \item If only the per-epoch flux measurements are available, the hardness ratio variability can be estimated probabilistically as a likelihood ratio test between the null hypothesis of constant hardness ratios vs variable hardness ratios. In this case, the hardness ratio probability density function (or confidence interval) should first be estimated from the confidence intervals of the fluxes, and then the confidence intervals derived for the hardness ratios are confronted with two hypotheses: one in which all hardness ratios measured for a source are consistent with a single true value, and one in which the true value is allowed to vary.
+  \end{itemize}
+  Procedure: \\
+  The following procedure assumes that the X-ray catalog measures fluxes and hardness ratios in at least two bands. A hard band (photon energy > 2keV), and a soft band (photon energy < 2keV). With a broad band flux we refer to the band that encompasses the majority of valid photon detections, i.e., those falling in an energy window with good nominal quantum efficiencies and effective areas. For Chandra, this is within 0.5 and 7.0 keV.
+  \begin{enumerate}
+  \item From an X-ray catalog, identify all extra-galactic (|b|>5) sources that have measured long-term spectral variability, i.e., sources should be detected in more than one observation, and in these observations the hardness ratios between at least two bands should be different at a significant level. In CSC2 for example, this means var\_inter\_hard\_flag should be set. Alternatively, if no variability flag is available, the spectral variability probability should be larger than 0.5.
+    \begin{itemize}
+    \item Sources need to be detected at a significance larger than 3 (S/N>3) in at least 2 observations
+    \item Sources need to be compact, either slightly extended or point-like. Extremely extended sources where the extent of the emission is more than about 20% of the PSF size should be excluded.
+    \item Sources should have |b| > 5 (extragalactic)
+    \end{itemize}
+  \item TDEs have a transient nature with an initial increase in luminosity of between 1 and 3 orders of magnitude, and a slower decrease in luminosity that can last several years. Therefore, for this search, sources that have a variability probability in the broad band larger that 50\%, and that have inter-observation flux differences of at least a factor of 3 (this is a conservative limit) should be selected.
+  \item Ideally, observations should cover several years. If this is not the case, it suffices to determine if the source has had an increase in luminosity and is currently in a luminous, soft state. These sources can be identified as sources that are soft in at least one observation (for example, o.hard\_hs < 0.5), and that either were not detected in previous existing observations, or that were previously detected with a flux that is a third of the luminous flux or less.
+  \item For the selected sources, take the set of the per-observation b-band fluxes and hardness ratios (for all available hardness ratios). Generate plots that allow to visualize simultaneously the time evolution of flux and hardness ratio. As opposed to Active Galactic Nuclei, for which the hardness ratio hardens as they become less luminous, for TDEs, the emission tends to remain soft. 
+  \item Identify TDEs and separate them from AGN flares. TDEs will likely appear as transient soft sources that remain soft regardless of epoch and regardless of luminosity. They are also typically softer than AGN flares. AGN flares will show an anti-correlation between the broad band flux and the hard-to-soft hardness ratio. As the flare becomes dimmer, it also becomes harder. In order to separate TDE candidates, select those objects for which the standard deviation of the individual observation hardness ratios after the flux peak is less than the average of the hardness ratio errors, indicating a slow change in the hardness ratios over time. 
+  \item As long as the latter condition is true for at least one of the hard-to-soft hardness ratios, flag the source as a TDE candidate. Otherwise, flag it as a possible AGN flare.
+  \item If the catalog does not contain a measure of hardness ratio variability probability, but it contains either a probability density function for the hardness ratio values, or their confidence intervals, then a measure of hardness ratio variability can be obtained from a likelihood analysis. One can assume that the hardness ratio is variable if the likelihood of all individual measurements being drawn from a single true flux (assuming Gaussian errors) is smaller that the likelihood of each individual measurement being produced by a different true flux.
+  \end{enumerate}
+% ----------------------------------------------------------------------
+\item Quick, rough identification of AGN, galaxies, and stars: \\
+  %
+  Properties needed:
+  \begin{itemize}
+  \item CSC columns required: At stack level: flux\_<model>\_aper\_i
+  \item XMM columns required: At stack level: EP\_FLUX
+  \end{itemize}
+  Procedure: \\
+  Applicable to all CSC2/4XMM sources with optical counter parts.
+  \begin{enumerate}
+  \item With CSC2/4XMM and other optical catalogs (e.g., SDSS, Legacy, PS),
+  \item Define energy bands, X-ray emission model for X-ray (and optical)
+  \item Cross-check CSC2 and 4XMM data in different energy bands/models
+  \item If necessary, convert 4XMM (or CSC2) to the common energyband/model
+  \item Cross-check different optical catalogs in different energy bands
+  \item Calc fx/fo for individual CSC2/4XMM sources with optical counter parts.
+  \item Also provide the range of pre-defined fx/fo for known samples.
+  \end{enumerate}
+% ----------------------------------------------------------------------
+\item Lx: useful for many follow-up research \\
+  %
+  Properties needed:
+  \begin{itemize}
+  \item CSC columns required: At stack level: flux\_<model>\_aper\_i
+  \item From optical catalogs: spec-z or photo-z
+  \end{itemize}
+  Procedure: \\
+  Applicable to all CSC2/4XMM sources with known spec-z or photo-z
+  \begin{enumerate}
+  \item From the cross-matches, identify spec-z or photo-z
+  \item Cross-check photo-z for those with both
+  \item If possible, preset models which is most appropriate for a source type (e.g., given by fx/fo) 
+  \item Calc Lx in multiple energy bands/models
+  \item If necessary, convert 4XMM (or CSC2) to the common energy band/model
+  \end{enumerate}
+% ----------------------------------------------------------------------
+\item Lx: Spectral decomposition of X-ray sources \\
+  Analog to bulge-disk decomposition by fitting the optical radial profile.
+  
+  Usage:
+  \begin{itemize}
+  \item separation XRB and hot gas emissions from the entire galaxy
+  \item separation AGN and hot gas emissions from the central region
+  \end{itemize}
+  Procedure: \\
+  Applicable to X-ray sources identified as (A) galaxy and (B) AGN by cross-matches or by fx/fo
+  \begin{enumerate}
+    \item Mapping CSC2/4XMM spectral info (e.g., hardness ratio) into a combination of softer hot gas (\textasciitilde1 keV APEC) 
+          and harder point source (7 keV BREM or photon index 1.7 power-law) 
+  \end{enumerate}  
+% ----------------------------------------------------------------------
+\item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI) to try and identify the nature of extragalactic XRBs. \\
+  \TODO{ Details TBD }
+%
+\end{enumerate}
+
