@@ -3,10 +3,12 @@ publicly released imaging observations obtained by NASA’s ChandraX-ray Observa
 developed and published by the ChandraX-ray Center (CXC) and is supported by NASA contract NAS 8-3060
 to the Smithsonian Astrophysical Observatory for operation of the CXC.  Release 2.0 of the CSC, including
 properties for approximately 316,000 X-ray sources on the sky extracted from about 375,000 detections,
-will be released in the next few months. \TODO{ cite\{chandra\_whitepaper, 2019\} }
+was released in Oct. 2019. %\TODO{ cite\{chandra\_whitepaper, 2019\} }
 
 The catalog itself consists of approximately 1,700 columns covering properites at the individual observation and stacked analysis levels.
-Table \ref{tab:chandra_props} summarizes some of the 'more interesting' catalog properties derived from standard CSCView queries.
+Table \ref{tab:chandra_props} summarizes some of the catalog properties derived from standard CSCView queries.  The properties listed are
+only the most basic properties, such as position, fluxes and variability flags.  However, properties that fully characterize variability, 
+as well as spectral and photometric properties are also included in the catalog.
 
 \begin{table}[ht!]
   \tiny
@@ -146,26 +148,26 @@ Procedure: \\
   the inner part of the accretion disk formed from the stellar debris. The
   transition between non-thermal and thermal emission results in an outburst
   that is spectrally soft during the luminosity peak, and stays soft in
-  timescales of several years as their X-ray luminosity decreases.
-  %
+  timescales of several years as their X-ray luminosity decreases.  In order
+  to spot these objects, we need to look at how the hardness ratios change over time.\\
   Properties needed:
   \begin{itemize}
-  \item A measurement of the time-dependent fluxes of the source in different bands, for all epochs in which the source is observed. Source model should either provide access to band-specific fluxes and flux errors for each epoch the source was observed, or to measurements of the hardness ratios (colors) for the different epochs, with associated errors.
+  \item A measurement of the time-dependent fluxes of the source in different bands (for example hard, medium and soft energy bands), for all epochs in which the source is observed. Source model should either provide access to band-specific fluxes and flux errors for each epoch the source was observed, or to measurements of the hardness ratios (colors) for the different epochs, with associated errors.
   \item If only the per-epoch flux measurements are available, the hardness ratio variability can be estimated probabilistically as a likelihood ratio test between the null hypothesis of constant hardness ratios vs variable hardness ratios. In this case, the hardness ratio probability density function (or confidence interval) should first be estimated from the confidence intervals of the fluxes, and then the confidence intervals derived for the hardness ratios are confronted with two hypotheses: one in which all hardness ratios measured for a source are consistent with a single true value, and one in which the true value is allowed to vary.
   \end{itemize}
   Procedure: \\
-  The following procedure assumes that the X-ray catalog measures fluxes and hardness ratios in at least two bands. A hard band (photon energy > 2keV), and a soft band (photon energy < 2keV). With a broad band flux we refer to the band that encompasses the majority of valid photon detections, i.e., those falling in an energy window with good nominal quantum efficiencies and effective areas. For Chandra, this is within 0.5 and 7.0 keV.
+  The following procedure assumes that the X-ray catalog measures fluxes and hardness ratios in at least two bands, a hard band, and a soft band. With a broad band flux we refer to the band that encompasses the majority of valid photon detections, i.e., those falling in an energy window with good nominal quantum efficiencies and effective areas. For Chandra, this is within 0.5 and 7.0 keV.
   \begin{enumerate}
   \item From an X-ray catalog, identify all extra-galactic (|b|>5) sources that have measured long-term spectral variability, i.e., sources should be detected in more than one observation, and in these observations the hardness ratios between at least two bands should be different at a significant level. In CSC2 for example, this means var\_inter\_hard\_flag should be set. Alternatively, if no variability flag is available, the spectral variability probability should be larger than 0.5.
     \begin{itemize}
     \item Sources need to be detected at a significance larger than 3 (S/N>3) in at least 2 observations
-    \item Sources need to be compact, either slightly extended or point-like. Extremely extended sources where the extent of the emission is more than about 20% of the PSF size should be excluded.
-    \item Sources should have |b| > 5 (extragalactic)
+    \item Sources need to be compact, either slightly extended or point-like. Extremely extended sources are those where the extent of the emission is more than about 20\% of the PSF size should be excluded.
+    \item Sources should have |b| > 5 arcseconds (extragalactic)
     \end{itemize}
-  \item TDEs have a transient nature with an initial increase in luminosity of between 1 and 3 orders of magnitude, and a slower decrease in luminosity that can last several years. Therefore, for this search, sources that have a variability probability in the broad band larger that 50\%, and that have inter-observation flux differences of at least a factor of 3 (this is a conservative limit) should be selected.
-  \item Ideally, observations should cover several years. If this is not the case, it suffices to determine if the source has had an increase in luminosity and is currently in a luminous, soft state. These sources can be identified as sources that are soft in at least one observation (for example, o.hard\_hs < 0.5), and that either were not detected in previous existing observations, or that were previously detected with a flux that is a third of the luminous flux or less.
+  \item TDEs have a transient nature with an initial increase in luminosity of between 1 and 3 orders of magnitude, and a slower decrease in luminosity that can last several years. Therefore, for this search, sources that have a flux variability probability in the broad band larger that 50\%, and that have inter-observation flux differences of at least a factor of 3 (this is a conservative limit) should be selected.
+  \item Ideally, observations should cover several years. If this is not the case, it suffices to determine if the source has had an increase in luminosity and is currently in a luminous, soft state. These sources can be identified as sources that are soft in at least one observation (e.g for Chandra, o.hard\_hs < 0.5), and that either were not detected in previous existing observations, or that were previously detected with a harder state and a broad band flux that is at least 3 times dimmer than in the soft state.
   \item For the selected sources, take the set of the per-observation b-band fluxes and hardness ratios (for all available hardness ratios). Generate plots that allow to visualize simultaneously the time evolution of flux and hardness ratio. As opposed to Active Galactic Nuclei, for which the hardness ratio hardens as they become less luminous, for TDEs, the emission tends to remain soft. 
-  \item Identify TDEs and separate them from AGN flares. TDEs will likely appear as transient soft sources that remain soft regardless of epoch and regardless of luminosity. They are also typically softer than AGN flares. AGN flares will show an anti-correlation between the broad band flux and the hard-to-soft hardness ratio. As the flare becomes dimmer, it also becomes harder. In order to separate TDE candidates, select those objects for which the standard deviation of the individual observation hardness ratios after the flux peak is less than the average of the hardness ratio errors, indicating a slow change in the hardness ratios over time. 
+  \item Identify TDEs and separate them from AGN flares. TDEs will likely appear as transient soft sources that remain soft regardless of epoch and regardless of luminosity. They are also typically softer than AGN flares. AGN flares will show an anti-correlation between the broad band flux and the hard-to-soft hardness ratio. As the flare becomes dimmer, it also becomes harder.  In order to discriminate between TDEs and AGN flares, do the following: 1. Select the observations at peak luminosity and after the peak.  2. Compute the standard deviation of the hardness ratios for the observations  3. Calculate the average of the individual hardness ratio uncertainties  4. If the standard deviation is less than the average, flag the sources as a TDE candidate.  This condition guarantees that the variation of the hardness ratios over time is slow.
   \item As long as the latter condition is true for at least one of the hard-to-soft hardness ratios, flag the source as a TDE candidate. Otherwise, flag it as a possible AGN flare.
   \item If the catalog does not contain a measure of hardness ratio variability probability, but it contains either a probability density function for the hardness ratio values, or their confidence intervals, then a measure of hardness ratio variability can be obtained from a likelihood analysis. One can assume that the hardness ratio is variable if the likelihood of all individual measurements being drawn from a single true flux (assuming Gaussian errors) is smaller that the likelihood of each individual measurement being produced by a different true flux.
   \end{enumerate}
