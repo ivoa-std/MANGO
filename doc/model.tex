@@ -66,7 +66,7 @@
       \textbf{vodml-id: AssociatedMangoInstance.mangoInstance} \newline
       \textbf{type: \hyperref[sect:Source]{mango:Source}} \newline
       \textbf{multiplicity: 1} \newline 
-      Composition link pointing on one cab\_msd instance associated with the source.
+      Composition link pointing on one MANGO instance associated with the source.
 
   \subsection{ModelInstance}
   \label{sect:ModelInstance}
@@ -109,11 +109,11 @@
       \textbf{vodml-id: Parameter.associatedParameters} \newline
       \textbf{type: \hyperref[sect:Parameter]{mango:Parameter}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      This association allows to gather different parameters without explicit semantic. It can be used to attach a quality flags to a parameter. It can be used to put together the parameters whose errors are coupled together. Another case could be to associate a planet description with its orbital parameters. Using associatedParameters allow to limit the number of complex classes to be implemented in the model.
 
   \subsection{Source}
   \label{sect:Source}
-    Root class of the model. MANGO instance are meant ot be Source instances. A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.
+    Root class of the model. MANGO instance are meant of be Source instances. A source has an identifier and two docks: one for the parameters and one for the associated data.
 
     \subsubsection{Source.identifier}
       \textbf{vodml-id: Source.identifier} \newline
@@ -264,7 +264,7 @@
   \subsection{ShapeFrame}
   \label{sect:ShapeFrame}
 
-  TODO : Missing description : please, update your UML model asap.
+  Possible options to encode a shape in a string.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -272,15 +272,15 @@
   \begin{itemize}
   
     \item[\textbf{STC\_S}]: \textbf{vodml-id:} ShapeFrame.STC\_S \newline
-          \textbf{description:} TODO : Missing description : please, update your UML model asap.
+          \textbf{description:} STCs serialisation
     \item[\textbf{MOC}]: \textbf{vodml-id:} ShapeFrame.MOC \newline
-          \textbf{description:} TODO : Missing description : please, update your UML model asap.
+          \textbf{description:} MOC serialisation
   \end{itemize}
   \normalsize
 
 
 \pagebreak
-\section{Package: errors }
+\section{Package: exterrors }
 
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -293,167 +293,167 @@
   This package contains all \texttt{meas:Error} class extensions
 
   \subsection{CorrMatrix2x2}
-  \label{sect:errors.CorrMatrix2x2}
+  \label{sect:exterrors.CorrMatrix2x2}
     Variance matrix with correlation between errors on individual axes.
 
     \subsubsection{CorrMatrix2x2.correlation}
-      \textbf{vodml-id: errors.CorrMatrix2x2.correlation} \newline
+      \textbf{vodml-id: exterrors.CorrMatrix2x2.correlation} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the errors on the 2 axes. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
     \subsubsection{CorrMatrix2x2.diagMatrix}
-      \textbf{vodml-id: errors.CorrMatrix2x2.diagMatrix} \newline
-      \textbf{type: \hyperref[sect:errors.DiagElems2x2]{mango:errors.DiagElems2x2}} \newline
+      \textbf{vodml-id: exterrors.CorrMatrix2x2.diagMatrix} \newline
+      \textbf{type: \hyperref[sect:exterrors.DiagElems2x2]{mango:exterrors.DiagElems2x2}} \newline
       \textbf{multiplicity: 1} \newline 
       Diagonal elements of the matrix. The unit is given by \texttt{mango:error.MultiParamError.unit}
 
   \subsection{Correlated2D1D}
-  \label{sect:errors.Correlated2D1D}
+  \label{sect:exterrors.Correlated2D1D}
     Correlation coefficients between the error of a 1D host parameter and a 2D associated parameters.
 
     \subsubsection{Correlated2D1D.correlation2\_1}
-      \textbf{vodml-id: errors.Correlated2D1D.correlation2\_1} \newline
+      \textbf{vodml-id: exterrors.Correlated2D1D.correlation2\_1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the error on the first axis of the host parameter and the error on the second axis of the associated parameter. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
   \subsection{CorrelatedError}
-  \label{sect:errors.CorrelatedError}
+  \label{sect:exterrors.CorrelatedError}
     Correlation coefficients between the error of the host parameter and one of its associated parameters. The host parameter is one of the \texttt{mango:Parameter} of the \texttt{mango:ParameterDock} (a position typically) of the Mango object. The associated parameter is one of the \texttt{mango:Parameter.associatedParameters} of that parameter (typically a proper motion) There is no logical link between the correlated error instance and the associated parameter it refers to. The associated parameter is identified by the \texttt{UCD field}. The client is in charge of solving this dependency.
 
     \subsubsection{CorrelatedError.ucd}
-      \textbf{vodml-id: errors.CorrelatedError.ucd} \newline
+      \textbf{vodml-id: exterrors.CorrelatedError.ucd} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       UCD of the associated parameter. This UCD must be identical to this of the associated parameter the \texttt{CorrelatedError} refers to.
 
   \subsection{CorrelatedError1D1D}
-  \label{sect:errors.CorrelatedError1D1D}
+  \label{sect:exterrors.CorrelatedError1D1D}
     Correlation coefficients between the error of one 1D host parameter and a one 1D associated parameters.
 
     \subsubsection{CorrelatedError1D1D.correlation1\_1}
-      \textbf{vodml-id: errors.CorrelatedError1D1D.correlation1\_1} \newline
+      \textbf{vodml-id: exterrors.CorrelatedError1D1D.correlation1\_1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the error on the first axis of the host parameter and the error on the first axis of the associated parameter. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
   \subsection{CorrelatedError1D2D}
-  \label{sect:errors.CorrelatedError1D2D}
+  \label{sect:exterrors.CorrelatedError1D2D}
     Correlation coefficients between the error of one 2D host parameter and one 1D associated parameters.
 
     \subsubsection{CorrelatedError1D2D.correlation1\_1}
-      \textbf{vodml-id: errors.CorrelatedError1D2D.correlation1\_1} \newline
+      \textbf{vodml-id: exterrors.CorrelatedError1D2D.correlation1\_1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the error on the first axis of the host parameter and the error on the associated parameter. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
     \subsubsection{CorrelatedError1D2D.correlation1\_2}
-      \textbf{vodml-id: errors.CorrelatedError1D2D.correlation1\_2} \newline
+      \textbf{vodml-id: exterrors.CorrelatedError1D2D.correlation1\_2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the error on the second axis of the host parameter and the error on the associated parameter. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
   \subsection{CorrelatedError2D2D}
-  \label{sect:errors.CorrelatedError2D2D}
+  \label{sect:exterrors.CorrelatedError2D2D}
     Correlation coefficients between the error of a 2D host parameter and a 2D associated parameters.
 
     \subsubsection{CorrelatedError2D2D.correlation2\_1}
-      \textbf{vodml-id: errors.CorrelatedError2D2D.correlation2\_1} \newline
+      \textbf{vodml-id: exterrors.CorrelatedError2D2D.correlation2\_1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the error on the first axis of the host parameter and the error on the second axis of the associated parameter. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
     \subsubsection{CorrelatedError2D2D.correlation2\_2}
-      \textbf{vodml-id: errors.CorrelatedError2D2D.correlation2\_2} \newline
+      \textbf{vodml-id: exterrors.CorrelatedError2D2D.correlation2\_2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Correlation between the error on the second axis of the host parameter and the error on the second axis of the associated parameter. The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
 
   \subsection{DiagMatrix2x2}
-  \label{sect:errors.DiagMatrix2x2}
+  \label{sect:exterrors.DiagMatrix2x2}
     Simple diagonal matrix of variances
 
     \subsubsection{DiagMatrix2x2.diagMatrix}
-      \textbf{vodml-id: errors.DiagMatrix2x2.diagMatrix} \newline
-      \textbf{type: \hyperref[sect:errors.DiagElems2x2]{mango:errors.DiagElems2x2}} \newline
+      \textbf{vodml-id: exterrors.DiagMatrix2x2.diagMatrix} \newline
+      \textbf{type: \hyperref[sect:exterrors.DiagElems2x2]{mango:exterrors.DiagElems2x2}} \newline
       \textbf{multiplicity: 1} \newline 
       Diagonal elements of the matrix. The unit is given by \texttt{mango:errors.MultiParamError.unit}
 
   \subsection{Ellipse}
-  \label{sect:errors.Ellipse}
+  \label{sect:exterrors.Ellipse}
     Elliptical error. The regular ellipse orientation is East of the North
 
     \subsubsection{Ellipse.semiMajorAxis}
-      \textbf{vodml-id: errors.Ellipse.semiMajorAxis} \newline
+      \textbf{vodml-id: exterrors.Ellipse.semiMajorAxis} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Semi major axis of the ellipse. The unit is given by \texttt{mango:errors.MultiParamError.unit}
 
     \subsubsection{Ellipse.semiMinorAxis}
-      \textbf{vodml-id: errors.Ellipse.semiMinorAxis} \newline
+      \textbf{vodml-id: exterrors.Ellipse.semiMinorAxis} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Semi minor axis of the ellipse. The unit is given by \texttt{mango:errors.MultiParamError.unit}
 
     \subsubsection{Ellipse.positionAngle}
-      \textbf{vodml-id: errors.Ellipse.positionAngle} \newline
+      \textbf{vodml-id: exterrors.Ellipse.positionAngle} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Ellipse orientation, relative to the East of the North.
 
   \subsection{MultParamErro2D (Abstract)}
-  \label{sect:errors.MultParamErro2D}
+  \label{sect:exterrors.MultParamErro2D}
     This class models errors on a one 2 axes parameter with possible correlations with errors on associated parameters. A classical use-case is an error on a position that is coupled with errors on the proper motion and/or the parralax.
 
     \noindent \textbf{subset} \newline
-    \indent   \textbf{role: mango:errors.MultiParamError.correlatedErrrors} \newline
-    \indent   \textbf{type: mango:errors.CorrelatedError1D2D} \newline
+    \indent   \textbf{role: mango:exterrors.MultiParamError.correlatedErrrors} \newline
+    \indent   \textbf{type:  mango:exterrors.CorrelatedError1D2D} \newline
 
 
   \subsection{MultiParamError (Abstract)}
-  \label{sect:errors.MultiParamError}
+  \label{sect:exterrors.MultiParamError}
     This class models errors with possible correlations between different axes and with errors of associated parameters. The standard use-case for such errors is a positional error where e.g. errors on position, proper motion and parallax are correlated to each other.
 
     \subsubsection{MultiParamError.confidenceLevel}
-      \textbf{vodml-id: errors.MultiParamError.confidenceLevel} \newline
+      \textbf{vodml-id: exterrors.MultiParamError.confidenceLevel} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline 
       Error confidence level, expressed in $\sigma$.
 
     \subsubsection{MultiParamError.unit}
-      \textbf{vodml-id: errors.MultiParamError.unit} \newline
+      \textbf{vodml-id: exterrors.MultiParamError.unit} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:Unit}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Unit of the variance or the error ellipse
 
     \subsubsection{MultiParamError.correlatedErrors}
-      \textbf{vodml-id: errors.MultiParamError.correlatedErrors} \newline
-      \textbf{type: \hyperref[sect:errors.CorrelatedError]{mango:errors.CorrelatedError}} \newline
+      \textbf{vodml-id: exterrors.MultiParamError.correlatedErrors} \newline
+      \textbf{type: \hyperref[sect:exterrors.CorrelatedError]{mango:exterrors.CorrelatedError}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Relation linking the host parameter error with all correlated errors.
 
   \subsection{MultiParamError1D}
-  \label{sect:errors.MultiParamError1D}
+  \label{sect:exterrors.MultiParamError1D}
     This class models errors on a one axis parameter with possible correlations with errors on associated parameters. A classical use-case is an error on a radial velocity that is coupled with an error on the proper motion.
 
     \noindent \textbf{subset} \newline
-    \indent   \textbf{role: mango:errors.MultiParamError:correlatedErrors} \newline
-    \indent   \textbf{type: mango:errors.CorrelatedError1D1D} \newline
+    \indent   \textbf{role: mango:errors.MultiParamError.correlatedErrors} \newline
+    \indent   \textbf{type:  mango:exterrors.CorrelatedError1D1D} \newline
 
 
     \subsubsection{MultiParamError1D.sigma}
-      \textbf{vodml-id: errors.MultiParamError1D.sigma} \newline
+      \textbf{vodml-id: exterrors.MultiParamError1D.sigma} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Variance of the parameter error. The unit is given by \texttt{mango:errors.MultiParamError.unit}
 
   \subsection{DiagElems2x2}
-  \label{sect:errors.DiagElems2x2}
+  \label{sect:exterrors.DiagElems2x2}
   Datatype containing the 2 diagonal elements of a 2x2 matrix. Attributes are named $\sigma$ because this datatype is mostly used in the context of complex errors.
 
 \pagebreak
-\section{Package: measures }
+\section{Package: extmeas }
 
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -466,97 +466,97 @@
   This package contains all \texttt{meas} class extensions
 
   \subsection{Flag}
-  \label{sect:measures.Flag}
+  \label{sect:extmeas.Flag}
     Measure to be used for status parameters
 
     \subsubsection{Flag.coord}
-      \textbf{vodml-id: measures.Flag.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.FlagCoord]{mango:coordinates.FlagCoord}} \newline
+      \textbf{vodml-id: extmeas.Flag.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.FlagCoord]{mango:extcoords.FlagCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       Coordinate holding the status value
 
+  \subsection{GenericStringMeasure}
+  \label{sect:extmeas.GenericStringMeasure}
+    Generic measure which value is a string. This can be typically used for identifiers or classification values.
+
+    \subsubsection{GenericStringMeasure.coord}
+      \textbf{vodml-id: extmeas.GenericStringMeasure.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.StringCoordinate]{mango:extcoords.StringCoordinate}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
   \subsection{HardnessRatio}
-  \label{sect:measures.HardnessRatio}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extmeas.HardnessRatio}
+    Hardness ratio of Energy bands (e.g.1 and 2) $HR_{12} = (Flux_2 - Flux_1)/ (Flux_2 + Flux_1)$ The hardness ration value is a real The coordinate frame is the description of the both bands.
 
     \subsubsection{HardnessRatio.coord}
-      \textbf{vodml-id: measures.HardnessRatio.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.HardnessRatioCoord]{mango:coordinates.HardnessRatioCoord}} \newline
+      \textbf{vodml-id: extmeas.HardnessRatio.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.HardnessRatioCoord]{mango:extcoords.HardnessRatioCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
   \subsection{LonLatSkyPosition}
-  \label{sect:measures.LonLatSkyPosition}
+  \label{sect:extmeas.LonLatSkyPosition}
     Measure to used for sky points expressed with a spherical coordinate system
 
     \subsubsection{LonLatSkyPosition.coord}
-      \textbf{vodml-id: measures.LonLatSkyPosition.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.LonLatPoint]{mango:coordinates.LonLatPoint}} \newline
+      \textbf{vodml-id: extmeas.LonLatSkyPosition.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.LonLatPoint]{mango:extcoords.LonLatPoint}} \newline
       \textbf{multiplicity: 1} \newline 
       Coordinate of spherical sky position
 
   \subsection{Orbit}
-  \label{sect:measures.Orbit}
+  \label{sect:extmeas.Orbit}
     TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Orbit.coord}
-      \textbf{vodml-id: measures.Orbit.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.OrbitCoord]{mango:coordinates.OrbitCoord}} \newline
+      \textbf{vodml-id: extmeas.Orbit.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.OrbitCoord]{mango:extcoords.OrbitCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
   \subsection{Photometry}
-  \label{sect:measures.Photometry}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extmeas.Photometry}
+    Measure for source luminosity, can be used for magnitude or fluxes either.
 
     \subsubsection{Photometry.coord}
-      \textbf{vodml-id: measures.Photometry.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.PhotometryCoord]{mango:coordinates.PhotometryCoord}} \newline
+      \textbf{vodml-id: extmeas.Photometry.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.PhotometryCoord]{mango:extcoords.PhotometryCoord}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Coordinate of the photometric measure
 
   \subsection{Redshift}
-  \label{sect:measures.Redshift}
+  \label{sect:extmeas.Redshift}
     TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Redshift.coord}
-      \textbf{vodml-id: measures.Redshift.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.RedshiftCoord]{mango:coordinates.RedshiftCoord}} \newline
+      \textbf{vodml-id: extmeas.Redshift.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.RedshiftCoord]{mango:extcoords.RedshiftCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
   \subsection{Shape}
-  \label{sect:measures.Shape}
+  \label{sect:extmeas.Shape}
     Measure giving the shape of a source. The shape is a string with a specific frame (STS\_S or MOC)
 
     \subsubsection{Shape.coord}
-      \textbf{vodml-id: measures.Shape.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.ShapeCoord]{mango:coordinates.ShapeCoord}} \newline
+      \textbf{vodml-id: extmeas.Shape.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.ShapeCoord]{mango:extcoords.ShapeCoord}} \newline
       \textbf{multiplicity: 1} \newline 
       String serialization of the source shape
 
-  \subsection{StringGenericMeasure}
-  \label{sect:measures.StringGenericMeasure}
-    Generic measure which value is a string
-
-    \subsubsection{StringGenericMeasure.coord}
-      \textbf{vodml-id: measures.StringGenericMeasure.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.StringCoordinate]{mango:coordinates.StringCoordinate}} \newline
-      \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
-
   \subsection{VocabGenericMeasure}
-  \label{sect:measures.VocabGenericMeasure}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extmeas.VocabGenericMeasure}
+    Generic measure which value is a vocabulary entry. This can be typically used for object types.
 
     \subsubsection{VocabGenericMeasure.coord}
-      \textbf{vodml-id: measures.VocabGenericMeasure.coord} \newline
-      \textbf{type: \hyperref[sect:coordinates.VocabCoordinate]{mango:coordinates.VocabCoordinate}} \newline
+      \textbf{vodml-id: extmeas.VocabGenericMeasure.coord} \newline
+      \textbf{type: \hyperref[sect:extcoords.VocabCoordinate]{mango:extcoords.VocabCoordinate}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
 \pagebreak
-\section{Package: coordinates }
+\section{Package: extcoords }
 
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -569,89 +569,89 @@
   This package contains all \texttt{coords} class extensions
 
   \subsection{FlagCoord}
-  \label{sect:coordinates.FlagCoord}
+  \label{sect:extcoords.FlagCoord}
     Coordinate of a status Measure
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: FlagSys} \newline
+    \indent   \textbf{type:  mango:extcoords.FlagSys} \newline
 
 
     \subsubsection{FlagCoord.status}
-      \textbf{vodml-id: coordinates.FlagCoord.status} \newline
+      \textbf{vodml-id: extcoords.FlagCoord.status} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline 
       Value of the status
 
   \subsection{FlagState}
-  \label{sect:coordinates.FlagState}
+  \label{sect:extcoords.FlagState}
     Possible value of a status
 
     \subsubsection{FlagState.value}
-      \textbf{vodml-id: coordinates.FlagState.value} \newline
+      \textbf{vodml-id: extcoords.FlagState.value} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline 
       Status value
 
     \subsubsection{FlagState.label}
-      \textbf{vodml-id: coordinates.FlagState.label} \newline
+      \textbf{vodml-id: extcoords.FlagState.label} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Label attached to that status value
 
   \subsection{FlagSys}
-  \label{sect:coordinates.FlagSys}
+  \label{sect:extcoords.FlagSys}
     Coordinate system to be used for statur measures.
 
     \subsubsection{FlagSys.statusLabels}
-      \textbf{vodml-id: coordinates.FlagSys.statusLabels} \newline
-      \textbf{type: \hyperref[sect:coordinates.FlagState]{mango:coordinates.FlagState}} \newline
+      \textbf{vodml-id: extcoords.FlagSys.statusLabels} \newline
+      \textbf{type: \hyperref[sect:extcoords.FlagState]{mango:extcoords.FlagState}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Composition loink to all possible status values for this system
+      Composition link to all possible status values for this system
 
   \subsection{HardnessRatioCoord}
-  \label{sect:coordinates.HardnessRatioCoord}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extcoords.HardnessRatioCoord}
+    The hardness ration value with a reference to coordinate frame which is the descrition of the both bands.
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: mango:HardnessRatioSys} \newline
+    \indent   \textbf{type:  mango:extcoords.HardnessRatioSys} \newline
 
 
     \subsubsection{HardnessRatioCoord.hardnessRatio}
-      \textbf{vodml-id: coordinates.HardnessRatioCoord.hardnessRatio} \newline
+      \textbf{vodml-id: extcoords.HardnessRatioCoord.hardnessRatio} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Hardness ration value
 
   \subsection{HardnessRatioFrame}
-  \label{sect:coordinates.HardnessRatioFrame}
+  \label{sect:extcoords.HardnessRatioFrame}
     Hardness ratio frame. Defined by 2 energy bands Eheigh ELow. HR = (Eheigh - Elow)/(Eheigh + Elow) Energy bands are deemed to special photometric filters
 
     \subsubsection{HardnessRatioFrame.low}
-      \textbf{vodml-id: coordinates.HardnessRatioFrame.low} \newline
-      \textbf{type: \hyperref[sect:coordinates.PhotFilter]{mango:coordinates.PhotFilter}} \newline
+      \textbf{vodml-id: extcoords.HardnessRatioFrame.low} \newline
+      \textbf{type: \hyperref[sect:extcoords.PhotFilter]{mango:extcoords.PhotFilter}} \newline
       \textbf{multiplicity: 1} \newline 
       Low energy band
 
     \subsubsection{HardnessRatioFrame.high}
-      \textbf{vodml-id: coordinates.HardnessRatioFrame.high} \newline
-      \textbf{type: \hyperref[sect:coordinates.PhotFilter]{mango:coordinates.PhotFilter}} \newline
+      \textbf{vodml-id: extcoords.HardnessRatioFrame.high} \newline
+      \textbf{type: \hyperref[sect:extcoords.PhotFilter]{mango:extcoords.PhotFilter}} \newline
       \textbf{multiplicity: 1} \newline 
       Heigh energy band
 
   \subsection{HardnessRatioSys}
-  \label{sect:coordinates.HardnessRatioSys}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extcoords.HardnessRatioSys}
+    Coordinate system for hardness ration. This is basically the definition of the 2 bands used to compute the ratio.
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
-    \indent   \textbf{type: mango:HardnessRatioFrame} \newline
+    \indent   \textbf{type:  mango:extcoords.HardnessRatioFrame} \newline
 
 
   \subsection{LonLatCoordSys}
-  \label{sect:coordinates.LonLatCoordSys}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extcoords.LonLatCoordSys}
+    Space coordinate system
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
@@ -663,43 +663,28 @@
 
 
   \subsection{LonLatPoint}
-  \label{sect:coordinates.LonLatPoint}
+  \label{sect:extcoords.LonLatPoint}
     Coordinate of a point on the sky sphere expressed in spherical coordinates.
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: mango:LonLatCoordSys} \newline
+    \indent   \textbf{type:  mango:extcoords.LonLatCoordSys} \newline
 
 
     \subsubsection{LonLatPoint.longitude}
-      \textbf{vodml-id: coordinates.LonLatPoint.longitude} \newline
+      \textbf{vodml-id: extcoords.LonLatPoint.longitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       longitude of the point
 
     \subsubsection{LonLatPoint.latitude}
-      \textbf{vodml-id: coordinates.LonLatPoint.latitude} \newline
+      \textbf{vodml-id: extcoords.LonLatPoint.latitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Latitude of the point
 
-  \subsection{ObjectTypeCoord}
-  \label{sect:coordinates.ObjectTypeCoord}
-    TODO : Missing description : please, update your UML model asap.
-
-    \noindent \textbf{subset} \newline
-    \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: ObjectTypeSys} \newline
-
-
-    \subsubsection{ObjectTypeCoord.objectType}
-      \textbf{vodml-id: coordinates.ObjectTypeCoord.objectType} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-      \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
-
   \subsection{OrbitCoord}
-  \label{sect:coordinates.OrbitCoord}
+  \label{sect:extcoords.OrbitCoord}
     TODO : Missing description : please, update your UML model asap.
 
     \noindent \textbf{subset} \newline
@@ -707,130 +692,142 @@
     \indent   \textbf{type: coords:SpaceSys} \newline
 
 
+    \subsubsection{OrbitCoord.period}
+      \textbf{vodml-id: extcoords.OrbitCoord.period} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{OrbitCoord.eccentricity}
+      \textbf{vodml-id: extcoords.OrbitCoord.eccentricity} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Orbital eccentricity, unitless
+
   \subsection{PhotFilter}
-  \label{sect:coordinates.PhotFilter}
+  \label{sect:extcoords.PhotFilter}
     Photometric filter description, compliant with photDM
 
     \subsubsection{PhotFilter.name}
-      \textbf{vodml-id: coordinates.PhotFilter.name} \newline
+      \textbf{vodml-id: extcoords.PhotFilter.name} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Filter name
 
     \subsubsection{PhotFilter.zeroPointFlux}
-      \textbf{vodml-id: coordinates.PhotFilter.zeroPointFlux} \newline
+      \textbf{vodml-id: extcoords.PhotFilter.zeroPointFlux} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Zero point flux of the filter
 
     \subsubsection{PhotFilter.magnitudeSystem}
-      \textbf{vodml-id: coordinates.PhotFilter.magnitudeSystem} \newline
+      \textbf{vodml-id: extcoords.PhotFilter.magnitudeSystem} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Magnitude system used by the filter
 
     \subsubsection{PhotFilter.effectiveWavelength}
-      \textbf{vodml-id: coordinates.PhotFilter.effectiveWavelength} \newline
+      \textbf{vodml-id: extcoords.PhotFilter.effectiveWavelength} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Effective wavelength of the filter
 
     \subsubsection{PhotFilter.unit}
-      \textbf{vodml-id: coordinates.PhotFilter.unit} \newline
+      \textbf{vodml-id: extcoords.PhotFilter.unit} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:Unit}} \newline
       \textbf{multiplicity: 1} \newline 
       Wavelength unit used for that filter
 
     \subsubsection{PhotFilter.bandWidth}
-      \textbf{vodml-id: coordinates.PhotFilter.bandWidth} \newline
+      \textbf{vodml-id: extcoords.PhotFilter.bandWidth} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       Band width of the filter
 
   \subsection{PhotometryCoord}
-  \label{sect:coordinates.PhotometryCoord}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extcoords.PhotometryCoord}
+    Coordinate value for photometry measures
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: PhotometryCoordSys} \newline
+    \indent   \textbf{type:  mango:extcoords.PhotometryCoordSys} \newline
 
 
     \subsubsection{PhotometryCoord.luminosity}
-      \textbf{vodml-id: coordinates.PhotometryCoord.luminosity} \newline
+      \textbf{vodml-id: extcoords.PhotometryCoord.luminosity} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Value of the photometric measure
 
   \subsection{PhotometryCoordSys}
-  \label{sect:coordinates.PhotometryCoordSys}
+  \label{sect:extcoords.PhotometryCoordSys}
     TBC with photDM
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:PhysicalCoordSys.frame} \newline
-    \indent   \textbf{type: mango:PhotFilter} \newline
+    \indent   \textbf{type:  mango:extcoords.PhotFilter} \newline
 
 
   \subsection{RedshiftCoord}
-  \label{sect:coordinates.RedshiftCoord}
+  \label{sect:extcoords.RedshiftCoord}
     TODO : Missing description : please, update your UML model asap.
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: RedshiftSys} \newline
+    \indent   \textbf{type:  mango:extcoords.RedshiftSys} \newline
 
 
     \subsubsection{RedshiftCoord.redshift}
-      \textbf{vodml-id: coordinates.RedshiftCoord.redshift} \newline
+      \textbf{vodml-id: extcoords.RedshiftCoord.redshift} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
   \subsection{RedshiftSys}
-  \label{sect:coordinates.RedshiftSys}
+  \label{sect:extcoords.RedshiftSys}
     TODO : Missing description : please, update your UML model asap.
 
   \subsection{ShapeCoord}
-  \label{sect:coordinates.ShapeCoord}
+  \label{sect:extcoords.ShapeCoord}
     TODO : Missing description : please, update your UML model asap.
 
     \noindent \textbf{subset} \newline
     \indent   \textbf{role: coords:Coordinate.coordSys} \newline
-    \indent   \textbf{type: ShapeSys} \newline
+    \indent   \textbf{type:  mango:extcoords.ShapeSys} \newline
 
 
     \subsubsection{ShapeCoord.shape}
-      \textbf{vodml-id: coordinates.ShapeCoord.shape} \newline
+      \textbf{vodml-id: extcoords.ShapeCoord.shape} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      String serialisation of the shape
 
   \subsection{ShapeSys}
-  \label{sect:coordinates.ShapeSys}
+  \label{sect:extcoords.ShapeSys}
     Coordinate systen to be used for shape measure
 
     \subsubsection{ShapeSys.frame}
-      \textbf{vodml-id: coordinates.ShapeSys.frame} \newline
-      \textbf{type: \hyperref[sect:coordinates.ShapeFrame]{mango:coordinates.ShapeFrame}} \newline
+      \textbf{vodml-id: extcoords.ShapeSys.frame} \newline
+      \textbf{type: \hyperref[sect:extcoords.ShapeFrame]{mango:extcoords.ShapeFrame}} \newline
       \textbf{multiplicity: 1} \newline 
-      Frame of the shape measure. Gives a enumeration of the supported serializations.
+      Frame of the shape measure. Gives a enumeration of the supported serialisations.
 
   \subsection{StringCoordinate}
-  \label{sect:coordinates.StringCoordinate}
-    TODO : Missing description : please, update your UML model asap.
+  \label{sect:extcoords.StringCoordinate}
+    Coordinate value for \texttt{mango:measures.GenericStringMeasure}
 
     \subsubsection{StringCoordinate.cval}
-      \textbf{vodml-id: coordinates.StringCoordinate.cval} \newline
+      \textbf{vodml-id: extcoords.StringCoordinate.cval} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       TODO : Missing description : please, update your UML model asap.
 
   \subsection{VocabCoordinate}
-  \label{sect:coordinates.VocabCoordinate}
-  TODO : Missing description : please, update your UML model asap.
+  \label{sect:extcoords.VocabCoordinate}
+  Coordinate for \texttt{mango:measures.GenericVocabMeasure}
 
   \subsection{ShapeFrame}
-  \label{sect:coordinates.ShapeFrame}
+  \label{sect:extcoords.ShapeFrame}
 
   Enumeration of the possible options to encode a shape in a string.
 
@@ -839,9 +836,9 @@
   \small
   \begin{itemize}
   
-    \item[\textbf{MOC}]: \textbf{vodml-id:} coordinates.ShapeFrame.MOC \newline
+    \item[\textbf{MOC}]: \textbf{vodml-id:} extcoords.ShapeFrame.MOC \newline
           \textbf{description:} MOC serialization
-    \item[\textbf{STCs}]: \textbf{vodml-id:} coordinates.ShapeFrame.STCs \newline
+    \item[\textbf{STCs}]: \textbf{vodml-id:} extcoords.ShapeFrame.STCs \newline
           \textbf{description:} STCs serialization
   \end{itemize}
   \normalsize

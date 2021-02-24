@@ -9,7 +9,7 @@
   <author>Laurent Michel, François Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2021-02-15T11:26:48</lastModified>
+  <lastModified>2021-02-16T17:04:55</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -102,22 +102,18 @@ This stands for an example before we have defined a vocabulary.</description>
   <enumeration>
     <vodml-id>ShapeFrame</vodml-id>
     <name>ShapeFrame</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description> Possible options to encode a shape in a string.
+</description>
     <literal>
       <vodml-id>ShapeFrame.STC_S</vodml-id>
       <name>STC_S</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>STCs serialisation
+</description>
     </literal>
     <literal>
       <vodml-id>ShapeFrame.MOC</vodml-id>
       <name>MOC</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>MOC serialisation</description>
     </literal>
   </enumeration>
 
@@ -128,7 +124,7 @@ This stands for an example before we have defined a vocabulary.</description>
     <attribute>
       <vodml-id>VocabularyTerm.uri</vodml-id>
       <name>uri</name>
-      <description>URI extarcted from the DRF document and refering ot the word
+      <description>URI extracted from the DRF document and referring to the word
 
 </description>
       <datatype>
@@ -158,13 +154,13 @@ This stands for an example before we have defined a vocabulary.</description>
   <objectType>
     <vodml-id>Source</vodml-id>
     <name>Source</name>
-    <description>Root class of the model. CAB_MSF instance are meant ot be Source instances.
-A source ha an identifier and to sets of hooks: one for the parameters and one for the associated data.</description>
+    <description>Root class of the model. MANGO instance are meant of be Source instances.
+A source has an identifier and two docks: one for the parameters and one for the associated data.</description>
     <attribute>
       <vodml-id>Source.identifier</vodml-id>
       <name>identifier</name>
       <description>Unique identifier for a Source.
-The uniqness of that identifier is not managed by the model.
+The uniqueness of that identifier is not managed by the model.
 The format is free.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
@@ -386,7 +382,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>AssociatedMangoInstance.mangoInstance</vodml-id>
       <name>mangoInstance</name>
-      <description>Composition link pointing on one cab_msd instance associated with the source.</description>
+      <description>Composition link pointing on one MANGO instance associated with the source.</description>
       <datatype>
         <vodml-ref>mango:Source</vodml-ref>
       </datatype>
@@ -459,9 +455,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <reference>
       <vodml-id>Parameter.associatedParameters</vodml-id>
       <name>associatedParameters</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>This association allows to gather different parameters without explicit semantic.
+It can be used to attach a quality flags to a parameter. It can be used to put together the parameters whose errors are coupled together. Another case could be to associate a planet description with its orbital parameters. 
+Using associatedParameters allow to limit the number of  complex classes to be implemented in the model.</description>
       <datatype>
         <vodml-ref>mango:Parameter</vodml-ref>
       </datatype>
@@ -475,19 +471,19 @@ As long as the vocabulary is not set, the possible values of this attribute are 
 
 
   <package>
-    <vodml-id>errors</vodml-id>
-    <name>errors</name>
+    <vodml-id>exterrors</vodml-id>
+    <name>exterrors</name>
     <description>This package contains all \texttt{meas:Error} class extensions
 </description>
     <primitiveType>
-      <vodml-id>errors.DiagElems2x2</vodml-id>
+      <vodml-id>exterrors.DiagElems2x2</vodml-id>
       <name>DiagElems2x2</name>
       <description>Datatype containing the 2 diagonal elements of a 2x2 matrix. 
 Attributes are named $\sigma$ because this datatype is mostly used in the context of complex errors.</description>
     </primitiveType>
 
     <objectType abstract="true">
-      <vodml-id>errors.MultiParamError</vodml-id>
+      <vodml-id>exterrors.MultiParamError</vodml-id>
       <name>MultiParamError</name>
       <description>This class models errors with possible correlations between different axes  and with errors of associated parameters.
 The standard use-case for such errors is a positional error where e.g. errors on position, proper motion and parallax are correlated to each other.</description>
@@ -495,7 +491,7 @@ The standard use-case for such errors is a positional error where e.g. errors on
         <vodml-ref>meas:Error</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.MultiParamError.confidenceLevel</vodml-id>
+        <vodml-id>exterrors.MultiParamError.confidenceLevel</vodml-id>
         <name>confidenceLevel</name>
         <description>Error confidence level, expressed in $\sigma$.</description>
         <datatype>
@@ -507,11 +503,10 @@ The standard use-case for such errors is a positional error where e.g. errors on
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>errors.MultiParamError.unit</vodml-id>
+        <vodml-id>exterrors.MultiParamError.unit</vodml-id>
         <name>unit</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Unit of the variance or the error ellipse
+</description>
         <datatype>
           <vodml-ref>ivoa:Unit</vodml-ref>
         </datatype>
@@ -521,13 +516,11 @@ The standard use-case for such errors is a positional error where e.g. errors on
         </multiplicity>
       </attribute>
       <composition>
-        <vodml-id>errors.MultiParamError.correlatedErrors</vodml-id>
+        <vodml-id>exterrors.MultiParamError.correlatedErrors</vodml-id>
         <name>correlatedErrors</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Relation linking the host parameter error with all correlated errors.</description>
         <datatype>
-          <vodml-ref>mango:errors.CorrelatedError</vodml-ref>
+          <vodml-ref>mango:exterrors.CorrelatedError</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>
@@ -537,7 +530,7 @@ The standard use-case for such errors is a positional error where e.g. errors on
     </objectType>
 
     <objectType>
-      <vodml-id>errors.CorrelatedError</vodml-id>
+      <vodml-id>exterrors.CorrelatedError</vodml-id>
       <name>CorrelatedError</name>
       <description>Correlation coefficients between the error of the host parameter and one of its associated parameters.
 The host parameter is one of the \texttt{mango:Parameter} of the \texttt{mango:ParameterDock} (a position typically) of the Mango object.
@@ -546,7 +539,7 @@ There is no logical link between the correlated error instance and the associate
 The associated parameter is identified by the \texttt{UCD field}. The client is in charge of solving this dependency.
 </description>
       <attribute>
-        <vodml-id>errors.CorrelatedError.ucd</vodml-id>
+        <vodml-id>exterrors.CorrelatedError.ucd</vodml-id>
         <name>ucd</name>
         <description>UCD of the associated parameter.
 This UCD must be identical to this of the associated parameter the \texttt{CorrelatedError} refers to.
@@ -562,15 +555,15 @@ This UCD must be identical to this of the associated parameter the \texttt{Corre
     </objectType>
 
     <objectType>
-      <vodml-id>errors.CorrelatedError1D1D</vodml-id>
+      <vodml-id>exterrors.CorrelatedError1D1D</vodml-id>
       <name>CorrelatedError1D1D</name>
       <description>Correlation coefficients between the error of one 1D host parameter and a one 1D associated parameters.
 </description>
       <extends>
-        <vodml-ref>mango:errors.CorrelatedError</vodml-ref>
+        <vodml-ref>mango:exterrors.CorrelatedError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.CorrelatedError1D1D.correlation1_1</vodml-id>
+        <vodml-id>exterrors.CorrelatedError1D1D.correlation1_1</vodml-id>
         <name>correlation1_1</name>
         <description>Correlation between the error on the first axis of the host parameter and the error on the first axis of the associated parameter.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description>
@@ -585,15 +578,15 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
     </objectType>
 
     <objectType>
-      <vodml-id>errors.Ellipse</vodml-id>
+      <vodml-id>exterrors.Ellipse</vodml-id>
       <name>Ellipse</name>
       <description>Elliptical error. The regular ellipse orientation is  East of the North
 </description>
       <extends>
-        <vodml-ref>mango:errors.MultParamErro2D</vodml-ref>
+        <vodml-ref>mango:exterrors.MultParamErro2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.Ellipse.semiMajorAxis</vodml-id>
+        <vodml-id>exterrors.Ellipse.semiMajorAxis</vodml-id>
         <name>semiMajorAxis</name>
         <description>Semi major axis of the ellipse. The unit is given by \texttt{mango:errors.MultiParamError.unit}</description>
         <datatype>
@@ -605,7 +598,7 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>errors.Ellipse.semiMinorAxis</vodml-id>
+        <vodml-id>exterrors.Ellipse.semiMinorAxis</vodml-id>
         <name>semiMinorAxis</name>
         <description>Semi minor axis of the ellipse. The unit is given by \texttt{mango:errors.MultiParamError.unit}</description>
         <datatype>
@@ -617,11 +610,9 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>errors.Ellipse.positionAngle</vodml-id>
+        <vodml-id>exterrors.Ellipse.positionAngle</vodml-id>
         <name>positionAngle</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Ellipse orientation, relative to the East of the North.</description>
         <datatype>
           <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
@@ -633,14 +624,14 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
     </objectType>
 
     <objectType>
-      <vodml-id>errors.CorrMatrix2x2</vodml-id>
+      <vodml-id>exterrors.CorrMatrix2x2</vodml-id>
       <name>CorrMatrix2x2</name>
       <description>Variance matrix with correlation between errors on individual axes.</description>
       <extends>
-        <vodml-ref>mango:errors.MultParamErro2D</vodml-ref>
+        <vodml-ref>mango:exterrors.MultParamErro2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.CorrMatrix2x2.correlation</vodml-id>
+        <vodml-id>exterrors.CorrMatrix2x2.correlation</vodml-id>
         <name>correlation</name>
         <description>Correlation between the errors on the 2 axes.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
@@ -654,12 +645,12 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>errors.CorrMatrix2x2.diagMatrix</vodml-id>
+        <vodml-id>exterrors.CorrMatrix2x2.diagMatrix</vodml-id>
         <name>diagMatrix</name>
         <description>Diagonal elements of the matrix. The unit is given by \texttt{mango:error.MultiParamError.unit}
 </description>
         <datatype>
-          <vodml-ref>mango:errors.DiagElems2x2</vodml-ref>
+          <vodml-ref>mango:exterrors.DiagElems2x2</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -669,18 +660,18 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
     </objectType>
 
     <objectType>
-      <vodml-id>errors.DiagMatrix2x2</vodml-id>
+      <vodml-id>exterrors.DiagMatrix2x2</vodml-id>
       <name>DiagMatrix2x2</name>
       <description>Simple diagonal matrix of variances</description>
       <extends>
-        <vodml-ref>mango:errors.MultParamErro2D</vodml-ref>
+        <vodml-ref>mango:exterrors.MultParamErro2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.DiagMatrix2x2.diagMatrix</vodml-id>
+        <vodml-id>exterrors.DiagMatrix2x2.diagMatrix</vodml-id>
         <name>diagMatrix</name>
         <description>Diagonal elements of the matrix. The unit is given by \texttt{mango:errors.MultiParamError.unit}</description>
         <datatype>
-          <vodml-ref>mango:errors.DiagElems2x2</vodml-ref>
+          <vodml-ref>mango:exterrors.DiagElems2x2</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -690,23 +681,23 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
     </objectType>
 
     <objectType>
-      <vodml-id>errors.MultiParamError1D</vodml-id>
+      <vodml-id>exterrors.MultiParamError1D</vodml-id>
       <name>MultiParamError1D</name>
       <description>This class models errors on a one axis parameter with possible correlations with errors on associated parameters.
 A classical use-case  is an error on a radial velocity that is coupled with an error on the proper motion.</description>
       <extends>
-        <vodml-ref>mango:errors.MultiParamError</vodml-ref>
+        <vodml-ref>mango:exterrors.MultiParamError</vodml-ref>
       </extends>
       <constraint xsi:type="vo-dml:SubsettedRole">
         <role>
-          <vodml-ref>mango:errors.MultiParamError:correlatedErrors</vodml-ref>
+          <vodml-ref>mango:errors.MultiParamError.correlatedErrors</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>mango:errors.CorrelatedError1D1D</vodml-ref>
+          <vodml-ref> mango:exterrors.CorrelatedError1D1D</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>errors.MultiParamError1D.sigma</vodml-id>
+        <vodml-id>exterrors.MultiParamError1D.sigma</vodml-id>
         <name>sigma</name>
         <description>Variance of the parameter error. The unit is given by \texttt{mango:errors.MultiParamError.unit}</description>
         <datatype>
@@ -720,15 +711,15 @@ A classical use-case  is an error on a radial velocity that is coupled with an e
     </objectType>
 
     <objectType>
-      <vodml-id>errors.Correlated2D1D</vodml-id>
+      <vodml-id>exterrors.Correlated2D1D</vodml-id>
       <name>Correlated2D1D</name>
       <description>Correlation coefficients between the error of a 1D host parameter and a 2D associated parameters.
 </description>
       <extends>
-        <vodml-ref>mango:errors.CorrelatedError1D1D</vodml-ref>
+        <vodml-ref>mango:exterrors.CorrelatedError1D1D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.Correlated2D1D.correlation2_1</vodml-id>
+        <vodml-id>exterrors.Correlated2D1D.correlation2_1</vodml-id>
         <name>correlation2_1</name>
         <description>Correlation between the error on the first axis of the host parameter and the error on the second axis of the associated parameter.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
@@ -744,15 +735,15 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$
     </objectType>
 
     <objectType>
-      <vodml-id>errors.CorrelatedError1D2D</vodml-id>
+      <vodml-id>exterrors.CorrelatedError1D2D</vodml-id>
       <name>CorrelatedError1D2D</name>
       <description>Correlation coefficients between the error of one 2D host parameter and one 1D associated parameters.
 </description>
       <extends>
-        <vodml-ref>mango:errors.CorrelatedError</vodml-ref>
+        <vodml-ref>mango:exterrors.CorrelatedError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.CorrelatedError1D2D.correlation1_1</vodml-id>
+        <vodml-id>exterrors.CorrelatedError1D2D.correlation1_1</vodml-id>
         <name>correlation1_1</name>
         <description>Correlation between the error on the first axis of the host parameter and the error on the associated parameter.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description>
@@ -765,7 +756,7 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>errors.CorrelatedError1D2D.correlation1_2</vodml-id>
+        <vodml-id>exterrors.CorrelatedError1D2D.correlation1_2</vodml-id>
         <name>correlation1_2</name>
         <description>Correlation between the error on the second axis of the host parameter and the error on the associated parameter.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description>
@@ -780,15 +771,15 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
     </objectType>
 
     <objectType>
-      <vodml-id>errors.CorrelatedError2D2D</vodml-id>
+      <vodml-id>exterrors.CorrelatedError2D2D</vodml-id>
       <name>CorrelatedError2D2D</name>
       <description>Correlation coefficients between the error of a 2D host parameter and a 2D associated parameters.
 </description>
       <extends>
-        <vodml-ref>mango:errors.CorrelatedError1D2D</vodml-ref>
+        <vodml-ref>mango:exterrors.CorrelatedError1D2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>errors.CorrelatedError2D2D.correlation2_1</vodml-id>
+        <vodml-id>exterrors.CorrelatedError2D2D.correlation2_1</vodml-id>
         <name>correlation2_1</name>
         <description>Correlation between the error on the first axis of the host parameter and the error on the second axis of the associated parameter.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description>
@@ -801,7 +792,7 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>errors.CorrelatedError2D2D.correlation2_2</vodml-id>
+        <vodml-id>exterrors.CorrelatedError2D2D.correlation2_2</vodml-id>
         <name>correlation2_2</name>
         <description>Correlation between the error on the second axis of the host parameter and the error on the second axis of the associated parameter.
 The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description>
@@ -816,19 +807,19 @@ The covariance is given by $cov_{XY}=corr_{XY}\sigma_{X}\sigma_{Y}$</description
     </objectType>
 
     <objectType abstract="true">
-      <vodml-id>errors.MultParamErro2D</vodml-id>
+      <vodml-id>exterrors.MultParamErro2D</vodml-id>
       <name>MultParamErro2D</name>
       <description>This class models errors on a one 2 axes parameter with possible correlations with errors on associated parameters.
 A classical use-case  is an error on a position that is coupled with errors on the proper motion and/or the parralax.</description>
       <extends>
-        <vodml-ref>mango:errors.MultiParamError</vodml-ref>
+        <vodml-ref>mango:exterrors.MultiParamError</vodml-ref>
       </extends>
       <constraint xsi:type="vo-dml:SubsettedRole">
         <role>
-          <vodml-ref>mango:errors.MultiParamError.correlatedErrrors</vodml-ref>
+          <vodml-ref>mango:exterrors.MultiParamError.correlatedErrrors</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>mango:errors.CorrelatedError1D2D</vodml-ref>
+          <vodml-ref> mango:exterrors.CorrelatedError1D2D</vodml-ref>
         </datatype>
       </constraint>
     </objectType>
@@ -838,27 +829,28 @@ A classical use-case  is an error on a position that is coupled with errors on t
 
 
   <package>
-    <vodml-id>measures</vodml-id>
-    <name>measures</name>
+    <vodml-id>extmeas</vodml-id>
+    <name>extmeas</name>
     <description>This package contains all \texttt{meas} class extensions
 </description>
     <objectType>
-      <vodml-id>measures.HardnessRatio</vodml-id>
+      <vodml-id>extmeas.HardnessRatio</vodml-id>
       <name>HardnessRatio</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Hardness ratio of Energy bands (e.g.1 and 2)
+$HR_{12} = (Flux_2 -  Flux_1)/ (Flux_2 +  Flux_1)&amp;
+The hardness ration value is a real
+The coordinate frame is the descrition of the both bands.</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.HardnessRatio.coord</vodml-id>
+        <vodml-id>extmeas.HardnessRatio.coord</vodml-id>
         <name>coord</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:coordinates.HardnessRatioCoord</vodml-ref>
+          <vodml-ref>mango:extcoords.HardnessRatioCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -868,18 +860,18 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.LonLatSkyPosition</vodml-id>
+      <vodml-id>extmeas.LonLatSkyPosition</vodml-id>
       <name>LonLatSkyPosition</name>
       <description>Measure to used for sky points expressed with a spherical coordinate system</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.LonLatSkyPosition.coord</vodml-id>
+        <vodml-id>extmeas.LonLatSkyPosition.coord</vodml-id>
         <name>coord</name>
         <description>Coordinate of spherical sky position</description>
         <datatype>
-          <vodml-ref>mango:coordinates.LonLatPoint</vodml-ref>
+          <vodml-ref>mango:extcoords.LonLatPoint</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -889,22 +881,18 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.Photometry</vodml-id>
+      <vodml-id>extmeas.Photometry</vodml-id>
       <name>Photometry</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Measure for source luminosity, can be used for magnitude or fluxes either.</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.Photometry.coord</vodml-id>
+        <vodml-id>extmeas.Photometry.coord</vodml-id>
         <name>coord</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Coordinate of the photometric measure</description>
         <datatype>
-          <vodml-ref>mango:coordinates.PhotometryCoord</vodml-ref>
+          <vodml-ref>mango:extcoords.PhotometryCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -914,7 +902,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.Redshift</vodml-id>
+      <vodml-id>extmeas.Redshift</vodml-id>
       <name>Redshift</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -923,13 +911,13 @@ A classical use-case  is an error on a position that is coupled with errors on t
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.Redshift.coord</vodml-id>
+        <vodml-id>extmeas.Redshift.coord</vodml-id>
         <name>coord</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:coordinates.RedshiftCoord</vodml-ref>
+          <vodml-ref>mango:extcoords.RedshiftCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -939,18 +927,18 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.Flag</vodml-id>
+      <vodml-id>extmeas.Flag</vodml-id>
       <name>Flag</name>
       <description>Measure to be used for status parameters</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.Flag.coord</vodml-id>
+        <vodml-id>extmeas.Flag.coord</vodml-id>
         <name>coord</name>
-        <description>Coordinate holding the statsu value</description>
+        <description>Coordinate holding the status value</description>
         <datatype>
-          <vodml-ref>mango:coordinates.FlagCoord</vodml-ref>
+          <vodml-ref>mango:extcoords.FlagCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -960,7 +948,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.Orbit</vodml-id>
+      <vodml-id>extmeas.Orbit</vodml-id>
       <name>Orbit</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -969,13 +957,13 @@ A classical use-case  is an error on a position that is coupled with errors on t
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.Orbit.coord</vodml-id>
+        <vodml-id>extmeas.Orbit.coord</vodml-id>
         <name>coord</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:coordinates.OrbitCoord</vodml-ref>
+          <vodml-ref>mango:extcoords.OrbitCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -985,18 +973,18 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.Shape</vodml-id>
+      <vodml-id>extmeas.Shape</vodml-id>
       <name>Shape</name>
       <description>Measure giving the shape of a source. The shape is a string with a specific frame (STS_S or MOC)</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.Shape.coord</vodml-id>
+        <vodml-id>extmeas.Shape.coord</vodml-id>
         <name>coord</name>
         <description>String serialization of the source shape</description>
         <datatype>
-          <vodml-ref>mango:coordinates.ShapeCoord</vodml-ref>
+          <vodml-ref>mango:extcoords.ShapeCoord</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1006,20 +994,20 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.StringGenericMeasure</vodml-id>
-      <name>StringGenericMeasure</name>
-      <description>Generic measure which value is a string</description>
+      <vodml-id>extmeas.GenericStringMeasure</vodml-id>
+      <name>GenericStringMeasure</name>
+      <description>Generic measure which value is a string. This can be typically used for identifiers or classification values.</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.StringGenericMeasure.coord</vodml-id>
+        <vodml-id>extmeas.GenericStringMeasure.coord</vodml-id>
         <name>coord</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:coordinates.StringCoordinate</vodml-ref>
+          <vodml-ref>mango:extcoords.StringCoordinate</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1029,22 +1017,20 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </objectType>
 
     <objectType>
-      <vodml-id>measures.VocabGenericMeasure</vodml-id>
+      <vodml-id>extmeas.VocabGenericMeasure</vodml-id>
       <name>VocabGenericMeasure</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Generic measure which value is a vocabulary entry. This can be typically used for object types.</description>
       <extends>
         <vodml-ref>meas:Measure</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>measures.VocabGenericMeasure.coord</vodml-id>
+        <vodml-id>extmeas.VocabGenericMeasure.coord</vodml-id>
         <name>coord</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:coordinates.VocabCoordinate</vodml-ref>
+          <vodml-ref>mango:extcoords.VocabCoordinate</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1058,39 +1044,38 @@ A classical use-case  is an error on a position that is coupled with errors on t
 
 
   <package>
-    <vodml-id>coordinates</vodml-id>
-    <name>coordinates</name>
+    <vodml-id>extcoords</vodml-id>
+    <name>extcoords</name>
     <description>This package contains all \texttt{coords} class extensions
 </description>
     <primitiveType>
-      <vodml-id>coordinates.VocabCoordinate</vodml-id>
+      <vodml-id>extcoords.VocabCoordinate</vodml-id>
       <name>VocabCoordinate</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Coordinate  for \texttt{mango:measures.GenericVocabMeasure} 
+</description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
       </extends>
     </primitiveType>
 
     <enumeration>
-      <vodml-id>coordinates.ShapeFrame</vodml-id>
+      <vodml-id>extcoords.ShapeFrame</vodml-id>
       <name>ShapeFrame</name>
       <description>Enumeration of the possible options to encode a shape in  a string.</description>
       <literal>
-        <vodml-id>coordinates.ShapeFrame.MOC</vodml-id>
+        <vodml-id>extcoords.ShapeFrame.MOC</vodml-id>
         <name>MOC</name>
         <description>MOC serialization</description>
       </literal>
       <literal>
-        <vodml-id>coordinates.ShapeFrame.STCs</vodml-id>
+        <vodml-id>extcoords.ShapeFrame.STCs</vodml-id>
         <name>STCs</name>
         <description>STCs serialization</description>
       </literal>
     </enumeration>
 
     <dataType>
-      <vodml-id>coordinates.RedshiftCoord</vodml-id>
+      <vodml-id>extcoords.RedshiftCoord</vodml-id>
       <name>RedshiftCoord</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1103,11 +1088,11 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>RedshiftSys</vodml-ref>
+          <vodml-ref> mango:extcoords.RedshiftSys</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>coordinates.RedshiftCoord.redshift</vodml-id>
+        <vodml-id>extcoords.RedshiftCoord.redshift</vodml-id>
         <name>redshift</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1123,11 +1108,9 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.HardnessRatioCoord</vodml-id>
+      <vodml-id>extcoords.HardnessRatioCoord</vodml-id>
       <name>HardnessRatioCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>The hardness ration value with a reference to coordinate frame which is the descrition of the both bands.</description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
       </extends>
@@ -1136,15 +1119,13 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>mango:HardnessRatioSys</vodml-ref>
+          <vodml-ref> mango:extcoords.HardnessRatioSys</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>coordinates.HardnessRatioCoord.hardnessRatio</vodml-id>
+        <vodml-id>extcoords.HardnessRatioCoord.hardnessRatio</vodml-id>
         <name>hardnessRatio</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Hardness ration value</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1156,11 +1137,9 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.PhotometryCoord</vodml-id>
+      <vodml-id>extcoords.PhotometryCoord</vodml-id>
       <name>PhotometryCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Coordinate value for photometry measures</description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
       </extends>
@@ -1169,15 +1148,13 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>PhotometryCoordSys</vodml-ref>
+          <vodml-ref> mango:extcoords.PhotometryCoordSys</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>coordinates.PhotometryCoord.luminosity</vodml-id>
+        <vodml-id>extcoords.PhotometryCoord.luminosity</vodml-id>
         <name>luminosity</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Value of the photometric measure</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1189,40 +1166,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.ObjectTypeCoord</vodml-id>
-      <name>ObjectTypeCoord</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>coords:Coordinate</vodml-ref>
-      </extends>
-      <constraint xsi:type="vo-dml:SubsettedRole">
-        <role>
-          <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
-        </role>
-        <datatype>
-          <vodml-ref>ObjectTypeSys</vodml-ref>
-        </datatype>
-      </constraint>
-      <attribute>
-        <vodml-id>coordinates.ObjectTypeCoord.objectType</vodml-id>
-        <name>objectType</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-        <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>coordinates.OrbitCoord</vodml-id>
+      <vodml-id>extcoords.OrbitCoord</vodml-id>
       <name>OrbitCoord</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1238,10 +1182,37 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:SpaceSys</vodml-ref>
         </datatype>
       </constraint>
+      <attribute>
+        <vodml-id>extcoords.OrbitCoord.period</vodml-id>
+        <name>period</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>extcoords.OrbitCoord.eccentricity</vodml-id>
+        <name>eccentricity</name>
+        <description>Orbital eccentricity, unitless
+</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.ShapeCoord</vodml-id>
+      <vodml-id>extcoords.ShapeCoord</vodml-id>
       <name>ShapeCoord</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1254,15 +1225,13 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>ShapeSys</vodml-ref>
+          <vodml-ref> mango:extcoords.ShapeSys</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>coordinates.ShapeCoord.shape</vodml-id>
+        <vodml-id>extcoords.ShapeCoord.shape</vodml-id>
         <name>shape</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>String serialisation of the shape</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1274,11 +1243,11 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.FlagState</vodml-id>
+      <vodml-id>extcoords.FlagState</vodml-id>
       <name>FlagState</name>
       <description>Possible value of a status</description>
       <attribute>
-        <vodml-id>coordinates.FlagState.value</vodml-id>
+        <vodml-id>extcoords.FlagState.value</vodml-id>
         <name>value</name>
         <description>Status value</description>
         <datatype>
@@ -1290,7 +1259,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.FlagState.label</vodml-id>
+        <vodml-id>extcoords.FlagState.label</vodml-id>
         <name>label</name>
         <description>Label attached to that status value
 
@@ -1306,7 +1275,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.FlagCoord</vodml-id>
+      <vodml-id>extcoords.FlagCoord</vodml-id>
       <name>FlagCoord</name>
       <description>Coordinate of a status Measure</description>
       <extends>
@@ -1317,11 +1286,11 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>FlagSys</vodml-ref>
+          <vodml-ref> mango:extcoords.FlagSys</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>coordinates.FlagCoord.status</vodml-id>
+        <vodml-id>extcoords.FlagCoord.status</vodml-id>
         <name>status</name>
         <description>Value of the status</description>
         <datatype>
@@ -1335,7 +1304,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.LonLatPoint</vodml-id>
+      <vodml-id>extcoords.LonLatPoint</vodml-id>
       <name>LonLatPoint</name>
       <description>Coordinate of a point on the sky sphere expressed in spherical coordinates.</description>
       <extends>
@@ -1346,11 +1315,11 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:Coordinate.coordSys</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>mango:LonLatCoordSys</vodml-ref>
+          <vodml-ref> mango:extcoords.LonLatCoordSys</vodml-ref>
         </datatype>
       </constraint>
       <attribute>
-        <vodml-id>coordinates.LonLatPoint.longitude</vodml-id>
+        <vodml-id>extcoords.LonLatPoint.longitude</vodml-id>
         <name>longitude</name>
         <description>longitude of the point
 </description>
@@ -1363,7 +1332,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.LonLatPoint.latitude</vodml-id>
+        <vodml-id>extcoords.LonLatPoint.latitude</vodml-id>
         <name>latitude</name>
         <description>Latitude of the point</description>
         <datatype>
@@ -1377,16 +1346,14 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <dataType>
-      <vodml-id>coordinates.StringCoordinate</vodml-id>
+      <vodml-id>extcoords.StringCoordinate</vodml-id>
       <name>StringCoordinate</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Coordinate value for \texttt{mango:measures.GenericStringMeasure}</description>
       <extends>
         <vodml-ref>coords:Coordinate</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>coordinates.StringCoordinate.cval</vodml-id>
+        <vodml-id>extcoords.StringCoordinate.cval</vodml-id>
         <name>cval</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1402,7 +1369,7 @@ A classical use-case  is an error on a position that is coupled with errors on t
     </dataType>
 
     <objectType>
-      <vodml-id>coordinates.PhotometryCoordSys</vodml-id>
+      <vodml-id>extcoords.PhotometryCoordSys</vodml-id>
       <name>PhotometryCoordSys</name>
       <description>TBC with photDM</description>
       <extends>
@@ -1413,13 +1380,13 @@ A classical use-case  is an error on a position that is coupled with errors on t
           <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>mango:PhotFilter</vodml-ref>
+          <vodml-ref> mango:extcoords.PhotFilter</vodml-ref>
         </datatype>
       </constraint>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.HardnessRatioFrame</vodml-id>
+      <vodml-id>extcoords.HardnessRatioFrame</vodml-id>
       <name>HardnessRatioFrame</name>
       <description>Hardness ratio frame.
 Defined by 2 energy bands Eheigh ELow.
@@ -1429,11 +1396,11 @@ Energy bands are deemed to special photometric filters</description>
         <vodml-ref>coords:CoordFrame</vodml-ref>
       </extends>
       <reference>
-        <vodml-id>coordinates.HardnessRatioFrame.low</vodml-id>
+        <vodml-id>extcoords.HardnessRatioFrame.low</vodml-id>
         <name>low</name>
         <description>Low energy band</description>
         <datatype>
-          <vodml-ref>mango:coordinates.PhotFilter</vodml-ref>
+          <vodml-ref>mango:extcoords.PhotFilter</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1441,11 +1408,11 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </reference>
       <reference>
-        <vodml-id>coordinates.HardnessRatioFrame.high</vodml-id>
+        <vodml-id>extcoords.HardnessRatioFrame.high</vodml-id>
         <name>high</name>
         <description>Heigh energy band</description>
         <datatype>
-          <vodml-ref>mango:coordinates.PhotFilter</vodml-ref>
+          <vodml-ref>mango:extcoords.PhotFilter</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1455,18 +1422,18 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.FlagSys</vodml-id>
+      <vodml-id>extcoords.FlagSys</vodml-id>
       <name>FlagSys</name>
       <description>Coordinate system to be used for statur measures.</description>
       <extends>
         <vodml-ref>coords:CoordSys</vodml-ref>
       </extends>
       <composition>
-        <vodml-id>coordinates.FlagSys.statusLabels</vodml-id>
+        <vodml-id>extcoords.FlagSys.statusLabels</vodml-id>
         <name>statusLabels</name>
-        <description>Composition loink to all possible status values for this system</description>
+        <description>Composition link to all possible status values for this system</description>
         <datatype>
-          <vodml-ref>mango:coordinates.FlagState</vodml-ref>
+          <vodml-ref>mango:extcoords.FlagState</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>
@@ -1476,18 +1443,18 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.ShapeSys</vodml-id>
+      <vodml-id>extcoords.ShapeSys</vodml-id>
       <name>ShapeSys</name>
       <description>Coordinate systen to be used for shape measure</description>
       <extends>
         <vodml-ref>coords:CoordSys</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>coordinates.ShapeSys.frame</vodml-id>
+        <vodml-id>extcoords.ShapeSys.frame</vodml-id>
         <name>frame</name>
-        <description>Frame of the shape measure. Gives a enumeration of the supported serializations.</description>
+        <description>Frame of the shape measure. Gives a enumeration of the supported serialisations.</description>
         <datatype>
-          <vodml-ref>mango:coordinates.ShapeFrame</vodml-ref>
+          <vodml-ref>mango:extcoords.ShapeFrame</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1497,14 +1464,14 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.PhotFilter</vodml-id>
+      <vodml-id>extcoords.PhotFilter</vodml-id>
       <name>PhotFilter</name>
       <description>Photometric filter description, compliant with photDM</description>
       <extends>
         <vodml-ref>coords:CoordFrame</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>coordinates.PhotFilter.name</vodml-id>
+        <vodml-id>extcoords.PhotFilter.name</vodml-id>
         <name>name</name>
         <description>Filter name</description>
         <datatype>
@@ -1516,7 +1483,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.PhotFilter.zeroPointFlux</vodml-id>
+        <vodml-id>extcoords.PhotFilter.zeroPointFlux</vodml-id>
         <name>zeroPointFlux</name>
         <description>Zero point flux of the filter</description>
         <datatype>
@@ -1528,7 +1495,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.PhotFilter.magnitudeSystem</vodml-id>
+        <vodml-id>extcoords.PhotFilter.magnitudeSystem</vodml-id>
         <name>magnitudeSystem</name>
         <description>Magnitude system used by the filter</description>
         <datatype>
@@ -1540,7 +1507,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.PhotFilter.effectiveWavelength</vodml-id>
+        <vodml-id>extcoords.PhotFilter.effectiveWavelength</vodml-id>
         <name>effectiveWavelength</name>
         <description>Effective wavelength of the filter</description>
         <datatype>
@@ -1552,7 +1519,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.PhotFilter.unit</vodml-id>
+        <vodml-id>extcoords.PhotFilter.unit</vodml-id>
         <name>unit</name>
         <description>Wavelength unit used for that filter</description>
         <datatype>
@@ -1564,7 +1531,7 @@ Energy bands are deemed to special photometric filters</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>coordinates.PhotFilter.bandWidth</vodml-id>
+        <vodml-id>extcoords.PhotFilter.bandWidth</vodml-id>
         <name>bandWidth</name>
         <description>Band width of the filter</description>
         <datatype>
@@ -1578,7 +1545,7 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.RedshiftSys</vodml-id>
+      <vodml-id>extcoords.RedshiftSys</vodml-id>
       <name>RedshiftSys</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1589,11 +1556,9 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.LonLatCoordSys</vodml-id>
+      <vodml-id>extcoords.LonLatCoordSys</vodml-id>
       <name>LonLatCoordSys</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Space coordinate system</description>
       <extends>
         <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
       </extends>
@@ -1611,11 +1576,10 @@ Energy bands are deemed to special photometric filters</description>
     </objectType>
 
     <objectType>
-      <vodml-id>coordinates.HardnessRatioSys</vodml-id>
+      <vodml-id>extcoords.HardnessRatioSys</vodml-id>
       <name>HardnessRatioSys</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Coordinate system for hardness ration. 
+This is basically the definition of the 2 bands used to compute the ratio.</description>
       <extends>
         <vodml-ref>coords:PhysicalCoordSys</vodml-ref>
       </extends>
@@ -1624,7 +1588,7 @@ Energy bands are deemed to special photometric filters</description>
           <vodml-ref>coords:PhysicalCoordSys.frame</vodml-ref>
         </role>
         <datatype>
-          <vodml-ref>mango:HardnessRatioFrame</vodml-ref>
+          <vodml-ref> mango:extcoords.HardnessRatioFrame</vodml-ref>
         </datatype>
       </constraint>
     </objectType>
