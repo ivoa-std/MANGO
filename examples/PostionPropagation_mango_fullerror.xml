@@ -20,13 +20,17 @@
 
     <TEMPLATE>
         <INSTANCE dmtype="mango:Source">
+            <!-- Source identifier, the only mandatory MANGO attribute-->
             <ATTRIBUTE dmrole="mango:Source.identifier" dmtype="ivoa:string" ref="src_id"/>
+
+            <!-- container for all properties -->
             <COLLECTION dmrole="mango:Source.propertyDocks">
+                <!-- First (and lonely) property -->
                 <INSTANCE dmtype="mango:Property">
                     <ATTRIBUTE dmrole="mango:Property.semantic" dmtype="ivoa:string" value="#PROPAGATION.SAMPLE"/>
                     <ATTRIBUTE dmrole="mango:Property.descriton" dmtype="ivoa:string" value="propogation sample"/>
         
-                    <!-- One meas:Measure per row, no covariance error -->
+                    <!-- One meas:Measure per row, complete error -->
                     <INSTANCE dmrole="mango:Property.measure" dmtype="mango:PositionPropagation" >
                         <ATTRIBUTE dmrole="mango:PositionPropagation.longitude" dmtype="ivoa:RealQuantity" ref="ra" unit="deg"/>
                         <ATTRIBUTE dmrole="mango:PositionPropagation.latitude" dmtype="ivoa:RealQuantity" ref="dec" unit="deg"/>
