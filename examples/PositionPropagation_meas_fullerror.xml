@@ -61,6 +61,23 @@
                     <ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_2_1" dmtype="ivoa:real" ref="pmDEC_RA_err"/>
                 </INSTANCE>
 
+                <!-- Correlation error between parallax and POS -->
+                <INSTANCE dmrole="mango:PositionPropagationError.parallaxPosError" dmtype="mango:CorrelatedError_1Dwith2D">
+                    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="parallax_RA_err"/>
+                    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="parallax_DEC_err"/>
+                </INSTANCE>
+
+                <!-- Correlation error between parallax and PM -->
+                <INSTANCE dmrole="mango:PositionPropagationError.parallaxPmError" dmtype="mango:CorrelatedError_1Dwith2D">
+                    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="parallax_pmRA_err"/>
+                    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="parallax_pmDEC_err"/>
+                </INSTANCE>
+
+                <!-- Correlation error between radial velocity and POS -->
+                <INSTANCE dmrole="mango:PositionPropagationError.parallaxPosError" dmtype="mango:CorrelatedError_1Dwith2D">
+                    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="rv_RA_err"/>
+                    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="rv_DEC_err"/>
+                </INSTANCE>
 
             </INSTANCE>
         </INSTANCE>
