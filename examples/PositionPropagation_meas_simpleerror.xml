@@ -7,7 +7,6 @@
     <MODEL name="ivoa" url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
 
     <GLOBALS>
-
         <INSTANCE dmid="SpaceFrame_ICRS" dmtype="coords:SpaceSys">
             <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
                 <INSTANCE dmrole="coords:SpaceFrame.refPosition" dmtype="coords:StdRefLocation">
@@ -16,8 +15,8 @@
                 <ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS" />
                 <ATTRIBUTE dmrole="coords:SpaceFrame.equinox" dmtype="coords:Epoch" value="2015.0" />
             </INSTANCE>
-          </INSTANCE>
-        </GLOBALS>
+        </INSTANCE>
+    </GLOBALS>
 
     <TEMPLATE>
         <!-- One meas:Measure per row, no error -->
@@ -28,6 +27,17 @@
             <ATTRIBUTE dmrole="mango:PositionPropagation.pmLatitude" dmtype="ivoa:RealQuantity" ref="pmdec" unit="deg"/>
             <ATTRIBUTE dmrole="mango:PositionPropagation.radialVelocity" dmtype="ivoa:RealQuantity" ref="rv" unit="km/dec"/>
             <ATTRIBUTE dmrole="mango:PositionPropagation.parallax" dmtype="ivoa:RealQuantity" ref="parallax" unit="mas"/>
+            <REFERENCE dmref="SpaceFrame_ICRS" dmrole="coords:coordSys" />
+            <INSTANCE dmrole="meas:Measure.error" dmtype="mango:PositionPropagationError">
+                <INSTANCE dmrole="mango:PositionPropagationError.positionError" dmtype="">
+                </INSTANCE>
+                <INSTANCE dmrole="mango:PositionPropagationError.pmError" dmtype="">
+                </INSTANCE>
+                <INSTANCE dmrole="mango:PositionPropagationError.radialVelocityError" dmtype="">
+                </INSTANCE>
+                <INSTANCE dmrole="mango:PositionPropagationError.parallaxError" dmtype="">
+                </INSTANCE>
+            </INSTANCE>
         </INSTANCE>
     </TEMPLATE>
 </VODML>
