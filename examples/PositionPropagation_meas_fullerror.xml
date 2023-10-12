@@ -19,7 +19,7 @@
     </GLOBALS>
 
     <TEMPLATE>
-        <!-- One meas:Measure per row, no covariance error -->
+        <!-- One meas:Measure per row, full error -->
         <INSTANCE dmtype="mango:PositionPropagation">
             <ATTRIBUTE dmrole="mango:PositionPropagation.longitude" dmtype="ivoa:RealQuantity" ref="ra" unit="deg"/>
             <ATTRIBUTE dmrole="mango:PositionPropagation.latitude" dmtype="ivoa:RealQuantity" ref="dec" unit="deg"/>
