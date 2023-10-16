@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+	xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/v1.3">
+	
+	<RESOURCE ID="yCat_1146" name="I/146">
+		<DESCRIPTION>Prototype for covariance errors</DESCRIPTION>
+		<TABLE ID="Results" name="Result">
+			<FIELD name="name" ucd="meta.id;meta.main" datatype="char" arraysize="*" />
+
+			<!-- Sky position Errors on RA and DEC correlated -->
+			<FIELD name="pos_RA" ucd="pos.eq.ra;meta.main" datatype="double" unit="deg" />
+			<FIELD name="pos_DEC" ucd="pos.eq.dec;meta.main" datatype="double" unit="deg" />
+			<FIELD name="pos_RA_err" ucd="stat.error" datatype="double" unit="arcsec" />
+			<FIELD name="pos_DEC_err" ucd="stat.error" datatype="double" unit="arcsec" />
+			<FIELD name="pos_RADEC_corr" ucd="stat.error" datatype="double" unit="arcsec" />
+
+			<!-- Proper motion Errors on RA and DEC correlated each to other Errors on RA and DEC correlated with errors on the sky position -->
+			<FIELD name="pm_RA" ucd="pos.pm.ra;meta.main" datatype="double" unit="mas/y" />
+			<FIELD name="pm_DEC" ucd="pos.pm.dec;meta.main" datatype="double" unit="mas/year" />
+			<FIELD name="pm_RA_err" ucd="stat.error" datatype="double" unit="arcsec" />
+			<FIELD name="pm_DEC_err" ucd="stat.error" datatype="double" unit="arcsec" />
+			<FIELD name="pm_RADEC_corr" ucd="stat.error" datatype="double" unit="arcsec" />
+			<FIELD name="pm_RA_pos_RA_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="pm_RA_pos_DEC_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="pm_DEC_pos_RA_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="pm_DEC_pos_DEC_corr" ucd="stat.error" datatype="double" unit="?" />
+
+			<!-- Radial velocity Error correlated with errors on the sky position -->
+			<FIELD name="RV" ucd="spect.dopplerVeloc;pos.heliocentric" datatype="double" unit="km/s" />
+			<FIELD name="RV_err" ucd="stat.error" datatype="double" unit="km/s" />
+			<FIELD name="RV_pos_RA_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="RV_pos_DEC_corr" ucd="stat.error" datatype="double" unit="?" />
+
+			<!-- Parallax Error correlated with errors on the sky position -->
+			<FIELD name="PARALLAX" ucd="pos.parallax" datatype="double" unit="mas" />
+			<FIELD name="PARALLAX_err" ucd="stat.error" datatype="double" unit="mas" />
+			<FIELD name="PARALLAX_pos_DEC_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="PARALLAX_pos_RA_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="PARALLAX_pm_DEC_corr" ucd="stat.error" datatype="double" unit="?" />
+			<FIELD name="PARALLAX_pm_RA_corr" ucd="stat.error" datatype="double" unit="?" />
+
+			<DATA>
+				<TABLEDATA>
+					<TR>
+						<TD>SourceName</TD>
+						<TD>1</TD>
+						<TD>-1</TD>
+						<TD>110</TD>
+						<TD>120</TD>
+						<TD>112</TD>
+						<TD>2</TD>
+						<TD>-2</TD>
+						<TD>210</TD>
+						<TD>220</TD>
+						<TD>212</TD>
+						<TD>2111</TD>
+						<TD>2112</TD>
+						<TD>2211</TD>
+						<TD>2212</TD>
+						<TD>3</TD>
+						<TD>300</TD>
+						<TD>311</TD>
+						<TD>312</TD>
+						<TD>4</TD>
+						<TD>400</TD>
+						<TD>411</TD>
+						<TD>412</TD>
+						<TD>421</TD>
+						<TD>422</TD>
+
+					</TR>
+				</TABLEDATA>
+			</DATA>
+		</TABLE>
+
+	</RESOURCE>
+</VOTABLE>
