@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VOTABLE version="1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+
 	xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/v1.3">
-	
+	<RESOURCE type="meta">
+		<VODML xmlns:dm-mapping="http://www.ivoa.net/xml/mivot">
+    		<REPORT status="OK">hand-made mapping</REPORT>
+
+    		<MODEL name="meas" url="https://www.ivoa.net/xml/Meas/20200908/Meas-v1.0.vo-dml.xml" />
+    		<MODEL name="coords" url="https://www.ivoa.net/xml/STC/20200908/Coords-v1.0.vo-dml.xml" />
+    		<MODEL name="mango" />
+    		<MODEL name="ivoa" url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
+
+    		<GLOBALS>
+    		    <INSTANCE dmid="SpaceFrame_ICRS" dmtype="coords:SpaceSys">
+    		        <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
+    		            <INSTANCE dmrole="coords:SpaceFrame.refPosition" dmtype="coords:StdRefLocation">
+            		        <ATTRIBUTE dmrole="coords:StdRefLocation.position" dmtype="ivoa:string" value="NoSet" />
+                		</INSTANCE>
+                		<ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS" />
+            		</INSTANCE>
+          		</INSTANCE>
+       		</GLOBALS>
+
+    		<TEMPLATE>
+        		<!-- One meas:Measure per row, no error -->
+        		<INSTANCE dmtype="mango:PositionPropagation">
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" unit="deg"/>
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" unit="mas/year"/>
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC" unit="mas/year"/>
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.pmCosDeltApplied" dmtype="ivoa:boolean" value="true">
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
+            		<ATTRIBUTE dmrole="mango:PositionPropagation.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
+                	<ATTRIBUTE dmrole="coords:SpaceFrame.epoch" dmtype="coords:Epoch" value="2015.0" />
+					<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"\>
+        		</INSTANCE>
+    		</TEMPLATE>
+		</VODML>
+	</RESOURCE>
+
 	<RESOURCE ID="yCat_1146" name="I/146">
 		<DESCRIPTION>Prototype for covariance errors</DESCRIPTION>
 		<TABLE ID="Results" name="Result">
