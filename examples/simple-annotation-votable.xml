@@ -12,7 +12,7 @@
 	MAPPING
 	- The mapping is based on the MANGO proposal (10/2023)
 	- The 6 parameters are flatten in a single class
-    - The error pattern is more complex since it supports covariances en correlation between different quantities
+    - The errors haven't been mapped in this example
 	- The TEMPLATES block only contains the 6 parameter object. 
 	  - The MANGO structure with the docks has been discarded for the clarity sake
 	  - This way to proceed is legal since the MIVOT standard does not require the whole model to be mapped  
