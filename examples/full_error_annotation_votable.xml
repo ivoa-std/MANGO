@@ -41,7 +41,7 @@
           		</INSTANCE>
        		</GLOBALS>
 
-    		<TEMPLATE>
+    		<TEMPLATES>
         		<!-- One meas:Measure per row, no error -->
         		<INSTANCE dmtype="mango:EpochPosition">
             		<ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
@@ -107,7 +107,7 @@
 
             		</INSTANCE>
         		</INSTANCE>
-    		</TEMPLATE>
+    		</TEMPLATES>
 		</VODML>
 	</RESOURCE>
 
