@@ -52,7 +52,7 @@
             		<ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
             		<ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
                 	<ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="ivoa:RealQuantity" value="2015.0" unit="year"/>
-					<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"\>
+					<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
         		</INSTANCE>
     		</TEMPLATE>
 		</VODML>
