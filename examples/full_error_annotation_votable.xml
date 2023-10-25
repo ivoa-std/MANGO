@@ -52,9 +52,8 @@
             		<ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
             		<ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
                 	<ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="ivoa:RealQuantity" value="2015.0" unit="year"/>
-					<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
-
-					<INSTANCE dmrole="meas:Measure.error" dmtype="mango:EpochPositionError">
+			<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
+			<INSTANCE dmrole="meas:Measure.error" dmtype="mango:EpochPositionError">
                 		<!-- Elliptical error for position -->
                 		<INSTANCE dmrole="mango:EpochPositionError.positionError" dmtype="mango:Ellipse">
                     		<ATTRIBUTE dmrole="mango:MultiParamError.confidence" dmtype="ivoa:integer" value="1"/>
@@ -69,14 +68,14 @@
                     		<ATTRIBUTE dmrole="mango:MultiParamError.unit" dmtype="ivoa:unit" value="mas/year"/>
                     		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma1" dmtype="ivoa:real" ref="pm_RA_err" />
                     		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma2" dmtype="ivoa:real" ref="pm_DEC_err" />
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.correlation" dmtype="ivoa:real" ref="pm_RADEC_err" />
+                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.correlation" dmtype="ivoa:real" ref="pm_RADEC_corr" />
                 		</INSTANCE>
                 		<!-- Symetrical error for proper radial velocity -->
                 		<INSTANCE dmrole="mango:EpochPositionError.radialVelocityError" dmtype="meas:Symetrical">
                     		<ATTRIBUTE dmrole="meas:Symetrical.val" dmtype="ivoa:realQuantity" ref="RV_err" unit="km/s"/>
                 		</INSTANCE>
                 		<!-- Symetrical error for proper parallax -->
-                		<INSTANCE dmrole="mango:EpochPositionError.parallaxError" dmtype="">
+                		<INSTANCE dmrole="mango:EpochPositionError.parallaxError" dmtype="meas:Symetrical">
                     		<ATTRIBUTE dmrole="meas:Symetrical.val" dmtype="ivoa:realQuantity" ref="PARALLAX_err" unit="mas"/>
                 		</INSTANCE>
                 		<!-- Correlation error between PM and POS -->
