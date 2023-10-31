@@ -44,15 +44,15 @@
     		<TEMPLATES>
         		<!-- One meas:Measure per row, no error -->
         		<INSTANCE dmtype="mango:EpochPosition">
-            		<ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" unit="deg"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" unit="mas/year"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC" unit="mas/year"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.pmCosDeltApplied" dmtype="ivoa:boolean" value="true"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
-                	<ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="ivoa:RealQuantity" value="2015.0" unit="year"/>
-					<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" unit="deg"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" unit="mas/year"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC" unit="mas/year"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.pmCosDeltApplied" dmtype="ivoa:boolean" value="true"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
+            			<ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
+                		<ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="ivoa:RealQuantity" value="2015.0" unit="year"/>
+				<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
         		</INSTANCE>
     		</TEMPLATES>
 		</VODML>
