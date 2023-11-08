@@ -56,52 +56,52 @@
 			    <INSTANCE dmrole="meas:Measure.error" dmtype="mango:EpochPositionError">
                 		<!-- Elliptical error for position -->
                 		<INSTANCE dmrole="mango:EpochPositionError.positionError" dmtype="mango:Ellipse">
-                    		<ATTRIBUTE dmrole="mango:MultiParamError.confidence" dmtype="ivoa:integer" value="1"/>
-                    		<ATTRIBUTE dmrole="mango:MultiParamError.unit" dmtype="ivoa:unit" value="arcsec"/>
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma1" dmtype="ivoa:real" ref="pos_RA_err" />
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma2" dmtype="ivoa:real" ref="pos_DEC_err" />
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.correlation" dmtype="ivoa:real" ref="pos_RADEC_corr" />
+                    		    <ATTRIBUTE dmrole="mango:MultiParamError.confidence" dmtype="ivoa:integer" value="1"/>
+                    		    <ATTRIBUTE dmrole="mango:MultiParamError.unit" dmtype="ivoa:unit" value="arcsec"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma1" dmtype="ivoa:real" ref="pos_RA_err" />
+                    		    <ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma2" dmtype="ivoa:real" ref="pos_DEC_err" />
+                    		    <ATTRIBUTE dmrole="mango:CorrMatrix2x2.correlation" dmtype="ivoa:real" ref="pos_RADEC_corr" />
                 		</INSTANCE>
                 		<!-- Covariance error for proper motion -->
                 		<INSTANCE dmrole="mango:EpochPositionError.pmError" dmtype="mango:CorrMatrix2x2">
-                    		<ATTRIBUTE dmrole="mango:MultiParamError.confidence" dmtype="ivoa:integer" value="1"/>
-                    		<ATTRIBUTE dmrole="mango:MultiParamError.unit" dmtype="ivoa:unit" value="mas/year"/>
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma1" dmtype="ivoa:real" ref="pm_RA_err" />
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma2" dmtype="ivoa:real" ref="pm_DEC_err" />
-                    		<ATTRIBUTE dmrole="mango:CorrMatrix2x2.correlation" dmtype="ivoa:real" ref="pm_RADEC_corr" />
+                    		    <ATTRIBUTE dmrole="mango:MultiParamError.confidence" dmtype="ivoa:integer" value="1"/>
+                    		    <ATTRIBUTE dmrole="mango:MultiParamError.unit" dmtype="ivoa:unit" value="mas/year"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma1" dmtype="ivoa:real" ref="pm_RA_err" />
+                    		    <ATTRIBUTE dmrole="mango:CorrMatrix2x2.sigma2" dmtype="ivoa:real" ref="pm_DEC_err" />
+                    		    <ATTRIBUTE dmrole="mango:CorrMatrix2x2.correlation" dmtype="ivoa:real" ref="pm_RADEC_corr" />
                 		</INSTANCE>
                 		<!-- Symetrical error for proper radial velocity -->
                 		<INSTANCE dmrole="mango:EpochPositionError.radialVelocityError" dmtype="meas:Symetrical">
-                    		<ATTRIBUTE dmrole="meas:Symetrical.val" dmtype="ivoa:realQuantity" ref="RV_err" unit="km/s"/>
+                    		    <ATTRIBUTE dmrole="meas:Symetrical.val" dmtype="ivoa:realQuantity" ref="RV_err" unit="km/s"/>
                 		</INSTANCE>
                 		<!-- Symetrical error for proper parallax -->
                 		<INSTANCE dmrole="mango:EpochPositionError.parallaxError" dmtype="meas:Symetrical">
-                    		<ATTRIBUTE dmrole="meas:Symetrical.val" dmtype="ivoa:realQuantity" ref="PARALLAX_err" unit="mas"/>
+                    		    <ATTRIBUTE dmrole="meas:Symetrical.val" dmtype="ivoa:realQuantity" ref="PARALLAX_err" unit="mas"/>
                 		</INSTANCE>
                 		<!-- Correlation error between PM and POS -->
                 		<INSTANCE dmrole="mango:PositEpochPositionErrorionPropagationError.pmPosError" dmtype="mango:CorrelatedError_2Dwith2D">
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="pm_RA_pos_RA_corr"/>
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_2_2" dmtype="ivoa:real" ref="pm_DEC_pos_DEC_corr"/>
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="pm_RA_pos_DEC_corr"/>
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_2_1" dmtype="ivoa:real" ref="pm_DEC_pos_RA_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="pm_RA_pos_RA_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_2_2" dmtype="ivoa:real" ref="pm_DEC_pos_DEC_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="pm_RA_pos_DEC_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_2Dwith2D.correlation_2_1" dmtype="ivoa:real" ref="pm_DEC_pos_RA_corr"/>
                 		</INSTANCE>
 
                 		<!-- Correlation error between parallax and POS -->
                 		<INSTANCE dmrole="mango:PositionPropagationError.parallaxPosError" dmtype="mango:CorrelatedError_1Dwith2D">
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="PARALLAX_pos_RA_corr"/>
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="PARALLAX_pos_DEC_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="PARALLAX_pos_RA_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="PARALLAX_pos_DEC_corr"/>
                 		</INSTANCE>
 
                 		<!-- Correlation error between parallax and PM -->
                 		<INSTANCE dmrole="mango:EpochPositionError.parallaxPmError" dmtype="mango:CorrelatedError_1Dwith2D">
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="PARALLAX_pm_RA_corr"/>
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="PARALLAX_pm_DEC_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="PARALLAX_pm_RA_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="PARALLAX_pm_DEC_corr"/>
                 		</INSTANCE>
 
                 		<!-- Correlation error between radial velocity and POS -->
                 		<INSTANCE dmrole="mango:EpochPositionError.parallaxPosError" dmtype="mango:CorrelatedError_1Dwith2D">
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="RV_pos_RA_corr"/>
-                    		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="RV_pos_DEC_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="RV_pos_RA_corr"/>
+                    		    <ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="RV_pos_DEC_corr"/>
                 		</INSTANCE>
             		    </INSTANCE>
         		</INSTANCE>
