@@ -44,16 +44,16 @@
     		<TEMPLATES>
         		<!-- One meas:Measure per row, no error -->
         		<INSTANCE dmtype="mango:EpochPosition">
-            		<ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" unit="deg"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" unit="mas/year"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC" unit="mas/year"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.pmCosDeltApplied" dmtype="ivoa:boolean" value="true"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
-            		<ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
-                	<ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="ivoa:RealQuantity" value="2015.0" unit="year"/>
-			<REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
-			<INSTANCE dmrole="meas:Measure.error" dmtype="mango:EpochPositionError">
+			    <REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" unit="deg"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" unit="mas/year"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC" unit="mas/year"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.pmCosDeltApplied" dmtype="ivoa:boolean" value="true"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV" unit="km/s"/>
+            		    <ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" unit="mas"/>
+                	    <ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="ivoa:RealQuantity" value="2015.0" unit="year"/>
+			    <INSTANCE dmrole="meas:Measure.error" dmtype="mango:EpochPositionError">
                 		<!-- Elliptical error for position -->
                 		<INSTANCE dmrole="mango:EpochPositionError.positionError" dmtype="mango:Ellipse">
                     		<ATTRIBUTE dmrole="mango:MultiParamError.confidence" dmtype="ivoa:integer" value="1"/>
@@ -103,11 +103,10 @@
                     		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_1" dmtype="ivoa:real" ref="RV_pos_RA_corr"/>
                     		<ATTRIBUTE dmrole="mango:CorrelatedError_1Dwith2D.correlation_1_2" dmtype="ivoa:real" ref="RV_pos_DEC_corr"/>
                 		</INSTANCE>
-
-            		</INSTANCE>
+            		    </INSTANCE>
         		</INSTANCE>
     		</TEMPLATES>
-		</VODML>
+	    </VODML>
 	</RESOURCE>
 
 	<RESOURCE ID="yCat_1146" name="I/146">
@@ -151,58 +150,30 @@
 				<TABLEDATA>
 					<TR>
 						<TD>SourceName</TD>
-						<TD>1</TD>
-						<TD>-1</TD>
-						<TD>110</TD>
-						<TD>120</TD>
-						<TD>112</TD>
-						<TD>2</TD>
-						<TD>-2</TD>
-						<TD>210</TD>
-						<TD>220</TD>
-						<TD>212</TD>
-						<TD>2111</TD>
-						<TD>2112</TD>
-						<TD>2211</TD>
-						<TD>2212</TD>
-						<TD>3</TD>
-						<TD>300</TD>
-						<TD>311</TD>
-						<TD>312</TD>
-						<TD>4</TD>
-						<TD>400</TD>
-						<TD>411</TD>
-						<TD>412</TD>
-						<TD>421</TD>
-						<TD>422</TD>
-					</TR>
-					<TR>
-						<TD>OtherSourceName</TD>
+						<TD>10</TD>
+						<TD>-10</TD>
+						<TD>1.23</TD>
+						<TD>4.56</TD>
+						<TD>0.7</TD>
+						<TD>10</TD>
+						<TD>-20</TD>
 						<TD>5</TD>
-						<TD>-5</TD>
-						<TD>550</TD>
-						<TD>520</TD>
-						<TD>556</TD>
-						<TD>6</TD>
-						<TD>-6</TD>
-						<TD>650</TD>
-						<TD>660</TD>
-						<TD>656</TD>
-						<TD>6555</TD>
-						<TD>6556</TD>
-						<TD>6655</TD>
-						<TD>6656</TD>
-						<TD>7</TD>
-						<TD>700</TD>
-						<TD>755</TD>
-						<TD>752</TD>
-						<TD>8</TD>
-						<TD>800</TD>
-						<TD>855</TD>
-						<TD>856</TD>
-						<TD>865</TD>
-						<TD>866</TD>
-
+						<TD>4</TD>
+						<TD>1</TD>
+						<TD>10</TD>
+						<TD>11</TD>
+						<TD>21</TD>
+						<TD>12</TD>
+						<TD>>1000</TD>
+						<TD>900</TD>
+						<TD>22</TD>
+						<TD>44</TD>
+						<TD>400</TD>
+						<TD>380</TD>
+						<TD>11</TD>
+						<TD>22</TD>
+						<TD>33</TD>
+						<TD>44</TD>
 					</TR>
 				</TABLEDATA>
 			</DATA>
