@@ -24,12 +24,10 @@
 	<RESOURCE type="meta">
 	    <VODML xmlns:dm-mapping="http://www.ivoa.net/xml/mivot">
     		<REPORT status="OK">hand-made mapping</REPORT>
-
     		<MODEL name="meas" url="https://www.ivoa.net/xml/Meas/20200908/Meas-v1.0.vo-dml.xml" />
     		<MODEL name="coords" url="https://www.ivoa.net/xml/STC/20200908/Coords-v1.0.vo-dml.xml" />
     		<MODEL name="mango" />
     		<MODEL name="ivoa" url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
-
     		<GLOBALS>
     		    <INSTANCE dmid="SpaceFrame_ICRS" dmtype="coords:SpaceSys">
     		        <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
@@ -39,23 +37,21 @@
                 	     <ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS" />
             		</INSTANCE>
                      </INSTANCE>
-       		</GLOBALS>
-			
+       		</GLOBALS>			
     		<TEMPLATES>
-        		<!-- One meas:Measure per row, no error -->
-        		<INSTANCE dmtype="mango:EpochPosition">
-			    <REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
-            		    <ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA"/>
-            		    <ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" />
-            		    <ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" />
-            		    <ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC"/>
-                            <ATTRIBUTE dmrole="mango:EpochPosition.pmCosDeltApplied" dmtype="ivoa:boolean" value="true"/>
-            		    <ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV"/>
-            		    <ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" />
-                	    <ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="coords.Epoch" value="J2016.0" unit="year"/>
-        		</INSTANCE>
-    		    </TEMPLATES>
-		</VODML>
+        	    <INSTANCE dmtype="mango:EpochPosition">
+		        <REFERENCE dmrole="coords:Coordinate.coosys" dmref="SpaceFrame_ICRS"/>
+            		<ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA"/>
+            		<ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" />
+            		<ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" />
+            		<ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="pm_DEC"/>
+                        <ATTRIBUTE dmrole="mango:EpochPosition.pmCosDeltApplied" dmtype="ivoa:boolean" value="true"/>
+            		<ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" ref="RV"/>
+            		<ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="PARALLAX" />
+                	<ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="coords.Epoch" value="J2016.0" unit="year"/>
+        	    </INSTANCE>
+    		</TEMPLATES>
+	    </VODML>
 	</RESOURCE>
 
 	<RESOURCE ID="yCat_1146" name="I/146">
