@@ -129,6 +129,38 @@
 						<TD>33</TD>
 						<TD>44</TD>
 					</TR>
+
+					<TR>
+						<TD>528971921686610305</TD>
+            <!-- position -->
+						<TD>1.289</TD>
+						<TD>+67.86</TD>
+						<TD>0.0406</TD>
+						<TD>0.0381</TD>
+						<TD>0.0057</TD>
+            <!-- pm -->
+						<TD>-6.0</TD>
+						<TD>-5.045</TD>
+						<TD>0.053</TD>
+						<TD> 0.050 </TD>
+						<TD>1</TD>
+						<TD>10</TD>
+						<TD>11</TD>
+						<TD>21</TD>
+						<TD>12</TD>
+            <!-- radial vel -->
+						<TD>>1000</TD>
+						<TD>900</TD>
+						<TD>22</TD>
+						<TD>44</TD>
+            <!-- parallax -->
+						<TD>400</TD>
+						<TD>380</TD>
+						<TD>11</TD>
+						<TD>22</TD>
+						<TD>33</TD>
+						<TD>44</TD>
+					</TR>
 				</TABLEDATA>
 			</DATA>
 		</TABLE>
