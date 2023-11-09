@@ -31,7 +31,7 @@
     		<MODEL name="ivoa" url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
 
     		<GLOBALS>
-    		    <INSTANCE dmid="__SpaceFrame_ICRS__" dmtype="coords:SpaceSys">
+    		    <INSTANCE dmid="__SpaceFrame__" dmtype="coords:SpaceSys">
     		        <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
     		            <INSTANCE dmrole="coords:SpaceFrame.refPosition" dmtype="coords:StdRefLocation">
             		        <ATTRIBUTE dmrole="coords:StdRefLocation.position" dmtype="ivoa:string" value="BARYCENTER" />
@@ -45,7 +45,7 @@
     		<TEMPLATES>
         		<!-- One meas:Measure per row, no error -->
         		<INSTANCE dmtype="mango:EpochPosition">
-			    <REFERENCE dmrole="coords:Coordinate.coosys" dmref="__SpaceFrame_ICRS__"/>
+			    <REFERENCE dmrole="coords:Coordinate.coosys" dmref="__SpaceFrame__"/>
             		    <ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="pos_RA" unit="deg"/>
             		    <ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="pos_DEC" unit="deg"/>
             		    <ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" ref="pm_RA" unit="mas/yr"/>
