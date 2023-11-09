@@ -22,7 +22,7 @@
 
 	xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/v1.3">
 	<RESOURCE type="meta">
-		<VODML xmlns:dm-mapping="http://www.ivoa.net/xml/mivot">
+	    <VODML xmlns:dm-mapping="http://www.ivoa.net/xml/mivot">
     		<REPORT status="OK">hand-made mapping</REPORT>
 
     		<MODEL name="meas" url="https://www.ivoa.net/xml/Meas/20200908/Meas-v1.0.vo-dml.xml" />
