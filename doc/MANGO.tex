@@ -102,22 +102,22 @@ infrastructure that enable VO applications.
 
 Modeling data collected to study astronomical source objects has been a long term concern for the DM working group and more generally for the IVOA.
 In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm} as well as for catalogs \citep{wd:catalog}.
-Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}. 
+Other proposals, more model-agnostic, were focused on the data annotation in VOTables \citep{note:stcvot} \citep{note:seb}.
 In this case the goal was no longer to design a source model but to provide a complete description of  individual quantities (positions, velocity, fluxes, magnitudes…).
 None of these proposals have come to completion.
 
-The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focusing on the tools available to work with VO data models and especially with VO-DML. 
+The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session focusing on the tools available to work with VO data models and especially with VO-DML.
 The goal of this session was to annotate data from different origins in order to make them interoperable with each other.
 %mir The main concern expressed during this session was not much related to the tools themselves but indeed to the lack of models for sources.
 One of the main concerns outside de tools necessary to workout this notation was the lack of models for source objects.
-This is a big paradox in the VO world: source data which represent the basic building blocks of astronomers' work, is not modelled. 
+This is a big paradox in the VO world: source data which represent the basic building blocks of astronomers' work, is not modelled.
 This paradox can be explained by the fact that the observation of source objects is multi-faceted.
-In a general way, the way features for source data are described and organised depends on the targeted science case. 
-Principal investigators and archive designers set up the data profile and structure it according to this goal which varies from one project to another. 
+In a general way, the way features for source data are described and organised depends on the targeted science case.
+Principal investigators and archive designers set up the data profile and structure it according to this goal which varies from one project to another.
 Therefore this diversity cannot be served by a single static data model describing a source item for all possible cases.
 Having a global source model would lead to a very complex solution not usable in practice.
 
-This standard proposes to overcome this paradox and presents a template model gathering independent components from VO existing models 
+This standard proposes to overcome this paradox and presents a template model gathering independent components from VO existing models
 together with VO data products and files embedded on demand in a container.
 The template supports fine grain association by composing classes as well as coarse grain relations to data products and files distributed within projects archive.
 Mango is not designed to describe what a source is but to help clients to discover and to understand the quantities available for a particular source instance.
@@ -139,7 +139,7 @@ Mango is not designed to describe what a source is but to help clients to discov
 \end{figure}
 
 Fig.~\ref{fig:archdiag} shows the role this document plays within the
-IVOA architecture \citep{note:VOARCH}.
+IVOA architecture \citep{2010ivoa.rept.1123A}.
 
 
 
@@ -149,7 +149,7 @@ IVOA architecture \citep{note:VOARCH}.
 The following uses-cases have been collected since 2019 from representatives of various astronomical missions, archive designers and tools developers.
 The contribution was totally open. This gave a good picture of the needs but we don not pretend that everything will be supported by this first version.
 
-%\TODO{ may be too early to conclude about this ?? The contribution was totally open. 
+%\TODO{ may be too early to conclude about this ?? The contribution was totally open.
 %This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
 
 The physical parameters recorded for each source in the various projects are listed below:
@@ -165,10 +165,10 @@ magnitudes). Also other properties like radial velocity (measured in redshift
 units) are also obtained at integration time of the scans.
 
 Once detections on different scans are associated to a single astronomical
-source, these direct measurements can be combined to generate derived 
+source, these direct measurements can be combined to generate derived
 measurements. Trajectories on the sky for galactic objects are seen as
-spirals including the combination of the proper motion of the object 
-(derived by the main vector of movement of the source) and the parallax 
+spirals including the combination of the proper motion of the object
+(derived by the main vector of movement of the source) and the parallax
 (derived by the radius of the apparent spiral produced by the different
 angles of the Gaia observations at different periods).
 
@@ -219,9 +219,9 @@ and distances to galaxies using spectroscopic data.
 For this mission, and apart from the common metadata provided for extra galactic
 sources into astronomical catalogues, a good support for object taxonomy and
 shapes of objects will be required. As known due to general relativity effects,
-shapes far galaxies could be deformed due to gravitational lensing effects, 
+shapes far galaxies could be deformed due to gravitational lensing effects,
 producing convergence (visual displacements on the position) and rear (deformation
-of the shape) effects. All these metadata should be ready for annotations and, 
+of the shape) effects. All these metadata should be ready for annotations and,
 also, correlated to theoretical or real metadata in other datasets.
 
 Finally, crossmatch information with other catalogues will be of crucial interest
@@ -243,14 +243,14 @@ of:
 
 \subsubsection{Exoplanets}
 Annotation of (exo-)planetary records in catalogues requires some
-specific metadata or model. 
+specific metadata or model.
 
 This was initially made clear when trying to
 allow discoverability of exoplanets time series
 (\cite{2020ASPC..522..703M}) where (exercising the
 ObsCore model with specific use cases) information like stellar host
 characteristics together with stellar system details turned out to be required for a
-proper description of the catalogue records. 
+proper description of the catalogue records.
 
 The use cases identified,
 besides some refinement needed in the ObsCore time axis annotation, the
@@ -260,7 +260,7 @@ following metadata:
 w.r.t. confirmed ones, plus last update of the record content ;
 	\item the method used in the discovery (since it affects the available
 stellar system description parameters);
-	\item a set of stellar host characteristics (besides sky coordinates): 
+	\item a set of stellar host characteristics (besides sky coordinates):
 activity, mass, type,
 metallicity, age, some systemic values, like the global RV (radial
 velocity) of the system, and so on;
@@ -273,7 +273,7 @@ and so on.
 The scenario gained some further complexity, but also better stated the
 idea of modelling datasets and catalogue records in the (exo-)planetary
 systems subdomain, incorporating requirements from exoplanets atmosphere
-simulations and (first efforts) observations. 
+simulations and (first efforts) observations.
 
 Specific metadata additions were not specified exactly, but a draft model
 to describe stellar systems was developed, specifically trying to solve
@@ -293,7 +293,7 @@ composition, bulk details (mass, radius, \ldots).
 
 A catalogue service that could make use of model metadata is the
 Exo-MerCat (\cite{2020A&C....3100370A}) catalogue (or the other available exoplanets'
-catalogues), already available in a VO-aware 
+catalogues), already available in a VO-aware
 solution\footnote{ivo://ia2.inaf.it/catalogues/exomercat}, but using only
 simple UCD description of the exposed information.
 
@@ -318,14 +318,14 @@ multi-center/multi-positional record;
 	\item diffuse objects of two types, bubbles and filaments, where the
 positional description cannot be simplified by a point in the sky and
 some geometric error/shape value.
-\end{itemize} 
+\end{itemize}
 
 The first type of catalogue presents only a small issue, related to the
 ellipsoidal description of the extension of the single records/sources.
 For these catalogues the ellipsoidal (or circular) counterpart of the position is not
 to be considered as a positional uncertainty, but actually some level of
 confidence on the actual extension of the source at the observed
-frequency band, thus, besides a position on the celestial sphere, a minor axis, 
+frequency band, thus, besides a position on the celestial sphere, a minor axis,
 a major axis and a positional angle are needed to describe the source.
 
 The band merged catalogue requires an extra step, that is the
@@ -374,10 +374,10 @@ sources as the ones described above.
 
 % GILLLES proposal:
 %
-VizieR provides science ready catalogues coming from space agencies or articles and covering number of different science cases. 
-Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.) depending on their origin. 
+VizieR provides science ready catalogues coming from space agencies or articles and covering number of different science cases.
+Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.) depending on their origin.
 They can result from  observations, simulations, models or catalog compilations.
-Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.  
+Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
 %The most frequent are observation tables which can serialize a single object to one or more records.
 %
 Data sets are ingested in Vizier on author request. Before to be put online they are processed and documented by documentalists so as to ensure a certain level of interoperability.
@@ -387,19 +387,19 @@ This work relies on the analyse of both data content and scientific paper.
 \item Columns are renamed following the Vizier nomenclature in order make them compliant with the DBMS and to facilitate the grouping of all values related to one particular quantities (e.g. quality flag for a radial velocity)
 \item UCDs are checked or set for all columns.
 \item README files are generated. A README is a text file with a specific layout making it machine readable.
-\item Some values, not part of the original data but assigned by the CDS, are added to the tables (e.g. identifier, ICRS positions)  
-\item Ancillary data pointing on associated data (e.g.  spectra) or on linked services (e.g. visualisation), can also be added to enrich the table content.  
+\item Some values, not part of the original data but assigned by the CDS, are added to the tables (e.g. identifier, ICRS positions)
+\item Ancillary data pointing on associated data (e.g.  spectra) or on linked services (e.g. visualisation), can also be added to enrich the table content.
 \end{itemize}
 
 All Vizier meta data are gathered in a specific resource in a way to facilitate the localisation of data of interest.
-The main specificity of the data is their heterogeneity 
+The main specificity of the data is their heterogeneity
 \begin{itemize}
-\item Huge variety of data provenance and processing 
+\item Huge variety of data provenance and processing
 \item Meta data heterogeneity
 \item Table content heterogeneity
 \item Huge variety of possible measures
 \item Huge variety of patterns of measure groups
-\item Use of different coordinate systems 
+\item Use of different coordinate systems
 \item Large variety of associated data
 \end{itemize}
 
@@ -410,15 +410,15 @@ Mango is not meant to replace the current management of the meta-data, it is a w
 %
 %The records can also be competed with added columns like links to local or remote URL, visualization of time-series,  etc.
 %
-%The table output allows for anyone aware of the VizieR nomenclature to group columns related to a given measure. 
+%The table output allows for anyone aware of the VizieR nomenclature to group columns related to a given measure.
 %
 % The VizieR tables can be charcterized by :
 %\begin{itemize}
 %\item the heterogneneity of the table contents
 %\item a large variety of possible measure that can be grouped by type
-%\item different coodinate system 
+%\item different coodinate system
 %\item different metadata processing and provenance
-%\item different object serialization 
+%\item different object serialization
 %\item added-data sometimes available for objects records
 %\end{itemize}
 %
@@ -464,7 +464,7 @@ In most cases this is for visualisation, e.g.:
 
     \item does this table contain sky positions, or HEALPix tiles, or both?
     What's the best way to represent it on the sky?
-    
+
     \item What is the meaning of such URL found out in a table?s
 \end{itemize}
 
@@ -502,79 +502,79 @@ UCDs may help in identifying the errors associated to a positional columns as sh
 \centering
 \begin{tabulary}{\linewidth}{|L|C|J|}
        \hline
-           \textbf{Error type  \newline Parameters} &  
-           \textbf{UCD} &        
+           \textbf{Error type  \newline Parameters} &
+           \textbf{UCD} &
            \textbf{Description} \\
-       \hline 
+       \hline
            \multicolumn{3}{c}{\textbf{Circular error}} \\
        \hline
            \texttt{epos}&
 
-           \texttt{stat.error;pos.eq}    & 
-           See "possible ambiguity for circular errors" \\     
-        \hline  
+           \texttt{stat.error;pos.eq}    &
+           See "possible ambiguity for circular errors" \\
+        \hline
            \multicolumn{3}{c}{\textbf{Uncorrelated errors}} \\
         \hline
-           \texttt{eRA}     &            
-           \texttt{stat.error;pos.eq.ra}    & 
-            Error on `RA cos(Dec)` \\              
+           \texttt{eRA}     &
+           \texttt{stat.error;pos.eq.ra}    &
+            Error on `RA cos(Dec)` \\
          \hline
             \texttt{eDec}  &
-           \texttt{stat.error;pos.eq.dec}    & 
-            Error on `Dec`\\              
-         \hline  
+           \texttt{stat.error;pos.eq.dec}    &
+            Error on `Dec`\\
+         \hline
             \multicolumn{3}{c}{\textbf{Correlated errors}} \\
         \hline
-           \texttt{eRa}  &            
-           \texttt{stat.error;pos.eq.ra}    & 
-           Error on `RA cos(Dec)` \\              
+           \texttt{eRa}  &
+           \texttt{stat.error;pos.eq.ra}    &
+           Error on `RA cos(Dec)` \\
         \hline
            \texttt{eDec}&
            \texttt{stat.error;pos.eq.dec}   &
-           Error on `Dec`     \\              
+           Error on `Dec`     \\
         \hline
             \texttt{corRADec}&
-           \texttt{stat.covariance; pos.eq.ra; pos.eq.dec }    & 
-            Correlation factor\\              
+           \texttt{stat.covariance; pos.eq.ra; pos.eq.dec }    &
+            Correlation factor\\
         \hline
              \multicolumn{3}{c}{\textbf{Oriented Ellipse}} \\
         \hline
-           \texttt{a}   &            
-           \texttt{phys.angSize.smajAxis; pos.errorEllipse}    & 
-           Error ellipse semi-major axis \\              
+           \texttt{a}   &
+           \texttt{phys.angSize.smajAxis; pos.errorEllipse}    &
+           Error ellipse semi-major axis \\
         \hline
             \texttt{b} &
-           \texttt{phys.angSize.sminAxis; pos.errorEllipse }    & 
-            Error ellipse semi-minor axis \\              
+           \texttt{phys.angSize.sminAxis; pos.errorEllipse }    &
+            Error ellipse semi-minor axis \\
         \hline
             \texttt{theta}  &
-           \texttt{pos.posAng; pos.errorEllipse}    & 
-           Error ellipse position angle \\              
-       \hline 
+           \texttt{pos.posAng; pos.errorEllipse}    &
+           Error ellipse position angle \\
+       \hline
 \end{tabulary}
-\caption{Table of the different possible representations of positional errors that can be found in astronomical catalogues} 
+\caption{Table of the different possible representations of positional errors that can be found in astronomical catalogues}
 \label{tbl::pos-errors}
 \end{table}
 
-But this is not sufficient to table with more complex cases based on multi-parameter cases: 
+But this is not sufficient to table with more complex cases based on multi-parameter cases:
 
 \begin{itemize}
 	\item Catalogues like AllWISE provides a co-sigma instead of the correlation factor of the covariance matrix.
 	Co-sigma is the sign of the correlation factor time the square root of the covariance.
 	\item Table fields UCDs  may be too loose: for example  \texttt{stat.error;pos.eq} is often used in place of \texttt{phys.angSize.smajAxis;pos.errorEllipse} or \texttt{phys.angSize.sminAxis;pos.errorEllipse}.
-	\item The location  of the column to be used for the Xmatch can be ambiguous. For instance, if several pairs of position are provided in a table, there is currently 
+	\item The location  of the column to be used for the Xmatch can be ambiguous. For instance, if several pairs of position are provided in a table, there is currently
 	no way to associate unambiguously uncertainties with the (right) pair of coordinates.
 	\item  Possible ambiguity for circular errors. When the provided uncertainty is the parameter of a circular error, it may be:
 	\begin{itemize}
 		\item either the 1 dimensional component on each axis of a symmetric 2-dimensional Gaussian distribution: $\sigma=\sigma_{\alpha\cos\delta}=\sigma_\delta$;
 		\item or the parameter of the radial error distribution (i.e. of the Rayleigh distribution): $\sigma=\sqrt{\sigma_{\alpha\cos\delta}^2 + \sigma_\delta^2}$
-                 with $\sigma_{\alpha\cos\delta} = \sigma_\delta$ 
+                 with $\sigma_{\alpha\cos\delta} = \sigma_\delta$
          \end{itemize}
 
 	\item   Possible ambiguity on the confidence level
 	The provided error is usually the 1sigma error.
 	It (theoretically) means that the "true" position has:
-	\begin{itemize}	
+	\begin{itemize}
 		\item either 68\% chances to be at a distance lower than the radial error from the position's mean value.
 		\item or 39\% chances to be inside the error ellipse (or circle) around the position's mean value.
 	\end{itemize}
@@ -595,8 +595,8 @@ They bring a complement of information to interpret the source's  parameters und
 
 Referencing such datasets by a URI or by a service endpoint already works for existing VO products. ( It has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and DataLink for service endpoints REFS).
 Associated data can also present a complex structure designed to bring a very advanced context of interpretation (CTA model assumptions, energy model for Xray sources, etc. REFS) which need to be described in the attachement.
- \end{itemize}     
-  %   They are usually described in astronomical catalogs by columns description in a table. 
+ \end{itemize}
+  %   They are usually described in astronomical catalogs by columns description in a table.
  % \end{itemize}
 %  , the results from the analysis of the observed or simulated data for sources on one side, expressed as physical measures and classification results like types, status, etc. and extra information provided for interpretation purpose on the other side and expressed as % % %%\emph{associated data}.
 %Features in each project are measures provided as numerical values or classification tags exposed as numbers or simple strings. They are the source \emph{parameters} astronomers will investigate for their science.
@@ -662,7 +662,7 @@ The concept of \texttt{Parameter} matches the concept of measure of the Meas mod
     \item MANGO must provide a way to identify the role of each parameter.
      \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
     \item The role of each parameter should be machine-readable.
-    \item It must be possible to group parameters in a free way. This allows to tag quantities with timestamps or a flags. 
+    \item It must be possible to group parameters in a free way. This allows to tag quantities with timestamps or a flags.
 \end{itemize}
 
 \subsubsection{R03: Associated Data}
@@ -707,7 +707,7 @@ Each associated data or data pointer is hooked to the \texttt{MangoObject} by a 
 \texttt{Parameter}  connectors are used to bind measures with the source.
 A parameters is composed  by semantic tags in addition to the measure itself, instance of \texttt{Measure}.
 
- \texttt{Measure} is an abstract class imported from \texttt{meas} model. 
+ \texttt{Measure} is an abstract class imported from \texttt{meas} model.
 Concrete classes referenced by a \texttt{Parameter} instances are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
 
 \subsubsection{Parameters Identification}
@@ -717,14 +717,14 @@ Mango provides 5 description levels for each parameter:
 \begin{itemize}
     \item \textbf{Measure class (vodml type)}: measures are modelled by specific  \texttt{Measure} sub-classes.
               Knowing that class tells the clients  how to interpret the corresponding measure but does not help much to get its role e.g. a position can be either a source position or a pointing direction.
-              Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} . 
+              Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} .
               In that case, the vodml type does not help at all.
-    \item \textbf{UCD}: A valid UCD must be attached to each parameter. 
-              Mango provides a UCD space for each \texttt{Measure} sub-class . 
-              UCDs used for specific measures must be compliant with table \ref{tab:ucds}. 
-              For generic measures, the UCD choice is in charge of the data provider. 
+    \item \textbf{UCD}: A valid UCD must be attached to each parameter.
+              Mango provides a UCD space for each \texttt{Measure} sub-class .
+              UCDs used for specific measures must be compliant with table \ref{tab:ucds}.
+              For generic measures, the UCD choice is in charge of the data provider.
               In any cases, the consistance between UCDs and measure is the responsibility of the data provider.
- 
+
     \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter.
     \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each parameter.
@@ -735,7 +735,7 @@ Mango provides 5 description levels for each parameter:
 \begin{table}[!htbp]
 \small
 \centering
-\begin{tabulary}{\linewidth}{|L|C|J|}  
+\begin{tabulary}{\linewidth}{|L|C|J|}
        \hline Parameter &  Original model & UCDs 1+ first word  \\
        \hline  \texttt{GenericMeasure}             &  Measure  &   Appropriate UCD \ \\
        \hline  \texttt{Position}             &  Measure  &  pos.* \\
@@ -762,18 +762,18 @@ Mango provides 5 description levels for each parameter:
 
 \subsubsection{Measure Extension}
 
-All \texttt{Measure} classes are built upon the MCT pattern (see Fig \ref{fig:stcpattern}). 
+All \texttt{Measure} classes are built upon the MCT pattern (see Fig \ref{fig:stcpattern}).
 \begin{itemize}
   \item  \texttt{Measure} instances are made with an \texttt{Error} and a \texttt{Coordinate} that contains the measure value(s).
    \item  The  \texttt{Coordinate} includes a  \texttt{CoordSys} instance describing the coordinate system relevant for that measure.
-   \item The coordinate system has two components : the space  ( \texttt{CoordSpace} class) that describes the axis and the frame (\texttt{CoordFrame} class).  
+   \item The coordinate system has two components : the space  ( \texttt{CoordSpace} class) that describes the axis and the frame (\texttt{CoordFrame} class).
  \end{itemize}
- 
-MANGO parameters are all based on this pattern. 
-Native  \texttt{Measure} classes are used whenever possible. 
-Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}). 
 
-The scope of the MCT \texttt{Measure}  concept has been extended to quantities that are not physical measurements such as e.g. flags, object types or orbits. 
+MANGO parameters are all based on this pattern.
+Native  \texttt{Measure} classes are used whenever possible.
+Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}).
+
+The scope of the MCT \texttt{Measure}  concept has been extended to quantities that are not physical measurements such as e.g. flags, object types or orbits.
 This lexical deviation allows us to place all quantities describing a source in a single container since all measurements in the Mango sense are derived from the MCT \texttt{Measure} class.
 The same approach has been used for the coordinate systems since e.g the way to serialise a complex shape (e.g. as a MOC) is considered as a coordinate system in sense of \texttt{Coords}.
 
@@ -845,7 +845,7 @@ Mango provides 3 description levels for each category of associated data:
 
 \begin{itemize}
     \item \textbf{Data class (vodml type)}: Knowing the class representing associated data tells the clients  how to interpret it but does help to get its role.
-    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set. 
+    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each associated data set.
              The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each associated data .
  \end{itemize}
@@ -897,8 +897,7 @@ No previous versions yet.
 
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
-\bibliography{ivoatex/ivoabib,ivoatex/docrepo,MANGO}
+\bibliography{ivoatex/docrepo,MANGO}
 
 
 \end{document}
-
