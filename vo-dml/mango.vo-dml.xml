@@ -52,13 +52,15 @@
     <vodml-id>ShapeSerialization</vodml-id>
     <name>ShapeSerialization</name>
     <description>
-          TODO : Missing description : please, update your UML model asap.
+          @ShapeSerialization@
+          
         </description>
     <literal>
       <vodml-id>ShapeSerialization.MOC</vodml-id>
       <name>MOC</name>
       <description>
-          TODO : Missing description : please, update your UML model asap.
+          @ShapeSerialization.MOC@
+
         </description>
     </literal>
     <literal>
@@ -700,7 +702,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>EpochPosition</vodml-id>
     <name>EpochPosition</name>
-    <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
+    <description>
+    @EpochPosition@
+    </description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
@@ -849,7 +853,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>EpochPositionError</vodml-id>
     <name>EpochPositionError</name>
-    <description>Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations.</description>
+    <description>
+    Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations.</description>
     <composition>
       <vodml-id>EpochPositionError.positionError</vodml-id>
       <name>positionError</name>
