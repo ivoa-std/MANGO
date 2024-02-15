@@ -1,0 +1,1 @@
+Label indicating that the shape has been serialized as a STCS string

@@ -1,0 +1,3 @@
+Color definition. 
+Can be either a  difference of magnitudes or an hardness ratio.
+

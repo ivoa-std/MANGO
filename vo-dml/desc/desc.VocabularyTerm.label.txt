@@ -1,0 +1,3 @@
+Label attached to the vocabulary term.
+This is necessary because the URI may not contain an explicit label.
+This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.

@@ -1,0 +1,4 @@
+State of a property for which each value is represented by a bit so that several 
+states can be included in the same numerical value.
+The values defined in the associated StatusValues must correspond to bit patterns.
+This constraint is not managed by the model.

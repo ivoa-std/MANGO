@@ -1,0 +1,2 @@
+Definition of the colour to which the Color property applies.
+It contains the way the colour is calculated as well as the definition of the filters used.

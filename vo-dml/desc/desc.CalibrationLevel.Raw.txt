@@ -1,0 +1,1 @@
+Raw  instrumental  data,  in  a  proprietary  or  internal  data provider  defined  format,  that  needs instrument specific tools to be handled (ObsCore)

@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
+  <name>mango</name>
+  <description>Data model based oon components and data association for source data</description>
+  <uri/>
+  <title>Mango</title>
+  <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
+  <version>1.0</version>
+  <previousVersion>0.0</previousVersion>
+  <lastModified>2024-02-08T15:18:44</lastModified>
+  <import>
+    <name>ivoa</name>
+    <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
+    <documentationURL>https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html</documentationURL>
+  </import>
+  <import>
+    <name>meas</name>
+    <url>https://ivoa.net/xml/VODML/Meas-v1.vo-dml.xml</url>
+    <documentationURL>https://ivoa.net/documents/Meas/20221004/index.html</documentationURL>
+  </import>
+  <import>
+    <name>coords</name>
+    <url>https://ivoa.net/xml/VODML/Coords-v1.vo-dml.xml</url>
+    <documentationURL>https://ivoa.net/documents/Coords/20221004/index.html</documentationURL>
+  </import>
+  <import>
+    <name>photdm</name>
+    <url>https://ivoa.net/xml/VODML/Phot-v1.vodml.xml</url>
+    <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
+  </import>
+  <enumeration>
+    <vodml-id>ShapeFrame</vodml-id>
+    <name>ShapeFrame</name>
+    <description> Possible options to encode a shape in a string.
+</description>
+    <literal>
+      <vodml-id>ShapeFrame.STC_S</vodml-id>
+      <name>STC_S</name>
+      <description>STCs serialisation
+</description>
+    </literal>
+    <literal>
+      <vodml-id>ShapeFrame.MOC</vodml-id>
+      <name>MOC</name>
+      <description>MOC serialisation</description>
+    </literal>
+  </enumeration>
+
+  <enumeration>
+    <vodml-id>ShapeSerialization</vodml-id>
+    <name>ShapeSerialization</name>
+    <description>
+          Enumeration of the supported serialization modes for the shapes
+          
+        </description>
+    <literal>
+      <vodml-id>ShapeSerialization.MOC</vodml-id>
+      <name>MOC</name>
+      <description>
+          Label indicating that the shape has been serialized as a S-MOC
+
+        </description>
+    </literal>
+    <literal>
+      <vodml-id>ShapeSerialization.STCS</vodml-id>
+      <name>STCS</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    </literal>
+    <literal>
+      <vodml-id>ShapeSerialization.POLYGON</vodml-id>
+      <name>POLYGON</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    </literal>
+  </enumeration>
+
+  <enumeration>
+    <vodml-id>CalibrationLevel</vodml-id>
+    <name>CalibrationLevel</name>
+    <description>Science ready data with the instrument signature removed (ObsCore).</description>
+    <literal>
+      <vodml-id>CalibrationLevel.Raw</vodml-id>
+      <name>Raw</name>
+      <description>Raw  instrumental  data,  in  a  proprietary  or  internal  data provider  defined  format,  that  needs instrument specific tools to be handled (ObsCore). 
+</description>
+    </literal>
+    <literal>
+      <vodml-id>CalibrationLevel.Instrumental</vodml-id>
+      <name>Instrumental</name>
+      <description>Instrumental  data  in  a  standard  format  which could be manipulated with standard astronomical packages (ObsCore).</description>
+    </literal>
+    <literal>
+      <vodml-id>CalibrationLevel.Calibrated</vodml-id>
+      <name>Calibrated</name>
+      <description>Science ready data with the instrument signature removed (ObsCore).
+</description>
+    </literal>
+  </enumeration>
+
+  <enumeration>
+    <vodml-id>ColorDefinition</vodml-id>
+    <name>ColorDefinition</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <literal>
+      <vodml-id>ColorDefinition.ColorIndex</vodml-id>
+      <name>ColorIndex</name>
+      <description>Difference of mangnitudes: typically $M_B - M_v$</description>
+    </literal>
+    <literal>
+      <vodml-id>ColorDefinition.HardnessRatio</vodml-id>
+      <name>HardnessRatio</name>
+      <description>Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) /  (F_{EB2} + F_{EB1})$</description>
+    </literal>
+  </enumeration>
+
+  <dataType>
+    <vodml-id>VocabularyTerm</vodml-id>
+    <name>VocabularyTerm</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <vodml-id>VocabularyTerm.uri</vodml-id>
+      <name>uri</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>VocabularyTerm.label</vodml-id>
+      <name>label</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <objectType>
+    <vodml-id>Source</vodml-id>
+    <name>Source</name>
+    <description>Root class of the model. MANGO instances are meant of be Source instances.
+A source is something with an identifier and two docks: one for the parameters and one for the associated data.</description>
+    <attribute>
+      <vodml-id>Source.identifier</vodml-id>
+      <name>identifier</name>
+      <description>Unique identifier for a Source.
+The uniqueness of that identifier is not managed by the model.
+The format is free.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>Source.associatedDataDock</vodml-id>
+      <name>associatedDataDock</name>
+      <description>Composition link pointing on all data associated with the source.</description>
+      <datatype>
+        <vodml-ref>mango:AssociatedData</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>Source.propertyDock</vodml-id>
+      <name>propertyDock</name>
+      <description>Composition link pointing on all parameters attached to the source.</description>
+      <datatype>
+        <vodml-ref>mango:Property</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <reference>
+      <vodml-id>Source.dataOrigin</vodml-id>
+      <name>dataOrigin</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:DataOrigin</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType abstract="true">
+    <vodml-id>AssociatedData</vodml-id>
+    <name>AssociatedData</name>
+    <description>Abstract reference to a particular dataset associated to the Source.
+This class is used to specify the type of the dataset as well as its role.</description>
+    <attribute>
+      <vodml-id>AssociatedData.semantic</vodml-id>
+      <name>semantic</name>
+      <description>Reference to a semantic concept giving the nature of the associated data.
+As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
+      <datatype>
+        <vodml-ref>mango:VocabularyTerm</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>AssociatedData.description</vodml-id>
+      <name>description</name>
+      <description>Free text description of the associated data</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>WebEndpoint</vodml-id>
+    <name>WebEndpoint</name>
+    <description>Class for associated data referenced by an URL</description>
+    <extends>
+      <vodml-ref>mango:AssociatedData</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>WebEndpoint.ContentType</vodml-id>
+      <name>ContentType</name>
+      <description>Mime type of the URL
+</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>WebEndpoint.url</vodml-id>
+      <name>url</name>
+      <description>Web endpoint</description>
+      <datatype>
+        <vodml-ref>ivoa:anyURI</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>AssociatedMangoInstance</vodml-id>
+    <name>AssociatedMangoInstance</name>
+    <description>Reference to another MANGO instance that is part of the associated data.</description>
+    <extends>
+      <vodml-ref>mango:AssociatedData</vodml-ref>
+    </extends>
+    <composition>
+      <vodml-id>AssociatedMangoInstance.mangoInstance</vodml-id>
+      <name>mangoInstance</name>
+      <description>Composition link pointing on one MANGO instance associated with the source.</description>
+      <datatype>
+        <vodml-ref>mango:Source</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Property</vodml-id>
+    <name>Property</name>
+    <description>Reference to a particular measure of the Source.
+This class is used to specify the type of the measure as well as its role.</description>
+    <constraint>
+      <description>One association at the time
+</description>
+    </constraint>
+    <attribute>
+      <vodml-id>Property.semantic</vodml-id>
+      <name>semantic</name>
+      <description>Reference to a semantic concept giving the nature of the parameter
+As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </description>
+      <datatype>
+        <vodml-ref>mango:VocabularyTerm</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Property.description</vodml-id>
+      <name>description</name>
+      <description>Free text description of the measure
+</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>Property.measure</vodml-id>
+      <name>measure</name>
+      <description>Composition link pointing to the meas:Measure instance</description>
+      <datatype>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <reference>
+      <vodml-id>Property.associatedProperties</vodml-id>
+      <name>associatedProperties</name>
+      <description>&lt;Enter note text here&gt;</description>
+      <datatype>
+        <vodml-ref>mango:Property</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Status</vodml-id>
+    <name>Status</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>Status.status</vodml-id>
+      <name>status</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>Status.allowedValues</vodml-id>
+      <name>allowedValues</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:SatusValues</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Label</vodml-id>
+    <name>Label</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>Label.text</vodml-id>
+      <name>text</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Shape</vodml-id>
+    <name>Shape</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>Shape.shape</vodml-id>
+      <name>shape</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Shape.serialization</vodml-id>
+      <name>serialization</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:ShapeSerialization</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <reference>
+      <vodml-id>Shape.coordSys</vodml-id>
+      <name>coordSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>coords:SpaceSys</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PhotometricProperty</vodml-id>
+    <name>PhotometricProperty</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>PhotometricProperty.value</vodml-id>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <reference>
+      <vodml-id>PhotometricProperty.photCal</vodml-id>
+      <name>photCal</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>:PhotCal</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <vodml-id>PhysicalProperty</vodml-id>
+    <name>PhysicalProperty</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>PhysicalProperty.calibrationLevel</vodml-id>
+      <name>calibrationLevel</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:CalibrationLevel</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>PhysicalProperty.measure</vodml-id>
+      <name>measure</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>meas:Measure</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Color</vodml-id>
+    <name>Color</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:PhotometricProperty</vodml-ref>
+    </extends>
+    <composition>
+      <vodml-id>Color.colorDef</vodml-id>
+      <name>colorDef</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:ColorDef</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>ColorDef</vodml-id>
+    <name>ColorDef</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <vodml-id>ColorDef.definition</vodml-id>
+      <name>definition</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:ColorDefinition</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>ColorDef.high</vodml-id>
+      <name>high</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>:PhotFilter</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>ColorDef.low</vodml-id>
+      <name>low</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>:PhotFilter</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>BitField</vodml-id>
+    <name>BitField</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>mango:Status</vodml-ref>
+    </extends>
+  </objectType>
+
+  <objectType>
+    <vodml-id>SatusValues</vodml-id>
+    <name>SatusValues</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <composition>
+      <vodml-id>SatusValues.values</vodml-id>
+      <name>values</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:StatusValue</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>-1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>StatusValue</vodml-id>
+    <name>StatusValue</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <vodml-id>StatusValue.value</vodml-id>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:integer</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>StatusValue.description</vodml-id>
+      <name>description</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>EpochPosition</vodml-id>
+    <name>EpochPosition</name>
+    <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
+    <attribute>
+      <vodml-id>EpochPosition.longitude</vodml-id>
+      <name>longitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.latitude</vodml-id>
+      <name>latitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.parallax</vodml-id>
+      <name>parallax</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.radialVelocity</vodml-id>
+      <name>radialVelocity</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.pmLongitude</vodml-id>
+      <name>pmLongitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.pmLatitude</vodml-id>
+      <name>pmLatitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.epoch</vodml-id>
+      <name>epoch</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>coords:Epoch</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPosition.pmCosDeltApplied</vodml-id>
+      <name>pmCosDeltApplied</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:boolean</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <composition>
+      <vodml-id>EpochPosition.error</vodml-id>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:EpochPositionError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <reference>
+      <vodml-id>EpochPosition.coordSys</vodml-id>
+      <name>coordSys</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>coords:SpaceSys</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <vodml-id>EpochPositionError</vodml-id>
+    <name>EpochPositionError</name>
+    <description>Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations.</description>
+    <composition>
+      <vodml-id>EpochPositionError.positionError</vodml-id>
+      <name>positionError</name>
+      <description>Error on the position (Longitude + Latitude). This error can be either an ellipse or a 2D matrix. These are the 2 cases supported by the model.</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.pmError</vodml-id>
+      <name>pmError</name>
+      <description>Error on the proper motion (pmra, pmdec). This error can be either an ellipse or a 2D matrix. These are the 2 cases supported by the model.</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.parallaxError</vodml-id>
+      <name>parallaxError</name>
+      <description>Parallax error. This error is meant to be symetrical.</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.PropertyError1D</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.radialVelocityError</vodml-id>
+      <name>radialVelocityError</name>
+      <description>Error in the radial velocity. This error is meant to be symetrical.</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.PropertyError1D</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.pmPosError</vodml-id>
+      <name>pmPosError</name>
+      <description>Correlated error between the proper motion and the position. This error is represented by a 2D matrix.
+$error_{propermotion} = f(position)$</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError_A2B2</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.radialVelocityPosError</vodml-id>
+      <name>radialVelocityPosError</name>
+      <description>Correlated error between the radial velocity and the position. The radial velocity error might depend on the sky position.
+$error_{radialVelocity} = f(position)$</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.parallaxPosError</vodml-id>
+      <name>parallaxPosError</name>
+      <description>Correlated error between the parallax and the position. The parallax error might depend on the sky position.
+$error_{parallax} = f(position)$</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionError.parallaxPmError</vodml-id>
+      <name>parallaxPmError</name>
+      <description>Correlated error between the parallax and the proper motion. The parallax error might depend on the proper motion vector.
+$error_{parallax} = f(properMotion)$</description>
+      <datatype>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>DataOrigin</vodml-id>
+    <name>DataOrigin</name>
+    <description>Class representing the origin of the data following the DCP note (TBD)</description>
+    <attribute>
+      <vodml-id>DataOrigin.citation</vodml-id>
+      <name>citation</name>
+      <description>Dataset idnetifier that can be used for citation (e.g. DOI)</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DataOrigin.reference_url</vodml-id>
+      <name>reference_url</name>
+      <description>Dataset landing page</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DataOrigin.resource_version</vodml-id>
+      <name>resource_version</name>
+      <description>Dataset version</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DataOrigin.creator</vodml-id>
+      <name>creator</name>
+      <description>Person(s) mainly involved in the creation of the resource, generally the author.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DataOrigin.cites</vodml-id>
+      <name>cites</name>
+      <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DataOrigin.is_derived_from</vodml-id>
+      <name>is_derived_from</name>
+      <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DataOrigin.original_date</vodml-id>
+      <name>original_date</name>
+      <description>Date of the original resource from which the MANGO source instance is derived</description>
+      <datatype>
+        <vodml-ref>ivoa:datetime</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <reference>
+      <vodml-id>DataOrigin.query</vodml-id>
+      <name>query</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:QueryOrigin</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+    <reference>
+      <vodml-id>DataOrigin.rights</vodml-id>
+      <name>rights</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:License</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+    <reference>
+      <vodml-id>DataOrigin.article</vodml-id>
+      <name>article</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:Article</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+  </objectType>
+
+  <objectType>
+    <vodml-id>QueryOrigin</vodml-id>
+    <name>QueryOrigin</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <vodml-id>QueryOrigin.ivoid</vodml-id>
+      <name>ivoid</name>
+      <description>IVOID of the underlying data collection</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.publisher</vodml-id>
+      <name>publisher</name>
+      <description>Data center that produced the MANGOI source instance</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.server_software</vodml-id>
+      <name>server_software</name>
+      <description>Version of the software the produced the MANO source instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
+</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.service_protocol</vodml-id>
+      <name>service_protocol</name>
+      <description>IVOID of the protocol through which the data was retrieved</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.request</vodml-id>
+      <name>request</name>
+      <description>Full request URL including a query string. For the simple protocols,put the url-encoded form of the query parameters. For TAP queries, use the /sync UWS URL. The format is free for others request types.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.query</vodml-id>
+      <name>query</name>
+      <description>Input query in a formal langage such as ADQL.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.request_date</vodml-id>
+      <name>request_date</name>
+      <description>Query execution date</description>
+      <datatype>
+        <vodml-ref>ivoa:datetime</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>QueryOrigin.contact</vodml-id>
+      <name>contact</name>
+      <description>Email or URL to contact the publisher</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>License</vodml-id>
+    <name>License</name>
+    <description>Place holder for the license covering the MANGO instance</description>
+    <attribute>
+      <vodml-id>License.rights_uri</vodml-id>
+      <name>rights_uri</name>
+      <description>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>License.rights</vodml-id>
+      <name>rights</name>
+      <description>License or Copyright text</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+  <objectType>
+    <vodml-id>Article</vodml-id>
+    <name>Article</name>
+    <description>Reference article for the MANGO source</description>
+    <attribute>
+      <vodml-id>Article.editor</vodml-id>
+      <name>editor</name>
+      <description>Article editor name</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Article.article</vodml-id>
+      <name>article</name>
+      <description>Bibcode or DOI of the reference article</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </objectType>
+
+
+
+  <package>
+    <vodml-id>ErrorTypes</vodml-id>
+    <name>ErrorTypes</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <primitiveType>
+      <vodml-id>ErrorTypes.DiagElems2x2</vodml-id>
+      <name>DiagElems2x2</name>
+      <description>Datatype containing the 2 diagonal elements of a 2x2 matrix. 
+Attributes are named $\sigma$ because this datatype is mostly used in the context of complex errors.</description>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.PropertyError</vodml-id>
+      <name>PropertyError</name>
+      <description>Root (abstract) class of the errors that can be attached to a MA?GO property. The class inherit from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
+</description>
+      <extends>
+        <vodml-ref>meas:Uncertainty</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.PropertyError1D</vodml-id>
+      <name>PropertyError1D</name>
+      <description>Symetrical error for 1D parameter.</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.PropertyError2D</vodml-id>
+      <name>PropertyError2D</name>
+      <description>Super abstract class for the errors of 2D parameters such as the positions.</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.DiagMatrix2x2</vodml-id>
+      <name>DiagMatrix2x2</name>
+      <description>Diagonal 2D  matrix. Non diagonal elements are null.</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.CorrMatrix2x2</vodml-id>
+      <name>CorrMatrix2x2</name>
+      <description>Symetrical 2D matrix. Both non diagonbal elements are meant to have the same value.</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.DiagMatrix2x2</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.Ellipse</vodml-id>
+      <name>Ellipse</name>
+      <description>Elliptical errror for 2D parameters such as the sky positions.</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.CorrelatedError</vodml-id>
+      <name>CorrelatedError</name>
+      <description>Abstract root class for the correlated errors. In the subclasses nomenclature the error relates to a property named \texttt{A} in correlation with a property named {B).</description>
+      <extends>
+        <vodml-ref>meas:Uncertainty</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.CorrelatedError_A1B2</vodml-id>
+      <name>CorrelatedError_A1B2</name>
+      <description>Error of a 1D property (A) correlated with a 2D parameter (B): $error\_A = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.CorrelatedError_A1B1</vodml-id>
+      <name>CorrelatedError_A1B1</name>
+      <description>Error of a 1D property (A) correlated with a 1D parameter (B): $error\_A = correlation\_A1B1 * value\_B$</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.CorrelationError_A2B1</vodml-id>
+      <name>CorrelationError_A2B1</name>
+      <description>Error of a 2D property (A) correlated with a 1D parameter (B): 
+$error\_A_1 = correlation\_A1B1 * value\_B$
+$error\_A_2 = correlation\_A12B1 * value\_B$</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B1</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>ErrorTypes.CorrelatedError_A2B2</vodml-id>
+      <name>CorrelatedError_A2B2</name>
+      <description>Error of a 2D property (A) correlated with a 2D parameter (B): 
+$error\_A_1 = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$
+$error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$</description>
+      <extends>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+      </extends>
+    </primitiveType>
+
+  </package>
+
+</vo-dml:model>

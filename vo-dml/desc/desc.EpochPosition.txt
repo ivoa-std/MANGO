@@ -1,0 +1,13 @@
+This class is a view of \texttt{Astronomical Coordinates and Coordinate
+Systems} components that have been put together to form a consistent description 
+of the position of an object moving over time. 
+It consists of a celestial position, a proper motion, a radial velocity 
+and a parallax. 
+All components share the same spatial coordinate system.
+
+\begin{itemize}
+   \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements.
+   \item The space coordinate system is imported from \texttt{coords:spaceSys}.
+\end{itemize}
+
+The error is specific to this class as it must support covariance and correlation between the components.

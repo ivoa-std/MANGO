@@ -1,0 +1,2 @@
+List of the allowed values for the status. 
+Each value has its own textual description.

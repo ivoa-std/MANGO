@@ -1,0 +1,1 @@
+Instrumental  data  in  a  standard  format  which could be manipulated with standard astronomical packages (ObsCore).
