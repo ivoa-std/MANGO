@@ -1,4 +1,13 @@
-
+#
+#
+# scan mango.vo-dml.xml file
+# - extract all @xyz@ pattern
+# - replace the with the content of the file named ./desc/desc.xxyz/txt
+# - save the result in desc.mango.vo-dml.xml
+#
+# Before doing the replacement, the script verifies that all referenced files really exit
+# Exit on error if not
+#
 import sys, os, re
 
 base_path = os.path.realpath(os.path.join(os.path.dirname(__file__), "../vo-dml/"))
@@ -11,11 +20,10 @@ with open(vodml_path, "r") as vodml:
         results = re.search(r'(@.*@)', line)
         if results:
             replacement[results.group(1)] = f"desc.{results.group(1).strip('@')}.txt"
-    print(replacement)
     
 missing = []
 for key, value in replacement.items():
-    if not os.path.exists(os.path.join(base_path,value)):
+    if not os.path.exists(os.path.join(base_path, "desc", value)):
         missing.append(value)       
         
 if len(missing) > 0:
@@ -25,7 +33,7 @@ if len(missing) > 0:
 with open(vodml_path, "r") as read_vodml:
     content = read_vodml.read()
     for key, value in replacement.items():
-        with open(os.path.join(base_path,value), "r") as read_desc:
+        with open(os.path.join(base_path, "desc", value), "r") as read_desc:
             desc = read_desc.read()
             print(f"insert {value}")
             content = content.replace(key, desc)
