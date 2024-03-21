@@ -1,0 +1,67 @@
+% GILLLES proposal:
+%
+VizieR provides science ready catalogues coming from space agencies or articles and covering number of different science cases.
+Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.) depending on their origin.
+They can result from  observations, simulations, models or catalog compilations.
+Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
+%The most frequent are observation tables which can serialize a single object to one or more records.
+%
+Data sets are ingested in Vizier on author request. Before to be put online they are processed and documented by documentalists so as to ensure a certain level of interoperability.
+This work relies on the analyse of both data content and scientific paper.
+\begin{itemize}
+\item Missing meta-data, e.g. space frames or filters, are added when available in the paper.
+\item Columns are renamed following the Vizier nomenclature in order make them compliant with the DBMS and to facilitate the grouping of all values related to one particular quantities (e.g. quality flag for a radial velocity)
+\item UCDs are checked or set for all columns.
+\item README files are generated. A README is a text file with a specific layout making it machine readable.
+\item Some values, not part of the original data but assigned by the CDS, are added to the tables (e.g. identifier, ICRS positions)
+\item Ancillary data pointing on associated data (e.g.  spectra) or on linked services (e.g. visualisation), can also be added to enrich the table content.
+\end{itemize}
+
+All Vizier meta data are gathered in a specific resource in a way to facilitate the localisation of data of interest.
+The main specificity of the data is their heterogeneity
+\begin{itemize}
+\item Huge variety of data provenance and processing
+\item Meta data heterogeneity
+\item Table content heterogeneity
+\item Huge variety of possible measures
+\item Huge variety of patterns of measure groups
+\item Use of different coordinate systems
+\item Large variety of associated data
+\end{itemize}
+
+The Mango model must be able to provide a standard representation of most of the metadata contained in Vizier query responses, whether native or computed  by the CDS, simple quantities or associated complex data.
+Mango is not meant to replace the current management of the meta-data, it is a way to make those meta-data understandable for a wide panel of VO-compliant clients.
+
+%The tables processed are documented and standardized in order to be interoperable. The metadata includes coordinates systems  and  the magnitudes columns can be completed with photometric paremeters –these last metadata are not part of the original data but are assigned by CDS.
+%
+%The records can also be competed with added columns like links to local or remote URL, visualization of time-series,  etc.
+%
+%The table output allows for anyone aware of the VizieR nomenclature to group columns related to a given measure.
+%
+% The VizieR tables can be charcterized by :
+%\begin{itemize}
+%\item the heterogneneity of the table contents
+%\item a large variety of possible measure that can be grouped by type
+%\item different coodinate system
+%\item different metadata processing and provenance
+%\item different object serialization
+%\item added-data sometimes available for objects records
+%\end{itemize}
+%
+% END GILLLES proposal
+
+
+Vizier gathers and delivers a curated version of published catalogs from various missions and experiments.
+It also distributes results of scientific papers, based on the computation , comparison and classification of sources extracted from archived data after science analysis.
+Vizier handles a very large set of measures in position, photometry, redshift, source type, etc.
+% FB : I don't think the end of this sentences was correct : "as authors original data."
+It adds value to it by recomputing additional quantities in various reference frames or equivalent spectral bands, units conversions , etc .
+It binds the resulting object description to other data sets representing the object, or its counterparts, or neighbourhood on sky (image), its spectral behaviour (spectrum, spectral energy distribution) or evolution through time (light curve, radial velocity curve, time series, etc.).
+Currently the binding and structure of the quantities is done by column grouping.
+\begin{itemize}
+    \item pre-existing data
+    \item grouping columns
+    \item lots of available metadata
+    \item column name formatting
+    \item one column different frames
+\end{itemize}

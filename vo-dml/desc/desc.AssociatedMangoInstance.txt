@@ -1,0 +1,1 @@
+Reference to another MANGO instance that is part of the associated data.

@@ -1,0 +1,3 @@
+Root class of the model. 
+MANGO instances are meant of be Source instances.
+A source is something with an identifier and two docks: one for the parameters and one for the associated data.

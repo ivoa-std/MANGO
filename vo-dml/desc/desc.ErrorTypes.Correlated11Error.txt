@@ -1,0 +1,2 @@
+Error of a 1D property (A) correlated with a 1D parameter (B): 
+$error(A) = a1b1 * B$

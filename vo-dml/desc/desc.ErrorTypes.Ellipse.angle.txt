@@ -1,0 +1,3 @@
+Angle between the North Polar Cape (NCP) and the major axis. 
+This angle must be positive taking into account that angles are positive from North to the East. 
+The angle has its own unit.

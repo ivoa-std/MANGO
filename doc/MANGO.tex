@@ -142,51 +142,18 @@ Fig.~\ref{fig:archdiag} shows the role this document plays within the
 IVOA architecture \citep{2010ivoa.rept.1123A}.
 
 
-
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
-The following uses-cases have been collected since 2019 from representatives of various astronomical missions, archive designers and tools developers.
-The contribution was totally open. This gave a good picture of the needs but we don not pretend that everything will be supported by this first version.
+The following uses-cases have been collected since 2019 from representatives of various astronomical 
+missions, archive designers and tools developers.
+The contribution was totally open. This gave a good picture of the needs but we do not pretend 
+that everything will be supported by this first version.
 
-%\TODO{ may be too early to conclude about this ?? The contribution was totally open.
-%This gave a good picture of the needs but it's safe to say that not everything will supported by this first version.??}
+All the use-cases summarized below are detailed in appendix.
 
-The physical parameters recorded for each source in the various projects are listed below:
 \subsubsection{Gaia}
 Gaia mission is producing the largest and more precise 3D map of our galaxy.
-
-Gaia core solution is able to solve the astrometric solution of more than 1
-billion sources by complex models and algorithms \citep{2012A&A...538A..78L}.
-Using a minimisation problem approach, different detections identified on
-different scans can be associated to the same astronomical source. Some of the
-properties would be direct measurements on single scans (e.g. positions or
-magnitudes). Also other properties like radial velocity (measured in redshift
-units) are also obtained at integration time of the scans.
-
-Once detections on different scans are associated to a single astronomical
-source, these direct measurements can be combined to generate derived
-measurements. Trajectories on the sky for galactic objects are seen as
-spirals including the combination of the proper motion of the object
-(derived by the main vector of movement of the source) and the parallax
-(derived by the radius of the apparent spiral produced by the different
-angles of the Gaia observations at different periods).
-
-From these properties, others could be also derived like, e.g. the distance,
-although the exact transformation from parallax to distance requires the use of
-accurate calculations and calibrations so, in general, only direct astrometric
-properties, like parallax, are usually provided into the catalogues.
-
-Finally, other properties will be also obtained by the cross-identification of
-detections as a single astronomical source. For example, time series could be
-combined as the result of measurements of magnitudes from different scans
-detections.
-
-Although it is not its main scientific target and apart from stellar objects,
-other extra-galactic sources could be also studied with Gaia. For example, QSOs
-are observed by Gaia as point-like sources with zero proper motion. For these
-kind of sources, typical extra-galactic properties like, redshift, could be also
-provided.
 
 A non-exhaustive list of properties required for Gaia use cases would be composed
 of:
@@ -206,31 +173,11 @@ of:
     \item multiple detection
 \end{itemize}
 
-
 \subsubsection{Euclid}
 Euclid telescope has been designed to unveil some of the questions about the
 dark Universe, including dark matter and dark energy, what would include, e.g.
 quite accurate measurements of the expansion of the Universe.
 
-Euclid will mainly observe extragalactic objects providing, e.g. information
-of the shapes of galaxies, gravitational lensing,  baryon acoustic oscillations
-and distances to galaxies using spectroscopic data.
-
-For this mission, and apart from the common metadata provided for extra galactic
-sources into astronomical catalogues, a good support for object taxonomy and
-shapes of objects will be required. As known due to general relativity effects,
-shapes far galaxies could be deformed due to gravitational lensing effects,
-producing convergence (visual displacements on the position) and rear (deformation
-of the shape) effects. All these metadata should be ready for annotations and,
-also, correlated to theoretical or real metadata in other datasets.
-
-Finally, crossmatch information with other catalogues will be of crucial interest
-as data from other satellites and, more importantly, from ground based
-observatories will be combined with Euclid data to produce consistent scientific
-datasets.
-
-A non-exhaustive list of properties required for Euclid use cases would be composed
-of:
 \begin{itemize}
     \item identifier
     \item sky position
@@ -245,16 +192,7 @@ of:
 Annotation of (exo-)planetary records in catalogues requires some
 specific metadata or model.
 
-This was initially made clear when trying to
-allow discoverability of exoplanets time series
-(\cite{2020ASPC..522..703M}) where (exercising the
-ObsCore model with specific use cases) information like stellar host
-characteristics together with stellar system details turned out to be required for a
-proper description of the catalogue records.
-
-The use cases identified,
-besides some refinement needed in the ObsCore time axis annotation, the
-following metadata:
+The use cases identified requires the following metadata:
 \begin{itemize}
 	\item the degree of confidence in the detection: exoplanets candidates
 w.r.t. confirmed ones, plus last update of the record content ;
@@ -268,83 +206,14 @@ velocity) of the system, and so on;
 eccentricity, RV semi-amplitude, time at periastron (for RV detections)
 or central transit time (for transit method), longitude of periastron,
 and so on.
-\end{itemize}
 
-The scenario gained some further complexity, but also better stated the
-idea of modelling datasets and catalogue records in the (exo-)planetary
-systems subdomain, incorporating requirements from exoplanets atmosphere
-simulations and (first efforts) observations.
-
-Specific metadata additions were not specified exactly, but a draft model
-to describe stellar systems was developed, specifically trying to solve
-the issue in adding metadata elements to describing orbiting celestial
-objects (\cite{2019ASPC..523..597M}).
-
-The model identified the main concepts and classes as:
-\begin{itemize}
-	\item Celestial Object, typed/subclassed as: Star, Binary Star,
-Planet, Satellite, Brown Dwarf, Trojan, and so on;
-	\item Orbit, as the class keeping the information needed to describe
-the orbit of a couple (or more) Celestial Objects.
-\end{itemize}
-
-Specific (exo-)planets metadata included: atmosphere with molecular
-composition, bulk details (mass, radius, \ldots).
-
-A catalogue service that could make use of model metadata is the
-Exo-MerCat (\cite{2020A&C....3100370A}) catalogue (or the other available exoplanets'
-catalogues), already available in a VO-aware
-solution\footnote{ivo://ia2.inaf.it/catalogues/exomercat}, but using only
-simple UCD description of the exposed information.
-
-\TODO{mention the involved projects : examples ? GAPS, TESS? }
-\TODO{For GAPS I can add specifics later, if implementation can
-(re)start}
 
 \subsubsection{Morphologically Complex Structures}
 The ViaLactea Knowledge Base (VLKB, see \cite{2016SPIE.9913E..0HM}) is a set of data
 resources and services built up to study the star formation regions and
 processes in the Milky Way. Besides 2-D images and 3-D radial velocity
-cubes, the VLKB exposes a bunch of source catalogues. These catalogues
-can be categorised as:
-
-\begin{itemize}
-	\item compact sources catalogues: where each source can be simply
-described by position and (usually) ellipsoidal extension plus some
-photometric flux(es);
-	\item a band merged catalogue: where each source record combines the
-single band source of the previous type into a
-multi-center/multi-positional record;
-	\item diffuse objects of two types, bubbles and filaments, where the
-positional description cannot be simplified by a point in the sky and
-some geometric error/shape value.
-\end{itemize}
-
-The first type of catalogue presents only a small issue, related to the
-ellipsoidal description of the extension of the single records/sources.
-For these catalogues the ellipsoidal (or circular) counterpart of the position is not
-to be considered as a positional uncertainty, but actually some level of
-confidence on the actual extension of the source at the observed
-frequency band, thus, besides a position on the celestial sphere, a minor axis,
-a major axis and a positional angle are needed to describe the source.
-
-The band merged catalogue requires an extra step, that is the
-aggregagtion of multiple single band sources (potentially degenerate
-depending on the observational waveband) to be able to provide a sort
-of SED of the aggregated source.
-
-A different type of challenge is presented by filaments and bubbles
-where (not approximating bubbles to simple circles) the source
-morphology requires or a complex geometrical shape, like single or
-multiple polygons, or a description based on tessellation (where the
-order of the tessels should fit the resolution/uncertainty of the source
-borders). Moreover, while bubbles can be fully described by a centroid
-and a single complex (multi-)polygon or set of tessels, filaments are
-themselves complex objects such that their description includes
-so-called branches, spines and nodes (areas, broken-lines, points in
-spherical geometry).
-
-Thus, a model that supports description of such catalogues will need a
+cubes, the VLKB exposes a bunch of source catalogues.
+A model that supports description of such catalogues will need a
 way to describe sources with:
 \begin{itemize}
 	\item non-point-like positions;
@@ -352,99 +221,85 @@ way to describe sources with:
 	\item aggregation of sub-parts (that can be heterogeneous).
 \end{itemize}
 
-The VLKB tried\footnote{if you want to have a look at the plain
-content, there's a TAP service at
-http://vlkb.dev.neanias.eu:8080/vlkb/tap (http://saada.unistra.fr/taphandle?url=http\%3A//vlkb.dev.neanias.eu\%3A8080/vlkb/tap/) that can be accessed, even if
-not complete with descriptions nor registered} to describe, both by
-(custom) contour polygons and MOCs,
-the bubbles and filaments having the main use case of cross-matching or
-distance measuring diffuse objects w.r.t. compact sources. However, work
-progressend slowly and anyway the proper model annotations were never
-investigated properly.
 
-MANGO could be useful to serve nicely annotated and usable records for
-sources as the ones described above.
-
-\pagebreak
 \subsubsection{Chandra Archive}
-\input{chandra_usecases.tex}
+The Chandra Source Catalog(CSC) is the definitive catalog of serendipitous X-ray sources identified in
+publicly released imaging observations obtained by NASA’s ChandraX-ray Observatory (CXO).
 
-\pagebreak
-\subsubsection{Vizier catalog archive  }
+The catalog itself consists of approximately 1,700 columns covering properites at the individual observation and stacked analysis levels.
+Table \ref{tab:chandra_props} summarizes some of the basic catalog properties derived from standard CSCView queries.
 
-% GILLLES proposal:
-%
+\begin{table}[ht!]
+  \tiny
+  \begin{tabular}{|p{0.4cm}p{10.0cm}|}
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Per Source:}} \\
+    & \texttt{ Source name } \\
+    & \texttt{ Source position and position errors } \\
+    & \texttt{ Significance of the source (signal to noise) } \\
+    & \texttt{ Likelihood of the source  (True, False, or Marginal detection) } \\
+    & \texttt{ Source extent flag } \\
+    & \texttt{ Variability flag } \\
+    & \texttt{ Spectral variability flag } \\
+    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
+    & \texttt{ Flux and flux error in  HRC band w } \\
+    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
+    & \texttt{ Short term (intra-obs) variability probability for each band } \\
+    & \texttt{ Long term (inter-obs) variability probability for each band } \\
+    & \texttt{ Spectral (hardness ratios) variability for each color } \\
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Per Detection (at the stack level):}} \\
+    & \texttt{ Detection ID } \\
+    & \texttt{ Detection position and position errors } \\
+    & \texttt{ Flux significance of the detection (S/N) } \\
+    & \texttt{ Detection likelihood (True, False, or marginal detection?) } \\
+    & \texttt{ Source extent code (codification of source extent in different bands) } \\
+    & \texttt{ Variability flag } \\
+    & \texttt{ Spectral variability flag } \\
+    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
+    & \texttt{ Flux and flux error in  HRC band w } \\
+    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
+    & \texttt{ Short term (intra-obs) variability probability for each band } \\
+    & \texttt{ Long term (inter-obs) variability probability for each band } \\
+    & \texttt{ Spectral (hardness ratios) variability probability for each color } \\
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Per Detection (at the observation level):}} \\
+    \multicolumn{2}{|l|}{ Note that source detection is done at the stack level, but properties are estimated for the } \\
+    \multicolumn{2}{|l|}{detections at each observation using the detection region from the stack level.} \\
+    & \texttt{ Detection ID } \\
+    & \texttt{ Detection position and position errors } \\
+    & \texttt{ Flux significance of the detection (S/N) } \\
+    & \texttt{ Detection likelihood } \\
+    & \texttt{ Source extent code (codification of source extent in different bands) } \\
+    & \texttt{ Variability code (applies to intra-obs only) } \\
+    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
+    & \texttt{ Flux and flux error in  HRC band w } \\
+    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
+    & \texttt{ Short term (intra-obs) variability probability for each band } \\
+    \hline
+
+  \end{tabular}
+  \caption{ Example Chandra Source Catalog Properties }
+  \label{tab:chandra_props}
+
+ \end{table}
+ 
+\subsubsection{Vizier catalog archive}
 VizieR provides science ready catalogues coming from space agencies or articles and covering number of different science cases.
 Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.) depending on their origin.
 They can result from  observations, simulations, models or catalog compilations.
 Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
-%The most frequent are observation tables which can serialize a single object to one or more records.
-%
-Data sets are ingested in Vizier on author request. Before to be put online they are processed and documented by documentalists so as to ensure a certain level of interoperability.
-This work relies on the analyse of both data content and scientific paper.
-\begin{itemize}
-\item Missing meta-data, e.g. space frames or filters, are added when available in the paper.
-\item Columns are renamed following the Vizier nomenclature in order make them compliant with the DBMS and to facilitate the grouping of all values related to one particular quantities (e.g. quality flag for a radial velocity)
-\item UCDs are checked or set for all columns.
-\item README files are generated. A README is a text file with a specific layout making it machine readable.
-\item Some values, not part of the original data but assigned by the CDS, are added to the tables (e.g. identifier, ICRS positions)
-\item Ancillary data pointing on associated data (e.g.  spectra) or on linked services (e.g. visualisation), can also be added to enrich the table content.
-\end{itemize}
-
-All Vizier meta data are gathered in a specific resource in a way to facilitate the localisation of data of interest.
-The main specificity of the data is their heterogeneity
-\begin{itemize}
-\item Huge variety of data provenance and processing
-\item Meta data heterogeneity
-\item Table content heterogeneity
-\item Huge variety of possible measures
-\item Huge variety of patterns of measure groups
-\item Use of different coordinate systems
-\item Large variety of associated data
-\end{itemize}
 
 The Mango model must be able to provide a standard representation of most of the metadata contained in Vizier query responses, whether native or computed  by the CDS, simple quantities or associated complex data.
 Mango is not meant to replace the current management of the meta-data, it is a way to make those meta-data understandable for a wide panel of VO-compliant clients.
 
-%The tables processed are documented and standardized in order to be interoperable. The metadata includes coordinates systems  and  the magnitudes columns can be completed with photometric paremeters –these last metadata are not part of the original data but are assigned by CDS.
-%
-%The records can also be competed with added columns like links to local or remote URL, visualization of time-series,  etc.
-%
-%The table output allows for anyone aware of the VizieR nomenclature to group columns related to a given measure.
-%
-% The VizieR tables can be charcterized by :
-%\begin{itemize}
-%\item the heterogneneity of the table contents
-%\item a large variety of possible measure that can be grouped by type
-%\item different coodinate system
-%\item different metadata processing and provenance
-%\item different object serialization
-%\item added-data sometimes available for objects records
-%\end{itemize}
-%
-% END GILLLES proposal
-
-
-Vizier gathers and delivers a curated version of published catalogs from various missions and experiments.
-It also distributes results of scientific papers, based on the computation , comparison and classification of sources extracted from archived data after science analysis.
-Vizier handles a very large set of measures in position, photometry, redshift, source type, etc.
-% FB : I don't think the end of this sentences was correct : "as authors original data."
-It adds value to it by recomputing additional quantities in various reference frames or equivalent spectral bands, units conversions , etc .
-It binds the resulting object description to other data sets representing the object, or its counterparts, or neighbourhood on sky (image), its spectral behaviour (spectrum, spectral energy distribution) or evolution through time (light curve, radial velocity curve, time series, etc.).
-Currently the binding and structure of the quantities is done by column grouping.
-\begin{itemize}
-    \item pre-existing data
-    \item grouping columns
-    \item lots of available metadata
-    \item column name formatting
-    \item one column different frames
-\end{itemize}
-
 \subsubsection{Client on (MT behalf)}
-
-Right now, the meta-data provided within the VOTable allow clients such Aladin or Topcat to run most of the functionalities expected by the user, either for data analysis of plotting.
+Right now, the meta-data provided within the VOTable allow clients such Aladin or Topcat to run most 
+of the functionalities expected by the user, either for data analysis of plotting.
 This information is often guess from UCDs, UTypes or columns name. It can also be given by the user.
-Clients have no expectations of working with full model instances but in some cases models can help to know how quantities in an input table relate to each other.
+Clients have no expectations of working with full model instances but in some cases models 
+can help to know how quantities in an input table relate to each other.
+
 In most cases this is for visualisation, e.g.:
 \begin{itemize}
     \item what is the sky position for this row
@@ -481,107 +336,23 @@ But there are some other places too:
 
 This usage shows that MANGO must be designed in a way that individual measurements or quantities can be easily be identified as such and manipulated independently of the whole instance.
 
-
 \subsubsection{Xmatch tool }
-
-The basic cross-match of two astronomical tables consists in associating pairs of sources -- one from each table -- fulfilling a given angular distance based criterion.
+The basic cross-match of two astronomical tables consists in associating pairs of sources -- one 
+from each table -- fulfilling a given angular distance based criterion.
 In relational algebra terms, it is a theta-join on a distance predicate.
 
-More generally, a cross-match is the association of sources from different tables given their proximity in an astrometric (but also possibly photometric, statistical, ...) parameter space \citep{2017A&A...597A..89P} .
+More generally, a cross-match is the association of sources from different tables given their 
+proximity in an astrometric (but also possibly photometric, statistical, ...) parameter space \citep{2017A&A...597A..89P} .
 
-If proper motions (plus parallax and radial velocities) are available, the cross-match tool may propagate the positions of each table to a common epoch.
+If proper motions (plus parallax and radial velocities) are available, the cross-match tool 
+may propagate the positions of each table to a common epoch.
 It may also take into account positional uncertainties to reject the statistically unlikely associations.
 
-In the latter case (cross-match between two tables taking into account positional errors), the tool needs to be able to retrieve the errors associated to the each position in each table.
+In the latter case (cross-match between two tables taking into account positional errors),
+the tool needs to be able to retrieve the errors associated to the each position in each table.
 
-UCDs may help in identifying the errors associated to a positional columns as shown in table \ref{tbl::pos-errors}.
-
-
-\begin{table}[!htbp]
-\small
-\centering
-\begin{tabulary}{\linewidth}{|L|C|J|}
-       \hline
-           \textbf{Error type  \newline Parameters} &
-           \textbf{UCD} &
-           \textbf{Description} \\
-       \hline
-           \multicolumn{3}{c}{\textbf{Circular error}} \\
-       \hline
-           \texttt{epos}&
-
-           \texttt{stat.error;pos.eq}    &
-           See "possible ambiguity for circular errors" \\
-        \hline
-           \multicolumn{3}{c}{\textbf{Uncorrelated errors}} \\
-        \hline
-           \texttt{eRA}     &
-           \texttt{stat.error;pos.eq.ra}    &
-            Error on `RA cos(Dec)` \\
-         \hline
-            \texttt{eDec}  &
-           \texttt{stat.error;pos.eq.dec}    &
-            Error on `Dec`\\
-         \hline
-            \multicolumn{3}{c}{\textbf{Correlated errors}} \\
-        \hline
-           \texttt{eRa}  &
-           \texttt{stat.error;pos.eq.ra}    &
-           Error on `RA cos(Dec)` \\
-        \hline
-           \texttt{eDec}&
-           \texttt{stat.error;pos.eq.dec}   &
-           Error on `Dec`     \\
-        \hline
-            \texttt{corRADec}&
-           \texttt{stat.covariance; pos.eq.ra; pos.eq.dec }    &
-            Correlation factor\\
-        \hline
-             \multicolumn{3}{c}{\textbf{Oriented Ellipse}} \\
-        \hline
-           \texttt{a}   &
-           \texttt{phys.angSize.smajAxis; pos.errorEllipse}    &
-           Error ellipse semi-major axis \\
-        \hline
-            \texttt{b} &
-           \texttt{phys.angSize.sminAxis; pos.errorEllipse }    &
-            Error ellipse semi-minor axis \\
-        \hline
-            \texttt{theta}  &
-           \texttt{pos.posAng; pos.errorEllipse}    &
-           Error ellipse position angle \\
-       \hline
-\end{tabulary}
-\caption{Table of the different possible representations of positional errors that can be found in astronomical catalogues}
-\label{tbl::pos-errors}
-\end{table}
-
-But this is not sufficient to table with more complex cases based on multi-parameter cases:
-
-\begin{itemize}
-	\item Catalogues like AllWISE provides a co-sigma instead of the correlation factor of the covariance matrix.
-	Co-sigma is the sign of the correlation factor time the square root of the covariance.
-	\item Table fields UCDs  may be too loose: for example  \texttt{stat.error;pos.eq} is often used in place of \texttt{phys.angSize.smajAxis;pos.errorEllipse} or \texttt{phys.angSize.sminAxis;pos.errorEllipse}.
-	\item The location  of the column to be used for the Xmatch can be ambiguous. For instance, if several pairs of position are provided in a table, there is currently
-	no way to associate unambiguously uncertainties with the (right) pair of coordinates.
-	\item  Possible ambiguity for circular errors. When the provided uncertainty is the parameter of a circular error, it may be:
-	\begin{itemize}
-		\item either the 1 dimensional component on each axis of a symmetric 2-dimensional Gaussian distribution: $\sigma=\sigma_{\alpha\cos\delta}=\sigma_\delta$;
-		\item or the parameter of the radial error distribution (i.e. of the Rayleigh distribution): $\sigma=\sqrt{\sigma_{\alpha\cos\delta}^2 + \sigma_\delta^2}$
-                 with $\sigma_{\alpha\cos\delta} = \sigma_\delta$
-         \end{itemize}
-
-	\item   Possible ambiguity on the confidence level
-	The provided error is usually the 1sigma error.
-	It (theoretically) means that the "true" position has:
-	\begin{itemize}
-		\item either 68\% chances to be at a distance lower than the radial error from the position's mean value.
-		\item or 39\% chances to be inside the error ellipse (or circle) around the position's mean value.
-	\end{itemize}
-	But depending on the catalogue, the provided error parameters can correspond to different confidence levels.
-
-\end{itemize}
-
+UCDs may help in identifying the errors associated to a positional columns as shown in 
+table, but this is not sufficient to table with more complex cases based on multi-parameter cases.
 
 \subsection{Requirements}
 
@@ -885,6 +656,30 @@ The \emph{MANGOCore} table has set of columns per parameter class plus one for t
 
 
 \appendix
+
+\section{Gaia}
+\input{usecase_gaia.tex}
+
+\section{Euclid}
+\input{usecase_euclid.tex}
+
+\section{Chandra Archive}
+\input{usecase_chandra.tex}
+
+\section{Vizier}
+\input{usecase_vizier.tex}
+
+\section{Morphologically Complex Structures}
+\input{usecase_complex_structures.tex}
+
+\section{Exoplanets}
+\input{usecase_exoplanets.tex}
+
+\subsubsection{Client on (MT behalf)}
+\input{usecase_client_side.tex}
+
+\section{Xmatch tool }
+\input{usecase_xmatch.tex}
 
 \section{Imported Models Instance}
 

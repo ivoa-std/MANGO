@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
+<ns0:model xmlns:ns0="http://www.ivoa.net/xml/VODML/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
   <description>Data model based oon components and data association for source data</description>
-  <uri/>
+  <uri />
   <title>Mango</title>
-  <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
+  <author>Laurent Michel, Fran&#231;ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-02-08T15:18:44</lastModified>
+  <lastModified>2024-03-21T09:25:49</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -33,105 +30,89 @@
   <enumeration>
     <vodml-id>ShapeFrame</vodml-id>
     <name>ShapeFrame</name>
-    <description> Possible options to encode a shape in a string.
+    <description>Possible schemes to encode a shape in a string
 </description>
     <literal>
       <vodml-id>ShapeFrame.STC_S</vodml-id>
       <name>STC_S</name>
-      <description>STCs serialisation
-</description>
+      <description>MOC serialization</description>
     </literal>
     <literal>
       <vodml-id>ShapeFrame.MOC</vodml-id>
       <name>MOC</name>
-      <description>MOC serialisation</description>
+      <description>STCs serialization</description>
     </literal>
   </enumeration>
 
   <enumeration>
     <vodml-id>ShapeSerialization</vodml-id>
     <name>ShapeSerialization</name>
-    <description>
-          Enumeration of the supported serialization modes for the shapes
-          
-        </description>
+    <description>Enumeration of the supported serialization modes for the shapes</description>
     <literal>
       <vodml-id>ShapeSerialization.MOC</vodml-id>
       <name>MOC</name>
-      <description>
-          Label indicating that the shape has been serialized as a S-MOC
-
-        </description>
+      <description>Label indicating that the shape has been serialized as a S-MOC</description>
     </literal>
     <literal>
       <vodml-id>ShapeSerialization.STCS</vodml-id>
       <name>STCS</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Label indicating that the shape has been serialized as a STCS string</description>
     </literal>
     <literal>
       <vodml-id>ShapeSerialization.POLYGON</vodml-id>
       <name>POLYGON</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Label indicating that the shape has been serialized as a polygon (cf xtypes)</description>
     </literal>
   </enumeration>
 
   <enumeration>
     <vodml-id>CalibrationLevel</vodml-id>
     <name>CalibrationLevel</name>
-    <description>Science ready data with the instrument signature removed (ObsCore).</description>
+    <description>Enumeration of different possible calibration status of the property (Obscore)</description>
     <literal>
       <vodml-id>CalibrationLevel.Raw</vodml-id>
       <name>Raw</name>
-      <description>Raw  instrumental  data,  in  a  proprietary  or  internal  data provider  defined  format,  that  needs instrument specific tools to be handled (ObsCore). 
-</description>
+      <description>Raw  instrumental  data,  in  a  proprietary  or  internal  data provider  defined  format,  that  needs instrument specific tools to be handled (ObsCore)</description>
     </literal>
     <literal>
       <vodml-id>CalibrationLevel.Instrumental</vodml-id>
       <name>Instrumental</name>
-      <description>Instrumental  data  in  a  standard  format  which could be manipulated with standard astronomical packages (ObsCore).</description>
+      <description />
     </literal>
     <literal>
       <vodml-id>CalibrationLevel.Calibrated</vodml-id>
       <name>Calibrated</name>
-      <description>Science ready data with the instrument signature removed (ObsCore).
-</description>
+      <description>Science ready data with the instrument signature removed (ObsCore)</description>
     </literal>
   </enumeration>
 
   <enumeration>
     <vodml-id>ColorDefinition</vodml-id>
     <name>ColorDefinition</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Enumeration of the different color types supported by the model.</description>
     <literal>
       <vodml-id>ColorDefinition.ColorIndex</vodml-id>
       <name>ColorIndex</name>
-      <description>Difference of mangnitudes: typically $M_B - M_v$</description>
+      <description>Difference of magnitudes: typically $M_B - M_v$</description>
     </literal>
     <literal>
       <vodml-id>ColorDefinition.HardnessRatio</vodml-id>
       <name>HardnessRatio</name>
-      <description>Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) /  (F_{EB2} + F_{EB1})$</description>
+      <description />
     </literal>
   </enumeration>
 
   <dataType>
     <vodml-id>VocabularyTerm</vodml-id>
     <name>VocabularyTerm</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Term of a standardised vocabulary that applies to property.</description>
     <attribute>
       <vodml-id>VocabularyTerm.uri</vodml-id>
       <name>uri</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>URI the vocabulary term.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
@@ -140,9 +121,9 @@
     <attribute>
       <vodml-id>VocabularyTerm.label</vodml-id>
       <name>label</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Label attached to the vocabulary term.
+This is necessary because the URI may not contain an explicit label.
+This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -156,14 +137,13 @@
   <objectType>
     <vodml-id>Source</vodml-id>
     <name>Source</name>
-    <description>Root class of the model. MANGO instances are meant of be Source instances.
+    <description>Root class of the model. 
+MANGO instances are meant of be Source instances.
 A source is something with an identifier and two docks: one for the parameters and one for the associated data.</description>
     <attribute>
       <vodml-id>Source.identifier</vodml-id>
       <name>identifier</name>
-      <description>Unique identifier for a Source.
-The uniqueness of that identifier is not managed by the model.
-The format is free.</description>
+      <description />
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -175,7 +155,7 @@ The format is free.</description>
     <composition>
       <vodml-id>Source.associatedDataDock</vodml-id>
       <name>associatedDataDock</name>
-      <description>Composition link pointing on all data associated with the source.</description>
+      <description>Collection f all data associated with the MANGO entity.</description>
       <datatype>
         <vodml-ref>mango:AssociatedData</vodml-ref>
       </datatype>
@@ -187,7 +167,7 @@ The format is free.</description>
     <composition>
       <vodml-id>Source.propertyDock</vodml-id>
       <name>propertyDock</name>
-      <description>Composition link pointing on all parameters attached to the source.</description>
+      <description>Collection of all parameters attached to the MANGO entity.</description>
       <datatype>
         <vodml-ref>mango:Property</vodml-ref>
       </datatype>
@@ -199,9 +179,8 @@ The format is free.</description>
     <reference>
       <vodml-id>Source.dataOrigin</vodml-id>
       <name>dataOrigin</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Description of the origin of the MANGO object. 
+The parameters contained in this component come from the work of the DCP-IG.</description>
       <datatype>
         <vodml-ref>mango:DataOrigin</vodml-ref>
       </datatype>
@@ -215,13 +194,15 @@ The format is free.</description>
   <objectType abstract="true">
     <vodml-id>AssociatedData</vodml-id>
     <name>AssociatedData</name>
-    <description>Abstract reference to a particular dataset associated to the Source.
+    <description>Abstract reference to a particular dataset associated to the MANGO entity.
 This class is used to specify the type of the dataset as well as its role.</description>
     <attribute>
       <vodml-id>AssociatedData.semantic</vodml-id>
       <name>semantic</name>
-      <description>Reference to a semantic concept giving the nature of the associated data.
-As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
+      <description>Semantic concept giving the nature of the associated data.
+As long as the vocabulary is not set, the possible values of this attribute are given 
+by the LinkSemantic enumeration. 
+</description>
       <datatype>
         <vodml-ref>mango:VocabularyTerm</vodml-ref>
       </datatype>
@@ -247,14 +228,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>WebEndpoint</vodml-id>
     <name>WebEndpoint</name>
-    <description>Class for associated data referenced by an URL</description>
+    <description>Associated data referenced by an URL</description>
     <extends>
       <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>WebEndpoint.ContentType</vodml-id>
       <name>ContentType</name>
-      <description>Mime type of the URL
+      <description>URL mime type
 </description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
@@ -288,7 +269,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>AssociatedMangoInstance.mangoInstance</vodml-id>
       <name>mangoInstance</name>
-      <description>Composition link pointing on one MANGO instance associated with the source.</description>
+      <description />
       <datatype>
         <vodml-ref>mango:Source</vodml-ref>
       </datatype>
@@ -302,7 +283,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>Property</vodml-id>
     <name>Property</name>
-    <description>Reference to a particular measure of the Source.
+    <description>Reference to a particular measure of the MANGO entity.
 This class is used to specify the type of the measure as well as its role.</description>
     <constraint>
       <description>One association at the time
@@ -349,7 +330,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <reference>
       <vodml-id>Property.associatedProperties</vodml-id>
       <name>associatedProperties</name>
-      <description>&lt;Enter note text here&gt;</description>
+      <description />
       <datatype>
         <vodml-ref>mango:Property</vodml-ref>
       </datatype>
@@ -363,18 +344,16 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>Status</vodml-id>
     <name>Status</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Property representing a status defined by a integer number 
+that can only take on a defined number of values, each with its own description.
+Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>Status.status</vodml-id>
       <name>status</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Actual value of the status.</description>
       <datatype>
         <vodml-ref>ivoa:integer</vodml-ref>
       </datatype>
@@ -386,9 +365,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>Status.allowedValues</vodml-id>
       <name>allowedValues</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>List of the allowed values for the status. 
+Each value has its own textual description.</description>
       <datatype>
         <vodml-ref>mango:SatusValues</vodml-ref>
       </datatype>
@@ -402,18 +380,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>Label</vodml-id>
     <name>Label</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Free text label seen as a MANGO source property.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>Label.text</vodml-id>
       <name>text</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Text of label seen as a MANGO source property.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -427,18 +401,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>Shape</vodml-id>
     <name>Shape</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Description of the spatial extension of the MANGO source (for e.g. dust clouds).</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>Shape.shape</vodml-id>
       <name>shape</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>String serialization of the spatial extension of the MANGO source.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -450,9 +420,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>Shape.serialization</vodml-id>
       <name>serialization</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Serialization mode of the spatial extension of the MANGO entity</description>
       <datatype>
         <vodml-ref>mango:ShapeSerialization</vodml-ref>
       </datatype>
@@ -464,9 +432,10 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <reference>
       <vodml-id>Shape.coordSys</vodml-id>
       <name>coordSys</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Coordinate system the applies to the spatial extension of the MANGO source.
+This component is imported from the \texttt{coords} model (see \texttt{coords:SpaceSys}).
+
+</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
@@ -480,18 +449,17 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>PhotometricProperty</vodml-id>
     <name>PhotometricProperty</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Observed brightness of the MANGO source. 
+The distinction between fluxes of a magnitude is made by the unit.
+This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>PhotometricProperty.value</vodml-id>
       <name>value</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Value of the photometric property associated with a photometric calibration 
+as defined by the \texttt{PhotDM} model.</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -503,9 +471,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <reference>
       <vodml-id>PhotometricProperty.photCal</vodml-id>
       <name>photCal</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Photometric calibration that applies to the photometric property.
+It must be an instance of \texttt{photdm:PhotCal}.</description>
       <datatype>
         <vodml-ref>:PhotCal</vodml-ref>
       </datatype>
@@ -519,9 +486,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>PhysicalProperty</vodml-id>
     <name>PhysicalProperty</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Place holder for any quantity that can be hold by measure as defined in the 
+\texttt{Astronomical Measurements Model}.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
@@ -542,9 +508,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>PhysicalProperty.measure</vodml-id>
       <name>measure</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Instance of \texttt{Astronomical Measurements Model} that holds the Property value(s).
+</description>
       <datatype>
         <vodml-ref>meas:Measure</vodml-ref>
       </datatype>
@@ -558,18 +523,20 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>Color</vodml-id>
     <name>Color</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Photometric property describing a color of the MANGO source.
+color is not an intrinsic quantity of the MANGO source but a value 
+relative to two filters or energy bands.
+</description>
     <extends>
       <vodml-ref>mango:PhotometricProperty</vodml-ref>
     </extends>
     <composition>
       <vodml-id>Color.colorDef</vodml-id>
       <name>colorDef</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Color definition. 
+Can be either a  difference of magnitudes or an hardness ratio.
+
+</description>
       <datatype>
         <vodml-ref>mango:ColorDef</vodml-ref>
       </datatype>
@@ -583,9 +550,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>ColorDef</vodml-id>
     <name>ColorDef</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Definition of the colour to which the Color property applies.
+It contains the way the colour is calculated as well as the definition of the filters used.</description>
     <attribute>
       <vodml-id>ColorDef.definition</vodml-id>
       <name>definition</name>
@@ -603,9 +569,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>ColorDef.high</vodml-id>
       <name>high</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the highest energy for that color.
+</description>
       <datatype>
         <vodml-ref>:PhotFilter</vodml-ref>
       </datatype>
@@ -617,9 +582,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>ColorDef.low</vodml-id>
       <name>low</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the lowest energy for that color.
+</description>
       <datatype>
         <vodml-ref>:PhotFilter</vodml-ref>
       </datatype>
@@ -633,9 +597,10 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>BitField</vodml-id>
     <name>BitField</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>State of a property for which each value is represented by a bit so that several 
+states can be included in the same numerical value.
+The values defined in the associated StatusValues must correspond to bit patterns.
+This constraint is not managed by the model.</description>
     <extends>
       <vodml-ref>mango:Status</vodml-ref>
     </extends>
@@ -666,9 +631,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>StatusValue</vodml-id>
     <name>StatusValue</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>List of the allowed values for the status. 
+Each value has its own textual description.</description>
     <attribute>
       <vodml-id>StatusValue.value</vodml-id>
       <name>value</name>
@@ -702,16 +666,27 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>EpochPosition</vodml-id>
     <name>EpochPosition</name>
-    <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
+    <description>This class is a view of \texttt{Astronomical Coordinates and Coordinate
+Systems} components that have been put together to form a consistent description 
+of the position of an object moving over time. 
+It consists of a celestial position, a proper motion, a radial velocity 
+and a parallax. 
+All components share the same spatial coordinate system.
+
+\begin{itemize}
+   \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements.
+   \item The space coordinate system is imported from \texttt{coords:spaceSys}.
+\end{itemize}
+
+The error is specific to this class as it must support covariance and correlation between the components.
+</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>EpochPosition.longitude</vodml-id>
       <name>longitude</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -723,9 +698,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.latitude</vodml-id>
       <name>latitude</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lat}.</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -737,9 +710,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.parallax</vodml-id>
       <name>parallax</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>The measured parallax value in the coordinate system of the \texttt{EpochPosition} instance.
+</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -751,9 +723,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.radialVelocity</vodml-id>
       <name>radialVelocity</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>The measured Velocity value along of the radius axis (see texttt{meas:Velocity.coord}).
+</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -765,9 +736,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.pmLongitude</vodml-id>
       <name>pmLongitude</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+The current version of the model only allows a representation in the Polar coordinate space.
+</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -779,9 +750,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.pmLatitude</vodml-id>
       <name>pmLatitude</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+The current version of the model only allows a representation in the Polar coordinate space.
+</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -793,9 +764,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.epoch</vodml-id>
       <name>epoch</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
       <datatype>
         <vodml-ref>coords:Epoch</vodml-ref>
       </datatype>
@@ -807,9 +776,10 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPosition.pmCosDeltApplied</vodml-id>
       <name>pmCosDeltApplied</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied
+by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position.
+We do not constrain the value to one form or the other in this model. Instead, this flag enables
+providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat_applied})</description>
       <datatype>
         <vodml-ref>ivoa:boolean</vodml-ref>
       </datatype>
@@ -821,9 +791,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>EpochPosition.error</vodml-id>
       <name>error</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
       <datatype>
         <vodml-ref>mango:EpochPositionError</vodml-ref>
       </datatype>
@@ -835,9 +803,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <reference>
       <vodml-id>EpochPosition.coordSys</vodml-id>
       <name>coordSys</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
@@ -851,35 +817,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   <objectType>
     <vodml-id>EpochPositionError</vodml-id>
     <name>EpochPositionError</name>
-    <description>Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations.</description>
-    <composition>
-      <vodml-id>EpochPositionError.positionError</vodml-id>
-      <name>positionError</name>
-      <description>Error on the position (Longitude + Latitude). This error can be either an ellipse or a 2D matrix. These are the 2 cases supported by the model.</description>
-      <datatype>
-        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionError.pmError</vodml-id>
-      <name>pmError</name>
-      <description>Error on the proper motion (pmra, pmdec). This error can be either an ellipse or a 2D matrix. These are the 2 cases supported by the model.</description>
-      <datatype>
-        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
+    <description> Class for the error associated with an EpochPosition. 
+ The components of this class represent the errors of individual parameters 
+ as well as errors due to parameter correlations.
+</description>
     <composition>
       <vodml-id>EpochPositionError.parallaxError</vodml-id>
       <name>parallaxError</name>
-      <description>Parallax error. This error is meant to be symetrical.</description>
+      <description> Parallax error. This error is meant to be symmetrical</description>
       <datatype>
         <vodml-ref>mango:ErrorTypes.PropertyError1D</vodml-ref>
       </datatype>
@@ -891,7 +836,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <composition>
       <vodml-id>EpochPositionError.radialVelocityError</vodml-id>
       <name>radialVelocityError</name>
-      <description>Error in the radial velocity. This error is meant to be symetrical.</description>
+      <description />
       <datatype>
         <vodml-ref>mango:ErrorTypes.PropertyError1D</vodml-ref>
       </datatype>
@@ -904,9 +849,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <vodml-id>EpochPositionError.pmPosError</vodml-id>
       <name>pmPosError</name>
       <description>Correlated error between the proper motion and the position. This error is represented by a 2D matrix.
-$error_{propermotion} = f(position)$</description>
+$error(propermotion) = f(position)$</description>
       <datatype>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError_A2B2</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.Correlated22Error</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -917,9 +862,9 @@ $error_{propermotion} = f(position)$</description>
       <vodml-id>EpochPositionError.radialVelocityPosError</vodml-id>
       <name>radialVelocityPosError</name>
       <description>Correlated error between the radial velocity and the position. The radial velocity error might depend on the sky position.
-$error_{radialVelocity} = f(position)$</description>
+$error(radialVelocity) = f(position)$</description>
       <datatype>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.Correlated12Error</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -930,9 +875,9 @@ $error_{radialVelocity} = f(position)$</description>
       <vodml-id>EpochPositionError.parallaxPosError</vodml-id>
       <name>parallaxPosError</name>
       <description>Correlated error between the parallax and the position. The parallax error might depend on the sky position.
-$error_{parallax} = f(position)$</description>
+$error(parallax) = f(position)$</description>
       <datatype>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.Correlated12Error</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -942,10 +887,9 @@ $error_{parallax} = f(position)$</description>
     <composition>
       <vodml-id>EpochPositionError.parallaxPmError</vodml-id>
       <name>parallaxPmError</name>
-      <description>Correlated error between the parallax and the proper motion. The parallax error might depend on the proper motion vector.
-$error_{parallax} = f(properMotion)$</description>
+      <description>Correlated error between the parallax and the proper motion: $error(parallax) = f(properMotion)$</description>
       <datatype>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.Correlated12Error</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -961,7 +905,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>DataOrigin.citation</vodml-id>
       <name>citation</name>
-      <description>Dataset idnetifier that can be used for citation (e.g. DOI)</description>
+      <description>Dataset identifier that can be used for citation (e.g. DOI)</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -997,7 +941,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>DataOrigin.creator</vodml-id>
       <name>creator</name>
-      <description>Person(s) mainly involved in the creation of the resource, generally the author.</description>
+      <description>Person(s) mainly involved in the creation of the resource, generally the author</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1009,7 +953,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>DataOrigin.cites</vodml-id>
       <name>cites</name>
-      <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
+      <description>Identifier (IVOID, DOI or Bibcode) of a second Resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1021,7 +965,8 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>DataOrigin.is_derived_from</vodml-id>
       <name>is_derived_from</name>
-      <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
+      <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} 
+(\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1033,7 +978,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>DataOrigin.original_date</vodml-id>
       <name>original_date</name>
-      <description>Date of the original resource from which the MANGO source instance is derived</description>
+      <description>Date of the original resource from which the MANGO instance is derived</description>
       <datatype>
         <vodml-ref>ivoa:datetime</vodml-ref>
       </datatype>
@@ -1089,9 +1034,7 @@ $error_{parallax} = f(properMotion)$</description>
   <objectType>
     <vodml-id>QueryOrigin</vodml-id>
     <name>QueryOrigin</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Description of the query the MANGO instance results from.</description>
     <attribute>
       <vodml-id>QueryOrigin.ivoid</vodml-id>
       <name>ivoid</name>
@@ -1107,7 +1050,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>QueryOrigin.publisher</vodml-id>
       <name>publisher</name>
-      <description>Data center that produced the MANGOI source instance</description>
+      <description>Data center that produced the MANGO instance</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1119,8 +1062,8 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>QueryOrigin.server_software</vodml-id>
       <name>server_software</name>
-      <description>Version of the software the produced the MANO source instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
-</description>
+      <description>Version of the software the produced the MANO source instance. 
+It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1144,7 +1087,9 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>QueryOrigin.request</vodml-id>
       <name>request</name>
-      <description>Full request URL including a query string. For the simple protocols,put the url-encoded form of the query parameters. For TAP queries, use the /sync UWS URL. The format is free for others request types.</description>
+      <description>Full request URL including a query string. 
+For the simple protocols,put the url-encoded form of the query parameters. 
+For TAP queries, use the /sync UWS URL. The format is free for others request types.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1156,7 +1101,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>QueryOrigin.query</vodml-id>
       <name>query</name>
-      <description>Input query in a formal langage such as ADQL.</description>
+      <description>Input query in a formal langage such as ADQL.equest types</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1198,7 +1143,7 @@ $error_{parallax} = f(properMotion)$</description>
     <attribute>
       <vodml-id>License.rights_uri</vodml-id>
       <name>rights_uri</name>
-      <description>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</description>
+      <description />
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -1224,7 +1169,7 @@ $error_{parallax} = f(properMotion)$</description>
   <objectType>
     <vodml-id>Article</vodml-id>
     <name>Article</name>
-    <description>Reference article for the MANGO source</description>
+    <description>Reference article for the MANGO entity</description>
     <attribute>
       <vodml-id>Article.editor</vodml-id>
       <name>editor</name>
@@ -1259,117 +1204,372 @@ $error_{parallax} = f(properMotion)$</description>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-    <primitiveType>
+    <dataType>
       <vodml-id>ErrorTypes.DiagElems2x2</vodml-id>
       <name>DiagElems2x2</name>
       <description>Datatype containing the 2 diagonal elements of a 2x2 matrix. 
 Attributes are named $\sigma$ because this datatype is mostly used in the context of complex errors.</description>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.DiagElems2x2.sigma1</vodml-id>
+        <name>sigma1</name>
+        <description>Variance on the first axis.</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.DiagElems2x2.sigma2</vodml-id>
+        <name>sigma2</name>
+        <description>Variance on the second axis</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
+    <dataType abstract="true">
       <vodml-id>ErrorTypes.PropertyError</vodml-id>
       <name>PropertyError</name>
-      <description>Root (abstract) class of the errors that can be attached to a MA?GO property. The class inherit from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
-</description>
+      <description>Root (abstract) class of the errors that can be attached to a MA?GO property. 
+The class inherits from \texttt{meas:uncertainty} in order to be usable in the context 
+of properties based on \texttt{Measures} classes.</description>
       <extends>
         <vodml-ref>meas:Uncertainty</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.PropertyError.confidenceLevel</vodml-id>
+        <name>confidenceLevel</name>
+        <description>Confidence level of the error, expressed in $\sigma$</description>
+        <datatype>
+          <vodml-ref>ivoa:integer</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.PropertyError.unit</vodml-id>
+        <name>unit</name>
+        <description>Error unit. 
+It must be compliant with the \texttt{VOUnit} standard. 
+The error unit must be consistent with the unit of the property the error is attached with. 
+This is not checked at the model level.</description>
+        <datatype>
+          <vodml-ref>ivoa:Unit</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
+    <dataType>
       <vodml-id>ErrorTypes.PropertyError1D</vodml-id>
       <name>PropertyError1D</name>
-      <description>Symetrical error for 1D parameter.</description>
+      <description>Symetrical error for 1D parameters</description>
       <extends>
         <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.PropertyError1D.sigma</vodml-id>
+        <name>sigma</name>
+        <description />
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
-      <vodml-id>ErrorTypes.PropertyError2D</vodml-id>
-      <name>PropertyError2D</name>
-      <description>Super abstract class for the errors of 2D parameters such as the positions.</description>
+    <dataType>
+      <vodml-id>ErrorTypes.ErrorMatrix</vodml-id>
+      <name>ErrorMatrix</name>
+      <description>Error matrix for 2D quantities. 
+The matrix must be symetric.</description>
       <extends>
         <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.ErrorMatrix.sigma1</vodml-id>
+        <name>sigma1</name>
+        <description>First diagonal element ($(x_11)$)</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.ErrorMatrix.sigma2</vodml-id>
+        <name>sigma2</name>
+        <description>Second diagonal element ($(x_11)$)</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.ErrorMatrix.covariance</vodml-id>
+        <name>covariance</name>
+        <description>Covariance element ($(x_12)$ or $(x_21)$)</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
-      <vodml-id>ErrorTypes.DiagMatrix2x2</vodml-id>
-      <name>DiagMatrix2x2</name>
-      <description>Diagonal 2D  matrix. Non diagonal elements are null.</description>
-      <extends>
-        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>ErrorTypes.CorrMatrix2x2</vodml-id>
-      <name>CorrMatrix2x2</name>
-      <description>Symetrical 2D matrix. Both non diagonbal elements are meant to have the same value.</description>
-      <extends>
-        <vodml-ref>mango:ErrorTypes.DiagMatrix2x2</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
+    <dataType>
       <vodml-id>ErrorTypes.Ellipse</vodml-id>
       <name>Ellipse</name>
-      <description>Elliptical errror for 2D parameters such as the sky positions.</description>
+      <description>Elliptical error for 2D parameters such as the sky positions.</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.PropertyError2D</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.Ellipse.semiMajorAxis</vodml-id>
+        <name>semiMajorAxis</name>
+        <description>Half of the ellipse major axis</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Ellipse.semiMinorAxis</vodml-id>
+        <name>semiMinorAxis</name>
+        <description>Half of the ellipse minor axis</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Ellipse.angle</vodml-id>
+        <name>angle</name>
+        <description>Angle between the North Polar Cape (NCP) and the major axis. 
+This angle must be positive taking into account that angles are positive from North to the East. 
+The angle has its own unit.</description>
+        <datatype>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
+    <dataType abstract="true">
       <vodml-id>ErrorTypes.CorrelatedError</vodml-id>
       <name>CorrelatedError</name>
-      <description>Abstract root class for the correlated errors. In the subclasses nomenclature the error relates to a property named \texttt{A} in correlation with a property named {B).</description>
+      <description>Abstract root class for the correlated errors. In the subclasses nomenclature 
+the error relates to a property named \texttt{A} in correlation with a property named {B).</description>
       <extends>
         <vodml-ref>meas:Uncertainty</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.CorrelatedError.ucd_B</vodml-id>
+        <name>ucd_B</name>
+        <description>Optional parameter giving the UCD of the correlated property.
+This attribute may facilitate the interpretation of complex error patterns.</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>0</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
-      <vodml-id>ErrorTypes.CorrelatedError_A1B2</vodml-id>
-      <name>CorrelatedError_A1B2</name>
-      <description>Error of a 1D property (A) correlated with a 2D parameter (B): $error\_A = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$</description>
+    <dataType>
+      <vodml-id>ErrorTypes.Correlated12Error</vodml-id>
+      <name>Correlated12Error</name>
+      <description>Error of a 1D property (A) correlated with a 2D parameter (B): 
+$error(A) = a1b1 * B_1 + a1b2 * B_2$</description>
       <extends>
         <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated12Error.a1b1</vodml-id>
+        <name>a1b1</name>
+        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} 
+to the error on the first axis of \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated12Error.a1b2</vodml-id>
+        <name>a1b2</name>
+        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to the error on \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
-      <vodml-id>ErrorTypes.CorrelatedError_A1B1</vodml-id>
-      <name>CorrelatedError_A1B1</name>
-      <description>Error of a 1D property (A) correlated with a 1D parameter (B): $error\_A = correlation\_A1B1 * value\_B$</description>
+    <dataType>
+      <vodml-id>ErrorTypes.Correlated11Error</vodml-id>
+      <name>Correlated11Error</name>
+      <description>Error of a 1D property (A) correlated with a 1D parameter (B): 
+$error(A) = a1b1 * B$</description>
       <extends>
         <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated11Error.a1b1</vodml-id>
+        <name>a1b1</name>
+        <description>Correlation coefficient giving the contribution of \texttt{B} 
+to the error on \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
-      <vodml-id>ErrorTypes.CorrelationError_A2B1</vodml-id>
-      <name>CorrelationError_A2B1</name>
+    <dataType>
+      <vodml-id>ErrorTypes.Correlated21Error</vodml-id>
+      <name>Correlated21Error</name>
       <description>Error of a 2D property (A) correlated with a 1D parameter (B): 
-$error\_A_1 = correlation\_A1B1 * value\_B$
-$error\_A_2 = correlation\_A12B1 * value\_B$</description>
+$error(A_1) = a11 * B$
+$error(A_2) = a21 * B$</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B1</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated21Error.a2b1</vodml-id>
+        <name>a2b1</name>
+        <description>Correlation coefficient giving the contribution of \texttt{B} 
+to the error on the second axis of \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated21Error.a1b1</vodml-id>
+        <name>a1b1</name>
+        <description>Correlation coefficient giving the contribution of \texttt{B} 
+to the error on the first axis of \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
-    <primitiveType>
-      <vodml-id>ErrorTypes.CorrelatedError_A2B2</vodml-id>
-      <name>CorrelatedError_A2B2</name>
+    <dataType>
+      <vodml-id>ErrorTypes.Correlated22Error</vodml-id>
+      <name>Correlated22Error</name>
       <description>Error of a 2D property (A) correlated with a 2D parameter (B): 
-$error\_A_1 = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$
-$error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$</description>
+$error(A_1) = a1b1 * value(B_1) +a1b2 * value(B_2)$
+$error(A_2) = a2b1 * value(B_1) +a1b2 * value(B_2)$
+</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError_A1B2</vodml-ref>
+        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
       </extends>
-    </primitiveType>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated22Error.a2b1</vodml-id>
+        <name>a2b1</name>
+        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to the error on the first axis of \texttt{A}.</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated22Error.a2b2</vodml-id>
+        <name>a2b2</name>
+        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to the error on the second axis of \texttt{A}.</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated22Error.a1b1</vodml-id>
+        <name>a1b1</name>
+        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} 
+to the error on the first axis of \texttt{A}.</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>ErrorTypes.Correlated22Error.a1b2</vodml-id>
+        <name>a1b2</name>
+        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to the error on the first axis of \texttt{A}.</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
 
   </package>
 
-</vo-dml:model>
+</ns0:model>

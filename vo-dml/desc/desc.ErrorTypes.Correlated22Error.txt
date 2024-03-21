@@ -1,0 +1,3 @@
+Error of a 2D property (A) correlated with a 2D parameter (B): 
+$error(A_1) = a1b1 * value(B_1) +a1b2 * value(B_2)$
+$error(A_2) = a2b1 * value(B_1) +a1b2 * value(B_2)$

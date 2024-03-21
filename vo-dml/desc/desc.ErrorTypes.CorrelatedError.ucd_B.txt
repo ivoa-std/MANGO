@@ -1,0 +1,2 @@
+Optional parameter giving the UCD of the correlated property.
+This attribute may facilitate the interpretation of complex error patterns.

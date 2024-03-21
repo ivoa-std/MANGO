@@ -1,0 +1,62 @@
+The ViaLactea Knowledge Base (VLKB, see \cite{2016SPIE.9913E..0HM}) is a set of data
+resources and services built up to study the star formation regions and
+processes in the Milky Way. Besides 2-D images and 3-D radial velocity
+cubes, the VLKB exposes a bunch of source catalogues. These catalogues
+can be categorised as:
+
+\begin{itemize}
+	\item compact sources catalogues: where each source can be simply
+described by position and (usually) ellipsoidal extension plus some
+photometric flux(es);
+	\item a band merged catalogue: where each source record combines the
+single band source of the previous type into a
+multi-center/multi-positional record;
+	\item diffuse objects of two types, bubbles and filaments, where the
+positional description cannot be simplified by a point in the sky and
+some geometric error/shape value.
+\end{itemize}
+
+The first type of catalogue presents only a small issue, related to the
+ellipsoidal description of the extension of the single records/sources.
+For these catalogues the ellipsoidal (or circular) counterpart of the position is not
+to be considered as a positional uncertainty, but actually some level of
+confidence on the actual extension of the source at the observed
+frequency band, thus, besides a position on the celestial sphere, a minor axis,
+a major axis and a positional angle are needed to describe the source.
+
+The band merged catalogue requires an extra step, that is the
+aggregagtion of multiple single band sources (potentially degenerate
+depending on the observational waveband) to be able to provide a sort
+of SED of the aggregated source.
+
+A different type of challenge is presented by filaments and bubbles
+where (not approximating bubbles to simple circles) the source
+morphology requires or a complex geometrical shape, like single or
+multiple polygons, or a description based on tessellation (where the
+order of the tessels should fit the resolution/uncertainty of the source
+borders). Moreover, while bubbles can be fully described by a centroid
+and a single complex (multi-)polygon or set of tessels, filaments are
+themselves complex objects such that their description includes
+so-called branches, spines and nodes (areas, broken-lines, points in
+spherical geometry).
+
+Thus, a model that supports description of such catalogues will need a
+way to describe sources with:
+\begin{itemize}
+	\item non-point-like positions;
+	\item extended complex area, possibly as multiple detached areas;
+	\item aggregation of sub-parts (that can be heterogeneous).
+\end{itemize}
+
+The VLKB tried\footnote{if you want to have a look at the plain
+content, there's a TAP service at
+http://vlkb.dev.neanias.eu:8080/vlkb/tap (http://saada.unistra.fr/taphandle?url=http\%3A//vlkb.dev.neanias.eu\%3A8080/vlkb/tap/) that can be accessed, even if
+not complete with descriptions nor registered} to describe, both by
+(custom) contour polygons and MOCs,
+the bubbles and filaments having the main use case of cross-matching or
+distance measuring diffuse objects w.r.t. compact sources. However, work
+progressend slowly and anyway the proper model annotations were never
+investigated properly.
+
+MANGO could be useful to serve nicely annotated and usable records for
+sources as the ones described above.

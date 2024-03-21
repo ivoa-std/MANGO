@@ -1,0 +1,1 @@
+Elliptical error for 2D parameters such as the sky positions.

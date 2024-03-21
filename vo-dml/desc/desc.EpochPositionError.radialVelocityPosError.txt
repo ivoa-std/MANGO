@@ -1,0 +1,2 @@
+Correlated error between the radial velocity and the position. The radial velocity error might depend on the sky position.
+$error(radialVelocity) = f(position)$

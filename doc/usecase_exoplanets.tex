@@ -1,0 +1,58 @@
+Annotation of (exo-)planetary records in catalogues requires some
+specific metadata or model.
+
+This was initially made clear when trying to
+allow discoverability of exoplanets time series
+(\cite{2020ASPC..522..703M}) where (exercising the
+ObsCore model with specific use cases) information like stellar host
+characteristics together with stellar system details turned out to be required for a
+proper description of the catalogue records.
+
+The use cases identified,
+besides some refinement needed in the ObsCore time axis annotation, the
+following metadata:
+\begin{itemize}
+	\item the degree of confidence in the detection: exoplanets candidates
+w.r.t. confirmed ones, plus last update of the record content ;
+	\item the method used in the discovery (since it affects the available
+stellar system description parameters);
+	\item a set of stellar host characteristics (besides sky coordinates):
+activity, mass, type,
+metallicity, age, some systemic values, like the global RV (radial
+velocity) of the system, and so on;
+	\item (exo-)planet parameters, like mass, orbital period, orbit's
+eccentricity, RV semi-amplitude, time at periastron (for RV detections)
+or central transit time (for transit method), longitude of periastron,
+and so on.
+\end{itemize}
+
+The scenario gained some further complexity, but also better stated the
+idea of modelling datasets and catalogue records in the (exo-)planetary
+systems subdomain, incorporating requirements from exoplanets atmosphere
+simulations and (first efforts) observations.
+
+Specific metadata additions were not specified exactly, but a draft model
+to describe stellar systems was developed, specifically trying to solve
+the issue in adding metadata elements to describing orbiting celestial
+objects (\cite{2019ASPC..523..597M}).
+
+The model identified the main concepts and classes as:
+\begin{itemize}
+	\item Celestial Object, typed/subclassed as: Star, Binary Star,
+Planet, Satellite, Brown Dwarf, Trojan, and so on;
+	\item Orbit, as the class keeping the information needed to describe
+the orbit of a couple (or more) Celestial Objects.
+\end{itemize}
+
+Specific (exo-)planets metadata included: atmosphere with molecular
+composition, bulk details (mass, radius, \ldots).
+
+A catalogue service that could make use of model metadata is the
+Exo-MerCat (\cite{2020A&C....3100370A}) catalogue (or the other available exoplanets'
+catalogues), already available in a VO-aware
+solution\footnote{ivo://ia2.inaf.it/catalogues/exomercat}, but using only
+simple UCD description of the exposed information.
+
+\TODO{mention the involved projects : examples ? GAPS, TESS? }
+\TODO{For GAPS I can add specifics later, if implementation can
+(re)start}

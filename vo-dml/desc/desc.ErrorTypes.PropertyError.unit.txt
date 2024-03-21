@@ -1,0 +1,4 @@
+Error unit. 
+It must be compliant with the \texttt{VOUnit} standard. 
+The error unit must be consistent with the unit of the property the error is attached with. 
+This is not checked at the model level.

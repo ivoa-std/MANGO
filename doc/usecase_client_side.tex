@@ -1,0 +1,40 @@
+Right now, the meta-data provided within the VOTable allow clients such Aladin or Topcat to run most 
+of the functionalities expected by the user, either for data analysis of plotting.
+This information is often guess from UCDs, UTypes or columns name. It can also be given by the user.
+Clients have no expectations of working with full model instances but in some cases models 
+can help to know how quantities in an input table relate to each other.
+In most cases this is for visualisation, e.g.:
+\begin{itemize}
+    \item what is the sky position for this row
+    (what columns contain latitude and longitude, and what sky system are they in)
+
+     \item what +/-ERR error bars should I plot for these points
+    (what column is a simple error for column A)
+
+    \item what error ellipses should I plot for these sky positions
+    (what columns provide ra\_error, dec\_error, ra\_dec\_corr,
+     or how can I derive those from columns that do exist)
+
+    \item where do I get the grid information for a column containing
+    a vector of samples so I can label the X axis of a spectrogram
+    (what column or parameter contains an axis vector matching
+     the sample vectors)
+
+    \item does this table contain sky positions, or HEALPix tiles, or both?
+    What's the best way to represent it on the sky?
+
+    \item What is the meaning of such URL found out in a table?s
+\end{itemize}
+
+But there are some other places too:
+\begin{itemize}
+    \item how do I propagate this sky position to a future epoch
+    (what columns contain pmra, pmdec, and maybe all the
+     associated errors and correlation coefficients)
+
+    \item what is the error ellipse/oid to use for a sky/Cartesian crossmatch
+    (what columns provide the relevant errors and, if available,
+     correlations)
+\end{itemize}
+
+This usage shows that MANGO must be designed in a way that individual measurements or quantities can be easily be identified as such and manipulated independently of the whole instance.

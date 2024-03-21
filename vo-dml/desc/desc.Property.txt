@@ -1,0 +1,2 @@
+Reference to a particular measure of the MANGO entity.
+This class is used to specify the type of the measure as well as its role.
