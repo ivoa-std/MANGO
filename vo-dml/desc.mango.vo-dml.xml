@@ -3,10 +3,10 @@
   <description>Data model based oon components and data association for source data</description>
   <uri />
   <title>Mango</title>
-  <author>Laurent Michel, Fran&#231;ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
+  <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-03-21T09:25:49</lastModified>
+  <lastModified>2024-04-04T09:16:54</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -77,7 +77,7 @@
     <literal>
       <vodml-id>CalibrationLevel.Instrumental</vodml-id>
       <name>Instrumental</name>
-      <description />
+      <description>Instrumental  data  in  a  standard  format  which could be manipulated with standard astronomical packages (ObsCore).</description>
     </literal>
     <literal>
       <vodml-id>CalibrationLevel.Calibrated</vodml-id>
@@ -98,7 +98,7 @@
     <literal>
       <vodml-id>ColorDefinition.HardnessRatio</vodml-id>
       <name>HardnessRatio</name>
-      <description />
+      <description>Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) /  (F_{EB2} + F_{EB1})$</description>
     </literal>
   </enumeration>
 
@@ -135,15 +135,16 @@ This was the case for the IUA vocabulary until the Registry WG introduced rewrit
   </dataType>
 
   <objectType>
-    <vodml-id>Source</vodml-id>
-    <name>Source</name>
+    <vodml-id>MangoObject</vodml-id>
+    <name>MangoObject</name>
     <description>Root class of the model. 
-MANGO instances are meant of be Source instances.
-A source is something with an identifier and two docks: one for the parameters and one for the associated data.</description>
+A MangoObject is something with an identifier and two docks: one for the parameters and one for the associated data.</description>
     <attribute>
-      <vodml-id>Source.identifier</vodml-id>
+      <vodml-id>MangoObject.identifier</vodml-id>
       <name>identifier</name>
-      <description />
+      <description>Unique identifier for a Source.
+The uniqueness of that identifier is not managed by the model.
+The format is free.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -153,7 +154,7 @@ A source is something with an identifier and two docks: one for the parameters a
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>Source.associatedDataDock</vodml-id>
+      <vodml-id>MangoObject.associatedDataDock</vodml-id>
       <name>associatedDataDock</name>
       <description>Collection f all data associated with the MANGO entity.</description>
       <datatype>
@@ -165,7 +166,7 @@ A source is something with an identifier and two docks: one for the parameters a
       </multiplicity>
     </composition>
     <composition>
-      <vodml-id>Source.propertyDock</vodml-id>
+      <vodml-id>MangoObject.propertyDock</vodml-id>
       <name>propertyDock</name>
       <description>Collection of all parameters attached to the MANGO entity.</description>
       <datatype>
@@ -177,12 +178,12 @@ A source is something with an identifier and two docks: one for the parameters a
       </multiplicity>
     </composition>
     <reference>
-      <vodml-id>Source.dataOrigin</vodml-id>
+      <vodml-id>MangoObject.dataOrigin</vodml-id>
       <name>dataOrigin</name>
       <description>Description of the origin of the MANGO object. 
 The parameters contained in this component come from the work of the DCP-IG.</description>
       <datatype>
-        <vodml-ref>mango:DataOrigin</vodml-ref>
+        <vodml-ref>mango:dataorigin.DataOrigin</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -269,9 +270,9 @@ by the LinkSemantic enumeration.
     <composition>
       <vodml-id>AssociatedMangoInstance.mangoInstance</vodml-id>
       <name>mangoInstance</name>
-      <description />
+      <description>Composition link pointing on one MANGO instance associated with the source.</description>
       <datatype>
-        <vodml-ref>mango:Source</vodml-ref>
+        <vodml-ref>mango:MangoObject</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -330,7 +331,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <reference>
       <vodml-id>Property.associatedProperties</vodml-id>
       <name>associatedProperties</name>
-      <description />
+      <description>&lt;Enter note text here&gt;</description>
       <datatype>
         <vodml-ref>mango:Property</vodml-ref>
       </datatype>
@@ -789,11 +790,23 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>EpochPosition.error</vodml-id>
-      <name>error</name>
-      <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
+      <vodml-id>EpochPosition.errors</vodml-id>
+      <name>errors</name>
+      <description>Error coefficients of the EpochPosition attributes</description>
       <datatype>
-        <vodml-ref>mango:EpochPositionError</vodml-ref>
+        <vodml-ref>mango:EpochPositionErrors</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
+    <composition>
+      <vodml-id>EpochPosition.correlations</vodml-id>
+      <name>correlations</name>
+      <description>Correlation coefficients between the EpochPosition attributes</description>
+      <datatype>
+        <vodml-ref>mango:EpochPositionCorrelations</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -815,18 +828,15 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
   </objectType>
 
   <objectType>
-    <vodml-id>EpochPositionError</vodml-id>
-    <name>EpochPositionError</name>
-    <description> Class for the error associated with an EpochPosition. 
- The components of this class represent the errors of individual parameters 
- as well as errors due to parameter correlations.
-</description>
+    <vodml-id>EpochPositionErrors</vodml-id>
+    <name>EpochPositionErrors</name>
+    <description>Class holder for the errors of the EpochPosition attributes</description>
     <composition>
-      <vodml-id>EpochPositionError.parallaxError</vodml-id>
-      <name>parallaxError</name>
+      <vodml-id>EpochPositionErrors.parallax</vodml-id>
+      <name>parallax</name>
       <description> Parallax error. This error is meant to be symmetrical</description>
       <datatype>
-        <vodml-ref>mango:ErrorTypes.PropertyError1D</vodml-ref>
+        <vodml-ref>mango:error.PropertyError1D</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -834,11 +844,11 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
       </multiplicity>
     </composition>
     <composition>
-      <vodml-id>EpochPositionError.radialVelocityError</vodml-id>
-      <name>radialVelocityError</name>
-      <description />
+      <vodml-id>EpochPositionErrors.radialVelocity</vodml-id>
+      <name>radialVelocity</name>
+      <description>Error in the radial velocity. This error is meant to be symmetrical</description>
       <datatype>
-        <vodml-ref>mango:ErrorTypes.PropertyError1D</vodml-ref>
+        <vodml-ref>mango:error.PropertyError1D</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -846,406 +856,120 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
       </multiplicity>
     </composition>
     <composition>
-      <vodml-id>EpochPositionError.pmPosError</vodml-id>
-      <name>pmPosError</name>
-      <description>Correlated error between the proper motion and the position. This error is represented by a 2D matrix.
-$error(propermotion) = f(position)$</description>
-      <datatype>
-        <vodml-ref>mango:ErrorTypes.Correlated22Error</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionError.radialVelocityPosError</vodml-id>
-      <name>radialVelocityPosError</name>
-      <description>Correlated error between the radial velocity and the position. The radial velocity error might depend on the sky position.
-$error(radialVelocity) = f(position)$</description>
-      <datatype>
-        <vodml-ref>mango:ErrorTypes.Correlated12Error</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionError.parallaxPosError</vodml-id>
-      <name>parallaxPosError</name>
-      <description>Correlated error between the parallax and the position. The parallax error might depend on the sky position.
-$error(parallax) = f(position)$</description>
-      <datatype>
-        <vodml-ref>mango:ErrorTypes.Correlated12Error</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionError.parallaxPmError</vodml-id>
-      <name>parallaxPmError</name>
-      <description>Correlated error between the parallax and the proper motion: $error(parallax) = f(properMotion)$</description>
-      <datatype>
-        <vodml-ref>mango:ErrorTypes.Correlated12Error</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-  </objectType>
-
-  <objectType>
-    <vodml-id>DataOrigin</vodml-id>
-    <name>DataOrigin</name>
-    <description>Class representing the origin of the data following the DCP note (TBD)</description>
-    <attribute>
-      <vodml-id>DataOrigin.citation</vodml-id>
-      <name>citation</name>
-      <description>Dataset identifier that can be used for citation (e.g. DOI)</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>DataOrigin.reference_url</vodml-id>
-      <name>reference_url</name>
-      <description>Dataset landing page</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>DataOrigin.resource_version</vodml-id>
-      <name>resource_version</name>
-      <description>Dataset version</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>DataOrigin.creator</vodml-id>
-      <name>creator</name>
-      <description>Person(s) mainly involved in the creation of the resource, generally the author</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>DataOrigin.cites</vodml-id>
-      <name>cites</name>
-      <description>Identifier (IVOID, DOI or Bibcode) of a second Resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>DataOrigin.is_derived_from</vodml-id>
-      <name>is_derived_from</name>
-      <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} 
-(\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>DataOrigin.original_date</vodml-id>
-      <name>original_date</name>
-      <description>Date of the original resource from which the MANGO instance is derived</description>
-      <datatype>
-        <vodml-ref>ivoa:datetime</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <reference>
-      <vodml-id>DataOrigin.query</vodml-id>
-      <name>query</name>
+      <vodml-id>EpochPositionErrors.position</vodml-id>
+      <name>position</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:QueryOrigin</vodml-ref>
+        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </reference>
-    <reference>
-      <vodml-id>DataOrigin.rights</vodml-id>
-      <name>rights</name>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionErrors.properMotion</vodml-id>
+      <name>properMotion</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:License</vodml-ref>
+        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </reference>
-    <reference>
-      <vodml-id>DataOrigin.article</vodml-id>
-      <name>article</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    </composition>
+  </objectType>
+
+  <objectType>
+    <vodml-id>EpochPositionCorrelations</vodml-id>
+    <name>EpochPositionCorrelations</name>
+    <description>Class holder for the correlation coefficients between the EpochPosition attributes</description>
+    <composition>
+      <vodml-id>EpochPositionCorrelations.positionPm</vodml-id>
+      <name>positionPm</name>
+      <description>  Matrix of the correlation between the position and the proper motion</description>
       <datatype>
-        <vodml-ref>mango:Article</vodml-ref>
+        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </reference>
-  </objectType>
-
-  <objectType>
-    <vodml-id>QueryOrigin</vodml-id>
-    <name>QueryOrigin</name>
-    <description>Description of the query the MANGO instance results from.</description>
-    <attribute>
-      <vodml-id>QueryOrigin.ivoid</vodml-id>
-      <name>ivoid</name>
-      <description>IVOID of the underlying data collection</description>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionCorrelations.parallaxPm</vodml-id>
+      <name>parallaxPm</name>
+      <description> Matrix of the correlation between the parallax and the proper motion</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>mango:correlation.Correlation12</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.publisher</vodml-id>
-      <name>publisher</name>
-      <description>Data center that produced the MANGO instance</description>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionCorrelations.positionParallax</vodml-id>
+      <name>positionParallax</name>
+      <description> Matrix of the correlation between the position and the parallax</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>mango:correlation.Correlation21</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.server_software</vodml-id>
-      <name>server_software</name>
-      <description>Version of the software the produced the MANO source instance. 
-It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.</description>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionCorrelations.positionPosition</vodml-id>
+      <name>positionPosition</name>
+      <description>  Matrix of the self correlation of the position</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.service_protocol</vodml-id>
-      <name>service_protocol</name>
-      <description>IVOID of the protocol through which the data was retrieved</description>
+    </composition>
+    <composition>
+      <vodml-id>EpochPositionCorrelations.properMotionPm</vodml-id>
+      <name>properMotionPm</name>
+      <description>  Matrix of the self correlation of the proper motion</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.request</vodml-id>
-      <name>request</name>
-      <description>Full request URL including a query string. 
-For the simple protocols,put the url-encoded form of the query parameters. 
-For TAP queries, use the /sync UWS URL. The format is free for others request types.</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.query</vodml-id>
-      <name>query</name>
-      <description>Input query in a formal langage such as ADQL.equest types</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.request_date</vodml-id>
-      <name>request_date</name>
-      <description>Query execution date</description>
-      <datatype>
-        <vodml-ref>ivoa:datetime</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>QueryOrigin.contact</vodml-id>
-      <name>contact</name>
-      <description>Email or URL to contact the publisher</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-  </objectType>
-
-  <objectType>
-    <vodml-id>License</vodml-id>
-    <name>License</name>
-    <description>Place holder for the license covering the MANGO instance</description>
-    <attribute>
-      <vodml-id>License.rights_uri</vodml-id>
-      <name>rights_uri</name>
-      <description />
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>License.rights</vodml-id>
-      <name>rights</name>
-      <description>License or Copyright text</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-  </objectType>
-
-  <objectType>
-    <vodml-id>Article</vodml-id>
-    <name>Article</name>
-    <description>Reference article for the MANGO entity</description>
-    <attribute>
-      <vodml-id>Article.editor</vodml-id>
-      <name>editor</name>
-      <description>Article editor name</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>Article.article</vodml-id>
-      <name>article</name>
-      <description>Bibcode or DOI of the reference article</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
+    </composition>
   </objectType>
 
 
 
   <package>
-    <vodml-id>ErrorTypes</vodml-id>
-    <name>ErrorTypes</name>
+    <vodml-id>error</vodml-id>
+    <name>error</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-    <dataType>
-      <vodml-id>ErrorTypes.DiagElems2x2</vodml-id>
-      <name>DiagElems2x2</name>
-      <description>Datatype containing the 2 diagonal elements of a 2x2 matrix. 
-Attributes are named $\sigma$ because this datatype is mostly used in the context of complex errors.</description>
-      <attribute>
-        <vodml-id>ErrorTypes.DiagElems2x2.sigma1</vodml-id>
-        <name>sigma1</name>
-        <description>Variance on the first axis.</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>ErrorTypes.DiagElems2x2.sigma2</vodml-id>
-        <name>sigma2</name>
-        <description>Variance on the second axis</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
     <dataType abstract="true">
-      <vodml-id>ErrorTypes.PropertyError</vodml-id>
+      <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
-      <description>Root (abstract) class of the errors that can be attached to a MA?GO property. 
+      <description>Root (abstract) class of the errors that can be attached to a MANGO property. 
 The class inherits from \texttt{meas:uncertainty} in order to be usable in the context 
 of properties based on \texttt{Measures} classes.</description>
       <extends>
         <vodml-ref>meas:Uncertainty</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.PropertyError.confidenceLevel</vodml-id>
+        <vodml-id>error.PropertyError.confidenceLevel</vodml-id>
         <name>confidenceLevel</name>
         <description>Confidence level of the error, expressed in $\sigma$</description>
         <datatype>
@@ -1257,7 +981,7 @@ of properties based on \texttt{Measures} classes.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.PropertyError.unit</vodml-id>
+        <vodml-id>error.PropertyError.unit</vodml-id>
         <name>unit</name>
         <description>Error unit. 
 It must be compliant with the \texttt{VOUnit} standard. 
@@ -1274,16 +998,16 @@ This is not checked at the model level.</description>
     </dataType>
 
     <dataType>
-      <vodml-id>ErrorTypes.PropertyError1D</vodml-id>
+      <vodml-id>error.PropertyError1D</vodml-id>
       <name>PropertyError1D</name>
       <description>Symetrical error for 1D parameters</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.PropertyError1D.sigma</vodml-id>
+        <vodml-id>error.PropertyError1D.sigma</vodml-id>
         <name>sigma</name>
-        <description />
+        <description>Error amplitude.</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1295,17 +1019,17 @@ This is not checked at the model level.</description>
     </dataType>
 
     <dataType>
-      <vodml-id>ErrorTypes.ErrorMatrix</vodml-id>
+      <vodml-id>error.ErrorMatrix</vodml-id>
       <name>ErrorMatrix</name>
       <description>Error matrix for 2D quantities. 
 The matrix must be symetric.</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
+        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.ErrorMatrix.sigma1</vodml-id>
+        <vodml-id>error.ErrorMatrix.sigma1</vodml-id>
         <name>sigma1</name>
-        <description>First diagonal element ($(x_11)$)</description>
+        <description>First diagonal element ($(x_{11})$)</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1315,9 +1039,9 @@ The matrix must be symetric.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.ErrorMatrix.sigma2</vodml-id>
+        <vodml-id>error.ErrorMatrix.sigma2</vodml-id>
         <name>sigma2</name>
-        <description>Second diagonal element ($(x_11)$)</description>
+        <description>Second diagonal element ($(x_{11})$)</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1327,11 +1051,23 @@ The matrix must be symetric.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.ErrorMatrix.covariance</vodml-id>
+        <vodml-id>error.ErrorMatrix.covariance</vodml-id>
         <name>covariance</name>
-        <description>Covariance element ($(x_12)$ or $(x_21)$)</description>
+        <description>Covariance element ($(x_{12})$ or $(x_{21})$)</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>error.ErrorMatrix.isCovariance</vodml-id>
+        <name>isCovariance</name>
+        <description>Boolean flag telling whether the error elements must be interpreted as covariance or matrix elements.</description>
+        <datatype>
+          <vodml-ref>ivoa:boolean</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1341,14 +1077,14 @@ The matrix must be symetric.</description>
     </dataType>
 
     <dataType>
-      <vodml-id>ErrorTypes.Ellipse</vodml-id>
+      <vodml-id>error.Ellipse</vodml-id>
       <name>Ellipse</name>
       <description>Elliptical error for 2D parameters such as the sky positions.</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.PropertyError</vodml-ref>
+        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.Ellipse.semiMajorAxis</vodml-id>
+        <vodml-id>error.Ellipse.semiMajorAxis</vodml-id>
         <name>semiMajorAxis</name>
         <description>Half of the ellipse major axis</description>
         <datatype>
@@ -1360,7 +1096,7 @@ The matrix must be symetric.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.Ellipse.semiMinorAxis</vodml-id>
+        <vodml-id>error.Ellipse.semiMinorAxis</vodml-id>
         <name>semiMinorAxis</name>
         <description>Half of the ellipse minor axis</description>
         <datatype>
@@ -1372,7 +1108,7 @@ The matrix must be symetric.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.Ellipse.angle</vodml-id>
+        <vodml-id>error.Ellipse.angle</vodml-id>
         <name>angle</name>
         <description>Angle between the North Polar Cape (NCP) and the major axis. 
 This angle must be positive taking into account that angles are positive from North to the East. 
@@ -1388,20 +1124,70 @@ The angle has its own unit.</description>
     </dataType>
 
     <dataType abstract="true">
-      <vodml-id>ErrorTypes.CorrelatedError</vodml-id>
-      <name>CorrelatedError</name>
-      <description>Abstract root class for the correlated errors. In the subclasses nomenclature 
-the error relates to a property named \texttt{A} in correlation with a property named {B).</description>
+      <vodml-id>error.PropertyError2D</vodml-id>
+      <name>PropertyError2D</name>
+      <description>Super (abstract) class for all errors of 2D parameters</description>
       <extends>
-        <vodml-ref>meas:Uncertainty</vodml-ref>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </extends>
+    </dataType>
+
+  </package>
+
+
+
+  <package>
+    <vodml-id>correlation</vodml-id>
+    <name>correlation</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <dataType>
+      <vodml-id>correlation.Correlation12</vodml-id>
+      <name>Correlation12</name>
+      <description>Correlation of a 1D property (A) with a 2D parameter (B): 
+$A = a1b1 * B_1 + a12 * B_2$</description>
+      <extends>
+        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.CorrelatedError.ucd_B</vodml-id>
-        <name>ucd_B</name>
-        <description>Optional parameter giving the UCD of the correlated property.
-This attribute may facilitate the interpretation of complex error patterns.</description>
+        <vodml-id>correlation.Correlation12.a1b1</vodml-id>
+        <name>a1b1</name>
+        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} 
+to  \texttt{A}</description>
         <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>correlation.Correlation12.a1b2</vodml-id>
+        <name>a1b2</name>
+        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType abstract="true">
+      <vodml-id>correlation.QuantityCorrelation</vodml-id>
+      <name>QuantityCorrelation</name>
+      <description>Abstract type for the correlation parameters of 2 quantities</description>
+      <attribute>
+        <vodml-id>correlation.QuantityCorrelation.isCovariance</vodml-id>
+        <name>isCovariance</name>
+        <description>Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.</description>
+        <datatype>
+          <vodml-ref>ivoa:boolean</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>
@@ -1411,31 +1197,18 @@ This attribute may facilitate the interpretation of complex error patterns.</des
     </dataType>
 
     <dataType>
-      <vodml-id>ErrorTypes.Correlated12Error</vodml-id>
-      <name>Correlated12Error</name>
-      <description>Error of a 1D property (A) correlated with a 2D parameter (B): 
-$error(A) = a1b1 * B_1 + a1b2 * B_2$</description>
+      <vodml-id>correlation.Correlation11</vodml-id>
+      <name>Correlation11</name>
+      <description>Correlation of a 1D property (A) with a 1D parameter (B): 
+$A = a1b1 * B$</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
+        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.Correlated12Error.a1b1</vodml-id>
+        <vodml-id>correlation.Correlation11.a1b1</vodml-id>
         <name>a1b1</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} 
-to the error on the first axis of \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>ErrorTypes.Correlated12Error.a1b2</vodml-id>
-        <name>a1b2</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the error on \texttt{A}</description>
+        <description>Correlation coefficient giving the contribution of \texttt{B} 
+to \texttt{A}</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1447,80 +1220,19 @@ to the error on \texttt{A}</description>
     </dataType>
 
     <dataType>
-      <vodml-id>ErrorTypes.Correlated11Error</vodml-id>
-      <name>Correlated11Error</name>
-      <description>Error of a 1D property (A) correlated with a 1D parameter (B): 
-$error(A) = a1b1 * B$</description>
+      <vodml-id>correlation.Correlation22</vodml-id>
+      <name>Correlation22</name>
+      <description>Correlation of a 2D property (A) with a 2D parameter (B): 
+$A_1 = a11 * B_1 +  a12 * B_2 $
+$A_2 = a21 * B_1 +  a22 * B_2 $</description>
       <extends>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
+        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>ErrorTypes.Correlated11Error.a1b1</vodml-id>
-        <name>a1b1</name>
-        <description>Correlation coefficient giving the contribution of \texttt{B} 
-to the error on \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>ErrorTypes.Correlated21Error</vodml-id>
-      <name>Correlated21Error</name>
-      <description>Error of a 2D property (A) correlated with a 1D parameter (B): 
-$error(A_1) = a11 * B$
-$error(A_2) = a21 * B$</description>
-      <extends>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>ErrorTypes.Correlated21Error.a2b1</vodml-id>
-        <name>a2b1</name>
-        <description>Correlation coefficient giving the contribution of \texttt{B} 
-to the error on the second axis of \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>ErrorTypes.Correlated21Error.a1b1</vodml-id>
-        <name>a1b1</name>
-        <description>Correlation coefficient giving the contribution of \texttt{B} 
-to the error on the first axis of \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>ErrorTypes.Correlated22Error</vodml-id>
-      <name>Correlated22Error</name>
-      <description>Error of a 2D property (A) correlated with a 2D parameter (B): 
-$error(A_1) = a1b1 * value(B_1) +a1b2 * value(B_2)$
-$error(A_2) = a2b1 * value(B_1) +a1b2 * value(B_2)$
-</description>
-      <extends>
-        <vodml-ref>mango:ErrorTypes.CorrelatedError</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>ErrorTypes.Correlated22Error.a2b1</vodml-id>
+        <vodml-id>correlation.Correlation22.a2b1</vodml-id>
         <name>a2b1</name>
         <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the error on the first axis of \texttt{A}.</description>
+to the first axis of \texttt{A}.</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1530,10 +1242,10 @@ to the error on the first axis of \texttt{A}.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.Correlated22Error.a2b2</vodml-id>
+        <vodml-id>correlation.Correlation22.a2b2</vodml-id>
         <name>a2b2</name>
         <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the error on the second axis of \texttt{A}.</description>
+to the second axis of \texttt{A}.</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1543,10 +1255,10 @@ to the error on the second axis of \texttt{A}.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.Correlated22Error.a1b1</vodml-id>
+        <vodml-id>correlation.Correlation22.a1b1</vodml-id>
         <name>a1b1</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} 
-to the error on the first axis of \texttt{A}.</description>
+to the first axis of \texttt{A}.</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1556,10 +1268,10 @@ to the error on the first axis of \texttt{A}.</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>ErrorTypes.Correlated22Error.a1b2</vodml-id>
+        <vodml-id>correlation.Correlation22.a1b2</vodml-id>
         <name>a1b2</name>
         <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the error on the first axis of \texttt{A}.</description>
+to the first axis of \texttt{A}.</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1569,6 +1281,351 @@ to the error on the first axis of \texttt{A}.</description>
         </multiplicity>
       </attribute>
     </dataType>
+
+    <dataType>
+      <vodml-id>correlation.Correlation21</vodml-id>
+      <name>Correlation21</name>
+      <description>Correlation of a 2D property (A) with a 1D parameter (B): 
+$A_1 = a11 * B$
+$A_2 = a21 * B$</description>
+      <extends>
+        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>correlation.Correlation21.a2b1</vodml-id>
+        <name>a2b1</name>
+        <description>Correlation coefficient giving the contribution of \texttt{B} 
+to the second axis of \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>correlation.Correlation21.a1b1</vodml-id>
+        <name>a1b1</name>
+        <description>Correlation coefficient giving the contribution of \texttt{B} 
+to the first axis of \texttt{A}</description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+  </package>
+
+
+
+  <package>
+    <vodml-id>dataorigin</vodml-id>
+    <name>dataorigin</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <objectType>
+      <vodml-id>dataorigin.DataOrigin</vodml-id>
+      <name>DataOrigin</name>
+      <description>Class representing the origin of the data following the DCP note (TBD)</description>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.citation</vodml-id>
+        <name>citation</name>
+        <description>Dataset identifier that can be used for citation (e.g. DOI)</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.reference_url</vodml-id>
+        <name>reference_url</name>
+        <description>Dataset landing page</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.resource_version</vodml-id>
+        <name>resource_version</name>
+        <description>Dataset version</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.creator</vodml-id>
+        <name>creator</name>
+        <description>Person(s) mainly involved in the creation of the resource, generally the author</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.cites</vodml-id>
+        <name>cites</name>
+        <description>Identifier (IVOID, DOI or Bibcode) of a second Resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.is_derived_from</vodml-id>
+        <name>is_derived_from</name>
+        <description>Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} 
+(\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.DataOrigin.original_date</vodml-id>
+        <name>original_date</name>
+        <description>Date of the original resource from which the MANGO instance is derived</description>
+        <datatype>
+          <vodml-ref>ivoa:datetime</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <reference>
+        <vodml-id>dataorigin.DataOrigin.query</vodml-id>
+        <name>query</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:dataorigin.QueryOrigin</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>0</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </reference>
+      <reference>
+        <vodml-id>dataorigin.DataOrigin.rights</vodml-id>
+        <name>rights</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:dataorigin.License</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>0</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </reference>
+      <reference>
+        <vodml-id>dataorigin.DataOrigin.article</vodml-id>
+        <name>article</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>mango:dataorigin.Article</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>0</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </reference>
+    </objectType>
+
+    <objectType>
+      <vodml-id>dataorigin.Article</vodml-id>
+      <name>Article</name>
+      <description>Reference article for the MANGO entity</description>
+      <attribute>
+        <vodml-id>dataorigin.Article.editor</vodml-id>
+        <name>editor</name>
+        <description>Article editor name</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.Article.article</vodml-id>
+        <name>article</name>
+        <description>Bibcode or DOI of the reference article</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>dataorigin.QueryOrigin</vodml-id>
+      <name>QueryOrigin</name>
+      <description>Description of the query the MANGO instance results from.</description>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.ivoid</vodml-id>
+        <name>ivoid</name>
+        <description>IVOID of the underlying data collection</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.publisher</vodml-id>
+        <name>publisher</name>
+        <description>Data center that produced the MANGO instance</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.server_software</vodml-id>
+        <name>server_software</name>
+        <description>Version of the software the produced the MANO source instance. 
+It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.service_protocol</vodml-id>
+        <name>service_protocol</name>
+        <description>IVOID of the protocol through which the data was retrieved</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.request</vodml-id>
+        <name>request</name>
+        <description>Full request URL including a query string. 
+For the simple protocols,put the url-encoded form of the query parameters. 
+For TAP queries, use the /sync UWS URL. The format is free for others request types.</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.query</vodml-id>
+        <name>query</name>
+        <description>Input query in a formal langage such as ADQL.equest types</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.request_date</vodml-id>
+        <name>request_date</name>
+        <description>Query execution date</description>
+        <datatype>
+          <vodml-ref>ivoa:datetime</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.QueryOrigin.contact</vodml-id>
+        <name>contact</name>
+        <description>Email or URL to contact the publisher</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
+
+    <objectType>
+      <vodml-id>dataorigin.License</vodml-id>
+      <name>License</name>
+      <description>Place holder for the license covering the MANGO instance</description>
+      <attribute>
+        <vodml-id>dataorigin.License.rights_uri</vodml-id>
+        <name>rights_uri</name>
+        <description>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>dataorigin.License.rights</vodml-id>
+        <name>rights</name>
+        <description>License or Copyright text</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </objectType>
 
   </package>
 
