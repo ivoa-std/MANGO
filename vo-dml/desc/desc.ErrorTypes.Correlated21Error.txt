@@ -1,3 +1,0 @@
-Error of a 2D property (A) correlated with a 1D parameter (B): 
-$error(A_1) = a11 * B$
-$error(A_2) = a21 * B$

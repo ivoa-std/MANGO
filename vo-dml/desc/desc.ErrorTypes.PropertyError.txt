@@ -1,3 +1,0 @@
-Root (abstract) class of the errors that can be attached to a MA?GO property. 
-The class inherits from \texttt{meas:uncertainty} in order to be usable in the context 
-of properties based on \texttt{Measures} classes.

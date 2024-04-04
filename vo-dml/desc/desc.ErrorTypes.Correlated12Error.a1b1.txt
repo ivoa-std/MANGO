@@ -1,2 +1,0 @@
-Correlation coefficient giving the contribution of the first axis of \texttt{B} 
-to the error on the first axis of \texttt{A}

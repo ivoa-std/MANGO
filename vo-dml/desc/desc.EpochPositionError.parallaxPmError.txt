@@ -1,1 +1,0 @@
-Correlated error between the parallax and the proper motion: $error(parallax) = f(properMotion)$

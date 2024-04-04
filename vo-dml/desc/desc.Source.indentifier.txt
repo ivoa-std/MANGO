@@ -1,3 +1,0 @@
-Unique identifier for a Source.
-The uniqueness of that identifier is not managed by the model.
-The format is free.

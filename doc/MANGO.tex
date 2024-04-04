@@ -206,6 +206,7 @@ velocity) of the system, and so on;
 eccentricity, RV semi-amplitude, time at periastron (for RV detections)
 or central transit time (for transit method), longitude of periastron,
 and so on.
+\end{itemize}
 
 
 \subsubsection{Morphologically Complex Structures}
@@ -458,44 +459,38 @@ The notion of associated data relates to any sort of complex data. This can be a
 \end{figure}
 
 
-Sky objects are represented by instances of the class \texttt{MangoObject} which has only one mandatory attribute, the source \texttt{identifier}.
+Sky objects are represented by instances of the class \texttt{MangoObject} which has only one mandatory attribute,
+the source \texttt{identifier}.
 It is recommended the identifiers to be unique within a source collection e.g. a catalog.
 
-The \texttt{MangoObject} is a dock for all source parameters and for all data associated to that source.
-The pattern of either parameters or associated data attached to a source is not specified by the model. It depends of the data set on which the model is applied.
+The \texttt{MangoObject} is a dock for all source properties and for all data associated to that object.
+The pattern of either parameters or associated data attached to a source is not specified by the model.
+It depends of the data set on which the model is applied.
 
-The \texttt{MangoObject} has one connector for the parameters,  the \texttt{parameters} relation, and another for the associatedData, the  \texttt{associatedData}  relations.
+The \texttt{MangoObject} has one connector for the parameters, the \texttt{parameters} relation,
+and another for the associatedData, the  \texttt{associatedData}  relations.
 Both connectors have an open-ended cardinality.
 
-Each source parameter is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Parameter} ) that contains anything necessary to identify both its nature and its role.
+Each source property is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Property} )
+that contains anything necessary to identify both its nature and its role.
 
-Parameters can be linked together to represent logical parameter sets. These logical sets have no semantic. Their interpretation is in charge  of the clients.
+Properties can be linked together to represent logical parameter sets. 
+These logical sets have no semantic. Their interpretation is in charge of the clients.
 
-Each associated data or data pointer is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{AssociatedData}) that contains anything necessary to identify its nature and its role.
+Each associated data or data pointer is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{AssociatedData})
+that contains anything necessary to identify its nature and its role.
 
-\subsection{Parameters}
+\subsection{Properties}
 
-\texttt{Parameter}  connectors are used to bind measures with the source.
-A parameters is composed  by semantic tags in addition to the measure itself, instance of \texttt{Measure}.
-
- \texttt{Measure} is an abstract class imported from \texttt{meas} model.
-Concrete classes referenced by a \texttt{Parameter} instances are either \texttt{meas}  built-in classes or  \texttt{Measure} sub-classes being part of Mango.
+\TODO{describe what properties are}
 
 \subsubsection{Parameters Identification}
-As the parameter set  attached to a particular instance is not defined by Mango, the model must provide an accurate parameter description to allow the client to figure out what it can do with each of them.
-Mango provides 5 description levels for each parameter:
+As the property set  attached to a particular instance is not defined by Mango,
+the model must provide an accurate parameter description to allow the client to figure
+out what it can do with each of them.
+Mango provides 5 description levels for each property:
 
 \begin{itemize}
-    \item \textbf{Measure class (vodml type)}: measures are modelled by specific  \texttt{Measure} sub-classes.
-              Knowing that class tells the clients  how to interpret the corresponding measure but does not help much to get its role e.g. a position can be either a source position or a pointing direction.
-              Furthermore, unusual measures e.g. magnetic field,  are represented by  \texttt{GenericMeasure} .
-              In that case, the vodml type does not help at all.
-    \item \textbf{UCD}: A valid UCD must be attached to each parameter.
-              Mango provides a UCD space for each \texttt{Measure} sub-class .
-              UCDs used for specific measures must be compliant with table \ref{tab:ucds}.
-              For generic measures, the UCD choice is in charge of the data provider.
-              In any cases, the consistance between UCDs and measure is the responsibility of the data provider.
-
     \item \textbf{Reduction status (model enumeration)}: A reduction level of the parameter (e.g. a parameter can be calibrated or not or it can be a computed qualifier) may be attached to the parameter.
     \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. The choice of that vocabulary is totally free as long as it is published.
     \item \textbf{Description}: A free text description may be attached to each parameter.
@@ -514,63 +509,47 @@ Mango provides 5 description levels for each parameter:
        \hline  \texttt{Proper motion}    & Measure & pos.pm    \\
        \hline  \texttt{Time}                   & Measure &  time.epoch   \\
        \hline  \texttt{Polarization}         & Measure & phys.polarization \\
-       \hline  \texttt{LonLatSkyPosition}    &  MANGO  &  pos.eq \\
+       \hline  \texttt{EpochPosition}    &  MANGO  &  pos.eq \\
        \hline  \texttt{Redshift}                        &  MANGO  & src.redshift \\
        \hline  \texttt{Photometry}                    &  MANGO  & phot.* \\
-       \hline  \texttt{HardnessRatio}             &  MANGO  & phot.flux;arith.ratio \\
+       \hline  \texttt{Color}             &  MANGO  & phot.flux;arith.ratio \\
        \hline  \texttt{Shape}                     &  MANGO  & phys.area \\
        \hline  \texttt{Flag}                        &  MANGO  & meta.code  \\
-       \hline  \texttt{Orbit}                       &  MANGO  & src.orbital \\
-       \hline  \texttt{GenericStringMeasure }    &  MANGO  &  Appropriate UCD \\
-       \hline  \texttt{GenericVocabMeasure }    &  MANGO  &  Appropriate UCD \\
+       \hline  \texttt{Status}                        &  MANGO  & meta.code  \\
        \hline
      \end{tabulary}
      \caption{ UCDs space to be used for the supported measures}
      \label{tab:ucds}
  \end{table}
 
-
-
-\subsubsection{Measure Extension}
-
-All \texttt{Measure} classes are built upon the MCT pattern (see Fig \ref{fig:stcpattern}).
-\begin{itemize}
-  \item  \texttt{Measure} instances are made with an \texttt{Error} and a \texttt{Coordinate} that contains the measure value(s).
-   \item  The  \texttt{Coordinate} includes a  \texttt{CoordSys} instance describing the coordinate system relevant for that measure.
-   \item The coordinate system has two components : the space  ( \texttt{CoordSpace} class) that describes the axis and the frame (\texttt{CoordFrame} class).
- \end{itemize}
-
-MANGO parameters are all based on this pattern.
-Native  \texttt{Measure} classes are used whenever possible.
-Others Parameters are built by extending this class as shown in figure \ref{fig:stcpattern}).
-
-The scope of the MCT \texttt{Measure}  concept has been extended to quantities that are not physical measurements such as e.g. flags, object types or orbits.
-This lexical deviation allows us to place all quantities describing a source in a single container since all measurements in the Mango sense are derived from the MCT \texttt{Measure} class.
-The same approach has been used for the coordinate systems since e.g the way to serialise a complex shape (e.g. as a MOC) is considered as a coordinate system in sense of \texttt{Coords}.
-
-These extended classes are part of MANGO.
 \begin{figure}
-     \includegraphics[width=1.0\textwidth]{stc_pattern.png}
+     \includegraphics[width=1.0\textwidth]{../model/mangoProperty.png}
      \caption{Measure/Coordinate pattern (simplified view)}
-     \label{fig:stcpattern}
+     \label{fig:properties}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=1.0\textwidth]{../model/mangoMeasures.png}
+  \includegraphics[width=1.0\textwidth]{../model/MangoDataOrigin.png}
   \caption{Mango extensions of Measure.}
-  \label{fig:measures}
+  \label{fig:dataOrigin}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=1.0\textwidth]{../model/mangoCoordinates.png}
-  \caption{Mango extensions of Coordinates.}
-  \label{fig:coordinates}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=1.0\textwidth]{../model/mangoErrors.png}
+  \includegraphics[width=1.0\textwidth]{../model/mangoErrorTypes.png}
   \caption{Mango correlated errors.}
   \label{fig:errors}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=1.0\textwidth]{../model/MangoCorrelation.png}
+  \caption{Mango correlated errors.}
+  \label{fig:correlation}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=1.0\textwidth]{../model/mangoEpochPosition.png}
+  \caption{Mango correlated errors.}
+  \label{fig:epochPosition}
 \end{figure}
 
 
