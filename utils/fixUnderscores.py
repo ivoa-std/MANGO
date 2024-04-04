@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #
 # Test module for regular expressions
 #
+=======
+>>>>>>> branch 'draft-0.1' of git@github.com:lmichel/MANGO.git
 import sys, os, re, subprocess
 import xml.etree.ElementTree as ET
 
