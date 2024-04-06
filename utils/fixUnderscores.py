@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 #
 # Test module for regular expressions
 #
-=======
->>>>>>> branch 'draft-0.1' of git@github.com:lmichel/MANGO.git
 import sys, os, re, subprocess
 import xml.etree.ElementTree as ET
 
@@ -25,11 +22,19 @@ content = ""
 with open(model_path) as read_file:
     content = read_file.read()
 
+image = r"""\1 \2 }
+  \\begin{figure}[h]
+  \\begin{center}
+    \\includegraphics\[width=textwidth]{../model/\2.png}
+    \\caption{\2}
+    \\label{fig:\2}
+  \\end{package \2}
+  \\end{figure}\n
+"""
 content = "qqqq_xxxx\nsssss_xxxxx\n\\sigma\n$M\\_B - M\\_v$\nShapeFrame.STC_S\n$(x\\_{11})$\nDataOrigin.reference_url"
-content = re.sub('([a-zC])_([a-zS])', r'\1\\_\2', content)
-content = content.replace('\\sigma', '$\\sigma$')
-content = re.sub('([A-Z])\\\_([^S])', r'\1_\2', content)
-content = re.sub('(x)\\\_([{0-9])', r'\1_\2', content)
+content = "\\section{Package: correlation }\n"
+print(content)
+content = re.sub("(section\{Package:) ([a-z_]+) \}", image, content)
 
 print(content)
 #print("STC_S".replace("_", r"\_"))
