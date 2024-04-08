@@ -1,0 +1,2 @@
+Correlated error between the parallax and the position. The parallax error might depend on the sky position.
+$error(parallax) = f(position)$

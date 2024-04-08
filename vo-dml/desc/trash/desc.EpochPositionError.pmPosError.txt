@@ -1,0 +1,2 @@
+Correlated error between the proper motion and the position. This error is represented by a 2D matrix.
+$error(propermotion) = f(position)$

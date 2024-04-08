@@ -18,7 +18,24 @@ image = r"""\1 \2 }
     \\label{fig:\2}
   \\end{figure}\n
 """
-    
+
+
+class_with_image = ["EpochPosition"]
+
+def insert_class_image(class_name, content):
+    template_class_image = r"""\1\n
+      \\begin{figure}[h]
+        \\includegraphics[width=1.0\\textwidth]{../model/@@@@.png}
+        \\caption{Class @@@@}
+        \\label{fig:@@@@}
+      \\end{figure}\n
+    """
+    regexp = "(section\{@@@@\})".replace("@@@@",class_name)
+    return re.sub(regexp,
+                  template_class_image.replace("@@@@",class_name), content)
+
+
+
 def insert_desc():    
     tree = ET.parse(vodml_model_path)
     root = tree.getroot()
@@ -54,8 +71,22 @@ def escape_underscores():
     content = re.sub('([a-zC])_([a-zS])', r'\1\\_\2', content)
     content = re.sub('([A-Z])\\\_([^S])', r'\1_\2', content)
     content = re.sub('(x)\\\_({[0-9])', r'\1_\2', content)
+        
+    with open(tex_model_path, "w") as write_file:
+        write_file.write(content)
+        
+def add_images():
+    """
+    escape undescores in text, un-escape in formula (indices)
+    """
+    content = ""
+    with open(tex_model_path) as read_file:
+        content = read_file.read()
+    
     content = re.sub("(section\{Package:) ([a-z_]+) \}", image, content)
-
+    for class_name in class_with_image:
+        content = insert_class_image(class_name, content)
+        
     with open(tex_model_path, "w") as write_file:
         write_file.write(content)
 
@@ -66,6 +97,8 @@ def main():
     vodml_to_tex()
     print("======= escape and un-escape underscores")
     escape_underscores()
+    print("======= add images")
+    add_images()
     
 if __name__ == "__main__":
     main()
