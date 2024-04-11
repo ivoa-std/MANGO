@@ -1,1 +1,1 @@
-Collection f all data associated with the MANGO entity.
+Collection of all data associated with the \texttt{MangoObject}.
