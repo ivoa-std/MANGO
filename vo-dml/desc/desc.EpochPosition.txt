@@ -8,6 +8,7 @@ All components share the same spatial coordinate system.
 \begin{itemize}
    \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements.
    \item The space coordinate system is imported from \texttt{coords:spaceSys}.
+   \item The time coordinate system is imported from \texttt{coords:timeSys}.
 \end{itemize}
 
 The error is specific to this class as it must support covariance and correlation between the components.

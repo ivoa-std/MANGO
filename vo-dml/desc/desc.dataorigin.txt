@@ -1,0 +1,1 @@
+Package grouping together all the components needed to model the origin of \texttt{MangoObject}.
