@@ -1,1 +1,1 @@
-First diagonal element ($(x_{11})$)
+First diagonal element: $(x_{11})$

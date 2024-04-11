@@ -6,7 +6,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-04-04T09:16:54</lastModified>
+  <lastModified>2024-04-11T16:24:35</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -90,9 +90,7 @@ that  needs instrument specific tools to be handled (ObsCore)</description>
   <enumeration>
     <vodml-id>ColorDefinition</vodml-id>
     <name>ColorDefinition</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>todo</description>
     <literal>
       <vodml-id>ColorDefinition.ColorIndex</vodml-id>
       <name>ColorIndex</name>
@@ -140,8 +138,9 @@ This was the case for the IUA vocabulary until the Registry WG introduced rewrit
   <objectType>
     <vodml-id>MangoObject</vodml-id>
     <name>MangoObject</name>
-    <description>Root class of the model. 
-A MangoObject is something with an identifier and two docks: one for the parameters and one for the associated data.</description>
+    <description>Central model class: applied to a data table, each row can be modelled as a MangoObject instance.
+Each MangoObject hosts a collection of physical or calculated parameters, a collection of associated data,
+a description of the data origin and an identifier.</description>
     <attribute>
       <vodml-id>MangoObject.identifier</vodml-id>
       <name>identifier</name>
@@ -434,12 +433,9 @@ Each value has its own textual description.</description>
       </multiplicity>
     </attribute>
     <reference>
-      <vodml-id>Shape.coordSys</vodml-id>
-      <name>coordSys</name>
-      <description>Coordinate system the applies to the spatial extension of the MANGO object.
-This component is imported from the \texttt{coords} model (see \texttt{coords:SpaceSys}).
-
-</description>
+      <vodml-id>Shape.spaceSys</vodml-id>
+      <name>spaceSys</name>
+      <description>Coordinate system that applies for the shape.</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
@@ -498,9 +494,7 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
     <attribute>
       <vodml-id>PhysicalProperty.calibrationLevel</vodml-id>
       <name>calibrationLevel</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Calibration level of the property (ObsCore).</description>
       <datatype>
         <vodml-ref>mango:CalibrationLevel</vodml-ref>
       </datatype>
@@ -611,15 +605,11 @@ This constraint is not managed by the model.</description>
   <objectType>
     <vodml-id>SatusValues</vodml-id>
     <name>SatusValues</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Set of allowed status values</description>
     <composition>
       <vodml-id>SatusValues.values</vodml-id>
       <name>values</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Reference to the set of allowed values.</description>
       <datatype>
         <vodml-ref>mango:StatusValue</vodml-ref>
       </datatype>
@@ -633,14 +623,11 @@ This constraint is not managed by the model.</description>
   <objectType>
     <vodml-id>StatusValue</vodml-id>
     <name>StatusValue</name>
-    <description>List of the allowed values for the status. 
-Each value has its own textual description.</description>
+    <description>Value allowed for a status, contain the value with its meaning.</description>
     <attribute>
       <vodml-id>StatusValue.value</vodml-id>
       <name>value</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Allowed value for a \texttt{Status}</description>
       <datatype>
         <vodml-ref>ivoa:integer</vodml-ref>
       </datatype>
@@ -652,9 +639,7 @@ Each value has its own textual description.</description>
     <attribute>
       <vodml-id>StatusValue.description</vodml-id>
       <name>description</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Free text description on the allowed value for a \texttt{Status}</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -678,6 +663,7 @@ All components share the same spatial coordinate system.
 \begin{itemize}
    \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements.
    \item The space coordinate system is imported from \texttt{coords:spaceSys}.
+   \item The time coordinate system is imported from \texttt{coords:timeSys}.
 \end{itemize}
 
 The error is specific to this class as it must support covariance and correlation between the components.
@@ -815,11 +801,23 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
       </multiplicity>
     </composition>
     <reference>
-      <vodml-id>EpochPosition.coordSys</vodml-id>
-      <name>coordSys</name>
-      <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
+      <vodml-id>EpochPosition.spaceSys</vodml-id>
+      <name>spaceSys</name>
+      <description>System that applies the space coordinates.</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </reference>
+    <reference>
+      <vodml-id>EpochPosition.timeSys</vodml-id>
+      <name>timeSys</name>
+      <description>System that applies the time coordinates (the epoch).</description>
+      <datatype>
+        <vodml-ref>coords:TimeSys</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -1002,7 +1000,7 @@ This is not checked at the model level.</description>
       <attribute>
         <vodml-id>error.PropertyError1D.sigma</vodml-id>
         <name>sigma</name>
-        <description>Error amplitude.</description>
+        <description>Magnitude of error on a one-dimensional parameter</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1024,7 +1022,7 @@ The matrix must be symetric.</description>
       <attribute>
         <vodml-id>error.ErrorMatrix.sigma1</vodml-id>
         <name>sigma1</name>
-        <description>First diagonal element ($(x_{11})$)</description>
+        <description>First diagonal element: $(x_{11})$</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1036,7 +1034,7 @@ The matrix must be symetric.</description>
       <attribute>
         <vodml-id>error.ErrorMatrix.sigma2</vodml-id>
         <name>sigma2</name>
-        <description>Second diagonal element ($(x_{11})$)</description>
+        <description>Second diagonal element $(x_{22})$</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1048,7 +1046,7 @@ The matrix must be symetric.</description>
       <attribute>
         <vodml-id>error.ErrorMatrix.covariance</vodml-id>
         <name>covariance</name>
-        <description>Covariance element ($(x_{12})$ or $(x_{21})$)</description>
+        <description>Covariance element ($x_{12}$ or $x_{21}$)</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
@@ -1134,9 +1132,7 @@ The angle has its own unit.</description>
   <package>
     <vodml-id>correlation</vodml-id>
     <name>correlation</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Package grouping together all the components needed to model the correlations between property attributes.</description>
     <dataType>
       <vodml-id>correlation.Correlation12</vodml-id>
       <name>Correlation12</name>
@@ -1321,9 +1317,7 @@ to the first axis of \texttt{A}</description>
   <package>
     <vodml-id>dataorigin</vodml-id>
     <name>dataorigin</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Package grouping together all the components needed to model the origin of \texttt{MangoObject}.</description>
     <objectType>
       <vodml-id>dataorigin.DataOrigin</vodml-id>
       <name>DataOrigin</name>
@@ -1416,9 +1410,7 @@ to the first axis of \texttt{A}</description>
       <reference>
         <vodml-id>dataorigin.DataOrigin.query</vodml-id>
         <name>query</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Description of the request from which the data originates.</description>
         <datatype>
           <vodml-ref>mango:dataorigin.QueryOrigin</vodml-ref>
         </datatype>
@@ -1430,9 +1422,7 @@ to the first axis of \texttt{A}</description>
       <reference>
         <vodml-id>dataorigin.DataOrigin.rights</vodml-id>
         <name>rights</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Reference to the rights that apply to the data.</description>
         <datatype>
           <vodml-ref>mango:dataorigin.License</vodml-ref>
         </datatype>
@@ -1444,9 +1434,7 @@ to the first axis of \texttt{A}</description>
       <reference>
         <vodml-id>dataorigin.DataOrigin.article</vodml-id>
         <name>article</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+        <description>Reference to the article from which the data originates.</description>
         <datatype>
           <vodml-ref>mango:dataorigin.Article</vodml-ref>
         </datatype>
@@ -1464,7 +1452,7 @@ to the first axis of \texttt{A}</description>
       <attribute>
         <vodml-id>dataorigin.Article.editor</vodml-id>
         <name>editor</name>
-        <description>Article editor name</description>
+        <description>Editor name (article)</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1599,7 +1587,8 @@ For TAP queries, use the /sync UWS URL. The format is free for others request ty
       <attribute>
         <vodml-id>dataorigin.License.rights_uri</vodml-id>
         <name>rights_uri</name>
-        <description>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</description>
+        <description>Licence URI. Following Registry practice, this should come from SPDX https://spdx.org/licenses/,
+though Creative Commons URLs https://creativecommons.org are also admitted.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>

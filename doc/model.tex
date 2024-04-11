@@ -108,7 +108,7 @@
 
     
   \label{sect:EpochPosition}
-    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same spatial coordinate system. \begin{itemize} \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \end{itemize} The error is specific to this class as it must support covariance and correlation between the components.
+    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same spatial coordinate system. \begin{itemize} \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The error is specific to this class as it must support covariance and correlation between the components.
 
     \subsubsection{EpochPosition.longitude}
       \textbf{vodml-id: EpochPosition.longitude} \newline
@@ -170,11 +170,17 @@
       \textbf{multiplicity: 0..1} \newline 
       Correlation coefficients between the EpochPosition attributes
 
-    \subsubsection{EpochPosition.coordSys}
-      \textbf{vodml-id: EpochPosition.coordSys} \newline
+    \subsubsection{EpochPosition.spaceSys}
+      \textbf{vodml-id: EpochPosition.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.
+      System that applies the space coordinates.
+
+    \subsubsection{EpochPosition.timeSys}
+      \textbf{vodml-id: EpochPosition.timeSys} \newline
+      \textbf{type: coords:TimeSys} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      System that applies the time coordinates (the epoch).
 
   \subsection{EpochPositionCorrelations}
   \label{sect:EpochPositionCorrelations}
@@ -250,7 +256,7 @@
 
   \subsection{MangoObject}
   \label{sect:MangoObject}
-    Root class of the model. A MangoObject is something with an identifier and two docks: one for the parameters and one for the associated data.
+    Central model class: applied to a data table, each row can be modelled as a MangoObject instance. Each MangoObject hosts a collection of physical or calculated parameters, a collection of associated data, a description of the data origin and an identifier.
 
     \subsubsection{MangoObject.identifier}
       \textbf{vodml-id: MangoObject.identifier} \newline
@@ -300,7 +306,7 @@
       \textbf{vodml-id: PhysicalProperty.calibrationLevel} \newline
       \textbf{type: \hyperref[sect:CalibrationLevel]{mango:CalibrationLevel}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Calibration level of the property (ObsCore).
 
     \subsubsection{PhysicalProperty.measure}
       \textbf{vodml-id: PhysicalProperty.measure} \newline
@@ -343,13 +349,13 @@
 
   \subsection{SatusValues}
   \label{sect:SatusValues}
-    TODO : Missing description : please, update your UML model asap.
+    Set of allowed status values
 
     \subsubsection{SatusValues.values}
       \textbf{vodml-id: SatusValues.values} \newline
       \textbf{type: \hyperref[sect:StatusValue]{mango:StatusValue}} \newline
       \textbf{multiplicity: 1..*} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Reference to the set of allowed values.
 
   \subsection{Shape}
   \label{sect:Shape}
@@ -367,11 +373,11 @@
       \textbf{multiplicity: 1} \newline 
       Serialization mode of the spatial extension of the MANGO entity
 
-    \subsubsection{Shape.coordSys}
-      \textbf{vodml-id: Shape.coordSys} \newline
+    \subsubsection{Shape.spaceSys}
+      \textbf{vodml-id: Shape.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Coordinate system the applies to the spatial extension of the MANGO object. This component is imported from the \texttt{coords} model (see \texttt{coords:SpaceSys}).
+      Coordinate system that applies for the shape.
 
   \subsection{Status}
   \label{sect:Status}
@@ -391,19 +397,19 @@
 
   \subsection{StatusValue}
   \label{sect:StatusValue}
-    List of the allowed values for the status. Each value has its own textual description.
+    Value allowed for a status, contain the value with its meaning.
 
     \subsubsection{StatusValue.value}
       \textbf{vodml-id: StatusValue.value} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Allowed value for a \texttt{Status}
 
     \subsubsection{StatusValue.description}
       \textbf{vodml-id: StatusValue.description} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Free text description on the allowed value for a \texttt{Status}
 
   \subsection{VocabularyTerm}
   \label{sect:VocabularyTerm}
@@ -498,7 +504,7 @@
   \subsection{ColorDefinition}
   \label{sect:ColorDefinition}
 
-  TODO : Missing description : please, update your UML model asap.
+  todo
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -563,19 +569,19 @@
       \textbf{vodml-id: error.ErrorMatrix.sigma1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      First diagonal element ($(x_{11})$)
+      First diagonal element: $(x_{11})$
 
     \subsubsection{ErrorMatrix.sigma2}
       \textbf{vodml-id: error.ErrorMatrix.sigma2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Second diagonal element ($(x_{11})$)
+      Second diagonal element $(x_{22})$
 
     \subsubsection{ErrorMatrix.covariance}
       \textbf{vodml-id: error.ErrorMatrix.covariance} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Covariance element ($(x_{12})$ or $(x_{21})$)
+      Covariance element ($x_{12}$ or $x_{21}$)
 
     \subsubsection{ErrorMatrix.isCovariance}
       \textbf{vodml-id: error.ErrorMatrix.isCovariance} \newline
@@ -607,7 +613,7 @@
       \textbf{vodml-id: error.PropertyError1D.sigma} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Error amplitude.
+      Magnitude of error on a one-dimensional parameter
 
   \subsection{PropertyError2D (Abstract)}
   \label{sect:error.PropertyError2D}
@@ -631,7 +637,7 @@
   %\end{center}
   %\end{figure}
 
-  TODO : Missing description : please, update your UML model asap.
+  Package grouping together all the components needed to model the correlations between property attributes.
 
   \subsection{Correlation11}
   \label{sect:correlation.Correlation11}
@@ -731,7 +737,7 @@
   %\end{center}
   %\end{figure}
 
-  TODO : Missing description : please, update your UML model asap.
+  Package grouping together all the components needed to model the origin of \texttt{MangoObject}.
 
   \subsection{Article}
   \label{sect:dataorigin.Article}
@@ -741,7 +747,7 @@
       \textbf{vodml-id: dataorigin.Article.editor} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Article editor name
+      Editor name (article)
 
     \subsubsection{Article.article}
       \textbf{vodml-id: dataorigin.Article.article} \newline
@@ -799,19 +805,19 @@
       \textbf{vodml-id: dataorigin.DataOrigin.query} \newline
       \textbf{type: \hyperref[sect:dataorigin.QueryOrigin]{mango:dataorigin.QueryOrigin}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Description of the request from which the data originates.
 
     \subsubsection{DataOrigin.rights}
       \textbf{vodml-id: dataorigin.DataOrigin.rights} \newline
       \textbf{type: \hyperref[sect:dataorigin.License]{mango:dataorigin.License}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Reference to the rights that apply to the data.
 
     \subsubsection{DataOrigin.article}
       \textbf{vodml-id: dataorigin.DataOrigin.article} \newline
       \textbf{type: \hyperref[sect:dataorigin.Article]{mango:dataorigin.Article}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Reference to the article from which the data originates.
 
   \subsection{License}
   \label{sect:dataorigin.License}
@@ -821,7 +827,7 @@
       \textbf{vodml-id: dataorigin.License.rights\_uri} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.
+      Licence URI. Following Registry practice, this should come from SPDX https://spdx.org/licenses/, though Creative Commons URLs https://creativecommons.org are also admitted.
 
     \subsubsection{License.rights}
       \textbf{vodml-id: dataorigin.License.rights} \newline

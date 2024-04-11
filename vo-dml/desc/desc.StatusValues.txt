@@ -1,1 +1,2 @@
-Value allowed for a status, contain the value with its meaning.
+List of the allowed values for the status. 
+Each value has its own textual description.

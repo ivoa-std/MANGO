@@ -1,1 +1,1 @@
-Second diagonal element ($(x_{11})$)
+Second diagonal element $(x_{22})$

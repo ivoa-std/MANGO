@@ -3,6 +3,7 @@
 #
 import sys, os, re, subprocess
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 base_path = os.path.realpath(os.path.join(os.path.dirname(__file__), ".."))
 vodml_path = os.path.join(base_path, "vo-dml")
@@ -90,6 +91,20 @@ def add_images():
     with open(tex_model_path, "w") as write_file:
         write_file.write(content)
 
+def set_date():
+    """ set the Makefile date """
+    current_date = datetime.now()
+    isodate = current_date.strftime('%Y-%m-%d')
+    make_path = os.path.join(doc_path, "Makefile")
+    content = ""
+    with open(make_path) as read_file:
+        content = read_file.read()
+
+    content = re.sub("(DOCDATE =) [0-9\-]+", f"\\1 {isodate}", content)
+
+    with open(make_path, "w") as write_file:
+        write_file.write(content)
+     
 def main():
     print("======= Insert model element descriptions in the VO-DML file")
     insert_desc()
@@ -99,6 +114,8 @@ def main():
     escape_underscores()
     print("======= add images")
     add_images()
+    print("======= set date")
+    set_date()
     
 if __name__ == "__main__":
     main()
