@@ -68,7 +68,7 @@
 
   \subsection{Color}
   \label{sect:Color}
-    Photometric property describing a color of the MANGO source. color is not an intrinsic quantity of the MANGO source but a value relative to two filters or energy bands.
+    Photometric property describing a color of the MANGO object. color is not an intrinsic quantity of the MANGO object but a value relative to two filters or energy bands.
 
     \subsubsection{Color.colorDef}
       \textbf{vodml-id: Color.colorDef} \newline
@@ -84,7 +84,7 @@
       \textbf{vodml-id: ColorDef.definition} \newline
       \textbf{type: \hyperref[sect:ColorDefinition]{mango:ColorDefinition}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Enumeration of the different color types supported by the model.
 
     \subsubsection{ColorDef.high}
       \textbf{vodml-id: ColorDef.high} \newline
@@ -230,23 +230,23 @@
       \textbf{vodml-id: EpochPositionErrors.position} \newline
       \textbf{type: \hyperref[sect:error.PropertyError2D]{mango:error.PropertyError2D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Position error.
 
     \subsubsection{EpochPositionErrors.properMotion}
       \textbf{vodml-id: EpochPositionErrors.properMotion} \newline
       \textbf{type: \hyperref[sect:error.PropertyError2D]{mango:error.PropertyError2D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      Proper motion error.
 
   \subsection{Label}
   \label{sect:Label}
-    Free text label seen as a MANGO source property.
+    Free text label seen as a MANGO object property.
 
     \subsubsection{Label.text}
       \textbf{vodml-id: Label.text} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Text of label seen as a MANGO source property.
+      Text of label seen as a MANGO object property.
 
   \subsection{MangoObject}
   \label{sect:MangoObject}
@@ -256,7 +256,7 @@
       \textbf{vodml-id: MangoObject.identifier} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Unique identifier for a Source. The uniqueness of that identifier is not managed by the model. The format is free.
+      Unique identifier for a MangoObject. The uniqueness of that identifier is not managed by the model. The format is free.
 
     \subsubsection{MangoObject.associatedDataDock}
       \textbf{vodml-id: MangoObject.associatedDataDock} \newline
@@ -278,7 +278,7 @@
 
   \subsection{PhotometricProperty}
   \label{sect:PhotometricProperty}
-    Observed brightness of the MANGO source. The distinction between fluxes of a magnitude is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
+    Observed brightness of the MANGO object. The distinction between fluxes of a magnitude is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
 
     \subsubsection{PhotometricProperty.value}
       \textbf{vodml-id: PhotometricProperty.value} \newline
@@ -353,13 +353,13 @@
 
   \subsection{Shape}
   \label{sect:Shape}
-    Description of the spatial extension of the MANGO source (for e.g. dust clouds).
+    Description of the spatial extension of the MANGO object (for e.g. dust clouds).
 
     \subsubsection{Shape.shape}
       \textbf{vodml-id: Shape.shape} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      String serialization of the spatial extension of the MANGO source.
+      String serialization of the spatial extension of the MANGO object.
 
     \subsubsection{Shape.serialization}
       \textbf{vodml-id: Shape.serialization} \newline
@@ -371,7 +371,7 @@
       \textbf{vodml-id: Shape.coordSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Coordinate system the applies to the spatial extension of the MANGO source. This component is imported from the \texttt{coords} model (see \texttt{coords:SpaceSys}).
+      Coordinate system the applies to the spatial extension of the MANGO object. This component is imported from the \texttt{coords} model (see \texttt{coords:SpaceSys}).
 
   \subsection{Status}
   \label{sect:Status}
@@ -498,7 +498,7 @@
   \subsection{ColorDefinition}
   \label{sect:ColorDefinition}
 
-  Enumeration of the different color types supported by the model.
+  TODO : Missing description : please, update your UML model asap.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -531,7 +531,7 @@
   %\end{center}
   %\end{figure}
 
-  TODO : Missing description : please, update your UML model asap.
+  Elliptical error for 2D parameters such as the sky positions.
 
   \subsection{Ellipse}
   \label{sect:error.Ellipse}
@@ -793,7 +793,7 @@
       \textbf{vodml-id: dataorigin.DataOrigin.original\_date} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
       \textbf{multiplicity: 1} \newline 
-      Date of the original resource from which the MANGO instance is derived
+      Date of the original resource from which the MANGO object is derived
 
     \subsubsection{DataOrigin.query}
       \textbf{vodml-id: dataorigin.DataOrigin.query} \newline
@@ -849,7 +849,7 @@
       \textbf{vodml-id: dataorigin.QueryOrigin.server\_software} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Version of the software the produced the MANO source instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
+      Version of the software the produced the MANGO object instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
 
     \subsubsection{QueryOrigin.service\_protocol}
       \textbf{vodml-id: dataorigin.QueryOrigin.service\_protocol} \newline

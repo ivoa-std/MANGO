@@ -1,1 +1,1 @@
-Text of label seen as a MANGO source property.
+Text of label seen as a MANGO object property.

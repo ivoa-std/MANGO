@@ -469,39 +469,47 @@ It is recommended the identifiers to be unique within a source collection e.g. a
 In addition to the identifier, \texttt{MangoObject}  have 3 components:
 
 \begin{itemize}
-  \item \texttt{dataOrigin} giving the origin of the \texttt{MangoObject}. The structure of this class follows
+  \item \texttt{dataOrigin}: origin of the \texttt{MangoObject}. The structure of this class follows
         the recommendations of the DCP IG (time of writing).
-  \item \texttt{popertyDock}, the place holder for all the \texttt{MangoObject} properties.
+  \item \texttt{popertyDock}: the place holder for all the \texttt{MangoObject} properties.
         This is an open-ended collection.
         Each source property is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Property} )
         that contains anything necessary to identify both its nature and its role.
         Properties can be linked together to represent logical parameter sets. 
         These logical sets have no semantic. Their interpretation is in charge of the clients.
-  \item \texttt{associatedDataDock}, the place holder for all external data attached to the \texttt{MangoObject}.
+  \item \texttt{associatedDataDock}: place holder for all external data attached to the \texttt{MangoObject}.
         This is an open-ended collection.
-  		Associated data are hooked to the \texttt{associatedDataDock} by a wrapping class (\texttt{AssociatedData})
+  		Each Associated data item is hooked to the \texttt{associatedDataDock} by a wrapping class (\texttt{AssociatedData})
         that contains anything necessary to identify its nature and its role.
 \end{itemize}
 \subsection{Properties}
 
-\TODO{describe what properties are}
+      \begin{figure}[h]
+        \includegraphics[width=1.0\textwidth]{../model/property.png}
+        \caption{Mango Properties}
+        \label{fig:property}
+      \end{figure}
 
 \subsubsection{Parameters Identification}
-As the property set  attached to a particular instance is not defined by Mango,
-the model must provide an accurate parameter description to allow the client to figure
-out what it can do with each of them.
+Since the set of properties associated with a particular instance is not defined by the model,
+Mango cannot define a specific role for each property. However, the model provides different ways
+for the client to understand the actual nature of each property:
 
-The role of any parameter can be refined by to semantic specific fields: 
 \begin{itemize}
-    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to each parameter. 
-          The choice of that vocabulary is totally free as long as it is published.
-    \item \textbf{Description}: A free text description may be attached to each parameter.
+    \item \textbf{Class type}: often the scientific meaning of the quantity.
+          When this type is too general (e.g. \texttt{meas:GenericMeasure}), a UCD is provided.
+    \item \textbf{Semantic}: the semantic tag specifies the exact role of the property by
+          referring to a standard vocabulary. the semantic tag can relate to the property itself
+          or to the set formed by the property and its associated properties.
+          For example, a signal amplitude associated with a time and position can be tagged
+          as a photon event.
+    \item \textbf{Description}: free text description.
 \end{itemize}
 
-In addition this, some Quantity classes have their own qualifiers such as the calibration level.
 
+In addition to this, some property classes embed qualifiers telling how the quantity
+must be interpreted (e.g. colour vs hardness ratio)
 
-\TODO{The commented tables must be updated and possibly merged}
 
 %\TODO{TBC phys.luminosity  vs phot.flux}
 %
@@ -563,7 +571,7 @@ In addition this, some Quantity classes have their own qualifiers such as the ca
 
 \texttt{AssociatedData} connectors are used to bind various sort of complex data with the Mango object.
 One connector can only refer to one dataset.
-Associated data can be either URIs (VO services or not) or other mango instances.
+Associated data can be either URIs (VO services or not) or other Mango instances.
 
 \subsubsection{AssociatedData Identification}
 As the associated data set  attached to a particular instance is not defined by Mango,

@@ -1,2 +1,2 @@
-Version of the software the produced the MANO source instance. 
+Version of the software the produced the MANGO object instance. 
 It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.

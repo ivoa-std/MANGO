@@ -72,7 +72,8 @@
     <literal>
       <vodml-id>CalibrationLevel.Raw</vodml-id>
       <name>Raw</name>
-      <description>Raw  instrumental  data,  in  a  proprietary  or  internal  data provider  defined  format,  that  needs instrument specific tools to be handled (ObsCore)</description>
+      <description>Raw  instrumental  data,  in  a  proprietary  or  internal  data provider  defined  format,
+that  needs instrument specific tools to be handled (ObsCore)</description>
     </literal>
     <literal>
       <vodml-id>CalibrationLevel.Instrumental</vodml-id>
@@ -89,7 +90,9 @@
   <enumeration>
     <vodml-id>ColorDefinition</vodml-id>
     <name>ColorDefinition</name>
-    <description>Enumeration of the different color types supported by the model.</description>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
     <literal>
       <vodml-id>ColorDefinition.ColorIndex</vodml-id>
       <name>ColorIndex</name>
@@ -142,7 +145,7 @@ A MangoObject is something with an identifier and two docks: one for the paramet
     <attribute>
       <vodml-id>MangoObject.identifier</vodml-id>
       <name>identifier</name>
-      <description>Unique identifier for a Source.
+      <description>Unique identifier for a MangoObject.
 The uniqueness of that identifier is not managed by the model.
 The format is free.</description>
       <datatype>
@@ -381,14 +384,14 @@ Each value has its own textual description.</description>
   <objectType>
     <vodml-id>Label</vodml-id>
     <name>Label</name>
-    <description>Free text label seen as a MANGO source property.</description>
+    <description>Free text label seen as a MANGO object property.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>Label.text</vodml-id>
       <name>text</name>
-      <description>Text of label seen as a MANGO source property.</description>
+      <description>Text of label seen as a MANGO object property.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -402,14 +405,14 @@ Each value has its own textual description.</description>
   <objectType>
     <vodml-id>Shape</vodml-id>
     <name>Shape</name>
-    <description>Description of the spatial extension of the MANGO source (for e.g. dust clouds).</description>
+    <description>Description of the spatial extension of the MANGO object (for e.g. dust clouds).</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>Shape.shape</vodml-id>
       <name>shape</name>
-      <description>String serialization of the spatial extension of the MANGO source.</description>
+      <description>String serialization of the spatial extension of the MANGO object.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -433,7 +436,7 @@ Each value has its own textual description.</description>
     <reference>
       <vodml-id>Shape.coordSys</vodml-id>
       <name>coordSys</name>
-      <description>Coordinate system the applies to the spatial extension of the MANGO source.
+      <description>Coordinate system the applies to the spatial extension of the MANGO object.
 This component is imported from the \texttt{coords} model (see \texttt{coords:SpaceSys}).
 
 </description>
@@ -450,7 +453,7 @@ This component is imported from the \texttt{coords} model (see \texttt{coords:Sp
   <objectType>
     <vodml-id>PhotometricProperty</vodml-id>
     <name>PhotometricProperty</name>
-    <description>Observed brightness of the MANGO source. 
+    <description>Observed brightness of the MANGO object. 
 The distinction between fluxes of a magnitude is made by the unit.
 This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.</description>
     <extends>
@@ -524,8 +527,8 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
   <objectType>
     <vodml-id>Color</vodml-id>
     <name>Color</name>
-    <description>Photometric property describing a color of the MANGO source.
-color is not an intrinsic quantity of the MANGO source but a value 
+    <description>Photometric property describing a color of the MANGO object.
+color is not an intrinsic quantity of the MANGO object but a value 
 relative to two filters or energy bands.
 </description>
     <extends>
@@ -556,9 +559,7 @@ It contains the way the colour is calculated as well as the definition of the fi
     <attribute>
       <vodml-id>ColorDef.definition</vodml-id>
       <name>definition</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Enumeration of the different color types supported by the model.</description>
       <datatype>
         <vodml-ref>mango:ColorDefinition</vodml-ref>
       </datatype>
@@ -858,9 +859,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <composition>
       <vodml-id>EpochPositionErrors.position</vodml-id>
       <name>position</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description> Position error.</description>
       <datatype>
         <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </datatype>
@@ -872,9 +871,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <composition>
       <vodml-id>EpochPositionErrors.properMotion</vodml-id>
       <name>properMotion</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description> Proper motion error.</description>
       <datatype>
         <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </datatype>
@@ -956,9 +953,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
   <package>
     <vodml-id>error</vodml-id>
     <name>error</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+    <description>Elliptical error for 2D parameters such as the sky positions.</description>
     <dataType abstract="true">
       <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
@@ -1409,7 +1404,7 @@ to the first axis of \texttt{A}</description>
       <attribute>
         <vodml-id>dataorigin.DataOrigin.original_date</vodml-id>
         <name>original_date</name>
-        <description>Date of the original resource from which the MANGO instance is derived</description>
+        <description>Date of the original resource from which the MANGO object is derived</description>
         <datatype>
           <vodml-ref>ivoa:datetime</vodml-ref>
         </datatype>
@@ -1523,7 +1518,7 @@ to the first axis of \texttt{A}</description>
       <attribute>
         <vodml-id>dataorigin.QueryOrigin.server_software</vodml-id>
         <name>server_software</name>
-        <description>Version of the software the produced the MANO source instance. 
+        <description>Version of the software the produced the MANGO object instance. 
 It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
