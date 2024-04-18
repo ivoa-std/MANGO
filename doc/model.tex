@@ -88,13 +88,13 @@
 
     \subsubsection{ColorDef.high}
       \textbf{vodml-id: ColorDef.high} \newline
-      \textbf{type: :PhotFilter} \newline
+      \textbf{type: photdm:PhotFilter} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to the \texttt{photdm:PhotFilter} corresponding the highest energy for that color.
 
     \subsubsection{ColorDef.low}
       \textbf{vodml-id: ColorDef.low} \newline
-      \textbf{type: :PhotFilter} \newline
+      \textbf{type: photdm:PhotFilter} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to the \texttt{photdm:PhotFilter} corresponding the lowest energy for that color.
 
@@ -132,7 +132,7 @@
       \textbf{vodml-id: EpochPosition.radialVelocity} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The measured Velocity value along of the radius axis (see texttt{meas:Velocity.coord}).
+      The measured Velocity value along of the radius axis (see \texttt{meas:Velocity.coord}).
 
     \subsubsection{EpochPosition.pmLongitude}
       \textbf{vodml-id: EpochPosition.pmLongitude} \newline
@@ -152,8 +152,8 @@
       \textbf{multiplicity: 1} \newline 
       Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.
 
-    \subsubsection{EpochPosition.pmCosDeltApplied}
-      \textbf{vodml-id: EpochPosition.pmCosDeltApplied} \newline
+    \subsubsection{EpochPosition.pmCosLat\_applied}
+      \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
       \textbf{multiplicity: 1} \newline 
       It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
@@ -268,7 +268,7 @@
       \textbf{vodml-id: MangoObject.associatedDataDock} \newline
       \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Collection f all data associated with the MANGO entity.
+      Collection of all data associated with the \texttt{MangoObject}.
 
     \subsubsection{MangoObject.propertyDock}
       \textbf{vodml-id: MangoObject.propertyDock} \newline
@@ -294,7 +294,7 @@
 
     \subsubsection{PhotometricProperty.photCal}
       \textbf{vodml-id: PhotometricProperty.photCal} \newline
-      \textbf{type: :PhotCal} \newline
+      \textbf{type: photdm:PhotCal} \newline
       \textbf{multiplicity: 1} \newline 
       Photometric calibration that applies to the photometric property. It must be an instance of \texttt{photdm:PhotCal}.
 
@@ -545,13 +545,13 @@
 
     \subsubsection{Ellipse.semiMajorAxis}
       \textbf{vodml-id: error.Ellipse.semiMajorAxis} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
       Half of the ellipse major axis
 
     \subsubsection{Ellipse.semiMinorAxis}
       \textbf{vodml-id: error.Ellipse.semiMinorAxis} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
       Half of the ellipse minor axis
 
@@ -567,13 +567,13 @@
 
     \subsubsection{ErrorMatrix.sigma1}
       \textbf{vodml-id: error.ErrorMatrix.sigma1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
       First diagonal element: $(x_{11})$
 
     \subsubsection{ErrorMatrix.sigma2}
       \textbf{vodml-id: error.ErrorMatrix.sigma2} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
       Second diagonal element $(x_{22})$
 
@@ -599,19 +599,13 @@
       \textbf{multiplicity: 1} \newline 
       Confidence level of the error, expressed in $\sigma$
 
-    \subsubsection{PropertyError.unit}
-      \textbf{vodml-id: error.PropertyError.unit} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:Unit}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Error unit. It must be compliant with the \texttt{VOUnit} standard. The error unit must be consistent with the unit of the property the error is attached with. This is not checked at the model level.
-
   \subsection{PropertyError1D}
   \label{sect:error.PropertyError1D}
     Symetrical error for 1D parameters
 
     \subsubsection{PropertyError1D.sigma}
       \textbf{vodml-id: error.PropertyError1D.sigma} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
       Magnitude of error on a one-dimensional parameter
 
