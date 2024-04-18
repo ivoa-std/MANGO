@@ -6,7 +6,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-04-11T16:24:35</lastModified>
+  <lastModified>2024-04-18T16:35:15</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -158,7 +158,7 @@ The format is free.</description>
     <composition>
       <vodml-id>MangoObject.associatedDataDock</vodml-id>
       <name>associatedDataDock</name>
-      <description>Collection f all data associated with the MANGO entity.</description>
+      <description>Collection of all data associated with the \texttt{MangoObject}.</description>
       <datatype>
         <vodml-ref>mango:AssociatedData</vodml-ref>
       </datatype>
@@ -474,7 +474,7 @@ as defined by the \texttt{PhotDM} model.</description>
       <description>Photometric calibration that applies to the photometric property.
 It must be an instance of \texttt{photdm:PhotCal}.</description>
       <datatype>
-        <vodml-ref>:PhotCal</vodml-ref>
+        <vodml-ref>photdm:PhotCal</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -568,7 +568,7 @@ It contains the way the colour is calculated as well as the definition of the fi
       <description>Reference to the \texttt{photdm:PhotFilter} corresponding the highest energy for that color.
 </description>
       <datatype>
-        <vodml-ref>:PhotFilter</vodml-ref>
+        <vodml-ref>photdm:PhotFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -581,7 +581,7 @@ It contains the way the colour is calculated as well as the definition of the fi
       <description>Reference to the \texttt{photdm:PhotFilter} corresponding the lowest energy for that color.
 </description>
       <datatype>
-        <vodml-ref>:PhotFilter</vodml-ref>
+        <vodml-ref>photdm:PhotFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -711,7 +711,7 @@ The error is specific to this class as it must support covariance and correlatio
     <attribute>
       <vodml-id>EpochPosition.radialVelocity</vodml-id>
       <name>radialVelocity</name>
-      <description>The measured Velocity value along of the radius axis (see texttt{meas:Velocity.coord}).
+      <description>The measured Velocity value along of the radius axis (see \texttt{meas:Velocity.coord}).
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -762,12 +762,11 @@ The current version of the model only allows a representation in the Polar coord
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPosition.pmCosDeltApplied</vodml-id>
-      <name>pmCosDeltApplied</name>
-      <description>It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied
-by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position.
-We do not constrain the value to one form or the other in this model. Instead, this flag enables
-providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat_applied})</description>
+      <vodml-id>EpochPosition.pmCosLat_applied</vodml-id>
+      <name>pmCosLat_applied</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
       <datatype>
         <vodml-ref>ivoa:boolean</vodml-ref>
       </datatype>
@@ -973,21 +972,6 @@ of properties based on \texttt{Measures} classes.</description>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
-      <attribute>
-        <vodml-id>error.PropertyError.unit</vodml-id>
-        <name>unit</name>
-        <description>Error unit. 
-It must be compliant with the \texttt{VOUnit} standard. 
-The error unit must be consistent with the unit of the property the error is attached with. 
-This is not checked at the model level.</description>
-        <datatype>
-          <vodml-ref>ivoa:Unit</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
     </dataType>
 
     <dataType>
@@ -1002,7 +986,7 @@ This is not checked at the model level.</description>
         <name>sigma</name>
         <description>Magnitude of error on a one-dimensional parameter</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1024,7 +1008,7 @@ The matrix must be symetric.</description>
         <name>sigma1</name>
         <description>First diagonal element: $(x_{11})$</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1036,7 +1020,7 @@ The matrix must be symetric.</description>
         <name>sigma2</name>
         <description>Second diagonal element $(x_{22})$</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1081,7 +1065,7 @@ The matrix must be symetric.</description>
         <name>semiMajorAxis</name>
         <description>Half of the ellipse major axis</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1093,7 +1077,7 @@ The matrix must be symetric.</description>
         <name>semiMinorAxis</name>
         <description>Half of the ellipse minor axis</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>

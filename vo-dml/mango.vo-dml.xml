@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-04-11T16:24:35</lastModified>
+  <lastModified>2024-04-18T16:35:15</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -508,7 +508,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>:PhotCal</vodml-ref>
+        <vodml-ref>photdm:PhotCal</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -608,7 +608,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>:PhotFilter</vodml-ref>
+        <vodml-ref>photdm:PhotFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -622,7 +622,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>:PhotFilter</vodml-ref>
+        <vodml-ref>photdm:PhotFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -806,8 +806,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPosition.pmCosDeltApplied</vodml-id>
-      <name>pmCosDeltApplied</name>
+      <vodml-id>EpochPosition.pmCosLat_applied</vodml-id>
+      <name>pmCosLat_applied</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -1038,18 +1038,6 @@ $error_{parallax} = f(position)$</description>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
-      <attribute>
-        <vodml-id>error.PropertyError.unit</vodml-id>
-        <name>unit</name>
-        <description>Error unit. It must be compliant with the \texttt{VOUnit} standard. The error unit must be consistant with the unit of the property the error is attached with. This is not checked at the model level.</description>
-        <datatype>
-          <vodml-ref>ivoa:Unit</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
     </dataType>
 
     <dataType>
@@ -1064,7 +1052,7 @@ $error_{parallax} = f(position)$</description>
         <name>sigma</name>
         <description>Error amplitude.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1085,7 +1073,7 @@ $error_{parallax} = f(position)$</description>
         <name>sigma1</name>
         <description>First diagonal element ($(x_11)$)</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1097,7 +1085,7 @@ $error_{parallax} = f(position)$</description>
         <name>sigma2</name>
         <description>Second diagonal element ($(x_22)$)</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1146,7 +1134,7 @@ $error_{parallax} = f(position)$</description>
         <name>semiMajorAxis</name>
         <description>Half of the ellipse major axis.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1158,7 +1146,7 @@ $error_{parallax} = f(position)$</description>
         <name>semiMinorAxis</name>
         <description>Half of the ellipse minor axis.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
