@@ -764,9 +764,10 @@ The current version of the model only allows a representation in the Polar coord
     <attribute>
       <vodml-id>EpochPosition.pmCosLat_applied</vodml-id>
       <name>pmCosLat_applied</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied
+by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position.
+We do not constrain the value to one form or the other in this model. Instead, this flag enables
+providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat_applied})</description>
       <datatype>
         <vodml-ref>ivoa:boolean</vodml-ref>
       </datatype>
