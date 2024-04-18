@@ -1,1 +1,1 @@
-Error coefficients of the EpochPosition attributes
+Reference to the holder for the errors of the EpochPosition attributes
