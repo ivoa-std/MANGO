@@ -1,5 +1,10 @@
 #
+# INsdert images and model element descriptions in the vo-dml file
+# - input:  mango.vodml.xml
+# - desc folder: contains all individual model element descriptions
+# - output: desc/mango.vodml.xml 
 #
+# Must be run from that folder
 #
 import sys, os, re, subprocess
 import xml.etree.ElementTree as ET
@@ -12,6 +17,7 @@ doc_path = os.path.join(base_path, "doc")
 vodml_model_path = os.path.join(vodml_path, "mango.vo-dml.xml")
 tex_model_path = os.path.join(doc_path, "model.tex")
 
+# Image insertion pattern
 image = r"""\1 \2 }
   \\begin{figure}[h]
     \\includegraphics[width=1.0\\textwidth]{../model/\2.png}
@@ -20,7 +26,7 @@ image = r"""\1 \2 }
   \\end{figure}\n
 """
 
-
+# Class for which an image is available
 class_with_image = ["EpochPosition"]
 
 def insert_class_image(class_name, content):
@@ -31,7 +37,11 @@ def insert_class_image(class_name, content):
         \\label{fig:@@@@}
       \\end{figure}\n
     """
+    
+    # build a regexp locating that particular image
     regexp = "(section\{@@@@\})".replace("@@@@",class_name)
+    
+    # insert the latex image block
     return re.sub(regexp,
                   template_class_image.replace("@@@@",class_name), content)
 
@@ -83,8 +93,10 @@ def add_images():
     content = ""
     with open(tex_model_path) as read_file:
         content = read_file.read()
-    
+    # add images for each package (image MUST be available
     content = re.sub("(section\{Package:) ([a-z_]+) \}", image, content)
+    
+    # add images for the class declared as having a diagram
     for class_name in class_with_image:
         content = insert_class_image(class_name, content)
         
