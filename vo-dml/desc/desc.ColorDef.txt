@@ -1,2 +1,3 @@
-Definition of the colour to which the Color property applies.
-It contains the way the colour is calculated as well as the definition of the filters used.
+Class holder for the definition of the related color.
+This definition includes how the color is calculated (Mag or HR)
+and the filters on which the color is based. 

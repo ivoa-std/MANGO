@@ -44,7 +44,7 @@
       \textbf{vodml-id: AssociatedData.semantic} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 1} \newline 
-      Semantic concept giving the nature of the associated data. As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration.
+      Semantic concept giving the nature of the associated data.
 
     \subsubsection{AssociatedData.description}
       \textbf{vodml-id: AssociatedData.description} \newline
@@ -54,7 +54,7 @@
 
   \subsection{AssociatedMangoInstance}
   \label{sect:AssociatedMangoInstance}
-    Reference to another MANGO instance that is part of the associated data.
+    Class holder for linking to another /texttt{MangoObject} that is part of the associated data.
 
     \subsubsection{AssociatedMangoInstance.mangoInstance}
       \textbf{vodml-id: AssociatedMangoInstance.mangoInstance} \newline
@@ -64,11 +64,11 @@
 
   \subsection{BitField}
   \label{sect:BitField}
-    State of a property for which each value is represented by a bit so that several states can be included in the same numerical value. The values defined in the associated StatusValues must correspond to bit patterns. This constraint is not managed by the model.
+    Property state for which each possible value is represented by a bit, so that multiple states can be contained in the same numeric value. The values defined in the associated /texttt{StatusValues} must correspond to bit patterns. This constraint is not enforced by the model.
 
   \subsection{Color}
   \label{sect:Color}
-    Photometric property describing a color of the MANGO object. color is not an intrinsic quantity of the MANGO object but a value relative to two filters or energy bands.
+    Property that describes a color of the \texttt{MangoObject}. The color is not an intrinsic property of the MANGO object, but a value relative to two filters or energy bands.
 
     \subsubsection{Color.colorDef}
       \textbf{vodml-id: Color.colorDef} \newline
@@ -78,25 +78,25 @@
 
   \subsection{ColorDef}
   \label{sect:ColorDef}
-    Definition of the colour to which the Color property applies. It contains the way the colour is calculated as well as the definition of the filters used.
+    Class holder for the definition of the related color. This definition includes how the color is calculated (Mag or HR) and the filters on which the color is based.
 
     \subsubsection{ColorDef.definition}
       \textbf{vodml-id: ColorDef.definition} \newline
       \textbf{type: \hyperref[sect:ColorDefinition]{mango:ColorDefinition}} \newline
       \textbf{multiplicity: 1} \newline 
-      Enumeration of the different color types supported by the model.
+      Attribute giving the way the color is calculated (Mag or HR).
 
     \subsubsection{ColorDef.high}
       \textbf{vodml-id: ColorDef.high} \newline
       \textbf{type: photdm:PhotFilter} \newline
       \textbf{multiplicity: 1} \newline 
-      Reference to the \texttt{photdm:PhotFilter} corresponding the highest energy for that color.
+      Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.
 
     \subsubsection{ColorDef.low}
       \textbf{vodml-id: ColorDef.low} \newline
       \textbf{type: photdm:PhotFilter} \newline
       \textbf{multiplicity: 1} \newline 
-      Reference to the \texttt{photdm:PhotFilter} corresponding the lowest energy for that color.
+      Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
 
   \subsection{EpochPosition}
 
@@ -150,7 +150,7 @@
       \textbf{vodml-id: EpochPosition.epoch} \newline
       \textbf{type: coords:Epoch} \newline
       \textbf{multiplicity: 1} \newline 
-      Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.
+      Position epoch expressed within the instance time system (see \texttt{coords:epoch})
 
     \subsubsection{EpochPosition.pmCosLat\_applied}
       \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
@@ -162,7 +162,7 @@
       \textbf{vodml-id: EpochPosition.errors} \newline
       \textbf{type: \hyperref[sect:EpochPositionErrors]{mango:EpochPositionErrors}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Error coefficients of the EpochPosition attributes
+      Reference to the holder for the errors of the EpochPosition attributes
 
     \subsubsection{EpochPosition.correlations}
       \textbf{vodml-id: EpochPosition.correlations} \newline
@@ -280,11 +280,11 @@
       \textbf{vodml-id: MangoObject.dataOrigin} \newline
       \textbf{type: \hyperref[sect:dataorigin.DataOrigin]{mango:dataorigin.DataOrigin}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Description of the origin of the MANGO object. The parameters contained in this component come from the work of the DCP-IG.
+      Description of the origin of the \texttt{MangoObject} The parameters contained in this component come from the work of the DCP-IG.
 
   \subsection{PhotometricProperty}
   \label{sect:PhotometricProperty}
-    Observed brightness of the MANGO object. The distinction between fluxes of a magnitude is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
+    Observed brightness of the \texttt{MangoObject} The distinction between fluxes of a magnitude is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
 
     \subsubsection{PhotometricProperty.value}
       \textbf{vodml-id: PhotometricProperty.value} \newline
@@ -365,7 +365,7 @@
       \textbf{vodml-id: Shape.shape} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      String serialization of the spatial extension of the MANGO object.
+      String serialization of the spatial extension of the \texttt{MangoObject}
 
     \subsubsection{Shape.serialization}
       \textbf{vodml-id: Shape.serialization} \newline
@@ -504,7 +504,7 @@
   \subsection{ColorDefinition}
   \label{sect:ColorDefinition}
 
-  todo
+  Enumeration of the different types of colors supported by the model.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -537,11 +537,11 @@
   %\end{center}
   %\end{figure}
 
-  Elliptical error for 2D parameters such as the sky positions.
+  The \texttt{error} package groups the MANGO built-in error classes. All these classes are derived from \texttt{meas:Uncertainty} to make them reusable by \texttt{meas:Measure} instances. Mango errors all have an attribute that specifies the confidence level
 
   \subsection{Ellipse}
   \label{sect:error.Ellipse}
-    Elliptical error for 2D parameters such as the sky positions.
+    Elliptic error for 2D parameters such as sky positions. Major axis and minor axis have their own units, which must be the same for both. This is not enforced by the model.
 
     \subsubsection{Ellipse.semiMajorAxis}
       \textbf{vodml-id: error.Ellipse.semiMajorAxis} \newline

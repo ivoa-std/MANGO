@@ -1,1 +1,1 @@
-String serialization of the spatial extension of the MANGO object.
+String serialization of the spatial extension of the \texttt{MangoObject}

@@ -14,13 +14,10 @@ The process is 3 steps:
   - XSLT transform
   - style sheet `ivoatex/vo-dml2ivoatex.xslt`
 
-- Uderscore escaping
-  - Escape underscores located in the text 
-  - Un-Escape underscores located in formula 
-
 
 ```bash
 % python -m processVodml
 % cd ../doc
+xsltproc -o model.tex  ivoatex/vo-dml2ivoatex.xslt ../vo-dml/desc.mango.vo-dml.xml
 % make forcetex
 ```

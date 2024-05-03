@@ -1,4 +1,4 @@
-State of a property for which each value is represented by a bit so that several 
-states can be included in the same numerical value.
-The values defined in the associated StatusValues must correspond to bit patterns.
-This constraint is not managed by the model.
+Property state for which each possible value is represented by a bit, 
+so that multiple states can be contained in the same numeric value.
+The values defined in the associated /texttt{StatusValues} must correspond to bit patterns.
+This constraint is not enforced by the model.

@@ -1,1 +1,1 @@
-Reference to the \texttt{photdm:PhotFilter} corresponding the highest energy for that color.
+Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.

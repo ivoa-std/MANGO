@@ -90,7 +90,7 @@ that  needs instrument specific tools to be handled (ObsCore)</description>
   <enumeration>
     <vodml-id>ColorDefinition</vodml-id>
     <name>ColorDefinition</name>
-    <description>todo</description>
+    <description>Enumeration of the different types of colors supported by the model.</description>
     <literal>
       <vodml-id>ColorDefinition.ColorIndex</vodml-id>
       <name>ColorIndex</name>
@@ -182,7 +182,7 @@ The format is free.</description>
     <reference>
       <vodml-id>MangoObject.dataOrigin</vodml-id>
       <name>dataOrigin</name>
-      <description>Description of the origin of the MANGO object. 
+      <description>Description of the origin of the \texttt{MangoObject} 
 The parameters contained in this component come from the work of the DCP-IG.</description>
       <datatype>
         <vodml-ref>mango:dataorigin.DataOrigin</vodml-ref>
@@ -203,8 +203,6 @@ This class is used to specify the type of the dataset as well as its role.</desc
       <vodml-id>AssociatedData.semantic</vodml-id>
       <name>semantic</name>
       <description>Semantic concept giving the nature of the associated data.
-As long as the vocabulary is not set, the possible values of this attribute are given 
-by the LinkSemantic enumeration. 
 </description>
       <datatype>
         <vodml-ref>mango:VocabularyTerm</vodml-ref>
@@ -265,7 +263,7 @@ by the LinkSemantic enumeration.
   <objectType>
     <vodml-id>AssociatedMangoInstance</vodml-id>
     <name>AssociatedMangoInstance</name>
-    <description>Reference to another MANGO instance that is part of the associated data.</description>
+    <description>Class holder for linking to another /texttt{MangoObject} that is part of the associated data.</description>
     <extends>
       <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
@@ -411,7 +409,7 @@ Each value has its own textual description.</description>
     <attribute>
       <vodml-id>Shape.shape</vodml-id>
       <name>shape</name>
-      <description>String serialization of the spatial extension of the MANGO object.</description>
+      <description>String serialization of the spatial extension of the \texttt{MangoObject}</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -449,7 +447,7 @@ Each value has its own textual description.</description>
   <objectType>
     <vodml-id>PhotometricProperty</vodml-id>
     <name>PhotometricProperty</name>
-    <description>Observed brightness of the MANGO object. 
+    <description>Observed brightness of the \texttt{MangoObject} 
 The distinction between fluxes of a magnitude is made by the unit.
 This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.</description>
     <extends>
@@ -521,9 +519,9 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
   <objectType>
     <vodml-id>Color</vodml-id>
     <name>Color</name>
-    <description>Photometric property describing a color of the MANGO object.
-color is not an intrinsic quantity of the MANGO object but a value 
-relative to two filters or energy bands.
+    <description>Property that describes a color of the \texttt{MangoObject}.
+The color is not an intrinsic property of the MANGO object,
+but a value relative to two filters or energy bands.
 </description>
     <extends>
       <vodml-ref>mango:PhotometricProperty</vodml-ref>
@@ -548,12 +546,13 @@ Can be either a  difference of magnitudes or an hardness ratio.
   <objectType>
     <vodml-id>ColorDef</vodml-id>
     <name>ColorDef</name>
-    <description>Definition of the colour to which the Color property applies.
-It contains the way the colour is calculated as well as the definition of the filters used.</description>
+    <description>Class holder for the definition of the related color.
+This definition includes how the color is calculated (Mag or HR)
+and the filters on which the color is based. </description>
     <attribute>
       <vodml-id>ColorDef.definition</vodml-id>
       <name>definition</name>
-      <description>Enumeration of the different color types supported by the model.</description>
+      <description>Attribute giving the way the color is calculated (Mag or HR).</description>
       <datatype>
         <vodml-ref>mango:ColorDefinition</vodml-ref>
       </datatype>
@@ -565,7 +564,7 @@ It contains the way the colour is calculated as well as the definition of the fi
     <composition>
       <vodml-id>ColorDef.high</vodml-id>
       <name>high</name>
-      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the highest energy for that color.
+      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.
 </description>
       <datatype>
         <vodml-ref>photdm:PhotFilter</vodml-ref>
@@ -578,7 +577,7 @@ It contains the way the colour is calculated as well as the definition of the fi
     <composition>
       <vodml-id>ColorDef.low</vodml-id>
       <name>low</name>
-      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the lowest energy for that color.
+      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
 </description>
       <datatype>
         <vodml-ref>photdm:PhotFilter</vodml-ref>
@@ -593,10 +592,10 @@ It contains the way the colour is calculated as well as the definition of the fi
   <objectType>
     <vodml-id>BitField</vodml-id>
     <name>BitField</name>
-    <description>State of a property for which each value is represented by a bit so that several 
-states can be included in the same numerical value.
-The values defined in the associated StatusValues must correspond to bit patterns.
-This constraint is not managed by the model.</description>
+    <description>Property state for which each possible value is represented by a bit, 
+so that multiple states can be contained in the same numeric value.
+The values defined in the associated /texttt{StatusValues} must correspond to bit patterns.
+This constraint is not enforced by the model.</description>
     <extends>
       <vodml-ref>mango:Status</vodml-ref>
     </extends>
@@ -752,7 +751,7 @@ The current version of the model only allows a representation in the Polar coord
     <attribute>
       <vodml-id>EpochPosition.epoch</vodml-id>
       <name>epoch</name>
-      <description>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</description>
+      <description>Position epoch expressed within the instance time system (see \texttt{coords:epoch})</description>
       <datatype>
         <vodml-ref>coords:Epoch</vodml-ref>
       </datatype>
@@ -779,7 +778,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <composition>
       <vodml-id>EpochPosition.errors</vodml-id>
       <name>errors</name>
-      <description>Error coefficients of the EpochPosition attributes</description>
+      <description>Reference to the holder for the errors of the EpochPosition attributes</description>
       <datatype>
         <vodml-ref>mango:EpochPositionErrors</vodml-ref>
       </datatype>
@@ -951,7 +950,10 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
   <package>
     <vodml-id>error</vodml-id>
     <name>error</name>
-    <description>Elliptical error for 2D parameters such as the sky positions.</description>
+    <description>The \texttt{error} package groups the MANGO built-in error classes. 
+All these classes are derived from \texttt{meas:Uncertainty} to make
+them reusable by \texttt{meas:Measure} instances. Mango errors all 
+have an attribute that specifies the confidence level</description>
     <dataType abstract="true">
       <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
@@ -1057,7 +1059,9 @@ The matrix must be symetric.</description>
     <dataType>
       <vodml-id>error.Ellipse</vodml-id>
       <name>Ellipse</name>
-      <description>Elliptical error for 2D parameters such as the sky positions.</description>
+      <description>Elliptic error for 2D parameters such as sky positions.
+Major axis and minor axis have their own units, which must be the same for both.
+This is not enforced by the model.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </extends>

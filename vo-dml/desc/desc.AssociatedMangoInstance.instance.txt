@@ -1,1 +1,1 @@
-Composition link pointing on one associated MANGO object associated.
+Link to the associated /texttt{MangoObject}.

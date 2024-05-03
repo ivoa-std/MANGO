@@ -1,3 +1,1 @@
 Semantic concept giving the nature of the associated data.
-As long as the vocabulary is not set, the possible values of this attribute are given 
-by the LinkSemantic enumeration. 

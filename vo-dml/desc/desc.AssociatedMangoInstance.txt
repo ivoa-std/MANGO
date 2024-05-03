@@ -1,1 +1,1 @@
-Reference to another MANGO instance that is part of the associated data.
+Class holder for linking to another /texttt{MangoObject} that is part of the associated data.

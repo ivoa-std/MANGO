@@ -1,1 +1,3 @@
-Elliptical error for 2D parameters such as the sky positions.
+Elliptic error for 2D parameters such as sky positions.
+Major axis and minor axis have their own units, which must be the same for both.
+This is not enforced by the model.

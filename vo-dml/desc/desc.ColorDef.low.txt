@@ -1,1 +1,1 @@
-Reference to the \texttt{photdm:PhotFilter} corresponding the lowest energy for that color.
+Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.

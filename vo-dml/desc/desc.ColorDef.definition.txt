@@ -1,1 +1,1 @@
-Enumeration of the different color types supported by the model.
+Attribute giving the way the color is calculated (Mag or HR).

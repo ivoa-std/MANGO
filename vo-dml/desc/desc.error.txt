@@ -1,1 +1,4 @@
-Elliptical error for 2D parameters such as the sky positions.
+The \texttt{error} package groups the MANGO built-in error classes. 
+All these classes are derived from \texttt{meas:Uncertainty} to make
+them reusable by \texttt{meas:Measure} instances. Mango errors all 
+have an attribute that specifies the confidence level
