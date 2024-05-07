@@ -1,2 +1,2 @@
-Correlation of a 1D property (A) with a 1D parameter (B): 
-$A = a1b1 * B$
+Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to the second axis of \texttt{A}.

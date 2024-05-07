@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-05-07T16:38:30</lastModified>
+  <lastModified>2024-05-07T20:08:50</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -1019,8 +1019,8 @@ $error_{parallax} = f(position)$</description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     <primitiveType>
-      <vodml-id>error.ErrorCovMatrix</vodml-id>
-      <name>ErrorCovMatrix</name>
+      <vodml-id>error.ErrorCorrMatrix</vodml-id>
+      <name>ErrorCorrMatrix</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -1073,15 +1073,15 @@ $error_{parallax} = f(position)$</description>
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorCorrMatrix</vodml-id>
-      <name>ErrorCorrMatrix</name>
+      <vodml-id>error.ErrorCovMatrix</vodml-id>
+      <name>ErrorCovMatrix</name>
       <description>Diagonal 2D  matrix. Non diagonal elements are null.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorCorrMatrix.sigma1</vodml-id>
-        <name>sigma1</name>
+        <vodml-id>error.ErrorCovMatrix.variance1</vodml-id>
+        <name>variance1</name>
         <description>First diagonal element ($(x_11)$)</description>
         <datatype>
           <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -1092,8 +1092,8 @@ $error_{parallax} = f(position)$</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorCorrMatrix.sigma2</vodml-id>
-        <name>sigma2</name>
+        <vodml-id>error.ErrorCovMatrix.variance2</vodml-id>
+        <name>variance2</name>
         <description>Second diagonal element ($(x_22)$)</description>
         <datatype>
           <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -1104,13 +1104,13 @@ $error_{parallax} = f(position)$</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorCorrMatrix.correlation</vodml-id>
-        <name>correlation</name>
+        <vodml-id>error.ErrorCovMatrix.covariance</vodml-id>
+        <name>covariance</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1244,11 +1244,11 @@ $error_{parallax} = f(position)$</description>
         <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>correlation.Correlation11.sigma1</vodml-id>
-        <name>sigma1</name>
+        <vodml-id>correlation.Correlation11.correlation11</vodml-id>
+        <name>correlation11</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
