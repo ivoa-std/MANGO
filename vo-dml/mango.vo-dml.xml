@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-04-18T16:35:15</lastModified>
+  <lastModified>2024-05-07T16:38:30</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -1018,6 +1018,17 @@ $error_{parallax} = f(position)$</description>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
+    <primitiveType>
+      <vodml-id>error.ErrorCovMatrix</vodml-id>
+      <name>ErrorCovMatrix</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
+      </extends>
+    </primitiveType>
+
     <dataType abstract="true">
       <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
@@ -1031,7 +1042,7 @@ $error_{parallax} = f(position)$</description>
         <name>confidenceLevel</name>
         <description>Confidence level of the error, expressed in \sigma.</description>
         <datatype>
-          <vodml-ref>ivoa:integer</vodml-ref>
+          <vodml-ref>ivoa:real</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1062,14 +1073,14 @@ $error_{parallax} = f(position)$</description>
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorMatrix</vodml-id>
-      <name>ErrorMatrix</name>
+      <vodml-id>error.ErrorCorrMatrix</vodml-id>
+      <name>ErrorCorrMatrix</name>
       <description>Diagonal 2D  matrix. Non diagonal elements are null.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError2D</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorMatrix.sigma1</vodml-id>
+        <vodml-id>error.ErrorCorrMatrix.sigma1</vodml-id>
         <name>sigma1</name>
         <description>First diagonal element ($(x_11)$)</description>
         <datatype>
@@ -1081,7 +1092,7 @@ $error_{parallax} = f(position)$</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorMatrix.sigma2</vodml-id>
+        <vodml-id>error.ErrorCorrMatrix.sigma2</vodml-id>
         <name>sigma2</name>
         <description>Second diagonal element ($(x_22)$)</description>
         <datatype>
@@ -1093,27 +1104,13 @@ $error_{parallax} = f(position)$</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorMatrix.covariance</vodml-id>
-        <name>covariance</name>
+        <vodml-id>error.ErrorCorrMatrix.correlation</vodml-id>
+        <name>correlation</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>error.ErrorMatrix.isCovariance</vodml-id>
-        <name>isCovariance</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-        <datatype>
-          <vodml-ref>ivoa:boolean</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1196,11 +1193,11 @@ $error_{parallax} = f(position)$</description>
         <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>correlation.Correlation12.a1b1</vodml-id>
-        <name>a1b1</name>
+        <vodml-id>correlation.Correlation12.correlation11</vodml-id>
+        <name>correlation11</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1208,11 +1205,11 @@ $error_{parallax} = f(position)$</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>correlation.Correlation12.a1b2</vodml-id>
-        <name>a1b2</name>
+        <vodml-id>correlation.Correlation12.correlation12</vodml-id>
+        <name>correlation12</name>
         <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1247,8 +1244,8 @@ $error_{parallax} = f(position)$</description>
         <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>correlation.Correlation11.a1b1</vodml-id>
-        <name>a1b1</name>
+        <vodml-id>correlation.Correlation11.sigma1</vodml-id>
+        <name>sigma1</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
@@ -1270,11 +1267,11 @@ $error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$</
         <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>correlation.Correlation22.a2b1</vodml-id>
-        <name>a2b1</name>
+        <vodml-id>correlation.Correlation22.sigma1</vodml-id>
+        <name>sigma1</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the second axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1282,11 +1279,11 @@ $error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$</
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>correlation.Correlation22.a2b2</vodml-id>
-        <name>a2b2</name>
+        <vodml-id>correlation.Correlation22.sigma2</vodml-id>
+        <name>sigma2</name>
         <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the second axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1294,23 +1291,11 @@ $error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$</
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>correlation.Correlation22.a1b1</vodml-id>
-        <name>a1b1</name>
+        <vodml-id>correlation.Correlation22.correlation</vodml-id>
+        <name>correlation</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation22.a1b2</vodml-id>
-        <name>a1b2</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1329,11 +1314,11 @@ $error\_A_2 = correlation\_A12B1 * value\_B$</description>
         <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>correlation.Correlation21.a2b1</vodml-id>
-        <name>a2b1</name>
+        <vodml-id>correlation.Correlation21.correlation11</vodml-id>
+        <name>correlation11</name>
         <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>
@@ -1341,11 +1326,11 @@ $error\_A_2 = correlation\_A12B1 * value\_B$</description>
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>correlation.Correlation21.a1b1</vodml-id>
-        <name>a1b1</name>
+        <vodml-id>correlation.Correlation21.correlation21</vodml-id>
+        <name>correlation21</name>
         <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
         <datatype>
-          <vodml-ref>ivoa:real</vodml-ref>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>

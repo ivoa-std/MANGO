@@ -38,13 +38,13 @@
 
   \subsection{AssociatedData (Abstract)}
   \label{sect:AssociatedData}
-    Abstract reference to a particular dataset associated to the MANGO entity. This class is used to specify the type of the dataset as well as its role.
+    Abstract reference to a particular dataset associated to the Source. This class is used to specify the type of the dataset as well as its role.
 
     \subsubsection{AssociatedData.semantic}
       \textbf{vodml-id: AssociatedData.semantic} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 1} \newline 
-      Semantic concept giving the nature of the associated data.
+      Reference to a semantic concept giving the nature of the associated data. As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration.
 
     \subsubsection{AssociatedData.description}
       \textbf{vodml-id: AssociatedData.description} \newline
@@ -54,7 +54,7 @@
 
   \subsection{AssociatedMangoInstance}
   \label{sect:AssociatedMangoInstance}
-    Class holder for linking to another /texttt{MangoObject} that is part of the associated data.
+    Reference to another MANGO instance that is part of the associated data.
 
     \subsubsection{AssociatedMangoInstance.mangoInstance}
       \textbf{vodml-id: AssociatedMangoInstance.mangoInstance} \newline
@@ -64,259 +64,251 @@
 
   \subsection{BitField}
   \label{sect:BitField}
-    Property state for which each possible value is represented by a bit, so that multiple states can be contained in the same numeric value. The values defined in the associated /texttt{StatusValues} must correspond to bit patterns. This constraint is not enforced by the model.
+    TODO : Missing description : please, update your UML model asap.
 
   \subsection{Color}
   \label{sect:Color}
-    Property that describes a color of the \texttt{MangoObject}. The color is not an intrinsic property of the MANGO object, but a value relative to two filters or energy bands.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Color.colorDef}
       \textbf{vodml-id: Color.colorDef} \newline
       \textbf{type: \hyperref[sect:ColorDef]{mango:ColorDef}} \newline
       \textbf{multiplicity: 1} \newline 
-      Color definition. Can be either a difference of magnitudes or an hardness ratio.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{ColorDef}
   \label{sect:ColorDef}
-    Class holder for the definition of the related color. This definition includes how the color is calculated (Mag or HR) and the filters on which the color is based.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{ColorDef.definition}
       \textbf{vodml-id: ColorDef.definition} \newline
       \textbf{type: \hyperref[sect:ColorDefinition]{mango:ColorDefinition}} \newline
       \textbf{multiplicity: 1} \newline 
-      Attribute giving the way the color is calculated (Mag or HR).
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{ColorDef.high}
       \textbf{vodml-id: ColorDef.high} \newline
       \textbf{type: photdm:PhotFilter} \newline
       \textbf{multiplicity: 1} \newline 
-      Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{ColorDef.low}
       \textbf{vodml-id: ColorDef.low} \newline
       \textbf{type: photdm:PhotFilter} \newline
       \textbf{multiplicity: 1} \newline 
-      Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{EpochPosition}
-
-      \begin{figure}[h]
-        \includegraphics[width=1.0\textwidth]{../model/EpochPosition.png}
-        \caption{Class EpochPosition}
-        \label{fig:EpochPosition}
-      \end{figure}
-
-    
   \label{sect:EpochPosition}
-    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same spatial coordinate system. \begin{itemize} \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The error is specific to this class as it must support covariance and correlation between the components.
+    Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.
 
     \subsubsection{EpochPosition.longitude}
       \textbf{vodml-id: EpochPosition.longitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.latitude}
       \textbf{vodml-id: EpochPosition.latitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lat}.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.parallax}
       \textbf{vodml-id: EpochPosition.parallax} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The measured parallax value in the coordinate system of the \texttt{EpochPosition} instance.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.radialVelocity}
       \textbf{vodml-id: EpochPosition.radialVelocity} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The measured Velocity value along of the radius axis (see \texttt{meas:Velocity.coord}).
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.pmLongitude}
       \textbf{vodml-id: EpochPosition.pmLongitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). The current version of the model only allows a representation in the Polar coordinate space.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.pmLatitude}
       \textbf{vodml-id: EpochPosition.pmLatitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). The current version of the model only allows a representation in the Polar coordinate space.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.epoch}
       \textbf{vodml-id: EpochPosition.epoch} \newline
       \textbf{type: coords:Epoch} \newline
       \textbf{multiplicity: 1} \newline 
-      Position epoch expressed within the instance time system (see \texttt{coords:epoch})
+      TODO : Missing description : please, update your UML model asap.
 
-    \subsubsection{EpochPosition.pmCosLat\_applied}
-      \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
+    \subsubsection{EpochPosition.pmCosLat_applied}
+      \textbf{vodml-id: EpochPosition.pmCosLat_applied} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
       \textbf{multiplicity: 1} \newline 
-      It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.errors}
       \textbf{vodml-id: EpochPosition.errors} \newline
       \textbf{type: \hyperref[sect:EpochPositionErrors]{mango:EpochPositionErrors}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Reference to the holder for the errors of the EpochPosition attributes
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.correlations}
       \textbf{vodml-id: EpochPosition.correlations} \newline
       \textbf{type: \hyperref[sect:EpochPositionCorrelations]{mango:EpochPositionCorrelations}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Correlation coefficients between the EpochPosition attributes
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.spaceSys}
       \textbf{vodml-id: EpochPosition.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 0..1} \newline 
-      System that applies the space coordinates.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.timeSys}
       \textbf{vodml-id: EpochPosition.timeSys} \newline
       \textbf{type: coords:TimeSys} \newline
       \textbf{multiplicity: 0..1} \newline 
-      System that applies the time coordinates (the epoch).
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{EpochPositionCorrelations}
   \label{sect:EpochPositionCorrelations}
-    Class holder for the correlation coefficients between the EpochPosition attributes
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPositionCorrelations.positionPm}
       \textbf{vodml-id: EpochPositionCorrelations.positionPm} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the correlation between the position and the proper motion
+      Correlated error between the proper motion and the position. This error is represented by a 2D matrix. $error\_{propermotion} = f(position)$
 
     \subsubsection{EpochPositionCorrelations.parallaxPm}
       \textbf{vodml-id: EpochPositionCorrelations.parallaxPm} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation12]{mango:correlation.Correlation12}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the correlation between the parallax and the proper motion
+      Correlated error between the parallax and the proper motion. The parallax error might depend on the proper motion vector. $error\_{parallax} = f(properMotion)$
 
     \subsubsection{EpochPositionCorrelations.positionParallax}
       \textbf{vodml-id: EpochPositionCorrelations.positionParallax} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation21]{mango:correlation.Correlation21}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the correlation between the position and the parallax
+      Correlated error between the parallax and the position. The parallax error might depend on the sky position. $error\_{parallax} = f(position)$
 
     \subsubsection{EpochPositionCorrelations.positionPosition}
       \textbf{vodml-id: EpochPositionCorrelations.positionPosition} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the self correlation of the position
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPositionCorrelations.properMotionPm}
       \textbf{vodml-id: EpochPositionCorrelations.properMotionPm} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the self correlation of the proper motion
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{EpochPositionErrors}
   \label{sect:EpochPositionErrors}
-    Class holder for the errors of the EpochPosition attributes
+    Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations.
 
     \subsubsection{EpochPositionErrors.parallax}
       \textbf{vodml-id: EpochPositionErrors.parallax} \newline
       \textbf{type: \hyperref[sect:error.PropertyError1D]{mango:error.PropertyError1D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Parallax error. This error is meant to be symmetrical
+      Parallax error. This error is meant to be symetrical.
 
     \subsubsection{EpochPositionErrors.radialVelocity}
       \textbf{vodml-id: EpochPositionErrors.radialVelocity} \newline
       \textbf{type: \hyperref[sect:error.PropertyError1D]{mango:error.PropertyError1D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Error in the radial velocity. This error is meant to be symmetrical
+      Error in the radial velocity. This error is meant to be symetrical.
 
     \subsubsection{EpochPositionErrors.position}
       \textbf{vodml-id: EpochPositionErrors.position} \newline
       \textbf{type: \hyperref[sect:error.PropertyError2D]{mango:error.PropertyError2D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Position error.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPositionErrors.properMotion}
       \textbf{vodml-id: EpochPositionErrors.properMotion} \newline
       \textbf{type: \hyperref[sect:error.PropertyError2D]{mango:error.PropertyError2D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Proper motion error.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{Label}
   \label{sect:Label}
-    Free text label seen as a MANGO object property.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Label.text}
       \textbf{vodml-id: Label.text} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Text of label seen as a MANGO object property.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{MangoObject}
   \label{sect:MangoObject}
-    Central model class: applied to a data table, each row can be modelled as a MangoObject instance. Each MangoObject hosts a collection of physical or calculated parameters, a collection of associated data, a description of the data origin and an identifier.
+    Root class of the model. MANGO instances are meant of be Source instances. A source is something with an identifier and two docks: one for the parameters and one for the associated data.
 
     \subsubsection{MangoObject.identifier}
       \textbf{vodml-id: MangoObject.identifier} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Unique identifier for a MangoObject. The uniqueness of that identifier is not managed by the model. The format is free.
+      Unique identifier for a Source. The uniqueness of that identifier is not managed by the model. The format is free.
 
     \subsubsection{MangoObject.associatedDataDock}
       \textbf{vodml-id: MangoObject.associatedDataDock} \newline
       \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Collection of all data associated with the \texttt{MangoObject}.
+      Composition link pointing on all data associated with the source.
 
     \subsubsection{MangoObject.propertyDock}
       \textbf{vodml-id: MangoObject.propertyDock} \newline
       \textbf{type: \hyperref[sect:Property]{mango:Property}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Collection of all parameters attached to the MANGO entity.
+      Composition link pointing on all parameters attached to the source.
 
     \subsubsection{MangoObject.dataOrigin}
       \textbf{vodml-id: MangoObject.dataOrigin} \newline
       \textbf{type: \hyperref[sect:dataorigin.DataOrigin]{mango:dataorigin.DataOrigin}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Description of the origin of the \texttt{MangoObject} The parameters contained in this component come from the work of the DCP-IG.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{PhotometricProperty}
   \label{sect:PhotometricProperty}
-    Observed brightness of the \texttt{MangoObject} The distinction between fluxes of a magnitude is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{PhotometricProperty.value}
       \textbf{vodml-id: PhotometricProperty.value} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Value of the photometric property associated with a photometric calibration as defined by the \texttt{PhotDM} model.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{PhotometricProperty.photCal}
       \textbf{vodml-id: PhotometricProperty.photCal} \newline
       \textbf{type: photdm:PhotCal} \newline
       \textbf{multiplicity: 1} \newline 
-      Photometric calibration that applies to the photometric property. It must be an instance of \texttt{photdm:PhotCal}.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{PhysicalProperty}
   \label{sect:PhysicalProperty}
-    Place holder for any quantity that can be hold by measure as defined in the \texttt{Astronomical Measurements Model}.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{PhysicalProperty.calibrationLevel}
       \textbf{vodml-id: PhysicalProperty.calibrationLevel} \newline
       \textbf{type: \hyperref[sect:CalibrationLevel]{mango:CalibrationLevel}} \newline
       \textbf{multiplicity: 1} \newline 
-      Calibration level of the property (ObsCore).
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{PhysicalProperty.measure}
       \textbf{vodml-id: PhysicalProperty.measure} \newline
       \textbf{type: meas:Measure} \newline
       \textbf{multiplicity: 1} \newline 
-      Instance of \texttt{Astronomical Measurements Model} that holds the Property value(s).
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{Property}
   \label{sect:Property}
-    Reference to a particular measure of the MANGO entity. This class is used to specify the type of the measure as well as its role.
+    Reference to a particular measure of the Source. This class is used to specify the type of the measure as well as its role.
 
     \noindent \textbf{constraint} \newline
     \indent    \textbf{detail: Property.One association at the time
@@ -349,93 +341,93 @@
 
   \subsection{SatusValues}
   \label{sect:SatusValues}
-    Set of allowed status values
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{SatusValues.values}
       \textbf{vodml-id: SatusValues.values} \newline
       \textbf{type: \hyperref[sect:StatusValue]{mango:StatusValue}} \newline
       \textbf{multiplicity: 1..*} \newline 
-      Reference to the set of allowed values.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{Shape}
   \label{sect:Shape}
-    Description of the spatial extension of the MANGO object (for e.g. dust clouds).
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Shape.shape}
       \textbf{vodml-id: Shape.shape} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      String serialization of the spatial extension of the \texttt{MangoObject}
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Shape.serialization}
       \textbf{vodml-id: Shape.serialization} \newline
       \textbf{type: \hyperref[sect:ShapeSerialization]{mango:ShapeSerialization}} \newline
       \textbf{multiplicity: 1} \newline 
-      Serialization mode of the spatial extension of the MANGO entity
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Shape.spaceSys}
       \textbf{vodml-id: Shape.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Coordinate system that applies for the shape.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{Status}
   \label{sect:Status}
-    Property representing a status defined by a integer number that can only take on a defined number of values, each with its own description. Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Status.status}
       \textbf{vodml-id: Status.status} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline 
-      Actual value of the status.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{Status.allowedValues}
       \textbf{vodml-id: Status.allowedValues} \newline
       \textbf{type: \hyperref[sect:SatusValues]{mango:SatusValues}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      List of the allowed values for the status. Each value has its own textual description.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{StatusValue}
   \label{sect:StatusValue}
-    Value allowed for a status, contain the value with its meaning.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{StatusValue.value}
       \textbf{vodml-id: StatusValue.value} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline 
-      Allowed value for a \texttt{Status}
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{StatusValue.description}
       \textbf{vodml-id: StatusValue.description} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Free text description on the allowed value for a \texttt{Status}
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{VocabularyTerm}
   \label{sect:VocabularyTerm}
-    Term of a standardised vocabulary that applies to property.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{VocabularyTerm.uri}
       \textbf{vodml-id: VocabularyTerm.uri} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      URI the vocabulary term.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{VocabularyTerm.label}
       \textbf{vodml-id: VocabularyTerm.label} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Label attached to the vocabulary term. This is necessary because the URI may not contain an explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{WebEndpoint}
   \label{sect:WebEndpoint}
-    Associated data referenced by an URL
+    Class for associated data referenced by an URL
 
     \subsubsection{WebEndpoint.ContentType}
       \textbf{vodml-id: WebEndpoint.ContentType} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      URL mime type
+      Mime type of the URL
 
     \subsubsection{WebEndpoint.url}
       \textbf{vodml-id: WebEndpoint.url} \newline
@@ -446,7 +438,7 @@
   \subsection{ShapeFrame}
   \label{sect:ShapeFrame}
 
-  Possible schemes to encode a shape in a string
+  Possible options to encode a shape in a string.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -454,9 +446,9 @@
   \begin{itemize}
   
     \item[\textbf{STC\_S}]: \textbf{vodml-id:} ShapeFrame.STC\_S \newline
-          \textbf{description:} MOC serialization
+          \textbf{description:} STCs serialisation
     \item[\textbf{MOC}]: \textbf{vodml-id:} ShapeFrame.MOC \newline
-          \textbf{description:} STCs serialization
+          \textbf{description:} MOC serialisation
   \end{itemize}
   \normalsize
 
@@ -464,7 +456,7 @@
   \subsection{ShapeSerialization}
   \label{sect:ShapeSerialization}
 
-  Enumeration of the supported serialization modes for the shapes
+  TODO : Missing description : please, update your UML model asap.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -472,11 +464,11 @@
   \begin{itemize}
   
     \item[\textbf{MOC}]: \textbf{vodml-id:} ShapeSerialization.MOC \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a S-MOC
+          \textbf{description:} TODO : Missing description : please, update your UML model asap.
     \item[\textbf{STCS}]: \textbf{vodml-id:} ShapeSerialization.STCS \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a STCS string
+          \textbf{description:} TODO : Missing description : please, update your UML model asap.
     \item[\textbf{POLYGON}]: \textbf{vodml-id:} ShapeSerialization.POLYGON \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a polygon (cf xtypes)
+          \textbf{description:} TODO : Missing description : please, update your UML model asap.
   \end{itemize}
   \normalsize
 
@@ -484,7 +476,7 @@
   \subsection{CalibrationLevel}
   \label{sect:CalibrationLevel}
 
-  Enumeration of different possible calibration status of the property (Obscore)
+  Science ready data with the instrument signature removed (ObsCore).
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -492,11 +484,11 @@
   \begin{itemize}
   
     \item[\textbf{Raw}]: \textbf{vodml-id:} CalibrationLevel.Raw \newline
-          \textbf{description:} Raw instrumental data, in a proprietary or internal data provider defined format, that needs instrument specific tools to be handled (ObsCore)
+          \textbf{description:} Raw instrumental data, in a proprietary or internal data provider defined format, that needs instrument specific tools to be handled (ObsCore).
     \item[\textbf{Instrumental}]: \textbf{vodml-id:} CalibrationLevel.Instrumental \newline
           \textbf{description:} Instrumental data in a standard format which could be manipulated with standard astronomical packages (ObsCore).
     \item[\textbf{Calibrated}]: \textbf{vodml-id:} CalibrationLevel.Calibrated \newline
-          \textbf{description:} Science ready data with the instrument signature removed (ObsCore)
+          \textbf{description:} Science ready data with the instrument signature removed (ObsCore).
   \end{itemize}
   \normalsize
 
@@ -504,7 +496,7 @@
   \subsection{ColorDefinition}
   \label{sect:ColorDefinition}
 
-  Enumeration of the different types of colors supported by the model.
+  TODO : Missing description : please, update your UML model asap.
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -512,22 +504,15 @@
   \begin{itemize}
   
     \item[\textbf{ColorIndex}]: \textbf{vodml-id:} ColorDefinition.ColorIndex \newline
-          \textbf{description:} Difference of magnitudes: typically $M_B - M_v$
+          \textbf{description:} Difference of mangnitudes: typically $M\_B - M\_v$
     \item[\textbf{HardnessRatio}]: \textbf{vodml-id:} ColorDefinition.HardnessRatio \newline
-          \textbf{description:} Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) / (F_{EB2} + F_{EB1})$
+          \textbf{description:} Normalized ratio of fluxes: $(F\_{EB2} - F\_{EB1}) / (F\_{EB2} + F\_{EB1})$
   \end{itemize}
   \normalsize
 
 
 \pagebreak
 \section{Package: error }
-  \begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{../model/error.png}
-    \caption{package error}
-    \label{fig:error}
-  \end{figure}
-
-
 
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -537,23 +522,23 @@
   %\end{center}
   %\end{figure}
 
-  The \texttt{error} package groups the MANGO built-in error classes. All these classes are derived from \texttt{meas:Uncertainty} to make them reusable by \texttt{meas:Measure} instances. Mango errors all have an attribute that specifies the confidence level
+  TODO : Missing description : please, update your UML model asap.
 
   \subsection{Ellipse}
   \label{sect:error.Ellipse}
-    Elliptic error for 2D parameters such as sky positions. Major axis and minor axis have their own units, which must be the same for both. This is not enforced by the model.
+    Elliptical errror for 2D parameters such as the sky positions.
 
     \subsubsection{Ellipse.semiMajorAxis}
       \textbf{vodml-id: error.Ellipse.semiMajorAxis} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Half of the ellipse major axis
+      Half of the ellipse major axis.
 
     \subsubsection{Ellipse.semiMinorAxis}
       \textbf{vodml-id: error.Ellipse.semiMinorAxis} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Half of the ellipse minor axis
+      Half of the ellipse minor axis.
 
     \subsubsection{Ellipse.angle}
       \textbf{vodml-id: error.Ellipse.angle} \newline
@@ -561,67 +546,58 @@
       \textbf{multiplicity: 1} \newline 
       Angle between the North Polar Cape (NCP) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit.
 
-  \subsection{ErrorMatrix}
-  \label{sect:error.ErrorMatrix}
-    Error matrix for 2D quantities. The matrix must be symetric.
+  \subsection{ErrorCorrMatrix}
+  \label{sect:error.ErrorCorrMatrix}
+    Diagonal 2D matrix. Non diagonal elements are null.
 
-    \subsubsection{ErrorMatrix.sigma1}
-      \textbf{vodml-id: error.ErrorMatrix.sigma1} \newline
+    \subsubsection{ErrorCorrMatrix.sigma1}
+      \textbf{vodml-id: error.ErrorCorrMatrix.sigma1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      First diagonal element: $(x_{11})$
+      First diagonal element ($(x\_11)$)
 
-    \subsubsection{ErrorMatrix.sigma2}
-      \textbf{vodml-id: error.ErrorMatrix.sigma2} \newline
+    \subsubsection{ErrorCorrMatrix.sigma2}
+      \textbf{vodml-id: error.ErrorCorrMatrix.sigma2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Second diagonal element $(x_{22})$
+      Second diagonal element ($(x\_22)$)
 
-    \subsubsection{ErrorMatrix.covariance}
-      \textbf{vodml-id: error.ErrorMatrix.covariance} \newline
+    \subsubsection{ErrorCorrMatrix.correlation}
+      \textbf{vodml-id: error.ErrorCorrMatrix.correlation} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Covariance element ($x_{12}$ or $x_{21}$)
-
-    \subsubsection{ErrorMatrix.isCovariance}
-      \textbf{vodml-id: error.ErrorMatrix.isCovariance} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Boolean flag telling whether the error elements must be interpreted as covariance or matrix elements.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{PropertyError (Abstract)}
   \label{sect:error.PropertyError}
-    Root (abstract) class of the errors that can be attached to a MANGO property. The class inherits from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
+    Root (abstract) class of the errors that can be attached to a MA?GO property. The class inherit from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
 
     \subsubsection{PropertyError.confidenceLevel}
       \textbf{vodml-id: error.PropertyError.confidenceLevel} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Confidence level of the error, expressed in $\sigma$
+      Confidence level of the error, expressed in \sigma.
 
   \subsection{PropertyError1D}
   \label{sect:error.PropertyError1D}
-    Symetrical error for 1D parameters
+    Symetrical error for 1D parameter.
 
     \subsubsection{PropertyError1D.sigma}
       \textbf{vodml-id: error.PropertyError1D.sigma} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Magnitude of error on a one-dimensional parameter
+      Error amplitude.
 
   \subsection{PropertyError2D (Abstract)}
   \label{sect:error.PropertyError2D}
-    Super (abstract) class for all errors of 2D parameters
+    TODO : Missing description : please, update your UML model asap.
+
+  \subsection{ErrorCovMatrix}
+  \label{sect:error.ErrorCovMatrix}
+  TODO : Missing description : please, update your UML model asap.
 
 \pagebreak
 \section{Package: correlation }
-  \begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{../model/correlation.png}
-    \caption{package correlation}
-    \label{fig:correlation}
-  \end{figure}
-
-
 
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -631,97 +607,84 @@
   %\end{center}
   %\end{figure}
 
-  Package grouping together all the components needed to model the correlations between property attributes.
+  TODO : Missing description : please, update your UML model asap.
 
   \subsection{Correlation11}
   \label{sect:correlation.Correlation11}
-    Correlation of a 1D property (A) with a 1D parameter (B): $A = a1b1 * B$
+    Error of a 1D property (A) correlated with a 1D parameter (B): $error\\_A = correlation\\_A1B1 * value\\_B$
 
-    \subsubsection{Correlation11.a1b1}
-      \textbf{vodml-id: correlation.Correlation11.a1b1} \newline
+    \subsubsection{Correlation11.sigma1}
+      \textbf{vodml-id: correlation.Correlation11.sigma1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of \texttt{B} to \texttt{A}
+      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.
 
   \subsection{Correlation12}
   \label{sect:correlation.Correlation12}
-    Correlation of a 1D property (A) with a 2D parameter (B): $A = a1b1 * B_1 + a12 * B_2$
+    Error of a 1D property (A) correlated with a 2D parameter (B): $error\\_A = correlation\\_A1B1 * value\\_B\_1 + correlation\\_A1B2 * value\\_B\_2$
 
-    \subsubsection{Correlation12.a1b1}
-      \textbf{vodml-id: correlation.Correlation12.a1b1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation12.correlation11}
+      \textbf{vodml-id: correlation.Correlation12.correlation11} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the first axis of \texttt{B} to \texttt{A}
+      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.
 
-    \subsubsection{Correlation12.a1b2}
-      \textbf{vodml-id: correlation.Correlation12.a1b2} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation12.correlation12}
+      \textbf{vodml-id: correlation.Correlation12.correlation12} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to \texttt{A}
+      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.
 
   \subsection{Correlation21}
   \label{sect:correlation.Correlation21}
-    Correlation of a 2D property (A) with a 1D parameter (B): $A_1 = a11 * B$ $A_2 = a21 * B$
+    Error of a 2D property (A) correlated with a 1D parameter (B): $error\\_A\_1 = correlation\\_A1B1 * value\\_B$ $error\\_A\_2 = correlation\\_A12B1 * value\\_B$
 
-    \subsubsection{Correlation21.a2b1}
-      \textbf{vodml-id: correlation.Correlation21.a2b1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation21.correlation11}
+      \textbf{vodml-id: correlation.Correlation21.correlation11} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of \texttt{B} to the second axis of \texttt{A}
+      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.
 
-    \subsubsection{Correlation21.a1b1}
-      \textbf{vodml-id: correlation.Correlation21.a1b1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation21.correlation21}
+      \textbf{vodml-id: correlation.Correlation21.correlation21} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of \texttt{B} to the first axis of \texttt{A}
+      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.
 
   \subsection{Correlation22}
   \label{sect:correlation.Correlation22}
-    Correlation of a 2D property (A) with a 2D parameter (B): $A_1 = a11 * B_1 + a12 * B_2 $ $A_2 = a21 * B_1 + a22 * B_2 $
+    Error of a 2D property (A) correlated with a 2D parameter (B): $error\\_A\_1 = correlation\\_A1B1 * value\\_B\_1 + correlation\\_A1B2 * value\\_B\_2$ $error\\_A\_2 = correlation\\_A2B1 * value\\_B\_1 + correlation\\_A2B2 * value\\_B\_2$
 
-    \subsubsection{Correlation22.a2b1}
-      \textbf{vodml-id: correlation.Correlation22.a2b1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation22.sigma1}
+      \textbf{vodml-id: correlation.Correlation22.sigma1} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
+      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the second axis of \texttt{A}.
 
-    \subsubsection{Correlation22.a2b2}
-      \textbf{vodml-id: correlation.Correlation22.a2b2} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation22.sigma2}
+      \textbf{vodml-id: correlation.Correlation22.sigma2} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the second axis of \texttt{A}.
+      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the second axis of \texttt{A}.
 
-    \subsubsection{Correlation22.a1b1}
-      \textbf{vodml-id: correlation.Correlation22.a1b1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \subsubsection{Correlation22.correlation}
+      \textbf{vodml-id: correlation.Correlation22.correlation} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the first axis of \texttt{A}.
-
-    \subsubsection{Correlation22.a1b2}
-      \textbf{vodml-id: correlation.Correlation22.a1b2} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
+      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.
 
   \subsection{QuantityCorrelation (Abstract)}
   \label{sect:correlation.QuantityCorrelation}
-    Abstract type for the correlation parameters of 2 quantities
+    Abstract root class for the correlated errors. In the subclasses nomenclature the error relates to a property named \texttt{A} in correlation with a property named {B).
 
     \subsubsection{QuantityCorrelation.isCovariance}
       \textbf{vodml-id: correlation.QuantityCorrelation.isCovariance} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.
+      Optional parameter giving the UCD of the correlated property. This attribute may facilitate the interpretation of complex error patterns.
 
 \pagebreak
 \section{Package: dataorigin }
-  \begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{../model/dataorigin.png}
-    \caption{package dataorigin}
-    \label{fig:dataorigin}
-  \end{figure}
-
-
 
   % INSERT FIGURE HERE
   %\begin{figure}[h]
@@ -731,17 +694,17 @@
   %\end{center}
   %\end{figure}
 
-  Package grouping together all the components needed to model the origin of \texttt{MangoObject}.
+  TODO : Missing description : please, update your UML model asap.
 
   \subsection{Article}
   \label{sect:dataorigin.Article}
-    Reference article for the MANGO entity
+    Reference article for the MANGO source
 
     \subsubsection{Article.editor}
       \textbf{vodml-id: dataorigin.Article.editor} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Editor name (article)
+      Article editor name
 
     \subsubsection{Article.article}
       \textbf{vodml-id: dataorigin.Article.article} \newline
@@ -757,16 +720,16 @@
       \textbf{vodml-id: dataorigin.DataOrigin.citation} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Dataset identifier that can be used for citation (e.g. DOI)
+      Dataset idnetifier that can be used for citation (e.g. DOI)
 
-    \subsubsection{DataOrigin.reference\_url}
-      \textbf{vodml-id: dataorigin.DataOrigin.reference\_url} \newline
+    \subsubsection{DataOrigin.reference_url}
+      \textbf{vodml-id: dataorigin.DataOrigin.reference_url} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Dataset landing page
 
-    \subsubsection{DataOrigin.resource\_version}
-      \textbf{vodml-id: dataorigin.DataOrigin.resource\_version} \newline
+    \subsubsection{DataOrigin.resource_version}
+      \textbf{vodml-id: dataorigin.DataOrigin.resource_version} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Dataset version
@@ -775,53 +738,53 @@
       \textbf{vodml-id: dataorigin.DataOrigin.creator} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Person(s) mainly involved in the creation of the resource, generally the author
+      Person(s) mainly involved in the creation of the resource, generally the author.
 
     \subsubsection{DataOrigin.cites}
       \textbf{vodml-id: dataorigin.DataOrigin.cites} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Identifier (IVOID, DOI or Bibcode) of a second Resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
+      Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
 
-    \subsubsection{DataOrigin.is\_derived\_from}
-      \textbf{vodml-id: dataorigin.DataOrigin.is\_derived\_from} \newline
+    \subsubsection{DataOrigin.is_derived_from}
+      \textbf{vodml-id: dataorigin.DataOrigin.is_derived_from} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is\_derived\_from} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
 
-    \subsubsection{DataOrigin.original\_date}
-      \textbf{vodml-id: dataorigin.DataOrigin.original\_date} \newline
+    \subsubsection{DataOrigin.original_date}
+      \textbf{vodml-id: dataorigin.DataOrigin.original_date} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
       \textbf{multiplicity: 1} \newline 
-      Date of the original resource from which the MANGO object is derived
+      Date of the original resource from which the MANGO source instance is derived
 
     \subsubsection{DataOrigin.query}
       \textbf{vodml-id: dataorigin.DataOrigin.query} \newline
       \textbf{type: \hyperref[sect:dataorigin.QueryOrigin]{mango:dataorigin.QueryOrigin}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Description of the request from which the data originates.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{DataOrigin.rights}
       \textbf{vodml-id: dataorigin.DataOrigin.rights} \newline
       \textbf{type: \hyperref[sect:dataorigin.License]{mango:dataorigin.License}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Reference to the rights that apply to the data.
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{DataOrigin.article}
       \textbf{vodml-id: dataorigin.DataOrigin.article} \newline
       \textbf{type: \hyperref[sect:dataorigin.Article]{mango:dataorigin.Article}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Reference to the article from which the data originates.
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{License}
   \label{sect:dataorigin.License}
     Place holder for the license covering the MANGO instance
 
-    \subsubsection{License.rights\_uri}
-      \textbf{vodml-id: dataorigin.License.rights\_uri} \newline
+    \subsubsection{License.rights_uri}
+      \textbf{vodml-id: dataorigin.License.rights_uri} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Licence URI. Following Registry practice, this should come from SPDX https://spdx.org/licenses/, though Creative Commons URLs https://creativecommons.org are also admitted.
+      Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.
 
     \subsubsection{License.rights}
       \textbf{vodml-id: dataorigin.License.rights} \newline
@@ -831,7 +794,7 @@
 
   \subsection{QueryOrigin}
   \label{sect:dataorigin.QueryOrigin}
-    Description of the query the MANGO instance results from.
+    TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{QueryOrigin.ivoid}
       \textbf{vodml-id: dataorigin.QueryOrigin.ivoid} \newline
@@ -843,16 +806,16 @@
       \textbf{vodml-id: dataorigin.QueryOrigin.publisher} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Data center that produced the MANGO instance
+      Data center that produced the MANGOI source instance
 
-    \subsubsection{QueryOrigin.server\_software}
-      \textbf{vodml-id: dataorigin.QueryOrigin.server\_software} \newline
+    \subsubsection{QueryOrigin.server_software}
+      \textbf{vodml-id: dataorigin.QueryOrigin.server_software} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Version of the software the produced the MANGO object instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
+      Version of the software the produced the MANO source instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
 
-    \subsubsection{QueryOrigin.service\_protocol}
-      \textbf{vodml-id: dataorigin.QueryOrigin.service\_protocol} \newline
+    \subsubsection{QueryOrigin.service_protocol}
+      \textbf{vodml-id: dataorigin.QueryOrigin.service_protocol} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       IVOID of the protocol through which the data was retrieved
@@ -867,10 +830,10 @@
       \textbf{vodml-id: dataorigin.QueryOrigin.query} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Input query in a formal langage such as ADQL.equest types
+      Input query in a formal langage such as ADQL.
 
-    \subsubsection{QueryOrigin.request\_date}
-      \textbf{vodml-id: dataorigin.QueryOrigin.request\_date} \newline
+    \subsubsection{QueryOrigin.request_date}
+      \textbf{vodml-id: dataorigin.QueryOrigin.request_date} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
       \textbf{multiplicity: 1} \newline 
       Query execution date
