@@ -90,7 +90,11 @@ that  needs instrument specific tools to be handled (ObsCore)</description>
   <enumeration>
     <vodml-id>ColorDefinition</vodml-id>
     <name>ColorDefinition</name>
+<<<<<<< HEAD
+    <description>todo</description>
+=======
     <description>Enumeration of the different types of colors supported by the model.</description>
+>>>>>>> 09d5650710fadc45d09818adc1c213dc06ddd82b
     <literal>
       <vodml-id>ColorDefinition.ColorIndex</vodml-id>
       <name>ColorIndex</name>
