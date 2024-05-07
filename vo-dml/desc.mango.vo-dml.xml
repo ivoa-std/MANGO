@@ -763,10 +763,9 @@ The current version of the model only allows a representation in the Polar coord
     <attribute>
       <vodml-id>EpochPosition.pmCosLat_applied</vodml-id>
       <name>pmCosLat_applied</name>
-      <description>It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied
-by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position.
-We do not constrain the value to one form or the other in this model. Instead, this flag enables
-providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat_applied})</description>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
       <datatype>
         <vodml-ref>ivoa:boolean</vodml-ref>
       </datatype>
@@ -1177,8 +1176,8 @@ to \texttt{A}</description>
     <dataType>
       <vodml-id>correlation.Correlation11</vodml-id>
       <name>Correlation11</name>
-      <description>Correlation of a 1D property (A) with a 1D parameter (B): 
-$A = a1b1 * B$</description>
+      <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
+to the second axis of \texttt{A}.</description>
       <extends>
         <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
       </extends>
@@ -1209,8 +1208,7 @@ $A_2 = a21 * B_1 +  a22 * B_2 $</description>
       <attribute>
         <vodml-id>correlation.Correlation22.sigma1</vodml-id>
         <name>sigma1</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the second axis of \texttt{A}.</description>
+        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the second axis of \texttt{A}.</description>
         <datatype>
           <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>

@@ -156,7 +156,7 @@
       \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
       \textbf{multiplicity: 1} \newline 
-      It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
+      TODO : Missing description : please, update your UML model asap.
 
     \subsubsection{EpochPosition.errors}
       \textbf{vodml-id: EpochPosition.errors} \newline
@@ -633,7 +633,7 @@
 
   \subsection{Correlation11}
   \label{sect:correlation.Correlation11}
-    Correlation of a 1D property (A) with a 1D parameter (B): $A = a1b1 * B$
+    Correlation coefficient giving the contribution of the second axis of \texttt{B} to the second axis of \texttt{A}.
 
     \subsubsection{Correlation11.correlation11}
       \textbf{vodml-id: correlation.Correlation11.correlation11} \newline
@@ -681,7 +681,7 @@
       \textbf{vodml-id: correlation.Correlation22.sigma1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the second axis of \texttt{A}.
+      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the second axis of \texttt{A}.
 
     \subsubsection{Correlation22.sigma2}
       \textbf{vodml-id: correlation.Correlation22.sigma2} \newline

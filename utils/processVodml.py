@@ -81,7 +81,7 @@ def escape_underscores():
     
     content = re.sub('([a-zC])_([a-zS])', r'\1\\_\2', content)
     content = re.sub('([A-Z])\\\_([^S])', r'\1_\2', content)
-    content = re.sub('(x)\\\_({[0-9])', r'\1_\2', content)
+    content = re.sub('(x)\\\_(\\{[0-9])', r'\1_\2', content)
         
     with open(tex_model_path, "w") as write_file:
         write_file.write(content)
