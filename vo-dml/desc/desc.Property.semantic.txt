@@ -1,2 +1,2 @@
-Reference to a semantic concept giving the nature of the parameter
-As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. 
+Reference to a semantic concept giving the nature of the property 
+or of the set made of the property and its associated properties.

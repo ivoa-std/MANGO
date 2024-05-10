@@ -1,1 +1,1 @@
-  Matrix of the self correlation of the position
+Self correlation matrix of the position.

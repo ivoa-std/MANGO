@@ -1,2 +1,2 @@
-Error matrix for 2D quantities. 
-The matrix must be symetric.
+Covariance matrix for the error of a 2D quantities. 
+The covariance matrix is symmetrical.

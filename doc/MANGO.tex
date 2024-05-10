@@ -8,7 +8,7 @@
 \setlength\extrarowheight{2pt}
 
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
-\title{Mango: A Component and Association Based Model for representing data for astronomical sources}
+\title{MANGO: A Model for ANotating Generic Objects}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
@@ -490,16 +490,15 @@ In addition to the identifier, \texttt{MangoObject}  have 3 components:
         \label{fig:property}
       \end{figure}
 
-\subsubsection{Parameters Identification}
+\subsubsection{Parameter Identification}
 Since the set of properties associated with a particular instance is not defined by the model,
 Mango cannot define a specific role for each property. However, the model provides different ways
 for the client to understand the actual nature of each property:
 
 \begin{itemize}
     \item \textbf{Class type}: often the scientific meaning of the quantity.
-          When this type is too general (e.g. \texttt{meas:GenericMeasure}), a UCD is provided.
     \item \textbf{Semantic}: the semantic tag specifies the exact role of the property by
-          referring to a standard vocabulary. the semantic tag can relate to the property itself
+          referring to a standard vocabulary. The semantic tag can relate to the property itself
           or to the set formed by the property and its associated properties.
           For example, a signal amplitude associated with a time and position can be tagged
           as a photon event.
@@ -571,19 +570,20 @@ must be interpreted (e.g. colour vs hardness ratio)
 
 \texttt{AssociatedData} connectors are used to bind various sort of complex data with the Mango object.
 One connector can only refer to one dataset.
-Associated data can be either URIs (VO services or not) or other Mango instances.
+Associated data can be either URIs (VO services or not) or other Mango objects.
 
 \subsubsection{AssociatedData Identification}
 As the associated data set  attached to a particular instance is not defined by Mango,
-the model must provide an accurate parameter description to allow the client to figure out what it can do with each of them.
+the model must provide an accurate parameter description to allow the client to figure out 
+what it can do with each of them.
 Mango provides 3 description levels for each category of associated data:
 
 \begin{itemize}
     \item \textbf{Data class (vodml type)}: Knowing the class representing associated data
-          tells the clients  how to interpret it but does help to get its role.
+          tells the clients  how to interpret it.
     \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to
           each associated data set.
-          The choice of that vocabulary is totally free as long as it is published.
+          The choice of that vocabulary is totally free as long as it is published somewhere.
     \item \textbf{Description}: A free text description may be attached to each associated data .
 \end{itemize}
 
@@ -591,27 +591,37 @@ Mango provides 3 description levels for each category of associated data:
 \input{model.tex}
 
 \TODO{must be updated and simplified}
+
 \section{TAP and Mango}
 This not normative section gives possible tips to save and discover Mango instances in TAP services.
-We suppose that the TAP service hosts catalogs which sources are Mango instances. These catalogs are named \emph{Mango Catalogs}.
+We suppose that the TAP service hosts catalogs which sources are Mango instances.
+These catalogs are named \emph{Mango Catalogs}.
 
 \subsection{Storing Mango Catalogs in TAP}
-For now this section only concerns the parameter. The associated data will be taken into account later.
+For now, this section only concerns the properties. The associated data will be taken into account later.
 
 \begin{itemize}
-  \item One master table for the catalogs with various meta-data out of the Mango scope plus a unique identifier (primary key)
-  \item One master sources table for the source instances with the catalog identifier and a primary key safer than the Mango identifier.
-  \item One table for each supported parameter with a foreign key for the join with the master source table
+  \item One master table for the catalogs with various meta-data out of the Mango scope plus a 
+        unique identifier (primary key).
+  \item One master sources table for the source instances with the catalog identifier and a
+        primary key safer than the Mango identifier.
+  \item One table for each supported parameter with a foreign key for the join with the
+        master source table.
 \end{itemize}
 
-Although the model of the measures is hierarchical, it should be possible to flatten them in one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations (TBC)
+Although the model of the measures is hierarchical, it should be possible to flatten them in
+one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations
+(TBC)
 
-This schema requires the server to explore all the parameter tables to retrieve  whole Mango instances. This process can be speed up by using the \emph{MangoCore} table.
+This schema requires the server to explore all the parameter tables to retrieve  whole Mango instances.
+This process can be speed up by using the \emph{MangoCore} table.
 
 \subsection{ \emph{MangoCore} Table}
 
-The discovery of \emph{Mango Catalogs} can be helped by a  \emph{MangoCore} table located in the  \emph{schema} schema. As Mango is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}. This selection is left at the discretion of the curator.
-The \emph{MangoCore} table has set of columns per parameter class plus one for the catalog ID. It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD and one with the \emph{Core} flag. TBC
+The discovery of \emph{Mango Catalogs} can be helped by a  \emph{MangoCore} table located in the  \emph{schema} schema. As Mango is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}.
+This selection is left at the discretion of the curator.
+The \emph{MangoCore} table has set of columns per parameter class plus one for the catalog ID.
+It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD and one with the \emph{Core} flag. TBC
 
 
 \appendix

@@ -1,1 +1,1 @@
- Position error.
+ Position error; can be an ellipse, a correlation matrix or a covariance matrix.

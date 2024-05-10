@@ -1,3 +1,5 @@
-Class holder for the definition of the related color.
+Class holder for a color definition.
 This definition includes how the color is calculated (Mag or HR)
 and the filters on which the color is based. 
+In case of hardness ratio, the energy bands must be modeled as instances of \texttt{photdm:PhotFilter} 
+with a flat transfert function.

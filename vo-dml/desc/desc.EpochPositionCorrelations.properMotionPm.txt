@@ -1,1 +1,1 @@
-  Matrix of the self correlation of the proper motion
+Self correlation matrix of the proper motion.

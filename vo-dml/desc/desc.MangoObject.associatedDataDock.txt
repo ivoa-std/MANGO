@@ -1,1 +1,1 @@
-Collection of all data associated with the \texttt{MangoObject}.
+Reference to the open-ended collection of all data associated with the \texttt{MangoObject}.

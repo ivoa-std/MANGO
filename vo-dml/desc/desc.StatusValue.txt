@@ -1,1 +1,1 @@
-Value allowed for a status, contain the value with its meaning.
+Value allowed for a status, contain the value with a free text description.

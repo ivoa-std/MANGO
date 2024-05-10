@@ -1,1 +1,1 @@
-Term of a standardised vocabulary that applies to property.
+Class holder for a term of a standardized vocabulary that applies to a property.

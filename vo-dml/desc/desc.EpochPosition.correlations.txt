@@ -1,1 +1,1 @@
-Correlation coefficients between the EpochPosition attributes
+Reference to the correlations between the \texttt{EpochPosition} components.

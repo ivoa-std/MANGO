@@ -1,2 +1,1 @@
-Description of the origin of the \texttt{MangoObject} 
-The parameters contained in this component come from the work of the DCP-IG.
+Reference to the description of the origin of the \texttt{MangoObject}.

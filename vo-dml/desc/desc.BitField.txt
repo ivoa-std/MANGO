@@ -1,4 +1,4 @@
 Property state for which each possible value is represented by a bit, 
-so that multiple states can be contained in the same numeric value.
-The values defined in the associated /texttt{StatusValues} must correspond to bit patterns.
+so that multiple states can be contained in the same numerical value.
+The values defined in the related \texttt{StatusValues} must correspond to a bit patterns.
 This constraint is not enforced by the model.

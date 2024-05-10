@@ -1,0 +1,1 @@
+Class holder for linking the Mango object to another \texttt{MangoObject}.

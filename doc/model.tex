@@ -38,7 +38,7 @@
 
   \subsection{AssociatedData (Abstract)}
   \label{sect:AssociatedData}
-    Abstract reference to a particular dataset associated to the MANGO entity. This class is used to specify the type of the dataset as well as its role.
+    Abstract reference to a particular dataset associated to the MANGO entity. This class is used to specify the type of the associated dataset as well as its role.
 
     \subsubsection{AssociatedData.semantic}
       \textbf{vodml-id: AssociatedData.semantic} \newline
@@ -52,19 +52,19 @@
       \textbf{multiplicity: 1} \newline 
       Free text description of the associated data
 
-  \subsection{AssociatedMangoInstance}
-  \label{sect:AssociatedMangoInstance}
-    Class holder for linking to another /texttt{MangoObject} that is part of the associated data.
+  \subsection{AssociatedMangoObject}
+  \label{sect:AssociatedMangoObject}
+    Class holder for linking the Mango object to another \texttt{MangoObject}.
 
-    \subsubsection{AssociatedMangoInstance.mangoInstance}
-      \textbf{vodml-id: AssociatedMangoInstance.mangoInstance} \newline
+    \subsubsection{AssociatedMangoObject.mangoObject}
+      \textbf{vodml-id: AssociatedMangoObject.mangoObject} \newline
       \textbf{type: \hyperref[sect:MangoObject]{mango:MangoObject}} \newline
       \textbf{multiplicity: 1} \newline 
-      Composition link pointing on one MANGO instance associated with the source.
+      Reference of the associated \texttt{MangoObject}.
 
   \subsection{BitField}
   \label{sect:BitField}
-    Property state for which each possible value is represented by a bit, so that multiple states can be contained in the same numeric value. The values defined in the associated /texttt{StatusValues} must correspond to bit patterns. This constraint is not enforced by the model.
+    Property state for which each possible value is represented by a bit, so that multiple states can be contained in the same numerical value. The values defined in the related \texttt{StatusValues} must correspond to a bit patterns. This constraint is not enforced by the model.
 
   \subsection{Color}
   \label{sect:Color}
@@ -74,11 +74,11 @@
       \textbf{vodml-id: Color.colorDef} \newline
       \textbf{type: \hyperref[sect:ColorDef]{mango:ColorDef}} \newline
       \textbf{multiplicity: 1} \newline 
-      Color definition. Can be either a difference of magnitudes or an hardness ratio.
+      Color definition. Can be either a difference of magnitudes or a hardness ratio.
 
   \subsection{ColorDef}
   \label{sect:ColorDef}
-    Class holder for the definition of the related color. This definition includes how the color is calculated (Mag or HR) and the filters on which the color is based.
+    Class holder for a color definition. This definition includes how the color is calculated (Mag or HR) and the filters on which the color is based. In case of hardness ratio, the energy bands must be modeled as instances of \texttt{photdm:PhotFilter} with a flat transfert function.
 
     \subsubsection{ColorDef.definition}
       \textbf{vodml-id: ColorDef.definition} \newline
@@ -108,7 +108,7 @@
 
     
   \label{sect:EpochPosition}
-    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same spatial coordinate system. \begin{itemize} \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The error is specific to this class as it must support covariance and correlation between the components.
+    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The \texttt{EpochPosition} error is modeled by specific classes supporting covariance and/or correlation between components. All individual components have their own units which must be consistent to each others. This consistency is not enforced by the model.
 
     \subsubsection{EpochPosition.longitude}
       \textbf{vodml-id: EpochPosition.longitude} \newline
@@ -126,13 +126,13 @@
       \textbf{vodml-id: EpochPosition.parallax} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The measured parallax value in the coordinate system of the \texttt{EpochPosition} instance.
+      The measured parallax in the coordinate system of the \texttt{EpochPosition} instance.
 
     \subsubsection{EpochPosition.radialVelocity}
       \textbf{vodml-id: EpochPosition.radialVelocity} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      The measured Velocity value along of the radius axis (see \texttt{meas:Velocity.coord}).
+      The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord}).
 
     \subsubsection{EpochPosition.pmLongitude}
       \textbf{vodml-id: EpochPosition.pmLongitude} \newline
@@ -150,25 +150,25 @@
       \textbf{vodml-id: EpochPosition.epoch} \newline
       \textbf{type: coords:Epoch} \newline
       \textbf{multiplicity: 1} \newline 
-      Position epoch expressed within the instance time system (see \texttt{coords:epoch})
+      Position epoch expressed within the common time system (see \texttt{coords:epoch})
 
     \subsubsection{EpochPosition.pmCosLat\_applied}
       \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
       \textbf{multiplicity: 1} \newline 
-      TODO : Missing description : please, update your UML model asap.
+      It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
 
     \subsubsection{EpochPosition.errors}
       \textbf{vodml-id: EpochPosition.errors} \newline
       \textbf{type: \hyperref[sect:EpochPositionErrors]{mango:EpochPositionErrors}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Reference to the holder for the errors of the EpochPosition attributes
+      Reference to the combined errors of the \texttt{EpochPosition} components.
 
     \subsubsection{EpochPosition.correlations}
       \textbf{vodml-id: EpochPosition.correlations} \newline
       \textbf{type: \hyperref[sect:EpochPositionCorrelations]{mango:EpochPositionCorrelations}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Correlation coefficients between the EpochPosition attributes
+      Reference to the correlations between the \texttt{EpochPosition} components.
 
     \subsubsection{EpochPosition.spaceSys}
       \textbf{vodml-id: EpochPosition.spaceSys} \newline
@@ -184,37 +184,37 @@
 
   \subsection{EpochPositionCorrelations}
   \label{sect:EpochPositionCorrelations}
-    Class holder for the correlation coefficients between the EpochPosition attributes
+    Class holder for the correlation coefficients between the \texttt{EpochPosition} components.
 
     \subsubsection{EpochPositionCorrelations.positionPm}
       \textbf{vodml-id: EpochPositionCorrelations.positionPm} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the correlation between the position and the proper motion
+      Correlation matrix between the position and the proper motion.
 
     \subsubsection{EpochPositionCorrelations.parallaxPm}
       \textbf{vodml-id: EpochPositionCorrelations.parallaxPm} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation12]{mango:correlation.Correlation12}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the correlation between the parallax and the proper motion
+      Correlation matrix between the parallax and the proper motion.
 
     \subsubsection{EpochPositionCorrelations.positionParallax}
       \textbf{vodml-id: EpochPositionCorrelations.positionParallax} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation21]{mango:correlation.Correlation21}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the correlation between the position and the parallax
+      Correlation matrix between the position and the parallax.
 
     \subsubsection{EpochPositionCorrelations.positionPosition}
       \textbf{vodml-id: EpochPositionCorrelations.positionPosition} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the self correlation of the position
+      Self correlation matrix of the position.
 
     \subsubsection{EpochPositionCorrelations.properMotionPm}
       \textbf{vodml-id: EpochPositionCorrelations.properMotionPm} \newline
       \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Matrix of the self correlation of the proper motion
+      Self correlation matrix of the proper motion.
 
   \subsection{EpochPositionErrors}
   \label{sect:EpochPositionErrors}
@@ -236,13 +236,13 @@
       \textbf{vodml-id: EpochPositionErrors.position} \newline
       \textbf{type: \hyperref[sect:error.PropertyError2D]{mango:error.PropertyError2D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Position error.
+      Position error; can be an ellipse, a correlation matrix or a covariance matrix.
 
     \subsubsection{EpochPositionErrors.properMotion}
       \textbf{vodml-id: EpochPositionErrors.properMotion} \newline
       \textbf{type: \hyperref[sect:error.PropertyError2D]{mango:error.PropertyError2D}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Proper motion error.
+      Position error; can be an ellipse, a correlation matrix or a covariance matrix.
 
   \subsection{Label}
   \label{sect:Label}
@@ -252,7 +252,7 @@
       \textbf{vodml-id: Label.text} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Text of label seen as a MANGO object property.
+      Text of label property of the MANGO object.
 
   \subsection{MangoObject}
   \label{sect:MangoObject}
@@ -262,29 +262,29 @@
       \textbf{vodml-id: MangoObject.identifier} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Unique identifier for a MangoObject. The uniqueness of that identifier is not managed by the model. The format is free.
+      Unique identifier of the \texttt{MangoObject}. The uniqueness of that identifier is not managed by the model. The format is free.
 
     \subsubsection{MangoObject.associatedDataDock}
       \textbf{vodml-id: MangoObject.associatedDataDock} \newline
       \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Collection of all data associated with the \texttt{MangoObject}.
+      Reference to the open-ended collection of all data associated with the \texttt{MangoObject}.
 
     \subsubsection{MangoObject.propertyDock}
       \textbf{vodml-id: MangoObject.propertyDock} \newline
       \textbf{type: \hyperref[sect:Property]{mango:Property}} \newline
       \textbf{multiplicity: 0..*} \newline 
-      Collection of all parameters attached to the MANGO entity.
+      Reference to the open-ended collection of the \texttt{MangoObject} properties (physical or calculated).
 
     \subsubsection{MangoObject.dataOrigin}
       \textbf{vodml-id: MangoObject.dataOrigin} \newline
       \textbf{type: \hyperref[sect:dataorigin.DataOrigin]{mango:dataorigin.DataOrigin}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Description of the origin of the \texttt{MangoObject} The parameters contained in this component come from the work of the DCP-IG.
+      Reference to the description of the origin of the \texttt{MangoObject}.
 
   \subsection{PhotometricProperty}
   \label{sect:PhotometricProperty}
-    Observed brightness of the \texttt{MangoObject} The distinction between fluxes of a magnitude is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
+    Observed brightness of the \texttt{MangoObject}. The distinction between fluxes and magnitudes is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
 
     \subsubsection{PhotometricProperty.value}
       \textbf{vodml-id: PhotometricProperty.value} \newline
@@ -316,7 +316,7 @@
 
   \subsection{Property}
   \label{sect:Property}
-    Reference to a particular measure of the MANGO entity. This class is used to specify the type of the measure as well as its role.
+    Class holder for a particular property, either physical or calculated, of the MANGO object. This class specifies both type and role of the property, and hosts the property instance itself.
 
     \noindent \textbf{constraint} \newline
     \indent    \textbf{detail: Property.One association at the time
@@ -327,35 +327,25 @@
       \textbf{vodml-id: Property.semantic} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 1} \newline 
-      Reference to a semantic concept giving the nature of the parameter As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration.
+      Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties.
 
     \subsubsection{Property.description}
       \textbf{vodml-id: Property.description} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Free text description of the measure
+      Free text description of the property or of the set made of the property and its associated properties.
 
     \subsubsection{Property.measure}
       \textbf{vodml-id: Property.measure} \newline
       \textbf{type: meas:Measure} \newline
       \textbf{multiplicity: 1} \newline 
-      Composition link pointing to the meas:Measure instance
+      to be removed
 
     \subsubsection{Property.associatedProperties}
       \textbf{vodml-id: Property.associatedProperties} \newline
       \textbf{type: \hyperref[sect:Property]{mango:Property}} \newline
       \textbf{multiplicity: 1..*} \newline 
-      <Enter note text here>
-
-  \subsection{SatusValues}
-  \label{sect:SatusValues}
-    Set of allowed status values
-
-    \subsubsection{SatusValues.values}
-      \textbf{vodml-id: SatusValues.values} \newline
-      \textbf{type: \hyperref[sect:StatusValue]{mango:StatusValue}} \newline
-      \textbf{multiplicity: 1..*} \newline 
-      Reference to the set of allowed values.
+      Open-ended collection of MANGO properties associated with the \texttt{MangoObject}. These relationships are typically used to associate physical properties with time stamps and/or quality factors.
 
   \subsection{Shape}
   \label{sect:Shape}
@@ -365,13 +355,13 @@
       \textbf{vodml-id: Shape.shape} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      String serialization of the spatial extension of the \texttt{MangoObject}
+      String serialization of the spatial extension of the \texttt{MangoObject}.
 
     \subsubsection{Shape.serialization}
       \textbf{vodml-id: Shape.serialization} \newline
       \textbf{type: \hyperref[sect:ShapeSerialization]{mango:ShapeSerialization}} \newline
       \textbf{multiplicity: 1} \newline 
-      Serialization mode of the spatial extension of the MANGO entity
+      Serialization mode of the spatial extension of the MANGO entity.
 
     \subsubsection{Shape.spaceSys}
       \textbf{vodml-id: Shape.spaceSys} \newline
@@ -391,13 +381,13 @@
 
     \subsubsection{Status.allowedValues}
       \textbf{vodml-id: Status.allowedValues} \newline
-      \textbf{type: \hyperref[sect:SatusValues]{mango:SatusValues}} \newline
+      \textbf{type: \hyperref[sect:StatusValues]{mango:StatusValues}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      List of the allowed values for the status. Each value has its own textual description.
+      List of the allowed values for the status. Each value has its own free text description.
 
   \subsection{StatusValue}
   \label{sect:StatusValue}
-    Value allowed for a status, contain the value with its meaning.
+    Value allowed for a status, contain the value with a free text description.
 
     \subsubsection{StatusValue.value}
       \textbf{vodml-id: StatusValue.value} \newline
@@ -411,9 +401,19 @@
       \textbf{multiplicity: 1} \newline 
       Free text description on the allowed value for a \texttt{Status}
 
+  \subsection{StatusValues}
+  \label{sect:StatusValues}
+    Class holder for the list of the allowed values for the status.
+
+    \subsubsection{StatusValues.values}
+      \textbf{vodml-id: StatusValues.values} \newline
+      \textbf{type: \hyperref[sect:StatusValue]{mango:StatusValue}} \newline
+      \textbf{multiplicity: 1..*} \newline 
+      List of the allowed values for the status. Each value has its own textual description.
+
   \subsection{VocabularyTerm}
   \label{sect:VocabularyTerm}
-    Term of a standardised vocabulary that applies to property.
+    Class holder for a term of a standardized vocabulary that applies to a property.
 
     \subsubsection{VocabularyTerm.uri}
       \textbf{vodml-id: VocabularyTerm.uri} \newline
@@ -425,23 +425,23 @@
       \textbf{vodml-id: VocabularyTerm.label} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      Label attached to the vocabulary term. This is necessary because the URI may not contain an explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
+      Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
 
   \subsection{WebEndpoint}
   \label{sect:WebEndpoint}
-    Associated data referenced by an URL
+    Associated data referenced by an URL.
 
     \subsubsection{WebEndpoint.ContentType}
       \textbf{vodml-id: WebEndpoint.ContentType} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
-      URL mime type
+      URL mime type.
 
     \subsubsection{WebEndpoint.url}
       \textbf{vodml-id: WebEndpoint.url} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
       \textbf{multiplicity: 1} \newline 
-      Web endpoint
+      Web end-point.
 
   \subsection{ShapeFrame}
   \label{sect:ShapeFrame}
@@ -561,27 +561,49 @@
       \textbf{multiplicity: 1} \newline 
       Angle between the North Polar Cape (NCP) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit.
 
+  \subsection{ErrorCorrMatrix}
+  \label{sect:error.ErrorCorrMatrix}
+    Correlation matrix for the error of a 2D quantities. The correlation matrix is symmetrical.
+
+    \subsubsection{ErrorCorrMatrix.sigma1}
+      \textbf{vodml-id: error.ErrorCorrMatrix.sigma1} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Error on the first dimension (right ascension in case of sky coordinates)
+
+    \subsubsection{ErrorCorrMatrix.sigma2}
+      \textbf{vodml-id: error.ErrorCorrMatrix.sigma2} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Error on the second dimension (declination in case of sky coordinates)
+
+    \subsubsection{ErrorCorrMatrix.correlation}
+      \textbf{vodml-id: error.ErrorCorrMatrix.correlation} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Correlation coefficient between the 2 axis
+
   \subsection{ErrorCovMatrix}
   \label{sect:error.ErrorCovMatrix}
-    Error matrix for 2D quantities. The matrix must be symetric.
+    Covariance matrix for the error of a 2D quantities. The covariance matrix is symmetrical.
 
     \subsubsection{ErrorCovMatrix.variance1}
       \textbf{vodml-id: error.ErrorCovMatrix.variance1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      
+      Variance of the first dimension (right ascension in case of sky coordinates)
 
     \subsubsection{ErrorCovMatrix.variance2}
       \textbf{vodml-id: error.ErrorCovMatrix.variance2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      
+      Variance of the second dimension (declination in case of sky coordinates)
 
     \subsubsection{ErrorCovMatrix.covariance}
       \textbf{vodml-id: error.ErrorCovMatrix.covariance} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      
+      Covariance of the 2 axis
 
   \subsection{PropertyError (Abstract)}
   \label{sect:error.PropertyError}
@@ -591,7 +613,7 @@
       \textbf{vodml-id: error.PropertyError.confidenceLevel} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 1} \newline 
-      Confidence level of the error, expressed in $\sigma$
+      Confidence level of the error. The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).
 
   \subsection{PropertyError1D}
   \label{sect:error.PropertyError1D}
@@ -606,10 +628,6 @@
   \subsection{PropertyError2D (Abstract)}
   \label{sect:error.PropertyError2D}
     Super (abstract) class for all errors of 2D parameters
-
-  \subsection{ErrorCorrMatrix}
-  \label{sect:error.ErrorCorrMatrix}
-  Error matrix for 2D quantities. The matrix must be symetric.
 
 \pagebreak
 \section{Package: correlation }
@@ -681,13 +699,13 @@
       \textbf{vodml-id: correlation.Correlation22.sigma1} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the second axis of \texttt{A}.
+      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
 
     \subsubsection{Correlation22.sigma2}
       \textbf{vodml-id: correlation.Correlation22.sigma2} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the second axis of \texttt{A}.
+      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
 
     \subsubsection{Correlation22.correlation}
       \textbf{vodml-id: correlation.Correlation22.correlation} \newline

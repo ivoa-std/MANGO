@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-05-07T20:08:50</lastModified>
+  <lastModified>2024-05-10T12:00:22</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -280,15 +280,15 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>AssociatedMangoInstance</vodml-id>
-    <name>AssociatedMangoInstance</name>
+    <vodml-id>AssociatedMangoObject</vodml-id>
+    <name>AssociatedMangoObject</name>
     <description>Reference to another MANGO instance that is part of the associated data.</description>
     <extends>
       <vodml-ref>mango:AssociatedData</vodml-ref>
     </extends>
     <composition>
-      <vodml-id>AssociatedMangoInstance.mangoInstance</vodml-id>
-      <name>mangoInstance</name>
+      <vodml-id>AssociatedMangoObject.mangoObject</vodml-id>
+      <name>mangoObject</name>
       <description>Composition link pointing on one MANGO instance associated with the source.</description>
       <datatype>
         <vodml-ref>mango:MangoObject</vodml-ref>
@@ -391,7 +391,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:SatusValues</vodml-ref>
+        <vodml-ref>mango:StatusValues</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -643,13 +643,13 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>SatusValues</vodml-id>
-    <name>SatusValues</name>
+    <vodml-id>StatusValues</vodml-id>
+    <name>StatusValues</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     <composition>
-      <vodml-id>SatusValues.values</vodml-id>
+      <vodml-id>StatusValues.values</vodml-id>
       <name>values</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1018,17 +1018,6 @@ $error_{parallax} = f(position)$</description>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-    <primitiveType>
-      <vodml-id>error.ErrorCorrMatrix</vodml-id>
-      <name>ErrorCorrMatrix</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
-      </extends>
-    </primitiveType>
-
     <dataType abstract="true">
       <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
@@ -1173,6 +1162,59 @@ $error_{parallax} = f(position)$</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
+    </dataType>
+
+    <dataType>
+      <vodml-id>error.ErrorCorrMatrix</vodml-id>
+      <name>ErrorCorrMatrix</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:error.PropertyError2D</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>error.ErrorCorrMatrix.sigma1</vodml-id>
+        <name>sigma1</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>error.ErrorCorrMatrix.sigma2</vodml-id>
+        <name>sigma2</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>error.ErrorCorrMatrix.correlation</vodml-id>
+        <name>correlation</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
     </dataType>
 
   </package>

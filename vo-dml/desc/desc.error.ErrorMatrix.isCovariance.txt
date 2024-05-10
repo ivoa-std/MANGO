@@ -1,1 +1,0 @@
-Boolean flag telling whether the error elements must be interpreted as covariance or matrix elements.

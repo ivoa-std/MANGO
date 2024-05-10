@@ -3,7 +3,7 @@ Systems} components that have been put together to form a consistent description
 of the position of an object moving over time. 
 It consists of a celestial position, a proper motion, a radial velocity 
 and a parallax. 
-All components share the same spatial coordinate system.
+All components share the same coordinate systems for both time and space coordinates.
 
 \begin{itemize}
    \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements.
@@ -11,4 +11,8 @@ All components share the same spatial coordinate system.
    \item The time coordinate system is imported from \texttt{coords:timeSys}.
 \end{itemize}
 
-The error is specific to this class as it must support covariance and correlation between the components.
+The \texttt{EpochPosition} error is modeled by specific classes supporting covariance 
+and/or correlation between components.
+
+All individual components have their own units which must be consistent to each others. 
+This consistency is not enforced by the model.

@@ -1,1 +1,1 @@
- Matrix of the correlation between the position and the parallax
+Correlation matrix between the position and the parallax.

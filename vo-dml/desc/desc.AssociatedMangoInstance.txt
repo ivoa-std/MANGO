@@ -1,1 +1,0 @@
-Class holder for linking to another /texttt{MangoObject} that is part of the associated data.

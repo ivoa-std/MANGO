@@ -1,1 +1,1 @@
-Collection of all parameters attached to the MANGO entity.
+Reference to the open-ended collection of the \texttt{MangoObject} properties (physical or calculated).
