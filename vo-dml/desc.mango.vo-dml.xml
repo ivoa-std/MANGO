@@ -6,7 +6,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-05-10T12:00:22</lastModified>
+  <lastModified>2024-05-10T17:33:20</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -124,7 +124,8 @@ that  needs instrument specific tools to be handled (ObsCore)</description>
       <name>label</name>
       <description>Label attached to the vocabulary term.
 This is necessary because the URI may not contain any explicit label.
-This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.</description>
+This was the case for the IUA vocabulary until the Registry WG introduced 
+rewriting rules that fix the issue.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -318,18 +319,6 @@ or of the set made of the property and its associated properties.
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
-    <composition>
-      <vodml-id>Property.measure</vodml-id>
-      <name>measure</name>
-      <description>to be removed</description>
-      <datatype>
-        <vodml-ref>meas:Measure</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
     <reference>
       <vodml-id>Property.associatedProperties</vodml-id>
       <name>associatedProperties</name>
@@ -471,6 +460,20 @@ as defined by the \texttt{PhotDM} model.</description>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
+    <composition>
+      <vodml-id>PhotometricProperty.error</vodml-id>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>meas:Uncertainty</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </composition>
     <reference>
       <vodml-id>PhotometricProperty.photCal</vodml-id>
       <name>photCal</name>
