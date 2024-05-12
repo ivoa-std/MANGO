@@ -463,9 +463,7 @@ as defined by the \texttt{PhotDM} model.</description>
     <composition>
       <vodml-id>PhotometricProperty.error</vodml-id>
       <name>error</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>Error on the \texttt{PhotometricProperty}, imported from \texttt{meas:Uncertainty}.</description>
       <datatype>
         <vodml-ref>meas:Uncertainty</vodml-ref>
       </datatype>
