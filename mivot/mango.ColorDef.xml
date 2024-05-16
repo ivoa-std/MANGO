@@ -1,0 +1,12 @@
+<INSTANCE dmrole="" dmtype="mango:ColorDef">
+   <!-- Class holder for a color definition.
+This definition includes how the color is calculated (Mag or HR)
+and the filters on which the color is based. 
+In case of hardness ratio, the energy bands must be modeled as instances of \texttt{photdm:PhotFilter} 
+with a flat transfert function." -->
+   <!-- Enumeration of the different types of colors supported by the model. -->
+   <!-- Enumeration datatype: supported values are ColorIndex HardnessRatio  -->
+   <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="OneOf ColorIndex HardnessRatio "/>
+   <INSTANCE dmrole="mango:ColorDef.high" dmtype="photdm:PhotFilter"/>
+   <INSTANCE dmrole="mango:ColorDef.low" dmtype="photdm:PhotFilter"/>
+</INSTANCE>

@@ -1,0 +1,4 @@
+<INSTANCE dmrole="" dmtype="mango:ErrorTypes.PropertyError2D">
+   <!-- Super abstract class for the errors of 2D parameters such as the positions." -->
+   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+</INSTANCE>

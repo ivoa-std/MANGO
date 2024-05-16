@@ -1,0 +1,9 @@
+<INSTANCE dmrole="" dmtype="mango:correlation.Correlation22">
+   <!-- Correlation of a 2D property (A) with a 2D parameter (B): 
+$A_1 = a11 * B_1 +  a12 * B_2 $
+$A_2 = a21 * B_1 +  a22 * B_2 $" -->
+   <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:correlation.Correlation22.correlation" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

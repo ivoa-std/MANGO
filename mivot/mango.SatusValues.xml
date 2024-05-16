@@ -1,0 +1,13 @@
+<INSTANCE dmrole="" dmtype="mango:SatusValues">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <COLLECTION dmrole="mango:SatusValues.values">
+      <INSTANCE dmrole="" dmtype="mango:StatusValue">
+         <!-- List of the allowed values for the status. 
+Each value has its own textual description." -->
+         <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      </INSTANCE>
+   </COLLECTION>
+</INSTANCE>

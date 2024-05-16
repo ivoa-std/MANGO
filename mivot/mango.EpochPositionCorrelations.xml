@@ -1,0 +1,45 @@
+<INSTANCE dmrole="" dmtype="mango:EpochPositionCorrelations">
+   <!-- Class holder for the correlation coefficients between the \texttt{EpochPosition} components." -->
+   <INSTANCE dmrole="mango:EpochPositionCorrelations.positionPm" dmtype="mango:correlation.Correlation22">
+      <!-- Correlation of a 2D property (A) with a 2D parameter (B): 
+$A_1 = a11 * B_1 +  a12 * B_2 $
+$A_2 = a21 * B_1 +  a22 * B_2 $" -->
+      <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.correlation" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionCorrelations.parallaxPm" dmtype="mango:correlation.Correlation12">
+      <!-- Correlation of a 1D property (A) with a 2D parameter (B): 
+$A = a1b1 * B_1 + a12 * B_2$" -->
+      <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation12.correlation11" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation12.correlation12" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionCorrelations.positionParallax" dmtype="mango:correlation.Correlation21">
+      <!-- Correlation of a 2D property (A) with a 1D parameter (B): 
+$A_1 = a11 * B$
+$A_2 = a21 * B$" -->
+      <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation21.correlation11" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation21.correlation21" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionCorrelations.positionPosition" dmtype="mango:correlation.Correlation22">
+      <!-- Correlation of a 2D property (A) with a 2D parameter (B): 
+$A_1 = a11 * B_1 +  a12 * B_2 $
+$A_2 = a21 * B_1 +  a22 * B_2 $" -->
+      <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.correlation" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionCorrelations.properMotionPm" dmtype="mango:correlation.Correlation22">
+      <!-- Correlation of a 2D property (A) with a 2D parameter (B): 
+$A_1 = a11 * B_1 +  a12 * B_2 $
+$A_2 = a21 * B_1 +  a22 * B_2 $" -->
+      <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:correlation.Correlation22.correlation" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+</INSTANCE>

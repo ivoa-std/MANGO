@@ -1,0 +1,5 @@
+<INSTANCE dmrole="" dmtype="mango:ErrorTypes.PropertyError">
+   <!-- Root (abstract) class of the errors that can be attached to a MA?GO property. The class inherit from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
+" -->
+   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+</INSTANCE>

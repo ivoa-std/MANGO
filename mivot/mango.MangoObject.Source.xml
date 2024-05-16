@@ -1,0 +1,67 @@
+<INSTANCE dmrole="" dmtype="mango:Source">
+   <!-- Root class of the model. 
+MANGO instances are meant of be Source instances.
+A source is something with an identifier and two docks: one for the parameters and one for the associated data." -->
+   <ATTRIBUTE dmrole="mango:Source.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:Source.associatedDataDock">
+      <!-- Put here a concrete INSTANCE of AssociatedData or left blank -->
+      <INSTANCE dmrole="" dmtype="mango:AssociatedData"/>
+   </COLLECTION>
+   <COLLECTION dmrole="mango:Source.propertyDock">
+      <INSTANCE dmrole="" dmtype="mango:Property">
+         <!-- Reference to a particular measure of the MANGO entity.
+This class is used to specify the type of the measure as well as its role." -->
+         <INSTANCE dmrole="mango:Property.semantic" dmtype="mango:VocabularyTerm">
+            <!-- Term of a standardised vocabulary that applies to property." -->
+            <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+            <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         </INSTANCE>
+         <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <INSTANCE dmrole="mango:Property.measure" dmtype="meas:Measure"/>
+         <COLLECTION dmrole="mango:Property.associatedProperties">
+            <INSTANCE dmrole="mango:Property.associatedProperties" dmtype="mango:Property">
+               <!-- Reference to a particular measure of the MANGO entity.
+This class is used to specify the type of the measure as well as its role." -->
+               <INSTANCE dmrole="mango:Property.semantic" dmtype="mango:VocabularyTerm">
+                  <!-- Term of a standardised vocabulary that applies to property." -->
+                  <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+                  <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+               </INSTANCE>
+               <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+               <INSTANCE dmrole="mango:Property.measure" dmtype="meas:Measure"/>
+            </INSTANCE>
+         </COLLECTION>
+      </INSTANCE>
+   </COLLECTION>
+   <INSTANCE dmrole="mango:Source.dataOrigin" dmtype="mango:DataOrigin">
+      <!-- Class representing the origin of the data following the DCP note (TBD)" -->
+      <ATTRIBUTE dmrole="mango:DataOrigin.citation" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:DataOrigin.reference_url" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:DataOrigin.resource_version" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:DataOrigin.creator" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:DataOrigin.cites" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:DataOrigin.is_derived_from" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:DataOrigin.original_date" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
+      <INSTANCE dmrole="mango:DataOrigin.query" dmtype="mango:QueryOrigin">
+         <!-- Description of the query the MANGO instance results from." -->
+         <ATTRIBUTE dmrole="mango:QueryOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.publisher" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.server_software" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.service_protocol" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.request" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.query" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.request_date" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:QueryOrigin.contact" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      </INSTANCE>
+      <INSTANCE dmrole="mango:DataOrigin.rights" dmtype="mango:License">
+         <!-- Place holder for the license covering the MANGO instance" -->
+         <ATTRIBUTE dmrole="mango:License.rights_uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:License.rights" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      </INSTANCE>
+      <INSTANCE dmrole="mango:DataOrigin.article" dmtype="mango:Article">
+         <!-- Reference article for the MANGO entity" -->
+         <ATTRIBUTE dmrole="mango:Article.editor" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:Article.article" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      </INSTANCE>
+   </INSTANCE>
+</INSTANCE>

@@ -1,0 +1,11 @@
+<INSTANCE dmrole="" dmtype="mango:WebEndpoint">
+   <!-- Associated data referenced by an URL." -->
+   <INSTANCE dmrole="mango:AssociatedData.semantic" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:AssociatedData.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:WebEndpoint.ContentType" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:WebEndpoint.url" dmtype="ivoa:anyURI" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

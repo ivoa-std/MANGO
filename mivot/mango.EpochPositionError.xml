@@ -1,0 +1,47 @@
+<INSTANCE dmrole="" dmtype="mango:EpochPositionError">
+   <!-- None" -->
+   <INSTANCE dmrole="mango:EpochPositionError.parallaxError" dmtype="mango:ErrorTypes.PropertyError1D">
+      <!-- None" -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError.confidenceLevel" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError.unit" dmtype="ivoa:Unit" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError1D.sigma" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionError.radialVelocityError" dmtype="mango:ErrorTypes.PropertyError1D">
+      <!-- None" -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError.confidenceLevel" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError.unit" dmtype="ivoa:Unit" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError1D.sigma" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionError.pmPosError" dmtype="mango:ErrorTypes.Correlated22Error">
+      <!-- None" -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.CorrelatedError.ucd_B" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated22Error.a2b1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated22Error.a2b2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated22Error.a1b1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated22Error.a1b2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionError.radialVelocityPosError" dmtype="mango:ErrorTypes.Correlated12Error">
+      <!-- None" -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.CorrelatedError.ucd_B" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated12Error.a1b1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated12Error.a1b2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionError.parallaxPosError" dmtype="mango:ErrorTypes.Correlated12Error">
+      <!-- None" -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.CorrelatedError.ucd_B" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated12Error.a1b1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated12Error.a1b2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionError.parallaxPmError" dmtype="mango:ErrorTypes.Correlated12Error">
+      <!-- None" -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.CorrelatedError.ucd_B" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated12Error.a1b1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:ErrorTypes.Correlated12Error.a1b2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+</INSTANCE>

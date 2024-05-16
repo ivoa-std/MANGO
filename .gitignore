@@ -50,6 +50,7 @@ target/
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+*.pdf
 
 .pydevproject
 *.html

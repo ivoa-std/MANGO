@@ -1,0 +1,11 @@
+<INSTANCE dmrole="" dmtype="mango:ErrorTypes.ErrorMatrix">
+   <!-- Error matrix for 2D quantities. 
+The matrix must be symetric." -->
+   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+   <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError.confidenceLevel" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:ErrorTypes.PropertyError.unit" dmtype="ivoa:Unit" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:ErrorTypes.ErrorMatrix.sigma1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:ErrorTypes.ErrorMatrix.sigma2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:ErrorTypes.ErrorMatrix.covariance" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:ErrorTypes.ErrorMatrix.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

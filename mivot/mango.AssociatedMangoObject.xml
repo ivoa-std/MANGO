@@ -1,0 +1,32 @@
+<INSTANCE dmrole="" dmtype="mango:AssociatedMangoObject">
+   <!-- Class holder for linking the Mango object to another \texttt{MangoObject}." -->
+   <INSTANCE dmrole="mango:AssociatedData.semantic" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:AssociatedData.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:AssociatedMangoObject.mangoObject" dmtype="mango:MangoObject">
+      <!-- Central model class: applied to a data table, each row can be modelled as a MangoObject instance.
+Each MangoObject hosts a collection of physical or calculated parameters, a collection of associated data,
+a description of the data origin and an identifier." -->
+      <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <COLLECTION dmrole="mango:MangoObject.associatedDataDock">
+         <!-- Put here a concrete INSTANCE of AssociatedData or left blank -->
+         <INSTANCE dmrole="" dmtype="mango:AssociatedData"/>
+      </COLLECTION>
+      <COLLECTION dmrole="mango:MangoObject.propertyDock">
+         <INSTANCE dmrole="" dmtype="mango:Property">
+            <!-- Class holder for a particular property, either physical or calculated, of the MANGO object.
+This class specifies both type and role of the  property, and hosts the property instance itself.
+" -->
+            <INSTANCE dmrole="mango:Property.semantic" dmtype="mango:VocabularyTerm">
+               <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+               <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+               <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+            </INSTANCE>
+            <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         </INSTANCE>
+      </COLLECTION>
+   </INSTANCE>
+</INSTANCE>
