@@ -1,0 +1,9 @@
+<INSTANCE dmrole="" dmtype="mango:correlation.Correlation22">
+   <!-- Error of a 2D property (A) correlated with a 2D parameter (B): 
+$error\_A_1 = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$
+$error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$" -->
+   <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:correlation.Correlation22.sigma2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:correlation.Correlation22.correlation" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

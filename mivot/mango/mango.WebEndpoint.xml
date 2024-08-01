@@ -1,0 +1,13 @@
+<INSTANCE dmrole="" dmtype="mango:WebEndpoint">
+   <!-- Class for associated data referenced by an URL" -->
+   <INSTANCE dmrole="mango:AssociatedData.semantic" dmtype="mango:VocabularyTerm">
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:AssociatedData.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:WebEndpoint.ContentType" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:WebEndpoint.url" dmtype="ivoa:anyURI" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

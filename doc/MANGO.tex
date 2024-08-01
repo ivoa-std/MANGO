@@ -61,16 +61,16 @@
 
 \begin{document}
 \begin{abstract}
-The Mango model proposes a flexible way to expose data related to astronomical source objects 
+The MANGO model proposes a flexible way to expose data related to astronomical source objects 
 in an interoperable way.
 It takes into account the huge diversity of source data in terms of feature description, format and usage.
-The Mango model attaches identifiers on astronomical sources and associates to each a flexible 
+The MANGO model attaches identifiers on astronomical sources and associates to each a flexible 
 set of parameters (e.g. observed physical quantities) and other information like e.g. spectra,
 time series or preview images.
 Parameters are usually made of several columns of a data table.
 Additional data products are bound to the source to contribute to the science analysis
 and enhance data understanding.
-Mango object parameters are built upon classes or extended classes of the IVOA Measure
+MANGO object parameters are built upon classes or extended classes of the IVOA Measure
 and Coordinates data models. It also reuse PhotDM and proposes its own classes for the quantities 
 that are not covered by the imported models
 Associated data can be simple URLs or VO service endpoints.
@@ -82,15 +82,15 @@ The roles of both parameters and associated data are qualified by semantic tags
 \section*{Acknowledgments}
 
 We would like to thank all those who took the time to present their own use cases (INAF, CDS, CFA, ESAC) on which the model has been built.
-We would also like to thank all the people having tested Mango on their own data.
+We would also like to thank all the people having tested MANGO on their own data.
 
 \section*{Model Name}
 This model was initially named with a very explicit but hard to remember acronym, \texttt{CAB-MSD}
 standing for Component and Association Based Model for Source Data.
-We decided later to rename it \texttt{Mango} with reference to the inside out Mango
+We decided later to rename it \texttt{MANGO} with reference to the inside out MANGO
 picture used to introduce the model in Groningen. 
 As the tradition requires that such unexpected names are acronyms,
-let's assume that \texttt{Mango} stands for
+let's assume that \texttt{MANGO} stands for
 Metadata ANnotation for Generic Objects (in astronomy).
 
 
@@ -144,11 +144,11 @@ This standard proposes to overcome this paradox and presents a template model ga
 components from VO existing models together with VO data products and files embedded on demand in a container.
 The template supports fine grain association by composing classes as well as coarse grain relations
 to data products and files distributed within projects archive.
-Mango is not designed to describe what a source is but to help clients to discover and to understand
+MANGO is not designed to describe what a source is but to help clients to discover and to understand
 the quantities available for a particular source instance.
-VOtable data mapped on Mango with Mivot (ref) annotations can be consumed quantity 
+VOtable data mapped on MANGO with Mivot (ref) annotations can be consumed quantity 
 par quantity instead of column per column.
-The way complex quantities are built is  described by Mango but no longer by the clients.
+The way complex quantities are built is  described by MANGO but no longer by the clients.
 
 \subsection{Role within the VO Architecture}
 
@@ -323,10 +323,10 @@ depending on their origin.
 They can result from  observations, simulations, models or catalog compilations.
 Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
 
-The Mango model must be able to provide a standard representation of most of the metadata contained 
+The MANGO model must be able to provide a standard representation of most of the metadata contained 
 in Vizier query responses, whether native or computed  by the CDS,
 simple quantities or associated complex data.
-Mango is not meant to replace the current management of the meta-data,
+MANGO is not meant to replace the current management of the meta-data,
 it is a way to make those meta-data understandable for a wide panel of VO-compliant clients.
 
 \subsubsection{Client on (Mark Taylor behalf)}
@@ -370,7 +370,7 @@ But there are some other places too:
      correlations)
 \end{itemize}
 
-This usage shows that Mango must be designed in a way that individual measurements or quantities
+This usage shows that MANGO must be designed in a way that individual measurements or quantities
 can be easily be identified as such and manipulated independently of the whole instance.
 
 \subsubsection{Xmatch tool }
@@ -394,64 +394,48 @@ table, but this is not sufficient to table with more complex cases based on mult
 
 \subsection{Requirements}
 
-\subsubsection{Parameters and Associated Data}
-From the use-cases' description, two categories of features must provided or foreseen by the projects:
+\subsubsection{Properties and Associated Data}
+From the use-cases description, several categories of features must provided or foreseen by the projects:
 
 \begin{itemize}
-    \item The source \emph{parameters} astronomers will investigate for their science.
+    \item The source \emph{properties} astronomers will investigate for their science.
           They are measures provided as numerical values or classification tags exposed as
           numbers or simple strings. 
-          Usually on measure corresponds to one individual column or one group of columns.
-    \item The \emph{Associated data} are generally science ready data-products either from the
-          same project, or shared by other projects within the IVOA interoperability framework.
-          They bring a complement of information to interpret the source's  parameters under
-          study and compare visually (or computationally) the sky neighborhood of detected sources,
-          their variation through time or spectral behavior.
-          Referencing such datasets by a URI or by a service endpoint already works for many VO products.
-          (it has been promoted and recommended in Obscore / Spectrum Dm, . etc for access URIs, and 
-          DataLink for service endpoints REFS).
-          Associated data can also present a complex structure designed to bring a very advanced context
-          of interpretation (CTA model assumptions, energy model for Xray sources, etc. REFS)
-          which need to be described in the attachment.
+          Usually one measure corresponds to one individual column or one group of columns.
+        
+    \item MANGO objects can be linked to external data referenced by WEB endpoints.
+          Such links are considered as object properties for which the model provides 
+          an accurate way to specify the nature of these links. 
+          Usually object links are provided by DataLinks services,
+          then this MANGO feature is proposed to annotate datasets issued by services
+          that do not implement such services but provide URLs in their query responses.
+          
+    \item MANGO objects can be linked to other collections of MANGO objects,
+          associating sources with their detections, for example.
  \end{itemize}
- 
-\TODO{The associated data item must be simplified and more factual: this is a requirement}
- 
+  
 
-\subsubsection{R01: Supported Quantities}
+\subsubsection{Supported Quantities}
 \begin{itemize}
-    \item Mango must provide unique source identifiers.
-    \item Mango must provide information about the source origin.
-    \item Mango must provide modeling classes for both parameters and associated data.
-    \item The number of parameters attached to a Mango instance must be free.
-    \item The number of associated data attached to a Mango instance must be free.
+    \item MANGO must provide unique source identifiers.
+    \item MANGO must provide information about the source origin.
+    \item The number of parameters attached to a MANGO instance must be free.
 \end{itemize}
 
-\subsubsection{R02: Properties}
+\subsubsection{Properties}
 
 \begin{itemize}
-    \item Mango must support explicit classes imported from an IVOA data-model for the most used parameters.
-    \item Mango must provide a generic way to support parameters that do not enter the above category.
-    \item Mango instances must support multiple instances of the same parameter class.
-    \item The presence of any parameter in Mango instances must be optional.
-    \item Mango must provide a way to identify the role of each parameter.
-    \item  Mango must provide a way to describe the meaning of flags or qualifiers.
+    \item MANGO must support explicit classes, native or imported from IVOA data-models, for the most used properties.
+    \item MANGO must provide a generic way to support properties that do not enter the above category.
+    \item MANGO object must support multiple instances of the same property class.
+    \item The presence of any property in MANGO instances must be optional.
+    \item MANGO must provide a way to identify the role of each property.
+    \item MANGO must provide a way to purpose of linked properties.
+    \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
     \item The role of each parameter should be machine-readable.
     \item It must be possible to group parameters in a free way.
-          This allows to tag quantities with timestamps or a flags.
-\end{itemize}
-
-\subsubsection{R03: Associated Data}
-
-\begin{itemize}
-    \item Mango must support references to external datasets.
-    \item Mango must support references to external services.
-    \item Mango must support references to other Mango instances.
-    \item Mango instances must support multiple instances of the same associated data class.
-    \item The presence of any associated data in Mango instances must be optional.
-    \item Mango must provide a way to identify the role of each associated data in
-          order to explain which purpose is served when associating this data to the source object.
-    \item The role of each associated data should be machine-readable.
+          This allows to tag properties with timestamps or flags.
+    \item MANGO must support references to other MANGO objects.
  \end{itemize}
 
 \section{Model Overview}
@@ -462,37 +446,33 @@ From the use-cases' description, two categories of features must provided or for
      \label{overview}
 \end{figure}
 
-Sky objects are represented by instances of the class \texttt{MangoObject} which has only
+Sky objects are represented by instances of the class \texttt{MANGOObject} which has only
 one mandatory attribute, an \texttt{identifier}.
 It is recommended the identifiers to be unique within a source collection e.g. a catalog.
 
-In addition to the identifier, \texttt{MangoObject}  have 3 components:
+In addition to the identifier, \texttt{MANGOObject}  have 2 components:
 
 \begin{itemize}
-  \item \texttt{dataOrigin}: origin of the \texttt{MangoObject}. The structure of this class follows
+  \item \texttt{dataOrigin}: origin of the \texttt{MANGOObject}. The structure of this class follows
         the recommendations of the DCP IG (time of writing).
-  \item \texttt{popertyDock}: the place holder for all the \texttt{MangoObject} properties.
+  \item \texttt{popertyDock}: the place holder for all the \texttt{MANGOObject} properties.
         This is an open-ended collection.
-        Each source property is hooked to the \texttt{MangoObject} by a wrapping class (\texttt{Property} )
+        Each source property is hooked to the \texttt{MANGOObject} by a wrapping class (\texttt{Property} )
         that contains anything necessary to identify both its nature and its role.
         Properties can be linked together to represent logical parameter sets. 
         These logical sets have no semantic. Their interpretation is in charge of the clients.
-  \item \texttt{associatedDataDock}: place holder for all external data attached to the \texttt{MangoObject}.
-        This is an open-ended collection.
-  		Each Associated data item is hooked to the \texttt{associatedDataDock} by a wrapping class (\texttt{AssociatedData})
-        that contains anything necessary to identify its nature and its role.
 \end{itemize}
 \subsection{Properties}
 
       \begin{figure}[h]
         \includegraphics[width=1.0\textwidth]{../model/property.png}
-        \caption{Mango Properties}
+        \caption{MANGO Properties}
         \label{fig:property}
       \end{figure}
 
 \subsubsection{Parameter Identification}
 Since the set of properties associated with a particular instance is not defined by the model,
-Mango cannot define a specific role for each property. However, the model provides different ways
+MANGO cannot define a specific role for each property. However, the model provides different ways
 for the client to understand the actual nature of each property:
 
 \begin{itemize}
@@ -509,102 +489,23 @@ for the client to understand the actual nature of each property:
 In addition to this, some property classes embed qualifiers telling how the quantity
 must be interpreted (e.g. colour vs hardness ratio)
 
-
-%\TODO{TBC phys.luminosity  vs phot.flux}
-%
-%\begin{table}[!htbp]
-%\small
-%\centering
-%\begin{tabulary}{\linewidth}{|L|C|J|}
- %      \hline Parameter &  Original model & UCDs 1+ first word  \\
- %      \hline  \texttt{GenericMeasure}             &  Measure  &   Appropriate UCD \ \\
- %      \hline  \texttt{Position}             &  Measure  &  pos.* \\
- %      \hline  \texttt{Velocity  }            &  Measure & phys.veloc      \\
- %      \hline  \texttt{Proper motion}    & Measure & pos.pm    \\
- %      \hline  \texttt{Time}                   & Measure &  time.epoch   \\
- %      \hline  \texttt{Polarization}         & Measure & phys.polarization \\
- %      \hline  \texttt{EpochPosition}    &  Mango  &  pos.eq \\
- %      \hline  \texttt{Redshift}                        &  Mango  & src.redshift \\
- %      \hline  \texttt{Photometry}                    &  Mango  & phot.* \\
-  %     \hline  \texttt{Color}             &  Mango  & phot.flux;arith.ratio \\
-  %     \hline  \texttt{Shape}                     &  Mango  & phys.area \\
-%       \hline  \texttt{Flag}                        &  Mango  & meta.code  \\
-%       \hline  \texttt{Status}                        &  Mango  & meta.code  \\
-%       \hline
-%     \end{tabulary}
-%     \caption{ UCDs space to be used for the supported measures}
-%     \label{tab:ucds}
-% \end{table}
-
-
-%\begin{table}[ht!]
- %    \tiny
-%     \begin{tabular}{|p{2.4cm}|p{1.8cm}|p{7cm}|}
-%       \hline Quantity &  Model &  \\
-%       \hline  \texttt{identifier}      & Mango & required for anu instance\\
-%       \hline  \texttt{position}      &  Meas &  \\
-%       \hline  \texttt{pr. motion}   & Meas &     \\
-%       \hline  \texttt{distance}     & Ext Meas &     \\
-%       \hline  \texttt{correlation}   & Ass data & reference to other Mango instances     \\
-%       \hline  \texttt{extension}     & Ext Meas & Can be used for FoV, morphlogy or shape\\
-%       \hline  \texttt{rad. vel.}       &  Ext Meas  &       \\
- %      \hline  \texttt{redshift}        &   Ext Meas  &  \\
-%       \hline  \texttt{phot. rsft}      & Ext Meas&    \\
-%       \hline  \texttt{luminosity}    & Ext Meas&\\
- %      \hline  \texttt{date}             & Meas & date or time stamp\\
- %      \hline  \texttt{detections}    & Ass data & reference to other Mango instances   \\
- %      \hline  \texttt{orbit}             & Ext Meas&      \\
- %      \hline  \texttt{type}             &Ext Meas&     \\
- %      \hline  \texttt{status}          &Ext Meas&     \\
- %      \hline  \texttt{orb. sys.}      &Ext Meas&     \\
- %      \hline  \texttt{PHA}            &Ext Meas&     \\
- %      \hline  \texttt{ass. prd.}     &Ass data&  \\
- %      \hline
-%     \end{tabular}
- %    \caption{ Mango quantities with  corresponding complex type  \texttt{Native Meas} Measure class, \texttt{Ext Meas } Measure extension, \texttt{Ass data  } Mango associated data}
-% \end{table}
-
-
-
-\subsection{Associated Data}
-
-\texttt{AssociatedData} connectors are used to bind various sort of complex data with the Mango object.
-One connector can only refer to one dataset.
-Associated data can be either URIs (VO services or not) or other Mango objects.
-
-\subsubsection{AssociatedData Identification}
-As the associated data set  attached to a particular instance is not defined by Mango,
-the model must provide an accurate parameter description to allow the client to figure out 
-what it can do with each of them.
-Mango provides 3 description levels for each category of associated data:
-
-\begin{itemize}
-    \item \textbf{Data class (vodml type)}: Knowing the class representing associated data
-          tells the clients  how to interpret it.
-    \item \textbf{Semantic}: A reference to  a valid vocabulary word may be attached to
-          each associated data set.
-          The choice of that vocabulary is totally free as long as it is published somewhere.
-    \item \textbf{Description}: A free text description may be attached to each associated data .
-\end{itemize}
-
-
 \input{model.tex}
 
 \TODO{must be updated and simplified}
 
-\section{TAP and Mango}
-This not normative section gives possible tips to save and discover Mango instances in TAP services.
-We suppose that the TAP service hosts catalogs which sources are Mango instances.
-These catalogs are named \emph{Mango Catalogs}.
+\section{TAP and MANGO}
+This not normative section gives possible tips to save and discover MANGO instances in TAP services.
+We suppose that the TAP service hosts catalogs which sources are MANGO instances.
+These catalogs are named \emph{MANGO Catalogs}.
 
-\subsection{Storing Mango Catalogs in TAP}
+\subsection{Storing MANGO Catalogs in TAP}
 For now, this section only concerns the properties. The associated data will be taken into account later.
 
 \begin{itemize}
-  \item One master table for the catalogs with various meta-data out of the Mango scope plus a 
+  \item One master table for the catalogs with various meta-data out of the MANGO scope plus a 
         unique identifier (primary key).
   \item One master sources table for the source instances with the catalog identifier and a
-        primary key safer than the Mango identifier.
+        primary key safer than the MANGO identifier.
   \item One table for each supported parameter with a foreign key for the join with the
         master source table.
 \end{itemize}
@@ -613,14 +514,14 @@ Although the model of the measures is hierarchical, it should be possible to fla
 one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations
 (TBC)
 
-This schema requires the server to explore all the parameter tables to retrieve  whole Mango instances.
-This process can be speed up by using the \emph{MangoCore} table.
+This schema requires the server to explore all the parameter tables to retrieve  whole MANGO instances.
+This process can be speed up by using the \emph{MANGOCore} table.
 
-\subsection{ \emph{MangoCore} Table}
+\subsection{ \emph{MANGOCore} Table}
 
-The discovery of \emph{Mango Catalogs} can be helped by a  \emph{MangoCore} table located in the  \emph{schema} schema. As Mango is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}.
+The discovery of \emph{MANGO Catalogs} can be helped by a  \emph{MANGOCore} table located in the  \emph{schema} schema. As MANGO is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}.
 This selection is left at the discretion of the curator.
-The \emph{MangoCore} table has set of columns per parameter class plus one for the catalog ID.
+The \emph{MANGOCore} table has set of columns per parameter class plus one for the catalog ID.
 It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD and one with the \emph{Core} flag. TBC
 
 

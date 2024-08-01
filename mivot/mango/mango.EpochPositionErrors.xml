@@ -1,0 +1,19 @@
+<INSTANCE dmrole="" dmtype="mango:EpochPositionErrors">
+   <!-- Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations." -->
+   <INSTANCE dmrole="mango:EpochPositionErrors.parallax" dmtype="mango:error.PropertyError1D">
+      <!-- Symetrical error for 1D parameter." -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPositionErrors.radialVelocity" dmtype="mango:error.PropertyError1D">
+      <!-- Symetrical error for 1D parameter." -->
+      <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+      <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <!-- Put here a concrete INSTANCE of error.PropertyError2D or left blank -->
+   <INSTANCE dmrole="mango:EpochPositionErrors.position" dmtype="mango:error.PropertyError2D"/>
+   <!-- Put here a concrete INSTANCE of error.PropertyError2D or left blank -->
+   <INSTANCE dmrole="mango:EpochPositionErrors.properMotion" dmtype="mango:error.PropertyError2D"/>
+</INSTANCE>

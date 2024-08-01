@@ -1,0 +1,9 @@
+The content_qualifier gives the nature of the thing or service that is returned by the link.
+The value is always interpreted as a URI.
+If the access_url references a data product, the content_qualifier field
+should define its product type . 
+In this case the content qualifier value always starts with a hash 
+completing the \url{http://www.ivoa.net/rdf/datalink/product-type} base URI. 
+For \texttt{MangoObject} not linking to data products, content_qualifier’s interpretation
+will be different, and the default vocabulary will be inappropriate. Full
+concept URIs will have to be used in this case. (DataLink 1.1)

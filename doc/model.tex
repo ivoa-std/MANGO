@@ -36,25 +36,21 @@
 
   Data model based oon components and data association for source data
 
-  \subsection{AssociatedData (Abstract)}
-  \label{sect:AssociatedData}
-    Abstract reference to a particular dataset associated to the MANGO entity. This class is used to specify the type of the associated dataset as well as its role.
+  \subsection{AssociatedMangoObject}
+  \label{sect:AssociatedMangoObject}
+    Class holder for linking the Mango object to another \texttt{MangoObject}.
 
-    \subsubsection{AssociatedData.semantic}
-      \textbf{vodml-id: AssociatedData.semantic} \newline
+    \subsubsection{AssociatedMangoObject.semantic}
+      \textbf{vodml-id: AssociatedMangoObject.semantic} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 1} \newline 
       Semantic concept giving the nature of the associated data.
 
-    \subsubsection{AssociatedData.description}
-      \textbf{vodml-id: AssociatedData.description} \newline
+    \subsubsection{AssociatedMangoObject.description}
+      \textbf{vodml-id: AssociatedMangoObject.description} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       Free text description of the associated data
-
-  \subsection{AssociatedMangoObject}
-  \label{sect:AssociatedMangoObject}
-    Class holder for linking the Mango object to another \texttt{MangoObject}.
 
     \subsubsection{AssociatedMangoObject.mangoObject}
       \textbf{vodml-id: AssociatedMangoObject.mangoObject} \newline
@@ -186,35 +182,71 @@
   \label{sect:EpochPositionCorrelations}
     Class holder for the correlation coefficients between the \texttt{EpochPosition} components.
 
-    \subsubsection{EpochPositionCorrelations.positionPm}
-      \textbf{vodml-id: EpochPositionCorrelations.positionPm} \newline
-      \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
+    \subsubsection{EpochPositionCorrelations.longitudeParallax}
+      \textbf{vodml-id: EpochPositionCorrelations.longitudeParallax} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Correlation matrix between the position and the proper motion.
+      Correlation (or covariance) coefficient between the position longitude and the parallax
 
-    \subsubsection{EpochPositionCorrelations.parallaxPm}
-      \textbf{vodml-id: EpochPositionCorrelations.parallaxPm} \newline
-      \textbf{type: \hyperref[sect:correlation.Correlation12]{mango:correlation.Correlation12}} \newline
+    \subsubsection{EpochPositionCorrelations.latitudeParallax}
+      \textbf{vodml-id: EpochPositionCorrelations.latitudeParallax} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Correlation matrix between the parallax and the proper motion.
+      Correlation (or covariance) coefficient between the position latitude and the parallax
 
-    \subsubsection{EpochPositionCorrelations.positionParallax}
-      \textbf{vodml-id: EpochPositionCorrelations.positionParallax} \newline
-      \textbf{type: \hyperref[sect:correlation.Correlation21]{mango:correlation.Correlation21}} \newline
+    \subsubsection{EpochPositionCorrelations.pmLongitudeParallax}
+      \textbf{vodml-id: EpochPositionCorrelations.pmLongitudeParallax} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Correlation matrix between the position and the parallax.
+      Correlation (or covariance) coefficient between the proper motion longitude and the parallax
 
-    \subsubsection{EpochPositionCorrelations.positionPosition}
-      \textbf{vodml-id: EpochPositionCorrelations.positionPosition} \newline
-      \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
+    \subsubsection{EpochPositionCorrelations.pmLatitudeParallax}
+      \textbf{vodml-id: EpochPositionCorrelations.pmLatitudeParallax} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Self correlation matrix of the position.
+      Correlation (or covariance) coefficient between the proper motion latitude and the parallax
 
-    \subsubsection{EpochPositionCorrelations.properMotionPm}
-      \textbf{vodml-id: EpochPositionCorrelations.properMotionPm} \newline
-      \textbf{type: \hyperref[sect:correlation.Correlation22]{mango:correlation.Correlation22}} \newline
+    \subsubsection{EpochPositionCorrelations.longitudeLatitude}
+      \textbf{vodml-id: EpochPositionCorrelations.longitudeLatitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
       \textbf{multiplicity: 0..1} \newline 
-      Self correlation matrix of the proper motion.
+      Correlation (or covariance) coefficient between the position longitude and the position latitude
+
+    \subsubsection{EpochPositionCorrelations.pmLongitudePmLatitude}
+      \textbf{vodml-id: EpochPositionCorrelations.pmLongitudePmLatitude} \newline
+      \textbf{type: } \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Correlation (or covariance) coefficient between the proper motion longitude and the proper motion latitude
+
+    \subsubsection{EpochPositionCorrelations.latitudePmLatitude}
+      \textbf{vodml-id: EpochPositionCorrelations.latitudePmLatitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Correlation (or covariance) coefficient between the position latitude and the proper motion latitude
+
+    \subsubsection{EpochPositionCorrelations.latitudePmLongitude}
+      \textbf{vodml-id: EpochPositionCorrelations.latitudePmLongitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Correlation (or covariance) coefficient between the position latitude and the proper motion longitude
+
+    \subsubsection{EpochPositionCorrelations.longitudePmLatitude}
+      \textbf{vodml-id: EpochPositionCorrelations.longitudePmLatitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Correlation (or covariance) coefficient between the position longitude and the proper motion latitude
+
+    \subsubsection{EpochPositionCorrelations.longitudePmLongitude}
+      \textbf{vodml-id: EpochPositionCorrelations.longitudePmLongitude} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+      \textbf{multiplicity: 0..1} \newline 
+      Correlation (or covariance) coefficient between the position longitude and the proper motion longitude
+
+    \subsubsection{EpochPositionCorrelations.isCovariance}
+      \textbf{vodml-id: EpochPositionCorrelations.isCovariance} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
+      \textbf{multiplicity: 1} \newline 
+      Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.
 
   \subsection{EpochPositionErrors}
   \label{sect:EpochPositionErrors}
@@ -264,12 +296,6 @@
       \textbf{multiplicity: 1} \newline 
       Unique identifier of the \texttt{MangoObject}. The uniqueness of that identifier is not managed by the model. The format is free.
 
-    \subsubsection{MangoObject.associatedDataDock}
-      \textbf{vodml-id: MangoObject.associatedDataDock} \newline
-      \textbf{type: \hyperref[sect:AssociatedData]{mango:AssociatedData}} \newline
-      \textbf{multiplicity: 0..*} \newline 
-      Reference to the open-ended collection of all data associated with the \texttt{MangoObject}.
-
     \subsubsection{MangoObject.propertyDock}
       \textbf{vodml-id: MangoObject.propertyDock} \newline
       \textbf{type: \hyperref[sect:Property]{mango:Property}} \newline
@@ -281,6 +307,12 @@
       \textbf{type: \hyperref[sect:dataorigin.DataOrigin]{mango:dataorigin.DataOrigin}} \newline
       \textbf{multiplicity: 0..1} \newline 
       Reference to the description of the origin of the \texttt{MangoObject}.
+
+    \subsubsection{MangoObject.associatedMangoObjects}
+      \textbf{vodml-id: MangoObject.associatedMangoObjects} \newline
+      \textbf{type: \hyperref[sect:AssociatedMangoObject]{mango:AssociatedMangoObject}} \newline
+      \textbf{multiplicity: 0..*} \newline 
+      Abstract reference to a particular dataset associated to the MANGO entity. This class is used to specify the type of the associated dataset as well as its role.
 
   \subsection{PhotometricProperty}
   \label{sect:PhotometricProperty}
@@ -329,8 +361,8 @@
  }\newline
 
 
-    \subsubsection{Property.semantic}
-      \textbf{vodml-id: Property.semantic} \newline
+    \subsubsection{Property.semantics}
+      \textbf{vodml-id: Property.semantics} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 1} \newline 
       Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties.
@@ -431,17 +463,29 @@
   \label{sect:WebEndpoint}
     Associated data referenced by an URL.
 
-    \subsubsection{WebEndpoint.ContentType}
-      \textbf{vodml-id: WebEndpoint.ContentType} \newline
+    \subsubsection{WebEndpoint.content\_type}
+      \textbf{vodml-id: WebEndpoint.content\_type} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline 
       URL mime type.
 
-    \subsubsection{WebEndpoint.url}
-      \textbf{vodml-id: WebEndpoint.url} \newline
+    \subsubsection{WebEndpoint.access\_url}
+      \textbf{vodml-id: WebEndpoint.access\_url} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
       \textbf{multiplicity: 1} \newline 
       Web end-point.
+
+    \subsubsection{WebEndpoint.content\_qualifier}
+      \textbf{vodml-id: WebEndpoint.content\_qualifier} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
+
+    \subsubsection{WebEndpoint.local\_semantics}
+      \textbf{vodml-id: WebEndpoint.local\_semantics} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+      \textbf{multiplicity: 1} \newline 
+      TODO : Missing description : please, update your UML model asap.
 
   \subsection{ShapeFrame}
   \label{sect:ShapeFrame}
@@ -628,100 +672,6 @@
   \subsection{PropertyError2D (Abstract)}
   \label{sect:error.PropertyError2D}
     Super (abstract) class for all errors of 2D parameters
-
-\pagebreak
-\section{Package: correlation }
-  \begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{../model/correlation.png}
-    \caption{package correlation}
-    \label{fig:correlation}
-  \end{figure}
-
-
-
-  % INSERT FIGURE HERE
-  %\begin{figure}[h]
-  %\begin{center}
-  %  \includegraphics[width=\textwidth]{????.png}
-  %  \caption{???}\label{fig:????}
-  %\end{center}
-  %\end{figure}
-
-  Package grouping together all the components needed to model the correlations between property attributes.
-
-  \subsection{Correlation11}
-  \label{sect:correlation.Correlation11}
-    Correlation coefficient giving the contribution of the second axis of \texttt{B} to the second axis of \texttt{A}.
-
-    \subsubsection{Correlation11.correlation11}
-      \textbf{vodml-id: correlation.Correlation11.correlation11} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of \texttt{B} to \texttt{A}
-
-  \subsection{Correlation12}
-  \label{sect:correlation.Correlation12}
-    Correlation of a 1D property (A) with a 2D parameter (B): $A = a1b1 * B_1 + a12 * B_2$
-
-    \subsubsection{Correlation12.correlation11}
-      \textbf{vodml-id: correlation.Correlation12.correlation11} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the first axis of \texttt{B} to \texttt{A}
-
-    \subsubsection{Correlation12.correlation12}
-      \textbf{vodml-id: correlation.Correlation12.correlation12} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to \texttt{A}
-
-  \subsection{Correlation21}
-  \label{sect:correlation.Correlation21}
-    Correlation of a 2D property (A) with a 1D parameter (B): $A_1 = a11 * B$ $A_2 = a21 * B$
-
-    \subsubsection{Correlation21.correlation11}
-      \textbf{vodml-id: correlation.Correlation21.correlation11} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of \texttt{B} to the first axis of \texttt{A}
-
-    \subsubsection{Correlation21.correlation21}
-      \textbf{vodml-id: correlation.Correlation21.correlation21} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of \texttt{B} to the second axis of \texttt{A}
-
-  \subsection{Correlation22}
-  \label{sect:correlation.Correlation22}
-    Correlation of a 2D property (A) with a 2D parameter (B): $A_1 = a11 * B_1 + a12 * B_2 $ $A_2 = a21 * B_1 + a22 * B_2 $
-
-    \subsubsection{Correlation22.sigma1}
-      \textbf{vodml-id: correlation.Correlation22.sigma1} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
-
-    \subsubsection{Correlation22.sigma2}
-      \textbf{vodml-id: correlation.Correlation22.sigma2} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
-
-    \subsubsection{Correlation22.correlation}
-      \textbf{vodml-id: correlation.Correlation22.correlation} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline 
-      Correlation coefficient giving the contribution of the second axis of \texttt{B} to the first axis of \texttt{A}.
-
-  \subsection{QuantityCorrelation (Abstract)}
-  \label{sect:correlation.QuantityCorrelation}
-    Abstract type for the correlation parameters of 2 quantities
-
-    \subsubsection{QuantityCorrelation.isCovariance}
-      \textbf{vodml-id: correlation.QuantityCorrelation.isCovariance} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
-      \textbf{multiplicity: 0..1} \newline 
-      Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.
 
 \pagebreak
 \section{Package: dataorigin }
