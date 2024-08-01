@@ -6,7 +6,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-05-10T17:33:20</lastModified>
+  <lastModified>2024-08-01T12:04:16</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -157,18 +157,6 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>MangoObject.associatedDataDock</vodml-id>
-      <name>associatedDataDock</name>
-      <description>Reference to the open-ended collection of all data associated with the \texttt{MangoObject}.</description>
-      <datatype>
-        <vodml-ref>mango:AssociatedData</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>-1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
       <vodml-id>MangoObject.propertyDock</vodml-id>
       <name>propertyDock</name>
       <description>Reference to the open-ended collection of the \texttt{MangoObject} properties (physical or calculated).</description>
@@ -193,52 +181,34 @@ The format is free.</description>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </reference>
-  </objectType>
-
-  <objectType abstract="true">
-    <vodml-id>AssociatedData</vodml-id>
-    <name>AssociatedData</name>
-    <description>Abstract reference to a particular dataset associated to the MANGO entity.
+    <reference>
+      <vodml-id>MangoObject.associatedMangoObjects</vodml-id>
+      <name>associatedMangoObjects</name>
+      <description>Abstract reference to a particular dataset associated to the MANGO entity.
 This class is used to specify the type of the associated dataset as well as its role.</description>
-    <attribute>
-      <vodml-id>AssociatedData.semantic</vodml-id>
-      <name>semantic</name>
-      <description>Semantic concept giving the nature of the associated data.
-</description>
       <datatype>
-        <vodml-ref>mango:VocabularyTerm</vodml-ref>
+        <vodml-ref>mango:AssociatedMangoObject</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
       </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>AssociatedData.description</vodml-id>
-      <name>description</name>
-      <description>Free text description of the associated data</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
+    </reference>
   </objectType>
 
   <objectType>
     <vodml-id>WebEndpoint</vodml-id>
     <name>WebEndpoint</name>
-    <description>Associated data referenced by an URL.</description>
+    <description>This property describes static links pointing to some external data.
+This allows services that do not implement DataLink services to expose linked data as 
+flattened DataLink (1.1) responses.</description>
     <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
+      <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
-      <vodml-id>WebEndpoint.ContentType</vodml-id>
-      <name>ContentType</name>
-      <description>URL mime type.
-</description>
+      <vodml-id>WebEndpoint.content_type</vodml-id>
+      <name>content_type</name>
+      <description>mime-type of the content the link returns (see DataLink 1.1)</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -248,11 +218,45 @@ This class is used to specify the type of the associated dataset as well as its 
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.url</vodml-id>
-      <name>url</name>
-      <description>Web end-point.</description>
+      <vodml-id>WebEndpoint.access_url</vodml-id>
+      <name>access_url</name>
+      <description>The access_url field contains a URL for downloading a single resource. 
+There is no restriction on the type of resource accessed by the links.</description>
       <datatype>
         <vodml-ref>ivoa:anyURI</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>WebEndpoint.content_qualifier</vodml-id>
+      <name>content_qualifier</name>
+      <description>The content_qualifier gives the nature of the thing or service that is returned by the link.
+The value is always interpreted as a URI.
+If the access_url references a data product, the content_qualifier field
+should define its product type . 
+In this case the content qualifier value always starts with a hash 
+completing the \url{http://www.ivoa.net/rdf/datalink/product-type} base URI. 
+For \texttt{MangoObject} not linking to data products, content_qualifier&#8217;s interpretation
+will be different, and the default vocabulary will be inappropriate. Full
+concept URIs will have to be used in this case. (DataLink 1.1)</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>WebEndpoint.local_semantics</vodml-id>
+      <name>local_semantics</name>
+      <description>An identifier that allows clients to associate different WebEndpoint instances of the same MANGO Object with
+each other (see DataLink 1.1).</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -265,9 +269,31 @@ This class is used to specify the type of the associated dataset as well as its 
     <vodml-id>AssociatedMangoObject</vodml-id>
     <name>AssociatedMangoObject</name>
     <description>Class holder for linking the Mango object to another \texttt{MangoObject}.</description>
-    <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
-    </extends>
+    <attribute>
+      <vodml-id>AssociatedMangoObject.semantic</vodml-id>
+      <name>semantic</name>
+      <description>Semantic concept giving the nature of the associated data.
+</description>
+      <datatype>
+        <vodml-ref>mango:VocabularyTerm</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>AssociatedMangoObject.description</vodml-id>
+      <name>description</name>
+      <description>Free text description of the associated data</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
       <vodml-id>AssociatedMangoObject.mangoObject</vodml-id>
       <name>mangoObject</name>
@@ -293,10 +319,21 @@ This class specifies both type and role of the  property, and hosts the property
 </description>
     </constraint>
     <attribute>
-      <vodml-id>Property.semantic</vodml-id>
-      <name>semantic</name>
+      <vodml-id>Property.semantics</vodml-id>
+      <name>semantics</name>
       <description>Reference to a semantic concept giving the nature of the property 
-or of the set made of the property and its associated properties.</description>
+or of the set made of the property and its associated properties.
+
+The semantics field contains a URI for a concept that describes the meaning of the property. 
+This attribute is intended to be machine-readable and to assist automated link selection,
+presentation, and usage.
+The value is always interpreted as a URI; relative URIs (Berners-Lee and
+Fielding et al., 2005) are completed using the base URI of the core DataLink
+vocabulary, http://www.ivoa.net/rdf/datalink/core. Terms from this
+vocabulary must always be written as relative URIs. This means that for
+concepts from the core vocabulary, the value in the semantics fieldz always
+starts with a hash. (datalink1.1).
+The semantic concept apply to a single property or to the set made of the property and its associated properties (e.g. position and flag).</description>
       <datatype>
         <vodml-ref>mango:VocabularyTerm</vodml-ref>
       </datatype>
@@ -897,66 +934,135 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <vodml-id>EpochPositionCorrelations</vodml-id>
     <name>EpochPositionCorrelations</name>
     <description>Class holder for the correlation coefficients between the \texttt{EpochPosition} components.</description>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.positionPm</vodml-id>
-      <name>positionPm</name>
-      <description>  Correlation matrix between the position and the proper motion.</description>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudeParallax</vodml-id>
+      <name>longitudeParallax</name>
+      <description>Correlation (or covariance) coefficient between the position longitude and the parallax</description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.parallaxPm</vodml-id>
-      <name>parallaxPm</name>
-      <description> Correlation matrix between the parallax and the proper motion.</description>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.latitudeParallax</vodml-id>
+      <name>latitudeParallax</name>
+      <description>Correlation (or covariance) coefficient between the position latitude and the parallax</description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation12</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.positionParallax</vodml-id>
-      <name>positionParallax</name>
-      <description>Correlation matrix between the position and the parallax.</description>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.pmLongitudeParallax</vodml-id>
+      <name>pmLongitudeParallax</name>
+      <description>Correlation (or covariance) coefficient between the proper motion longitude and the parallax</description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation21</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.positionPosition</vodml-id>
-      <name>positionPosition</name>
-      <description>Self correlation matrix of the position.</description>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.pmLatitudeParallax</vodml-id>
+      <name>pmLatitudeParallax</name>
+      <description>Correlation (or covariance) coefficient between the proper motion latitude and the parallax</description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.properMotionPm</vodml-id>
-      <name>properMotionPm</name>
-      <description>Self correlation matrix of the proper motion.</description>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudeLatitude</vodml-id>
+      <name>longitudeLatitude</name>
+      <description>Correlation (or covariance) coefficient between the position longitude and the position latitude</description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.pmLongitudePmLatitude</vodml-id>
+      <name>pmLongitudePmLatitude</name>
+      <description>Correlation (or covariance) coefficient between the proper motion longitude and the proper motion latitude</description>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.latitudePmLatitude</vodml-id>
+      <name>latitudePmLatitude</name>
+      <description>Correlation (or covariance) coefficient between the position latitude and the proper motion latitude</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.latitudePmLongitude</vodml-id>
+      <name>latitudePmLongitude</name>
+      <description>Correlation (or covariance) coefficient between the position latitude and the proper motion longitude</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudePmLatitude</vodml-id>
+      <name>longitudePmLatitude</name>
+      <description>Correlation (or covariance) coefficient between the position longitude and the proper motion latitude</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudePmLongitude</vodml-id>
+      <name>longitudePmLongitude</name>
+      <description>Correlation (or covariance) coefficient between the position longitude and the proper motion longitude</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.isCovariance</vodml-id>
+      <name>isCovariance</name>
+      <description>Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.</description>
+      <datatype>
+        <vodml-ref>ivoa:boolean</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
   </objectType>
 
 
@@ -1156,178 +1262,6 @@ The correlation matrix is symmetrical.
         <description>Correlation coefficient between the 2 axis</description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-  </package>
-
-
-
-  <package>
-    <vodml-id>correlation</vodml-id>
-    <name>correlation</name>
-    <description>Package grouping together all the components needed to model the correlations between property attributes.</description>
-    <dataType>
-      <vodml-id>correlation.Correlation12</vodml-id>
-      <name>Correlation12</name>
-      <description>Correlation of a 1D property (A) with a 2D parameter (B): 
-$A = a1b1 * B_1 + a12 * B_2$</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation12.correlation11</vodml-id>
-        <name>correlation11</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} 
-to  \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation12.correlation12</vodml-id>
-        <name>correlation12</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType abstract="true">
-      <vodml-id>correlation.QuantityCorrelation</vodml-id>
-      <name>QuantityCorrelation</name>
-      <description>Abstract type for the correlation parameters of 2 quantities</description>
-      <attribute>
-        <vodml-id>correlation.QuantityCorrelation.isCovariance</vodml-id>
-        <name>isCovariance</name>
-        <description>Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.</description>
-        <datatype>
-          <vodml-ref>ivoa:boolean</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>0</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>correlation.Correlation11</vodml-id>
-      <name>Correlation11</name>
-      <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the second axis of \texttt{A}.</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation11.correlation11</vodml-id>
-        <name>correlation11</name>
-        <description>Correlation coefficient giving the contribution of \texttt{B} 
-to \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>correlation.Correlation22</vodml-id>
-      <name>Correlation22</name>
-      <description>Correlation of a 2D property (A) with a 2D parameter (B): 
-$A_1 = a11 * B_1 +  a12 * B_2 $
-$A_2 = a21 * B_1 +  a22 * B_2 $</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation22.sigma1</vodml-id>
-        <name>sigma1</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation22.sigma2</vodml-id>
-        <name>sigma2</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation22.correlation</vodml-id>
-        <name>correlation</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>correlation.Correlation21</vodml-id>
-      <name>Correlation21</name>
-      <description>Correlation of a 2D property (A) with a 1D parameter (B): 
-$A_1 = a11 * B$
-$A_2 = a21 * B$</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation21.correlation11</vodml-id>
-        <name>correlation11</name>
-        <description>Correlation coefficient giving the contribution of \texttt{B} 
-to the first axis of \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation21.correlation21</vodml-id>
-        <name>correlation21</name>
-        <description>Correlation coefficient giving the contribution of \texttt{B} 
-to the second axis of \texttt{A}</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>

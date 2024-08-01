@@ -1,0 +1,7 @@
+<INSTANCE dmrole="" dmtype="mango:StatusValue">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>

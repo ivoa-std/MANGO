@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-05-10T17:33:20</lastModified>
+  <lastModified>2024-08-01T12:04:16</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -174,18 +174,6 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <composition>
-      <vodml-id>MangoObject.associatedDataDock</vodml-id>
-      <name>associatedDataDock</name>
-      <description>Composition link pointing on all data associated with the source.</description>
-      <datatype>
-        <vodml-ref>mango:AssociatedData</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>-1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
       <vodml-id>MangoObject.propertyDock</vodml-id>
       <name>propertyDock</name>
       <description>Composition link pointing on all parameters attached to the source.</description>
@@ -211,38 +199,20 @@ The format is free.</description>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </reference>
-  </objectType>
-
-  <objectType abstract="true">
-    <vodml-id>AssociatedData</vodml-id>
-    <name>AssociatedData</name>
-    <description>Abstract reference to a particular dataset associated to the Source.
-This class is used to specify the type of the dataset as well as its role.</description>
-    <attribute>
-      <vodml-id>AssociatedData.semantic</vodml-id>
-      <name>semantic</name>
-      <description>Reference to a semantic concept giving the nature of the associated data.
-As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
+    <reference>
+      <vodml-id>MangoObject.associatedMangoObjects</vodml-id>
+      <name>associatedMangoObjects</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
       <datatype>
-        <vodml-ref>mango:VocabularyTerm</vodml-ref>
+        <vodml-ref>mango:AssociatedMangoObject</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>-1</maxOccurs>
       </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>AssociatedData.description</vodml-id>
-      <name>description</name>
-      <description>Free text description of the associated data</description>
-      <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
+    </reference>
   </objectType>
 
   <objectType>
@@ -250,11 +220,11 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <name>WebEndpoint</name>
     <description>Class for associated data referenced by an URL</description>
     <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
+      <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
-      <vodml-id>WebEndpoint.ContentType</vodml-id>
-      <name>ContentType</name>
+      <vodml-id>WebEndpoint.content_type</vodml-id>
+      <name>content_type</name>
       <description>Mime type of the URL
 </description>
       <datatype>
@@ -266,11 +236,39 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.url</vodml-id>
-      <name>url</name>
+      <vodml-id>WebEndpoint.access_url</vodml-id>
+      <name>access_url</name>
       <description>Web endpoint</description>
       <datatype>
         <vodml-ref>ivoa:anyURI</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>WebEndpoint.content_qualifier</vodml-id>
+      <name>content_qualifier</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>WebEndpoint.local_semantics</vodml-id>
+      <name>local_semantics</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -283,9 +281,31 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <vodml-id>AssociatedMangoObject</vodml-id>
     <name>AssociatedMangoObject</name>
     <description>Reference to another MANGO instance that is part of the associated data.</description>
-    <extends>
-      <vodml-ref>mango:AssociatedData</vodml-ref>
-    </extends>
+    <attribute>
+      <vodml-id>AssociatedMangoObject.semantic</vodml-id>
+      <name>semantic</name>
+      <description>Reference to a semantic concept giving the nature of the associated data.
+As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
+      <datatype>
+        <vodml-ref>mango:VocabularyTerm</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>AssociatedMangoObject.description</vodml-id>
+      <name>description</name>
+      <description>Free text description of the associated data</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
       <vodml-id>AssociatedMangoObject.mangoObject</vodml-id>
       <name>mangoObject</name>
@@ -310,8 +330,8 @@ This class is used to specify the type of the measure as well as its role.</desc
 </description>
     </constraint>
     <attribute>
-      <vodml-id>Property.semantic</vodml-id>
-      <name>semantic</name>
+      <vodml-id>Property.semantics</vodml-id>
+      <name>semantics</name>
       <description>Reference to a semantic concept giving the nature of the parameter
 As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </description>
       <datatype>
@@ -943,73 +963,157 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.positionPm</vodml-id>
-      <name>positionPm</name>
-      <description>Correlated error between the proper motion and the position. This error is represented by a 2D matrix.
-$error_{propermotion} = f(position)$</description>
-      <datatype>
-        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.parallaxPm</vodml-id>
-      <name>parallaxPm</name>
-      <description>Correlated error between the parallax and the proper motion. The parallax error might depend on the proper motion vector.
-$error_{parallax} = f(properMotion)$</description>
-      <datatype>
-        <vodml-ref>mango:correlation.Correlation12</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.positionParallax</vodml-id>
-      <name>positionParallax</name>
-      <description>Correlated error between the parallax and the position. The parallax error might depend on the sky position.
-$error_{parallax} = f(position)$</description>
-      <datatype>
-        <vodml-ref>mango:correlation.Correlation21</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>0</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.positionPosition</vodml-id>
-      <name>positionPosition</name>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudeParallax</vodml-id>
+      <name>longitudeParallax</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
-    <composition>
-      <vodml-id>EpochPositionCorrelations.properMotionPm</vodml-id>
-      <name>properMotionPm</name>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.latitudeParallax</vodml-id>
+      <name>latitudeParallax</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:correlation.Correlation22</vodml-ref>
+        <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.pmLongitudeParallax</vodml-id>
+      <name>pmLongitudeParallax</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.pmLatitudeParallax</vodml-id>
+      <name>pmLatitudeParallax</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudeLatitude</vodml-id>
+      <name>longitudeLatitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.pmLongitudePmLatitude</vodml-id>
+      <name>pmLongitudePmLatitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.latitudePmLatitude</vodml-id>
+      <name>latitudePmLatitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.latitudePmLongitude</vodml-id>
+      <name>latitudePmLongitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudePmLatitude</vodml-id>
+      <name>longitudePmLatitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.longitudePmLongitude</vodml-id>
+      <name>longitudePmLongitude</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>EpochPositionCorrelations.isCovariance</vodml-id>
+      <name>isCovariance</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:boolean</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
   </objectType>
 
 
@@ -1211,170 +1315,6 @@ $error_{parallax} = f(position)$</description>
         </description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-  </package>
-
-
-
-  <package>
-    <vodml-id>correlation</vodml-id>
-    <name>correlation</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <dataType>
-      <vodml-id>correlation.Correlation12</vodml-id>
-      <name>Correlation12</name>
-      <description>Error of a 1D property (A) correlated with a 2D parameter (B): $error\_A = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation12.correlation11</vodml-id>
-        <name>correlation11</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation12.correlation12</vodml-id>
-        <name>correlation12</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType abstract="true">
-      <vodml-id>correlation.QuantityCorrelation</vodml-id>
-      <name>QuantityCorrelation</name>
-      <description>Abstract root class for the correlated errors. In the subclasses nomenclature the error relates to a property named \texttt{A} in correlation with a property named {B).</description>
-      <attribute>
-        <vodml-id>correlation.QuantityCorrelation.isCovariance</vodml-id>
-        <name>isCovariance</name>
-        <description>Optional parameter giving the UCD of the correlated property. This attribute may facilitate the interpretation of complex error patterns.</description>
-        <datatype>
-          <vodml-ref>ivoa:boolean</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>0</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>correlation.Correlation11</vodml-id>
-      <name>Correlation11</name>
-      <description>Error of a 1D property (A) correlated with a 1D parameter (B): $error\_A = correlation\_A1B1 * value\_B$</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation11.correlation11</vodml-id>
-        <name>correlation11</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>correlation.Correlation22</vodml-id>
-      <name>Correlation22</name>
-      <description>Error of a 2D property (A) correlated with a 2D parameter (B): 
-$error\_A_1 = correlation\_A1B1 * value\_B_1 + correlation\_A1B2 * value\_B_2$
-$error\_A_2 = correlation\_A2B1 * value\_B_1 + correlation\_A2B2 * value\_B_2$</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation22.sigma1</vodml-id>
-        <name>sigma1</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the second axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation22.sigma2</vodml-id>
-        <name>sigma2</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the second axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation22.correlation</vodml-id>
-        <name>correlation</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </dataType>
-
-    <dataType>
-      <vodml-id>correlation.Correlation21</vodml-id>
-      <name>Correlation21</name>
-      <description>Error of a 2D property (A) correlated with a 1D parameter (B): 
-$error\_A_1 = correlation\_A1B1 * value\_B$
-$error\_A_2 = correlation\_A12B1 * value\_B$</description>
-      <extends>
-        <vodml-ref>mango:correlation.QuantityCorrelation</vodml-ref>
-      </extends>
-      <attribute>
-        <vodml-id>correlation.Correlation21.correlation11</vodml-id>
-        <name>correlation11</name>
-        <description>Correlation coefficient giving the contribution of the second axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>correlation.Correlation21.correlation21</vodml-id>
-        <name>correlation21</name>
-        <description>Correlation coefficient giving the contribution of the first axis of \texttt{B} to the error on the first axis of \texttt{A}.</description>
-        <datatype>
-          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>

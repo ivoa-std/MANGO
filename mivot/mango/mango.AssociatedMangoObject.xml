@@ -1,0 +1,34 @@
+<INSTANCE dmrole="" dmtype="mango:AssociatedMangoObject">
+   <!-- Reference to another MANGO instance that is part of the associated data." -->
+   <INSTANCE dmrole="mango:AssociatedData.semantic" dmtype="mango:VocabularyTerm">
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:AssociatedData.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:AssociatedMangoObject.mangoObject" dmtype="mango:MangoObject">
+      <!-- Root class of the model. MANGO instances are meant of be Source instances.
+A source is something with an identifier and two docks: one for the parameters and one for the associated data." -->
+      <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <COLLECTION dmrole="mango:MangoObject.associatedDataDock">
+         <!-- Put here a concrete INSTANCE of AssociatedData or left blank -->
+         <INSTANCE dmrole="" dmtype="mango:AssociatedData"/>
+      </COLLECTION>
+      <COLLECTION dmrole="mango:MangoObject.propertyDock">
+         <INSTANCE dmrole="" dmtype="mango:Property">
+            <!-- Reference to a particular measure of the Source.
+This class is used to specify the type of the measure as well as its role." -->
+            <INSTANCE dmrole="mango:Property.semantic" dmtype="mango:VocabularyTerm">
+               <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+               <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+               <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+            </INSTANCE>
+            <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         </INSTANCE>
+      </COLLECTION>
+   </INSTANCE>
+</INSTANCE>

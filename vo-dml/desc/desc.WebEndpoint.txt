@@ -1,1 +1,3 @@
-Associated data referenced by an URL.
+This property describes static links pointing to some external data.
+This allows services that do not implement DataLink services to expose linked data as 
+flattened DataLink (1.1) responses.
