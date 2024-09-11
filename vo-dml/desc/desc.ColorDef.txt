@@ -1,5 +1,4 @@
-Class holder for a color definition.
-This definition includes how the color is calculated (Mag or HR)
+Physical color definition giving the way a color is calculated (Magnitude or difference or hardness ratio)
 and the filters on which the color is based. 
-In case of hardness ratio, the energy bands must be modeled as instances of \texttt{photdm:PhotFilter} 
+In case of hardness ratio, the energy bands might be modeled as instances of \texttt{photdm:PhotFilter} 
 with a flat transfert function.

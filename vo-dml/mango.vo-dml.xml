@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-08-01T12:04:16</lastModified>
+  <lastModified>2024-09-11T17:36:21</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -26,7 +26,7 @@
     <documentationURL>https://ivoa.net/documents/Coords/20221004/index.html</documentationURL>
   </import>
   <import>
-    <name>photdm</name>
+    <name>Phot</name>
     <url>https://ivoa.net/xml/VODML/Phot-v1.vodml.xml</url>
     <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
   </import>
@@ -216,14 +216,14 @@ The format is free.</description>
   </objectType>
 
   <objectType>
-    <vodml-id>WebEndpoint</vodml-id>
-    <name>WebEndpoint</name>
+    <vodml-id>DataLink</vodml-id>
+    <name>DataLink</name>
     <description>Class for associated data referenced by an URL</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
-      <vodml-id>WebEndpoint.content_type</vodml-id>
+      <vodml-id>DataLink.content_type</vodml-id>
       <name>content_type</name>
       <description>Mime type of the URL
 </description>
@@ -236,7 +236,7 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.access_url</vodml-id>
+      <vodml-id>DataLink.access_url</vodml-id>
       <name>access_url</name>
       <description>Web endpoint</description>
       <datatype>
@@ -248,7 +248,7 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.content_qualifier</vodml-id>
+      <vodml-id>DataLink.content_qualifier</vodml-id>
       <name>content_qualifier</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -262,7 +262,7 @@ The format is free.</description>
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.local_semantics</vodml-id>
+      <vodml-id>DataLink.local_semantics</vodml-id>
       <name>local_semantics</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
@@ -530,7 +530,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>photdm:PhotCal</vodml-ref>
+        <vodml-ref>Phot:PhotCal</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -630,7 +630,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>photdm:PhotFilter</vodml-ref>
+        <vodml-ref>Phot:PhotFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -644,7 +644,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>photdm:PhotFilter</vodml-ref>
+        <vodml-ref>Phot:PhotFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>

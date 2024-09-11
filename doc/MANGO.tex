@@ -373,6 +373,10 @@ But there are some other places too:
 This usage shows that MANGO must be designed in a way that individual measurements or quantities
 can be easily be identified as such and manipulated independently of the whole instance.
 
+
+tTis document does not recommend one approach over another.
+This is a matter for the data providers to decide.
+
 \subsubsection{Xmatch tool }
 The basic cross-match of two astronomical tables consists in associating pairs of sources -- one 
 from each table -- fulfilling a given angular distance based criterion.
@@ -440,6 +444,33 @@ From the use-cases description, several categories of features must provided or 
 
 \section{Model Overview}
 
+\TODO{a integrer mieux dans le texte}
+Mango is designed to enhance the tabular data provided by VO services running any protocol.
+It can provide a global view that describes a table row as a single entity, or a sparse set of unrelated properties.
+The natural way to connect data and MANGO is MIVOT which is a generic XML syntax mapping data on any model.
+MIVOT annotations support both MANGO uses:
+
+\begin{itemize}
+    \item \emph{MANGO as a global view}: This configuration is necessary to take advantage of all 
+          the model's features: Properties can be linked together, data rows can be identified 
+          and treated as single entities (MANGO objects) that can be linked together to describe,
+          for example, sources with their detections or orbiting systems.
+          This way of describing data rows as single entities also allows for serialisation modes
+          that require a unique root, such as XML of JSON.
+          The cost of this approach is to make the annotation process a little more complex
+          and to add a few more class levels to the annotations.
+    \item \emph{MANGO as unrelated views}: In this simpler approach the data mapping is made of a
+          flat set on independant objects. Clients can iterate over these objects and 
+          process the entities of interest. 
+          It is to be noted that such a client could also easily process data mapped 
+          on the full MANGO scheme as described above. 
+          On server side, the annotation process might be a bit simpler. 
+\end{itemize}
+
+This document does not recommend one approach over another.
+This is a matter for the data providers to decide.
+It is however based on the full featured model.
+
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{../model/overview.png}
      \caption{Model overview}
@@ -448,19 +479,19 @@ From the use-cases description, several categories of features must provided or 
 
 Sky objects are represented by instances of the class \texttt{MANGOObject} which has only
 one mandatory attribute, an \texttt{identifier}.
-It is recommended the identifiers to be unique within a source collection e.g. a catalog.
+Identifiers should be unique within a collection e.g. a data table.
 
 In addition to the identifier, \texttt{MANGOObject}  have 2 components:
 
 \begin{itemize}
   \item \texttt{dataOrigin}: origin of the \texttt{MANGOObject}. The structure of this class follows
         the recommendations of the DCP IG (time of writing).
-  \item \texttt{popertyDock}: the place holder for all the \texttt{MANGOObject} properties.
+  \item \texttt{popertyDock}: place holder for all the \texttt{MANGOObject} properties.
         This is an open-ended collection.
-        Each source property is hooked to the \texttt{MANGOObject} by a wrapping class (\texttt{Property} )
-        that contains anything necessary to identify both its nature and its role.
-        Properties can be linked together to represent logical parameter sets. 
-        These logical sets have no semantic. Their interpretation is in charge of the clients.
+        Mango properties inherit from the base class (\texttt{Property}),
+        which contains everything necessary to identify both their nature and their role.
+        Properties can be linked together to represent logical parameter sets for which
+        the model does not provide semantics.
 \end{itemize}
 \subsection{Properties}
 
@@ -470,14 +501,14 @@ In addition to the identifier, \texttt{MANGOObject}  have 2 components:
         \label{fig:property}
       \end{figure}
 
-\subsubsection{Parameter Identification}
+\subsubsection{Property Identification}
 Since the set of properties associated with a particular instance is not defined by the model,
 MANGO cannot define a specific role for each property. However, the model provides different ways
 for the client to understand the actual nature of each property:
 
 \begin{itemize}
     \item \textbf{Class type}: often the scientific meaning of the quantity.
-    \item \textbf{Semantic}: the semantic tag specifies the exact role of the property by
+    \item \textbf{Semantics}: the semantic tag specifies the exact role of the property by
           referring to a standard vocabulary. The semantic tag can relate to the property itself
           or to the set formed by the property and its associated properties.
           For example, a signal amplitude associated with a time and position can be tagged

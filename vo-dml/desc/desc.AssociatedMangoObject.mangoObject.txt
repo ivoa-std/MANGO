@@ -1,1 +1,1 @@
-Reference of the associated \texttt{MangoObject}.
+Reference to the associated \texttt{MangoObject}.

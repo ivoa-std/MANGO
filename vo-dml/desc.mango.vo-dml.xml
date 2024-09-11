@@ -268,11 +268,11 @@ each other (see DataLink 1.1).</description>
   <objectType>
     <vodml-id>AssociatedMangoObject</vodml-id>
     <name>AssociatedMangoObject</name>
-    <description>Class holder for linking the Mango object to another \texttt{MangoObject}.</description>
+    <description>This class gives the role of a link associating 2 \texttt{MangoObject} together.</description>
     <attribute>
       <vodml-id>AssociatedMangoObject.semantic</vodml-id>
       <name>semantic</name>
-      <description>Semantic concept giving the nature of the associated data.
+      <description>Semantic concept giving the nature of the data association.
 </description>
       <datatype>
         <vodml-ref>mango:VocabularyTerm</vodml-ref>
@@ -285,7 +285,8 @@ each other (see DataLink 1.1).</description>
     <attribute>
       <vodml-id>AssociatedMangoObject.description</vodml-id>
       <name>description</name>
-      <description>Free text description of the associated data</description>
+      <description>Free text description of the data association
+</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -297,7 +298,7 @@ each other (see DataLink 1.1).</description>
     <composition>
       <vodml-id>AssociatedMangoObject.mangoObject</vodml-id>
       <name>mangoObject</name>
-      <description>Reference of the associated \texttt{MangoObject}.</description>
+      <description>Reference to the associated \texttt{MangoObject}.</description>
       <datatype>
         <vodml-ref>mango:MangoObject</vodml-ref>
       </datatype>
@@ -572,8 +573,7 @@ but a value relative to two filters or energy bands.
     <composition>
       <vodml-id>Color.colorDef</vodml-id>
       <name>colorDef</name>
-      <description>Color definition. 
-Can be either a  difference of magnitudes or a hardness ratio.
+      <description>Reference to the physical definition of the color (can be either a  difference of magnitudes or a hardness ratio).
 
 </description>
       <datatype>
@@ -589,15 +589,14 @@ Can be either a  difference of magnitudes or a hardness ratio.
   <objectType>
     <vodml-id>ColorDef</vodml-id>
     <name>ColorDef</name>
-    <description>Class holder for a color definition.
-This definition includes how the color is calculated (Mag or HR)
+    <description>Physical color definition giving the way a color is calculated (Magnitude or difference or hardness ratio)
 and the filters on which the color is based. 
-In case of hardness ratio, the energy bands must be modeled as instances of \texttt{photdm:PhotFilter} 
+In case of hardness ratio, the energy bands might be modeled as instances of \texttt{photdm:PhotFilter} 
 with a flat transfert function.</description>
     <attribute>
       <vodml-id>ColorDef.definition</vodml-id>
       <name>definition</name>
-      <description>Attribute giving the way the color is calculated (Mag or HR).</description>
+      <description>Attribute giving the way the color is calculated (Magnitude or difference or hardness ratio).</description>
       <datatype>
         <vodml-ref>mango:ColorDefinition</vodml-ref>
       </datatype>
@@ -637,9 +636,10 @@ with a flat transfert function.</description>
   <objectType>
     <vodml-id>BitField</vodml-id>
     <name>BitField</name>
-    <description>Property state for which each possible value is represented by a bit, 
-so that multiple states can be contained in the same numerical value.
-The values defined in the related \texttt{StatusValues} must correspond to a bit patterns.
+    <description>Property for which each possible value is represented by a bit, 
+so that multiple states can be contained in the same integer value.
+The possible values are defined in the associated \texttt{StatusValues},
+which must correspond to a bit pattern (each value must be a power of 2).
 This constraint is not enforced by the model.</description>
     <extends>
       <vodml-ref>mango:Status</vodml-ref>
@@ -707,7 +707,7 @@ and a parallax.
 All components share the same coordinate systems for both time and space coordinates.
 
 \begin{itemize}
-   \item Both position and proper motion reuse the \texttt{coords:LonLatPoint} elements.
+   \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
    \item The space coordinate system is imported from \texttt{coords:spaceSys}.
    \item The time coordinate system is imported from \texttt{coords:timeSys}.
 \end{itemize}
@@ -717,7 +717,8 @@ and/or correlation between components.
 
 All individual components have their own units which must be consistent to each others. 
 This consistency is not enforced by the model.
-</description>
+
+Possible correlations between \texttt{EpochPosition} parameters are handle by the  \texttt{EpochPositionCorrelation} class.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
