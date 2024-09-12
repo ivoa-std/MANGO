@@ -9,7 +9,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-09-11T17:36:21</lastModified>
+  <lastModified>2024-09-12T10:37:44</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -630,7 +630,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>Phot:PhotFilter</vodml-ref>
+        <vodml-ref>Phot:PhotometryFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -644,7 +644,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>Phot:PhotFilter</vodml-ref>
+        <vodml-ref>Phot:PhotometryFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1036,9 +1036,10 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <attribute>
       <vodml-id>EpochPositionCorrelations.pmLongitudePmLatitude</vodml-id>
       <name>pmLongitudePmLatitude</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <description>&lt;Enter note text here&gt;s</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
@@ -1082,7 +1083,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -1110,7 +1111,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>ivoa:boolean</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
