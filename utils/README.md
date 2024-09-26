@@ -1,6 +1,5 @@
 # Generating the model doc from the VODML
 
-
 This utility automate as much as possible the transalation of the VODML 
 file into a documented Tex file which is inserted into the main Tex file
 
