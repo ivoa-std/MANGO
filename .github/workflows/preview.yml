@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - master
+      - draft-0.1
 
 jobs:
   build:
