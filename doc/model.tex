@@ -34,14 +34,14 @@
   %\end{center}
   %\end{figure}
 
-  Data model based oon components and data association for source data
+  MO-del for AN-notating G-eneric O-bject
 
   \subsection{AssociatedMangoObject}
   \label{sect:AssociatedMangoObject}
     This class gives the role of a link associating 2 \texttt{MangoObject} together.
 
-    \subsubsection{AssociatedMangoObject.semantic}
-      \textbf{vodml-id: AssociatedMangoObject.semantic} \newline
+    \subsubsection{AssociatedMangoObject.semantics}
+      \textbf{vodml-id: AssociatedMangoObject.semantics} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 1} \newline
       Semantic concept giving the nature of the data association.
@@ -74,25 +74,25 @@
 
   \subsection{ColorDef}
   \label{sect:ColorDef}
-    Physical color definition giving the way a color is calculated (Magnitude or difference or hardness ratio) and the filters on which the color is based. In case of hardness ratio, the energy bands might be modeled as instances of \texttt{photdm:PhotFilter} with a flat transfert function.
+    Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio) and the filters on which the color is based. In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} with a square transfert function.
 
     \subsubsection{ColorDef.definition}
       \textbf{vodml-id: ColorDef.definition} \newline
       \textbf{type: \hyperref[sect:ColorDefinition]{mango:ColorDefinition}} \newline
       \textbf{multiplicity: 1} \newline
-      Attribute giving the way the color is calculated (Magnitude or difference or hardness ratio).
+      Attribute giving the way the color is calculated (magnitude difference or hardness ratio).
 
     \subsubsection{ColorDef.high}
       \textbf{vodml-id: ColorDef.high} \newline
       \textbf{type: Phot:PhotometryFilter} \newline
       \textbf{multiplicity: 1} \newline
-      Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.
+      Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding the higher band of the color.
 
     \subsubsection{ColorDef.low}
       \textbf{vodml-id: ColorDef.low} \newline
       \textbf{type: Phot:PhotometryFilter} \newline
       \textbf{multiplicity: 1} \newline
-      Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
+      Reference to the \texttt{Phot:PhotometryFilter} corresponding the lower band for that color.
 
   \subsection{DataLink}
   \label{sect:DataLink}
@@ -102,25 +102,25 @@
       \textbf{vodml-id: DataLink.content\_type} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      mime-type of the content the link returns (see DataLink 1.1)
+      mime type of the content the link returns (see DataLink 1.1)
 
     \subsubsection{DataLink.access\_url}
       \textbf{vodml-id: DataLink.access\_url} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
       \textbf{multiplicity: 1} \newline
-      The access\_url field contains a URL for downloading a single resource. There is no restriction on the type of resource accessed by the links.
+      contains an URL for downloading a single resource. There is no restriction on the type of resource accessed by the links.
 
     \subsubsection{DataLink.content\_qualifier}
       \textbf{vodml-id: DataLink.content\_qualifier} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      The content\_qualifier gives the nature of the thing or service that is returned by the link. The value is always interpreted as a URI. If the access\_url references a data product, the content\_qualifier field should define its product type . In this case the content qualifier value always starts with a hash completing the \url{http://www.ivoa.net/rdf/datalink/product-type} base URI. For \texttt{MangoObject} not linking to data products, content\_qualifier’s interpretation will be different, and the default vocabulary will be inappropriate. Full concept URIs will have to be used in this case. (DataLink 1.1)
+      Gives the nature of the thing or service that is returned by the link. The value is always interpreted as a URI. If the access\_url references a data product, the content\_qualifier field should define its product type . In this case the content qualifier value always starts with a hash completing the \url{http://www.ivoa.net/rdf/datalink/product-type} base URI. For \texttt{MangoObject} not linking to data products, content\_qualifier’s interpretation will be different, and the default vocabulary will be inappropriate. Full concept URIs will have to be used in this case. (DataLink 1.1)
 
     \subsubsection{DataLink.local\_semantics}
       \textbf{vodml-id: DataLink.local\_semantics} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      An identifier that allows clients to associate different WebEndpoint instances of the same MANGO Object with each other (see DataLink 1.1).
+      Allows for identification of corresponding rows for different IDs in the same DataLink service where the combination of semantics, content\_type and content\_qualifier is not sufficient to identify them (see DataLink 1.1).
 
   \subsection{EpochPosition}
 
@@ -132,7 +132,7 @@
 
     
   \label{sect:EpochPosition}
-    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The \texttt{EpochPosition} error is modeled by specific classes supporting covariance and/or correlation between components. All individual components have their own units which must be consistent to each others. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handle by the \texttt{EpochPositionCorrelation} class.
+    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The \texttt{EpochPosition} error is modeled by specific classes supporting covariance and/or correlation between components. All individual components have their own units which must be consistent to each others. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handle by the \texttt{EpochPositionCorrelation} class.
 
     \subsubsection{EpochPosition.longitude}
       \textbf{vodml-id: EpochPosition.longitude} \newline
@@ -156,7 +156,7 @@
       \textbf{vodml-id: EpochPosition.radialVelocity} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline
-      The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord}).
+      The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 
     \subsubsection{EpochPosition.pmLongitude}
       \textbf{vodml-id: EpochPosition.pmLongitude} \newline
@@ -284,13 +284,13 @@
       \textbf{vodml-id: EpochPositionErrors.parallax} \newline
       \textbf{type: \hyperref[sect:error.PropertyError1D]{mango:error.PropertyError1D}} \newline
       \textbf{multiplicity: 0..1} \newline
-      Parallax error. This error is meant to be symmetrical
+      Parallax error. This error is meant to be symmetrical in the current model version.
 
     \subsubsection{EpochPositionErrors.radialVelocity}
       \textbf{vodml-id: EpochPositionErrors.radialVelocity} \newline
       \textbf{type: \hyperref[sect:error.PropertyError1D]{mango:error.PropertyError1D}} \newline
       \textbf{multiplicity: 0..1} \newline
-      Error in the radial velocity. This error is meant to be symmetrical
+      Error in the radial velocity. This error is meant to be symmetrical in the current model version.
 
     \subsubsection{EpochPositionErrors.position}
       \textbf{vodml-id: EpochPositionErrors.position} \newline
@@ -316,7 +316,7 @@
 
   \subsection{MangoObject}
   \label{sect:MangoObject}
-    Central model class: applied to a data table, each row can be modelled as a MangoObject instance. Each MangoObject hosts a collection of physical or calculated parameters, a collection of associated data, a description of the data origin and an identifier.
+    Central model class: applied to a data table, each row can be modelled as a \texttt{MangoObject} instance. Each \texttt{MangoObject} hosts a collection of physical or calculated parameters, a description of the data origin and an identifier.
 
     \subsubsection{MangoObject.identifier}
       \textbf{vodml-id: MangoObject.identifier} \newline
@@ -344,7 +344,7 @@
 
   \subsection{PhotometricProperty}
   \label{sect:PhotometricProperty}
-    Observed brightness of the \texttt{MangoObject}. The distinction between fluxes and magnitudes is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.
+    Observed brightness of the \texttt{MangoObject}. The distinction between fluxes and magnitudes is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).
 
     \subsubsection{PhotometricProperty.value}
       \textbf{vodml-id: PhotometricProperty.value} \newline
@@ -366,13 +366,13 @@
 
   \subsection{PhysicalProperty}
   \label{sect:PhysicalProperty}
-    Place holder for any quantity that can be hold by measure as defined in the \texttt{Astronomical Measurements Model}.
+    Place holder for any quantity that can be hold by measure classes as defined in the \texttt{Astronomical Measurements Model}.
 
     \subsubsection{PhysicalProperty.calibrationLevel}
       \textbf{vodml-id: PhysicalProperty.calibrationLevel} \newline
       \textbf{type: \hyperref[sect:CalibrationLevel]{mango:CalibrationLevel}} \newline
       \textbf{multiplicity: 1} \newline
-      Calibration level of the property (ObsCore).
+      Calibration level of the property as defined in ObsCore \citep{2011ivoa.spec.1028T}.
 
     \subsubsection{PhysicalProperty.measure}
       \textbf{vodml-id: PhysicalProperty.measure} \newline
@@ -409,25 +409,25 @@
 
   \subsection{Shape}
   \label{sect:Shape}
-    Description of the spatial extension of the MANGO object (for e.g. dust clouds).
+    Description of the spatial extension of the MANGO object (for e.g. dust clouds)
 
     \subsubsection{Shape.shape}
       \textbf{vodml-id: Shape.shape} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      String serialization of the spatial extension of the \texttt{MangoObject}.
+      String serialization of the spatial extension of the \texttt{MangoObject}
 
     \subsubsection{Shape.serialization}
       \textbf{vodml-id: Shape.serialization} \newline
       \textbf{type: \hyperref[sect:ShapeSerialization]{mango:ShapeSerialization}} \newline
       \textbf{multiplicity: 1} \newline
-      Serialization mode of the spatial extension of the MANGO entity.
+      Serialization mode of the spatial extension of the MANGO entity
 
     \subsubsection{Shape.spaceSys}
       \textbf{vodml-id: Shape.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 0..1} \newline
-      Coordinate system that applies for the shape.
+      Coordinate system that applies for the shape
 
   \subsection{Status}
   \label{sect:Status}
@@ -437,7 +437,7 @@
       \textbf{vodml-id: Status.status} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
       \textbf{multiplicity: 1} \newline
-      Actual value of the status.
+      Actual value of the status
 
     \subsubsection{Status.allowedValues}
       \textbf{vodml-id: Status.allowedValues} \newline
@@ -447,7 +447,7 @@
 
   \subsection{StatusValue}
   \label{sect:StatusValue}
-    Value allowed for a status, contain the value with a free text description.
+    Value allowed for a status; contain the value with a free text description.
 
     \subsubsection{StatusValue.value}
       \textbf{vodml-id: StatusValue.value} \newline
@@ -459,7 +459,7 @@
       \textbf{vodml-id: StatusValue.description} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      Free text description on the allowed value for a \texttt{Status}
+      Free text description of the allowed value for a \texttt{Status}
 
   \subsection{StatusValues}
   \label{sect:StatusValues}
@@ -469,7 +469,7 @@
       \textbf{vodml-id: StatusValues.values} \newline
       \textbf{type: \hyperref[sect:StatusValue]{mango:StatusValue}} \newline
       \textbf{multiplicity: 1..*} \newline
-      List of the allowed values for the status. Each value has its own textual description.
+      List of the allowed values for the status; each value has its own textual description.
 
   \subsection{VocabularyTerm}
   \label{sect:VocabularyTerm}
@@ -479,7 +479,7 @@
       \textbf{vodml-id: VocabularyTerm.uri} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      URI the vocabulary term.
+      URI the vocabulary term
 
     \subsubsection{VocabularyTerm.label}
       \textbf{vodml-id: VocabularyTerm.label} \newline
@@ -528,7 +528,7 @@
   \subsection{CalibrationLevel}
   \label{sect:CalibrationLevel}
 
-  Enumeration of different possible calibration status of the property (Obscore)
+  Enumeration of different possible calibration status of the property as defined in Obscore
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -701,7 +701,7 @@
       \textbf{vodml-id: dataorigin.Article.editor} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      Editor name (article)
+      Name of the article editor
 
     \subsubsection{Article.article}
       \textbf{vodml-id: dataorigin.Article.article} \newline
@@ -711,7 +711,7 @@
 
   \subsection{DataOrigin}
   \label{sect:dataorigin.DataOrigin}
-    Class representing the origin of the data following the DCP note (TBD)
+    Class representing the origin of the data following the DCP note
 
     \subsubsection{DataOrigin.citation}
       \textbf{vodml-id: dataorigin.DataOrigin.citation} \newline
@@ -815,19 +815,19 @@
       \textbf{vodml-id: dataorigin.QueryOrigin.service\_protocol} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      IVOID of the protocol through which the data was retrieved
+      IVOID \citep{2007ivoa.spec.0314P} of the protocol through which the data was retrieved
 
     \subsubsection{QueryOrigin.request}
       \textbf{vodml-id: dataorigin.QueryOrigin.request} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      Full request URL including a query string. For the simple protocols,put the url-encoded form of the query parameters. For TAP queries, use the /sync UWS URL. The format is free for others request types.
+      Full request URL including a query string. For the simple protocols,put the url-encoded form of the query parameters. For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format is free for others request types.
 
     \subsubsection{QueryOrigin.query}
       \textbf{vodml-id: dataorigin.QueryOrigin.query} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      Input query in a formal langage such as ADQL.equest types
+      Input query in a formal langage such as ADQL.equest types \citep{2023ivoa.spec.1215M}
 
     \subsubsection{QueryOrigin.request\_date}
       \textbf{vodml-id: dataorigin.QueryOrigin.request\_date} \newline

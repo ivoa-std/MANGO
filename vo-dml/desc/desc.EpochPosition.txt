@@ -1,5 +1,5 @@
 This class is a view of \texttt{Astronomical Coordinates and Coordinate
-Systems} components that have been put together to form a consistent description 
+Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description 
 of the position of an object moving over time. 
 It consists of a celestial position, a proper motion, a radial velocity 
 and a parallax. 

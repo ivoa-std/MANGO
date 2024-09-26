@@ -1,1 +1,1 @@
-Enumeration of different possible calibration status of the property (Obscore)
+Enumeration of different possible calibration status of the property as defined in Obscore

@@ -1,1 +1,1 @@
-Label indicating that the shape has been serialized as a STCS string
+Label indicating that the shape has been serialized as a STC-S \citep{2007ivoa.spec.1030R} string

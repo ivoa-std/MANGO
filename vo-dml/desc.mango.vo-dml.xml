@@ -1,12 +1,13 @@
 <ns0:model xmlns:ns0="http://www.ivoa.net/xml/VODML/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
-  <description>Data model based oon components and data association for source data</description>
+  <description>MO-del for AN-notating G-eneric O-bject
+</description>
   <uri />
   <title>Mango</title>
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-09-12T10:37:44</lastModified>
+  <lastModified>2024-09-26T17:14:07</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -68,7 +69,7 @@
   <enumeration>
     <vodml-id>CalibrationLevel</vodml-id>
     <name>CalibrationLevel</name>
-    <description>Enumeration of different possible calibration status of the property (Obscore)</description>
+    <description>Enumeration of different possible calibration status of the property as defined in Obscore</description>
     <literal>
       <vodml-id>CalibrationLevel.Raw</vodml-id>
       <name>Raw</name>
@@ -110,7 +111,7 @@ that  needs instrument specific tools to be handled (ObsCore)</description>
     <attribute>
       <vodml-id>VocabularyTerm.uri</vodml-id>
       <name>uri</name>
-      <description>URI the vocabulary term.</description>
+      <description>URI the vocabulary term</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -139,8 +140,8 @@ rewriting rules that fix the issue.</description>
   <objectType>
     <vodml-id>MangoObject</vodml-id>
     <name>MangoObject</name>
-    <description>Central model class: applied to a data table, each row can be modelled as a MangoObject instance.
-Each MangoObject hosts a collection of physical or calculated parameters, a collection of associated data,
+    <description>Central model class: applied to a data table, each row can be modelled as a \texttt{MangoObject} instance.
+Each \texttt{MangoObject} hosts a collection of physical or calculated parameters,
 a description of the data origin and an identifier.</description>
     <attribute>
       <vodml-id>MangoObject.identifier</vodml-id>
@@ -208,7 +209,7 @@ flattened DataLink (1.1) responses.</description>
     <attribute>
       <vodml-id>DataLink.content_type</vodml-id>
       <name>content_type</name>
-      <description>mime-type of the content the link returns (see DataLink 1.1)</description>
+      <description>mime type of the content the link returns (see DataLink 1.1)</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -220,7 +221,7 @@ flattened DataLink (1.1) responses.</description>
     <attribute>
       <vodml-id>DataLink.access_url</vodml-id>
       <name>access_url</name>
-      <description>The access_url field contains a URL for downloading a single resource. 
+      <description>contains an URL for downloading a single resource. 
 There is no restriction on the type of resource accessed by the links.</description>
       <datatype>
         <vodml-ref>ivoa:anyURI</vodml-ref>
@@ -233,7 +234,7 @@ There is no restriction on the type of resource accessed by the links.</descript
     <attribute>
       <vodml-id>DataLink.content_qualifier</vodml-id>
       <name>content_qualifier</name>
-      <description>The content_qualifier gives the nature of the thing or service that is returned by the link.
+      <description>Gives the nature of the thing or service that is returned by the link.
 The value is always interpreted as a URI.
 If the access_url references a data product, the content_qualifier field
 should define its product type . 
@@ -253,8 +254,10 @@ concept URIs will have to be used in this case. (DataLink 1.1)</description>
     <attribute>
       <vodml-id>DataLink.local_semantics</vodml-id>
       <name>local_semantics</name>
-      <description>An identifier that allows clients to associate different WebEndpoint instances of the same MANGO Object with
-each other (see DataLink 1.1).</description>
+      <description>Allows for identification of corresponding rows
+for different IDs in the same DataLink service where the combination of
+semantics, content_type and content_qualifier is not sufficient to identify
+them (see DataLink 1.1).</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -270,8 +273,8 @@ each other (see DataLink 1.1).</description>
     <name>AssociatedMangoObject</name>
     <description>This class gives the role of a link associating 2 \texttt{MangoObject} together.</description>
     <attribute>
-      <vodml-id>AssociatedMangoObject.semantic</vodml-id>
-      <name>semantic</name>
+      <vodml-id>AssociatedMangoObject.semantics</vodml-id>
+      <name>semantics</name>
       <description>Semantic concept giving the nature of the data association.
 </description>
       <datatype>
@@ -386,7 +389,7 @@ Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 
     <attribute>
       <vodml-id>Status.status</vodml-id>
       <name>status</name>
-      <description>Actual value of the status.</description>
+      <description>Actual value of the status</description>
       <datatype>
         <vodml-ref>ivoa:integer</vodml-ref>
       </datatype>
@@ -434,14 +437,14 @@ Each value has its own free text description.</description>
   <objectType>
     <vodml-id>Shape</vodml-id>
     <name>Shape</name>
-    <description>Description of the spatial extension of the MANGO object (for e.g. dust clouds).</description>
+    <description>Description of the spatial extension of the MANGO object (for e.g. dust clouds)</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
       <vodml-id>Shape.shape</vodml-id>
       <name>shape</name>
-      <description>String serialization of the spatial extension of the \texttt{MangoObject}.</description>
+      <description>String serialization of the spatial extension of the \texttt{MangoObject}</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -453,7 +456,7 @@ Each value has its own free text description.</description>
     <attribute>
       <vodml-id>Shape.serialization</vodml-id>
       <name>serialization</name>
-      <description>Serialization mode of the spatial extension of the MANGO entity.</description>
+      <description>Serialization mode of the spatial extension of the MANGO entity</description>
       <datatype>
         <vodml-ref>mango:ShapeSerialization</vodml-ref>
       </datatype>
@@ -465,7 +468,7 @@ Each value has its own free text description.</description>
     <reference>
       <vodml-id>Shape.spaceSys</vodml-id>
       <name>spaceSys</name>
-      <description>Coordinate system that applies for the shape.</description>
+      <description>Coordinate system that applies for the shape</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
@@ -481,7 +484,7 @@ Each value has its own free text description.</description>
     <name>PhotometricProperty</name>
     <description>Observed brightness of the \texttt{MangoObject}.
 The distinction between fluxes and magnitudes is made by the unit.
-This property should refer to a photometric calibration as defined by the \texttt{PhotDM} model.</description>
+This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
@@ -528,7 +531,7 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
   <objectType>
     <vodml-id>PhysicalProperty</vodml-id>
     <name>PhysicalProperty</name>
-    <description>Place holder for any quantity that can be hold by measure as defined in the 
+    <description>Place holder for any quantity that can be hold by measure classes as defined in the 
 \texttt{Astronomical Measurements Model}.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
@@ -536,7 +539,7 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
     <attribute>
       <vodml-id>PhysicalProperty.calibrationLevel</vodml-id>
       <name>calibrationLevel</name>
-      <description>Calibration level of the property (ObsCore).</description>
+      <description>Calibration level of the property as defined in ObsCore \citep{2011ivoa.spec.1028T}.</description>
       <datatype>
         <vodml-ref>mango:CalibrationLevel</vodml-ref>
       </datatype>
@@ -589,14 +592,14 @@ but a value relative to two filters or energy bands.
   <objectType>
     <vodml-id>ColorDef</vodml-id>
     <name>ColorDef</name>
-    <description>Physical color definition giving the way a color is calculated (Magnitude or difference or hardness ratio)
+    <description>Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio)
 and the filters on which the color is based. 
-In case of hardness ratio, the energy bands might be modeled as instances of \texttt{photdm:PhotFilter} 
-with a flat transfert function.</description>
+In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} 
+with a square transfert function.</description>
     <attribute>
       <vodml-id>ColorDef.definition</vodml-id>
       <name>definition</name>
-      <description>Attribute giving the way the color is calculated (Magnitude or difference or hardness ratio).</description>
+      <description>Attribute giving the way the color is calculated (magnitude difference or hardness ratio).</description>
       <datatype>
         <vodml-ref>mango:ColorDefinition</vodml-ref>
       </datatype>
@@ -608,7 +611,7 @@ with a flat transfert function.</description>
     <composition>
       <vodml-id>ColorDef.high</vodml-id>
       <name>high</name>
-      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.
+      <description>Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding the higher band of the color.
 </description>
       <datatype>
         <vodml-ref>Phot:PhotometryFilter</vodml-ref>
@@ -621,7 +624,7 @@ with a flat transfert function.</description>
     <composition>
       <vodml-id>ColorDef.low</vodml-id>
       <name>low</name>
-      <description>Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
+      <description>Reference to the \texttt{Phot:PhotometryFilter} corresponding the lower band for that color.
 </description>
       <datatype>
         <vodml-ref>Phot:PhotometryFilter</vodml-ref>
@@ -654,8 +657,7 @@ This constraint is not enforced by the model.</description>
     <composition>
       <vodml-id>StatusValues.values</vodml-id>
       <name>values</name>
-      <description>List of the allowed values for the status. 
-Each value has its own textual description.</description>
+      <description>List of the allowed values for the status; each value has its own textual description.</description>
       <datatype>
         <vodml-ref>mango:StatusValue</vodml-ref>
       </datatype>
@@ -669,7 +671,7 @@ Each value has its own textual description.</description>
   <objectType>
     <vodml-id>StatusValue</vodml-id>
     <name>StatusValue</name>
-    <description>Value allowed for a status, contain the value with a free text description.</description>
+    <description>Value allowed for a status; contain the value with a free text description.</description>
     <attribute>
       <vodml-id>StatusValue.value</vodml-id>
       <name>value</name>
@@ -685,7 +687,7 @@ Each value has its own textual description.</description>
     <attribute>
       <vodml-id>StatusValue.description</vodml-id>
       <name>description</name>
-      <description>Free text description on the allowed value for a \texttt{Status}</description>
+      <description>Free text description of the allowed value for a \texttt{Status}</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -700,7 +702,7 @@ Each value has its own textual description.</description>
     <vodml-id>EpochPosition</vodml-id>
     <name>EpochPosition</name>
     <description>This class is a view of \texttt{Astronomical Coordinates and Coordinate
-Systems} components that have been put together to form a consistent description 
+Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description 
 of the position of an object moving over time. 
 It consists of a celestial position, a proper motion, a radial velocity 
 and a parallax. 
@@ -762,7 +764,7 @@ Possible correlations between \texttt{EpochPosition} parameters are handle by th
     <attribute>
       <vodml-id>EpochPosition.radialVelocity</vodml-id>
       <name>radialVelocity</name>
-      <description>The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord}).
+      <description>The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -884,7 +886,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <composition>
       <vodml-id>EpochPositionErrors.parallax</vodml-id>
       <name>parallax</name>
-      <description> Parallax error. This error is meant to be symmetrical</description>
+      <description> Parallax error. This error is meant to be symmetrical in the current model version.</description>
       <datatype>
         <vodml-ref>mango:error.PropertyError1D</vodml-ref>
       </datatype>
@@ -896,7 +898,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <composition>
       <vodml-id>EpochPositionErrors.radialVelocity</vodml-id>
       <name>radialVelocity</name>
-      <description>Error in the radial velocity. This error is meant to be symmetrical</description>
+      <description>Error in the radial velocity.  This error is meant to be symmetrical in the current model version.</description>
       <datatype>
         <vodml-ref>mango:error.PropertyError1D</vodml-ref>
       </datatype>
@@ -1285,7 +1287,7 @@ The correlation matrix is symmetrical.
     <objectType>
       <vodml-id>dataorigin.DataOrigin</vodml-id>
       <name>DataOrigin</name>
-      <description>Class representing the origin of the data following the DCP note (TBD)</description>
+      <description>Class representing the origin of the data following the DCP note</description>
       <attribute>
         <vodml-id>dataorigin.DataOrigin.citation</vodml-id>
         <name>citation</name>
@@ -1416,7 +1418,7 @@ The correlation matrix is symmetrical.
       <attribute>
         <vodml-id>dataorigin.Article.editor</vodml-id>
         <name>editor</name>
-        <description>Editor name (article)</description>
+        <description>Name of the article editor</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1483,7 +1485,7 @@ It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.ht
       <attribute>
         <vodml-id>dataorigin.QueryOrigin.service_protocol</vodml-id>
         <name>service_protocol</name>
-        <description>IVOID of the protocol through which the data was retrieved</description>
+        <description>IVOID \citep{2007ivoa.spec.0314P} of the protocol through which the data was retrieved</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1497,7 +1499,7 @@ It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.ht
         <name>request</name>
         <description>Full request URL including a query string. 
 For the simple protocols,put the url-encoded form of the query parameters. 
-For TAP queries, use the /sync UWS URL. The format is free for others request types.</description>
+For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format is free for others request types.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1509,7 +1511,7 @@ For TAP queries, use the /sync UWS URL. The format is free for others request ty
       <attribute>
         <vodml-id>dataorigin.QueryOrigin.query</vodml-id>
         <name>query</name>
-        <description>Input query in a formal langage such as ADQL.equest types</description>
+        <description>Input query in a formal langage such as ADQL.equest types \citep{2023ivoa.spec.1215M}</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>

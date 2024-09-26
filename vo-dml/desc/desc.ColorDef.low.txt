@@ -1,1 +1,1 @@
-Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
+Reference to the \texttt{Phot:PhotometryFilter} corresponding the lower band for that color.

@@ -1,4 +1,4 @@
-The content_qualifier gives the nature of the thing or service that is returned by the link.
+Gives the nature of the thing or service that is returned by the link.
 The value is always interpreted as a URI.
 If the access_url references a data product, the content_qualifier field
 should define its product type . 

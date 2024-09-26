@@ -1,2 +1,4 @@
-An identifier that allows clients to associate different WebEndpoint instances of the same MANGO Object with
-each other (see DataLink 1.1).
+Allows for identification of corresponding rows
+for different IDs in the same DataLink service where the combination of
+semantics, content_type and content_qualifier is not sufficient to identify
+them (see DataLink 1.1).

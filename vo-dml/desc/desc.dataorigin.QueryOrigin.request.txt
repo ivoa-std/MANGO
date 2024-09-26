@@ -1,3 +1,3 @@
 Full request URL including a query string. 
 For the simple protocols,put the url-encoded form of the query parameters. 
-For TAP queries, use the /sync UWS URL. The format is free for others request types.
+For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format is free for others request types.

@@ -3,13 +3,14 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
-  <description>Data model based oon components and data association for source data</description>
+  <description>MO-del for AN-notating G-eneric O-bject
+</description>
   <uri/>
   <title>Mango</title>
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-09-12T10:37:44</lastModified>
+  <lastModified>2024-09-26T17:14:07</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -282,8 +283,8 @@ The format is free.</description>
     <name>AssociatedMangoObject</name>
     <description>Reference to another MANGO instance that is part of the associated data.</description>
     <attribute>
-      <vodml-id>AssociatedMangoObject.semantic</vodml-id>
-      <name>semantic</name>
+      <vodml-id>AssociatedMangoObject.semantics</vodml-id>
+      <name>semantics</name>
       <description>Reference to a semantic concept giving the nature of the associated data.
 As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </description>
       <datatype>

@@ -1,1 +1,1 @@
-Input query in a formal langage such as ADQL.equest types
+Input query in a formal langage such as ADQL.equest types \citep{2023ivoa.spec.1215M}

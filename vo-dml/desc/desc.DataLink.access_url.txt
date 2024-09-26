@@ -1,2 +1,2 @@
-The access_url field contains a URL for downloading a single resource. 
+contains an URL for downloading a single resource. 
 There is no restriction on the type of resource accessed by the links.

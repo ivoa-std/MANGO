@@ -1,1 +1,1 @@
-IVOID of the protocol through which the data was retrieved
+IVOID \citep{2007ivoa.spec.0314P} of the protocol through which the data was retrieved

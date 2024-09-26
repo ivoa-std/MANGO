@@ -1,1 +1,1 @@
-Calibration level of the property (ObsCore).
+Calibration level of the property as defined in ObsCore \citep{2011ivoa.spec.1028T}.
