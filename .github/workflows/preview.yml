@@ -12,7 +12,7 @@ on:
   push:
     branches:
       - master
-      - drfat-0.1
+      - draft-0.1
 
 jobs:
   build:
