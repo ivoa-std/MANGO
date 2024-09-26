@@ -54,3 +54,6 @@ pom.xml.tag
 
 .pydevproject
 *.html
+
+trash/*
+exercise*
