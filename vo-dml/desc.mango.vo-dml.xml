@@ -6,7 +6,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-08-01T12:04:16</lastModified>
+  <lastModified>2024-09-12T10:37:44</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -23,7 +23,7 @@
     <documentationURL>https://ivoa.net/documents/Coords/20221004/index.html</documentationURL>
   </import>
   <import>
-    <name>photdm</name>
+    <name>Phot</name>
     <url>https://ivoa.net/xml/VODML/Phot-v1.vodml.xml</url>
     <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
   </import>
@@ -197,8 +197,8 @@ This class is used to specify the type of the associated dataset as well as its 
   </objectType>
 
   <objectType>
-    <vodml-id>WebEndpoint</vodml-id>
-    <name>WebEndpoint</name>
+    <vodml-id>DataLink</vodml-id>
+    <name>DataLink</name>
     <description>This property describes static links pointing to some external data.
 This allows services that do not implement DataLink services to expose linked data as 
 flattened DataLink (1.1) responses.</description>
@@ -206,7 +206,7 @@ flattened DataLink (1.1) responses.</description>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
-      <vodml-id>WebEndpoint.content_type</vodml-id>
+      <vodml-id>DataLink.content_type</vodml-id>
       <name>content_type</name>
       <description>mime-type of the content the link returns (see DataLink 1.1)</description>
       <datatype>
@@ -218,7 +218,7 @@ flattened DataLink (1.1) responses.</description>
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.access_url</vodml-id>
+      <vodml-id>DataLink.access_url</vodml-id>
       <name>access_url</name>
       <description>The access_url field contains a URL for downloading a single resource. 
 There is no restriction on the type of resource accessed by the links.</description>
@@ -231,7 +231,7 @@ There is no restriction on the type of resource accessed by the links.</descript
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.content_qualifier</vodml-id>
+      <vodml-id>DataLink.content_qualifier</vodml-id>
       <name>content_qualifier</name>
       <description>The content_qualifier gives the nature of the thing or service that is returned by the link.
 The value is always interpreted as a URI.
@@ -251,7 +251,7 @@ concept URIs will have to be used in this case. (DataLink 1.1)</description>
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>WebEndpoint.local_semantics</vodml-id>
+      <vodml-id>DataLink.local_semantics</vodml-id>
       <name>local_semantics</name>
       <description>An identifier that allows clients to associate different WebEndpoint instances of the same MANGO Object with
 each other (see DataLink 1.1).</description>
@@ -516,7 +516,7 @@ as defined by the \texttt{PhotDM} model.</description>
       <description>Photometric calibration that applies to the photometric property.
 It must be an instance of \texttt{photdm:PhotCal}.</description>
       <datatype>
-        <vodml-ref>photdm:PhotCal</vodml-ref>
+        <vodml-ref>Phot:PhotCal</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -611,7 +611,7 @@ with a flat transfert function.</description>
       <description>Reference to the \texttt{photdm:PhotFilter} corresponding the higher band of the color.
 </description>
       <datatype>
-        <vodml-ref>photdm:PhotFilter</vodml-ref>
+        <vodml-ref>Phot:PhotometryFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -624,7 +624,7 @@ with a flat transfert function.</description>
       <description>Reference to the \texttt{photdm:PhotFilter} corresponding the lower band for that color.
 </description>
       <datatype>
-        <vodml-ref>photdm:PhotFilter</vodml-ref>
+        <vodml-ref>Phot:PhotometryFilter</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -999,6 +999,9 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
       <vodml-id>EpochPositionCorrelations.pmLongitudePmLatitude</vodml-id>
       <name>pmLongitudePmLatitude</name>
       <description>Correlation (or covariance) coefficient between the proper motion longitude and the proper motion latitude</description>
+      <datatype>
+        <vodml-ref>ivoa:real</vodml-ref>
+      </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
@@ -1036,7 +1039,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
         <vodml-ref>ivoa:real</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -1060,7 +1063,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
         <vodml-ref>ivoa:boolean</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>

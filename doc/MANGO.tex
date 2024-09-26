@@ -5,6 +5,7 @@
 \usepackage{tabulary}  % for nicer tables
 \usepackage{calc}
 \usepackage{placeins}
+\usepackage{enumitem}
 \setlength\extrarowheight{2pt}
 
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
@@ -125,11 +126,9 @@ The source DM issue resurfaced at the spring 2018 Interop in Victoria during an 
 focusing on the tools available to work with VO data models and especially with VO-DML.
 The goal of this session was to annotate data from different origins in order to make them
 interoperable with each other.
-%mir The main concern expressed during this session was not much related to the tools themselves
+mir The main concern expressed during this session was not much related to the tools themselves
 but indeed to the lack of models for sources.
-One of the main concerns outside de tools necessary to workout this notation was the lack of models
-for source objects.
-This is a big paradox in the VO world: source data which represent the basic building
+This is a paradox in the VO world: source data which represent the basic building
 blocks of astronomers' work, is not modelled.
 This paradox can be explained by the fact that the observation of source objects is multi-faceted.
 In a general way, the way features for source data are described and organised depends on
@@ -141,12 +140,11 @@ item for all possible cases.
 Having a global source model would lead to a very complex solution not usable in practice.
 
 This standard proposes to overcome this paradox and presents a template model gathering independent
-components from VO existing models together with VO data products and files embedded on demand in a container.
-The template supports fine grain association by composing classes as well as coarse grain relations
-to data products and files distributed within projects archive.
+components from VO existing models embedded on demand in a container.
+
 MANGO is not designed to describe what a source is but to help clients to discover and to understand
 the quantities available for a particular source instance.
-VOtable data mapped on MANGO with Mivot (ref) annotations can be consumed quantity 
+VOtable data mapped on MANGO with Mivot (2023ivoa.spec.0620M) annotations can be consumed quantity 
 par quantity instead of column per column.
 The way complex quantities are built is  described by MANGO but no longer by the clients.
 
@@ -173,20 +171,30 @@ IVOA architecture \citep{2010ivoa.rept.1123A}.
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
-The following uses-cases have been collected since 2019 from representatives of various astronomical 
+
+The main purpose of MANGO is to add an upper description level to the tabular data of query responses.
+MANGO is not designed to replace the meta-data already present in query responses, 
+
+Uses-cases have been collected since 2019 from representatives of various astronomical 
 missions, archive designers and tools developers.
 The contribution was totally open. This gave a good picture of the needs but we do not pretend 
 that everything will be supported by this first version.
-
 All the use-cases summarized below are detailed in appendix.
 
 \subsubsection{Gaia}
 Gaia mission is producing the largest and more precise 3D map of our galaxy.
+Gaia core solution is able to solve the astrometric solution of more than 1
+billion sources by complex models and algorithms \citep{2012A&A...538A..78L}.
+Using a minimisation problem approach, different detections identified on
+different scans can be associated to the same astronomical source. Some of the
+properties would be direct measurements on single scans (e.g. positions or
+magnitudes). Also other properties like radial velocity (measured in redshift
+units) are also obtained at integration time of the scans.
 
 A non-exhaustive list of properties required for Gaia use cases would be composed
 of:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item identifier
     \item sky reference position
     \item proper motion
@@ -206,7 +214,24 @@ Euclid telescope has been designed to unveil some of the questions about the
 dark Universe, including dark matter and dark energy, what would include, e.g.
 quite accurate measurements of the expansion of the Universe.
 
-\begin{itemize}
+Euclid will mainly observe extragalactic objects providing, e.g. information
+of the shapes of galaxies, gravitational lensing,  baryon acoustic oscillations
+and distances to galaxies using spectroscopic data.
+
+For this mission, and apart from the common metadata provided for extra galactic
+sources into astronomical catalogues, a good support for object taxonomy and
+shapes of objects will be required. As known due to general relativity effects,
+shapes far galaxies could be deformed due to gravitational lensing effects,
+producing convergence (visual displacements on the position) and rear (deformation
+of the shape) effects. All these metadata should be ready for annotations and,
+also, correlated to theoretical or real metadata in other datasets.
+
+Finally, crossmatch information with other catalogues will be of crucial interest
+as data from other satellites and, more importantly, from ground based
+observatories will be combined with Euclid data to produce consistent scientific
+datasets.
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item identifier
     \item sky position
     \item correlation with other catalogues
@@ -215,13 +240,14 @@ quite accurate measurements of the expansion of the Universe.
     \item redshift
     \item photometric redshift
 \end{itemize}
+From the above contributions we can issue a list of use cases that lead the MANGO design: 
 
 \subsubsection{Exoplanets}
 Annotation of (exo-)planetary records in catalogues requires some
 specific metadata or model.
 
 The use cases identified requires the following metadata:
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 	\item the degree of confidence in the detection: exoplanets candidates
 w.r.t. confirmed ones, plus last update of the record content ;
 	\item the method used in the discovery (since it affects the available
@@ -235,8 +261,8 @@ eccentricity, RV semi-amplitude, time at periastron (for RV detections)
 or central transit time (for transit method), longitude of periastron,
 and so on.
 \end{itemize}
-
-
+ 
+ 
 \subsubsection{Morphologically Complex Structures}
 The ViaLactea Knowledge Base (VLKB, see \cite{2016SPIE.9913E..0HM}) is a set of data
 resources and services built up to study the star formation regions and
@@ -244,12 +270,11 @@ processes in the Milky Way. Besides 2-D images and 3-D radial velocity
 cubes, the VLKB exposes a bunch of source catalogues.
 A model that supports description of such catalogues will need a
 way to describe sources with:
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 	\item non-point-like positions;
 	\item extended complex area, possibly as multiple detached areas;
 	\item aggregation of sub-parts (that can be heterogeneous).
 \end{itemize}
-
 
 \subsubsection{Chandra Archive}
 The Chandra Source Catalog(CSC) is the definitive catalog of serendipitous X-ray sources identified in
@@ -257,8 +282,8 @@ publicly released imaging observations obtained by NASA’s ChandraX-ray Observa
 
 The catalog itself consists of approximately 1,700 columns covering properties at the 
 individual observation and stacked analysis levels.
-Table \ref{tab:chandra_props} summarizes some of the basic catalog properties derived
-from standard CSCView queries.
+Table \ref{tab:chandra_properties} summarizes some of the basic catalog properties derived
+from standard CSCView queries. 
 
 \begin{table}[ht!]
   \tiny
@@ -311,10 +336,28 @@ from standard CSCView queries.
 
   \end{tabular}
   \caption{ Example Chandra Source Catalog Properties }
-  \label{tab:chandra_props}
-
+  \label{tab:chandra_properties}
  \end{table}
- 
+
+
+\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item  Searching for spectrally variable or flaring point sources
+    \item Identifying flaring point sources
+    \item Find sources with changing properties: Look for sources with changes of spectral 
+          slope and column density between observations so as function of time;
+          this can easily be done across X-ray catalogs provided that the same spectral model (absorbed power-law) 
+          is used in the different catalogs. The changes in spectral slope and column density are measured 
+          in sigma using the errors as well on each quantity to evaluate the statistical significance of the changes. 
+    \item Finding Tidal Disruption Events in the CSC
+    \item Quick, rough identification of AGN, galaxies, and stars
+    \item Follow-up research
+    \item Spectral decomposition of X-ray sources 
+    \item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI) \item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI)     
+
+\end{enumerate}
+
+These science usecases are detailed in ref{sec:chandra}.
+
 \subsubsection{Vizier catalog archive}
 VizieR provides science ready catalogs coming from space agencies or articles and covering number of
 different science cases.
@@ -329,7 +372,7 @@ simple quantities or associated complex data.
 MANGO is not meant to replace the current management of the meta-data,
 it is a way to make those meta-data understandable for a wide panel of VO-compliant clients.
 
-\subsubsection{Client on (Mark Taylor behalf)}
+\subsubsection{Client (on Mark Taylor behalf)}
 Right now, the meta-data provided within the VOTable allow clients such Aladin or Topcat to run most 
 of the functionalities expected by the user, either for data analysis of plotting.
 This information is often guess from UCDs, UTypes or columns name. It can also be given by the user.
@@ -337,7 +380,7 @@ Clients have no expectations of working with full model instances but in some ca
 can help to know how quantities in an input table relate to each other.
 
 In most cases this is for visualisation, e.g.:
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item what is the sky position for this row
     (what columns contain latitude and longitude, and what sky system are they in)
 
@@ -360,7 +403,7 @@ In most cases this is for visualisation, e.g.:
 \end{itemize}
 
 But there are some other places too:
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item how do I propagate this sky position to a future epoch
     (what columns contain pmra, pmdec, and maybe all the
      associated errors and correlation coefficients)
@@ -396,80 +439,165 @@ the tool needs to be able to retrieve the errors associated to the each position
 UCDs may help in identifying the errors associated to a positional columns as shown in 
 table, but this is not sufficient to table with more complex cases based on multi-parameter cases.
 
+
 \subsection{Requirements}
 
-\subsubsection{Properties and Associated Data}
-From the use-cases description, several categories of features must provided or foreseen by the projects:
+\subsubsection{Summary}
+
+From the above use-case list, we have identified 4 domains for which
+the model should provide real added value: 1) set of supported quantities 2) data description enhancement,
+3) description of quantities consisting of several columns and 4) connected quantities.
+
+%\begin{itemize}
+%    \item Supported properties:
+%        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+%          \item COORDINATE SYSTEM : attach a specific coordinate (or calibration) 
+%                system to mapped quantities. 
+%          \item SEMANTIC : Defining a semantic for mapped quantities adds a capability that is currently 
+%                missing from the VOTables schema. This also makes it possible to specify the role of quantities 
+%                that are present more than once, for example by distinguishing between a pointing direction 
+%                and the target position. 
+%          \item FLAG VALUE : Some quantities come with quality flags, the interpretation of which requires inference 
+%                to a free text description. The model can provide a straightforward way of telling the user 
+%                what the current value means.
+%          \item DATA ORIGIN : 
+%          \item DATA LINK : Some quantities come with links to external data referenced by WEB endpoints.
+%                Such links are considered as object properties for which the model provides 
+%                an accurate way to specify the nature of these links. 
+%                Usually object links are provided by DataLinks services,
+%                then this MANGO feature is proposed to annotate datasets issued by services
+%       \end{itemize}   
+%    \item Multi-columns quantities
+%       \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+%          \item ERROR : Errors can have different shapes (symmetric values, correlation or covariance matrices, ellipses), 
+%                all with different confidence levels. Such complex quantities cannot be reconstructed from 
+%                simple field descriptions, but with a model that captures all the components
+%                and provides the missing metadata;
+%          \item QUANTITY CORRELATIONS : In some cases, quantities can be correlated. For example,
+%                the position of an object may depend on its proper motion. This kind of correlation can be revealed 
+%                with a model that can link data columns.
+%          \item EPOCH PROPAGATION:  This is probably the most important use case for MANGO. It consists of constructing 6 parameter 
+%                position vectors (position, proper motion, parallax and radial velocity), whose components are correlated and 
+%                valid for a given epoch. This feature is required to compare positions of high precision astrometry surveys such as GAIA.
+%       \end{itemize}   
+%    \item Connected quantities : There are several ways to link quantities. Quantities in the same table can be 
+%          such as values with their errors or with their associated probabilities. We can also join quantities from different
+%          tables, such as sources with their detections. Both patterns require a model to be properly exposed.
+%
+%\end{itemize}
 
 \begin{itemize}
-    \item The source \emph{properties} astronomers will investigate for their science.
-          They are measures provided as numerical values or classification tags exposed as
-          numbers or simple strings. 
-          Usually one measure corresponds to one individual column or one group of columns.
+    \item Supported quantities:
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+          \item The nature and number of properties characterising a MANGO object must be open. 
+    
+          \item MANGO must support explicit classes, native or imported from IVOA data-models,
+                for the most used properties.
+          \item MANGO must provide a generic way to support properties that do not enter the above category.
+          \item MANGO object must support multiple instances of the same property class.
+          \item The presence of any property in MANGO instances must be optional.
+    
+    	  \item MANGO must provide a way to identify the role of each property.
+          \item The role of each parameter should be machine-readable.
         
-    \item MANGO objects can be linked to external data referenced by WEB endpoints.
-          Such links are considered as object properties for which the model provides 
-          an accurate way to specify the nature of these links. 
-          Usually object links are provided by DataLinks services,
-          then this MANGO feature is proposed to annotate datasets issued by services
-          that do not implement such services but provide URLs in their query responses.
-          
-    \item MANGO objects can be linked to other collections of MANGO objects,
-          associating sources with their detections, for example.
- \end{itemize}
+   	    \end{itemize}   
+    
+    \item Metadata enhancement:
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+          \item MANGO must support a convenient way to identify model instance.
+          \item MANGO must be able to attach relevant coordinate (or calibration) 
+                system to any quantities. 
+          \item MANGO must be able to attach complex errors to any numerical quantities. 
+          \item MANGO must be able to define semantics for any quantity or group of quantities. 
+                This will add a capability that is currently missing from the VOTables schema. 
+                This will also make it possible to specify the role of quantities 
+                that are present more than once, for example by distinguishing between a pointing direction 
+                and the target position. 
+          \item MANGO must be able to specify the set of allowed values for quantities which purpose is to flag data 
+                (e.g. detection flag). It also be able to provide a description for each of these values. 
+                This model feature will provide a straightforward way of telling the user 
+                what a current flag value means.
+          \item MANGO must be able to provide information about the origin of the modeled data set.         
+          \item In the case of datasets issued by services not operating DataLinks services but providing 
+                links as object properties, MANGO must provide an accurate way to specify the nature of these links. 
+        \end{itemize}  
+         
+    \item Multi-columns quantities
+       \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+          \item MANGO must be able to provide an accurate description of quantities which parameters are spread 
+                out on multiple columns (e.g. position, errors).
+          \item MANGO must be able to describe errors with the most common shapes (symmetric values, correlation 
+                or covariance matrices, ellipses), all with different confidence levels. 
+                Such complex quantities cannot be reconstructed from simple field descriptions, but with a model
+                that captures all the components and provides the missing metadata;
+          \item MANGO must be able to set up correlation links between parameters. For example,
+                the position of an object may depend on its proper motion. This kind of correlation can be revealed 
+                with a model that can link data columns.
+          \item MANGO must provide an accurate description of the epoch propagation. 
+                This is probably the most important use case for MANGO. It consists of constructing 6 parameter          
+                position vectors (position, proper motion, parallax and radial velocity), whose components are correlated and 
+                valid for a given epoch. 
+                This feature is required to compare positions given by high astrometry accuracy surveys such as GAIA.
+       \end{itemize} 
+         
+    \item Connected quantities : 
+       \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+           \item MANGO must be able to setup links between different parameters of the same table. 
+                 This can be relevant for instance for attaching a detection likelihoods with source positions
+                 or to tag properties with timestamps?
+           \item MANGO must be able to link MANGO instances to each other, allowing for instance to connect one 
+                 source with all of its detections.
+        \end{itemize}   
+\end{itemize}
+
+
+%\subsubsection{Properties and Associated Data}
+% From the use-cases description, several categories of features must provided or foreseen by the projects:
+% 
+% \begin{itemize}
+%     \item The source \emph{properties} astronomers will investigate for their science.
+%           They are measures provided as numerical values or classification tags exposed as
+%           numbers or simple strings. 
+%           Usually one measure corresponds to one individual column or one group of columns.
+%         
+%     \item MANGO objects can be linked to external data referenced by WEB endpoints.
+%          % Such links are considered as object properties for which the model provides 
+%           an accurate way to specify the nature of these links. 
+%           Usually object links are provided by DataLinks services,
+%           then this MANGO feature is proposed to annotate datasets issued by services
+%           that do not implement such services but provide URLs in their query responses.
+%           
+%     \item MANGO objects can be linked to other collections of MANGO objects,
+%           associating sources with their detections, for example.
+%  \end{itemize}
   
 
-\subsubsection{Supported Quantities}
-\begin{itemize}
-    \item MANGO must provide unique source identifiers.
-    \item MANGO must provide information about the source origin.
-    \item The number of parameters attached to a MANGO instance must be free.
-\end{itemize}
+%\subsubsection{Supported Quantities}
+%\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  %  \item MANGO must provide unique source identifiers.
+  %  \item MANGO must provide information about the source origin.
+  %  \item The number of parameters attached to a MANGO instance must be free.
+%\end{itemize}
 
-\subsubsection{Properties}
+%\subsubsection{Properties}
+%
+%\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+%    \item MANGO must support explicit classes, native or imported from IVOA data-models, for the most used properties.
+%    \item MANGO must provide a generic way to support properties that do not enter the above category.
+%    \item MANGO object must support multiple instances of the same property class.
+%    \item The presence of any property in MANGO instances must be optional.
+%    \item MANGO must provide a way to identify the role of each property.
+%    \item MANGO must provide a way to identify the purpose of linked properties.
+%    \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
+%    \item The role of each parameter should be machine-readable.
+%    \item It must be possible to group parameters in a free way.
+%          This allows for instance to tag properties with timestamps or flags.
+%    \item MANGO objects must support references to other MANGO objects.
+% \end{itemize}
 
-\begin{itemize}
-    \item MANGO must support explicit classes, native or imported from IVOA data-models, for the most used properties.
-    \item MANGO must provide a generic way to support properties that do not enter the above category.
-    \item MANGO object must support multiple instances of the same property class.
-    \item The presence of any property in MANGO instances must be optional.
-    \item MANGO must provide a way to identify the role of each property.
-    \item MANGO must provide a way to purpose of linked properties.
-    \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
-    \item The role of each parameter should be machine-readable.
-    \item It must be possible to group parameters in a free way.
-          This allows to tag properties with timestamps or flags.
-    \item MANGO must support references to other MANGO objects.
- \end{itemize}
+
 
 \section{Model Overview}
-
-\TODO{a integrer mieux dans le texte}
-Mango is designed to enhance the tabular data provided by VO services running any protocol.
-It can provide a global view that describes a table row as a single entity, or a sparse set of unrelated properties.
-The natural way to connect data and MANGO is MIVOT which is a generic XML syntax mapping data on any model.
-MIVOT annotations support both MANGO uses:
-
-\begin{itemize}
-    \item \emph{MANGO as a global view}: This configuration is necessary to take advantage of all 
-          the model's features: Properties can be linked together, data rows can be identified 
-          and treated as single entities (MANGO objects) that can be linked together to describe,
-          for example, sources with their detections or orbiting systems.
-          This way of describing data rows as single entities also allows for serialisation modes
-          that require a unique root, such as XML of JSON.
-          The cost of this approach is to make the annotation process a little more complex
-          and to add a few more class levels to the annotations.
-    \item \emph{MANGO as unrelated views}: In this simpler approach the data mapping is made of a
-          flat set on independant objects. Clients can iterate over these objects and 
-          process the entities of interest. 
-          It is to be noted that such a client could also easily process data mapped 
-          on the full MANGO scheme as described above. 
-          On server side, the annotation process might be a bit simpler. 
-\end{itemize}
-
-This document does not recommend one approach over another.
-This is a matter for the data providers to decide.
-It is however based on the full featured model.
 
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{../model/overview.png}
@@ -483,16 +611,17 @@ Identifiers should be unique within a collection e.g. a data table.
 
 In addition to the identifier, \texttt{MANGOObject}  have 2 components:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
   \item \texttt{dataOrigin}: origin of the \texttt{MANGOObject}. The structure of this class follows
         the recommendations of the DCP IG (time of writing).
   \item \texttt{popertyDock}: place holder for all the \texttt{MANGOObject} properties.
         This is an open-ended collection.
         Mango properties inherit from the base class (\texttt{Property}),
         which contains everything necessary to identify both their nature and their role.
-        Properties can be linked together to represent logical parameter sets for which
-        the model does not provide semantics.
+        Properties can be linked together to compound parameters.
 \end{itemize}
+
+
 \subsection{Properties}
 
       \begin{figure}[h]
@@ -506,7 +635,7 @@ Since the set of properties associated with a particular instance is not defined
 MANGO cannot define a specific role for each property. However, the model provides different ways
 for the client to understand the actual nature of each property:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item \textbf{Class type}: often the scientific meaning of the quantity.
     \item \textbf{Semantics}: the semantic tag specifies the exact role of the property by
           referring to a standard vocabulary. The semantic tag can relate to the property itself
@@ -520,9 +649,43 @@ for the client to understand the actual nature of each property:
 In addition to this, some property classes embed qualifiers telling how the quantity
 must be interpreted (e.g. colour vs hardness ratio)
 
+\subsubsection{MANGO and MIVOT}
+
+Data rows MANGO can be mapped o,n MANGO in two ways: 
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Each row is considered as a single object where the 
+          properties are grouped in a dock.
+    \item Each row is considered as a scattered collection of independent quantities.
+\end{itemize}
+
+MIVOT annotations support both MANGO uses:
+
+\begin{itemize}
+    \item \emph{MANGO as a global view}: This configuration is necessary to take advantage of all 
+          the model's features: Properties can be linked together, data rows can be identified 
+          and treated as single entities (MANGO objects) that can be linked together to describe,
+          for example, sources with their detections or orbiting systems.
+          This way of describing data rows as single entities also allows for serialisation modes
+          that require a unique root, such as XML of JSON.
+          The cost of this approach is to make the annotation process a little more complex
+          and to add a few more class levels to the annotations.
+    \item \emph{MANGO as a sparse
+     parameter view}: In this simpler approach the data mapping is made of a
+          flat set on independant objects. Clients can iterate over these objects and 
+          process the entities of interest. 
+          It is to be noted that such a client could also easily process data mapped 
+          on the full MANGO scheme as described above. 
+          On server side, the annotation process might be a bit simpler. 
+\end{itemize}
+
+This document does not recommend one approach over another.
+This is a matter for the data providers to decide.
+It is however based on the full featured model.
+
+
 \input{model.tex}
 
-\TODO{must be updated and simplified}
 
 \section{TAP and MANGO}
 This not normative section gives possible tips to save and discover MANGO instances in TAP services.
@@ -558,13 +721,14 @@ It has one row per stored catalog. Each parameter has at least 2 columns: one wi
 
 \appendix
 
-\section{Gaia}
-\input{usecase_gaia.tex}
+% \section{Gaia}
+% \input{usecase_gaia.tex}
 
-\section{Euclid}
-\input{usecase_euclid.tex}
+% \section{Euclid}
+% \input{usecase_euclid.tex}
 
 \section{Chandra Archive}
+\label{sec:chandra} 
 \input{usecase_chandra.tex}
 
 \section{Vizier}
@@ -593,7 +757,7 @@ No previous versions yet.
 
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
-\bibliography{ivoatex/docrepo,MANGO}
+\bibliography{ivoatex/docrepo,ivoatex/ivoabib,MANGO}
 
 
 \end{document}
