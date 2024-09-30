@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:error.Ellipse">
-   <!-- Elliptical errror for 2D parameters such as the sky positions." -->
-   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
-   <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.Ellipse.semiMajorAxis" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.Ellipse.semiMinorAxis" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.Ellipse.angle" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

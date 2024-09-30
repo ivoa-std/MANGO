@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:error.ErrorCovMatrix">
-   <!-- Diagonal 2D  matrix. Non diagonal elements are null." -->
-   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
-   <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.ErrorCovMatrix.variance1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.ErrorCovMatrix.variance2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.ErrorCovMatrix.covariance" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

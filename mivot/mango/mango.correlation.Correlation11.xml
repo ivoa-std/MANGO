@@ -1,5 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:correlation.Correlation11">
-   <!-- Error of a 1D property (A) correlated with a 1D parameter (B): $error\_A = correlation\_A1B1 * value\_B$" -->
-   <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:correlation.Correlation11.correlation11" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>
