@@ -1,0 +1,2 @@
+Correlation of a 1D property (A) with a 2D parameter (B): 
+$A = a1b1 * B_1 + a12 * B_2$

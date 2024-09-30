@@ -1,0 +1,3 @@
+Open-ended collection of MANGO properties associated with the \texttt{MangoObject}.
+These relationships are typically used to associate physical properties with time stamps 
+and/or quality factors.

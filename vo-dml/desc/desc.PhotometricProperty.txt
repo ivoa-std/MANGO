@@ -1,0 +1,3 @@
+Observed brightness of the \texttt{MangoObject}.
+The distinction between fluxes and magnitudes is made by the unit.
+This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).

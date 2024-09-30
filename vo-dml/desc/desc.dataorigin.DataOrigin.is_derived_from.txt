@@ -1,0 +1,2 @@
+Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} 
+(\url{https://www.ivoa.net/rdf/voresource/relationship_type/})

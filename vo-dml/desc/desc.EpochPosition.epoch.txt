@@ -1,0 +1,1 @@
+Position epoch expressed within the common time system (see \texttt{coords:epoch})

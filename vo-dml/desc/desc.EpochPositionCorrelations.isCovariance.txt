@@ -1,0 +1,1 @@
+Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.

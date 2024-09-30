@@ -1,0 +1,1 @@
+Super (abstract) class for all errors of 2D parameters

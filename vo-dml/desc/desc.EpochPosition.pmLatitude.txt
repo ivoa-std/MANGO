@@ -1,0 +1,2 @@
+Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+The current version of the model only allows a representation in the Polar coordinate space.

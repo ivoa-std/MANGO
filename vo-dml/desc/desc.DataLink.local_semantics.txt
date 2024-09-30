@@ -1,0 +1,4 @@
+Allows for identification of corresponding rows
+for different IDs in the same DataLink service where the combination of
+semantics, content_type and content_qualifier is not sufficient to identify
+them (see DataLink 1.1).

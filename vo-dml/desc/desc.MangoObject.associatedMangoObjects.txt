@@ -1,0 +1,2 @@
+Abstract reference to a particular dataset associated to the MANGO entity.
+This class is used to specify the type of the associated dataset as well as its role.

@@ -1,0 +1,1 @@
+The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.

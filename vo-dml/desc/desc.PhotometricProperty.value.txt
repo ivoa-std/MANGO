@@ -1,0 +1,2 @@
+Value of the photometric property associated with a photometric calibration 
+as defined by the \texttt{PhotDM} model.

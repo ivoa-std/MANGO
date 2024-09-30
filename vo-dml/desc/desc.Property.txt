@@ -1,0 +1,2 @@
+Class holder for a particular property, either physical or calculated, of the MANGO object.
+This class specifies both type and role of the  property, and hosts the property instance itself.

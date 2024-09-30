@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - master
+      - draft-0.1
 
 jobs:
   build:
@@ -28,24 +29,24 @@ jobs:
     - name: Setup dependencies
       run: |
         sudo apt update
-        sudo apt install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended xsltproc
+        sudo apt install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended xsltproc latexmk cm-super
         sudo snap install pdftk
     
     - name: Build the document
       run: |
-       make biblio ${{ env.doc_name }}-draft.pdf
+        make forcetex
+        make ${{ env.doc_name }}-draft.pdf
     
     - name: Check the output
       run: |
-        ls
         test -f ${{ env.doc_name }}-draft.pdf
         test -f ${{ env.doc_name }}.bbl
     
     - name: Move the auto-pdf-preview tag
-      uses: weareyipyip/walking-tag-action@v1
+      uses: weareyipyip/walking-tag-action@v2
       with:
-        TAG_NAME: auto-pdf-preview
-        TAG_MESSAGE: |
+        tag-name: auto-pdf-preview
+        tag-message: |
           Last commit taken into account for the automatically updated PDF preview of this IVOA document.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

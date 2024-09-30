@@ -1,0 +1,1 @@
+Reference to the \texttt{Phot:PhotometryFilter} corresponding the lower band for that color.

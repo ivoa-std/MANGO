@@ -1,0 +1,2 @@
+Covariance matrix for the error of a 2D quantities. 
+The covariance matrix is symmetrical.

@@ -1,0 +1,102 @@
+The basic cross-match of two astronomical tables consists in associating pairs of sources -- one 
+from each table -- fulfilling a given angular distance based criterion.
+In relational algebra terms, it is a theta-join on a distance predicate.
+
+More generally, a cross-match is the association of sources from different tables given their 
+proximity in an astrometric (but also possibly photometric, statistical, ...) parameter space \citep{2017A&A...597A..89P} .
+
+If proper motions (plus parallax and radial velocities) are available, the cross-match tool 
+may propagate the positions of each table to a common epoch.
+It may also take into account positional uncertainties to reject the statistically unlikely associations.
+
+In the latter case (cross-match between two tables taking into account positional errors),
+the tool needs to be able to retrieve the errors associated to the each position in each table.
+
+UCDs may help in identifying the errors associated to a positional columns as shown in table \ref{tbl::pos-errors}.
+
+
+\begin{table}[!htbp]
+\small
+\centering
+\begin{tabulary}{\linewidth}{|L|C|J|}
+       \hline
+           \textbf{Error type  \newline Parameters} &
+           \textbf{UCD} &
+           \textbf{Description} \\
+       \hline
+           \multicolumn{3}{c}{\textbf{Circular error}} \\
+       \hline
+           \texttt{epos}&
+
+           \texttt{stat.error;pos.eq}    &
+           See "possible ambiguity for circular errors" \\
+        \hline
+           \multicolumn{3}{c}{\textbf{Uncorrelated errors}} \\
+        \hline
+           \texttt{eRA}     &
+           \texttt{stat.error;pos.eq.ra}    &
+            Error on `RA cos(Dec)` \\
+         \hline
+            \texttt{eDec}  &
+           \texttt{stat.error;pos.eq.dec}    &
+            Error on `Dec`\\
+         \hline
+            \multicolumn{3}{c}{\textbf{Correlated errors}} \\
+        \hline
+           \texttt{eRa}  &
+           \texttt{stat.error;pos.eq.ra}    &
+           Error on `RA cos(Dec)` \\
+        \hline
+           \texttt{eDec}&
+           \texttt{stat.error;pos.eq.dec}   &
+           Error on `Dec`     \\
+        \hline
+            \texttt{corRADec}&
+           \texttt{stat.covariance; pos.eq.ra; pos.eq.dec }    &
+            Correlation factor\\
+        \hline
+             \multicolumn{3}{c}{\textbf{Oriented Ellipse}} \\
+        \hline
+           \texttt{a}   &
+           \texttt{phys.angSize.smajAxis; pos.errorEllipse}    &
+           Error ellipse semi-major axis \\
+        \hline
+            \texttt{b} &
+           \texttt{phys.angSize.sminAxis; pos.errorEllipse }    &
+            Error ellipse semi-minor axis \\
+        \hline
+            \texttt{theta}  &
+           \texttt{pos.posAng; pos.errorEllipse}    &
+           Error ellipse position angle \\
+       \hline
+\end{tabulary}
+\caption{Table of the different possible representations of positional errors that can be found in astronomical catalogues}
+\label{tbl::pos-errors}
+\end{table}
+
+But this is not sufficient to table with more complex cases based on multi-parameter cases:
+
+\begin{itemize}
+	\item Catalogues like AllWISE provides a co-sigma instead of the correlation factor of the covariance matrix.
+	Co-sigma is the sign of the correlation factor time the square root of the covariance.
+	\item Table fields UCDs  may be too loose: for example  \texttt{stat.error;pos.eq} is often used in place of \texttt{phys.angSize.smajAxis;pos.errorEllipse} or \texttt{phys.angSize.sminAxis;pos.errorEllipse}.
+	\item The location  of the column to be used for the Xmatch can be ambiguous. For instance, if several pairs of position are provided in a table, there is currently
+	no way to associate unambiguously uncertainties with the (right) pair of coordinates.
+	\item  Possible ambiguity for circular errors. When the provided uncertainty is the parameter of a circular error, it may be:
+	\begin{itemize}
+		\item either the 1 dimensional component on each axis of a symmetric 2-dimensional Gaussian distribution: $\sigma=\sigma_{\alpha\cos\delta}=\sigma_\delta$;
+		\item or the parameter of the radial error distribution (i.e. of the Rayleigh distribution): $\sigma=\sqrt{\sigma_{\alpha\cos\delta}^2 + \sigma_\delta^2}$
+                 with $\sigma_{\alpha\cos\delta} = \sigma_\delta$
+         \end{itemize}
+
+	\item   Possible ambiguity on the confidence level
+	The provided error is usually the 1sigma error.
+	It (theoretically) means that the "true" position has:
+	\begin{itemize}
+		\item either 68\% chances to be at a distance lower than the radial error from the position's mean value.
+		\item or 39\% chances to be inside the error ellipse (or circle) around the position's mean value.
+	\end{itemize}
+	But depending on the catalogue, the provided error parameters can correspond to different confidence levels.
+
+\end{itemize}
+

@@ -1,0 +1,2 @@
+Licence URI. Following Registry practice, this should come from SPDX https://spdx.org/licenses/,
+though Creative Commons URLs https://creativecommons.org are also admitted.

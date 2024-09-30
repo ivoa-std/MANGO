@@ -1,0 +1,3 @@
+Unique identifier of the \texttt{MangoObject}.
+The uniqueness of that identifier is not managed by the model.
+The format is free.
