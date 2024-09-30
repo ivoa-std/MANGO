@@ -1,6 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:ErrorTypes.DiagElems2x2">
-   <!-- Datatype containing the 2 diagonal elements of a 2x2 matrix. 
-Attributes are named $\sigma$ because this datatype is mostly used in the context of complex errors." -->
-   <ATTRIBUTE dmrole="mango:ErrorTypes.DiagElems2x2.sigma1" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:ErrorTypes.DiagElems2x2.sigma2" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

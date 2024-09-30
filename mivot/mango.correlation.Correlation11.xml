@@ -1,6 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:correlation.Correlation11">
-   <!-- Correlation coefficient giving the contribution of the second axis of \texttt{B} 
-to the second axis of \texttt{A}." -->
-   <ATTRIBUTE dmrole="mango:correlation.QuantityCorrelation.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:correlation.Correlation11.correlation11" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

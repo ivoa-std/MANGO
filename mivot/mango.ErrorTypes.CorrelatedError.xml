@@ -1,4 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:ErrorTypes.CorrelatedError">
-   <!-- Abstract root class for the correlated errors. In the subclasses nomenclature the error relates to a property named \texttt{A} in correlation with a property named {B)." -->
-   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
-</INSTANCE>
