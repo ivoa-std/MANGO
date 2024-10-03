@@ -1,7 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:EpochPositionErrors">
-   <!-- Class holder for the errors of the EpochPosition attributes" -->
-   <INSTANCE dmrole="desc:EpochPositionErrors.parallax" dmtype="mango:error.PropertyError1D"/>
-   <INSTANCE dmrole="desc:EpochPositionErrors.radialVelocity" dmtype="mango:error.PropertyError1D"/>
-   <INSTANCE dmrole="desc:EpochPositionErrors.position" dmtype="mango:error.PropertyError2D"/>
-   <INSTANCE dmrole="desc:EpochPositionErrors.properMotion" dmtype="mango:error.PropertyError2D"/>
-</INSTANCE>

@@ -1,0 +1,11 @@
+<INSTANCE dmrole="" dmtype="mango:dataorigin.QueryOrigin">
+   <!-- Description of the query the MANGO instance results from." -->
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.publisher" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.server_software" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.service_protocol" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.request" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.query" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.request_date" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.QueryOrigin.contact" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>

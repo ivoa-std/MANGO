@@ -1,0 +1,14 @@
+<INSTANCE dmrole="" dmtype="mango:Shape">
+   <!-- Description of the spatial extension of the MANGO object (for e.g. dust clouds)" -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:Shape.shape" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <!-- Enumeration of the supported serialization modes for the shapes -->
+   <!-- Enumeration datatype: supported values are MOC STCS POLYGON  -->
+   <ATTRIBUTE dmrole="mango:Shape.serialization" dmtype="mango:ShapeSerialization" value="OneOf MOC STCS POLYGON "/>
+   <INSTANCE dmrole="mango:Shape.spaceSys" dmtype="coords:SpaceSys"/>
+</INSTANCE>

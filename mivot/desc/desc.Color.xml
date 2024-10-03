@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:Color">
-   <!-- Property that describes a color of the \texttt{MangoObject}.
-The color is not an intrinsic property of the MANGO object,
-but a value relative to two filters or energy bands.
-" -->
-   <INSTANCE dmrole="mango:PhotometricProperty" dmtype="mango:PhotometricProperty"/>
-   <INSTANCE dmrole="desc:Color.colorDef" dmtype="mango:ColorDef"/>
-</INSTANCE>

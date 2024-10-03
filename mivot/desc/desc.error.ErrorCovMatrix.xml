@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:error.ErrorCovMatrix">
-   <!-- Covariance matrix for the error of a 2D quantities. 
-The covariance matrix is symmetrical." -->
-   <INSTANCE dmrole="mango:error.PropertyError2D" dmtype="mango:error.PropertyError2D"/>
-   <ATTRIBUTE dmrole="desc:error.ErrorCovMatrix.variance1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:error.ErrorCovMatrix.variance2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:error.ErrorCovMatrix.covariance" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

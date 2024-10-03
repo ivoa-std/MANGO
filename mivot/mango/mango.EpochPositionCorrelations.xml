@@ -1,0 +1,14 @@
+<INSTANCE dmrole="" dmtype="mango:EpochPositionCorrelations">
+   <!-- Class holder for the correlation coefficients between the \texttt{EpochPosition} components." -->
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLongitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLatitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudeLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLongitudePmLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudePmLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudePmLongitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudePmLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudePmLongitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

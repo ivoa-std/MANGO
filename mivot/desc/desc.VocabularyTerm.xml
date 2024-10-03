@@ -1,5 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:VocabularyTerm">
-   <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
-   <ATTRIBUTE dmrole="desc:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
-</INSTANCE>

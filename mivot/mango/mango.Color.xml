@@ -1,0 +1,25 @@
+<INSTANCE dmrole="" dmtype="mango:Color">
+   <!-- Property that describes a color of the \texttt{MangoObject}.
+The color is not an intrinsic property of the MANGO object,
+but a value relative to two filters or energy bands.
+" -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="meas:Uncertainty"/>
+   <INSTANCE dmrole="mango:Color.colorDef" dmtype="mango:ColorDef">
+      <!-- Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio)
+and the filters on which the color is based. 
+In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} 
+with a square transfert function." -->
+      <!-- Enumeration of the different types of colors supported by the model. -->
+      <!-- Enumeration datatype: supported values are ColorIndex HardnessRatio  -->
+      <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="OneOf ColorIndex HardnessRatio "/>
+      <INSTANCE dmrole="mango:ColorDef.high" dmtype="Phot:PhotometryFilter"/>
+      <INSTANCE dmrole="mango:ColorDef.low" dmtype="Phot:PhotometryFilter"/>
+   </INSTANCE>
+</INSTANCE>

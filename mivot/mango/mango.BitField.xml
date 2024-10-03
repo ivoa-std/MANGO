@@ -1,0 +1,25 @@
+<INSTANCE dmrole="" dmtype="mango:BitField">
+   <!-- Property for which each possible value is represented by a bit, 
+so that multiple states can be contained in the same integer value.
+The possible values are defined in the associated \texttt{StatusValues},
+which must correspond to a bit pattern (each value must be a power of 2).
+This constraint is not enforced by the model." -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:Status.status" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:Status.allowedValues" dmtype="mango:StatusValues">
+      <!-- Class holder for the list of the allowed values for the status. 
+" -->
+      <COLLECTION dmrole="mango:StatusValues.values">
+         <INSTANCE dmrole="" dmtype="mango:StatusValue">
+            <!-- Value allowed for a status; contain the value with a free text description." -->
+            <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+            <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         </INSTANCE>
+      </COLLECTION>
+   </INSTANCE>
+</INSTANCE>

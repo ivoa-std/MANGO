@@ -1,0 +1,14 @@
+<INSTANCE dmrole="" dmtype="mango:PhysicalProperty">
+   <!-- Place holder for any quantity that can be hold by measure classes as defined in the 
+\texttt{Astronomical Measurements Model}." -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <!-- Enumeration of different possible calibration status of the property as defined in Obscore -->
+   <!-- Enumeration datatype: supported values are Raw Instrumental Calibrated  -->
+   <ATTRIBUTE dmrole="mango:PhysicalProperty.calibrationLevel" dmtype="mango:CalibrationLevel" value="OneOf Raw Instrumental Calibrated "/>
+   <INSTANCE dmrole="mango:PhysicalProperty.measure" dmtype="meas:Measure"/>
+</INSTANCE>

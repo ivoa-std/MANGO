@@ -1,9 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:error.ErrorCorrMatrix">
-   <!-- Correlation matrix for the error of a 2D quantities. 
-The correlation matrix is symmetrical.
-" -->
-   <INSTANCE dmrole="mango:error.PropertyError2D" dmtype="mango:error.PropertyError2D"/>
-   <ATTRIBUTE dmrole="desc:error.ErrorCorrMatrix.sigma1" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:error.ErrorCorrMatrix.sigma2" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:error.ErrorCorrMatrix.correlation" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

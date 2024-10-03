@@ -1,7 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:PhysicalProperty">
-   <!-- Place holder for any quantity that can be hold by measure classes as defined in the 
-\texttt{Astronomical Measurements Model}." -->
-   <INSTANCE dmrole="mango:Property" dmtype="mango:Property"/>
-   <INSTANCE dmrole="desc:PhysicalProperty.calibrationLevel" dmtype="mango:CalibrationLevel"/>
-   <INSTANCE dmrole="desc:PhysicalProperty.measure" dmtype="meas:Measure"/>
-</INSTANCE>

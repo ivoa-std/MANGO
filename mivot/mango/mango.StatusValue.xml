@@ -1,0 +1,5 @@
+<INSTANCE dmrole="" dmtype="mango:StatusValue">
+   <!-- Value allowed for a status; contain the value with a free text description." -->
+   <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>
