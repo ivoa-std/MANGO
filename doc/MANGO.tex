@@ -45,7 +45,6 @@
     \noindent%
     \textcolor{red}{{\sffamily Comment:} \emph{#1}}%
 }
-% end mir commands
 
 
 \author{François Bonnarel}
@@ -121,13 +120,13 @@ Other proposals, more model-agnostic, were focused on the data annotation in VOT
 \citep{note:stcvot} \citep{note:seb}.
 In this case the goal was no longer to design a source model but to provide a complete description of
 individual quantities (positions, velocity, fluxes, magnitudes…).
-None of these proposals have come to completion.
+None of these proposals have come to completion due to the complexity of the task.
 
 The source DM issue resurfaced at the spring 2018 Interop in Victoria during an hands-on session
 focusing on the tools available to work with VO data models and especially with VO-DML.
 The goal of this session was to annotate data from different origins in order to make them
 interoperable with each other.
-mir The main concern expressed during this session was not much related to the tools themselves
+The main concern expressed during this session was not much related to the tools themselves
 but indeed to the lack of models for sources.
 This is a paradox in the VO world: source data which represent the basic building
 blocks of astronomers' work, is not modelled.
@@ -640,70 +639,67 @@ for the client to understand the actual nature of each property:
 \end{itemize}
 
 
-\subsubsection{MANGO and MIVOT}
+\subsubsection{MANGO and MIVOT: Structuring Tabular Data}
 
-MANGO is most likely to be used to structure tabular data provided by TAP services \citep{2019ivoa.spec.0927D},
-To do this, table rows must be linked to the model with MIVOT annotations. 
-We identify 2 strategy to setup this mapping:
-
+MANGO is primarily used to organise tabular data provided by TAP services \citep{2019ivoa.spec.0927D}.
+To achieve this, table rows must be linked to the model using MIVOT annotations.
+We propose two strategies for establishing this mapping:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item Each table row is considered as a single object where the 
-          properties are grouped in a dock.
-    \item Each table row is considered as a scattered collection of independent quantities.
-    
+    \item Single Object per Row: Each table row is treated as a single object,
+          with its properties grouped within a container or dock.
+    \item Scattered Independent Quantities: Each table row is considered as a collection of independent quantities.
 \end{itemize}
-
 
 MIVOT annotations support both approaches:
 
-\begin{itemize}
-    \item \emph{MANGO as a global view}: This configuration is necessary to take advantage of all 
-          the model's features: Properties can be linked together, data rows can be identified 
-          and treated as single entities (MANGO objects) that can be linked together to describe,
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item MANGO as a Global View: This configuration enables full utilisation of the 
+          model's features. Properties can be interconnected, data rows can be identified
+          and treated as individual entities (MANGO objects) that can be linked together to describe,
           for example, sources with their detections or orbiting systems.
-          This way of describing data rows as single entities also allows for serialisation modes
-          that require a unique root, such as XML of JSON.
-          The cost of this approach is to make the annotation process a little more complex
-          with a few more class levels in the annotations.
-    \item \emph{MANGO as a sparse parameter view}: In this simpler approach the data mapping is made of a
-          flat set on independant objects. Clients can iterate over these objects and 
-          process the entities of interest one by one. 
-			It should be noted that such a client could easily process data mapped to the 
-          to the full MANGO schema as described above.
-          On server side, the annotation process might be a bit simpler. 
+          This approach allows for serialisation formats like XML or JSON, which often require
+          a unique root.
+          However, the annotation process might be slightly more complex due to additional class levels.
+    \item MANGO as a Sparse Parameter View: In this simpler approach, the data mapping is a
+          flat set of independent objects. Clients can iterate through these objects and process
+          the entities of interest individually.
+          It's important to note that such a client could also handle data mapped to the full MANGO schema.
+          The annotation process might be less complex on the server side.
 \end{itemize}
 
-This document does not recommend one approach over another.
-This is a matter for the data providers to decide.
-It is however based on the full featured model.
-
+This document does not favour one approach over the other.
+The decision ultimately rests with the data providers.
+However, both options are based on the full-featured MANGO model.
 
 \input{model.tex}
 
 
-\section{TAP and MANGO}
-This not normative section gives possible tips to save and discover MANGO instances in TAP services.
-We suppose that the TAP service hosts catalogs which sources are MANGO instances.
-These catalogs are named \emph{MANGO Catalogs}.
+\section{Integrating MANGO with TAP Services}
+
+This non-normative section describes potential strategies for
+storing and discovering MANGO instances within TAP services.
+We assume that the TAP service hosts catalogs containing MANGO instances,
+referred to as  \emph{MANGO Catalogs}.
 
 \subsection{Storing MANGO Catalogs in TAP}
-For now, this section only concerns the properties. The associated data will be taken into account later.
+For now, we'll focus on storing the properties of MANGO instances. 
+
+The tabular structure of MANGO instances will be reflected in TAP services as three tables:
 
 \begin{itemize}
-  \item One master table for the catalogs with various meta-data out of the MANGO scope plus a 
-        unique identifier (primary key).
-  \item One master sources table for the source instances with the catalog identifier and a
-        primary key safer than the MANGO identifier.
-  \item One table for each supported parameter with a foreign key for the join with the
-        master source table.
+  \item One single master table for catalogs, including various metadata beyond the scope of
+        MANGO and a unique identifier (primary key).
+  \item One master sources table for source instances, containing the catalog identifier
+        and a primary key that is more robust than the MANGO identifier.
+  \item Individual tables for each supported parameter, with a foreign key
+        linking to the master sources table.
 \end{itemize}
 
-Although the model of the measures is hierarchical, it should be possible to flatten them in
-one single table considering that the model structure can be retrieved with the TAP\_SCHEMA annotations
-(TBC)
-
-This schema requires the server to explore all the parameter tables to retrieve  whole MANGO instances.
-This process can be speed up by using the \emph{MANGOCore} table.
+While the measure model is hierarchical, it can be flattened into a single table,
+considering that the model structure can be retrieved using TAP\_SCHEMA.
+This schema necessitates server-side exploration of all parameter tables
+to retrieve complete MANGO instances.
+To speed-up this process, the \emph{MANGOCore} table can be utilised.
 
 \subsection{ \emph{MANGOCore} Table}
 
