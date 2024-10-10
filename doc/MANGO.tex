@@ -631,40 +631,9 @@ However, both options are based on the full-featured MANGO model.
 
 
 \section{Integrating MANGO with TAP Services}
+\input{tap.tex}
 
-This non-normative section describes potential strategies for
-storing and discovering MANGO instances within TAP services.
-We assume that the TAP service hosts catalogs containing MANGO instances,
-referred to as  \emph{MANGO Catalogs}.
-
-\subsection{Storing MANGO Catalogs in TAP}
-For now, we'll focus on storing the properties of MANGO instances. 
-
-The tabular structure of MANGO instances will be reflected in TAP services as three tables:
-
-\begin{itemize}
-  \item One single master table for catalogs, including various metadata beyond the scope of
-        MANGO and a unique identifier (primary key).
-  \item One master sources table for source instances, containing the catalog identifier
-        and a primary key that is more robust than the MANGO identifier.
-  \item Individual tables for each supported parameter, with a foreign key
-        linking to the master sources table.
-\end{itemize}
-
-While the measure model is hierarchical, it can be flattened into a single table,
-considering that the model structure can be retrieved using TAP\_SCHEMA.
-This schema necessitates server-side exploration of all parameter tables
-to retrieve complete MANGO instances.
-To speed-up this process, the \emph{MANGOCore} table can be utilised.
-
-\subsection{ \emph{MANGOCore} Table}
-
-The discovery of \emph{MANGO Catalogs} can be helped by a  \emph{MANGOCore} table located in the  \emph{schema} schema. As MANGO is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}.
-This selection is left at the discretion of the curator.
-The \emph{MANGOCore} table has set of columns per parameter class plus one for the catalog ID.
-It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD and one with the \emph{Core} flag. TBC
-
-
+\pagebreak
 \appendix
 
 % \section{Gaia}
