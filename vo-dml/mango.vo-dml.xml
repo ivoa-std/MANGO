@@ -3,14 +3,14 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
-  <description>MO-del for AN-notating G-eneric O-bject
+  <description>The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
 </description>
   <uri/>
   <title>Mango</title>
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-09-26T17:14:07</lastModified>
+  <lastModified>2024-10-10T16:47:26</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -1484,8 +1484,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.Article.article</vodml-id>
-        <name>article</name>
+        <vodml-id>dataorigin.Article.code</vodml-id>
+        <name>code</name>
         <description>Bibcode or DOI of the reference article</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>

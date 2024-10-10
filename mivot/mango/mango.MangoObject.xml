@@ -57,7 +57,7 @@ This class specifies both type and role of the  property, and hosts the property
       <INSTANCE dmrole="mango:dataorigin.DataOrigin.article" dmtype="mango:dataorigin.Article">
          <!-- Reference article for the MANGO entity" -->
          <ATTRIBUTE dmrole="mango:dataorigin.Article.editor" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:dataorigin.Article.article" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:dataorigin.Article.code" dmtype="ivoa:string" ref="@@@@@" value=""/>
       </INSTANCE>
    </INSTANCE>
    <COLLECTION dmrole="mango:MangoObject.associatedMangoObjects">
