@@ -9,7 +9,7 @@
 \setlength\extrarowheight{2pt}
 
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
-\title{MANGO: A Model for ANotating Generic Objects}
+\title{MANGO: A Model for ANnotating Generic Objects}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
@@ -62,27 +62,26 @@
 
 \begin{abstract}
 
-The MANGO model proposes a flexible way to expose data related to astronomical source objects 
+The MANGO data model proposes a flexible way to expose data related to astronomical source objects 
 in an interoperable way.
 It takes into account the huge diversity of source data in terms of feature description, format and usage.
-The MANGO model attaches identifiers on astronomical sources and associates to each a flexible 
-set of parameters (e.g. observed physical quantities) and other information like e.g. spectra,
-time series or preview images.
-Parameters are usually made of several columns of a data table.
-Additional data products are bound to the source to contribute to the science analysis
-and enhance data understanding.
-MANGO object parameters are built upon classes or extended classes of the IVOA Measure
-and Coordinates data models. It also reuse PhotDM and proposes its own classes for the quantities 
-that are not covered by the imported models
-Associated data can be simple URLs or VO service endpoints.
-The roles of both parameters and associated data are qualified by semantic tags
+The MANGO model deals with catalog entries, corresponding to astronomical sources or detections of those and represent them as a MANGO Object class.  
+It attaches identifiers on the "MANGO object" class and associates to each one a flexible 
+set of properties (e.g. observed physical quantities). It also offers to link other information like detection status, quality annotation, preview images, etc.
+Properties may be expressed as several columns of a data table.
+Additional data products (e.g. spectra, time series) may be bound to the source entry to contribute to the science analysis and enhance data understanding.
+MANGO object properties are built upon classes or extended classes of the IVOA Measure
+and Coordinates data models. It also reuses PhotDM and proposes its own classes for the quantities 
+that are not covered by the imported models.
+Associated data can be provided as simple URLs or VO service endpoints.
+The roles of both properties and associated data are qualified by semantic tags to provide rich context. 
 
 \end{abstract}
 
 
 \section*{Acknowledgments}
 
-We would like to thank all those who took the time to present their own use cases (INAF, CDS, CFA, ESAC) on which the model has been built.
+We would like to thank all people at INAF, CDS, CFA, ESAC, etc.  who took the time to present their own use cases on which the model has been built.
 We would also like to thank all the people having tested MANGO on their own data.
 
 \section*{Model Name}
