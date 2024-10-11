@@ -1,0 +1,71 @@
+<INSTANCE dmrole="" dmtype="mango:EpochPosition">
+   <!-- This class is a view of \texttt{Astronomical Coordinates and Coordinate
+Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description 
+of the position of an object moving over time. 
+It consists of a celestial position, a proper motion, a radial velocity 
+and a parallax. 
+All components share the same coordinate systems for both time and space coordinates.
+
+\begin{itemize}
+   \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
+   \item The space coordinate system is imported from \texttt{coords:spaceSys}.
+   \item The time coordinate system is imported from \texttt{coords:timeSys}.
+\end{itemize}
+
+The \texttt{EpochPosition} error is modeled by specific classes supporting covariance 
+and/or correlation between components.
+
+All individual components have their own units which must be consistent to each others. 
+This consistency is not enforced by the model.
+
+Possible correlations between \texttt{EpochPosition} parameters are handle by the  \texttt{EpochPositionCorrelation} class." -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.radialVelocity" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.epoch" dmtype="coords:Epoch"/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.pmCosLat_applied" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:EpochPosition.errors" dmtype="mango:EpochPositionErrors">
+      <!-- Class holder for the errors of the EpochPosition attributes" -->
+      <INSTANCE dmrole="mango:EpochPositionErrors.parallax" dmtype="mango:error.PropertyError1D">
+         <!-- Symetrical error for 1D parameters" -->
+         <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+         <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      </INSTANCE>
+      <INSTANCE dmrole="mango:EpochPositionErrors.radialVelocity" dmtype="mango:error.PropertyError1D">
+         <!-- Symetrical error for 1D parameters" -->
+         <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
+         <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+      </INSTANCE>
+      <!-- Put here a concrete INSTANCE of error.PropertyError2D or left blank -->
+      <INSTANCE dmrole="mango:EpochPositionErrors.position" dmtype="mango:error.PropertyError2D"/>
+      <!-- Put here a concrete INSTANCE of error.PropertyError2D or left blank -->
+      <INSTANCE dmrole="mango:EpochPositionErrors.properMotion" dmtype="mango:error.PropertyError2D"/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPosition.correlations" dmtype="mango:EpochPositionCorrelations">
+      <!-- Class holder for the correlation coefficients between the \texttt{EpochPosition} components." -->
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLongitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLatitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudeLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLongitudePmLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudePmLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudePmLongitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudePmLatitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudePmLongitude" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.isCovariance" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <INSTANCE dmrole="mango:EpochPosition.spaceSys" dmtype="coords:SpaceSys"/>
+   <INSTANCE dmrole="mango:EpochPosition.timeSys" dmtype="coords:TimeSys"/>
+</INSTANCE>

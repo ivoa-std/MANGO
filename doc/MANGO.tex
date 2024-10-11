@@ -537,51 +537,6 @@ the model should provide added value: 1) supported quantities 2) data descriptio
 \end{itemize}
 
 
-%\subsubsection{Properties and Associated Data}
-% From the use-cases description, several categories of features must provided or foreseen by the projects:
-% 
-% \begin{itemize}
-%     \item The source \emph{properties} astronomers will investigate for their science.
-%           They are measures provided as numerical values or classification tags exposed as
-%           numbers or simple strings. 
-%           Usually one measure corresponds to one individual column or one group of columns.
-%         
-%     \item MANGO objects can be linked to external data referenced by WEB endpoints.
-%          % Such links are considered as object properties for which the model provides 
-%           an accurate way to specify the nature of these links. 
-%           Usually object links are provided by DataLinks services,
-%           then this MANGO feature is proposed to annotate datasets issued by services
-%           that do not implement such services but provide URLs in their query responses.
-%           
-%     \item MANGO objects can be linked to other collections of MANGO objects,
-%           associating sources with their detections, for example.
-%  \end{itemize}
-  
-
-%\subsubsection{Supported Quantities}
-%\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-  %  \item MANGO must provide unique source identifiers.
-  %  \item MANGO must provide information about the source origin.
-  %  \item The number of parameters attached to a MANGO instance must be free.
-%\end{itemize}
-
-%\subsubsection{Properties}
-%
-%\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-%    \item MANGO must support explicit classes, native or imported from IVOA data-models, for the most used properties.
-%    \item MANGO must provide a generic way to support properties that do not enter the above category.
-%    \item MANGO object must support multiple instances of the same property class.
-%    \item The presence of any property in MANGO instances must be optional.
-%    \item MANGO must provide a way to identify the role of each property.
-%    \item MANGO must provide a way to identify the purpose of linked properties.
-%    \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
-%    \item The role of each parameter should be machine-readable.
-%    \item It must be possible to group parameters in a free way.
-%          This allows for instance to tag properties with timestamps or flags.
-%    \item MANGO objects must support references to other MANGO objects.
-% \end{itemize}
-
-
 
 \section{Model Overview}
 
@@ -638,7 +593,8 @@ for the client to understand the actual nature of each property:
 
 \subsubsection{MANGO and MIVOT: Structuring Tabular Data}
 
-MANGO is primarily used to organise tabular data provided by TAP services \citep{2019ivoa.spec.0927D}.
+MANGO is primarily used to organise tabular data provided by TAP services \citep{2019ivoa.spec.0927D} 
+other DAL nodes (one of the reference implementation is based on a Vizier SCS).
 To achieve this, table rows must be linked to the model using MIVOT annotations.
 We propose two strategies for establishing this mapping:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]

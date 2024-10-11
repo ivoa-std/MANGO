@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:BitField">
-   <!-- Property for which each possible value is represented by a bit, 
-so that multiple states can be contained in the same integer value.
-The possible values are defined in the associated \texttt{StatusValues},
-which must correspond to a bit pattern (each value must be a power of 2).
-This constraint is not enforced by the model." -->
-   <INSTANCE dmrole="mango:Status" dmtype="mango:Status"/>
-</INSTANCE>

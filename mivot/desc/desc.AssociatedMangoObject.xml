@@ -1,6 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:AssociatedMangoObject">
-   <!-- This class gives the role of a link associating 2 \texttt{MangoObject} together." -->
-   <INSTANCE dmrole="desc:AssociatedMangoObject.semantics" dmtype="mango:VocabularyTerm"/>
-   <ATTRIBUTE dmrole="desc:AssociatedMangoObject.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <INSTANCE dmrole="desc:AssociatedMangoObject.mangoObject" dmtype="mango:MangoObject"/>
-</INSTANCE>

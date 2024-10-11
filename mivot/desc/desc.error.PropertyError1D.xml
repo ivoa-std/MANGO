@@ -1,5 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:error.PropertyError1D">
-   <!-- Symetrical error for 1D parameters" -->
-   <INSTANCE dmrole="mango:error.PropertyError" dmtype="mango:error.PropertyError"/>
-   <ATTRIBUTE dmrole="desc:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

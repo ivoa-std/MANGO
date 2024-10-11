@@ -1,9 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:error.Ellipse">
-   <!-- Elliptic error for 2D parameters such as sky positions.
-Major axis and minor axis have their own units, which must be the same for both.
-This is not enforced by the model." -->
-   <INSTANCE dmrole="mango:error.PropertyError2D" dmtype="mango:error.PropertyError2D"/>
-   <ATTRIBUTE dmrole="desc:error.Ellipse.semiMajorAxis" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:error.Ellipse.semiMinorAxis" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="desc:error.Ellipse.angle" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

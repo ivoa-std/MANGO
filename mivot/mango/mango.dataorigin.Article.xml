@@ -1,0 +1,5 @@
+<INSTANCE dmrole="" dmtype="mango:dataorigin.Article">
+   <!-- Reference article for the MANGO entity" -->
+   <ATTRIBUTE dmrole="mango:dataorigin.Article.editor" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.Article.code" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>

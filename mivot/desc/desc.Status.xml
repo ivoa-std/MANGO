@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:Status">
-   <!-- Property representing a status defined by a integer number 
-that can only take on a defined number of values, each with its own description.
-Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True." -->
-   <INSTANCE dmrole="mango:Property" dmtype="mango:Property"/>
-   <ATTRIBUTE dmrole="desc:Status.status" dmtype="ivoa:integer" unit="" ref="@@@@@" value=""/>
-   <INSTANCE dmrole="desc:Status.allowedValues" dmtype="mango:StatusValues"/>
-</INSTANCE>
