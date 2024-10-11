@@ -164,29 +164,29 @@ UCD, VOUnits and Vocabularies are also re-used.
 \subsection{Use Cases}
 
 The main purpose of MANGO is to add an upper description level to the tabular data of query responses.
-MANGO is not designed to replace the meta-data already present in query responses, 
+MANGO is not designed to replace the meta-data already present in query responses, but on the contrary, to provide a model_aware layer with structured classes to interpret them and exploit them in client applications. 
 
 Uses-cases have been collected since 2019 from representatives of various astronomical 
 missions, archive designers and tools developers.
-The contribution was totally open. This gave a good picture of the needs but we do not pretend 
+The call for contribution was totally open. This gave a good picture of the needs but we do not pretend 
 that everything will be supported by this first version.
 All the use-cases summarized below are detailed in appendix.
 
-\subsubsection{Gaia}
-Gaia mission is producing the largest and more precise 3D map of our galaxy.
-Gaia core solution is able to solve the astrometric solution of more than 1
+\subsubsection{GAIA}
+The GAIA mission is producing the largest and more precise 3D map of our galaxy.
+The GAIA Astrometric Core Solution is able to provide the astrometry of more than 1
 billion sources by complex models and algorithms \citep{2012A&A...538A..78L}.
-Using a minimisation problem approach, different detections identified on
-different scans can be associated to the same astronomical source. Some of the
+Using a minimization problem approach, different detections identified on
+different scans can be associated to the appropriate astronomical source. Some of the
 properties would be direct measurements on single scans (e.g. positions or
-magnitudes). Also other properties like radial velocity (measured in redshift
+magnitudes). Other properties like radial velocity (measured in redshift
 units) are also obtained at integration time of the scans.
 
-A non-exhaustive list of properties required for Gaia use cases would be composed
+A non-exhaustive list of properties required for GAIA use cases would be composed
 of:
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item identifier
+    \item detection identifier
     \item sky reference position
     \item proper motion
     \item parallax and distance
@@ -201,18 +201,18 @@ of:
 \end{itemize}
 
 \subsubsection{Euclid}
-Euclid telescope has been designed to unveil some of the questions about the
-dark Universe, including dark matter and dark energy, what would include, e.g.
+The Euclid telescope has been designed to unveil some of the questions about the
+dark Universe, including dark matter and dark energy, what would include, f.i
 quite accurate measurements of the expansion of the Universe.
 
-Euclid will mainly observe extragalactic objects providing, e.g. information
-of the shapes of galaxies, gravitational lensing,  baryon acoustic oscillations
+Euclid will mainly observe extragalactic objects providing, f.i information
+about the shapes of galaxies, gravitational lensing, baryon acoustic oscillations
 and distances to galaxies using spectroscopic data.
 
 For this mission, and apart from the common metadata provided for extra galactic
 sources into astronomical catalogues, a good support for object taxonomy and
 shapes of objects will be required. As known due to general relativity effects,
-shapes far galaxies could be deformed due to gravitational lensing effects,
+shapes of far galaxies could be deformed due to gravitational lensing effects,
 producing convergence (visual displacements on the position) and rear (deformation
 of the shape) effects. All these metadata should be ready for annotations and,
 also, correlated to theoretical or real metadata in other datasets.
@@ -221,6 +221,8 @@ Finally, crossmatch information with other catalogues will be of crucial interes
 as data from other satellites and, more importantly, from ground based
 observatories will be combined with Euclid data to produce consistent scientific
 datasets.
+
+Typical features for objects entail: 
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item identifier
@@ -231,7 +233,6 @@ datasets.
     \item redshift
     \item photometric redshift
 \end{itemize}
-From the above contributions we can issue a list of use cases that lead the MANGO design: 
 
 \subsubsection{Exoplanets}
 Annotation of (exo-)planetary records in catalogues requires some
@@ -347,30 +348,29 @@ from standard CSCView queries.
 
 \end{enumerate}
 
-These science usecases are detailed in ref{sec:chandra}.
+These science usecases are detailed \ref{sec:chandra}.
 
 \subsubsection{Vizier catalog archive}
-VizieR provides science ready catalogs coming from space agencies or articles and covering number of
-different science cases.
+VizieR provides science ready catalogs coming from space agencies or articles from the astronomical journals, covering number of different science cases.
 Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.)
 depending on their origin.
 They can result from  observations, simulations, models or catalog compilations.
 Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
 
 The MANGO model must be able to provide a standard representation of most of the metadata contained 
-in Vizier query responses, whether native or computed  by the CDS,
-simple quantities or associated complex data.
-MANGO is not meant to replace the current management of the meta-data,
-it is a way to make those meta-data understandable for a wide panel of VO-compliant clients.
+in Vizier query responses, either native or computed by the CDS, and organized either as 
+simple quantities or as associated complex data.
+MANGO is not meant to replace the current management of the ViZier metadata, but rather 
+to make those understandable/interoperable for a wide panel of VO-compliant clients.
 
 \subsubsection{Client (on Mark Taylor behalf)}
-Right now, the meta-data provided within the VOTable allow clients such Aladin or Topcat to run most 
-of the functionalities expected by the user, either for data analysis of plotting.
-This information is often guess from UCDs, UTypes or columns name. It can also be given by the user.
-Clients have no expectations of working with full model instances but in some cases models 
-can help to know how quantities in an input table relate to each other.
+Right now, the meta-data provided within the VOTable allow client software such Aladin or Topcat to run most 
+of the functionalities expected by the user, either for data analysis or plotting.
+This information is often inferred from UCDs, UTypes or column names. It can also be given by the user.
+Client applications do not require working with full model instances but in some cases models 
+can make it explicit how quantities in an input table relate to each other.
 
-In most cases this is for visualisation, e.g.:
+Most cases are oriented towards interpretation of columns for visualization, e.g.:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item what is the sky position for this row
     (what columns contain latitude and longitude, and what sky system are they in)
@@ -390,10 +390,10 @@ In most cases this is for visualisation, e.g.:
     \item does this table contain sky positions, or HEALPix tiles, or both?
     What's the best way to represent it on the sky?
 
-    \item What is the meaning of such URL found out in a table?s
+    \item what is the meaning of such URL found out in a table?s
 \end{itemize}
 
-But there are some other places too:
+But there are some other cases like:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item how do I propagate this sky position to a future epoch
     (what columns contain pmra, pmdec, and maybe all the
@@ -405,16 +405,15 @@ But there are some other places too:
 \end{itemize}
 
 This usage shows that MANGO must be designed in a way that individual measurements or quantities
-can be easily be identified as such and manipulated independently of the whole instance.
+can easily be identified as such and manipulated independently of the whole instance.
 
-
-tTis document does not recommend one approach over another.
+This document does not recommend one approach over another.
 This is a matter for the data providers to decide.
 
 \subsubsection{Xmatch tool }
 The basic cross-match of two astronomical tables consists in associating pairs of sources -- one 
 from each table -- fulfilling a given angular distance based criterion.
-In relational algebra terms, it is a theta-join on a distance predicate.
+%In relational algebra terms, it is a theta-join on a distance predicate.
 
 More generally, a cross-match is the association of sources from different tables given their 
 proximity in an astrometric (but also possibly photometric, statistical, ...) parameter
@@ -425,16 +424,17 @@ may propagate the positions of each table to a common epoch.
 It may also take into account positional uncertainties to reject the statistically unlikely associations.
 
 In the latter case (cross-match between two tables taking into account positional errors),
-the tool needs to be able to retrieve the errors associated to the each position in each table.
+the tool needs to retrieve the errors associated to the each position in each table.
 
-UCDs may help in identifying the errors associated to a positional columns as shown in 
-table, but this is not sufficient to table with more complex cases based on multi-parameter cases.
+UCDs may help in identifying the errors associated to a positional columns, 
+%as shown in table
+but this is not sufficient for tables with more complex cases based on multi-parameter cases.
 
 
 \subsection{Requirements}
 
 From the above list of use-cases, we have identified 4 domains for which
-the model should provide added value: 1) supported quantities 2) data description enhancement,
+the model should provide added value: 1) nature of supported quantities 2) data description enhancement,
 3) description of quantities consisting of several columns and 4) connected quantities.
 
 %\begin{itemize}
@@ -478,10 +478,9 @@ the model should provide added value: 1) supported quantities 2) data descriptio
 \begin{itemize}
     \item Supported quantities:
         \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-          \item The nature and number of properties characterising a MANGO object must be open. 
-    
-          \item MANGO must support explicit classes, native or imported from IVOA data-models,
-                for the most used properties.
+          \item The nature and number of properties characterizing a MANGO object must be open. 
+          \item MANGO must support explicit classes, native or imported from IVOA data models,
+                for the most used astronomical properties.
           \item MANGO must provide a generic way to support properties that do not enter the above category.
           \item MANGO object must support multiple instances of the same property class.
           \item The presence of any property in MANGO instances must be optional.    
@@ -493,13 +492,13 @@ the model should provide added value: 1) supported quantities 2) data descriptio
         \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
           \item MANGO must support a convenient way to identify model instances.
           \item MANGO must be able to attach relevant coordinate (or calibration) 
-                systems to any quantities. 
-          \item MANGO must be able to attach complex errors to any numerical quantities. 
-          \item MANGO must be able to define semantics for any quantity or group of quantities. 
-                This will add a capability that is currently missing from the VOTables schema. 
+                systems to any measured quantity. 
+          \item MANGO must be able to attach complex errors to any numerical quantity. 
+          \item MANGO must be able to define semantics for any quantity or group of quantities. \\
+                This will add a capability that is currently missing from the VOTable schema. 
                 This will also make it possible to specify the role of quantities 
-                that are present more than once, for example by distinguishing between a pointing direction 
-                and the target position. 
+                that are present more than once, for example by distinguishing between a pointing position on sky 
+                and a target position. 
           \item MANGO must be able to specify the set of allowed values for quantities which purpose is to flag data 
                 (e.g. detection flag). It must also be able to provide a description for each of these values. 
                 This model feature will provide a straightforward way of providing users the meaning of flag values. 
@@ -510,27 +509,25 @@ the model should provide added value: 1) supported quantities 2) data descriptio
          
     \item Multi-columns quantities
        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-          \item MANGO must be able to provide an accurate description of quantities which parameters are spread 
+          \item MANGO must be able to provide an accurate description of properties which attributes are spread 
                 out on multiple columns (e.g. positions, errors).
           \item MANGO must be able to describe errors with the most common shapes (symmetric values, correlation 
                 or covariance matrices, ellipses), all with different confidence levels. 
                 Such complex quantities cannot be reconstructed from simple field descriptions, but with a model
                 that captures all the components and provides the missing metadata;
-          \item MANGO must be able to set up correlation links between parameters. For example,
+          \item MANGO must be able to set up correlation links between properties. For example,
                 the position of an object may depend on its proper motion. This kind of correlation can be revealed 
                 with a model that can link data columns.
           \item MANGO must provide an accurate description of the epoch propagation. 
-                This is probably the most important use case for MANGO. It consists of constructing 6 parameter          
-                position vectors (position, proper motion, parallax and radial velocity), whose components are correlated and 
-                valid for a given epoch. 
-                This feature is required to compare positions given by surveys with high astrometry accuracy  such as GAIA.
+                This is probably the most important use case for MANGO. It consists in constructing 6 parameter     		position vectors (position, proper motion, parallax and radial velocity), whose components are 			correlated and valid for a given epoch. 
+                This feature is required to compare positions given by surveys with high astrometry accuracy such as GAIA.
        \end{itemize} 
          
     \item Connected quantities : 
        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-           \item MANGO must be able to setup links between different parameters of the same table. 
+           \item MANGO must be able to setup links between different properties of the same table. 
                  This can be relevant for instance for attaching detection likelihoods with source positions
-                 or to tag properties with timestamps?
+                 or to tag properties with timestamps.
            \item MANGO must be able to link MANGO instances to each other, allowing for instance to connect one 
                  source with all of its detections.
         \end{itemize}   
