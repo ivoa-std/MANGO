@@ -164,7 +164,8 @@ UCD, VOUnits and Vocabularies are also re-used.
 \subsection{Use Cases}
 
 The main purpose of MANGO is to add an upper description level to the tabular data of query responses.
-MANGO is not designed to replace the meta-data already present in query responses, but on the contrary, to provide a model_aware layer with structured classes to interpret them and exploit them in client applications. 
+MANGO is not designed to replace the meta-data already present in query responses, but on the contrary, 
+to provide a model-aware layer with structured classes to interpret them and exploit them in client applications. 
 
 Uses-cases have been collected since 2019 from representatives of various astronomical 
 missions, archive designers and tools developers.
@@ -268,87 +269,60 @@ way to describe sources with:
 	\item aggregation of sub-parts (that can be heterogeneous).
 \end{itemize}
 
-\subsubsection{Chandra Archive}
-The Chandra Source Catalog(CSC) is the definitive catalog of serendipitous X-ray sources identified in
-publicly released imaging observations obtained by NASA’s ChandraX-ray Observatory (CXO).
+\subsubsection{X-ray Observatory Archives}
 
-The catalog itself consists of approximately 1,700 columns covering properties at the 
-individual observation and stacked analysis levels.
-Table \ref{tab:chandra_properties} summarizes some of the basic catalog properties derived
-from standard CSCView queries. 
+The requirements for both Chandra (get more in appendix \ref{sec:chandra})
+and XMM-Newton \footnote{https://www.cosmos.esa.int/web/xmm-newton} science cases
+are combined in this use case.
+These 2 X-ray observatories have many common features that could take advantage of sharing the same model:
 
-\begin{table}[ht!]
-  \tiny
-  \begin{tabular}{|p{0.4cm}p{10.0cm}|}
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Per Source:}} \\
-    & \texttt{ Source name } \\
-    & \texttt{ Source position and position errors } \\
-    & \texttt{ Significance of the source (signal to noise) } \\
-    & \texttt{ Likelihood of the source  (True, False, or Marginal detection) } \\
-    & \texttt{ Source extent flag } \\
-    & \texttt{ Variability flag } \\
-    & \texttt{ Spectral variability flag } \\
-    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
-    & \texttt{ Flux and flux error in  HRC band w } \\
-    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
-    & \texttt{ Short term (intra-obs) variability probability for each band } \\
-    & \texttt{ Long term (inter-obs) variability probability for each band } \\
-    & \texttt{ Spectral (hardness ratios) variability for each color } \\
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Per Detection (at the stack level):}} \\
-    & \texttt{ Detection ID } \\
-    & \texttt{ Detection position and position errors } \\
-    & \texttt{ Flux significance of the detection (S/N) } \\
-    & \texttt{ Detection likelihood (True, False, or marginal detection?) } \\
-    & \texttt{ Source extent code (codification of source extent in different bands) } \\
-    & \texttt{ Variability flag } \\
-    & \texttt{ Spectral variability flag } \\
-    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
-    & \texttt{ Flux and flux error in  HRC band w } \\
-    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
-    & \texttt{ Short term (intra-obs) variability probability for each band } \\
-    & \texttt{ Long term (inter-obs) variability probability for each band } \\
-    & \texttt{ Spectral (hardness ratios) variability probability for each color } \\
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Per Detection (at the observation level):}} \\
-    \multicolumn{2}{|l|}{ Note that source detection is done at the stack level, but properties are estimated for the } \\
-    \multicolumn{2}{|l|}{detections at each observation using the detection region from the stack level.} \\
-    & \texttt{ Detection ID } \\
-    & \texttt{ Detection position and position errors } \\
-    & \texttt{ Flux significance of the detection (S/N) } \\
-    & \texttt{ Detection likelihood } \\
-    & \texttt{ Source extent code (codification of source extent in different bands) } \\
-    & \texttt{ Variability code (applies to intra-obs only) } \\
-    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
-    & \texttt{ Flux and flux error in  HRC band w } \\
-    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
-    & \texttt{ Short term (intra-obs) variability probability for each band } \\
-    \hline
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Both work as photon counters with a good time resolution.
+          The result is that physical quantities remain tied to the instrument response.
+          Therefore, the metadata must refer to instrumental parameters that are needed to
+          understand the data well.
+    \item Both observatories work in pointed mode and provide the community with sets of products per observation.
+    \item Observation-level data are periodically merged into catalog of detections, 
+          which is a very important scientific product,
+          but individual observations are equally important and are used directly for analysis. 
+     \item Detection catalogs are merged into source catalogs, and it is important to be able to
+           associate sources with their detections.
+     \item Equally important, given the more than 2 decades that both spacecraft are flying,
+           is the ability to correlate catalog data with time.
+     \item X-ray data reveal quantities that are usually not well supported by the VO: 
+           \begin{itemize}
+               \item energy bands
+               \item hardness ratio
+               \item Flags that are very important for understanding the source detections.
+               \item Complex errors (asymmetric, ellipse)
+               \item model-based data (flux, spectra) 
+           \end{itemize}
+    \item X-ray data are often analyzed in conjunction with data from other domains, 
+          This is made easier if they all have the same way of describing the quantities of interest.
+\end{itemize}
 
-  \end{tabular}
-  \caption{ Example Chandra Source Catalog Properties }
-  \label{tab:chandra_properties}
- \end{table}
+% Ian E. Mail (17/10)========================
 
+% The CSC does provide independent lower and upper confidence limits for each measurement as part of the data tables. 
+% They are separate columns for us (eg, we have measurement, measurement_lolim, and measurement_hilim as 3 columns) 
+% but I wonder if these can be handled as a single concept in MANGO?
+% For positions on the sky we similarly use a position error ellipse with defined semi-axes and orientation.
 
-\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item  Searching for spectrally variable or flaring point sources
-    \item Identifying flaring point sources
-    \item Find sources with changing properties: Look for sources with changes of spectral 
-          slope and column density between observations so as function of time;
-          this can easily be done across X-ray catalogs provided that the same spectral model (absorbed power-law) 
-          is used in the different catalogs. The changes in spectral slope and column density are measured 
-          in sigma using the errors as well on each quantity to evaluate the statistical significance of the changes. 
-    \item Finding Tidal Disruption Events in the CSC
-    \item Quick, rough identification of AGN, galaxies, and stars
-    \item Follow-up research
-    \item Spectral decomposition of X-ray sources 
-    \item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI) \item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI)     
+% The one other thing I think about is that we often have many very similar measurements in the CSC.  
+% For example, for aperture photometry, we have multiple energy bands,
+% and in each energy band we measure flux in the aperture in multiple ways
+% (eg, photon flux, energy flux, model energy flux (based on several canonical
+% spectral models such as absorbed power-law, absorbed black-body, …),
+% spectral fit energy flux (based on several spectral models where the parameters are 
+% fitted to the data - requires more counts to get robust fits). 
+% And we may do this for multiple configurations of individual observations of a source 
+% (eg, a straight average - usually for comparison with other catalogs, or a set based on a multi-band Bayesian 
+% Blocks analysis -
+% so we’re grouping observations in which the source has constant flux in each of the energy bands).  
+% How we represent these many different types of very similar measurements in a way that is scientifically useful
+% and searchable is complex.  Can this even be done usefully using UCDs?
 
-\end{enumerate}
-
-These science usecases are detailed \ref{sec:chandra}.
+% ============================================
 
 \subsubsection{Vizier catalog archive}
 VizieR provides science ready catalogs coming from space agencies or articles from the astronomical journals, covering number of different science cases.
