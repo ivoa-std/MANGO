@@ -437,43 +437,6 @@ From the above list of use-cases, we have identified 4 domains for which
 the model should provide added value: 1) nature of supported quantities 2) data description enhancement,
 3) description of quantities consisting of several columns and 4) connected quantities.
 
-%\begin{itemize}
-%    \item Supported properties:
-%        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-%          \item COORDINATE SYSTEM : attach a specific coordinate (or calibration) 
-%                system to mapped quantities. 
-%          \item SEMANTIC : Defining a semantic for mapped quantities adds a capability that is currently 
-%                missing from the VOTables schema. This also makes it possible to specify the role of quantities 
-%                that are present more than once, for example by distinguishing between a pointing direction 
-%                and the target position. 
-%          \item FLAG VALUE : Some quantities come with quality flags, the interpretation of which requires inference 
-%                to a free text description. The model can provide a straightforward way of telling the user 
-%                what the current value means.
-%          \item DATA ORIGIN : 
-%          \item DATA LINK : Some quantities come with links to external data referenced by WEB endpoints.
-%                Such links are considered as object properties for which the model provides 
-%                an accurate way to specify the nature of these links. 
-%                Usually object links are provided by DataLink services, 
-%                then this MANGO feature is proposed to annotate datasets issued by services
-%       \end{itemize}   
-%    \item Multi-columns quantities
-%       \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-%          \item ERROR : Errors can have different shapes (symmetric values, correlation or covariance matrices, ellipses), 
-%                all with different confidence levels. Such complex quantities cannot be reconstructed from 
-%                simple field descriptions, but with a model that captures all the components
-%                and provides the missing metadata;
-%          \item QUANTITY CORRELATIONS : In some cases, quantities can be correlated. For example,
-%                the position of an object may depend on its proper motion. This kind of correlation can be revealed 
-%                with a model that can link data columns.
-%          \item EPOCH PROPAGATION:  This is probably the most important use case for MANGO. It consists of constructing 6 parameter 
-%                position vectors (position, proper motion, parallax and radial velocity), whose components are correlated and 
-%                valid for a given epoch. This feature is required to compare positions of high precision astrometry surveys such as GAIA.
-%       \end{itemize}   
-%    \item Connected quantities : There are several ways to link quantities. Quantities in the same table can be 
-%          such as values with their errors or with their associated probabilities. We can also join quantities from different
-%          tables, such as sources with their detections. Both patterns require a model to be properly exposed.
-%
-%\end{itemize}
 
 \begin{itemize}
     \item Supported quantities:
