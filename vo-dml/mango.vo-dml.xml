@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2024-10-10T16:47:26</lastModified>
+  <lastModified>2024-10-17T16:22:43</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -909,7 +909,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <name>parallax</name>
       <description>Parallax error. This error is meant to be symetrical.</description>
       <datatype>
-        <vodml-ref>mango:error.PropertyError1D</vodml-ref>
+        <vodml-ref>mango:error.Symmetric1D</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -921,7 +921,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <name>radialVelocity</name>
       <description>Error in the radial velocity. This error is meant to be symetrical.</description>
       <datatype>
-        <vodml-ref>mango:error.PropertyError1D</vodml-ref>
+        <vodml-ref>mango:error.Symmetric1D</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -1149,14 +1149,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </dataType>
 
     <dataType>
-      <vodml-id>error.PropertyError1D</vodml-id>
-      <name>PropertyError1D</name>
+      <vodml-id>error.Symmetric1D</vodml-id>
+      <name>Symmetric1D</name>
       <description>Symetrical error for 1D parameter.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.PropertyError1D.sigma</vodml-id>
+        <vodml-id>error.Symmetric1D.sigma</vodml-id>
         <name>sigma</name>
         <description>Error amplitude.</description>
         <datatype>
@@ -1317,6 +1317,45 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </description>
         <datatype>
           <vodml-ref>ivoa:real</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+    </dataType>
+
+    <dataType>
+      <vodml-id>error.Asymmetric1D</vodml-id>
+      <name>Asymmetric1D</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </extends>
+      <attribute>
+        <vodml-id>error.Asymmetric1D.high</vodml-id>
+        <name>high</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <attribute>
+        <vodml-id>error.Asymmetric1D.low</vodml-id>
+        <name>low</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>1</minOccurs>

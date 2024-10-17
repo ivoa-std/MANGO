@@ -35,17 +35,17 @@ Possible correlations between \texttt{EpochPosition} parameters are handle by th
    <ATTRIBUTE dmrole="mango:EpochPosition.pmCosLat_applied" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
    <INSTANCE dmrole="mango:EpochPosition.errors" dmtype="mango:EpochPositionErrors">
       <!-- Class holder for the errors of the EpochPosition attributes" -->
-      <INSTANCE dmrole="mango:EpochPositionErrors.parallax" dmtype="mango:error.PropertyError1D">
-         <!-- Symetrical error for 1D parameters" -->
+      <INSTANCE dmrole="mango:EpochPositionErrors.parallax" dmtype="mango:error.Symmetric1D">
+         <!-- Symetrical error for 1D parameter." -->
          <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
          <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:error.Symmetric1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
       </INSTANCE>
-      <INSTANCE dmrole="mango:EpochPositionErrors.radialVelocity" dmtype="mango:error.PropertyError1D">
-         <!-- Symetrical error for 1D parameters" -->
+      <INSTANCE dmrole="mango:EpochPositionErrors.radialVelocity" dmtype="mango:error.Symmetric1D">
+         <!-- Symetrical error for 1D parameter." -->
          <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
          <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:error.PropertyError1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
+         <ATTRIBUTE dmrole="mango:error.Symmetric1D.sigma" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
       </INSTANCE>
       <!-- Put here a concrete INSTANCE of error.PropertyError2D or left blank -->
       <INSTANCE dmrole="mango:EpochPositionErrors.position" dmtype="mango:error.PropertyError2D"/>

@@ -282,13 +282,13 @@
 
     \subsubsection{EpochPositionErrors.parallax}
       \textbf{vodml-id: EpochPositionErrors.parallax} \newline
-      \textbf{type: \hyperref[sect:error.PropertyError1D]{mango:error.PropertyError1D}} \newline
+      \textbf{type: \hyperref[sect:error.Symmetric1D]{mango:error.Symmetric1D}} \newline
       \textbf{multiplicity: 0..1} \newline
       Parallax error. This error is meant to be symmetrical in the current model version.
 
     \subsubsection{EpochPositionErrors.radialVelocity}
       \textbf{vodml-id: EpochPositionErrors.radialVelocity} \newline
-      \textbf{type: \hyperref[sect:error.PropertyError1D]{mango:error.PropertyError1D}} \newline
+      \textbf{type: \hyperref[sect:error.Symmetric1D]{mango:error.Symmetric1D}} \newline
       \textbf{multiplicity: 0..1} \newline
       Error in the radial velocity. This error is meant to be symmetrical in the current model version.
 
@@ -583,6 +583,22 @@
 
   The \texttt{error} package groups the MANGO built-in error classes. All these classes are derived from \texttt{meas:Uncertainty} to make them reusable by \texttt{meas:Measure} instances. Mango errors all have an attribute that specifies the confidence level
 
+  \subsection{Asymmetric1D}
+  \label{sect:error.Asymmetric1D}
+    Asymmetric error for 1D parameters
+
+    \subsubsection{Asymmetric1D.high}
+      \textbf{vodml-id: error.Asymmetric1D.high} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+      \textbf{multiplicity: 1} \newline
+      High limit for the asymmetric error for 1D parameters
+
+    \subsubsection{Asymmetric1D.low}
+      \textbf{vodml-id: error.Asymmetric1D.low} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+      \textbf{multiplicity: 1} \newline
+      Low limit for the asymmetric error for 1D parameters
+
   \subsection{Ellipse}
   \label{sect:error.Ellipse}
     Elliptic error for 2D parameters such as sky positions. Major axis and minor axis have their own units, which must be the same for both. This is not enforced by the model.
@@ -659,19 +675,19 @@
       \textbf{multiplicity: 1} \newline
       Confidence level of the error. The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).
 
-  \subsection{PropertyError1D}
-  \label{sect:error.PropertyError1D}
-    Symetrical error for 1D parameters
-
-    \subsubsection{PropertyError1D.sigma}
-      \textbf{vodml-id: error.PropertyError1D.sigma} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-      \textbf{multiplicity: 1} \newline
-      Magnitude of error on a one-dimensional parameter
-
   \subsection{PropertyError2D (Abstract)}
   \label{sect:error.PropertyError2D}
     Super (abstract) class for all errors of 2D parameters
+
+  \subsection{Symmetric1D}
+  \label{sect:error.Symmetric1D}
+    Symetrical error for 1D parameter.
+
+    \subsubsection{Symmetric1D.sigma}
+      \textbf{vodml-id: error.Symmetric1D.sigma} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+      \textbf{multiplicity: 1} \newline
+      Error amplitude.
 
 \pagebreak
 \section{Package: dataorigin }
