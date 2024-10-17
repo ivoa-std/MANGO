@@ -1114,7 +1114,7 @@ The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).</d
       <attribute>
         <vodml-id>error.Symmetric1D.sigma</vodml-id>
         <name>sigma</name>
-        <description>Magnitude of error on a one-dimensional parameter</description>
+        <description>Amplitude of the symmetric error on a one-dimensional parameter</description>
         <datatype>
           <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
