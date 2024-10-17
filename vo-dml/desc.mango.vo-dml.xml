@@ -1107,14 +1107,14 @@ The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).</d
     <dataType>
       <vodml-id>error.Symmetric1D</vodml-id>
       <name>Symmetric1D</name>
-      <description>Symetrical error for 1D parameter.</description>
+      <description>Symmetric error for 1D parameters</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
         <vodml-id>error.Symmetric1D.sigma</vodml-id>
         <name>sigma</name>
-        <description>Error amplitude.</description>
+        <description>Magnitude of error on a one-dimensional parameter</description>
         <datatype>
           <vodml-ref>ivoa:RealQuantity</vodml-ref>
         </datatype>
