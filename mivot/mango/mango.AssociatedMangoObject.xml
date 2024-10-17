@@ -1,0 +1,28 @@
+<INSTANCE dmrole="" dmtype="mango:AssociatedMangoObject">
+   <!-- This class gives the role of a link associating 2 \texttt{MangoObject} together." -->
+   <INSTANCE dmrole="mango:AssociatedMangoObject.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:AssociatedMangoObject.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:AssociatedMangoObject.mangoObject" dmtype="mango:MangoObject">
+      <!-- Central model class: applied to a data table, each row can be modelled as a \texttt{MangoObject} instance.
+Each \texttt{MangoObject} hosts a collection of physical or calculated parameters,
+a description of the data origin and an identifier." -->
+      <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <COLLECTION dmrole="mango:MangoObject.propertyDock">
+         <INSTANCE dmrole="" dmtype="mango:Property">
+            <!-- Class holder for a particular property, either physical or calculated, of the MANGO object.
+This class specifies both type and role of the  property, and hosts the property instance itself.
+" -->
+            <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+               <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+               <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+               <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+            </INSTANCE>
+            <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+         </INSTANCE>
+      </COLLECTION>
+   </INSTANCE>
+</INSTANCE>

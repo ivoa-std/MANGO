@@ -1,7 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:Shape">
-   <!-- Description of the spatial extension of the MANGO object (for e.g. dust clouds)" -->
-   <INSTANCE dmrole="mango:Property" dmtype="mango:Property"/>
-   <ATTRIBUTE dmrole="desc:Shape.shape" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <INSTANCE dmrole="desc:Shape.serialization" dmtype="mango:ShapeSerialization"/>
-   <INSTANCE dmrole="desc:Shape.spaceSys" dmtype="coords:SpaceSys"/>
-</INSTANCE>

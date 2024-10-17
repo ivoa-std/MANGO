@@ -1,9 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:PhotometricProperty">
-   <!-- Observed brightness of the \texttt{MangoObject}.
-The distinction between fluxes and magnitudes is made by the unit.
-This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1)." -->
-   <INSTANCE dmrole="mango:Property" dmtype="mango:Property"/>
-   <ATTRIBUTE dmrole="desc:PhotometricProperty.value" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <INSTANCE dmrole="desc:PhotometricProperty.error" dmtype="meas:Uncertainty"/>
-   <INSTANCE dmrole="desc:PhotometricProperty.photCal" dmtype="Phot:PhotCal"/>
-</INSTANCE>

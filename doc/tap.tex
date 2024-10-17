@@ -1,0 +1,56 @@
+This non-normative section describes potential strategies for
+storing and discovering MANGO instances within TAP services.
+We assume that the TAP service hosts catalogs whose data can be mapped to MANGO;
+such catalogs are designated as \emph{MANGO catalogues}.
+
+\subsection{Storing MANGO Catalogs in TAP}
+
+There are many ways to implement the mapping of TAP query responses on MANGO.
+This topic has been discussed in ADASS 2022 \citep{2024ASPC..535..259M}.
+
+In this section we assume that this mapping is done with MIVOT, which means that the server has to create an 
+XML block above the data that contains a model view bound with that queried data.
+
+The way to proceed is a design choice that can also be influenced by the TAP 
+framework currently in use (VOLLT, DaCHS, OpenCADC ...). 
+However, we can identify some features that need to be implemented in some way, 
+either by the developers or by the curators, to get the job done:
+
+\begin{enumerate}
+    \item A storage system that associates table columns with the attributes 
+          of the MANGO properties to which they can be mapped. 
+          This can be done by adding specific columns to the \texttt{TAP\_SCHEMA.columns} 
+          table or by using specific resources such as configuration files stored out of the TAP\_SCHEMA.
+          This binding must also support metadata that are possibly not in the TAP\_SCHEMA:
+          \begin{itemize}
+              \item Reference to the coordinate frame or the photometric systems
+              \item Missing metadata such as the semantics, the confidence levels or the data origin
+              \item Error classes (ellipse, matrix...)
+              \item Possible links binding MANGO properties together.
+          \end{itemize}
+     \item A module capable of providing the system with XML snippets corresponding to the MANGO 
+           properties to be stacked in the query response. These snippets can be 
+           dynamically generated from the VO-DML files or stored locally in individual files.
+     \item A connector to the ADQL parser that is capable of returning the table columns being queried.
+           This module must be able to distinguish between table columns and computed columns,
+           it must also be able to deal with column aliases.
+\end{enumerate}
+
+Once these are available, the mapper module can use 1) and 3) to get the properties to be included 
+in the response and 2) to build the mapping block. 
+
+\subsection{ \emph{MANGOCore} Table}
+
+MANGO could also be used as a convenient way to find out what properties are available for the tables being served,
+or which tables come with the desired properties (e.g. give me all tables with both proper motion and G magnitude).
+
+This could be achieved with a \emph{MANGOCore} table located in the \emph{ivoa} schema. 
+This table would have one rows per exposed table and one (or more) columns per exposed property.
+The fact that the MANGO properties are exposed as open collections complicated the definition 
+of the \emph{MANGOCore} table, and at some point it will be necessary to choose which property 
+to expose (or not) with this table.
+This \emph{MANGOCore} implementation topic is beyond the scope of the present document but the concept
+is another valuable use of MANGO.  
+
+
+

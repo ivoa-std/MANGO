@@ -1,7 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:StatusValues">
-   <!-- Class holder for the list of the allowed values for the status. 
-" -->
-   <COLLECTION dmrole="desc:StatusValues.values">
-      <INSTANCE dmrole="" dmtype="mango:StatusValue"/>
-   </COLLECTION>
-</INSTANCE>

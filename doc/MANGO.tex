@@ -162,274 +162,9 @@ UCD, VOUnits and Vocabularies are also re-used.
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
+But this is not sufficient for tables with more complex cases based on multi-parameter cases.
 
-The main purpose of MANGO is to add an upper description level to the tabular data of query responses.
-MANGO is not designed to replace the meta data already present in query responses, but on the contrary, to provide a model-aware layer with structured classes to interpret them and exploit them in client applications. 
-
-Uses-cases have been collected since 2019 from representatives of various astronomical 
-missions, archive designers and tools developers.
-The call for contribution was totally open. This gave a good picture of the needs but we do not pretend 
-that everything will be supported by this first version.
-All the use-cases summarized below are detailed in appendix.
-
-\subsubsection{GAIA}
-The GAIA mission is producing the largest and more precise 3D map of our galaxy.
-The GAIA Astrometric Core Solution is able to provide the astrometry of more than 1
-billion sources by complex models and algorithms \citep{2012A&A...538A..78L}.
-Using a minimization problem approach, different detections identified on
-different scans can be associated to the appropriate astronomical source. Some of the
-properties would be direct measurements on single scans (e.g. positions or
-magnitudes). Other properties like radial velocity (measured in redshift
-units) are also obtained at integration time of the scans.
-
-A non-exhaustive list of properties required for GAIA use cases would be composed
-of:
-
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item detection identifier
-    \item sky reference position
-    \item proper motion
-    \item parallax and distance
-
-    \item source extension
-    \item radial velocity
-    \item redshift
-    \item photometry
-    \item date of detection
-    \item correlation
-    \item multiple detection
-\end{itemize}
-
-\subsubsection{Euclid}
-The Euclid telescope has been designed to unveil some of the questions about the
-dark Universe, including dark matter and dark energy, what would include, f.i
-quite accurate measurements of the expansion of the Universe.
-
-Euclid will mainly observe extragalactic objects providing, f.i information
-about the shapes of galaxies, gravitational lensing, baryon acoustic oscillations
-and distances to galaxies using spectroscopic data.
-
-For this mission, and apart from the common metadata provided for extra galactic
-sources into astronomical catalogues, a good support for object taxonomy and
-shapes of objects will be required. As known due to general relativity effects,
-shapes of far galaxies could be deformed due to gravitational lensing effects,
-producing convergence (visual displacements on the position) and rear (deformation
-of the shape) effects. All these metadata should be ready for annotations and,
-also, correlated to theoretical or real metadata in other datasets.
-
-Finally, crossmatch information with other catalogues will be of crucial interest
-as data from other satellites and, more importantly, from ground based
-observatories will be combined with Euclid data to produce consistent scientific
-datasets.
-
-Typical features for objects entail: 
-
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item identifier
-    \item sky position
-    \item correlation with other catalogues
-    \item photometry (ground + satellite )
-    \item morphology class
-    \item redshift
-    \item photometric redshift
-\end{itemize}
-
-\subsubsection{Exoplanets}
-Annotation of (exo-)planetary records in catalogues requires some
-specific metadata or model.
-
-The use cases identified requires the following metadata:
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-	\item the degree of confidence in the detection: exoplanets candidates
-w.r.t. confirmed ones, plus last update of the record content ;
-	\item the method used in the discovery (since it affects the available
-stellar system description parameters);
-	\item a set of stellar host characteristics (besides sky coordinates):
-activity, mass, type,
-metallicity, age, some systemic values, like the global RV (radial
-velocity) of the system, and so on;
-	\item (exo-)planet parameters, like mass, orbital period, orbit's
-eccentricity, RV semi-amplitude, time at periastron (for RV detections)
-or central transit time (for transit method), longitude of periastron,
-and so on.
-\end{itemize}
- 
- 
-\subsubsection{Morphologically Complex Structures}
-The ViaLactea Knowledge Base (VLKB, see \cite{2016SPIE.9913E..0HM}) is a set of data
-resources and services built up to study the star formation regions and
-processes in the Milky Way. Besides 2-D images and 3-D radial velocity
-cubes, the VLKB exposes a bunch of source catalogues.
-A model that supports description of such catalogues will need a
-way to describe sources with:
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-	\item non-point-like positions;
-	\item extended complex area, possibly as multiple detached areas;
-	\item aggregation of sub-parts (that can be heterogeneous).
-\end{itemize}
-
-\subsubsection{Chandra Archive}
-The Chandra Source Catalog(CSC) is the definitive catalog of serendipitous X-ray sources identified in
-publicly released imaging observations obtained by NASA’s ChandraX-ray Observatory (CXO).
-
-The catalog itself consists of approximately 1,700 columns covering properties at the 
-individual observation and stacked analysis levels.
-Table \ref{tab:chandra_properties} summarizes some of the basic catalog properties derived
-from standard CSCView queries. 
-
-\begin{table}[ht!]
-  \tiny
-  \begin{tabular}{|p{0.4cm}p{10.0cm}|}
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Per Source:}} \\
-    & \texttt{ Source name } \\
-    & \texttt{ Source position and position errors } \\
-    & \texttt{ Significance of the source (signal to noise) } \\
-    & \texttt{ Likelihood of the source  (True, False, or Marginal detection) } \\
-    & \texttt{ Source extent flag } \\
-    & \texttt{ Variability flag } \\
-    & \texttt{ Spectral variability flag } \\
-    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
-    & \texttt{ Flux and flux error in  HRC band w } \\
-    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
-    & \texttt{ Short term (intra-obs) variability probability for each band } \\
-    & \texttt{ Long term (inter-obs) variability probability for each band } \\
-    & \texttt{ Spectral (hardness ratios) variability for each color } \\
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Per Detection (at the stack level):}} \\
-    & \texttt{ Detection ID } \\
-    & \texttt{ Detection position and position errors } \\
-    & \texttt{ Flux significance of the detection (S/N) } \\
-    & \texttt{ Detection likelihood (True, False, or marginal detection?) } \\
-    & \texttt{ Source extent code (codification of source extent in different bands) } \\
-    & \texttt{ Variability flag } \\
-    & \texttt{ Spectral variability flag } \\
-    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
-    & \texttt{ Flux and flux error in  HRC band w } \\
-    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
-    & \texttt{ Short term (intra-obs) variability probability for each band } \\
-    & \texttt{ Long term (inter-obs) variability probability for each band } \\
-    & \texttt{ Spectral (hardness ratios) variability probability for each color } \\
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Per Detection (at the observation level):}} \\
-    \multicolumn{2}{|l|}{ Note that source detection is done at the stack level, but properties are estimated for the } \\
-    \multicolumn{2}{|l|}{detections at each observation using the detection region from the stack level.} \\
-    & \texttt{ Detection ID } \\
-    & \texttt{ Detection position and position errors } \\
-    & \texttt{ Flux significance of the detection (S/N) } \\
-    & \texttt{ Detection likelihood } \\
-    & \texttt{ Source extent code (codification of source extent in different bands) } \\
-    & \texttt{ Variability code (applies to intra-obs only) } \\
-    & \texttt{ Fluxes and flux errors in ACIS bands b, h, m, s, u } \\
-    & \texttt{ Flux and flux error in  HRC band w } \\
-    & \texttt{ Hardness ratios and errors for hm, hs, ms colors } \\
-    & \texttt{ Short term (intra-obs) variability probability for each band } \\
-    \hline
-
-  \end{tabular}
-  \caption{ Example Chandra Source Catalog Properties }
-  \label{tab:chandra_properties}
- \end{table}
-
-
-\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item  Searching for spectrally variable or flaring point sources
-    \item Identifying flaring point sources
-    \item Find sources with changing properties: Look for sources with changes of spectral 
-          slope and column density between observations so as function of time;
-          this can easily be done across X-ray catalogs provided that the same spectral model (absorbed power-law) 
-          is used in the different catalogs. The changes in spectral slope and column density are measured 
-          in sigma using the errors as well on each quantity to evaluate the statistical significance of the changes. 
-    \item Finding Tidal Disruption Events in the CSC
-    \item Quick, rough identification of AGN, galaxies, and stars
-    \item Follow-up research
-    \item Spectral decomposition of X-ray sources 
-    \item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI) \item Using CSC 2.0 data to create Color-Color-Intensity plots(CCI)     
-
-\end{enumerate}
-
-These science usecases are detailed \ref{sec:chandra}.
-
-\subsubsection{Vizier catalog archive}
-VizieR provides science ready catalogs coming from space agencies or articles from the astronomical journals, covering number of different science cases.
-Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.)
-depending on their origin.
-They can result from  observations, simulations, models or catalog compilations.
-Individual Vizier tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
-
-The MANGO model must be able to provide a standard representation of most of the metadata contained 
-in Vizier query responses, either native or computed by the CDS, and organized either as 
-simple quantities or as associated complex data.
-MANGO is not meant to replace the current management of the ViZier metadata, but rather 
-to make those understandable/interoperable for a wide panel of VO-compliant clients.
-
-\subsubsection{Client (on Mark Taylor behalf)}
-Right now, the meta-data provided within the VOTable allow client software such Aladin or Topcat to run most 
-of the functionalities expected by the user, either for data analysis or plotting.
-This information is often inferred from UCDs, UTypes or column names. It can also be given by the user.
-Client applications do not require working with full model instances but in some cases models 
-can make it explicit how quantities in an input table relate to each other.
-
-Most cases are oriented towards interpretation of columns for visualization, e.g.:
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item what is the sky position for this row
-    (what columns contain latitude and longitude, and what sky system are they in)
-
-     \item what +/-ERR error bars should I plot for these points
-    (what column is a simple error for column A)
-
-    \item what error ellipses should I plot for these sky positions
-    (what columns provide ra\_error, dec\_error, ra\_dec\_corr,
-     or how can I derive those from columns that do exist)
-
-    \item where do I get the grid information for a column containing
-    a vector of samples so I can label the X axis of a spectrogram
-    (what column or parameter contains an axis vector matching
-     the sample vectors)
-
-    \item does this table contain sky positions, or HEALPix tiles, or both?
-    What's the best way to represent it on the sky?
-
-    \item what is the meaning of such URL found out in a table?s
-\end{itemize}
-
-But there are some other cases like:
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-    \item how do I propagate this sky position to a future epoch
-    (what columns contain pmra, pmdec, and maybe all the
-     associated errors and correlation coefficients)
-
-    \item what is the error ellipse/oid to use for a sky/Cartesian crossmatch
-    (what columns provide the relevant errors and, if available,
-     correlations)
-\end{itemize}
-
-This usage shows that MANGO must be designed in a way that individual measurements or quantities
-can easily be identified as such and manipulated independently of the whole instance.
-
-This document does not recommend one approach over another.
-This is a matter for the data providers to decide.
-
-\subsubsection{Xmatch tool }
-The basic cross-match of two astronomical tables consists in associating pairs of sources -- one 
-from each table -- fulfilling a given angular distance based criterion.
-%In relational algebra terms, it is a theta-join on a distance predicate.
-
-More generally, a cross-match is the association of sources from different tables given their 
-proximity in an astrometric (but also possibly photometric, statistical, ...) parameter
-space \citep{2017A&A...597A..89P} .
-
-If proper motions (plus parallax and radial velocities) are available, the cross-match tool 
-may propagate the positions of each table to a common epoch.
-It may also take into account positional uncertainties to reject the statistically unlikely associations.
-
-In the latter case (cross-match between two tables taking into account positional errors),
-the tool needs to retrieve the errors associated to the each position in each table.
-
-UCDs may help in identifying the errors associated to a positional columns, 
-%as shown in table
-but this is not sufficient for tables with more complex cases based on multi-parameter cases.
-
+\input{usecases.tex}
 
 \subsection{Requirements}
 
@@ -437,43 +172,6 @@ From the above list of use-cases, we have identified 4 domains for which
 the model should provide added value: 1) nature of supported quantities 2) data description enhancement,
 3) description of quantities consisting of several columns and 4) connected quantities.
 
-%\begin{itemize}
-%    \item Supported properties:
-%        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-%          \item COORDINATE SYSTEM : attach a specific coordinate (or calibration) 
-%                system to mapped quantities. 
-%          \item SEMANTIC : Defining a semantic for mapped quantities adds a capability that is currently 
-%                missing from the VOTables schema. This also makes it possible to specify the role of quantities 
-%                that are present more than once, for example by distinguishing between a pointing direction 
-%                and the target position. 
-%          \item FLAG VALUE : Some quantities come with quality flags, the interpretation of which requires inference 
-%                to a free text description. The model can provide a straightforward way of telling the user 
-%                what the current value means.
-%          \item DATA ORIGIN : 
-%          \item DATA LINK : Some quantities come with links to external data referenced by WEB endpoints.
-%                Such links are considered as object properties for which the model provides 
-%                an accurate way to specify the nature of these links. 
-%                Usually object links are provided by DataLink services, 
-%                then this MANGO feature is proposed to annotate datasets issued by services
-%       \end{itemize}   
-%    \item Multi-columns quantities
-%       \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-%          \item ERROR : Errors can have different shapes (symmetric values, correlation or covariance matrices, ellipses), 
-%                all with different confidence levels. Such complex quantities cannot be reconstructed from 
-%                simple field descriptions, but with a model that captures all the components
-%                and provides the missing metadata;
-%          \item QUANTITY CORRELATIONS : In some cases, quantities can be correlated. For example,
-%                the position of an object may depend on its proper motion. This kind of correlation can be revealed 
-%                with a model that can link data columns.
-%          \item EPOCH PROPAGATION:  This is probably the most important use case for MANGO. It consists of constructing 6 parameter 
-%                position vectors (position, proper motion, parallax and radial velocity), whose components are correlated and 
-%                valid for a given epoch. This feature is required to compare positions of high precision astrometry surveys such as GAIA.
-%       \end{itemize}   
-%    \item Connected quantities : There are several ways to link quantities. Quantities in the same table can be 
-%          such as values with their errors or with their associated probabilities. We can also join quantities from different
-%          tables, such as sources with their detections. Both patterns require a model to be properly exposed.
-%
-%\end{itemize}
 
 \begin{itemize}
     \item Supported quantities:
@@ -534,51 +232,6 @@ the model should provide added value: 1) nature of supported quantities 2) data 
 \end{itemize}
 
 
-%\subsubsection{Properties and Associated Data}
-% From the use-cases description, several categories of features must provided or foreseen by the projects:
-% 
-% \begin{itemize}
-%     \item The source \emph{properties} astronomers will investigate for their science.
-%           They are measures provided as numerical values or classification tags exposed as
-%           numbers or simple strings. 
-%           Usually one measure corresponds to one individual column or one group of columns.
-%         
-%     \item MANGO objects can be linked to external data referenced by WEB endpoints.
-%          % Such links are considered as object properties for which the model provides 
-%           an accurate way to specify the nature of these links. 
-%           Usually object links are provided by DataLinks services,
-%           then this MANGO feature is proposed to annotate datasets issued by services
-%           that do not implement such services but provide URLs in their query responses.
-%           
-%     \item MANGO objects can be linked to other collections of MANGO objects,
-%           associating sources with their detections, for example.
-%  \end{itemize}
-  
-
-%\subsubsection{Supported Quantities}
-%\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-  %  \item MANGO must provide unique source identifiers.
-  %  \item MANGO must provide information about the source origin.
-  %  \item The number of parameters attached to a MANGO instance must be free.
-%\end{itemize}
-
-%\subsubsection{Properties}
-%
-%\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-%    \item MANGO must support explicit classes, native or imported from IVOA data-models, for the most used properties.
-%    \item MANGO must provide a generic way to support properties that do not enter the above category.
-%    \item MANGO object must support multiple instances of the same property class.
-%    \item The presence of any property in MANGO instances must be optional.
-%    \item MANGO must provide a way to identify the role of each property.
-%    \item MANGO must provide a way to identify the purpose of linked properties.
-%    \item  MANGO must provide a way to describe the meaning of flags or qualifiers.
-%    \item The role of each parameter should be machine-readable.
-%    \item It must be possible to group parameters in a free way.
-%          This allows for instance to tag properties with timestamps or flags.
-%    \item MANGO objects must support references to other MANGO objects.
-% \end{itemize}
-
-
 
 \section{Model Overview}
 
@@ -635,7 +288,8 @@ for the client to understand the actual nature of each property:
 
 \subsubsection{MANGO and MIVOT: Structuring Tabular Data}
 
-MANGO is primarily used to organise tabular data provided by TAP services \citep{2019ivoa.spec.0927D}.
+MANGO is primarily used to organise tabular data provided by TAP services \citep{2019ivoa.spec.0927D} 
+other DAL nodes (one of the reference implementation is based on a Vizier SCS).
 To achieve this, table rows must be linked to the model using MIVOT annotations.
 We propose two strategies for establishing this mapping:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
@@ -669,40 +323,9 @@ However, both options are based on the full-featured MANGO model.
 
 
 \section{Integrating MANGO with TAP Services}
+\input{tap.tex}
 
-This non-normative section describes potential strategies for
-storing and discovering MANGO instances within TAP services.
-We assume that the TAP service hosts catalogs containing MANGO instances,
-referred to as  \emph{MANGO Catalogs}.
-
-\subsection{Storing MANGO Catalogs in TAP}
-For now, we'll focus on storing the properties of MANGO instances. 
-
-The tabular structure of MANGO instances will be reflected in TAP services as three tables:
-
-\begin{itemize}
-  \item One single master table for catalogs, including various metadata beyond the scope of
-        MANGO and a unique identifier (primary key).
-  \item One master sources table for source instances, containing the catalog identifier
-        and a primary key that is more robust than the MANGO identifier.
-  \item Individual tables for each supported parameter, with a foreign key
-        linking to the master sources table.
-\end{itemize}
-
-While the measure model is hierarchical, it can be flattened into a single table,
-considering that the model structure can be retrieved using TAP\_SCHEMA.
-This schema necessitates server-side exploration of all parameter tables
-to retrieve complete MANGO instances.
-To speed-up this process, the \emph{MANGOCore} table can be utilised.
-
-\subsection{ \emph{MANGOCore} Table}
-
-The discovery of \emph{MANGO Catalogs} can be helped by a  \emph{MANGOCore} table located in the  \emph{schema} schema. As MANGO is not dedicated to any specific domain, we cannot define a set of core parameters, but parameters can be flagged as \emph{Core Parameter}.
-This selection is left at the discretion of the curator.
-The \emph{MANGOCore} table has set of columns per parameter class plus one for the catalog ID.
-It has one row per stored catalog. Each parameter has at least 2 columns: one with the UCD and one with the \emph{Core} flag. TBC
-
-
+\pagebreak
 \appendix
 
 % \section{Gaia}

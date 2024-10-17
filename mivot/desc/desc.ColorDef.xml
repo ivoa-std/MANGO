@@ -1,9 +1,0 @@
-<INSTANCE dmrole="" dmtype="desc:ColorDef">
-   <!-- Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio)
-and the filters on which the color is based. 
-In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} 
-with a square transfert function." -->
-   <INSTANCE dmrole="desc:ColorDef.definition" dmtype="mango:ColorDefinition"/>
-   <INSTANCE dmrole="desc:ColorDef.high" dmtype="Phot:PhotometryFilter"/>
-   <INSTANCE dmrole="desc:ColorDef.low" dmtype="Phot:PhotometryFilter"/>
-</INSTANCE>

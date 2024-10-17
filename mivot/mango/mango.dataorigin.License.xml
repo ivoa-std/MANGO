@@ -1,0 +1,5 @@
+<INSTANCE dmrole="" dmtype="mango:dataorigin.License">
+   <!-- Place holder for the license covering the MANGO instance" -->
+   <ATTRIBUTE dmrole="mango:dataorigin.License.rights_uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.License.rights" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>
