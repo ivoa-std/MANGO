@@ -78,15 +78,15 @@ of the various sections) to have the box centered.
   <rec name="VODML" x="512" y="195" w="46"/>
 <!--   <rec name="SimDM" x="473" y="230" w="44"/> -->
   <rec name="STC" x="580" y="255" w="30"/>
-  <rec name="CharDM" x="470.5" y="255" w="49"/>
-  <rec name="SSLDM" x="572.5" y="280" w="45"/>
-  <rec name="SpectralDM" x="461.5" y="280" w="67"/>
+<!--  <rec name="CharDM" x="470.5" y="255" w="49"/> -->  
+<!--   <rec name="SSLDM" x="572.5" y="280" w="45"/>-->  
+<!--   <rec name="SpectralDM" x="461.5" y="280" w="67"/>-->  
   <rec name="PhotDM" x="571" y="305" w="48"/>
   <rec name="Meas" x="456" y="305" w="35"/>
   <rec name="Coords" x="501" y="305" w="44"/>
-  <prerec name="Transform" x="465" y="330" w="60"/>
+<!--   <prerec name="Transform" x="465" y="330" w="60"/> -->
   <prerec name="DatasetDM" x="490" y="380" w="65"/>
-  <prerec name="CubeDM" x="497" y="405" w="51"/>
+<!--     <prerec name="CubeDM" x="497" y="405" w="51"/> -->
   <rec name="ProvDM" x="571" y="330" w="48"/>
 
   <!-- GWS: all over the place -->
