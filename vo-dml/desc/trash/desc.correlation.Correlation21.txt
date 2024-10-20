@@ -1,3 +1,0 @@
-Correlation of a 2D property (A) with a 1D parameter (B): 
-$A_1 = a11 * B$
-$A_2 = a21 * B$

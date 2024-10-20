@@ -1,1 +1,0 @@
-Abstract type for the correlation parameters of 2 quantities
