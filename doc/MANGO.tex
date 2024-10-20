@@ -236,11 +236,13 @@ the model should provide added value: 1) nature of supported quantities 2) data 
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{../model/overview.png}
      \caption{Model overview}
-     \label{overview}
+     \label{fig:overview}
 \end{figure}
 
-The root class of the model \texttt{MANGOObject} which has only
-one mandatory attribute, an \texttt{identifier}.
+Figure \ref{fig:overview} shows the general structure of the model.
+
+The root class is \texttt{MANGOObject}]. 
+It has only one mandatory attribute, an \texttt{identifier}.
 Identifiers should be unique within a collection, e.g. a data table, although 
 this feature is not required by the model.
 
@@ -265,6 +267,42 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
         \caption{MANGO Properties}
         \label{fig:property}
       \end{figure}
+
+\subsubsection{Supported Properties}
+
+\begin{table}[h!]
+\small
+\begin{center}
+\begin{tabular}{|| p{3.5cm} | p{3.5cm} |  p{3.5cm} ||} 
+ \hline\hline
+ \textbf{Property} & \textbf{Purpose} & \textbf{Example} \\ 
+  \hline\hline
+ \texttt{Status} & Attach explicit labels to flag values & Chandra detection flag  \\ 
+ \hline
+ \texttt{Label} & Attach semantics to text label & Object name \\
+ \hline
+ \texttt{PhysicalProperty} & Hook for \texttt{Measure} classes & Model a columns as a time stamp \\
+ \hline
+ \texttt{Shape} & String serialization of shapes & Sky Coverage of a dust cloud \\
+ \hline
+ \texttt{EpochPosition} & Grouping of position with velocity and time & Parameters to solve the epoch propagation case\\  
+ \hline
+ \texttt{PhotometricProperty} & Flux or Magnitude & many \\ 
+ \hline
+ \texttt{Color} & Hardness ratio or magnitude ratio & many  \\ [1ex] 
+ \hline
+ \texttt{DataLink} & Flat representation of DataLink responses & Links to associated data given as column values\\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Properties supported by MANGO.}
+\label{table:properties}
+\end{center}
+ \end{table}
+This initial release supports a limited list of properties, listed in table \ref{table:properties}, that address the most common use cases.
+
+
+
+All of these components are described in alphabetical order in the next section.
 
 \subsubsection{Property Identification}
 Since the set of properties associated with a particular instance is not defined by the model,
@@ -295,6 +333,8 @@ We propose two strategies for establishing this mapping:
           with its properties grouped within a container or dock.
     \item Scattered Independent Quantities: Each table row is considered as a collection of independent quantities.
 \end{itemize}
+
+\hfill \break
 
 MIVOT annotations support both approaches:
 

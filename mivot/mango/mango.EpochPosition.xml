@@ -1,5 +1,5 @@
 <INSTANCE dmrole="" dmtype="mango:EpochPosition">
-   <!-- This class is a view of \texttt{Astronomical Coordinates and Coordinate
+   <!-- This class (fig \ref{fig:EpochPosition}) is a view of \texttt{Astronomical Coordinates and Coordinate
 Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description 
 of the position of an object moving over time. 
 It consists of a celestial position, a proper motion, a radial velocity 

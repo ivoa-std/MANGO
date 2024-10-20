@@ -701,7 +701,7 @@ This constraint is not enforced by the model.</description>
   <objectType>
     <vodml-id>EpochPosition</vodml-id>
     <name>EpochPosition</name>
-    <description>This class is a view of \texttt{Astronomical Coordinates and Coordinate
+    <description>This class (fig \ref{fig:EpochPosition}) is a view of \texttt{Astronomical Coordinates and Coordinate
 Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description 
 of the position of an object moving over time. 
 It consists of a celestial position, a proper motion, a radial velocity 
@@ -1076,7 +1076,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
   <package>
     <vodml-id>error</vodml-id>
     <name>error</name>
-    <description>The \texttt{error} package groups the MANGO built-in error classes. 
+    <description>The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. 
 All these classes are derived from \texttt{meas:Uncertainty} to make
 them reusable by \texttt{meas:Measure} instances. Mango errors all 
 have an attribute that specifies the confidence level</description>
@@ -1316,7 +1316,7 @@ The correlation matrix is symmetrical.
   <package>
     <vodml-id>dataorigin</vodml-id>
     <name>dataorigin</name>
-    <description>Package grouping together all the components needed to model the origin of \texttt{MangoObject}.</description>
+    <description>Package grouping together all the components needed to model the origin of \texttt{MangoObject} (fig \ref{fig:dataorigin}).</description>
     <objectType>
       <vodml-id>dataorigin.DataOrigin</vodml-id>
       <name>DataOrigin</name>

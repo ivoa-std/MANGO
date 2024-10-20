@@ -132,7 +132,7 @@
 
     
   \label{sect:EpochPosition}
-    This class is a view of \texttt{Astronomical Coordinates and Coordinate Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The \texttt{EpochPosition} error is modeled by specific classes supporting covariance and/or correlation between components. All individual components have their own units which must be consistent to each others. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handle by the \texttt{EpochPositionCorrelation} class.
+    This class (fig \ref{fig:EpochPosition}) is a view of \texttt{Astronomical Coordinates and Coordinate Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax. All components share the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} The \texttt{EpochPosition} error is modeled by specific classes supporting covariance and/or correlation between components. All individual components have their own units which must be consistent to each others. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handle by the \texttt{EpochPositionCorrelation} class.
 
     \subsubsection{EpochPosition.longitude}
       \textbf{vodml-id: EpochPosition.longitude} \newline
@@ -581,7 +581,7 @@
   %\end{center}
   %\end{figure}
 
-  The \texttt{error} package groups the MANGO built-in error classes. All these classes are derived from \texttt{meas:Uncertainty} to make them reusable by \texttt{meas:Measure} instances. Mango errors all have an attribute that specifies the confidence level
+  The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. All these classes are derived from \texttt{meas:Uncertainty} to make them reusable by \texttt{meas:Measure} instances. Mango errors all have an attribute that specifies the confidence level
 
   \subsection{Asymmetric1D}
   \label{sect:error.Asymmetric1D}
@@ -707,7 +707,7 @@
   %\end{center}
   %\end{figure}
 
-  Package grouping together all the components needed to model the origin of \texttt{MangoObject}.
+  Package grouping together all the components needed to model the origin of \texttt{MangoObject} (fig \ref{fig:dataorigin}).
 
   \subsection{Article}
   \label{sect:dataorigin.Article}
