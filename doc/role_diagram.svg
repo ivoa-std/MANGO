@@ -80,15 +80,15 @@
   <svg x="512" y="195"><rect height="18" x="0" y="0" width="46" class="rec"/><text class="doclabel" y="12.5" x="23">VODML</text></svg>
 
   <svg x="580" y="255"><rect height="18" x="0" y="0" width="30" class="rec"/><text class="doclabel" y="12.5" x="15">STC</text></svg>
-  <svg x="470.5" y="255"><rect height="18" x="0" y="0" width="49" class="rec"/><text class="doclabel" y="12.5" x="24.5">CharDM</text></svg>
-  <svg x="572.5" y="280"><rect height="18" x="0" y="0" width="45" class="rec"/><text class="doclabel" y="12.5" x="22.5">SSLDM</text></svg>
-  <svg x="461.5" y="280"><rect height="18" x="0" y="0" width="67" class="rec"/><text class="doclabel" y="12.5" x="33.5">SpectralDM</text></svg>
+  
+  
+  
   <svg x="571" y="305"><rect height="18" x="0" y="0" width="48" class="rec"/><text class="doclabel" y="12.5" x="24">PhotDM</text></svg>
   <svg x="456" y="305"><rect height="18" x="0" y="0" width="35" class="rec"/><text class="doclabel" y="12.5" x="17.5">Meas</text></svg>
   <svg x="501" y="305"><rect height="18" x="0" y="0" width="44" class="rec"/><text class="doclabel" y="12.5" x="22">Coords</text></svg>
-  <svg x="465" y="330"><rect height="18" x="0" y="0" width="60" class="prerec"/><text class="doclabel" y="12.5" x="30">Transform</text></svg>
+
   <svg x="490" y="380"><rect height="18" x="0" y="0" width="65" class="prerec"/><text class="doclabel" y="12.5" x="32.5">DatasetDM</text></svg>
-  <svg x="497" y="405"><rect height="18" x="0" y="0" width="51" class="prerec"/><text class="doclabel" y="12.5" x="25.5">CubeDM</text></svg>
+
   <svg x="571" y="330"><rect height="18" x="0" y="0" width="48" class="rec"/><text class="doclabel" y="12.5" x="24">ProvDM</text></svg>
 
   
