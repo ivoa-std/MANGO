@@ -141,7 +141,7 @@ components from VO existing models embedded on demand in a container.
 
 MANGO is not designed to describe what a source is but to help clients to discover and to understand
 the features (i.e quantities) available for a particular source instance.
-VOTable data mapped on MANGO with MIVOT (2023ivoa.spec.0620M) annotations can be consumed on a feature basis 
+VOTable data mapped on MANGO with MIVOT \citep{2023ivoa.spec.0620M} annotations can be consumed on a feature basis 
 instead of column per column.
 The way complex quantities are built is described by MANGO but no longer by the client applications.
 
@@ -162,6 +162,7 @@ UCD, VOUnits and Vocabularies are also re-used.
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
+
 \input{usecases.tex}
 
 \subsection{Requirements}
@@ -239,6 +240,7 @@ the model should provide added value: 1) nature of supported quantities 2) data 
      \label{overview}
 \end{figure}
 
+
 The root class of the model \texttt{MANGOObject} which has only
 one mandatory attribute, an \texttt{identifier}.
 Identifiers should be unique within a collection, e.g. a data table, although 
@@ -250,7 +252,7 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
 
   \item \texttt{dataOrigin} (origin of the \texttt{MANGOObject}) : The structure of this class is based on
         the recommendations of the DCP interest group \footnote{https://ivoa.net/documents/DataOrigin/index.html}.
-  \item \texttt{popertyDock} (place holder for all the \texttt{MANGOObject} properties) :
+  \item \texttt{propertyDock} (place holder for all the \texttt{MANGOObject} properties) :
         This is an open-ended collection.
         Mango properties inherit from the base class \texttt{Property},
         which contains everything necessary to identify both their nature and their role.
@@ -317,6 +319,14 @@ This document does not favour one approach over the other.
 The decision ultimately rests with the data providers.
 However, both options are based on the full-featured MANGO model.
 
+\section{Model: mango in details} 
+  The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin of the data.
+Here is an overview of the data model organization. 
+
+\subsection{Building blocks}
+  \input{model_principles_head.tex}
+
+\subsection{Model Dictionnary}
 \input{model.tex}
 
 
