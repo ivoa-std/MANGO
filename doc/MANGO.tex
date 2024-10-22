@@ -141,7 +141,7 @@ components from VO existing models embedded on demand in a container.
 
 MANGO is not designed to describe what a source is but to help clients to discover and to understand
 the features (i.e quantities) available for a particular source instance.
-VOTable data mapped on MANGO with MIVOT (2023ivoa.spec.0620M) annotations can be consumed on a feature basis 
+VOTable data mapped on MANGO with MIVOT \citep{2023ivoa.spec.0620M} annotations can be consumed on a feature basis 
 instead of column per column.
 The way complex quantities are built is described by MANGO but no longer by the client applications.
 
@@ -162,6 +162,7 @@ UCD, VOUnits and Vocabularies are also re-used.
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
+
 \input{usecases.tex}
 
 \subsection{Requirements}
@@ -236,13 +237,12 @@ the model should provide added value: 1) nature of supported quantities 2) data 
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{../model/overview.png}
      \caption{Model overview}
-     \label{fig:overview}
+     \label{overview}
 \end{figure}
 
-Figure \ref{fig:overview} shows the general structure of the model.
 
-The root class is \texttt{MANGOObject}]. 
-It has only one mandatory attribute, an \texttt{identifier}.
+The root class of the model \texttt{MANGOObject} which has only
+one mandatory attribute, an \texttt{identifier}.
 Identifiers should be unique within a collection, e.g. a data table, although 
 this feature is not required by the model.
 
@@ -252,7 +252,7 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
 
   \item \texttt{dataOrigin} (origin of the \texttt{MANGOObject}) : The structure of this class is based on
         the recommendations of the DCP interest group \footnote{https://ivoa.net/documents/DataOrigin/index.html}.
-  \item \texttt{popertyDock} (place holder for all the \texttt{MANGOObject} properties) :
+  \item \texttt{propertyDock} (place holder for all the \texttt{MANGOObject} properties) :
         This is an open-ended collection.
         Mango properties inherit from the base class \texttt{Property},
         which contains everything necessary to identify both their nature and their role.
@@ -267,42 +267,6 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
         \caption{MANGO Properties}
         \label{fig:property}
       \end{figure}
-
-\subsubsection{Supported Properties}
-
-\begin{table}[h!]
-\small
-\begin{center}
-\begin{tabular}{|| p{3.5cm} | p{3.5cm} |  p{3.5cm} ||} 
- \hline\hline
- \textbf{Property} & \textbf{Purpose} & \textbf{Example} \\ 
-  \hline\hline
- \texttt{Status} & Attach explicit labels to flag values & Chandra detection flag  \\ 
- \hline
- \texttt{Label} & Attach semantics to text label & Object name \\
- \hline
- \texttt{PhysicalProperty} & Hook for \texttt{Measure} classes & Model a columns as a time stamp \\
- \hline
- \texttt{Shape} & String serialization of shapes & Sky Coverage of a dust cloud \\
- \hline
- \texttt{EpochPosition} & Grouping of position with velocity and time & Parameters to solve the epoch propagation case\\  
- \hline
- \texttt{PhotometricProperty} & Flux or Magnitude & many \\ 
- \hline
- \texttt{Color} & Hardness ratio or magnitude ratio & many  \\ [1ex] 
- \hline
- \texttt{DataLink} & Flat representation of DataLink responses & Links to associated data given as column values\\ [1ex] 
- \hline
-\end{tabular}
-\caption{Properties supported by MANGO.}
-\label{table:properties}
-\end{center}
- \end{table}
-This initial release supports a limited list of properties, listed in table \ref{table:properties}, that address the most common use cases.
-
-
-
-All of these components are described in alphabetical order in the next section.
 
 \subsubsection{Property Identification}
 Since the set of properties associated with a particular instance is not defined by the model,
@@ -334,8 +298,6 @@ We propose two strategies for establishing this mapping:
     \item Scattered Independent Quantities: Each table row is considered as a collection of independent quantities.
 \end{itemize}
 
-\hfill \break
-
 MIVOT annotations support both approaches:
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
@@ -357,6 +319,14 @@ This document does not favour one approach over the other.
 The decision ultimately rests with the data providers.
 However, both options are based on the full-featured MANGO model.
 
+\section{Model: mango in details} 
+%  The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin of the data.
+%Here is an overview of the data model organization. 
+
+%\subsection{Building blocks}
+%  \input{model_principles_head.tex}
+%
+%\subsection{Model Dictionnary}
 \input{model.tex}
 
 
