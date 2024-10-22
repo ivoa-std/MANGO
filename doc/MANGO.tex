@@ -216,7 +216,7 @@ the model should provide added value: 1) nature of supported quantities 2) data 
                 the position of an object may depend on its proper motion. This kind of correlation can be revealed 
                 with a model that can link data columns.
           \item MANGO must provide an accurate description of the epoch propagation. 
-                This is probably the most important use case for MANGO. It consists in constructing 6 parameter     		position vectors (position, proper motion, parallax and radial velocity), whose components are 			correlated and valid for a given epoch. 
+                This is probably the most important use case for MANGO. It consists in constructing 6 parameter     		position vectors (position, proper motion, parallax and radial velocity), whose components are correlated and valid for a given epoch. 
                 This feature is required to compare positions given by surveys with high astrometry accuracy such as GAIA.
        \end{itemize} 
          
@@ -321,12 +321,15 @@ However, both options are based on the full-featured MANGO model.
 
 \section{Model: mango in details} 
   The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin of the data.
-Here is an overview of the data model organization. 
+%Here is an overview of the data model organization. 
 
-\subsection{Building blocks}
-  \input{model_principles_head.tex}
+%\subsection{Building blocks}
+%  \input{model_principles_head.tex}
 
 \subsection{Model Dictionnary}
+% this section is automatically generated from the MANGO DM representtaion in VO-DML. 
+%it should not be edited in latex 
+
 \input{model.tex}
 
 
