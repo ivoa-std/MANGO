@@ -19,17 +19,17 @@
     \textbf{multiplicity: 0..*} \newline
     Contains the open-ended collection of the \texttt{MangoObject} properties (physical, calculated or assigned).
 
-    \subsubsection{MangoObject.dataOrigin}
-    \textbf{vodml-id: MangoObject.dataOrigin} \newline
-    \textbf{type: \hyperref[sect:dataorigin.DataOrigin]{mango:dataorigin.DataOrigin}} \newline
-    \textbf{multiplicity: 0..1} \newline
-    Reference to the description of the origin of the \texttt{MangoObject}.
-
     \subsubsection{MangoObject.associatedMangoObjects}
     \textbf{vodml-id: MangoObject.associatedMangoObjects} \newline
     \textbf{type: \hyperref[sect:AssociatedMangoObject]{mango:AssociatedMangoObject}} \newline
     \textbf{multiplicity: 0..*} \newline
     Abstract reference to a particular dataset associated to the MANGO entity. This class is used to specify the type of the associated dataset as well as its role.
+
+    \subsubsection{MangoObject.queryOrigin}
+    \textbf{vodml-id: MangoObject.queryOrigin} \newline
+    \textbf{type: \hyperref[sect:dataorigin.QueryOrigin]{mango:dataorigin.QueryOrigin}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Reference to the description of the origin of the \texttt{MangoObject}.
 
   \subsection{AssociatedMangoObject}
     \label{sect:AssociatedMangoObject}
@@ -268,7 +268,7 @@ In addition to the 6 sky position parameters, it also models their correlation a
     \textbf{vodml-id: EpochPositionErrors.properMotion} \newline
     \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
     \textbf{multiplicity: 1} \newline
-    Proper motion error; can be an ellipse or a matrix.
+    Proper motion error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
 
     \subsubsection{EpochPositionErrors.Position}
     \textbf{vodml-id: EpochPositionErrors.Position} \newline
@@ -361,7 +361,7 @@ host objects imported from the \texttt{Measurements} data model.
 
     \subsubsection{PhysicalProperty.calibrationLevel}
     \textbf{vodml-id: PhysicalProperty.calibrationLevel} \newline
-    \textbf{type: } \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Calibration level of the property as defined in \url{https://www.ivoa.net/rdf/processing-level/2024-11-12/processing-level.html}
 
@@ -569,7 +569,7 @@ host objects imported from the \texttt{Measurements} data model.
     \textbf{vodml-id: error.Ellipse.angle} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    Angle between the North Polar Cape (NCP) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit.
+    In theory, this is the angle between the North Polar Cape (NPC) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit. In practice, the angle definition is this used by the mapped data set. It is usually the angle between the major axis and the north axis (negative along of the clockwise direction).
 
   \subsection{Symmetrical2D}
     \label{sect:error.Symmetrical2D}
@@ -615,11 +615,11 @@ host objects imported from the \texttt{Measurements} data model.
     \label{sect:dataorigin.DataOrigin}
     Class representing the origin of the data following the DCP note
 
-    \subsubsection{DataOrigin.citation}
-    \textbf{vodml-id: dataorigin.DataOrigin.citation} \newline
+    \subsubsection{DataOrigin.ivoid}
+    \textbf{vodml-id: dataorigin.DataOrigin.ivoid} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
-    Dataset identifier that can be used for citation (e.g. DOI)
+    IVOID of the underlying data collection
 
     \subsubsection{DataOrigin.reference\_url}
     \textbf{vodml-id: dataorigin.DataOrigin.reference\_url} \newline
@@ -633,10 +633,10 @@ host objects imported from the \texttt{Measurements} data model.
     \textbf{multiplicity: 1} \newline
     Dataset version
 
-    \subsubsection{DataOrigin.creator}
-    \textbf{vodml-id: dataorigin.DataOrigin.creator} \newline
+    \subsubsection{DataOrigin.creators}
+    \textbf{vodml-id: dataorigin.DataOrigin.creators} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
+    \textbf{multiplicity: 0..*} \newline
     Person(s) mainly involved in the creation of the resource, generally the author
 
     \subsubsection{DataOrigin.cites}
@@ -648,32 +648,26 @@ host objects imported from the \texttt{Measurements} data model.
     \subsubsection{DataOrigin.is\_derived\_from}
     \textbf{vodml-id: dataorigin.DataOrigin.is\_derived\_from} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    Identifier (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is\_derived\_from} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
+    \textbf{multiplicity: 0..*} \newline
+    Identifiers (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is\_derived\_from} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
 
     \subsubsection{DataOrigin.original\_date}
     \textbf{vodml-id: dataorigin.DataOrigin.original\_date} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Date of the original resource from which the MANGO object is derived
-
-    \subsubsection{DataOrigin.query}
-    \textbf{vodml-id: dataorigin.DataOrigin.query} \newline
-    \textbf{type: \hyperref[sect:dataorigin.QueryOrigin]{mango:dataorigin.QueryOrigin}} \newline
-    \textbf{multiplicity: 0..1} \newline
-    Description of the request from which the data originates.
-
-    \subsubsection{DataOrigin.rights}
-    \textbf{vodml-id: dataorigin.DataOrigin.rights} \newline
-    \textbf{type: \hyperref[sect:dataorigin.License]{mango:dataorigin.License}} \newline
-    \textbf{multiplicity: 0..1} \newline
-    Reference to the rights that apply to the data.
 
     \subsubsection{DataOrigin.article}
     \textbf{vodml-id: dataorigin.DataOrigin.article} \newline
     \textbf{type: \hyperref[sect:dataorigin.Article]{mango:dataorigin.Article}} \newline
     \textbf{multiplicity: 0..1} \newline
     Reference to the article from which the data originates.
+
+    \subsubsection{DataOrigin.license}
+    \textbf{vodml-id: dataorigin.DataOrigin.license} \newline
+    \textbf{type: \hyperref[sect:dataorigin.License]{mango:dataorigin.License}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    TODO : Missing description : please, update your UML model asap.
 
   \subsection{License}
     \label{sect:dataorigin.License}
@@ -695,12 +689,6 @@ host objects imported from the \texttt{Measurements} data model.
     \label{sect:dataorigin.QueryOrigin}
     Description of the query the MANGO instance results from.
 
-    \subsubsection{QueryOrigin.ivoid}
-    \textbf{vodml-id: dataorigin.QueryOrigin.ivoid} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    IVOID of the underlying data collection
-
     \subsubsection{QueryOrigin.publisher}
     \textbf{vodml-id: dataorigin.QueryOrigin.publisher} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
@@ -710,7 +698,7 @@ host objects imported from the \texttt{Measurements} data model.
     \subsubsection{QueryOrigin.server\_software}
     \textbf{vodml-id: dataorigin.QueryOrigin.server\_software} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
+    \textbf{multiplicity: 0..1} \newline
     Version of the software the produced the MANGO object instance. It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.
 
     \subsubsection{QueryOrigin.service\_protocol}
@@ -725,21 +713,27 @@ host objects imported from the \texttt{Measurements} data model.
     \textbf{multiplicity: 1} \newline
     Full request URL including a query string. For the simple protocols,put the url-encoded form of the query parameters. For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format is free for others request types.
 
+    \subsubsection{QueryOrigin.request\_date}
+    \textbf{vodml-id: dataorigin.QueryOrigin.request\_date} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Query execution date
+
     \subsubsection{QueryOrigin.query}
     \textbf{vodml-id: dataorigin.QueryOrigin.query} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Input query in a formal langage such as ADQL.equest types \citep{2023ivoa.spec.1215M}
 
-    \subsubsection{QueryOrigin.request\_date}
-    \textbf{vodml-id: dataorigin.QueryOrigin.request\_date} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
-    \textbf{multiplicity: 1} \newline
-    Query execution date
-
     \subsubsection{QueryOrigin.contact}
     \textbf{vodml-id: dataorigin.QueryOrigin.contact} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Email or URL to contact the publisher
+
+    \subsubsection{QueryOrigin.dataOrigin}
+    \textbf{vodml-id: dataorigin.QueryOrigin.dataOrigin} \newline
+    \textbf{type: \hyperref[sect:dataorigin.DataOrigin]{mango:dataorigin.DataOrigin}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Description of the request from which the data originates.
 
