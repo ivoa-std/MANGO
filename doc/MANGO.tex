@@ -141,7 +141,7 @@ components from VO existing models embedded on demand in a container.
 
 MANGO is not designed to describe what a source is but to help clients to discover and to understand
 the features (i.e quantities) available for a particular source instance.
-VOTable data mapped on MANGO with MIVOT (2023ivoa.spec.0620M) annotations can be consumed on a feature basis 
+VOTable data mapped on MANGO with MIVOT \citep{2023ivoa.spec.0620M} annotations can be consumed on a feature basis 
 instead of column per column.
 The way complex quantities are built is described by MANGO but no longer by the client applications.
 
@@ -162,6 +162,7 @@ UCD, VOUnits and Vocabularies are also re-used.
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
 
 \subsection{Use Cases}
+
 \input{usecases.tex}
 
 \subsection{Requirements}
@@ -215,7 +216,9 @@ the model should provide added value: 1) nature of supported quantities 2) data 
                 the position of an object may depend on its proper motion. This kind of correlation can be revealed 
                 with a model that can link data columns.
           \item MANGO must provide an accurate description of the epoch propagation. 
-                This is probably the most important use case for MANGO. It consists in constructing 6 parameter     		position vectors (position, proper motion, parallax and radial velocity), whose components are 			correlated and valid for a given epoch. 
+                This is probably the most important use case for MANGO. It consists in constructing 6 parameter 
+                position vectors (position, proper motion, parallax and radial velocity), whose components are 			
+                correlated and valid for a given epoch. 
                 This feature is required to compare positions given by surveys with high astrometry accuracy such as GAIA.
        \end{itemize} 
          
@@ -236,13 +239,12 @@ the model should provide added value: 1) nature of supported quantities 2) data 
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{../model/overview.png}
      \caption{Model overview}
-     \label{fig:overview}
+     \label{overview}
 \end{figure}
 
-Figure \ref{fig:overview} shows the general structure of the model.
 
-The root class is \texttt{MANGOObject}]. 
-It has only one mandatory attribute, an \texttt{identifier}.
+The root class of the model \texttt{MANGOObject} which has only
+one mandatory attribute, an \texttt{identifier}.
 Identifiers should be unique within a collection, e.g. a data table, although 
 this feature is not required by the model.
 
@@ -252,7 +254,7 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
 
   \item \texttt{dataOrigin} (origin of the \texttt{MANGOObject}) : The structure of this class is based on
         the recommendations of the DCP interest group \footnote{https://ivoa.net/documents/DataOrigin/index.html}.
-  \item \texttt{popertyDock} (place holder for all the \texttt{MANGOObject} properties) :
+  \item \texttt{propertyDock} (place holder for all the \texttt{MANGOObject} properties) :
         This is an open-ended collection.
         Mango properties inherit from the base class \texttt{Property},
         which contains everything necessary to identify both their nature and their role.
@@ -267,8 +269,7 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
         \caption{MANGO Properties}
         \label{fig:property}
       \end{figure}
-
-\subsubsection{Supported Properties}
+      \subsubsection{Supported Properties}
 
 \begin{table}[h!]
 \small
@@ -300,9 +301,8 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
  \end{table}
 This initial release supports a limited list of property types, listed in table \ref{table:properties}, that address the most common use cases.
 
+All of these components are described in alphabetical order in the next section. 
 
-
-All of these components are described in alphabetical order in the next section.
 
 \subsubsection{Property Identification}
 Since the set of properties associated with a particular instance is not defined by the model,
@@ -333,7 +333,6 @@ We propose two strategies for establishing this mapping:
           with its properties grouped within a container or dock.
     \item Scattered Independent Quantities: Each table row is considered as a collection of independent quantities.
 \end{itemize}
-
 \hfill \break
 
 MIVOT annotations support both approaches:
@@ -359,7 +358,6 @@ However, both options are based on the full-featured MANGO model.
 
 %\input{model.tex}
 \input{model_toc.tex}
-
 
 \section{Integrating MANGO with TAP Services}
 \input{tap.tex}
