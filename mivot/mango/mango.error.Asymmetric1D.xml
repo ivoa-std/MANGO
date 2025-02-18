@@ -1,8 +1,0 @@
-<INSTANCE dmrole="" dmtype="mango:error.Asymmetric1D">
-   <!-- Asymmetric error for 1D parameters" -->
-   <INSTANCE dmrole="meas:Uncertainty" dmtype="meas:Uncertainty"/>
-   <ATTRIBUTE dmrole="mango:error.PropertyError.confidenceLevel" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.PropertyError.distribution" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.Asymmetric1D.high" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:error.Asymmetric1D.low" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-</INSTANCE>

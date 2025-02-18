@@ -1,10 +1,12 @@
 <INSTANCE dmrole="" dmtype="mango:dataorigin.DataOrigin">
    <!-- Class representing the origin of the data following the DCP note" -->
-   <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.citation" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.reference_url" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.resource_version" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.creator" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:dataorigin.DataOrigin.creators">
+</COLLECTION>
    <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.cites" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.is_derived_from" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.original_date" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:dataorigin.DataOrigin.is_derived_from">
+</COLLECTION>
+   <ATTRIBUTE dmrole="mango:dataorigin.DataOrigin.original_date" dmtype="ivoa:string" ref="@@@@@" value=""/>
 </INSTANCE>

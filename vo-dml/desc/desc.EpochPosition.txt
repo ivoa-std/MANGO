@@ -1,9 +1,10 @@
-This class (fig \ref{fig:EpochPosition}) is a view of \texttt{Astronomical Coordinates and Coordinate
-Systems} \citep{2022ivoa.specQ1004R} components that have been put together to form a consistent description 
-of the position of an object moving over time. 
-It consists of a celestial position, a proper motion, a radial velocity 
-and a parallax. 
-All components share the same coordinate systems for both time and space coordinates.
+This class (fig \ref{fig:EpochPosition}) is a view of \texttt{Astronomical Coordinates and Coordinate Systems}
+ \citep{2022ivoa.specQ1004R} components that have been combined to form a consistent description of 
+the position of an object moving in time. 
+
+It consists of a celestial position, a proper motion, a radial velocity and a parallax. 
+
+All components use the same coordinate systems for both time and space coordinates.
 
 \begin{itemize}
    \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
@@ -11,10 +12,18 @@ All components share the same coordinate systems for both time and space coordin
    \item The time coordinate system is imported from \texttt{coords:timeSys}.
 \end{itemize}
 
-The \texttt{EpochPosition} error is modeled by specific classes supporting covariance 
-and/or correlation between components.
 
-All individual components have their own units which must be consistent to each others. 
+All components have their own units which must be consistent with each other. 
 This consistency is not enforced by the model.
 
-Possible correlations between \texttt{EpochPosition} parameters are handle by the  \texttt{EpochPositionCorrelation} class.
+Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class.
+Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class.
+
+In some cases the errors might conflict with the correlations:
+
+\begin{itemize}
+   \item \texttt{Ellipse} errors on position or proper motion must not be used together with the 
+         \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields.
+         In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict
+         with the correlations defined in \texttt{EpochPositionCorrelations}.
+\end{itemize}

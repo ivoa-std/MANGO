@@ -17,11 +17,8 @@ The process is 3 steps:
   - edit the custom toc (new section must contain the `(added)` word
   - The TEX document is rebuilt following that TOC
   - The head text of the added section is in `vo-dml/sections`
-  ) The finlma TEX file is named model_toc.tex `model_toc.tex`
+  - The final TEX file is named model_toc.tex `model_toc.tex`
   
 ```bash
-% python -m processVodml
-% cd ../doc
-xsltproc -o model.tex  ivoatex/vo-dml2ivoatex.xslt ../vo-dml/desc.mango.vo-dml.xml
-% make forcetex
+% ./builDoc.bash
 ```

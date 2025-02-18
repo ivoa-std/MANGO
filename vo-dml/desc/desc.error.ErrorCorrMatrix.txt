@@ -1,2 +1,0 @@
-Correlation matrix for the error of a 2D quantities. 
-The correlation matrix is symmetrical.

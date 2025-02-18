@@ -7,5 +7,6 @@
       <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
    </INSTANCE>
    <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:PhysicalProperty.calibrationLevel" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <INSTANCE dmrole="mango:PhysicalProperty.measure" dmtype="meas:Measure"/>
 </INSTANCE>

@@ -33,12 +33,11 @@
         "ShapeSerialization": {}
     },
     "Package: error ": {
-        "Asymmetric1D": {},
-        "Ellipse": {},
-        "ErrorCorrMatrix": {},
-        "ErrorCovMatrix": {},
         "PropertyError (Abstract)": {},
-        "Symmetric1D": {}
+        "Symmetrical1D": {},
+        "Asymmetrical1D": {},
+        "Ellipse": {},
+        "Symmetrical2D": {}
     },
     "Package: dataorigin ": {
         "Article": {},

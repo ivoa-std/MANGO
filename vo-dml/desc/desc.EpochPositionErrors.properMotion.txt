@@ -1,1 +1,1 @@
- Position error; can be an ellipse, a correlation matrix or a covariance matrix.
+ Proper motion error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
