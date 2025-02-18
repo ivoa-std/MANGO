@@ -7,7 +7,7 @@ DOCNAME = MANGO
 DOCVERSION = 0.1
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2025-02-13
+DOCDATE = 2025-02-18
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = WD

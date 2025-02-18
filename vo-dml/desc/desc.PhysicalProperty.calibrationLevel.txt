@@ -1,2 +1,2 @@
 Calibration level of the property as defined 
-in \url{https://www.ivoa.net/rdf/processing-level/2024-11-12/processing-level.html}
+in \url{http://www.ivoa.net/rdf/processing-level}
