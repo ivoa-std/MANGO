@@ -488,7 +488,7 @@ as defined by the \texttt{PhotDM} model.</description>
       <vodml-id>PhysicalProperty.calibrationLevel</vodml-id>
       <name>calibrationLevel</name>
       <description>Calibration level of the property as defined 
-in \url{https://www.ivoa.net/rdf/processing-level/2024-11-12/processing-level.html}</description>
+in \url{http://www.ivoa.net/rdf/processing-level}</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -650,11 +650,22 @@ This constraint is not enforced by the model.</description>
   <objectType>
     <vodml-id>EpochPosition</vodml-id>
     <name>EpochPosition</name>
-    <description>This class (fig \ref{fig:EpochPosition}) is a view of \texttt{Astronomical Coordinates and Coordinate Systems}
- \citep{2022ivoa.specQ1004R} components that have been combined to form a consistent description of 
-the position of an object moving in time. 
+    <description> This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the 
+ Astronomical Measurements Model  \citep{2022ivoa.specQ1004R} that have been put together 
+ to form a consistent description of the position of an object moving over time. 
+ It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated 
+ errors encapsulated into the \texttt{EpochPositionErrors} class. 
+ The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems 
+ model \citep{2022ivoa.spec.1004R}
+ 
+At a high level the properties map as follows:
+\begin{itemize}
+    \item celestial position -&gt; \texttt{meas:Position}
+    \item  proper motion -&gt; \texttt{meas:ProperMotion}
+    \item  radial velocity -&gt; \texttt{meas.Velocity}
+    \item  parallax -&gt; no suitable counterpart at this time
+\end{itemize}
 
-It consists of a celestial position, a proper motion, a radial velocity and a parallax. 
 
 All components use the same coordinate systems for both time and space coordinates.
 
