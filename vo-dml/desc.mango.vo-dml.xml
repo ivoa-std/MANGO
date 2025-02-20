@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-02-13T17:03:21</lastModified>
+  <lastModified>2025-02-20T11:36:26</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -149,7 +149,7 @@ This class is used to specify the type of the associated dataset as well as its 
       <description>Reference to the description of the origin of the \texttt{MangoObject}.
 </description>
       <datatype>
-        <vodml-ref>mango:dataorigin.QueryOrigin</vodml-ref>
+        <vodml-ref>mango:origin.QueryOrigin</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -888,8 +888,8 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPositionErrors.Position</vodml-id>
-      <name>Position</name>
+      <vodml-id>EpochPositionErrors.position</vodml-id>
+      <name>position</name>
       <description> Position error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.</description>
       <datatype>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
@@ -1253,15 +1253,17 @@ It is usually the angle between the major axis and the north axis (negative alon
 
 
   <package>
-    <vodml-id>dataorigin</vodml-id>
-    <name>dataorigin</name>
-    <description>Package grouping together all the components needed to model the origin of \texttt{MangoObject} (fig \ref{fig:dataorigin}).</description>
+    <vodml-id>origin</vodml-id>
+    <name>origin</name>
+    <description>Package grouping together all the components needed to model the origin of the \texttt{MangoObject} (fig \ref{fig:origin}).
+The design of the package complies with the work of the DCP interest 
+group (see \url{https://ivoa.net/documents/Notes/softid/index.html})</description>
     <objectType>
-      <vodml-id>dataorigin.Article</vodml-id>
+      <vodml-id>origin.Article</vodml-id>
       <name>Article</name>
-      <description>Reference article for the MANGO entity</description>
+      <description>Reference article for the \texttt{MangoObject}</description>
       <attribute>
-        <vodml-id>dataorigin.Article.editor</vodml-id>
+        <vodml-id>origin.Article.editor</vodml-id>
         <name>editor</name>
         <description>Name of the article editor</description>
         <datatype>
@@ -1273,7 +1275,7 @@ It is usually the angle between the major axis and the north axis (negative alon
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.Article.code</vodml-id>
+        <vodml-id>origin.Article.code</vodml-id>
         <name>code</name>
         <description>Bibcode or DOI of the reference article</description>
         <datatype>
@@ -1287,42 +1289,12 @@ It is usually the angle between the major axis and the north axis (negative alon
     </objectType>
 
     <objectType>
-      <vodml-id>dataorigin.License</vodml-id>
-      <name>License</name>
-      <description>Place holder for the license covering the MANGO instance</description>
-      <attribute>
-        <vodml-id>dataorigin.License.rights_uri</vodml-id>
-        <name>rights_uri</name>
-        <description>Licence URI. Following Registry practice, this should come from SPDX https://spdx.org/licenses/,
-though Creative Commons URLs https://creativecommons.org are also admitted.</description>
-        <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>dataorigin.License.rights</vodml-id>
-        <name>rights</name>
-        <description>License or Copyright text</description>
-        <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </objectType>
-
-    <objectType>
-      <vodml-id>dataorigin.DataOrigin</vodml-id>
+      <vodml-id>origin.DataOrigin</vodml-id>
       <name>DataOrigin</name>
-      <description>Class representing the origin of the data following the DCP note</description>
+      <description>Class representing the description of the origin of the queried dataset.
+</description>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.ivoid</vodml-id>
+        <vodml-id>origin.DataOrigin.ivoid</vodml-id>
         <name>ivoid</name>
         <description>IVOID of the underlying data collection</description>
         <datatype>
@@ -1334,7 +1306,7 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.reference_url</vodml-id>
+        <vodml-id>origin.DataOrigin.reference_url</vodml-id>
         <name>reference_url</name>
         <description>Dataset landing page</description>
         <datatype>
@@ -1346,7 +1318,7 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.resource_version</vodml-id>
+        <vodml-id>origin.DataOrigin.resource_version</vodml-id>
         <name>resource_version</name>
         <description>Dataset version</description>
         <datatype>
@@ -1358,7 +1330,7 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.creators</vodml-id>
+        <vodml-id>origin.DataOrigin.creators</vodml-id>
         <name>creators</name>
         <description>Person(s) mainly involved in the creation of the resource, generally the author</description>
         <datatype>
@@ -1370,7 +1342,7 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.cites</vodml-id>
+        <vodml-id>origin.DataOrigin.cites</vodml-id>
         <name>cites</name>
         <description>Identifier (IVOID, DOI or Bibcode) of a second Resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
         <datatype>
@@ -1382,7 +1354,7 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.is_derived_from</vodml-id>
+        <vodml-id>origin.DataOrigin.is_derived_from</vodml-id>
         <name>is_derived_from</name>
         <description>Identifiers (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is_derived_from} 
 (\url{https://www.ivoa.net/rdf/voresource/relationship_type/})</description>
@@ -1395,7 +1367,7 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.original_date</vodml-id>
+        <vodml-id>origin.DataOrigin.original_date</vodml-id>
         <name>original_date</name>
         <description>Date of the original resource from which the MANGO object is derived</description>
         <datatype>
@@ -1406,42 +1378,53 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
-      <reference>
-        <vodml-id>dataorigin.DataOrigin.article</vodml-id>
-        <name>article</name>
-        <description>Reference to the article from which the data originates.</description>
+      <attribute>
+        <vodml-id>origin.DataOrigin.rights</vodml-id>
+        <name>rights</name>
+        <description>Reference to the rights that apply to the data.</description>
         <datatype>
-          <vodml-ref>mango:dataorigin.Article</vodml-ref>
+          <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
         <multiplicity>
-          <minOccurs>0</minOccurs>
+          <minOccurs>1</minOccurs>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
-      </reference>
-      <reference>
-        <vodml-id>dataorigin.DataOrigin.license</vodml-id>
-        <name>license</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      </attribute>
+      <attribute>
+        <vodml-id>origin.DataOrigin.rights_uri</vodml-id>
+        <name>rights_uri</name>
+        <description>Licence URI. Following Registry practice, this should come from SPDX (\url{https://spdx.org/licenses}),
+though Creative Commons URLs (\url{https://creativecommons.org are also admitted}).</description>
         <datatype>
-          <vodml-ref>mango:dataorigin.License</vodml-ref>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <reference>
+        <vodml-id>origin.DataOrigin.articles</vodml-id>
+        <name>articles</name>
+        <description>Reference to the articles from which the data originates.</description>
+        <datatype>
+          <vodml-ref>mango:origin.Article</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>
-          <maxOccurs>1</maxOccurs>
+          <maxOccurs>-1</maxOccurs>
         </multiplicity>
       </reference>
     </objectType>
 
     <objectType>
-      <vodml-id>dataorigin.QueryOrigin</vodml-id>
+      <vodml-id>origin.QueryOrigin</vodml-id>
       <name>QueryOrigin</name>
-      <description>Description of the query the MANGO instance results from.</description>
+      <description>Description of the query the  \texttt{MangoObject} results from.</description>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.publisher</vodml-id>
+        <vodml-id>origin.QueryOrigin.publisher</vodml-id>
         <name>publisher</name>
-        <description>Data center that produced the MANGO instance</description>
+        <description>Data center that produced the \texttt{MangoObject}.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1451,10 +1434,10 @@ though Creative Commons URLs https://creativecommons.org are also admitted.</des
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.server_software</vodml-id>
+        <vodml-id>origin.QueryOrigin.server_software</vodml-id>
         <name>server_software</name>
-        <description>Version of the software the produced the MANGO object instance. 
-It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.html}.</description>
+        <description>Version of the software that produced the \texttt{MangoObject} instance. 
+</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1464,9 +1447,9 @@ It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.ht
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.service_protocol</vodml-id>
+        <vodml-id>origin.QueryOrigin.service_protocol</vodml-id>
         <name>service_protocol</name>
-        <description>IVOID \citep{2007ivoa.spec.0314P} of the protocol through which the data was retrieved</description>
+        <description>IVOID \citep{2007ivoa.spec.0314P} of the protocol through which the data was retrieved.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1476,7 +1459,7 @@ It is encouraged to follow \url{https://ivoa.net/documents/Notes/softid/index.ht
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.request</vodml-id>
+        <vodml-id>origin.QueryOrigin.request</vodml-id>
         <name>request</name>
         <description>Full request URL including a query string. 
 For the simple protocols,put the url-encoded form of the query parameters. 
@@ -1490,7 +1473,7 @@ For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format i
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.request_date</vodml-id>
+        <vodml-id>origin.QueryOrigin.request_date</vodml-id>
         <name>request_date</name>
         <description>Query execution date</description>
         <datatype>
@@ -1502,9 +1485,9 @@ For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format i
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.query</vodml-id>
+        <vodml-id>origin.QueryOrigin.query</vodml-id>
         <name>query</name>
-        <description>Input query in a formal langage such as ADQL.equest types \citep{2023ivoa.spec.1215M}</description>
+        <description>Input query in a formal language such as ADQL \citep{2023ivoa.spec.1215M}</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1514,7 +1497,7 @@ For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format i
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.contact</vodml-id>
+        <vodml-id>origin.QueryOrigin.contact</vodml-id>
         <name>contact</name>
         <description>Email or URL to contact the publisher</description>
         <datatype>
@@ -1525,12 +1508,24 @@ For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format i
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
-      <reference>
-        <vodml-id>dataorigin.QueryOrigin.dataOrigin</vodml-id>
-        <name>dataOrigin</name>
-        <description>Description of the request from which the data originates.</description>
+      <attribute>
+        <vodml-id>origin.QueryOrigin.ivoid</vodml-id>
+        <name>ivoid</name>
+        <description>IVOID of the service that provided the result set.</description>
         <datatype>
-          <vodml-ref>mango:dataorigin.DataOrigin</vodml-ref>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
+      <reference>
+        <vodml-id>origin.QueryOrigin.dataOrigin</vodml-id>
+        <name>dataOrigin</name>
+        <description>Description of the origin of the data to which the query was applied. </description>
+        <datatype>
+          <vodml-ref>mango:origin.DataOrigin</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>

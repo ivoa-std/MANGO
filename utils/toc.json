@@ -38,10 +38,9 @@
         "Ellipse": {},
         "Symmetrical2D": {}
     },
-    "Package: dataorigin ": {
-        "Article": {},
+    "Package: origin ": {
+        "QueryOrigin": {},
         "DataOrigin": {},
-        "License": {},
-        "QueryOrigin": {}
+        "Article": {}
     }
 }

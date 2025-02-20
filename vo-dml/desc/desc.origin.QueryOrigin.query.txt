@@ -1,0 +1,1 @@
+Input query in a formal language such as ADQL \citep{2023ivoa.spec.1215M}
