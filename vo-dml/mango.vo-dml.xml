@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-02-20T11:36:26</lastModified>
+  <lastModified>2025-02-20T15:49:20</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -1307,8 +1307,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>origin.Article.code</vodml-id>
-        <name>code</name>
+        <vodml-id>origin.Article.identifier</vodml-id>
+        <name>identifier</name>
         <description>Bibcode or DOI of the reference article</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
