@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-02-13T17:03:21</lastModified>
+  <lastModified>2025-02-20T15:49:20</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -166,7 +166,7 @@ The format is free.</description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:dataorigin.QueryOrigin</vodml-ref>
+        <vodml-ref>mango:origin.QueryOrigin</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
@@ -892,8 +892,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPositionErrors.Position</vodml-id>
-      <name>Position</name>
+      <vodml-id>EpochPositionErrors.position</vodml-id>
+      <name>position</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -1285,17 +1285,17 @@ As long as the vocabulary is not set, the possible values of this attribute are 
 
 
   <package>
-    <vodml-id>dataorigin</vodml-id>
-    <name>dataorigin</name>
+    <vodml-id>origin</vodml-id>
+    <name>origin</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     <objectType>
-      <vodml-id>dataorigin.Article</vodml-id>
+      <vodml-id>origin.Article</vodml-id>
       <name>Article</name>
       <description>Reference article for the MANGO source</description>
       <attribute>
-        <vodml-id>dataorigin.Article.editor</vodml-id>
+        <vodml-id>origin.Article.editor</vodml-id>
         <name>editor</name>
         <description>Article editor name</description>
         <datatype>
@@ -1307,8 +1307,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.Article.code</vodml-id>
-        <name>code</name>
+        <vodml-id>origin.Article.identifier</vodml-id>
+        <name>identifier</name>
         <description>Bibcode or DOI of the reference article</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
@@ -1321,43 +1321,13 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </objectType>
 
     <objectType>
-      <vodml-id>dataorigin.License</vodml-id>
-      <name>License</name>
-      <description>Place holder for the license covering the MANGO instance</description>
-      <attribute>
-        <vodml-id>dataorigin.License.rights_uri</vodml-id>
-        <name>rights_uri</name>
-        <description>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</description>
-        <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-      <attribute>
-        <vodml-id>dataorigin.License.rights</vodml-id>
-        <name>rights</name>
-        <description>License or Copyright text</description>
-        <datatype>
-          <vodml-ref>ivoa:string</vodml-ref>
-        </datatype>
-        <multiplicity>
-          <minOccurs>1</minOccurs>
-          <maxOccurs>1</maxOccurs>
-        </multiplicity>
-      </attribute>
-    </objectType>
-
-    <objectType>
-      <vodml-id>dataorigin.DataOrigin</vodml-id>
+      <vodml-id>origin.DataOrigin</vodml-id>
       <name>DataOrigin</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.ivoid</vodml-id>
+        <vodml-id>origin.DataOrigin.ivoid</vodml-id>
         <name>ivoid</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1371,7 +1341,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.reference_url</vodml-id>
+        <vodml-id>origin.DataOrigin.reference_url</vodml-id>
         <name>reference_url</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1385,7 +1355,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.resource_version</vodml-id>
+        <vodml-id>origin.DataOrigin.resource_version</vodml-id>
         <name>resource_version</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1399,7 +1369,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.creators</vodml-id>
+        <vodml-id>origin.DataOrigin.creators</vodml-id>
         <name>creators</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1413,7 +1383,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.cites</vodml-id>
+        <vodml-id>origin.DataOrigin.cites</vodml-id>
         <name>cites</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1427,7 +1397,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.is_derived_from</vodml-id>
+        <vodml-id>origin.DataOrigin.is_derived_from</vodml-id>
         <name>is_derived_from</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1441,7 +1411,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.DataOrigin.original_date</vodml-id>
+        <vodml-id>origin.DataOrigin.original_date</vodml-id>
         <name>original_date</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1454,44 +1424,54 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
-      <reference>
-        <vodml-id>dataorigin.DataOrigin.article</vodml-id>
-        <name>article</name>
-        <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
+      <attribute>
+        <vodml-id>origin.DataOrigin.rights</vodml-id>
+        <name>rights</name>
+        <description>License or Copyright text</description>
         <datatype>
-          <vodml-ref>mango:dataorigin.Article</vodml-ref>
+          <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
         <multiplicity>
-          <minOccurs>0</minOccurs>
+          <minOccurs>1</minOccurs>
           <maxOccurs>1</maxOccurs>
         </multiplicity>
-      </reference>
+      </attribute>
+      <attribute>
+        <vodml-id>origin.DataOrigin.rights_uri</vodml-id>
+        <name>rights_uri</name>
+        <description>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
       <reference>
-        <vodml-id>dataorigin.DataOrigin.license</vodml-id>
-        <name>license</name>
+        <vodml-id>origin.DataOrigin.articles</vodml-id>
+        <name>articles</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:dataorigin.License</vodml-ref>
+          <vodml-ref>mango:origin.Article</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>
-          <maxOccurs>1</maxOccurs>
+          <maxOccurs>-1</maxOccurs>
         </multiplicity>
       </reference>
     </objectType>
 
     <objectType>
-      <vodml-id>dataorigin.QueryOrigin</vodml-id>
+      <vodml-id>origin.QueryOrigin</vodml-id>
       <name>QueryOrigin</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.publisher</vodml-id>
+        <vodml-id>origin.QueryOrigin.publisher</vodml-id>
         <name>publisher</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1505,7 +1485,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.server_software</vodml-id>
+        <vodml-id>origin.QueryOrigin.server_software</vodml-id>
         <name>server_software</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1519,7 +1499,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.service_protocol</vodml-id>
+        <vodml-id>origin.QueryOrigin.service_protocol</vodml-id>
         <name>service_protocol</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1533,7 +1513,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.request</vodml-id>
+        <vodml-id>origin.QueryOrigin.request</vodml-id>
         <name>request</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1547,7 +1527,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.request_date</vodml-id>
+        <vodml-id>origin.QueryOrigin.request_date</vodml-id>
         <name>request_date</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1561,7 +1541,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.query</vodml-id>
+        <vodml-id>origin.QueryOrigin.query</vodml-id>
         <name>query</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1575,7 +1555,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>dataorigin.QueryOrigin.contact</vodml-id>
+        <vodml-id>origin.QueryOrigin.contact</vodml-id>
         <name>contact</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1588,14 +1568,28 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           <maxOccurs>1</maxOccurs>
         </multiplicity>
       </attribute>
+      <attribute>
+        <vodml-id>origin.QueryOrigin.ivoid</vodml-id>
+        <name>ivoid</name>
+        <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+        <datatype>
+          <vodml-ref>ivoa:string</vodml-ref>
+        </datatype>
+        <multiplicity>
+          <minOccurs>1</minOccurs>
+          <maxOccurs>1</maxOccurs>
+        </multiplicity>
+      </attribute>
       <reference>
-        <vodml-id>dataorigin.QueryOrigin.dataOrigin</vodml-id>
+        <vodml-id>origin.QueryOrigin.dataOrigin</vodml-id>
         <name>dataOrigin</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
         <datatype>
-          <vodml-ref>mango:dataorigin.DataOrigin</vodml-ref>
+          <vodml-ref>mango:origin.DataOrigin</vodml-ref>
         </datatype>
         <multiplicity>
           <minOccurs>0</minOccurs>

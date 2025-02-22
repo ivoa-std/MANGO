@@ -1,0 +1,3 @@
+Package grouping together all the components needed to model the origin of the \texttt{MangoObject} (fig \ref{fig:origin}).
+The design of the package complies with the work of the DCP interest 
+group (see \url{https://ivoa.net/documents/DataOrigin/index.html})
