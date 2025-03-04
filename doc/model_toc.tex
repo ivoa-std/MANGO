@@ -95,8 +95,20 @@
     Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
 
 \section{Epoch Position Properties}
-This section collects all the classes that model the case of epoch propagation. 
-In addition to the 6 sky position parameters, it also models their correlation and the errors.
+The emergence of missions such as Gaia \citep{2018A&A...616A...1G}, which are capable of 
+observing objects over long periods of time with very high astrometric accuracy,
+combined with great spectroscopic capabilities, making it possible to link star 3D positions
+with 3D velocities, thus defining a 6-dimensional astrometric solution,
+tagged with the epoch when the parameters were set. 
+
+The enormous scientific impact of this mission justifies the fact that the MANGO \texttt{EpochPostion}
+components are all based on these astrometric parameters and the way in which they are correlated.
+
+This has resulted in a set of 23 parameters, which might lead
+to a very complex model, difficult to use in practice.
+For this reason, the parameters have been split in 3 flat subsets (position, correlations, errors)
+ in order to facilitate the annotation process and the job of the clients
+that have to interpret them.
   \subsection{EpochPosition}
     \begin{figure}[h]
     \includegraphics[width=1.0\textwidth]{../model/EpochPosition.png}
@@ -353,11 +365,18 @@ photometric filters are imported from \texttt{PhotDM}.
     \normalsize
 
 \section{Physical Properties}
-This section brings together all the classes that are needed to 
-host objects imported from the \texttt{Measurements} data model. 
+This section brings together all the classes needed to operate a hook on 
+objects imported from the \texttt{Measurements} data model \citep{2022ivoa.specQ1004R}. 
+The Measurements model contains 6 classes that model simple physical quantities 
+ (Position, Time, Velocity, Polarisation, ProperMotion, GenericMeasure) in a very versatile way,
+supporting many coordinate systems and a wide variety of errors.
+
+It is recommended to use them for quantities that do not require the use of native MANGO classes.
+
+
   \subsection{PhysicalProperty}
     \label{sect:PhysicalProperty}
-    Place holder for any quantity that can be hold by measure classes as defined in the \texttt{Astronomical Measurements Model}.
+    Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) as defined in the \texttt{Astronomical Measurements Model}.
 
     \subsubsection{PhysicalProperty.calibrationLevel}
     \textbf{vodml-id: PhysicalProperty.calibrationLevel} \newline
