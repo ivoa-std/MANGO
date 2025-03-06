@@ -10,6 +10,8 @@ The MANGO model proposes a flexible way to expose data related to astronomical s
 
 # Document Building
 
+## Why such a Complex Workflow?
+
 The process of creating the document is a bit complex due to the following facts:
 
 - The model is maintained with Modelio which does not support any version control.
@@ -22,9 +24,26 @@ The process of creating the document is a bit complex due to the following facts
   this must be corrected to have a consistent table of content
 
 This process is achieved by scripts located in `utils`. Please read `utils/README.rst`.
-
 If you want to contribute, please have a look at this workflow or ask the editor. 
 This will prevent your work to be overridden by some script.
+
+## How to Contribute Anyway
+
+- Install `mivot-validator`in your favorite virtual environment
+- Modify the description of some model elements (section 3-11 at the time of writing)
+   - go into `./vo-dml/desc`
+   - edit the file you want to update
+   - go into `utils`
+   - run `./buildDoc.bash`
+- Modify the plain text (section out of 3-11 at the time of writing)
+   - go into `./doc
+   - edit `MANGO.tex` or `tap.tex`, those files are never overridden.
+   - go into `utils`
+   - run `./buildDoc.bash`
+- Modify the model itself
+   - ask the editor with an issue
+   
+If you want to contribute, please have a look at this workflow or ask the editor. 
 
 # PDF preview
 
