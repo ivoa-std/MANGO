@@ -7,5 +7,5 @@
    <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
    <INSTANCE dmrole="mango:EpochPositionErrors.properMotion" dmtype="mango:error.PropertyError"/>
    <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
-   <INSTANCE dmrole="mango:EpochPositionErrors.Position" dmtype="mango:error.PropertyError"/>
+   <INSTANCE dmrole="mango:EpochPositionErrors.position" dmtype="mango:error.PropertyError"/>
 </INSTANCE>

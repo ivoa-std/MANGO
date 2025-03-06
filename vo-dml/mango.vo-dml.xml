@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-02-20T15:49:20</lastModified>
+  <lastModified>2025-03-06T14:26:21</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -38,15 +38,15 @@
           TODO : Missing description : please, update your UML model asap.
         </description>
     <literal>
-      <vodml-id>ShapeSerialization.MOC</vodml-id>
-      <name>MOC</name>
+      <vodml-id>ShapeSerialization.SMOC</vodml-id>
+      <name>SMOC</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
     </literal>
     <literal>
-      <vodml-id>ShapeSerialization.STCS</vodml-id>
-      <name>STCS</name>
+      <vodml-id>ShapeSerialization.STC-S</vodml-id>
+      <name>STC-S</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>

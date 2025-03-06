@@ -413,7 +413,7 @@
 
   \subsection{Shape}
   \label{sect:Shape}
-    Description of the spatial extension of the MANGO object (for e.g. dust clouds)
+    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Shape is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
 
     \subsubsection{Shape.shape}
       \textbf{vodml-id: Shape.shape} \newline
@@ -425,7 +425,7 @@
       \textbf{vodml-id: Shape.serialization} \newline
       \textbf{type: \hyperref[sect:ShapeSerialization]{mango:ShapeSerialization}} \newline
       \textbf{multiplicity: 1} \newline
-      Serialization mode of the spatial extension of the MANGO entity
+      Serialization mode of the spatial extension of the \texttt{MangoObject} \newline
 
     \subsubsection{Shape.spaceSys}
       \textbf{vodml-id: Shape.spaceSys} \newline
@@ -501,12 +501,12 @@
   \small
   \begin{itemize}
   
-    \item[\textbf{MOC}]: \textbf{vodml-id:} ShapeSerialization.MOC \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a S-MOC
-    \item[\textbf{STCS}]: \textbf{vodml-id:} ShapeSerialization.STCS \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a STC-S \citep{2007ivoa.spec.1030R} string
+    \item[\textbf{SMOC}]: \textbf{vodml-id:} ShapeSerialization.SMOC \newline
+          \textbf{description:} Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+    \item[\textbf{STC-S}]: \textbf{vodml-id:} ShapeSerialization.STC-S \newline
+          \textbf{description:} Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{POLYGON}]: \textbf{vodml-id:} ShapeSerialization.POLYGON \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a polygon (cf xtypes)
+          \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
   \end{itemize}
   \normalsize
 

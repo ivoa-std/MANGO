@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-02-20T15:49:20</lastModified>
+  <lastModified>2025-03-06T14:26:21</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -33,19 +33,24 @@
     <name>ShapeSerialization</name>
     <description>Enumeration of the supported serialization modes for the shapes</description>
     <literal>
-      <vodml-id>ShapeSerialization.MOC</vodml-id>
-      <name>MOC</name>
-      <description>Label indicating that the shape has been serialized as a S-MOC</description>
+      <vodml-id>ShapeSerialization.SMOC</vodml-id>
+      <name>SMOC</name>
+      <description>Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}.
+SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
+When using this serialisation, \texttt{spaceSys} can be ignored. </description>
     </literal>
     <literal>
-      <vodml-id>ShapeSerialization.STCS</vodml-id>
-      <name>STCS</name>
-      <description>Label indicating that the shape has been serialized as a STC-S \citep{2007ivoa.spec.1030R} string</description>
+      <vodml-id>ShapeSerialization.STC-S</vodml-id>
+      <name>STC-S</name>
+      <description>Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
+SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
+When using this serialisation, \texttt{spaceSys} can be ignored. </description>
     </literal>
     <literal>
       <vodml-id>ShapeSerialization.POLYGON</vodml-id>
       <name>POLYGON</name>
-      <description>Label indicating that the shape has been serialized as a polygon (cf xtypes)</description>
+      <description>Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7.
+Using the polygon serialization requires the space coordinate system to be defined.</description>
     </literal>
   </enumeration>
 
@@ -399,7 +404,12 @@ Each value has its own free text description.</description>
   <objectType>
     <vodml-id>Shape</vodml-id>
     <name>Shape</name>
-    <description>Description of the spatial extension of the MANGO object (for e.g. dust clouds)</description>
+    <description>Description of the spatial extent of the MANGO object (e.g. for dust clouds).
+Shape is serialized as a string. 
+\begin{itemize}
+   \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration.
+   \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference.
+\end{itemize}</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
@@ -418,7 +428,8 @@ Each value has its own free text description.</description>
     <attribute>
       <vodml-id>Shape.serialization</vodml-id>
       <name>serialization</name>
-      <description>Serialization mode of the spatial extension of the MANGO entity</description>
+      <description>Serialization mode of the spatial extension of the  \texttt{MangoObject}
+\newline</description>
       <datatype>
         <vodml-ref>mango:ShapeSerialization</vodml-ref>
       </datatype>
