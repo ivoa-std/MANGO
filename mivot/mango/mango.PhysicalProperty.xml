@@ -1,6 +1,8 @@
 <INSTANCE dmrole="" dmtype="mango:PhysicalProperty">
-   <!-- Place holder for any quantity that can be hold by measure classes as defined in the 
-\texttt{Astronomical Measurements Model}." -->
+   <!-- Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) 
+as defined in the \texttt{Astronomical Measurements Model}.
+
+" -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
       <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
       <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
