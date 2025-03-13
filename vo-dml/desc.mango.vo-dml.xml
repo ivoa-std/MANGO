@@ -383,7 +383,11 @@ Each value has its own free text description.</description>
   <objectType>
     <vodml-id>Label</vodml-id>
     <name>Label</name>
-    <description>Free text label seen as a MANGO object property.</description>
+    <description>Free text label seen as \texttt{MangoObject} property. 
+The meaning of the label must match the property \texttt{semantics} attribute. 
+This rule is not enforced by the model. 
+For example, the Label property can be used to associate the sky object class
+of the \texttt{MangoObject} (e.g., Cataclysmic Variable) with the appropriate vocabulary.</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
