@@ -476,42 +476,40 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{multiplicity: 1} \newline
     Allows for identification of corresponding rows for different IDs in the same DataLink service where the combination of semantics, content\_type and content\_qualifier is not sufficient to identify them (see DataLink 1.1).
 
-  \subsection{Shape}
-    \label{sect:Shape}
+  \subsection{Footprint}
+    \label{sect:Footprint}
     Description of the spatial extent of the MANGO object (e.g. for dust clouds). Shape is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
 
-    \subsubsection{Shape.shape}
-    \textbf{vodml-id: Shape.shape} \newline
+    \subsubsection{Footprint.serialization}
+    \textbf{vodml-id: Footprint.serialization} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     String serialization of the spatial extension of the \texttt{MangoObject}
 
-    \subsubsection{Shape.serialization}
-    \textbf{vodml-id: Shape.serialization} \newline
-    \textbf{type: \hyperref[sect:ShapeSerialization]{mango:ShapeSerialization}} \newline
+    \subsubsection{Footprint.mode}
+    \textbf{vodml-id: Footprint.mode} \newline
+    \textbf{type: \hyperref[sect:FootprintSerialization]{mango:FootprintSerialization}} \newline
     \textbf{multiplicity: 1} \newline
     Serialization mode of the spatial extension of the \texttt{MangoObject} \newline
 
-    \subsubsection{Shape.spaceSys}
-    \textbf{vodml-id: Shape.spaceSys} \newline
+    \subsubsection{Footprint.spaceSys}
+    \textbf{vodml-id: Footprint.spaceSys} \newline
     \textbf{type: coords:SpaceSys} \newline
     \textbf{multiplicity: 1} \newline
     Coordinate system that applies for the shape
 
-  \subsection{ShapeFrame}
-
-  \subsection{ShapeSerialization}
-    \label{sect:ShapeSerialization}
+  \subsection{FootprintSerialization}
+    \label{sect:FootprintSerialization}
     Enumeration of the supported serialization modes for the shapes
     \noindent \underline{Enumeration Literals}
     \vspace{-\parsep}
     \small
     \begin{itemize}
-    \item[\textbf{SMOC}]: \textbf{vodml-id:} ShapeSerialization.SMOC \newline
+    \item[\textbf{SMOC}]: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
     \textbf{description:} Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
-    \item[\textbf{STC-S}]: \textbf{vodml-id:} ShapeSerialization.STC-S \newline
+    \item[\textbf{STC-S}]: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
     \textbf{description:} Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
-    \item[\textbf{POLYGON}]: \textbf{vodml-id:} ShapeSerialization.POLYGON \newline
+    \item[\textbf{POLYGON}]: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
     \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
     \end{itemize}
     \normalsize
@@ -540,66 +538,66 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{multiplicity: 1} \newline
     Statistical distribution of the error. The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema).
 
-  \subsection{Symmetrical1D}
-    \label{sect:error.Symmetrical1D}
+  \subsection{ErrorSym1D}
+    \label{sect:error.ErrorSym1D}
     Symmetrical error for 1D parameters
 
-    \subsubsection{Symmetrical1D.sigma}
-    \textbf{vodml-id: error.Symmetrical1D.sigma} \newline
+    \subsubsection{ErrorSym1D.sigma}
+    \textbf{vodml-id: error.ErrorSym1D.sigma} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Amplitude of the symmetrical error on a one-dimensional parameter
 
-  \subsection{Asymmetrical1D}
-    \label{sect:error.Asymmetrical1D}
+  \subsection{ErrorAsym1D}
+    \label{sect:error.ErrorAsym1D}
     Asymmetrical error for 1D parameters
 
-    \subsubsection{Asymmetrical1D.high}
-    \textbf{vodml-id: error.Asymmetrical1D.high} \newline
+    \subsubsection{ErrorAsym1D.high}
+    \textbf{vodml-id: error.ErrorAsym1D.high} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     High limit for the asymmetrical error for 1D parameters
 
-    \subsubsection{Asymmetrical1D.low}
-    \textbf{vodml-id: error.Asymmetrical1D.low} \newline
+    \subsubsection{ErrorAsym1D.low}
+    \textbf{vodml-id: error.ErrorAsym1D.low} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Low limit for the asymmetrical error for 1D parameters
 
-  \subsection{Ellipse}
-    \label{sect:error.Ellipse}
-    Elliptic error for 2D parameters such as sky positions. Major axis and minor axis have their own units, which must be the same for both. This is not enforced by the model. The definition of the ellipse attribute is imported from \texttt{coords:Ellipse}.
+  \subsection{ErrorEllipse}
+    \label{sect:error.ErrorEllipse}
+    Elliptical errror for 2D parameters such as the sky positions.
 
-    \subsubsection{Ellipse.semiMajorAxis}
-    \textbf{vodml-id: error.Ellipse.semiMajorAxis} \newline
+    \subsubsection{ErrorEllipse.semiMajorAxis}
+    \textbf{vodml-id: error.ErrorEllipse.semiMajorAxis} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Half of the ellipse major axis
 
-    \subsubsection{Ellipse.semiMinorAxis}
-    \textbf{vodml-id: error.Ellipse.semiMinorAxis} \newline
+    \subsubsection{ErrorEllipse.semiMinorAxis}
+    \textbf{vodml-id: error.ErrorEllipse.semiMinorAxis} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Half of the ellipse minor axis
 
-    \subsubsection{Ellipse.angle}
-    \textbf{vodml-id: error.Ellipse.angle} \newline
+    \subsubsection{ErrorEllipse.angle}
+    \textbf{vodml-id: error.ErrorEllipse.angle} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     In theory, this is the angle between the North Polar Cape (NPC) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit. In practice, the angle definition is this used by the mapped data set. It is usually the angle between the major axis and the north axis (negative along of the clockwise direction).
 
-  \subsection{Symmetrical2D}
-    \label{sect:error.Symmetrical2D}
+  \subsection{ErrorSym2D}
+    \label{sect:error.ErrorSym2D}
     Symmetrical error for 2D quantities.
 
-    \subsubsection{Symmetrical2D.sigma1}
-    \textbf{vodml-id: error.Symmetrical2D.sigma1} \newline
+    \subsubsection{ErrorSym2D.sigma1}
+    \textbf{vodml-id: error.ErrorSym2D.sigma1} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Error on the first dimension (right ascension in case of sky coordinates)
 
-    \subsubsection{Symmetrical2D.sigma2}
-    \textbf{vodml-id: error.Symmetrical2D.sigma2} \newline
+    \subsubsection{ErrorSym2D.sigma2}
+    \textbf{vodml-id: error.ErrorSym2D.sigma2} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Error on the second dimension (declination in case of sky coordinates)

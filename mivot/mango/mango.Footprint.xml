@@ -1,4 +1,4 @@
-<INSTANCE dmrole="" dmtype="mango:Shape">
+<INSTANCE dmrole="" dmtype="mango:Footprint">
    <!-- Description of the spatial extent of the MANGO object (e.g. for dust clouds).
 Shape is serialized as a string. 
 \begin{itemize}
@@ -14,9 +14,9 @@ Shape is serialized as a string.
    <COLLECTION dmrole="mango:Property.associatedProperties">
       <INSTANCE dmtype="mango:Property"/>
    </COLLECTION>
-   <ATTRIBUTE dmrole="mango:Shape.shape" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:Footprint.serialization" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <!-- Enumeration of the supported serialization modes for the shapes -->
    <!-- Enumeration datatype: supported values are SMOC STC-S POLYGON  -->
-   <ATTRIBUTE dmrole="mango:Shape.serialization" dmtype="mango:ShapeSerialization" value="OneOf SMOC STC-S POLYGON "/>
-   <INSTANCE dmrole="mango:Shape.spaceSys" dmtype="coords:SpaceSys"/>
+   <ATTRIBUTE dmrole="mango:Footprint.mode" dmtype="mango:FootprintSerialization" value="OneOf SMOC STC-S POLYGON "/>
+   <INSTANCE dmrole="mango:Footprint.spaceSys" dmtype="coords:SpaceSys"/>
 </INSTANCE>
