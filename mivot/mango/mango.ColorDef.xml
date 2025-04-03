@@ -6,4 +6,6 @@ with a square transfert function." -->
    <!-- Enumeration of the different types of colors supported by the model. -->
    <!-- Enumeration datatype: supported values are ColorIndex HardnessRatio  -->
    <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="OneOf ColorIndex HardnessRatio "/>
+   <INSTANCE dmrole="mango:ColorDef.high" dmtype="Phot:PhotometryFilter"/>
+   <INSTANCE dmrole="mango:ColorDef.low" dmtype="Phot:PhotometryFilter"/>
 </INSTANCE>
