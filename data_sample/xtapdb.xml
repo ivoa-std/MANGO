@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VOTABLE version="1.3" xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/v1.3">
+  <RESOURCE type="results">
+    <INFO name="QUERY_STATUS" value="OK" />
+    <INFO name="QUERY" value='SELECT *
+FROM "public".mergedentry
+' />
+<!-- Here starts the mapping block This bloc maps all data contained in the VOTable on the MANGO MODEL_INSTANCE. The MODEL_INSTANCEInstanceInVot 
+      syntax is detailed here https://github.com/ivoa-std/MODEL_INSTANCEinstanceinvot with a lot of snippet here https://github.com/ivoa/MODEL_INSTANCEinstanceinvot-code -->
+    <RESOURCE type="meta">
+      <VODML xmlns="http://www.ivoa.net/xml/mivot">
+        <REPORT status="OK">Automatically annotated by XTAPDB</REPORT>
+        <MODEL name="ivoa" url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
+        <MODEL name="mango"
+          url="https://raw.githubusercontent.com/ivoa-std/MANGO/refs/heads/wd-v1.0/vo-dml/mango.vo-dml.xml" />
+        <MODEL name="Phot" url="https://ivoa.net/xml/VODML/Phot-v1.vodml.xml" />
+        <MODEL name="coords" url="https://ivoa.net/xml/VODML/Coords-v1.vo-dml.xml" />
+        <!-- The GLOBALS block contains all objects with a scope covering all data. This is typically the case for the coordinate 
+          Systems -->
+        <GLOBALS>
+
+          <INSTANCE dmid="CoordSystem_ICRS_id" dmrole="" dmtype="coords:SpaceSys">
+            <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
+              <ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS" />
+            </INSTANCE>
+          </INSTANCE>
+
+          <INSTANCE dmtype="coords:TimeSys" dmid="CoordSystem_TCB_BARYCENTER_id">
+            <INSTANCE dmtype="coords:TimeFrame" dmrole="coords:PhysicalCoordSys.frame">
+              <ATTRIBUTE dmtype="ivoa:string" dmrole="coords:TimeFrame.timescale" value="TCB" />
+              <INSTANCE dmtype="coords:StdRefLocation" dmrole="coords:TimeFrame.refPosition">
+                <ATTRIBUTE dmtype="ivoa:string" dmrole="coords:StdRefLocation.position" value="BARYCENTER" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+          <INSTANCE dmtype="mango:StatusValues" dmid="CoordSystem_SUM_FLAG_id">
+            <COLLECTION dmrole="mango:StatusValues.values">
+              <INSTANCE dmrole="" dmtype="mango:StatusValue">
+                <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="0" />
+                <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Good Detection" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:StatusValue">
+                <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="1" />
+                <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string"
+                  value="Source parameters may be affected " />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:StatusValue">
+                <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="2" />
+                <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Possibly spurious" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:StatusValue">
+                <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="3" />
+                <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string"
+                  value="Area where spurious detection may occur" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:StatusValue">
+                <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="4" />
+                <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string"
+                  value="Possibly spurious and area where spurious detection may occur" />
+              </INSTANCE>
+            </COLLECTION>
+          </INSTANCE>
+
+
+          <!-- Filter definition: Filters match the energy bands -->
+          <INSTANCE dmid="PhotFilter_XMM_EB1_id" dmtype="Phot:PhotometryFilter">
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB1" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.name" dmtype="ivoa:string" value="XMM EPIC EB1" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.description" dmtype="ivoa:string" value="Soft" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.bandName" dmtype="ivoa:string" value="EB1" />
+            <!-- Spectral Location -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="0.35" />
+            </INSTANCE>
+            <!-- Band width -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
+              <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="0.3" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="0.2" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="0.5" />
+            </INSTANCE>
+            <!-- Transmission Curve -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.transmissionCurve" dmtype="Phot:TransmissionCurve">
+              <INSTANCE dmrole="Phot:TransmissionCurve.access" dmtype="Phot:Access">
+                <ATTRIBUTE dmrole="Phot:Access.reference" dmtype="ivoa:anyURI"
+                  value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+                <ATTRIBUTE dmrole="Phot:Access.format" dmtype="ivoa:string" value="text/html" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+          <INSTANCE dmid="PhotFilter_XMM_EB2_id" dmtype="Phot:PhotometryFilter">
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB2" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.name" dmtype="ivoa:string" value="XMM EPIC EB2" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.description" dmtype="ivoa:string" value="Soft" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.bandName" dmtype="ivoa:string" value="EB2" />
+            <!-- Spectral Location -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="0.75" />
+            </INSTANCE>
+            <!-- Band width -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
+              <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="0.5" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="0.5" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="1.0" />
+            </INSTANCE>
+            <!-- Transmission Curve -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.transmissionCurve" dmtype="Phot:TransmissionCurve">
+              <INSTANCE dmrole="Phot:TransmissionCurve.access" dmtype="Phot:Access">
+                <ATTRIBUTE dmrole="Phot:Access.reference" dmtype="ivoa:anyURI"
+                  value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+                <ATTRIBUTE dmrole="Phot:Access.format" dmtype="ivoa:string" value="text/html" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+
+          <INSTANCE dmid="PhotFilter_XMM_EB3_id" dmtype="Phot:PhotometryFilter">
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB3" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.name" dmtype="ivoa:string" value="XMM EPIC EB3" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.description" dmtype="ivoa:string" value="Medium" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.bandName" dmtype="ivoa:string" value="EB3" />
+            <!-- Spectral Location -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="1.5" />
+            </INSTANCE>
+            <!-- Band width -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
+              <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="1.0" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="1.0" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="2.0" />
+            </INSTANCE>
+            <!-- Transmission Curve -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.transmissionCurve" dmtype="Phot:TransmissionCurve">
+              <INSTANCE dmrole="Phot:TransmissionCurve.access" dmtype="Phot:Access">
+                <ATTRIBUTE dmrole="Phot:Access.reference" dmtype="ivoa:anyURI"
+                  value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+                <ATTRIBUTE dmrole="Phot:Access.format" dmtype="ivoa:string" value="text/html" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+          <INSTANCE dmid="PhotFilter_XMM_EB4_id" dmtype="Phot:PhotometryFilter">
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB4" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.name" dmtype="ivoa:string" value="XMM EPIC EB4" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.description" dmtype="ivoa:string" value="Medium" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.bandName" dmtype="ivoa:string" value="EB4" />
+            <!-- Spectral Location -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="3.25" />
+            </INSTANCE>
+            <!-- Band width -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
+              <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="2.5" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="2.0" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="4.5" />
+            </INSTANCE>
+            <!-- Transmission Curve -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.transmissionCurve" dmtype="Phot:TransmissionCurve">
+              <INSTANCE dmrole="Phot:TransmissionCurve.access" dmtype="Phot:Access">
+                <ATTRIBUTE dmrole="Phot:Access.reference" dmtype="ivoa:anyURI"
+                  value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+                <ATTRIBUTE dmrole="Phot:Access.format" dmtype="ivoa:string" value="text/html" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+          <INSTANCE dmid="PhotFilter_XMM_EB5_id" dmtype="Phot:PhotometryFilter">
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB3" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.name" dmtype="ivoa:string" value="XMM EPIC EB3" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.description" dmtype="ivoa:string" value="Medium" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.bandName" dmtype="ivoa:string" value="EB3" />
+            <!-- Spectral Location -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="1.5" />
+            </INSTANCE>
+            <!-- Band width -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
+              <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="1.0" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="1.0" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="2.0" />
+            </INSTANCE>
+            <!-- Transmission Curve -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.transmissionCurve" dmtype="Phot:TransmissionCurve">
+              <INSTANCE dmrole="Phot:TransmissionCurve.access" dmtype="Phot:Access">
+                <ATTRIBUTE dmrole="Phot:Access.reference" dmtype="ivoa:anyURI"
+                  value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+                <ATTRIBUTE dmrole="Phot:Access.format" dmtype="ivoa:string" value="text/html" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+          <INSTANCE dmid="PhotFilter_XMM_EB8_id" dmrole="Phot:PhotCal.photometryFilter" dmtype="Phot:PhotometryFilter">
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB8" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.name" dmtype="ivoa:string" value="XMM EPIC EB8" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.description" dmtype="ivoa:string" value="Broad" />
+            <ATTRIBUTE dmrole="Phot:PhotometryFilter.bandName" dmtype="ivoa:string" value="EB8" />
+            <!-- Spectral Location -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="6.1" />
+            </INSTANCE>
+            <!-- Band width -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
+              <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="11.8" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="0.2" />
+              <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="12.0" />
+            </INSTANCE>
+            <!-- Transmission Curve -->
+            <INSTANCE dmrole="Phot:PhotometryFilter.transmissionCurve" dmtype="Phot:TransmissionCurve">
+              <INSTANCE dmrole="Phot:TransmissionCurve.access" dmtype="Phot:Access">
+                <ATTRIBUTE dmrole="Phot:Access.reference" dmtype="ivoa:anyURI"
+                  value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+                <ATTRIBUTE dmrole="Phot:Access.format" dmtype="ivoa:string" value="text/html" />
+              </INSTANCE>
+            </INSTANCE>
+          </INSTANCE>
+
+          <!-- Photometric calibrations -->
+          <INSTANCE dmid="CoordSystem_XMM_EB1_id" dmtype="Phot:PhotCal">
+            <ATTRIBUTE dmrole="Phot:PhotCal.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB1" />
+            <!-- Magnitude System -->
+            <INSTANCE dmrole="Phot:PhotCal.magnitudeSystem" dmtype="Phot:MagnitudeSystem">
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.type" dmtype="Phot:TypeOfMagSystem" value="XMM" />
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.referenceSpectrum" dmtype="ivoa:anyURI"
+                value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+            </INSTANCE>
+            <!-- Filter -->
+            <REFERENCE dmref="PhotFilter_XMM_EB1_id" dmrole="Phot:PhotCal.photometryFilter" />
+          </INSTANCE>
+
+          <INSTANCE dmid="CoordSystem_XMM_EB2_id" dmtype="Phot:PhotCal">
+            <ATTRIBUTE dmrole="Phot:PhotCal.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB2" />
+            <!-- Magnitude System -->
+            <INSTANCE dmrole="Phot:PhotCal.magnitudeSystem" dmtype="Phot:MagnitudeSystem">
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.type" dmtype="Phot:TypeOfMagSystem" value="XMM" />
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.referenceSpectrum" dmtype="ivoa:anyURI"
+                value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+            </INSTANCE>
+            <!-- Filter -->
+            <REFERENCE dmref="PhotFilter_XMM_EB2_id" dmrole="Phot:PhotCal.photometryFilter" />
+          </INSTANCE>
+
+          <INSTANCE dmid="CoordSystem_XMM_EB3_id" dmtype="Phot:PhotCal">
+            <ATTRIBUTE dmrole="Phot:PhotCal.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB3" />
+            <!-- Magnitude System -->
+            <INSTANCE dmrole="Phot:PhotCal.magnitudeSystem" dmtype="Phot:MagnitudeSystem">
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.type" dmtype="Phot:TypeOfMagSystem" value="XMM" />
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.referenceSpectrum" dmtype="ivoa:anyURI"
+                value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+            </INSTANCE>
+            <!-- Filter -->
+            <REFERENCE dmref="PhotFilter_XMM_EB3_id" dmrole="Phot:PhotCal.photometryFilter" />
+          </INSTANCE>
+
+          <INSTANCE dmid="CoordSystem_XMM_EB4_id" dmtype="Phot:PhotCal">
+            <ATTRIBUTE dmrole="Phot:PhotCal.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB4" />
+            <!-- Magnitude System -->
+            <INSTANCE dmrole="Phot:PhotCal.magnitudeSystem" dmtype="Phot:MagnitudeSystem">
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.type" dmtype="Phot:TypeOfMagSystem" value="XMM" />
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.referenceSpectrum" dmtype="ivoa:anyURI"
+                value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+            </INSTANCE>
+            <!-- Filter -->
+            <REFERENCE dmref="PhotFilter_XMM_EB4_id" dmrole="Phot:PhotCal.photometryFilter"
+              dmtype="Phot:PhotometryFilter" />
+          </INSTANCE>
+
+          <INSTANCE dmid="CoordSystem_XMM_EB5_id" dmtype="Phot:PhotCal">
+            <ATTRIBUTE dmrole="Phot:PhotCal.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB5" />
+            <!-- Magnitude System -->
+            <INSTANCE dmrole="Phot:PhotCal.magnitudeSystem" dmtype="Phot:MagnitudeSystem">
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.type" dmtype="Phot:TypeOfMagSystem" value="XMM" />
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.referenceSpectrum" dmtype="ivoa:anyURI"
+                value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+            </INSTANCE>
+            <!-- Filter -->
+            <REFERENCE dmref="PhotFilter_XMM_EB5_id" dmrole="Phot:PhotCal.photometryFilter" />
+          </INSTANCE>
+
+          <INSTANCE dmid="CoordSystem_XMM_EB8_id" dmtype="Phot:PhotCal">
+            <ATTRIBUTE dmrole="Phot:PhotCal.identifier" dmtype="ivoa:string" value="XMM/EPIC/EB8" />
+            <!-- Magnitude System -->
+            <INSTANCE dmrole="Phot:PhotCal.magnitudeSystem" dmtype="Phot:MagnitudeSystem">
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.type" dmtype="Phot:TypeOfMagSystem" value="XMM" />
+              <ATTRIBUTE dmrole="Phot:MagnitudeSystem.referenceSpectrum" dmtype="ivoa:anyURI"
+                value="https://xmm-tools.cosmos.esa.int/external/xmm_user_support/documentation/sas_usg/USG/SASUSG.html" />
+            </INSTANCE>
+            <!-- Filter -->
+            <REFERENCE dmref="PhotFilter_XMM_EB8_id" dmrole="Phot:PhotCal.photometryFilter" />
+          </INSTANCE>
+        </GLOBALS>
+
+        <!-- This block maps the data of the table identified as "Results" -->
+        <TEMPLATES tableref="Results">
+          <!-- The table contain a set of Mango instances, this is why we have COLLECTION at the top level -->
+          <INSTANCE dmtype="mango:MangoObject">
+            <!-- Collection of the complex data attached to the source -->
+            <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="IAUNAME" />
+            <!-- Collection of the parameters attached to the source Each child INSTANCE maps one parameter -->
+            <COLLECTION dmrole="mango:MangoObject.propertyDock">
+
+              <INSTANCE dmrole="" dmtype="mango:Status">
+                <ATTRIBUTE dmrole="mango:Status.status" dmtype="ivoa:integer" ref="SC_SUM_FLAG" />
+                <REFERENCE dmrole="mango:Status.allowedValues" dmref="CoordSystem_SUM_FLAG_id" />
+              </INSTANCE>
+
+              <INSTANCE dmrole="" dmtype="mango:EpochPosition">
+                <!-- Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system 
+                  is common to all attributes to insure the consistance between all of the instance parameters." -->
+                <ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="SC_RA" unit="deg" />
+                <ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="SC_DEC" unit="deg" />
+                <REFERENCE dmref="CoordSystem_ICRS_id" dmrole="mango:EpochPosition.spaceSys" />
+                <REFERENCE dmref="CoordSystem_TCB_BARYCENTER_id" dmrole="mango:EpochPosition.timeSys" />
+              </INSTANCE>
+
+              <INSTANCE dmrole="" dmtype="mango:Color">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_HR1" />
+                <INSTANCE dmrole="mango:Color.colorDef" dmtype="mango:ColorDef">
+                  <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="HardnessRatio" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB2_id" dmrole="mango:ColorDef.high" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB1_id" dmrole="mango:ColorDef.low" />
+                </INSTANCE>
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Color">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_HR2" />
+                <INSTANCE dmrole="mango:Color.colorDef" dmtype="mango:ColorDef">
+                  <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="HardnessRatio" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB3_id" dmrole="mango:ColorDef.high" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB2_id" dmrole="mango:ColorDef.low" />
+                </INSTANCE>
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Color">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_HR3" />
+                <INSTANCE dmrole="mango:Color.colorDef" dmtype="mango:ColorDef">
+                  <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="HardnessRatio" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB4_id" dmrole="mango:ColorDef.high" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB3_id" dmrole="mango:ColorDef.low" />
+                </INSTANCE>
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Color">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_HR4" />
+                <INSTANCE dmrole="mango:Color.colorDef" dmtype="mango:ColorDef">
+                  <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="HardnessRatio" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB5_id" dmrole="mango:ColorDef.high" />
+                  <REFERENCE dmref="PhotFilter_XMM_EB5_id" dmrole="mango:ColorDef.low" />
+                </INSTANCE>
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Brightness">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_1_FLUX"
+                  unit="erg/cm**2/s" />
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
+                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                    ref="SC_EP_1_FLUX_ERR" unit="erg/cm**2/s" />
+                </INSTANCE>
+                <REFERENCE dmref="CoordSystem_XMM_EB1_id" dmrole="mango:Brightness.photCal" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Brightness">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_2_FLUX"
+                  unit="erg/cm**2/s" />
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
+                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                    ref="SC_EP_2_FLUX_ERR" unit="erg/cm**2/s" />
+                </INSTANCE>
+                <REFERENCE dmref="CoordSystem_XMM_EB2_id" dmrole="mango:Brightness.photCal" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Brightness">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_3_FLUX"
+                  unit="erg/cm**2/s" />
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
+                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                    ref="SC_EP_3_FLUX_ERR" unit="erg/cm**2/s" />
+                </INSTANCE>
+                <REFERENCE dmref="CoordSystem_XMM_EB3_id" dmrole="mango:Brightness.photCal" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Brightness">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_4_FLUX"
+                  unit="erg/cm**2/s" />
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
+                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                    ref="SC_EP_4_FLUX_ERR" unit="erg/cm**2/s" />
+                </INSTANCE>
+                <REFERENCE dmref="CoordSystem_XMM_EB4_id" dmrole="mango:Brightness.photCal" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Brightness">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_5_FLUX"
+                  unit="erg/cm**2/s" />
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
+                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                    ref="SC_EP_5_FLUX_ERR" unit="erg/cm**2/s" />
+                </INSTANCE>
+                <REFERENCE dmref="CoordSystem_XMM_EB5_id" dmrole="mango:Brightness.photCal" />
+              </INSTANCE>
+              <INSTANCE dmrole="" dmtype="mango:Brightness">
+                <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_8_FLUX"
+                  unit="erg/cm**2/s" />
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
+                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                    ref="SC_EP_8_FLUX_ERR" unit="erg/cm**2/s" />
+                </INSTANCE>
+                <REFERENCE dmref="CoordSystem_XMM_EB8_id" dmrole="mango:Brightness.photCal" />
+              </INSTANCE>
+            </COLLECTION>
+          </INSTANCE>
+        </TEMPLATES>
+      </VODML>
+    </RESOURCE>
+
+    <TABLE name="result_S1726071612323">
+      <FIELD datatype="int" name="CONFUSED">
+        <DESCRIPTION>Set True when a given detection has a probability above zero of being associated with two or more distinct
+          sources
+        </DESCRIPTION>
+      </FIELD>
+      <FIELD arraysize="*" datatype="char" name="IAUNAME" ucd="meta.id;meta.main">
+        <DESCRIPTION>unique SRCID</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="double" name="MJD_FIRST" ucd="time.epoch" unit="d">
+        <DESCRIPTION>The MJD start date (MJD_START) of the earliest observation of any constituent detection of the unique
+          source
+        </DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="double" name="MJD_LAST" ucd="time.epoch" unit="d">
+        <DESCRIPTION>The MJD end date (MJD_STOP) of the last observation of any constituent detection of the unique source
+        </DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="short" name="N_DETECTIONS" ucd="meta.number">
+        <DESCRIPTION>The number of detections of the unique source SRCID used to derive the combined values</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_CHI2PROB" ucd="stat.fit.goodness">
+        <DESCRIPTION>The chi square probability</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="double" name="SC_DEC" ucd="pos.eq.dec" unit="deg">
+        <DESCRIPTION>The mean Declination Ascension in degrees</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_DET_ML" ucd="stat.likelihood;instr.saturation;stat.max">
+        <DESCRIPTION>likelihood on the detection maximum</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_1_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 1 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_1_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 1 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_2_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 2 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_2_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 2 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_3_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 3 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_3_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 3 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_4_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 4 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_4_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 4 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_5_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 5 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_5_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 5 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_8_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 8 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_8_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 8 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_8_FMAX" ucd="stat.max;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>maximum flux of the energy band number 8 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_8_FMAX_ERR" ucd="stat.error;stat.max;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the maximum flux of energy band number 8 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_8_FMIN" ucd="stat.min;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>minimum flux of the energy band number 8 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_8_FMIN_ERR" ucd="stat.error;stat.min;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the minimum flux of energy band number 8 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_9_FLUX" ucd="phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>the flux of the energy band number 9 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EP_9_FLUX_ERR" ucd="stat.error;phot.flux" unit="erg/cm**2/s">
+        <DESCRIPTION>error on the the flux of energy band number 9 of the ep camera in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EXTENT" unit="arcsec">
+        <DESCRIPTION>in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EXT_ERR" ucd="stat.error;phys.angSize" unit="arcsec">
+        <DESCRIPTION>error on the extent radius</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_EXT_ML" ucd="stat.likelihood;phys.angSize">
+        <DESCRIPTION>likelihood on the extent radius</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_FVAR" ucd="src.var">
+        <DESCRIPTION>variable</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_FVARERR" ucd="stat.error;src.var">
+        <DESCRIPTION>error on the the variability</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR1" ucd="phot.flux;arith.ratio">
+        <DESCRIPTION>the hr1</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR1_ERR" ucd="stat.error;phot.flux;arith.ratio">
+        <DESCRIPTION>error on the the hr1</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR2" ucd="phot.flux;arith.ratio">
+        <DESCRIPTION>the hr2</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR2_ERR" ucd="stat.error;phot.flux;arith.ratio">
+        <DESCRIPTION>error on the the hr2</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR3" ucd="phot.flux;arith.ratio">
+        <DESCRIPTION>the hr3</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR3_ERR" ucd="stat.error;phot.flux;arith.ratio">
+        <DESCRIPTION>error on the the hr3</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR4" ucd="phot.flux;arith.ratio">
+        <DESCRIPTION>the hr4</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_HR4_ERR" ucd="stat.error;phot.flux;arith.ratio">
+        <DESCRIPTION>error on the the hr4</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="float" name="SC_POSERR" ucd="stat.error" unit="arcsec">
+        <DESCRIPTION>error in sc</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="double" name="SC_RA" ucd="pos.eq.ra" unit="deg">
+        <DESCRIPTION>The mean Right Ascension in degrees</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="short" name="SC_SUM_FLAG" ucd="meta.code.error">
+        <DESCRIPTION>the flag on the summary</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="int" name="SC_VAR_FLAG" ucd="meta.code.error;src.var">
+        <DESCRIPTION>the flag on the variable</DESCRIPTION>
+      </FIELD>
+      <FIELD datatype="long" name="SRCID" ucd="meta.id">
+        <DESCRIPTION>A unique number assigned to a group of catalogue entries which are assumed to be the same source
+        </DESCRIPTION>
+      </FIELD>
+      <FIELD arraysize="*" datatype="char" name="WEBPAGE_URL" />
+      <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172502.6-345507</TD>
+            <TD>59667.2137847222</TD>
+            <TD>59667.5045833333</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-34.918654146692</TD>
+            <TD>34.277</TD>
+            <TD>0.0</TD>
+            <TD>2.26601E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.36142E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.51944E-16</TD>
+            <TD>1.07596E-14</TD>
+            <TD>3.53369E-15</TD>
+            <TD>1.58097E-13</TD>
+            <TD>3.14493E-14</TD>
+            <TD>1.68581E-13</TD>
+            <TD>3.16541E-14</TD>
+            <TD>1.68581E-13</TD>
+            <TD>3.16541E-14</TD>
+            <TD>1.68581E-13</TD>
+            <TD>3.16541E-14</TD>
+            <TD>2.96717E-15</TD>
+            <TD>1.60642E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.199932</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>1.0</TD>
+            <TD>0.151583</TD>
+            <TD>0.619268</TD>
+            <TD>0.124523</TD>
+            <TD>1.47348</TD>
+            <TD>261.26112534091</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>208860605010010</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208860605010010/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172513.3-364946</TD>
+            <TD>60031.0813425926</TD>
+            <TD>60031.410775463</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-36.829604424276</TD>
+            <TD>10.0055</TD>
+            <TD>2.85051E-16</TD>
+            <TD>3.33501E-16</TD>
+            <TD>9.77746E-16</TD>
+            <TD>4.52677E-16</TD>
+            <TD>5.89304E-16</TD>
+            <TD>4.59357E-16</TD>
+            <TD>0.0</TD>
+            <TD>5.32671E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.6791E-15</TD>
+            <TD>2.55407E-15</TD>
+            <TD>2.86292E-15</TD>
+            <TD>2.55407E-15</TD>
+            <TD>2.86292E-15</TD>
+            <TD>2.55407E-15</TD>
+            <TD>2.86292E-15</TD>
+            <TD>2.99114E-15</TD>
+            <TD>1.1778E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.667413</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>0.891473</TD>
+            <TD>0.219626</TD>
+            <TD>-0.690487</TD>
+            <TD>0.214256</TD>
+            <TD>-1.0</TD>
+            <TD>0.304522</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>2.48243</TD>
+            <TD>261.30558033708</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>208860708010067</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208860708010067/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172548.1-362746</TD>
+            <TD>60031.0813425926</TD>
+            <TD>60031.410775463</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-36.462995624832</TD>
+            <TD>21.2116</TD>
+            <TD>9.03003E-15</TD>
+            <TD>2.69432E-15</TD>
+            <TD>0.0</TD>
+            <TD>9.27756E-16</TD>
+            <TD>0.0</TD>
+            <TD>3.35269E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.30313E-15</TD>
+            <TD>1.37548E-14</TD>
+            <TD>2.62843E-14</TD>
+            <TD>2.27848E-14</TD>
+            <TD>2.65405E-14</TD>
+            <TD>2.27848E-14</TD>
+            <TD>2.65405E-14</TD>
+            <TD>2.27848E-14</TD>
+            <TD>2.65405E-14</TD>
+            <TD>0.0</TD>
+            <TD>7.98305E-16</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-1.10227</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>-1.0</TD>
+            <TD>0.232523</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>1.0</TD>
+            <TD>1.60612</TD>
+            <TD>1.9748</TD>
+            <TD>261.45079851904</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>208860708010058</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208860708010058/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172622.4-360921</TD>
+            <TD>60210.6549884259</TD>
+            <TD>60210.8694097222</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-36.156047771964</TD>
+            <TD>11.0809</TD>
+            <TD>3.42174E-16</TD>
+            <TD>4.67793E-16</TD>
+            <TD>3.0166E-15</TD>
+            <TD>1.02692E-15</TD>
+            <TD>1.71794E-15</TD>
+            <TD>8.99409E-16</TD>
+            <TD>0.0</TD>
+            <TD>1.71118E-15</TD>
+            <TD>0.0</TD>
+            <TD>6.87069E-15</TD>
+            <TD>5.51337E-15</TD>
+            <TD>7.52571E-15</TD>
+            <TD>5.51337E-15</TD>
+            <TD>7.52571E-15</TD>
+            <TD>5.51337E-15</TD>
+            <TD>7.52571E-15</TD>
+            <TD>8.31813E-15</TD>
+            <TD>2.41205E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.69768</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>0.760482</TD>
+            <TD>0.256447</TD>
+            <TD>-0.240561</TD>
+            <TD>0.229987</TD>
+            <TD>-1.0</TD>
+            <TD>0.318958</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>2.30813</TD>
+            <TD>261.5936088978</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>208860703010041</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208860703010041/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172642.0-341953</TD>
+            <TD>59850.3869907407</TD>
+            <TD>59850.6157291667</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-34.331502544655</TD>
+            <TD>10.6065</TD>
+            <TD>4.55307E-15</TD>
+            <TD>1.30551E-15</TD>
+            <TD>0.0</TD>
+            <TD>5.69441E-16</TD>
+            <TD>0.0</TD>
+            <TD>7.35219E-16</TD>
+            <TD>0.0</TD>
+            <TD>1.86305E-15</TD>
+            <TD>0.0</TD>
+            <TD>3.58524E-14</TD>
+            <TD>4.55307E-15</TD>
+            <TD>3.59366E-14</TD>
+            <TD>4.55307E-15</TD>
+            <TD>3.59366E-14</TD>
+            <TD>4.55307E-15</TD>
+            <TD>3.59366E-14</TD>
+            <TD>0.0</TD>
+            <TD>9.55132E-16</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.846413</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>-1.0</TD>
+            <TD>0.235138</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>3.57838</TD>
+            <TD>261.67531880506</TD>
+            <TD>3</TD>
+            <TD>0</TD>
+            <TD>208860404010156</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208860404010156/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172725.4-334447</TD>
+            <TD>60010.0578587963</TD>
+            <TD>60010.1534837963</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-33.74648475411</TD>
+            <TD>6.37388</TD>
+            <TD>0.0</TD>
+            <TD>2.15873E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.84058E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.64577E-16</TD>
+            <TD>7.36575E-15</TD>
+            <TD>2.9323E-15</TD>
+            <TD>2.60642E-14</TD>
+            <TD>1.12725E-14</TD>
+            <TD>3.59539E-14</TD>
+            <TD>1.18288E-14</TD>
+            <TD>3.59539E-14</TD>
+            <TD>1.18288E-14</TD>
+            <TD>3.59539E-14</TD>
+            <TD>1.18288E-14</TD>
+            <TD>1.80547E-15</TD>
+            <TD>1.3707E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>0.364393</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>1.0</TD>
+            <TD>0.168331</TD>
+            <TD>0.0628464</TD>
+            <TD>0.265077</TD>
+            <TD>2.09358</TD>
+            <TD>261.85624743154</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>209168011010052</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/209168011010052/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172816.2+303441</TD>
+            <TD>58558.2520949074</TD>
+            <TD>58558.6482986111</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>30.578127698346</TD>
+            <TD>17.2556</TD>
+            <TD>1.23486E-15</TD>
+            <TD>6.73626E-16</TD>
+            <TD>3.25441E-15</TD>
+            <TD>1.13002E-15</TD>
+            <TD>2.91594E-15</TD>
+            <TD>1.09443E-15</TD>
+            <TD>0.0</TD>
+            <TD>7.81556E-16</TD>
+            <TD>0.0</TD>
+            <TD>1.18997E-14</TD>
+            <TD>6.96402E-15</TD>
+            <TD>1.20904E-14</TD>
+            <TD>6.96402E-15</TD>
+            <TD>1.20904E-14</TD>
+            <TD>6.96402E-15</TD>
+            <TD>1.20904E-14</TD>
+            <TD>7.77646E-15</TD>
+            <TD>2.26724E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.837984</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>0.521116</TD>
+            <TD>0.227721</TD>
+            <TD>-0.182792</TD>
+            <TD>0.234338</TD>
+            <TD>-1.0</TD>
+            <TD>0.213915</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>2.00778</TD>
+            <TD>262.06777073765</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>208425907010030</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208425907010030/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172903.7-142421</TD>
+            <TD>56541.1619675926</TD>
+            <TD>56542.4378240741</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-14.406105568519</TD>
+            <TD>7.96182</TD>
+            <TD>0.0</TD>
+            <TD>2.12233E-16</TD>
+            <TD>0.0</TD>
+            <TD>5.72823E-16</TD>
+            <TD>0.0</TD>
+            <TD>2.86629E-16</TD>
+            <TD>2.35877E-15</TD>
+            <TD>1.66215E-15</TD>
+            <TD>8.52486E-14</TD>
+            <TD>2.69564E-14</TD>
+            <TD>8.76073E-14</TD>
+            <TD>2.70161E-14</TD>
+            <TD>8.76073E-14</TD>
+            <TD>2.70161E-14</TD>
+            <TD>8.76073E-14</TD>
+            <TD>2.70161E-14</TD>
+            <TD>9.24815E-16</TD>
+            <TD>1.09475E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.750208</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>1.0</TD>
+            <TD>0.659953</TD>
+            <TD>0.753728</TD>
+            <TD>0.16679</TD>
+            <TD>1.81519</TD>
+            <TD>262.26555195572</TD>
+            <TD>0</TD>
+            <TD>0</TD>
+            <TD>207210103010134</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/207210103010134/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172909.8-341230</TD>
+            <TD>60183.5743287037</TD>
+            <TD>60183.6699537037</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-34.208605845935</TD>
+            <TD>37.4296</TD>
+            <TD>0.0</TD>
+            <TD>4.2553E-16</TD>
+            <TD>0.0</TD>
+            <TD>4.34012E-16</TD>
+            <TD>1.80853E-16</TD>
+            <TD>9.31391E-16</TD>
+            <TD>2.52505E-15</TD>
+            <TD>2.70226E-15</TD>
+            <TD>3.32361E-15</TD>
+            <TD>1.34245E-14</TD>
+            <TD>5.79135E-15</TD>
+            <TD>1.39016E-14</TD>
+            <TD>5.79135E-15</TD>
+            <TD>1.39016E-14</TD>
+            <TD>5.79135E-15</TD>
+            <TD>1.39016E-14</TD>
+            <TD>1.14441E-15</TD>
+            <TD>1.477E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.84383</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>1.0</TD>
+            <TD>0.623501</TD>
+            <TD>0.902715</TD>
+            <TD>0.123336</TD>
+            <TD>-0.408651</TD>
+            <TD>0.191841</TD>
+            <TD>1.82958</TD>
+            <TD>262.29119417463</TD>
+            <TD>3</TD>
+            <TD>0</TD>
+            <TD>209168118010011</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/209168118010011/</TD>
+          </TR>
+          <TR>
+            <TD>0</TD>
+            <TD>4XMM J172920.3-362100</TD>
+            <TD>58576.245787037</TD>
+            <TD>58576.5660300926</TD>
+            <TD>1</TD>
+            <TD></TD>
+            <TD>-36.350269272583</TD>
+            <TD>7.90599</TD>
+            <TD>5.04914E-15</TD>
+            <TD>2.57113E-15</TD>
+            <TD>4.61284E-15</TD>
+            <TD>1.97141E-15</TD>
+            <TD>2.74066E-15</TD>
+            <TD>2.09286E-15</TD>
+            <TD>0.0</TD>
+            <TD>1.50788E-15</TD>
+            <TD>0.0</TD>
+            <TD>1.68825E-14</TD>
+            <TD>1.24026E-14</TD>
+            <TD>1.7383E-14</TD>
+            <TD>1.24026E-14</TD>
+            <TD>1.7383E-14</TD>
+            <TD>1.24026E-14</TD>
+            <TD>1.7383E-14</TD>
+            <TD>2.08858E-15</TD>
+            <TD>3.42709E-15</TD>
+            <TD>0.0</TD>
+            <TD></TD>
+            <TD>-0.747925</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>0.128827</TD>
+            <TD>0.326882</TD>
+            <TD>-0.142335</TD>
+            <TD>0.42868</TD>
+            <TD>-1.0</TD>
+            <TD>0.442512</TD>
+            <TD></TD>
+            <TD></TD>
+            <TD>2.29395</TD>
+            <TD>262.33463018655</TD>
+            <TD>3</TD>
+            <TD>0</TD>
+            <TD>208511801010058</TD>
+            <TD>http://xmm-catalog.irap.omp.eu/source/208511801010058/</TD>
+          </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+    <INFO name="QUERY_STATUS" value="OVERFLOW" />
+  </RESOURCE>
+</VOTABLE>

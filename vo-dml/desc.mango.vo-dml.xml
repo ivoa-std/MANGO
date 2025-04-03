@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-03-06T14:26:21</lastModified>
+  <lastModified>2025-03-27T17:10:30</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -29,25 +29,25 @@
     <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
   </import>
   <enumeration>
-    <vodml-id>ShapeSerialization</vodml-id>
-    <name>ShapeSerialization</name>
+    <vodml-id>FootprintSerialization</vodml-id>
+    <name>FootprintSerialization</name>
     <description>Enumeration of the supported serialization modes for the shapes</description>
     <literal>
-      <vodml-id>ShapeSerialization.SMOC</vodml-id>
+      <vodml-id>FootprintSerialization.SMOC</vodml-id>
       <name>SMOC</name>
       <description>Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}.
 SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
 When using this serialisation, \texttt{spaceSys} can be ignored. </description>
     </literal>
     <literal>
-      <vodml-id>ShapeSerialization.STC-S</vodml-id>
+      <vodml-id>FootprintSerialization.STC-S</vodml-id>
       <name>STC-S</name>
       <description>Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
 SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
 When using this serialisation, \texttt{spaceSys} can be ignored. </description>
     </literal>
     <literal>
-      <vodml-id>ShapeSerialization.POLYGON</vodml-id>
+      <vodml-id>FootprintSerialization.POLYGON</vodml-id>
       <name>POLYGON</name>
       <description>Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7.
 Using the polygon serialization requires the space coordinate system to be defined.</description>
@@ -406,8 +406,8 @@ of the \texttt{MangoObject} (e.g., Cataclysmic Variable) with the appropriate vo
   </objectType>
 
   <objectType>
-    <vodml-id>Shape</vodml-id>
-    <name>Shape</name>
+    <vodml-id>Footprint</vodml-id>
+    <name>Footprint</name>
     <description>Description of the spatial extent of the MANGO object (e.g. for dust clouds).
 Shape is serialized as a string. 
 \begin{itemize}
@@ -418,8 +418,8 @@ Shape is serialized as a string.
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
     <attribute>
-      <vodml-id>Shape.shape</vodml-id>
-      <name>shape</name>
+      <vodml-id>Footprint.serialization</vodml-id>
+      <name>serialization</name>
       <description>String serialization of the spatial extension of the \texttt{MangoObject}</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
@@ -430,12 +430,12 @@ Shape is serialized as a string.
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>Shape.serialization</vodml-id>
-      <name>serialization</name>
+      <vodml-id>Footprint.mode</vodml-id>
+      <name>mode</name>
       <description>Serialization mode of the spatial extension of the  \texttt{MangoObject}
 \newline</description>
       <datatype>
-        <vodml-ref>mango:ShapeSerialization</vodml-ref>
+        <vodml-ref>mango:FootprintSerialization</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -443,7 +443,7 @@ Shape is serialized as a string.
       </multiplicity>
     </attribute>
     <reference>
-      <vodml-id>Shape.spaceSys</vodml-id>
+      <vodml-id>Footprint.spaceSys</vodml-id>
       <name>spaceSys</name>
       <description>Coordinate system that applies for the shape</description>
       <datatype>
@@ -1127,14 +1127,14 @@ The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema)
     </dataType>
 
     <dataType>
-      <vodml-id>error.Symmetrical1D</vodml-id>
-      <name>Symmetrical1D</name>
+      <vodml-id>error.ErrorSym1D</vodml-id>
+      <name>ErrorSym1D</name>
       <description>Symmetrical error for 1D parameters</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.Symmetrical1D.sigma</vodml-id>
+        <vodml-id>error.ErrorSym1D.sigma</vodml-id>
         <name>sigma</name>
         <description>Amplitude of the symmetrical error on a one-dimensional parameter</description>
         <datatype>
@@ -1148,16 +1148,14 @@ The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema)
     </dataType>
 
     <dataType>
-      <vodml-id>error.Ellipse</vodml-id>
-      <name>Ellipse</name>
-      <description>Elliptic error for 2D parameters such as sky positions.
-Major axis and minor axis have their own units, which must be the same for both.
-This is not enforced by the model. The definition of the ellipse attribute is imported from \texttt{coords:Ellipse}. </description>
+      <vodml-id>error.ErrorEllipse</vodml-id>
+      <name>ErrorEllipse</name>
+      <description>Elliptical errror for 2D parameters such as the sky positions.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.Ellipse.semiMajorAxis</vodml-id>
+        <vodml-id>error.ErrorEllipse.semiMajorAxis</vodml-id>
         <name>semiMajorAxis</name>
         <description>Half of the ellipse major axis</description>
         <datatype>
@@ -1169,7 +1167,7 @@ This is not enforced by the model. The definition of the ellipse attribute is im
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.Ellipse.semiMinorAxis</vodml-id>
+        <vodml-id>error.ErrorEllipse.semiMinorAxis</vodml-id>
         <name>semiMinorAxis</name>
         <description>Half of the ellipse minor axis</description>
         <datatype>
@@ -1181,7 +1179,7 @@ This is not enforced by the model. The definition of the ellipse attribute is im
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.Ellipse.angle</vodml-id>
+        <vodml-id>error.ErrorEllipse.angle</vodml-id>
         <name>angle</name>
         <description>In theory, this is the angle between the North Polar Cape (NPC) and the major axis. 
 This angle must be positive taking into account that angles are positive from North to the East. 
@@ -1199,15 +1197,15 @@ It is usually the angle between the major axis and the north axis (negative alon
     </dataType>
 
     <dataType>
-      <vodml-id>error.Symmetrical2D</vodml-id>
-      <name>Symmetrical2D</name>
+      <vodml-id>error.ErrorSym2D</vodml-id>
+      <name>ErrorSym2D</name>
       <description>Symmetrical error for 2D quantities. 
 </description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.Symmetrical2D.sigma1</vodml-id>
+        <vodml-id>error.ErrorSym2D.sigma1</vodml-id>
         <name>sigma1</name>
         <description>Error on the first dimension (right ascension in case of  sky coordinates)</description>
         <datatype>
@@ -1219,7 +1217,7 @@ It is usually the angle between the major axis and the north axis (negative alon
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.Symmetrical2D.sigma2</vodml-id>
+        <vodml-id>error.ErrorSym2D.sigma2</vodml-id>
         <name>sigma2</name>
         <description>Error on the second dimension (declination in case of sky coordinates)</description>
         <datatype>
@@ -1233,14 +1231,14 @@ It is usually the angle between the major axis and the north axis (negative alon
     </dataType>
 
     <dataType>
-      <vodml-id>error.Asymmetrical1D</vodml-id>
-      <name>Asymmetrical1D</name>
+      <vodml-id>error.ErrorAsym1D</vodml-id>
+      <name>ErrorAsym1D</name>
       <description>Asymmetrical error for 1D parameters</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.Asymmetrical1D.high</vodml-id>
+        <vodml-id>error.ErrorAsym1D.high</vodml-id>
         <name>high</name>
         <description>High limit for the asymmetrical error for 1D parameters</description>
         <datatype>
@@ -1252,7 +1250,7 @@ It is usually the angle between the major axis and the north axis (negative alon
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.Asymmetrical1D.low</vodml-id>
+        <vodml-id>error.ErrorAsym1D.low</vodml-id>
         <name>low</name>
         <description>Low limit for the asymmetrical error for 1D parameters</description>
         <datatype>
