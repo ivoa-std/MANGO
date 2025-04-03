@@ -1112,7 +1112,7 @@ The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).</d
         <vodml-id>error.PropertyError.distribution</vodml-id>
         <name>distribution</name>
         <description>Statistical distribution of the error. 
-The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema).</description>
+The Value can a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
