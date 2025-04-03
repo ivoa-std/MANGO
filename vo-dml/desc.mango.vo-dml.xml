@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-03-27T17:10:30</lastModified>
+  <lastModified>2025-04-03T09:01:20</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -480,9 +480,9 @@ as defined by the \texttt{PhotDM} model.</description>
     <attribute>
       <vodml-id>PhotometricProperty.error</vodml-id>
       <name>error</name>
-      <description>Error on the \texttt{PhotometricProperty}, imported from \texttt{meas:Uncertainty}.</description>
+      <description>Error on the \texttt{PhotometricProperty}.</description>
       <datatype>
-        <vodml-ref>meas:Uncertainty</vodml-ref>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1095,9 +1095,6 @@ have an attribute that specifies the confidence level</description>
       <description>Root (abstract) class of the errors that can be attached to a MANGO property. 
 The class inherits from \texttt{meas:uncertainty} in order to be usable in the context 
 of properties based on \texttt{Measures} classes.</description>
-      <extends>
-        <vodml-ref>meas:Uncertainty</vodml-ref>
-      </extends>
       <attribute>
         <vodml-id>error.PropertyError.confidenceLevel</vodml-id>
         <name>confidenceLevel</name>
@@ -1127,14 +1124,14 @@ The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema)
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorSym1D</vodml-id>
-      <name>ErrorSym1D</name>
+      <vodml-id>error.PErrorSym1D</vodml-id>
+      <name>PErrorSym1D</name>
       <description>Symmetrical error for 1D parameters</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorSym1D.sigma</vodml-id>
+        <vodml-id>error.PErrorSym1D.sigma</vodml-id>
         <name>sigma</name>
         <description>Amplitude of the symmetrical error on a one-dimensional parameter</description>
         <datatype>
@@ -1148,14 +1145,16 @@ The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema)
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorEllipse</vodml-id>
-      <name>ErrorEllipse</name>
-      <description>Elliptical errror for 2D parameters such as the sky positions.</description>
+      <vodml-id>error.PErrorEllipse</vodml-id>
+      <name>PErrorEllipse</name>
+      <description>Elliptic error for 2D parameters such as sky positions.
+Major axis and minor axis have their own units, which must be the same for both.
+This is not enforced by the model. The definition of the ellipse attribute is imported from \texttt{coords:Ellipse}. </description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorEllipse.semiMajorAxis</vodml-id>
+        <vodml-id>error.PErrorEllipse.semiMajorAxis</vodml-id>
         <name>semiMajorAxis</name>
         <description>Half of the ellipse major axis</description>
         <datatype>
@@ -1167,7 +1166,7 @@ The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema)
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorEllipse.semiMinorAxis</vodml-id>
+        <vodml-id>error.PErrorEllipse.semiMinorAxis</vodml-id>
         <name>semiMinorAxis</name>
         <description>Half of the ellipse minor axis</description>
         <datatype>
@@ -1179,7 +1178,7 @@ The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema)
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorEllipse.angle</vodml-id>
+        <vodml-id>error.PErrorEllipse.angle</vodml-id>
         <name>angle</name>
         <description>In theory, this is the angle between the North Polar Cape (NPC) and the major axis. 
 This angle must be positive taking into account that angles are positive from North to the East. 
@@ -1197,15 +1196,15 @@ It is usually the angle between the major axis and the north axis (negative alon
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorSym2D</vodml-id>
-      <name>ErrorSym2D</name>
+      <vodml-id>error.PErrorSym2D</vodml-id>
+      <name>PErrorSym2D</name>
       <description>Symmetrical error for 2D quantities. 
 </description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorSym2D.sigma1</vodml-id>
+        <vodml-id>error.PErrorSym2D.sigma1</vodml-id>
         <name>sigma1</name>
         <description>Error on the first dimension (right ascension in case of  sky coordinates)</description>
         <datatype>
@@ -1217,7 +1216,7 @@ It is usually the angle between the major axis and the north axis (negative alon
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorSym2D.sigma2</vodml-id>
+        <vodml-id>error.PErrorSym2D.sigma2</vodml-id>
         <name>sigma2</name>
         <description>Error on the second dimension (declination in case of sky coordinates)</description>
         <datatype>
@@ -1231,14 +1230,14 @@ It is usually the angle between the major axis and the north axis (negative alon
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorAsym1D</vodml-id>
-      <name>ErrorAsym1D</name>
+      <vodml-id>error.PErrorAsym1D</vodml-id>
+      <name>PErrorAsym1D</name>
       <description>Asymmetrical error for 1D parameters</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorAsym1D.high</vodml-id>
+        <vodml-id>error.PErrorAsym1D.high</vodml-id>
         <name>high</name>
         <description>High limit for the asymmetrical error for 1D parameters</description>
         <datatype>
@@ -1250,7 +1249,7 @@ It is usually the angle between the major axis and the north axis (negative alon
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorAsym1D.low</vodml-id>
+        <vodml-id>error.PErrorAsym1D.low</vodml-id>
         <name>low</name>
         <description>Low limit for the asymmetrical error for 1D parameters</description>
         <datatype>
