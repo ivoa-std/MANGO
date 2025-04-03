@@ -184,9 +184,9 @@
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="term"/>
              </INSTANCE>
              <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:PhotometricProperty.value" value="8.76"/>
-             <INSTANCE dmtype="mango:error.Asymmetrical1D" dmrole="mango:PhotometricProperty.error">
-               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Asymmetrical1D.low" value="1"/>
-               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Asymmetrical1D.high" value="3"/>
+             <INSTANCE dmtype="mango:error.PErrorAsym1D" dmrole="mango:PhotometricProperty.error">
+               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.low" value="1"/>
+               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.high" value="3"/>
              </INSTANCE>
              <INSTANCE dmtype="mango:ColorDef" dmrole="mango:Color.colorDef">
                <ATTRIBUTE dmtype="mango:ColorDefinition" dmrole="mango:ColorDef.definition" value="ColorIndex"/>
@@ -201,9 +201,9 @@
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="magnitude"/>
              </INSTANCE>
              <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:PhotometricProperty.value" unit="mag" ref="GRVSmag"/>
-             <INSTANCE dmtype="mango:error.Asymmetrical1D" dmrole="mango:PhotometricProperty.error">
-               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Asymmetrical1D.low" value="1"/>
-               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Asymmetrical1D.high" value="3"/>
+             <INSTANCE dmtype="mango:error.PErrorAsym1D" dmrole="mango:PhotometricProperty.error">
+               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.low" value="1"/>
+               <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.high" value="3"/>
              </INSTANCE>
              <REFERENCE dmrole="mango:Brightness.photCal" dmref="_photcal_GAIA_GAIA3_Grvs_AB"/>
            </INSTANCE>
@@ -232,19 +232,19 @@
                <ATTRIBUTE dmtype="ivoa:real" dmrole="mango:EpochPositionCorrelations.pmLatitudeParallax" ref="PlxpmDEcor"/>
              </INSTANCE>
              <INSTANCE dmtype="mango:EpochPositionErrors" dmrole="mango:EpochPosition.errors">
-               <INSTANCE dmtype="mango:error.Symmetrical2D" dmrole="mango:EpochPositionErrors.position">
-                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Symmetrical2D.sigma1" unit="mas" ref="e_RA_ICRS"/>
-                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Symmetrical2D.sigma2" unit="mas" ref="e_DE_ICRS"/>
+               <INSTANCE dmtype="mango:error.PErrorSym2D" dmrole="mango:EpochPositionErrors.position">
+                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorSym2D.sigma1" unit="mas" ref="e_RA_ICRS"/>
+                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorSym2D.sigma2" unit="mas" ref="e_DE_ICRS"/>
                </INSTANCE>
-               <INSTANCE dmtype="mango:error.Symmetrical2D" dmrole="mango:EpochPositionErrors.properMotion">
-                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Symmetrical2D.sigma1" unit="mas / yr" ref="e_pmRA"/>
-                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Symmetrical2D.sigma2" unit="mas / yr" ref="e_pmDE"/>
+               <INSTANCE dmtype="mango:error.PErrorSym2D" dmrole="mango:EpochPositionErrors.properMotion">
+                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorSym2D.sigma1" unit="mas / yr" ref="e_pmRA"/>
+                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorSym2D.sigma2" unit="mas / yr" ref="e_pmDE"/>
                </INSTANCE>
-               <INSTANCE dmtype="mango:error.Symmetrical1D" dmrole="mango:EpochPositionErrors.parallax">
-                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Symmetrical1D.sigma" unit="mas" ref="e_Plx"/>
+               <INSTANCE dmtype="mango:error.PErrorSym1D" dmrole="mango:EpochPositionErrors.parallax">
+                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorSym1D.sigma" unit="mas" ref="e_Plx"/>
                </INSTANCE>
-               <INSTANCE dmtype="mango:error.Symmetrical1D" dmrole="mango:EpochPositionErrors.radialVelocity">
-                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.Symmetrical1D.sigma" unit="km / s" ref="e_RV"/>
+               <INSTANCE dmtype="mango:error.PErrorSym1D" dmrole="mango:EpochPositionErrors.radialVelocity">
+                 <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorSym1D.sigma" unit="km / s" ref="e_RV"/>
                </INSTANCE>
              </INSTANCE>
              <REFERENCE dmrole="mango:EpochPosition.spaceSys" dmref="_spaceframe_ICRS_BARYCENTER"/>

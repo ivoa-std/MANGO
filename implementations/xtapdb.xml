@@ -374,8 +374,8 @@ FROM "public".mergedentry
               <INSTANCE dmrole="" dmtype="mango:Brightness">
                 <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_1_FLUX"
                   unit="erg/cm**2/s" />
-                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
-                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PErrorSym1D">
+                  <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity"
                     ref="SC_EP_1_FLUX_ERR" unit="erg/cm**2/s" />
                 </INSTANCE>
                 <REFERENCE dmref="CoordSystem_XMM_EB1_id" dmrole="mango:Brightness.photCal" />
@@ -383,8 +383,8 @@ FROM "public".mergedentry
               <INSTANCE dmrole="" dmtype="mango:Brightness">
                 <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_2_FLUX"
                   unit="erg/cm**2/s" />
-                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
-                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PErrorSym1D">
+                  <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity"
                     ref="SC_EP_2_FLUX_ERR" unit="erg/cm**2/s" />
                 </INSTANCE>
                 <REFERENCE dmref="CoordSystem_XMM_EB2_id" dmrole="mango:Brightness.photCal" />
@@ -392,8 +392,8 @@ FROM "public".mergedentry
               <INSTANCE dmrole="" dmtype="mango:Brightness">
                 <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_3_FLUX"
                   unit="erg/cm**2/s" />
-                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
-                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PErrorSym1D">
+                  <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity"
                     ref="SC_EP_3_FLUX_ERR" unit="erg/cm**2/s" />
                 </INSTANCE>
                 <REFERENCE dmref="CoordSystem_XMM_EB3_id" dmrole="mango:Brightness.photCal" />
@@ -401,8 +401,8 @@ FROM "public".mergedentry
               <INSTANCE dmrole="" dmtype="mango:Brightness">
                 <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_4_FLUX"
                   unit="erg/cm**2/s" />
-                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
-                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PErrorSym1D">
+                  <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity"
                     ref="SC_EP_4_FLUX_ERR" unit="erg/cm**2/s" />
                 </INSTANCE>
                 <REFERENCE dmref="CoordSystem_XMM_EB4_id" dmrole="mango:Brightness.photCal" />
@@ -410,8 +410,8 @@ FROM "public".mergedentry
               <INSTANCE dmrole="" dmtype="mango:Brightness">
                 <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_5_FLUX"
                   unit="erg/cm**2/s" />
-                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
-                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PErrorSym1D">
+                  <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity"
                     ref="SC_EP_5_FLUX_ERR" unit="erg/cm**2/s" />
                 </INSTANCE>
                 <REFERENCE dmref="CoordSystem_XMM_EB5_id" dmrole="mango:Brightness.photCal" />
@@ -419,8 +419,8 @@ FROM "public".mergedentry
               <INSTANCE dmrole="" dmtype="mango:Brightness">
                 <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" ref="SC_EP_8_FLUX"
                   unit="erg/cm**2/s" />
-                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.Symmetrical1D">
-                  <ATTRIBUTE dmrole="mango:error.Symmetrical1D.sigma" dmtype="ivoa:RealQuantity"
+                <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PErrorSym1D">
+                  <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity"
                     ref="SC_EP_8_FLUX_ERR" unit="erg/cm**2/s" />
                 </INSTANCE>
                 <REFERENCE dmref="CoordSystem_XMM_EB8_id" dmrole="mango:Brightness.photCal" />
