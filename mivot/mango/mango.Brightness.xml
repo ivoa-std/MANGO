@@ -12,7 +12,7 @@ This property should refer to a photometric calibration as defined by the \textt
       <INSTANCE dmtype="mango:Property"/>
    </COLLECTION>
    <ATTRIBUTE dmrole="mango:PhotometricProperty.value" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
-   <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
+   <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:PhotometricProperty.error" dmtype="mango:error.PropertyError"/>
    <INSTANCE dmrole="mango:Brightness.photCal" dmtype="Phot:PhotCal"/>
 </INSTANCE>

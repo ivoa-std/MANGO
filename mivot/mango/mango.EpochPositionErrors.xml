@@ -1,11 +1,11 @@
 <INSTANCE dmrole="" dmtype="mango:EpochPositionErrors">
    <!-- Class holder for the errors of the EpochPosition attributes" -->
-   <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
+   <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:EpochPositionErrors.parallax" dmtype="mango:error.PropertyError"/>
-   <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
+   <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:EpochPositionErrors.radialVelocity" dmtype="mango:error.PropertyError"/>
-   <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
+   <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:EpochPositionErrors.properMotion" dmtype="mango:error.PropertyError"/>
-   <!-- Put here a concrete INSTANCE of error.PropertyError or left blank -->
+   <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:EpochPositionErrors.position" dmtype="mango:error.PropertyError"/>
 </INSTANCE>
