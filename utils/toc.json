@@ -32,10 +32,10 @@
     },
     "Package: error ": {
         "PropertyError (Abstract)": {},
-        "ErrorSym1D": {},
-        "ErrorAsym1D": {},
-        "ErrorEllipse": {},
-        "ErrorSym2D": {}
+        "PErrorSym1D": {},
+        "PErrorAsym1D": {},
+        "PErrorEllipse": {},
+        "PErrorSym2D": {}
     },
     "Package: origin ": {
         "QueryOrigin": {},
