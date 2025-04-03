@@ -5,7 +5,7 @@ file into a documented Tex file which is inserted into the main Tex file
 
 The process is 3 steps:
 - `mango.vo-dml.xml` to `desc.mango.vo-dml.xml` 
-  - insert the descriptions located in `vo-dml/desc`intio the vo-dml file
+  - insert the descriptions located in `vo-dml/desc`into the vo-dml file
   - description of model elements are like `desc.vodmlid.txt`
   - missing description files are printed out; they can be edited by hand.
   
