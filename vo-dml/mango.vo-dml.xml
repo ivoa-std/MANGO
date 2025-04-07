@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-03-27T17:10:30</lastModified>
+  <lastModified>2025-04-03T09:01:20</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -476,7 +476,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>meas:Uncertainty</vodml-ref>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1105,9 +1105,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
       <name>PropertyError</name>
       <description>Root (abstract) class of the errors that can be attached to a MA?GO property. The class inherit from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
 </description>
-      <extends>
-        <vodml-ref>meas:Uncertainty</vodml-ref>
-      </extends>
       <attribute>
         <vodml-id>error.PropertyError.confidenceLevel</vodml-id>
         <name>confidenceLevel</name>
@@ -1137,14 +1134,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorSym1D</vodml-id>
-      <name>ErrorSym1D</name>
+      <vodml-id>error.PErrorSym1D</vodml-id>
+      <name>PErrorSym1D</name>
       <description>Symetrical error for 1D parameter.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorSym1D.sigma</vodml-id>
+        <vodml-id>error.PErrorSym1D.sigma</vodml-id>
         <name>sigma</name>
         <description>Error amplitude.</description>
         <datatype>
@@ -1158,14 +1155,14 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorEllipse</vodml-id>
-      <name>ErrorEllipse</name>
+      <vodml-id>error.PErrorEllipse</vodml-id>
+      <name>PErrorEllipse</name>
       <description>Elliptical errror for 2D parameters such as the sky positions.</description>
       <extends>
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorEllipse.semiMajorAxis</vodml-id>
+        <vodml-id>error.PErrorEllipse.semiMajorAxis</vodml-id>
         <name>semiMajorAxis</name>
         <description>Half of the ellipse major axis.</description>
         <datatype>
@@ -1177,7 +1174,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorEllipse.semiMinorAxis</vodml-id>
+        <vodml-id>error.PErrorEllipse.semiMinorAxis</vodml-id>
         <name>semiMinorAxis</name>
         <description>Half of the ellipse minor axis.</description>
         <datatype>
@@ -1189,7 +1186,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorEllipse.angle</vodml-id>
+        <vodml-id>error.PErrorEllipse.angle</vodml-id>
         <name>angle</name>
         <description>Angle between the North Polar Cape (NCP) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit.</description>
         <datatype>
@@ -1203,8 +1200,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorSym2D</vodml-id>
-      <name>ErrorSym2D</name>
+      <vodml-id>error.PErrorSym2D</vodml-id>
+      <name>PErrorSym2D</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -1212,7 +1209,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorSym2D.sigma1</vodml-id>
+        <vodml-id>error.PErrorSym2D.sigma1</vodml-id>
         <name>sigma1</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1226,7 +1223,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorSym2D.sigma2</vodml-id>
+        <vodml-id>error.PErrorSym2D.sigma2</vodml-id>
         <name>sigma2</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1242,8 +1239,8 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     </dataType>
 
     <dataType>
-      <vodml-id>error.ErrorAsym1D</vodml-id>
-      <name>ErrorAsym1D</name>
+      <vodml-id>error.PErrorAsym1D</vodml-id>
+      <name>PErrorAsym1D</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -1251,7 +1248,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>mango:error.PropertyError</vodml-ref>
       </extends>
       <attribute>
-        <vodml-id>error.ErrorAsym1D.high</vodml-id>
+        <vodml-id>error.PErrorAsym1D.high</vodml-id>
         <name>high</name>
         <description>
           TODO : Missing description : please, update your UML model asap.
@@ -1265,7 +1262,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </attribute>
       <attribute>
-        <vodml-id>error.ErrorAsym1D.low</vodml-id>
+        <vodml-id>error.PErrorAsym1D.low</vodml-id>
         <name>low</name>
         <description>
           TODO : Missing description : please, update your UML model asap.

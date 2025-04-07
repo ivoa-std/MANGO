@@ -11,14 +11,12 @@ defaults:
     working-directory: doc
 
 env:
-  doc_name: MANGO
+  doc_name:
 
 on:
   push:
     branches:
       - master
-      - wd-v1.0
-      - draft-0.1
 
 jobs:
   build:

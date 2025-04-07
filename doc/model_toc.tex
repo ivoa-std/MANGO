@@ -304,9 +304,9 @@ photometric filters are imported from \texttt{PhotDM}.
 
     \subsubsection{PhotometricProperty.error}
     \textbf{vodml-id: PhotometricProperty.error} \newline
-    \textbf{type: meas:Uncertainty} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
     \textbf{multiplicity: 1} \newline
-    Error on the \texttt{PhotometricProperty}, imported from \texttt{meas:Uncertainty}.
+    Error on the \texttt{PhotometricProperty}.
 
   \subsection{Brightness}
     \label{sect:Brightness}
@@ -536,68 +536,68 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{vodml-id: error.PropertyError.distribution} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
-    Statistical distribution of the error. The Value must comply with VO vocabulary TBD (not enforced by the VO-DML schema).
+    Statistical distribution of the error. The Value can a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).
 
-  \subsection{ErrorSym1D}
-    \label{sect:error.ErrorSym1D}
+  \subsection{PErrorSym1D}
+    \label{sect:error.PErrorSym1D}
     Symmetrical error for 1D parameters
 
-    \subsubsection{ErrorSym1D.sigma}
-    \textbf{vodml-id: error.ErrorSym1D.sigma} \newline
+    \subsubsection{PErrorSym1D.sigma}
+    \textbf{vodml-id: error.PErrorSym1D.sigma} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Amplitude of the symmetrical error on a one-dimensional parameter
 
-  \subsection{ErrorAsym1D}
-    \label{sect:error.ErrorAsym1D}
+  \subsection{PErrorAsym1D}
+    \label{sect:error.PErrorAsym1D}
     Asymmetrical error for 1D parameters
 
-    \subsubsection{ErrorAsym1D.high}
-    \textbf{vodml-id: error.ErrorAsym1D.high} \newline
+    \subsubsection{PErrorAsym1D.high}
+    \textbf{vodml-id: error.PErrorAsym1D.high} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     High limit for the asymmetrical error for 1D parameters
 
-    \subsubsection{ErrorAsym1D.low}
-    \textbf{vodml-id: error.ErrorAsym1D.low} \newline
+    \subsubsection{PErrorAsym1D.low}
+    \textbf{vodml-id: error.PErrorAsym1D.low} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Low limit for the asymmetrical error for 1D parameters
 
-  \subsection{ErrorEllipse}
-    \label{sect:error.ErrorEllipse}
-    Elliptical errror for 2D parameters such as the sky positions.
+  \subsection{PErrorEllipse}
+    \label{sect:error.PErrorEllipse}
+    Elliptic error for 2D parameters such as sky positions. Major axis and minor axis have their own units, which must be the same for both. This is not enforced by the model. The definition of the ellipse attribute is imported from \texttt{coords:Ellipse}.
 
-    \subsubsection{ErrorEllipse.semiMajorAxis}
-    \textbf{vodml-id: error.ErrorEllipse.semiMajorAxis} \newline
+    \subsubsection{PErrorEllipse.semiMajorAxis}
+    \textbf{vodml-id: error.PErrorEllipse.semiMajorAxis} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Half of the ellipse major axis
 
-    \subsubsection{ErrorEllipse.semiMinorAxis}
-    \textbf{vodml-id: error.ErrorEllipse.semiMinorAxis} \newline
+    \subsubsection{PErrorEllipse.semiMinorAxis}
+    \textbf{vodml-id: error.PErrorEllipse.semiMinorAxis} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Half of the ellipse minor axis
 
-    \subsubsection{ErrorEllipse.angle}
-    \textbf{vodml-id: error.ErrorEllipse.angle} \newline
+    \subsubsection{PErrorEllipse.angle}
+    \textbf{vodml-id: error.PErrorEllipse.angle} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     In theory, this is the angle between the North Polar Cape (NPC) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit. In practice, the angle definition is this used by the mapped data set. It is usually the angle between the major axis and the north axis (negative along of the clockwise direction).
 
-  \subsection{ErrorSym2D}
-    \label{sect:error.ErrorSym2D}
+  \subsection{PErrorSym2D}
+    \label{sect:error.PErrorSym2D}
     Symmetrical error for 2D quantities.
 
-    \subsubsection{ErrorSym2D.sigma1}
-    \textbf{vodml-id: error.ErrorSym2D.sigma1} \newline
+    \subsubsection{PErrorSym2D.sigma1}
+    \textbf{vodml-id: error.PErrorSym2D.sigma1} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Error on the first dimension (right ascension in case of sky coordinates)
 
-    \subsubsection{ErrorSym2D.sigma2}
-    \textbf{vodml-id: error.ErrorSym2D.sigma2} \newline
+    \subsubsection{PErrorSym2D.sigma2}
+    \textbf{vodml-id: error.PErrorSym2D.sigma2} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
     Error on the second dimension (declination in case of sky coordinates)
