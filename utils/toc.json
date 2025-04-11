@@ -30,6 +30,14 @@
         "Footprint": {},
         "FootprintSerialization": {}
     },
+    "Package: epoch ": {
+        "TimeInstance (Abstract)": {},
+        "ISOTime": {},
+        "JDTime": {},
+        "MJDTime": {},
+        "Years": {},
+        "Seconds": {}
+    },
     "Package: error ": {
         "PropertyError (Abstract)": {},
         "PErrorSym1D": {},
