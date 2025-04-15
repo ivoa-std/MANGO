@@ -1,542 +1,574 @@
-<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IVOA_UML_Profile="http:///schemas/IVOA_UML_Profile/_TJI3cBBZEfCuh7ipan5nEA/0" xmlns:default="http:///schemas/default/_TKXmgBBZEfCuh7ipan5nEA/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:version="2.1" xsi:schemaLocation="http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 http:///schemas/IVOA_UML_Profile/_TJI3cBBZEfCuh7ipan5nEA/0 IVOA_UML_Profile.profile.xmi#_TKs9tRBZEfCuh7ipan5nEA http:///schemas/default/_TKXmgBBZEfCuh7ipan5nEA/0 default.profile.xmi#_TixfcBBZEfCuh7ipan5nEA">
-  <uml:Model xmi:id="_TIc68BBZEfCuh7ipan5nEA" name="mango">
-    <eAnnotations xmi:id="_TIfXMBBZEfCuh7ipan5nEA" source="Objing">
-      <contents xmi:type="uml:Property" xmi:id="_TIfXMRBZEfCuh7ipan5nEA" name="exporterVersion">
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_TIfXMhBZEfCuh7ipan5nEA" value="3.0.0"/>
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IVOA_UML_Profile="http:///schemas/IVOA_UML_Profile/_Bruy8Bn9EfCYEYvDHNN4tQ/0" xmlns:default="http:///schemas/default/_BskgcBn9EfCYEYvDHNN4tQ/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:version="2.1" xsi:schemaLocation="http://www.eclipse.org/uml2/3.0.0/UML http://schema.omg.org/spec/UML/20110701 http:///schemas/IVOA_UML_Profile/_Bruy8Bn9EfCYEYvDHNN4tQ/0 IVOA_UML_Profile.profile.xmi#_Bs7Fxhn9EfCYEYvDHNN4tQ http:///schemas/default/_BskgcBn9EfCYEYvDHNN4tQ/0 default.profile.xmi#_B6H0Qhn9EfCYEYvDHNN4tQ">
+  <uml:Model xmi:id="_Bqy-0Bn9EfCYEYvDHNN4tQ" name="mango">
+    <eAnnotations xmi:id="_Bq0M8Bn9EfCYEYvDHNN4tQ" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_Bq0M8Rn9EfCYEYvDHNN4tQ" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Bq0M8hn9EfCYEYvDHNN4tQ" value="3.0.0"/>
       </contents>
     </eAnnotations>
-    <ownedComment xmi:type="uml:Comment" xmi:id="_TIfXMxBZEfCuh7ipan5nEA">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_Bq0M8xn9EfCYEYvDHNN4tQ">
       <body>The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
 </body>
     </ownedComment>
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_TIfXNBBZEfCuh7ipan5nEA" constrainedElement="_TIhzghBZEfCuh7ipan5nEA">
-      <specification xmi:type="uml:LiteralString" xmi:id="_TIfXNRBZEfCuh7ipan5nEA" value="One association at the time&#10;"/>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_Bq0M9Bn9EfCYEYvDHNN4tQ" constrainedElement="_Bq2pMBn9EfCYEYvDHNN4tQ">
+      <specification xmi:type="uml:LiteralString" xmi:id="_Bq0M9Rn9EfCYEYvDHNN4tQ" value="One association at the time&#10;"/>
     </ownedRule>
-    <packagedElement xmi:type="uml:Package" xmi:id="_TIf-QBBZEfCuh7ipan5nEA" name="ivoa">
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-QRBZEfCuh7ipan5nEA" name="real"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-QhBZEfCuh7ipan5nEA" name="datetime"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-QxBZEfCuh7ipan5nEA" name="anyURI">
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIf-RBBZEfCuh7ipan5nEA" general="_TIf-RRBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq0M9hn9EfCYEYvDHNN4tQ" name="ivoa">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq0M9xn9EfCYEYvDHNN4tQ" name="real"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq0M-Bn9EfCYEYvDHNN4tQ" name="datetime"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00ABn9EfCYEYvDHNN4tQ" name="anyURI">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq00ARn9EfCYEYvDHNN4tQ" general="_Bq00Ahn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-RRBZEfCuh7ipan5nEA" name="string"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-RhBZEfCuh7ipan5nEA" name="nonnegativeInteger"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-RxBZEfCuh7ipan5nEA" name="boolean"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-SBBZEfCuh7ipan5nEA" name="integer"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-SRBZEfCuh7ipan5nEA" name="rational"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-ShBZEfCuh7ipan5nEA" name="complex"/>
-      <packagedElement xmi:type="uml:InformationItem" xmi:id="_TIf-SxBZEfCuh7ipan5nEA" name="IVOA Base Types V1.0 (2016)"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIf-TBBZEfCuh7ipan5nEA" name="Unit">
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIf-TRBZEfCuh7ipan5nEA" general="_TIf-RRBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00Ahn9EfCYEYvDHNN4tQ" name="string"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00Axn9EfCYEYvDHNN4tQ" name="nonnegativeInteger"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00BBn9EfCYEYvDHNN4tQ" name="boolean"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00BRn9EfCYEYvDHNN4tQ" name="integer"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00Bhn9EfCYEYvDHNN4tQ" name="rational"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00Bxn9EfCYEYvDHNN4tQ" name="complex"/>
+      <packagedElement xmi:type="uml:InformationItem" xmi:id="_Bq00CBn9EfCYEYvDHNN4tQ" name="IVOA Base Types V1.0 (2016)"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00CRn9EfCYEYvDHNN4tQ" name="Unit">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq00Chn9EfCYEYvDHNN4tQ" general="_Bq00Ahn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIglUBBZEfCuh7ipan5nEA" name="Quantity" isAbstract="true">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIglURBZEfCuh7ipan5nEA" name="unit" visibility="public" type="_TIf-TBBZEfCuh7ipan5nEA" isUnique="false">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIglUhBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq00Cxn9EfCYEYvDHNN4tQ" name="Quantity" isAbstract="true">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq00DBn9EfCYEYvDHNN4tQ" name="unit" visibility="public" type="_Bq00CRn9EfCYEYvDHNN4tQ" isUnique="false">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq00DRn9EfCYEYvDHNN4tQ"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIglUxBZEfCuh7ipan5nEA" name="IntegerQuantity">
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIglVBBZEfCuh7ipan5nEA" general="_TIglUBBZEfCuh7ipan5nEA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIglVRBZEfCuh7ipan5nEA" name="value" visibility="public" type="_TIf-SBBZEfCuh7ipan5nEA" isUnique="false"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq00Dhn9EfCYEYvDHNN4tQ" name="IntegerQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq00Dxn9EfCYEYvDHNN4tQ" general="_Bq00Cxn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq00EBn9EfCYEYvDHNN4tQ" name="value" visibility="public" type="_Bq00BRn9EfCYEYvDHNN4tQ" isUnique="false"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIglVhBZEfCuh7ipan5nEA" name="RealQuantity">
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIglVxBZEfCuh7ipan5nEA" general="_TIglUBBZEfCuh7ipan5nEA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIglWBBZEfCuh7ipan5nEA" name="value" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false"/>
-      </packagedElement>
-    </packagedElement>
-    <packagedElement xmi:type="uml:InformationItem" xmi:id="_TIglWRBZEfCuh7ipan5nEA" name="Template Model V1.0 (2018)"/>
-    <packagedElement xmi:type="uml:Package" xmi:id="_TIglWhBZEfCuh7ipan5nEA" name="meas">
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIglWxBZEfCuh7ipan5nEA" name="Measure"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIglXBBZEfCuh7ipan5nEA" name="Error" isAbstract="true"/>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIglXRBZEfCuh7ipan5nEA" name="Uncertainty" isAbstract="true"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIglXhBZEfCuh7ipan5nEA" memberEnd="_TIhzphBZEfCuh7ipan5nEA _TIglXxBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIglXxBZEfCuh7ipan5nEA" visibility="public" type="_TIhzpBBZEfCuh7ipan5nEA" isUnique="false" association="_TIglXhBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00ERn9EfCYEYvDHNN4tQ" name="RealQuantity">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq00Ehn9EfCYEYvDHNN4tQ" general="_Bq00Cxn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq00Exn9EfCYEYvDHNN4tQ" name="value" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_TIglYBBZEfCuh7ipan5nEA" name="coords">
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TIglYRBZEfCuh7ipan5nEA" name="Coordinate"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIglYhBZEfCuh7ipan5nEA" name="CoordSys"/>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIglYxBZEfCuh7ipan5nEA" name="PhysicalCoord"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIglZBBZEfCuh7ipan5nEA" name="SpaceSys">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIglZRBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:InformationItem" xmi:id="_Bq00FBn9EfCYEYvDHNN4tQ" name="Template Model V1.0 (2018)"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq00FRn9EfCYEYvDHNN4tQ" name="meas">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq00Fhn9EfCYEYvDHNN4tQ" name="Measure"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq00Fxn9EfCYEYvDHNN4tQ" name="Error" isAbstract="true"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq00GBn9EfCYEYvDHNN4tQ" name="Uncertainty" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq00GRn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pUBn9EfCYEYvDHNN4tQ _Bq00Ghn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq00Ghn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pThn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq00GRn9EfCYEYvDHNN4tQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq00Gxn9EfCYEYvDHNN4tQ" name="coords">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq00HBn9EfCYEYvDHNN4tQ" name="Coordinate"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq00HRn9EfCYEYvDHNN4tQ" name="CoordSys"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq00Hhn9EfCYEYvDHNN4tQ" name="PhysicalCoord"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq1bEBn9EfCYEYvDHNN4tQ" name="SpaceSys">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq1bERn9EfCYEYvDHNN4tQ">
           <body>&lt;Enter note text here&gt;</body>
         </ownedComment>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIglZhBZEfCuh7ipan5nEA" name="Epoch"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIglZxBZEfCuh7ipan5nEA" name="TimeSys"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIglaBBZEfCuh7ipan5nEA" memberEnd="_TIhznRBZEfCuh7ipan5nEA _TIglaRBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIglaRBZEfCuh7ipan5nEA" visibility="public" type="_TIhzmxBZEfCuh7ipan5nEA" isUnique="false" association="_TIglaBBZEfCuh7ipan5nEA">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIglahBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq1bEhn9EfCYEYvDHNN4tQ" name="Epoch"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq1bExn9EfCYEYvDHNN4tQ" name="TimeSys"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq1bFBn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pSxn9EfCYEYvDHNN4tQ _Bq1bFRn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq1bFRn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pSRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq1bFBn9EfCYEYvDHNN4tQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq1bFhn9EfCYEYvDHNN4tQ"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIglaxBZEfCuh7ipan5nEA" memberEnd="_TIianBBZEfCuh7ipan5nEA _TIglbBBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIglbBBZEfCuh7ipan5nEA" visibility="public" type="_TIiamRBZEfCuh7ipan5nEA" isUnique="false" association="_TIglaxBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq1bFxn9EfCYEYvDHNN4tQ" memberEnd="_Bq3QWBn9EfCYEYvDHNN4tQ _Bq1bGBn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq1bGBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq3QVRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq1bFxn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIglbRBZEfCuh7ipan5nEA" memberEnd="_TIiaohBZEfCuh7ipan5nEA _TIglbhBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIglbhBZEfCuh7ipan5nEA" visibility="public" type="_TIiamRBZEfCuh7ipan5nEA" isUnique="false" association="_TIglbRBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq1bGRn9EfCYEYvDHNN4tQ" memberEnd="_Bq3QXhn9EfCYEYvDHNN4tQ _Bq1bGhn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq1bGhn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq3QVRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq1bGRn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhMYBBZEfCuh7ipan5nEA" name="MangoObject">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_TIhMYRBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq1bGxn9EfCYEYvDHNN4tQ" name="MangoObject">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Bq1bHBn9EfCYEYvDHNN4tQ">
         <body>Root class of the model. MANGO instances are meant of be Source instances.
 A source is something with an identifier and two docks: one for the parameters and one for the associated data.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhMYhBZEfCuh7ipan5nEA" name="propertyDock" visibility="public" type="_TIhzghBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIhMbRBZEfCuh7ipan5nEA">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhMYxBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq1bHRn9EfCYEYvDHNN4tQ" name="propertyDock" visibility="public" type="_Bq2pMBn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq2CIxn9EfCYEYvDHNN4tQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq1bHhn9EfCYEYvDHNN4tQ">
           <body>Composition link pointing on all parameters attached to the source.</body>
         </ownedComment>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIhMZBBZEfCuh7ipan5nEA" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhMZRBZEfCuh7ipan5nEA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq1bHxn9EfCYEYvDHNN4tQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq1bIBn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhMZhBZEfCuh7ipan5nEA" name="associatedMangoObjects" visibility="public" type="_TIhzeBBZEfCuh7ipan5nEA" isUnique="false" association="_TIhMbxBZEfCuh7ipan5nEA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIhMZxBZEfCuh7ipan5nEA" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhMaBBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq1bIRn9EfCYEYvDHNN4tQ" name="associatedMangoObjects" visibility="public" type="_Bq2CMBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2CJRn9EfCYEYvDHNN4tQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq1bIhn9EfCYEYvDHNN4tQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq1bIxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhMaRBZEfCuh7ipan5nEA" name="queryOrigin" visibility="public" type="_TIjo2hBZEfCuh7ipan5nEA" isUnique="false" association="_TIjovRBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhMahBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq1bJBn9EfCYEYvDHNN4tQ" name="queryOrigin" visibility="public" type="_Bq33pBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq33hxn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2CIBn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhMaxBZEfCuh7ipan5nEA" name="identifier" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhMbBBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CIRn9EfCYEYvDHNN4tQ" name="identifier" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CIhn9EfCYEYvDHNN4tQ">
           <body>Unique identifier for a Source.
 The uniqueness of that identifier is not managed by the model.
 The format is free.</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIhMbRBZEfCuh7ipan5nEA" memberEnd="_TIhMYhBZEfCuh7ipan5nEA _TIhMbhBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIhMbhBZEfCuh7ipan5nEA" visibility="public" type="_TIhMYBBZEfCuh7ipan5nEA" isUnique="false" association="_TIhMbRBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq2CIxn9EfCYEYvDHNN4tQ" memberEnd="_Bq1bHRn9EfCYEYvDHNN4tQ _Bq2CJBn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq2CJBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq1bGxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2CIxn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIhMbxBZEfCuh7ipan5nEA" memberEnd="_TIhMZhBZEfCuh7ipan5nEA _TIhMcBBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIhMcBBZEfCuh7ipan5nEA" visibility="public" type="_TIhMYBBZEfCuh7ipan5nEA" isUnique="false" association="_TIhMbxBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq2CJRn9EfCYEYvDHNN4tQ" memberEnd="_Bq1bIRn9EfCYEYvDHNN4tQ _Bq2CJhn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq2CJhn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq1bGxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2CJRn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhMcRBZEfCuh7ipan5nEA" name="DataLink">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzcBBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2CJxn9EfCYEYvDHNN4tQ" name="DataLink">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CKBn9EfCYEYvDHNN4tQ">
         <body>Class for associated data referenced by an URL</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzcRBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzchBZEfCuh7ipan5nEA" name="content_type" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzcxBZEfCuh7ipan5nEA">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2CKRn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CKhn9EfCYEYvDHNN4tQ" name="content_type" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CKxn9EfCYEYvDHNN4tQ">
           <body>Mime type of the URL
 </body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzdBBZEfCuh7ipan5nEA" name="access_url" visibility="public" type="_TIf-QxBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzdRBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CLBn9EfCYEYvDHNN4tQ" name="access_url" visibility="public" type="_Bq00ABn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CLRn9EfCYEYvDHNN4tQ">
           <body>Web endpoint</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzdhBZEfCuh7ipan5nEA" name="content_qualifier" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzdxBZEfCuh7ipan5nEA" name="local_semantics" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CLhn9EfCYEYvDHNN4tQ" name="content_qualifier" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CLxn9EfCYEYvDHNN4tQ" name="local_semantics" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzeBBZEfCuh7ipan5nEA" name="AssociatedMangoObject">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzeRBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2CMBn9EfCYEYvDHNN4tQ" name="AssociatedMangoObject">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CMRn9EfCYEYvDHNN4tQ">
         <body>Reference to another MANGO instance that is part of the associated data.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzehBZEfCuh7ipan5nEA" name="mangoObject" visibility="public" type="_TIhMYBBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIhzgBBZEfCuh7ipan5nEA">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzexBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CMhn9EfCYEYvDHNN4tQ" name="mangoObject" visibility="public" type="_Bq1bGxn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq2COBn9EfCYEYvDHNN4tQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CMxn9EfCYEYvDHNN4tQ">
           <body>Composition link pointing on one MANGO instance associated with the source.</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzfBBZEfCuh7ipan5nEA" name="semantics" visibility="public" type="_TIialRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzfRBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CNBn9EfCYEYvDHNN4tQ" name="semantics" visibility="public" type="_Bq3QURn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CNRn9EfCYEYvDHNN4tQ">
           <body>Reference to a semantic concept giving the nature of the associated data.
 As long as the vocabulary is not set, the possible values of this attribute are given by the LinkSemantic enumeration. </body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzfhBZEfCuh7ipan5nEA" name="description" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzfxBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2CNhn9EfCYEYvDHNN4tQ" name="description" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2CNxn9EfCYEYvDHNN4tQ">
           <body>Free text description of the associated data</body>
         </ownedComment>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIhzgBBZEfCuh7ipan5nEA" memberEnd="_TIhzehBZEfCuh7ipan5nEA _TIhzgRBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIhzgRBZEfCuh7ipan5nEA" visibility="public" type="_TIhzeBBZEfCuh7ipan5nEA" isUnique="false" association="_TIhzgBBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq2COBn9EfCYEYvDHNN4tQ" memberEnd="_Bq2CMhn9EfCYEYvDHNN4tQ _Bq2CORn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq2CORn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2CMBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2COBn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzghBZEfCuh7ipan5nEA" name="Property">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzgxBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pMBn9EfCYEYvDHNN4tQ" name="Property">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2pMRn9EfCYEYvDHNN4tQ">
         <body>Reference to a particular measure of the Source.
 This class is used to specify the type of the measure as well as its role.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzhBBZEfCuh7ipan5nEA" name="associatedProperties" visibility="public" type="_TIhzghBZEfCuh7ipan5nEA" isUnique="false" association="_TIhzjhBZEfCuh7ipan5nEA">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzhRBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pMhn9EfCYEYvDHNN4tQ" name="associatedProperties" visibility="public" type="_Bq2pMBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2pPBn9EfCYEYvDHNN4tQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2pMxn9EfCYEYvDHNN4tQ">
           <body>&lt;Enter note text here&gt;</body>
         </ownedComment>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIhzhhBZEfCuh7ipan5nEA" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhzhxBZEfCuh7ipan5nEA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq2pNBn9EfCYEYvDHNN4tQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2pNRn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhziBBZEfCuh7ipan5nEA" name="semantics" visibility="public" type="_TIialRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhziRBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pNhn9EfCYEYvDHNN4tQ" name="semantics" visibility="public" type="_Bq3QURn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2pNxn9EfCYEYvDHNN4tQ">
           <body>Reference to a semantic concept giving the nature of the parameter
 As long as the vocabulary is not set, the possible values of this attribute are given by the ParamSemantic enumeration. </body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhzihBZEfCuh7ipan5nEA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2pOBn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzixBZEfCuh7ipan5nEA" name="description" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIhzjBBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pORn9EfCYEYvDHNN4tQ" name="description" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq2pOhn9EfCYEYvDHNN4tQ">
           <body>Free text description of the measure
 </body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhzjRBZEfCuh7ipan5nEA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2pOxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIhzjhBZEfCuh7ipan5nEA" memberEnd="_TIhzhBBZEfCuh7ipan5nEA _TIhzjxBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIhzjxBZEfCuh7ipan5nEA" visibility="public" type="_TIhzghBZEfCuh7ipan5nEA" isUnique="false" association="_TIhzjhBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhzkBBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq2pPBn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pMhn9EfCYEYvDHNN4tQ _Bq2pPRn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq2pPRn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pMBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2pPBn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2pPhn9EfCYEYvDHNN4tQ"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzkRBZEfCuh7ipan5nEA" name="Status">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzkhBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzkxBZEfCuh7ipan5nEA" name="allowedValues" visibility="public" type="_TIiahBBZEfCuh7ipan5nEA" isUnique="false" association="_TIhzlRBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzlBBZEfCuh7ipan5nEA" name="status" visibility="public" type="_TIf-SBBZEfCuh7ipan5nEA" isUnique="false"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pPxn9EfCYEYvDHNN4tQ" name="Status">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2pQBn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pQRn9EfCYEYvDHNN4tQ" name="allowedValues" visibility="public" type="_Bq3QQBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2pQxn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pQhn9EfCYEYvDHNN4tQ" name="status" visibility="public" type="_Bq00BRn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIhzlRBZEfCuh7ipan5nEA" memberEnd="_TIhzkxBZEfCuh7ipan5nEA _TIhzlhBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIhzlhBZEfCuh7ipan5nEA" visibility="public" type="_TIhzkRBZEfCuh7ipan5nEA" isUnique="false" association="_TIhzlRBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIhzlxBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq2pQxn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pQRn9EfCYEYvDHNN4tQ _Bq2pRBn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq2pRBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pPxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2pQxn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2pRRn9EfCYEYvDHNN4tQ"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzmBBZEfCuh7ipan5nEA" name="Label">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzmRBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzmhBZEfCuh7ipan5nEA" name="text" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pRhn9EfCYEYvDHNN4tQ" name="Label">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2pRxn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pSBn9EfCYEYvDHNN4tQ" name="text" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzmxBZEfCuh7ipan5nEA" name="Footprint">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhznBBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhznRBZEfCuh7ipan5nEA" name="spaceSys" visibility="public" type="_TIglZBBZEfCuh7ipan5nEA" isUnique="false" association="_TIglaBBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhznhBZEfCuh7ipan5nEA" name="serialization" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhznxBZEfCuh7ipan5nEA" name="mode" visibility="public" type="_TIiagBBZEfCuh7ipan5nEA" isUnique="false"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pSRn9EfCYEYvDHNN4tQ" name="Footprint">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2pShn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pSxn9EfCYEYvDHNN4tQ" name="spaceSys" visibility="public" type="_Bq1bEBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq1bFBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pTBn9EfCYEYvDHNN4tQ" name="serialization" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pTRn9EfCYEYvDHNN4tQ" name="mode" visibility="public" type="_Bq2pYBn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzoBBZEfCuh7ipan5nEA" name="PhotometricProperty">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzoRBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzohBZEfCuh7ipan5nEA" name="value" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzoxBZEfCuh7ipan5nEA" name="error" visibility="public" type="_TIjBlxBZEfCuh7ipan5nEA" isUnique="false"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pThn9EfCYEYvDHNN4tQ" name="PhysicalProperty">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2pTxn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pUBn9EfCYEYvDHNN4tQ" name="measure" visibility="public" type="_Bq00Fhn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq00GRn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pURn9EfCYEYvDHNN4tQ" name="calibrationLevel" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzpBBZEfCuh7ipan5nEA" name="PhysicalProperty">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzpRBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzphBZEfCuh7ipan5nEA" name="measure" visibility="public" type="_TIglWxBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIglXhBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzpxBZEfCuh7ipan5nEA" name="calibrationLevel" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzqBBZEfCuh7ipan5nEA" name="Color">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzqRBZEfCuh7ipan5nEA" general="_TIhzoBBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzqhBZEfCuh7ipan5nEA" name="colorDef" visibility="public" type="_TIhzrRBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIhzqxBZEfCuh7ipan5nEA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIhzqxBZEfCuh7ipan5nEA" memberEnd="_TIhzqhBZEfCuh7ipan5nEA _TIhzrBBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIhzrBBZEfCuh7ipan5nEA" visibility="public" type="_TIhzqBBZEfCuh7ipan5nEA" isUnique="false" association="_TIhzqxBZEfCuh7ipan5nEA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzrRBZEfCuh7ipan5nEA" name="ColorDef">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzrhBZEfCuh7ipan5nEA" name="high" visibility="public" type="_TIiakhBZEfCuh7ipan5nEA" isUnique="false" association="_TIiajRBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzrxBZEfCuh7ipan5nEA" name="low" visibility="public" type="_TIiakhBZEfCuh7ipan5nEA" isUnique="false" association="_TIiajxBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIhzsBBZEfCuh7ipan5nEA" name="definition" visibility="public" type="_TIjBshBZEfCuh7ipan5nEA" isUnique="false"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIhzsRBZEfCuh7ipan5nEA" name="BitField">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIhzshBZEfCuh7ipan5nEA" general="_TIhzkRBZEfCuh7ipan5nEA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_TIiagBBZEfCuh7ipan5nEA" name="FootprintSerialization">
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TIiagRBZEfCuh7ipan5nEA" name="SMOC"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TIiaghBZEfCuh7ipan5nEA" name="STC-S"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TIiagxBZEfCuh7ipan5nEA" name="POLYGON"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIiahBBZEfCuh7ipan5nEA" name="StatusValues">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiahRBZEfCuh7ipan5nEA" name="values" visibility="public" type="_TIiaiRBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIiahxBZEfCuh7ipan5nEA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIiahhBZEfCuh7ipan5nEA" value="*"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pUhn9EfCYEYvDHNN4tQ" name="Color">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2pUxn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pVBn9EfCYEYvDHNN4tQ" name="colorDef" visibility="public" type="_Bq2pWhn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq2pWBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pVRn9EfCYEYvDHNN4tQ" name="value" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pVhn9EfCYEYvDHNN4tQ" name="error" visibility="public" type="_Bq3Qcxn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq2pVxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIiahxBZEfCuh7ipan5nEA" memberEnd="_TIiahRBZEfCuh7ipan5nEA _TIiaiBBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIiaiBBZEfCuh7ipan5nEA" visibility="public" type="_TIiahBBZEfCuh7ipan5nEA" isUnique="false" association="_TIiahxBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq2pWBn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pVBn9EfCYEYvDHNN4tQ _Bq2pWRn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq2pWRn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pUhn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq2pWBn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIiaiRBZEfCuh7ipan5nEA" name="StatusValue">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaihBZEfCuh7ipan5nEA" name="value" visibility="public" type="_TIf-SBBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaixBZEfCuh7ipan5nEA" name="description" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pWhn9EfCYEYvDHNN4tQ" name="ColorDef">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pWxn9EfCYEYvDHNN4tQ" name="high" visibility="public" type="_Bq3QThn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QSRn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pXBn9EfCYEYvDHNN4tQ" name="low" visibility="public" type="_Bq3QThn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QSxn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq2pXRn9EfCYEYvDHNN4tQ" name="definition" visibility="public" type="_Bq33aRn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_TIiajBBZEfCuh7ipan5nEA" name="Phot">
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIiajRBZEfCuh7ipan5nEA" memberEnd="_TIhzrhBZEfCuh7ipan5nEA _TIiajhBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIiajhBZEfCuh7ipan5nEA" visibility="public" type="_TIhzrRBZEfCuh7ipan5nEA" isUnique="false" association="_TIiajRBZEfCuh7ipan5nEA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIiajxBZEfCuh7ipan5nEA" memberEnd="_TIhzrxBZEfCuh7ipan5nEA _TIiakBBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIiakBBZEfCuh7ipan5nEA" visibility="public" type="_TIhzrRBZEfCuh7ipan5nEA" isUnique="false" association="_TIiajxBZEfCuh7ipan5nEA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIiakRBZEfCuh7ipan5nEA" name="PhotCal"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIiakhBZEfCuh7ipan5nEA" name="PhotometryFilter"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIiakxBZEfCuh7ipan5nEA" memberEnd="_TIkPsBBZEfCuh7ipan5nEA _TIialBBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIialBBZEfCuh7ipan5nEA" visibility="public" type="_TIjo6RBZEfCuh7ipan5nEA" isUnique="false" association="_TIiakxBZEfCuh7ipan5nEA"/>
-      </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq2pXhn9EfCYEYvDHNN4tQ" name="BitField">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq2pXxn9EfCYEYvDHNN4tQ" general="_Bq2pPxn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_TIialRBZEfCuh7ipan5nEA" name="VocabularyTerm">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIialhBZEfCuh7ipan5nEA" name="uri" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIialxBZEfCuh7ipan5nEA" name="label" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIiamBBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_Bq2pYBn9EfCYEYvDHNN4tQ" name="FootprintSerialization">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bq2pYRn9EfCYEYvDHNN4tQ" name="SMOC"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bq2pYhn9EfCYEYvDHNN4tQ" name="STC-S"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bq2pYxn9EfCYEYvDHNN4tQ" name="POLYGON"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq3QQBn9EfCYEYvDHNN4tQ" name="StatusValues">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QQRn9EfCYEYvDHNN4tQ" name="values" visibility="public" type="_Bq3QRRn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq3QQxn9EfCYEYvDHNN4tQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq3QQhn9EfCYEYvDHNN4tQ" value="*"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIiamRBZEfCuh7ipan5nEA" name="EpochPosition">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_TIiamhBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq3QQxn9EfCYEYvDHNN4tQ" memberEnd="_Bq3QQRn9EfCYEYvDHNN4tQ _Bq3QRBn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq3QRBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq3QQBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QQxn9EfCYEYvDHNN4tQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq3QRRn9EfCYEYvDHNN4tQ" name="StatusValue">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QRhn9EfCYEYvDHNN4tQ" name="value" visibility="public" type="_Bq00BRn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QRxn9EfCYEYvDHNN4tQ" name="description" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq3QSBn9EfCYEYvDHNN4tQ" name="Phot">
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq3QSRn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pWxn9EfCYEYvDHNN4tQ _Bq3QShn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq3QShn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pWhn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QSRn9EfCYEYvDHNN4tQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq3QSxn9EfCYEYvDHNN4tQ" memberEnd="_Bq2pXBn9EfCYEYvDHNN4tQ _Bq3QTBn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq3QTBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq2pWhn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QSxn9EfCYEYvDHNN4tQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq3QTRn9EfCYEYvDHNN4tQ" name="PhotCal"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq3QThn9EfCYEYvDHNN4tQ" name="PhotometryFilter"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq3QTxn9EfCYEYvDHNN4tQ" memberEnd="_Bq33tBn9EfCYEYvDHNN4tQ _Bq3QUBn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq3QUBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq33sxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QTxn9EfCYEYvDHNN4tQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_Bq3QURn9EfCYEYvDHNN4tQ" name="VocabularyTerm">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QUhn9EfCYEYvDHNN4tQ" name="uri" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QUxn9EfCYEYvDHNN4tQ" name="label" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq3QVBn9EfCYEYvDHNN4tQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq3QVRn9EfCYEYvDHNN4tQ" name="EpochPosition">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Bq3QVhn9EfCYEYvDHNN4tQ">
         <body>Class grouping all parameters needed to define an object position at a given epoch. The space coordinate system is common to all attributes to insure the consistance between all of the instance parameters.</body>
       </ownedComment>
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIiamxBZEfCuh7ipan5nEA" general="_TIhzghBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIianBBZEfCuh7ipan5nEA" name="spaceSys" visibility="public" type="_TIglZBBZEfCuh7ipan5nEA" isUnique="false" association="_TIglaxBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIianRBZEfCuh7ipan5nEA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_Bq3QVxn9EfCYEYvDHNN4tQ" general="_Bq2pMBn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QWBn9EfCYEYvDHNN4tQ" name="spaceSys" visibility="public" type="_Bq1bEBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq1bFxn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq3QWRn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIianhBZEfCuh7ipan5nEA" name="errors" visibility="public" type="_TIjBkBBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIiarBBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIianxBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QWhn9EfCYEYvDHNN4tQ" name="errors" visibility="public" type="_Bq3QbBn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq3QaBn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq3QWxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaoBBZEfCuh7ipan5nEA" name="correlations" visibility="public" type="_TIjopBBZEfCuh7ipan5nEA" isUnique="false" aggregation="composite" association="_TIiarhBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIiaoRBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QXBn9EfCYEYvDHNN4tQ" name="correlations" visibility="public" type="_Bq33bhn9EfCYEYvDHNN4tQ" isUnique="false" aggregation="composite" association="_Bq3Qahn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq3QXRn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaohBZEfCuh7ipan5nEA" name="timeSys" visibility="public" type="_TIglZxBZEfCuh7ipan5nEA" isUnique="false" association="_TIglbRBZEfCuh7ipan5nEA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIiaoxBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QXhn9EfCYEYvDHNN4tQ" name="timeSys" visibility="public" type="_Bq1bExn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq1bGRn9EfCYEYvDHNN4tQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq3QXxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiapBBZEfCuh7ipan5nEA" name="longitude" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiapRBZEfCuh7ipan5nEA" name="latitude" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaphBZEfCuh7ipan5nEA" name="parallax" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiapxBZEfCuh7ipan5nEA" name="radialVelocity" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaqBBZEfCuh7ipan5nEA" name="pmLongitude" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaqRBZEfCuh7ipan5nEA" name="pmLatitude" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaqhBZEfCuh7ipan5nEA" name="epoch" visibility="public" type="_TIglZhBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIiaqxBZEfCuh7ipan5nEA" name="pmCosLat_applied" visibility="public" type="_TIf-RxBZEfCuh7ipan5nEA" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QYBn9EfCYEYvDHNN4tQ" name="longitude" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QYRn9EfCYEYvDHNN4tQ" name="latitude" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QYhn9EfCYEYvDHNN4tQ" name="parallax" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QYxn9EfCYEYvDHNN4tQ" name="radialVelocity" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QZBn9EfCYEYvDHNN4tQ" name="pmLongitude" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QZRn9EfCYEYvDHNN4tQ" name="pmLatitude" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QZhn9EfCYEYvDHNN4tQ" name="epoch" visibility="public" type="_Bq4eYhn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QZxn9EfCYEYvDHNN4tQ" name="pmCosLat_applied" visibility="public" type="_Bq00BBn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIiarBBZEfCuh7ipan5nEA" memberEnd="_TIianhBZEfCuh7ipan5nEA _TIiarRBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIiarRBZEfCuh7ipan5nEA" visibility="public" type="_TIiamRBZEfCuh7ipan5nEA" isUnique="false" association="_TIiarBBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq3QaBn9EfCYEYvDHNN4tQ" memberEnd="_Bq3QWhn9EfCYEYvDHNN4tQ _Bq3QaRn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq3QaRn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq3QVRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QaBn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TIiarhBZEfCuh7ipan5nEA" memberEnd="_TIiaoBBZEfCuh7ipan5nEA _TIiarxBZEfCuh7ipan5nEA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_TIiarxBZEfCuh7ipan5nEA" visibility="public" type="_TIiamRBZEfCuh7ipan5nEA" isUnique="false" association="_TIiarhBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bq3Qahn9EfCYEYvDHNN4tQ" memberEnd="_Bq3QXBn9EfCYEYvDHNN4tQ _Bq3Qaxn9EfCYEYvDHNN4tQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bq3Qaxn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq3QVRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3Qahn9EfCYEYvDHNN4tQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIjBkBBZEfCuh7ipan5nEA" name="EpochPositionErrors">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBkRBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq3QbBn9EfCYEYvDHNN4tQ" name="EpochPositionErrors">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Bq3QbRn9EfCYEYvDHNN4tQ">
         <body>Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBkhBZEfCuh7ipan5nEA" name="parallax" visibility="public" type="_TIjBlxBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBkxBZEfCuh7ipan5nEA" name="radialVelocity" visibility="public" type="_TIjBlxBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBlBBZEfCuh7ipan5nEA" name="properMotion" visibility="public" type="_TIjBlxBZEfCuh7ipan5nEA" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBlRBZEfCuh7ipan5nEA" name="position" visibility="public" type="_TIjBlxBZEfCuh7ipan5nEA" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3Qbhn9EfCYEYvDHNN4tQ" name="parallax" visibility="public" type="_Bq3Qcxn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3Qbxn9EfCYEYvDHNN4tQ" name="radialVelocity" visibility="public" type="_Bq3Qcxn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QcBn9EfCYEYvDHNN4tQ" name="properMotion" visibility="public" type="_Bq3Qcxn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq3QcRn9EfCYEYvDHNN4tQ" name="position" visibility="public" type="_Bq3Qcxn9EfCYEYvDHNN4tQ" isUnique="false"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_TIjBlhBZEfCuh7ipan5nEA" name="error">
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIjBlxBZEfCuh7ipan5nEA" name="PropertyError" isAbstract="true">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBmBBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq3Qchn9EfCYEYvDHNN4tQ" name="error">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq3Qcxn9EfCYEYvDHNN4tQ" name="PropertyError" isAbstract="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq3QdBn9EfCYEYvDHNN4tQ">
           <body>Root (abstract) class of the errors that can be attached to a MA?GO property. The class inherit from \texttt{meas:uncertainty} in order to be usable in the context of properties based on \texttt{Measures} classes.
 </body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBmRBZEfCuh7ipan5nEA" name="confidenceLevel" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBmhBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33UBn9EfCYEYvDHNN4tQ" name="confidenceLevel" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33URn9EfCYEYvDHNN4tQ">
             <body>Confidence level of the error, expressed in \sigma.</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBmxBZEfCuh7ipan5nEA" name="distribution" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33Uhn9EfCYEYvDHNN4tQ" name="distribution" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIjBnBBZEfCuh7ipan5nEA" name="PErrorSym1D">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBnRBZEfCuh7ipan5nEA">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq33Uxn9EfCYEYvDHNN4tQ" name="PErrorSym1D">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33VBn9EfCYEYvDHNN4tQ">
           <body>Symetrical error for 1D parameter.</body>
         </ownedComment>
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIjBnhBZEfCuh7ipan5nEA" general="_TIjBlxBZEfCuh7ipan5nEA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBnxBZEfCuh7ipan5nEA" name="sigma" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBoBBZEfCuh7ipan5nEA">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq33VRn9EfCYEYvDHNN4tQ" general="_Bq3Qcxn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33Vhn9EfCYEYvDHNN4tQ" name="sigma" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33Vxn9EfCYEYvDHNN4tQ">
             <body>Error amplitude.</body>
           </ownedComment>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIjBoRBZEfCuh7ipan5nEA" name="PErrorEllipse">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBohBZEfCuh7ipan5nEA">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq33WBn9EfCYEYvDHNN4tQ" name="PErrorEllipse">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33WRn9EfCYEYvDHNN4tQ">
           <body>Elliptical errror for 2D parameters such as the sky positions.</body>
         </ownedComment>
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIjBoxBZEfCuh7ipan5nEA" general="_TIjBlxBZEfCuh7ipan5nEA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBpBBZEfCuh7ipan5nEA" name="semiMajorAxis" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBpRBZEfCuh7ipan5nEA">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq33Whn9EfCYEYvDHNN4tQ" general="_Bq3Qcxn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33Wxn9EfCYEYvDHNN4tQ" name="semiMajorAxis" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33XBn9EfCYEYvDHNN4tQ">
             <body>Half of the ellipse major axis.</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBphBZEfCuh7ipan5nEA" name="semiMinorAxis" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBpxBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33XRn9EfCYEYvDHNN4tQ" name="semiMinorAxis" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33Xhn9EfCYEYvDHNN4tQ">
             <body>Half of the ellipse minor axis.</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBqBBZEfCuh7ipan5nEA" name="angle" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjBqRBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33Xxn9EfCYEYvDHNN4tQ" name="angle" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33YBn9EfCYEYvDHNN4tQ">
             <body>Angle between the North Polar Cape (NCP) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit.</body>
           </ownedComment>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIjBqhBZEfCuh7ipan5nEA" name="PErrorSym2D">
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIjBqxBZEfCuh7ipan5nEA" general="_TIjBlxBZEfCuh7ipan5nEA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBrBBZEfCuh7ipan5nEA" name="sigma1" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBrRBZEfCuh7ipan5nEA" name="sigma2" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq33YRn9EfCYEYvDHNN4tQ" name="PErrorSym2D">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq33Yhn9EfCYEYvDHNN4tQ" general="_Bq3Qcxn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33Yxn9EfCYEYvDHNN4tQ" name="sigma1" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33ZBn9EfCYEYvDHNN4tQ" name="sigma2" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:DataType" xmi:id="_TIjBrhBZEfCuh7ipan5nEA" name="PErrorAsym1D">
-        <generalization xmi:type="uml:Generalization" xmi:id="_TIjBrxBZEfCuh7ipan5nEA" general="_TIjBlxBZEfCuh7ipan5nEA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBsBBZEfCuh7ipan5nEA" name="high" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjBsRBZEfCuh7ipan5nEA" name="low" visibility="public" type="_TIglVhBZEfCuh7ipan5nEA" isUnique="false"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Bq33ZRn9EfCYEYvDHNN4tQ" name="PErrorAsym1D">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq33Zhn9EfCYEYvDHNN4tQ" general="_Bq3Qcxn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33Zxn9EfCYEYvDHNN4tQ" name="high" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33aBn9EfCYEYvDHNN4tQ" name="low" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_TIjBshBZEfCuh7ipan5nEA" name="ColorDefinition">
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TIjooBBZEfCuh7ipan5nEA" name="ColorIndex">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjooRBZEfCuh7ipan5nEA">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_Bq33aRn9EfCYEYvDHNN4tQ" name="ColorDefinition">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bq33ahn9EfCYEYvDHNN4tQ" name="ColorIndex">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33axn9EfCYEYvDHNN4tQ">
           <body>Difference of mangnitudes: typically $M_B - M_v$</body>
         </ownedComment>
       </ownedLiteral>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TIjoohBZEfCuh7ipan5nEA" name="HardnessRatio">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjooxBZEfCuh7ipan5nEA">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bq33bBn9EfCYEYvDHNN4tQ" name="HardnessRatio">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33bRn9EfCYEYvDHNN4tQ">
           <body>Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) /  (F_{EB2} + F_{EB1})$</body>
         </ownedComment>
       </ownedLiteral>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIjopBBZEfCuh7ipan5nEA" name="EpochPositionCorrelations">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjopRBZEfCuh7ipan5nEA" name="longitudeParallax" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjophBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq33bhn9EfCYEYvDHNN4tQ" name="EpochPositionCorrelations">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33bxn9EfCYEYvDHNN4tQ" name="longitudeParallax" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33cBn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjopxBZEfCuh7ipan5nEA" name="latitudeParallax" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjoqBBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33cRn9EfCYEYvDHNN4tQ" name="latitudeParallax" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33chn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoqRBZEfCuh7ipan5nEA" name="pmLongitudeParallax" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjoqhBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33cxn9EfCYEYvDHNN4tQ" name="pmLongitudeParallax" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33dBn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoqxBZEfCuh7ipan5nEA" name="pmLatitudeParallax" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjorBBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33dRn9EfCYEYvDHNN4tQ" name="pmLatitudeParallax" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33dhn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjorRBZEfCuh7ipan5nEA" name="longitudeLatitude" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjorhBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33dxn9EfCYEYvDHNN4tQ" name="longitudeLatitude" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33eBn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjorxBZEfCuh7ipan5nEA" name="pmLongitudePmLatitude" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjosBBZEfCuh7ipan5nEA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33eRn9EfCYEYvDHNN4tQ" name="pmLongitudePmLatitude" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33ehn9EfCYEYvDHNN4tQ">
           <body>&lt;Enter note text here&gt;s</body>
         </ownedComment>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjosRBZEfCuh7ipan5nEA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33exn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoshBZEfCuh7ipan5nEA" name="latitudePmLatitude" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjosxBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33fBn9EfCYEYvDHNN4tQ" name="latitudePmLatitude" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33fRn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjotBBZEfCuh7ipan5nEA" name="latitudePmLongitude" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjotRBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33fhn9EfCYEYvDHNN4tQ" name="latitudePmLongitude" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33fxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjothBZEfCuh7ipan5nEA" name="longitudePmLatitude" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjotxBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33gBn9EfCYEYvDHNN4tQ" name="longitudePmLatitude" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33gRn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjouBBZEfCuh7ipan5nEA" name="longitudePmLongitude" visibility="public" type="_TIf-QRBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjouRBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33ghn9EfCYEYvDHNN4tQ" name="longitudePmLongitude" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33gxn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjouhBZEfCuh7ipan5nEA" name="isCovariance" visibility="public" type="_TIf-RxBZEfCuh7ipan5nEA" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjouxBZEfCuh7ipan5nEA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33hBn9EfCYEYvDHNN4tQ" name="isCovariance" visibility="public" type="_Bq00BBn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33hRn9EfCYEYvDHNN4tQ"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_TIjovBBZEfCuh7ipan5nEA" name="origin">
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIjovRBZEfCuh7ipan5nEA" memberEnd="_TIhMaRBZEfCuh7ipan5nEA _TIjovhBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIjovhBZEfCuh7ipan5nEA" visibility="public" type="_TIhMYBBZEfCuh7ipan5nEA" isUnique="false" association="_TIjovRBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq33hhn9EfCYEYvDHNN4tQ" name="origin">
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq33hxn9EfCYEYvDHNN4tQ" memberEnd="_Bq1bJBn9EfCYEYvDHNN4tQ _Bq33iBn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq33iBn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq1bGxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq33hxn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIjovxBZEfCuh7ipan5nEA" name="Article">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_TIjowBBZEfCuh7ipan5nEA">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq33iRn9EfCYEYvDHNN4tQ" name="Article">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33ihn9EfCYEYvDHNN4tQ">
           <body>Reference article for the MANGO source</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjowRBZEfCuh7ipan5nEA" name="editor" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjowhBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33ixn9EfCYEYvDHNN4tQ" name="editor" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33jBn9EfCYEYvDHNN4tQ">
             <body>Article editor name</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjowxBZEfCuh7ipan5nEA" name="identifier" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjoxBBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33jRn9EfCYEYvDHNN4tQ" name="identifier" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33jhn9EfCYEYvDHNN4tQ">
             <body>Bibcode or DOI of the reference article</body>
           </ownedComment>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIjoxRBZEfCuh7ipan5nEA" name="DataOrigin">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoxhBZEfCuh7ipan5nEA" name="articles" visibility="public" type="_TIjovxBZEfCuh7ipan5nEA" isUnique="false" association="_TIjo2BBZEfCuh7ipan5nEA">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIjoxxBZEfCuh7ipan5nEA" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjoyBBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq33jxn9EfCYEYvDHNN4tQ" name="DataOrigin">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33kBn9EfCYEYvDHNN4tQ" name="articles" visibility="public" type="_Bq33iRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq33ohn9EfCYEYvDHNN4tQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq33kRn9EfCYEYvDHNN4tQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33khn9EfCYEYvDHNN4tQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoyRBZEfCuh7ipan5nEA" name="ivoid" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoyhBZEfCuh7ipan5nEA" name="reference_url" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjoyxBZEfCuh7ipan5nEA" name="resource_version" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjozBBZEfCuh7ipan5nEA" name="creators" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIjozRBZEfCuh7ipan5nEA" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjozhBZEfCuh7ipan5nEA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33kxn9EfCYEYvDHNN4tQ" name="ivoid" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33lBn9EfCYEYvDHNN4tQ" name="reference_url" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33lRn9EfCYEYvDHNN4tQ" name="resource_version" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33lhn9EfCYEYvDHNN4tQ" name="creators" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq33lxn9EfCYEYvDHNN4tQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33mBn9EfCYEYvDHNN4tQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjozxBZEfCuh7ipan5nEA" name="cites" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo0BBZEfCuh7ipan5nEA" name="is_derived_from" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIjo0RBZEfCuh7ipan5nEA" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjo0hBZEfCuh7ipan5nEA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33mRn9EfCYEYvDHNN4tQ" name="cites" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33mhn9EfCYEYvDHNN4tQ" name="is_derived_from" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq33mxn9EfCYEYvDHNN4tQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33nBn9EfCYEYvDHNN4tQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo0xBZEfCuh7ipan5nEA" name="original_date" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo1BBZEfCuh7ipan5nEA" name="rights" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjo1RBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33nRn9EfCYEYvDHNN4tQ" name="original_date" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33nhn9EfCYEYvDHNN4tQ" name="rights" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33nxn9EfCYEYvDHNN4tQ">
             <body>License or Copyright text</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo1hBZEfCuh7ipan5nEA" name="rights_uri" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_TIjo1xBZEfCuh7ipan5nEA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33oBn9EfCYEYvDHNN4tQ" name="rights_uri" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq33oRn9EfCYEYvDHNN4tQ">
             <body>Licence URI following the regostry practice. This should come from SPDX \url{https://spdx.org/licenses}. Creatives Commons (\url{https://creativecommons.org}) are also accepted.</body>
           </ownedComment>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIjo2BBZEfCuh7ipan5nEA" memberEnd="_TIjoxhBZEfCuh7ipan5nEA _TIjo2RBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIjo2RBZEfCuh7ipan5nEA" visibility="public" type="_TIjoxRBZEfCuh7ipan5nEA" isUnique="false" association="_TIjo2BBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq33ohn9EfCYEYvDHNN4tQ" memberEnd="_Bq33kBn9EfCYEYvDHNN4tQ _Bq33oxn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq33oxn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq33jxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq33ohn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TIjo2hBZEfCuh7ipan5nEA" name="QueryOrigin">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo2xBZEfCuh7ipan5nEA" name="dataOrigin" visibility="public" type="_TIjoxRBZEfCuh7ipan5nEA" isUnique="false" association="_TIjo5xBZEfCuh7ipan5nEA">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TIjo3BBZEfCuh7ipan5nEA" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjo3RBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Bq33pBn9EfCYEYvDHNN4tQ" name="QueryOrigin">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33pRn9EfCYEYvDHNN4tQ" name="dataOrigin" visibility="public" type="_Bq33jxn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq33sRn9EfCYEYvDHNN4tQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bq33phn9EfCYEYvDHNN4tQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33pxn9EfCYEYvDHNN4tQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo3hBZEfCuh7ipan5nEA" name="publisher" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo3xBZEfCuh7ipan5nEA" name="server_software" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TIjo4BBZEfCuh7ipan5nEA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33qBn9EfCYEYvDHNN4tQ" name="publisher" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33qRn9EfCYEYvDHNN4tQ" name="server_software" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq33qhn9EfCYEYvDHNN4tQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo4RBZEfCuh7ipan5nEA" name="service_protocol" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo4hBZEfCuh7ipan5nEA" name="request" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo4xBZEfCuh7ipan5nEA" name="request_date" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo5BBZEfCuh7ipan5nEA" name="query" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo5RBZEfCuh7ipan5nEA" name="contact" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_TIjo5hBZEfCuh7ipan5nEA" name="ivoid" visibility="public" type="_TIf-RRBZEfCuh7ipan5nEA" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33qxn9EfCYEYvDHNN4tQ" name="service_protocol" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33rBn9EfCYEYvDHNN4tQ" name="request" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33rRn9EfCYEYvDHNN4tQ" name="request_date" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33rhn9EfCYEYvDHNN4tQ" name="query" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33rxn9EfCYEYvDHNN4tQ" name="contact" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33sBn9EfCYEYvDHNN4tQ" name="ivoid" visibility="public" type="_Bq00Ahn9EfCYEYvDHNN4tQ" isUnique="false"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_TIjo5xBZEfCuh7ipan5nEA" memberEnd="_TIjo2xBZEfCuh7ipan5nEA _TIjo6BBZEfCuh7ipan5nEA">
-        <ownedEnd xmi:type="uml:Property" xmi:id="_TIjo6BBZEfCuh7ipan5nEA" visibility="public" type="_TIjo2hBZEfCuh7ipan5nEA" isUnique="false" association="_TIjo5xBZEfCuh7ipan5nEA"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bq33sRn9EfCYEYvDHNN4tQ" memberEnd="_Bq33pRn9EfCYEYvDHNN4tQ _Bq33shn9EfCYEYvDHNN4tQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Bq33shn9EfCYEYvDHNN4tQ" visibility="public" type="_Bq33pBn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq33sRn9EfCYEYvDHNN4tQ"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TIjo6RBZEfCuh7ipan5nEA" name="Brightness">
-      <generalization xmi:type="uml:Generalization" xmi:id="_TIjo6hBZEfCuh7ipan5nEA" general="_TIhzoBBZEfCuh7ipan5nEA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TIkPsBBZEfCuh7ipan5nEA" name="photCal" visibility="public" type="_TIiakRBZEfCuh7ipan5nEA" isUnique="false" association="_TIiakxBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bq33sxn9EfCYEYvDHNN4tQ" name="Brightness">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33tBn9EfCYEYvDHNN4tQ" name="photCal" visibility="public" type="_Bq3QTRn9EfCYEYvDHNN4tQ" isUnique="false" association="_Bq3QTxn9EfCYEYvDHNN4tQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33tRn9EfCYEYvDHNN4tQ" name="value" visibility="public" type="_Bq00ERn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq33thn9EfCYEYvDHNN4tQ" name="error" visibility="public" type="_Bq3Qcxn9EfCYEYvDHNN4tQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bq4eYBn9EfCYEYvDHNN4tQ"/>
+      </ownedAttribute>
     </packagedElement>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_TIc68BBZEfCuh7ipan5nEA" xmi:id="_TwJNEBBZEfCuh7ipan5nEA">
-      <eAnnotations xmi:id="_Twbg8BBZEfCuh7ipan5nEA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_TKs9tRBZEfCuh7ipan5nEA"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq4eYRn9EfCYEYvDHNN4tQ" name="epoch">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq4eYhn9EfCYEYvDHNN4tQ" name="InstantTime" isAbstract="true"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq4eYxn9EfCYEYvDHNN4tQ" name="ISOTime">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq4eZBn9EfCYEYvDHNN4tQ" general="_Bq4eYhn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq4eZRn9EfCYEYvDHNN4tQ" name="date" visibility="public" type="_Bq0M-Bn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq4eZhn9EfCYEYvDHNN4tQ" name="JDTime">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq4eZxn9EfCYEYvDHNN4tQ" general="_Bq4eYhn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq4eaBn9EfCYEYvDHNN4tQ" name="date" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq4eaRn9EfCYEYvDHNN4tQ" name="MJDTime">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq4eahn9EfCYEYvDHNN4tQ" general="_Bq4eYhn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq4eaxn9EfCYEYvDHNN4tQ" name="date" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq4ebBn9EfCYEYvDHNN4tQ" name="Years">
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq4ebRn9EfCYEYvDHNN4tQ" general="_Bq4eYhn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq4ebhn9EfCYEYvDHNN4tQ" name="date" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Bq4ebxn9EfCYEYvDHNN4tQ">
+            <body>&lt;Enter note text here&gt;</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bq4ecBn9EfCYEYvDHNN4tQ" name="Seconds">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Bq4ecRn9EfCYEYvDHNN4tQ">
+          <body>&lt;Enter note text here&gt;</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_Bq4echn9EfCYEYvDHNN4tQ" general="_Bq4eYhn9EfCYEYvDHNN4tQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bq4ecxn9EfCYEYvDHNN4tQ" name="date" visibility="public" type="_Bq0M9xn9EfCYEYvDHNN4tQ" isUnique="false"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_Bqy-0Bn9EfCYEYvDHNN4tQ" xmi:id="_CGs3sBn9EfCYEYvDHNN4tQ">
+      <eAnnotations xmi:id="_CJVU8Bn9EfCYEYvDHNN4tQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="IVOA_UML_Profile.profile.xmi#_Bs7Fxhn9EfCYEYvDHNN4tQ"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_TwJNEBBZEfCuh7ipan5nEA" href="IVOA_UML_Profile.profile.xmi#_TKsWoBBZEfCuh7ipan5nEA"/>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_CGs3sBn9EfCYEYvDHNN4tQ" href="IVOA_UML_Profile.profile.xmi#_Bs6esBn9EfCYEYvDHNN4tQ"/>
     </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_TIc68BBZEfCuh7ipan5nEA" xmi:id="_TwoVQBBZEfCuh7ipan5nEA">
-      <eAnnotations xmi:id="_Two8UBBZEfCuh7ipan5nEA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="default.profile.xmi#_TixfcBBZEfCuh7ipan5nEA"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:applyingPackage="_Bqy-0Bn9EfCYEYvDHNN4tQ" xmi:id="_CKWooBn9EfCYEYvDHNN4tQ">
+      <eAnnotations xmi:id="_CKhnwBn9EfCYEYvDHNN4tQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.xmi#_B6H0Qhn9EfCYEYvDHNN4tQ"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_TwoVQBBZEfCuh7ipan5nEA" href="default.profile.xmi#_Tia6IBBZEfCuh7ipan5nEA"/>
+      <appliedProfile xmi:type="uml:Profile" xmi:applyingPackage="_CKWooBn9EfCYEYvDHNN4tQ" href="default.profile.xmi#_B6Ew8Bn9EfCYEYvDHNN4tQ"/>
     </profileApplication>
   </uml:Model>
-  <IVOA_UML_Profile:model xmi:id="_Tw_hoBBZEfCuh7ipan5nEA" base_Package="_TIc68BBZEfCuh7ipan5nEA" title="Mango" version="1.0" authors="Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado" previousVersion="0.0"/>
-  <IVOA_UML_Profile:modelimport xmi:id="_TxIrkBBZEfCuh7ipan5nEA" base_Package="_TIf-QBBZEfCuh7ipan5nEA" name="ivoa" version="1.0" url="http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" documentationURL="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxKgwBBZEfCuh7ipan5nEA" base_DataType="_TIf-QRBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-QRBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxLu4BBZEfCuh7ipan5nEA" base_NamedElement="_TIf-QRBZEfCuh7ipan5nEA" vodmlid="real"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxMV8BBZEfCuh7ipan5nEA" base_DataType="_TIf-QhBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-QhBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxMV8RBZEfCuh7ipan5nEA" base_NamedElement="_TIf-QhBZEfCuh7ipan5nEA" vodmlid="datetime"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxPZQBBZEfCuh7ipan5nEA" base_DataType="_TIf-QxBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-QxBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxQAUBBZEfCuh7ipan5nEA" base_NamedElement="_TIf-QxBZEfCuh7ipan5nEA" vodmlid="anyURI"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxQnYBBZEfCuh7ipan5nEA" base_DataType="_TIf-RRBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-RRBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxROcBBZEfCuh7ipan5nEA" base_NamedElement="_TIf-RRBZEfCuh7ipan5nEA" vodmlid="string"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxROcRBZEfCuh7ipan5nEA" base_DataType="_TIf-RhBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-RhBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxR1gBBZEfCuh7ipan5nEA" base_NamedElement="_TIf-RhBZEfCuh7ipan5nEA" vodmlid="nonnegativeInteger"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxSckBBZEfCuh7ipan5nEA" base_DataType="_TIf-RxBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-RxBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxSckRBZEfCuh7ipan5nEA" base_NamedElement="_TIf-RxBZEfCuh7ipan5nEA" vodmlid="boolean"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxTDoBBZEfCuh7ipan5nEA" base_DataType="_TIf-SBBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-SBBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxTDoRBZEfCuh7ipan5nEA" base_NamedElement="_TIf-SBBZEfCuh7ipan5nEA" vodmlid="integer"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxURwBBZEfCuh7ipan5nEA" base_DataType="_TIf-SRBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-SRBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxU40BBZEfCuh7ipan5nEA" base_NamedElement="_TIf-SRBZEfCuh7ipan5nEA" vodmlid="rational"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxU40RBZEfCuh7ipan5nEA" base_DataType="_TIf-ShBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-ShBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxVf4BBZEfCuh7ipan5nEA" base_NamedElement="_TIf-ShBZEfCuh7ipan5nEA" vodmlid="complex"/>
-  <IVOA_UML_Profile:primitive xmi:id="_TxWG8BBZEfCuh7ipan5nEA" base_DataType="_TIf-TBBZEfCuh7ipan5nEA" base_PrimitiveType="_TIf-TBBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxWG8RBZEfCuh7ipan5nEA" base_NamedElement="_TIf-TBBZEfCuh7ipan5nEA" vodmlid="quantity.Unit"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxWuABBZEfCuh7ipan5nEA" base_NamedElement="_TIglUBBZEfCuh7ipan5nEA" vodmlid="Quantity"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxXVEBBZEfCuh7ipan5nEA" base_NamedElement="_TIglUxBZEfCuh7ipan5nEA" vodmlid="IntegerQuantity"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxXVERBZEfCuh7ipan5nEA" base_NamedElement="_TIglVhBZEfCuh7ipan5nEA" vodmlid="RealQuantity"/>
-  <IVOA_UML_Profile:modelimport xmi:id="_TxX8IBBZEfCuh7ipan5nEA" base_Package="_TIglWhBZEfCuh7ipan5nEA" name="meas" url="https://ivoa.net/xml/VODML/Meas-v1.vo-dml.xml" documentationURL="https://ivoa.net/documents/Meas/20221004/index.html"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxYjMBBZEfCuh7ipan5nEA" base_NamedElement="_TIglWxBZEfCuh7ipan5nEA" vodmlid="Measure"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxYjMRBZEfCuh7ipan5nEA" base_NamedElement="_TIglXBBZEfCuh7ipan5nEA" vodmlid="Error"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxZKQBBZEfCuh7ipan5nEA" base_NamedElement="_TIglXRBZEfCuh7ipan5nEA" vodmlid="Uncertainty"/>
-  <IVOA_UML_Profile:modelimport xmi:id="_TxZKQRBZEfCuh7ipan5nEA" base_Package="_TIglYBBZEfCuh7ipan5nEA" name="coords" url="https://ivoa.net/xml/VODML/Coords-v1.vo-dml.xml" documentationURL="https://ivoa.net/documents/Coords/20221004/index.html"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxaYYBBZEfCuh7ipan5nEA" base_NamedElement="_TIglYRBZEfCuh7ipan5nEA" vodmlid="Coordinate"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxcNkBBZEfCuh7ipan5nEA" base_NamedElement="_TIglYhBZEfCuh7ipan5nEA" vodmlid="CoordSys"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_Txc0oBBZEfCuh7ipan5nEA" base_NamedElement="_TIglZBBZEfCuh7ipan5nEA" vodmlid="SpaceSys"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_Txc0oRBZEfCuh7ipan5nEA" base_NamedElement="_TIglZhBZEfCuh7ipan5nEA" vodmlid="Epoch"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxdbsBBZEfCuh7ipan5nEA" base_NamedElement="_TIglZxBZEfCuh7ipan5nEA" vodmlid="TimeSys"/>
-  <IVOA_UML_Profile:semanticconcept xmi:id="_Txep0BBZEfCuh7ipan5nEA" base_NamedElement="_TIhzfBBZEfCuh7ipan5nEA"/>
-  <default:xor xmi:id="_TxfQ4BBZEfCuh7ipan5nEA" base_Constraint="_TIfXNBBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:semanticconcept xmi:id="_TxfQ4RBZEfCuh7ipan5nEA" base_NamedElement="_TIhziBBZEfCuh7ipan5nEA"/>
-  <IVOA_UML_Profile:modelimport xmi:id="_Txf38BBZEfCuh7ipan5nEA" base_Package="_TIiajBBZEfCuh7ipan5nEA" name="Phot" url="https://ivoa.net/xml/VODML/Phot-v1.vodml.xml" documentationURL="https://ivoa.net/documents/PHOTDM/20221101/index.html"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_Txf38RBZEfCuh7ipan5nEA" base_NamedElement="_TIiakRBZEfCuh7ipan5nEA" vodmlid="PhotCal"/>
-  <IVOA_UML_Profile:modelelement xmi:id="_TxgfABBZEfCuh7ipan5nEA" base_NamedElement="_TIiakhBZEfCuh7ipan5nEA" vodmlid="PhotometryFilter"/>
+  <IVOA_UML_Profile:model xmi:id="_CLxk8Bn9EfCYEYvDHNN4tQ" base_Package="_Bqy-0Bn9EfCYEYvDHNN4tQ" title="Mango" version="1.0" authors="Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado" previousVersion="0.0"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_CMldQBn9EfCYEYvDHNN4tQ" base_Package="_Bq0M9hn9EfCYEYvDHNN4tQ" name="ivoa" version="1.0" url="http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" documentationURL="https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.html"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMmrYBn9EfCYEYvDHNN4tQ" base_DataType="_Bq0M9xn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq0M9xn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMogkBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq0M9xn9EfCYEYvDHNN4tQ" vodmlid="real"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMpusBn9EfCYEYvDHNN4tQ" base_DataType="_Bq0M-Bn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq0M-Bn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMqVwBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq0M-Bn9EfCYEYvDHNN4tQ" vodmlid="datetime"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMqVwRn9EfCYEYvDHNN4tQ" base_DataType="_Bq00ABn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00ABn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMq80Bn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00ABn9EfCYEYvDHNN4tQ" vodmlid="anyURI"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMq80Rn9EfCYEYvDHNN4tQ" base_DataType="_Bq00Ahn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00Ahn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMrj4Bn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Ahn9EfCYEYvDHNN4tQ" vodmlid="string"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMrj4Rn9EfCYEYvDHNN4tQ" base_DataType="_Bq00Axn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00Axn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMsK8Bn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Axn9EfCYEYvDHNN4tQ" vodmlid="nonnegativeInteger"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMsyABn9EfCYEYvDHNN4tQ" base_DataType="_Bq00BBn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00BBn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMsyARn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00BBn9EfCYEYvDHNN4tQ" vodmlid="boolean"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMtZEBn9EfCYEYvDHNN4tQ" base_DataType="_Bq00BRn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00BRn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMuAIBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00BRn9EfCYEYvDHNN4tQ" vodmlid="integer"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMunMBn9EfCYEYvDHNN4tQ" base_DataType="_Bq00Bhn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00Bhn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMunMRn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Bhn9EfCYEYvDHNN4tQ" vodmlid="rational"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMvOQBn9EfCYEYvDHNN4tQ" base_DataType="_Bq00Bxn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00Bxn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMv1UBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Bxn9EfCYEYvDHNN4tQ" vodmlid="complex"/>
+  <IVOA_UML_Profile:primitive xmi:id="_CMwcYBn9EfCYEYvDHNN4tQ" base_DataType="_Bq00CRn9EfCYEYvDHNN4tQ" base_PrimitiveType="_Bq00CRn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMwcYRn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00CRn9EfCYEYvDHNN4tQ" vodmlid="quantity.Unit"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMwcYhn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Cxn9EfCYEYvDHNN4tQ" vodmlid="Quantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMxDcBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Dhn9EfCYEYvDHNN4tQ" vodmlid="IntegerQuantity"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMxDcRn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00ERn9EfCYEYvDHNN4tQ" vodmlid="RealQuantity"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_CMxqgBn9EfCYEYvDHNN4tQ" base_Package="_Bq00FRn9EfCYEYvDHNN4tQ" name="meas" url="https://ivoa.net/xml/VODML/Meas-v1.vo-dml.xml" documentationURL="https://ivoa.net/documents/Meas/20221004/index.html"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CMyRkBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Fhn9EfCYEYvDHNN4tQ" vodmlid="Measure"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM0GwBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00Fxn9EfCYEYvDHNN4tQ" vodmlid="Error"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM0t0Bn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00GBn9EfCYEYvDHNN4tQ" vodmlid="Uncertainty"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_CM178Bn9EfCYEYvDHNN4tQ" base_Package="_Bq00Gxn9EfCYEYvDHNN4tQ" name="coords" url="https://ivoa.net/xml/VODML/Coords-v1.vo-dml.xml" documentationURL="https://ivoa.net/documents/Coords/20221004/index.html"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM6NYBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00HBn9EfCYEYvDHNN4tQ" vodmlid="Coordinate"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM60cBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq00HRn9EfCYEYvDHNN4tQ" vodmlid="CoordSys"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM7bgBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq1bEBn9EfCYEYvDHNN4tQ" vodmlid="SpaceSys"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM8CkBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq1bEhn9EfCYEYvDHNN4tQ" vodmlid="Epoch"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CM8poBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq1bExn9EfCYEYvDHNN4tQ" vodmlid="TimeSys"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_CM-e0Bn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq2CNBn9EfCYEYvDHNN4tQ"/>
+  <default:xor xmi:id="_CM_F4Bn9EfCYEYvDHNN4tQ" base_Constraint="_Bq0M9Bn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:semanticconcept xmi:id="_CM_F4Rn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq2pNhn9EfCYEYvDHNN4tQ"/>
+  <IVOA_UML_Profile:modelimport xmi:id="_CM_s8Bn9EfCYEYvDHNN4tQ" base_Package="_Bq3QSBn9EfCYEYvDHNN4tQ" name="Phot" url="https://ivoa.net/xml/VODML/Phot-v1.vodml.xml" documentationURL="https://ivoa.net/documents/PHOTDM/20221101/index.html"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CNA7EBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq3QTRn9EfCYEYvDHNN4tQ" vodmlid="PhotCal"/>
+  <IVOA_UML_Profile:modelelement xmi:id="_CNDXUBn9EfCYEYvDHNN4tQ" base_NamedElement="_Bq3QThn9EfCYEYvDHNN4tQ" vodmlid="PhotometryFilter"/>
 </xmi:XMI>

@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-04-03T09:01:20</lastModified>
+  <lastModified>2025-04-15T15:25:36</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -447,45 +447,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>PhotometricProperty</vodml-id>
-    <name>PhotometricProperty</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <extends>
-      <vodml-ref>mango:Property</vodml-ref>
-    </extends>
-    <attribute>
-      <vodml-id>PhotometricProperty.value</vodml-id>
-      <name>value</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <datatype>
-        <vodml-ref>ivoa:RealQuantity</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>PhotometricProperty.error</vodml-id>
-      <name>error</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <datatype>
-        <vodml-ref>mango:error.PropertyError</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-  </objectType>
-
-  <objectType>
     <vodml-id>PhysicalProperty</vodml-id>
     <name>PhysicalProperty</name>
     <description>
@@ -531,8 +492,36 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
     <extends>
-      <vodml-ref>mango:PhotometricProperty</vodml-ref>
+      <vodml-ref>mango:Property</vodml-ref>
     </extends>
+    <attribute>
+      <vodml-id>Color.value</vodml-id>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Color.error</vodml-id>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
       <vodml-id>Color.colorDef</vodml-id>
       <name>colorDef</name>
@@ -766,7 +755,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>coords:Epoch</vodml-ref>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1073,9 +1062,34 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
-    <extends>
-      <vodml-ref>mango:PhotometricProperty</vodml-ref>
-    </extends>
+    <attribute>
+      <vodml-id>Brightness.value</vodml-id>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Brightness.error</vodml-id>
+      <name>error</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <reference>
       <vodml-id>Brightness.photCal</vodml-id>
       <name>photCal</name>
@@ -1594,6 +1608,77 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </reference>
     </objectType>
+
+  </package>
+
+
+
+  <package>
+    <vodml-id>epoch</vodml-id>
+    <name>epoch</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <primitiveType>
+      <vodml-id>epoch.InstantTime</vodml-id>
+      <name>InstantTime</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.ISOTime</vodml-id>
+      <name>ISOTime</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.JDTime</vodml-id>
+      <name>JDTime</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.MJDTime</vodml-id>
+      <name>MJDTime</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.Years</vodml-id>
+      <name>Years</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.Seconds</vodml-id>
+      <name>Seconds</name>
+      <description>&lt;Enter note text here&gt;</description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
 
   </package>
 

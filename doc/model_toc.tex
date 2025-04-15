@@ -156,7 +156,7 @@ that have to interpret them.
 
     \subsubsection{EpochPosition.epoch}
     \textbf{vodml-id: EpochPosition.epoch} \newline
-    \textbf{type: coords:Epoch} \newline
+    \textbf{type: \hyperref[sect:epoch.InstantTime]{mango:epoch.InstantTime}} \newline
     \textbf{multiplicity: 1} \newline
     Position epoch expressed within the common time system (see \texttt{coords:Epoch})
 
@@ -513,6 +513,36 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
     \end{itemize}
     \normalsize
+
+\section{Package: epoch}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/epoch.png}
+    \caption{package epoch}
+    \label{fig:epoch}
+    \end{figure}
+    The \texttt{epoch} package (fig \ref{fig:epoch}) groups the data types used by \texttt{mango:EpochPosition} epoch. The package is based on types duplicated from \cite{2022ivoa.spec.1004R} and extended with 2 Mango types (\texttt{Years} and \texttt{Seconds)) All the concrete types are derived from \texttt{coords:InstanceTime}.
+
+  \subsection{TimeInstance (Abstract)}
+
+  \subsection{ISOTime}
+    \label{sect:epoch.ISOTime}
+    Extension of \texttt{TimeInstant} for time expressed as a structured datetime string. The string repre- sentation of a datetime value should follow the FITS convention for representing dates (Hanish and Farris et al, 2001). The FITS standard is effectively ISO8601 format without the ’Z’ tag to indicate UTC: YYYY-MM-DD[’T’hh:mm:ss[.SSS]]. The TimeScale is provided in the associated TimeFrame. This data type is duplicated from \cite{2022ivoa.spec.1004R}
+
+  \subsection{JDTime}
+    \label{sect:epoch.JDTime}
+    TODO : Missing description : please, update your UML model asap.
+
+  \subsection{MJDTime}
+    \label{sect:epoch.MJDTime}
+    TODO : Missing description : please, update your UML model asap.
+
+  \subsection{Years}
+    \label{sect:epoch.Years}
+    Extension of \texttt{TimeInstant} for time expressed in decimal year (e.g. 2012.75).
+
+  \subsection{Seconds}
+    \label{sect:epoch.Seconds}
+    Extension of \texttt{TimeInstant} for time expressed in decimal seconds (e.g. UNIX time: 1765432987.7).
 
 \section{Package: error}
     \begin{figure}[h]

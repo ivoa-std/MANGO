@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-04-03T09:01:20</lastModified>
+  <lastModified>2025-04-14T15:00:11</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -792,7 +792,7 @@ In some cases the errors might conflict with the correlations:
       <name>epoch</name>
       <description>Position epoch expressed within the common time system (see \texttt{coords:Epoch})</description>
       <datatype>
-        <vodml-ref>coords:Epoch</vodml-ref>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1547,6 +1547,85 @@ For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format i
         </multiplicity>
       </reference>
     </objectType>
+
+  </package>
+
+
+
+  <package>
+    <vodml-id>epoch</vodml-id>
+    <name>epoch</name>
+    <description>The \texttt{epoch} package (fig \ref{fig:epoch}) groups the data types
+used by \texttt{mango:EpochPosition} epoch.
+The package is based on types duplicated from \cite{2022ivoa.spec.1004R}
+and extended with 2 Mango types (\texttt{Years} and \texttt{Seconds))
+All the concrete types are derived from \texttt{coords:InstanceTime}.</description>
+    <primitiveType>
+      <vodml-id>epoch.InstantTime</vodml-id>
+      <name>InstantTime</name>
+      <description>Abstract datatype which specifies a specific instant in time.
+All supported datatime representations are derived from it.
+We define three subtypes (ISOTime,
+JD, MJD) imported from the Coordinates datamodel and 2 Mango native types (\texttt{Years} and \texttt{Seconds}),
+which allow users to explicitly identify the representation and interpretation of the TimeInstant.
+This data type is duplicated from \cite{2022ivoa.spec.1004R}
+</description>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.ISOTime</vodml-id>
+      <name>ISOTime</name>
+      <description>Extension of  \texttt{TimeInstant} for time expressed as a structured datetime string. The string repre-
+sentation of a datetime value should follow the FITS convention for representing dates (Hanish
+and Farris et al, 2001). The FITS standard is effectively ISO8601 format without the &#8217;Z&#8217; tag to
+indicate UTC: YYYY-MM-DD[&#8217;T&#8217;hh:mm:ss[.SSS]]. The TimeScale is provided in the associated
+TimeFrame.
+This data type is duplicated from \cite{2022ivoa.spec.1004R}
+</description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.JDTime</vodml-id>
+      <name>JDTime</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.MJDTime</vodml-id>
+      <name>MJDTime</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.Years</vodml-id>
+      <name>Years</name>
+      <description>Extension of  \texttt{TimeInstant}  for time expressed in decimal year (e.g. 2012.75).</description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
+
+    <primitiveType>
+      <vodml-id>epoch.Seconds</vodml-id>
+      <name>Seconds</name>
+      <description>Extension of  \texttt{TimeInstant}  for time expressed in decimal seconds (e.g. UNIX time: 1765432987.7).</description>
+      <extends>
+        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+      </extends>
+    </primitiveType>
 
   </package>
 
