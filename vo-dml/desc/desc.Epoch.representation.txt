@@ -1,0 +1,2 @@
+Define the representation mode.
+The representation mode must comply with the \texttt{time-format} IVOA vocabulary. 

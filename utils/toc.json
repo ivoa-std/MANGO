@@ -8,7 +8,8 @@
     "Epoch Position Properties (added)": {
         "EpochPosition": {},
         "EpochPositionCorrelations": {},
-        "EpochPositionErrors": {}
+        "EpochPositionErrors": {},
+        "Epoch": {}
     },
     "Photometric Properties (added)": {
         "PhotometricProperty": {},
@@ -29,14 +30,6 @@
         "DataLink": {},
         "Footprint": {},
         "FootprintSerialization": {}
-    },
-    "Package: epoch ": {
-        "TimeInstance (Abstract)": {},
-        "ISOTime": {},
-        "JDTime": {},
-        "MJDTime": {},
-        "Years": {},
-        "Seconds": {}
     },
     "Package: error ": {
         "PropertyError (Abstract)": {},
