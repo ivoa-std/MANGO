@@ -156,7 +156,7 @@ that have to interpret them.
 
     \subsubsection{EpochPosition.epoch}
     \textbf{vodml-id: EpochPosition.epoch} \newline
-    \textbf{type: \hyperref[sect:epoch.InstantTime]{mango:epoch.InstantTime}} \newline
+    \textbf{type: \hyperref[sect:Epoch]{mango:Epoch}} \newline
     \textbf{multiplicity: 1} \newline
     Position epoch expressed within the common time system (see \texttt{coords:Epoch})
 
@@ -288,29 +288,43 @@ that have to interpret them.
     \textbf{multiplicity: 1} \newline
     Position error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
 
+  \subsection{Epoch}
+    \label{sect:Epoch}
+    Datatype for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:Epoch}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpcohPosition}.
+
+    \subsubsection{Epoch.representation}
+    \textbf{vodml-id: Epoch.representation} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Define the representation mode. The representation mode must comply with the \texttt{time-format} IVOA vocabulary.
+
+    \subsubsection{Epoch.value}
+    \textbf{vodml-id: Epoch.value} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent a date, which must be parsed, or a real value, which must be cast.
+
 \section{Photometric Properties}
 This section brings together all the classes that model the photometric properties.
 The definition of the photometric calibrations and the 
 photometric filters are imported from \texttt{PhotDM}. 
   \subsection{PhotometricProperty}
-    \label{sect:PhotometricProperty}
-    Super class for all photometric properties of the \texttt{MangoObject}.
-
-    \subsubsection{PhotometricProperty.value}
-    \textbf{vodml-id: PhotometricProperty.value} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
-    \textbf{multiplicity: 1} \newline
-    Value of the photometric property associated with a photometric calibration as defined by the \texttt{PhotDM} model.
-
-    \subsubsection{PhotometricProperty.error}
-    \textbf{vodml-id: PhotometricProperty.error} \newline
-    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
-    \textbf{multiplicity: 1} \newline
-    Error on the \texttt{PhotometricProperty}.
 
   \subsection{Brightness}
     \label{sect:Brightness}
     Observed brightness of the \texttt{MangoObject}. The distinction between fluxes and magnitudes is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).
+
+    \subsubsection{Brightness.value}
+    \textbf{vodml-id: Brightness.value} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Brightness value.
+
+    \subsubsection{Brightness.error}
+    \textbf{vodml-id: Brightness.error} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Error on the \texttt{Brightness}.
 
     \subsubsection{Brightness.photCal}
     \textbf{vodml-id: Brightness.photCal} \newline
@@ -321,6 +335,18 @@ photometric filters are imported from \texttt{PhotDM}.
   \subsection{Color}
     \label{sect:Color}
     Property that describes a color of the \texttt{MangoObject}. The color is not an intrinsic property of the MANGO object, but a value relative to two filters or energy bands.
+
+    \subsubsection{Color.value}
+    \textbf{vodml-id: Color.value} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Color value.
+
+    \subsubsection{Color.error}
+    \textbf{vodml-id: Color.error} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Error on the \texttt{Color}.
 
     \subsubsection{Color.colorDef}
     \textbf{vodml-id: Color.colorDef} \newline
@@ -513,36 +539,6 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
     \end{itemize}
     \normalsize
-
-\section{Package: epoch}
-    \begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{../model/epoch.png}
-    \caption{package epoch}
-    \label{fig:epoch}
-    \end{figure}
-    The \texttt{epoch} package (fig \ref{fig:epoch}) groups the data types used by \texttt{mango:EpochPosition} epoch. The package is based on types duplicated from \cite{2022ivoa.spec.1004R} and extended with 2 Mango types (\texttt{Years} and \texttt{Seconds)) All the concrete types are derived from \texttt{coords:InstanceTime}.
-
-  \subsection{TimeInstance (Abstract)}
-
-  \subsection{ISOTime}
-    \label{sect:epoch.ISOTime}
-    Extension of \texttt{TimeInstant} for time expressed as a structured datetime string. The string repre- sentation of a datetime value should follow the FITS convention for representing dates (Hanish and Farris et al, 2001). The FITS standard is effectively ISO8601 format without the ’Z’ tag to indicate UTC: YYYY-MM-DD[’T’hh:mm:ss[.SSS]]. The TimeScale is provided in the associated TimeFrame. This data type is duplicated from \cite{2022ivoa.spec.1004R}
-
-  \subsection{JDTime}
-    \label{sect:epoch.JDTime}
-    TODO : Missing description : please, update your UML model asap.
-
-  \subsection{MJDTime}
-    \label{sect:epoch.MJDTime}
-    TODO : Missing description : please, update your UML model asap.
-
-  \subsection{Years}
-    \label{sect:epoch.Years}
-    Extension of \texttt{TimeInstant} for time expressed in decimal year (e.g. 2012.75).
-
-  \subsection{Seconds}
-    \label{sect:epoch.Seconds}
-    Extension of \texttt{TimeInstant} for time expressed in decimal seconds (e.g. UNIX time: 1765432987.7).
 
 \section{Package: error}
     \begin{figure}[h]
@@ -776,5 +772,5 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{vodml-id: origin.Article.identifier} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
-    Bibcode or DOI of the reference article
+    Identifer of the reference article
 

@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-04-14T15:00:11</lastModified>
+  <lastModified>2025-04-18T13:11:02</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -98,6 +98,44 @@ rewriting rules that fix the issue.</description>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>Epoch</vodml-id>
+    <name>Epoch</name>
+    <description>Datatype for timestamps and their representation. 
+Timestamps are modeled by a single value and a representation mode.
+There is no time scale associated with \texttt{mango:Epoch}. 
+The scale is either imposed by the representation mode or defined by the
+time coordinate system relevant for the host object,
+usually an instance of \texttt{mango:EpcohPosition}.</description>
+    <attribute>
+      <vodml-id>Epoch.representation</vodml-id>
+      <name>representation</name>
+      <description>Define the representation mode.
+The representation mode must comply with the \texttt{time-format} IVOA vocabulary. </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Epoch.value</vodml-id>
+      <name>value</name>
+      <description>The timestamp value is always given as a string. 
+The way to process this string is given by the representation mode.
+It can represent a date, which must be parsed, or a real value, which must be cast.</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -457,41 +495,6 @@ Shape is serialized as a string.
   </objectType>
 
   <objectType>
-    <vodml-id>PhotometricProperty</vodml-id>
-    <name>PhotometricProperty</name>
-    <description>Super class for all photometric properties of the \texttt{MangoObject}.
-</description>
-    <extends>
-      <vodml-ref>mango:Property</vodml-ref>
-    </extends>
-    <attribute>
-      <vodml-id>PhotometricProperty.value</vodml-id>
-      <name>value</name>
-      <description>Value of the photometric property associated with a photometric calibration 
-as defined by the \texttt{PhotDM} model.</description>
-      <datatype>
-        <vodml-ref>ivoa:RealQuantity</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>PhotometricProperty.error</vodml-id>
-      <name>error</name>
-      <description>Error on the \texttt{PhotometricProperty}.</description>
-      <datatype>
-        <vodml-ref>mango:error.PropertyError</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-  </objectType>
-
-  <objectType>
     <vodml-id>PhysicalProperty</vodml-id>
     <name>PhysicalProperty</name>
     <description>Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) 
@@ -537,8 +540,32 @@ The color is not an intrinsic property of the MANGO object,
 but a value relative to two filters or energy bands.
 </description>
     <extends>
-      <vodml-ref>mango:PhotometricProperty</vodml-ref>
+      <vodml-ref>mango:Property</vodml-ref>
     </extends>
+    <attribute>
+      <vodml-id>Color.value</vodml-id>
+      <name>value</name>
+      <description>Color value.</description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Color.error</vodml-id>
+      <name>error</name>
+      <description>Error on the \texttt{Color}.</description>
+      <datatype>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
       <vodml-id>Color.colorDef</vodml-id>
       <name>colorDef</name>
@@ -792,7 +819,7 @@ In some cases the errors might conflict with the correlations:
       <name>epoch</name>
       <description>Position epoch expressed within the common time system (see \texttt{coords:Epoch})</description>
       <datatype>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+        <vodml-ref>mango:Epoch</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1062,9 +1089,30 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <description>Observed brightness of the \texttt{MangoObject}.
 The distinction between fluxes and magnitudes is made by the unit.
 This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).</description>
-    <extends>
-      <vodml-ref>mango:PhotometricProperty</vodml-ref>
-    </extends>
+    <attribute>
+      <vodml-id>Brightness.value</vodml-id>
+      <name>value</name>
+      <description>Brightness value.</description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Brightness.error</vodml-id>
+      <name>error</name>
+      <description>Error on the \texttt{Brightness}.</description>
+      <datatype>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <reference>
       <vodml-id>Brightness.photCal</vodml-id>
       <name>photCal</name>
@@ -1291,7 +1339,7 @@ group (see \url{https://ivoa.net/documents/DataOrigin/index.html})</description>
       <attribute>
         <vodml-id>origin.Article.identifier</vodml-id>
         <name>identifier</name>
-        <description>Bibcode or DOI of the reference article</description>
+        <description>Identifer of the reference article</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1547,85 +1595,6 @@ For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format i
         </multiplicity>
       </reference>
     </objectType>
-
-  </package>
-
-
-
-  <package>
-    <vodml-id>epoch</vodml-id>
-    <name>epoch</name>
-    <description>The \texttt{epoch} package (fig \ref{fig:epoch}) groups the data types
-used by \texttt{mango:EpochPosition} epoch.
-The package is based on types duplicated from \cite{2022ivoa.spec.1004R}
-and extended with 2 Mango types (\texttt{Years} and \texttt{Seconds))
-All the concrete types are derived from \texttt{coords:InstanceTime}.</description>
-    <primitiveType>
-      <vodml-id>epoch.InstantTime</vodml-id>
-      <name>InstantTime</name>
-      <description>Abstract datatype which specifies a specific instant in time.
-All supported datatime representations are derived from it.
-We define three subtypes (ISOTime,
-JD, MJD) imported from the Coordinates datamodel and 2 Mango native types (\texttt{Years} and \texttt{Seconds}),
-which allow users to explicitly identify the representation and interpretation of the TimeInstant.
-This data type is duplicated from \cite{2022ivoa.spec.1004R}
-</description>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.ISOTime</vodml-id>
-      <name>ISOTime</name>
-      <description>Extension of  \texttt{TimeInstant} for time expressed as a structured datetime string. The string repre-
-sentation of a datetime value should follow the FITS convention for representing dates (Hanish
-and Farris et al, 2001). The FITS standard is effectively ISO8601 format without the &#8217;Z&#8217; tag to
-indicate UTC: YYYY-MM-DD[&#8217;T&#8217;hh:mm:ss[.SSS]]. The TimeScale is provided in the associated
-TimeFrame.
-This data type is duplicated from \cite{2022ivoa.spec.1004R}
-</description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.JDTime</vodml-id>
-      <name>JDTime</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.MJDTime</vodml-id>
-      <name>MJDTime</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.Years</vodml-id>
-      <name>Years</name>
-      <description>Extension of  \texttt{TimeInstant}  for time expressed in decimal year (e.g. 2012.75).</description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.Seconds</vodml-id>
-      <name>Seconds</name>
-      <description>Extension of  \texttt{TimeInstant}  for time expressed in decimal seconds (e.g. UNIX time: 1765432987.7).</description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
 
   </package>
 

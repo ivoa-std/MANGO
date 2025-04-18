@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-04-15T15:25:36</lastModified>
+  <lastModified>2025-04-18T13:11:02</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -109,6 +109,42 @@
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>Epoch</vodml-id>
+    <name>Epoch</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <attribute>
+      <vodml-id>Epoch.representation</vodml-id>
+      <name>representation</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Epoch.value</vodml-id>
+      <name>value</name>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -755,7 +791,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
+        <vodml-ref>mango:Epoch</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -1608,77 +1644,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         </multiplicity>
       </reference>
     </objectType>
-
-  </package>
-
-
-
-  <package>
-    <vodml-id>epoch</vodml-id>
-    <name>epoch</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <primitiveType>
-      <vodml-id>epoch.InstantTime</vodml-id>
-      <name>InstantTime</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.ISOTime</vodml-id>
-      <name>ISOTime</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.JDTime</vodml-id>
-      <name>JDTime</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.MJDTime</vodml-id>
-      <name>MJDTime</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.Years</vodml-id>
-      <name>Years</name>
-      <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
-
-    <primitiveType>
-      <vodml-id>epoch.Seconds</vodml-id>
-      <name>Seconds</name>
-      <description>&lt;Enter note text here&gt;</description>
-      <extends>
-        <vodml-ref>mango:epoch.InstantTime</vodml-ref>
-      </extends>
-    </primitiveType>
 
   </package>
 
