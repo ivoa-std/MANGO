@@ -35,7 +35,7 @@ jobs:
         sudo apt install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended xsltproc latexmk cm-super
       
     - name: Build the document
-      run: make
+      run: make ${{ env.doc_name }}.pdf
       
     - name: Check the output
       run: |
