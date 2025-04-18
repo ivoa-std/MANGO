@@ -35,7 +35,7 @@ jobs:
         sudo apt install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended xsltproc latexmk cm-super
       
     - name: Build the document
-      run: make
+      run: make ${{ env.doc_name }}-draft.pdf
       
     - name: Check the output
       run: |
@@ -46,5 +46,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: PDF Preview
-        path: doc/${{ env.doc_name }}.pdf
+        path: doc/${{ env.doc_name }}-draft.pdf
      
