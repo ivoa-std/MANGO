@@ -9,7 +9,7 @@
         "EpochPosition": {},
         "EpochPositionCorrelations": {},
         "EpochPositionErrors": {},
-        "Epoch": {}
+        "DateTime": {}
     },
     "Photometric Properties (added)": {
         "PhotometricProperty": {},

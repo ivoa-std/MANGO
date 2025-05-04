@@ -154,11 +154,11 @@ that have to interpret them.
     \textbf{multiplicity: 1} \newline
     Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
 
-    \subsubsection{EpochPosition.epoch}
-    \textbf{vodml-id: EpochPosition.epoch} \newline
-    \textbf{type: \hyperref[sect:Epoch]{mango:Epoch}} \newline
-    \textbf{multiplicity: 1} \newline
-    Position epoch expressed within the common time system (see \texttt{coords:Epoch})
+    \subsubsection{EpochPosition.obsDate}
+    \textbf{vodml-id: EpochPosition.obsDate} \newline
+    \textbf{type: \hyperref[sect:DateTime]{mango:DateTime}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system.
 
     \subsubsection{EpochPosition.pmCosLat\_applied}
     \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
@@ -288,21 +288,21 @@ that have to interpret them.
     \textbf{multiplicity: 1} \newline
     Position error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
 
-  \subsection{Epoch}
-    \label{sect:Epoch}
-    Datatype for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:Epoch}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpcohPosition}.
+  \subsection{DateTime}
+    \label{sect:DateTime}
+    Datatype for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:DateTime}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpochPosition}.
 
-    \subsubsection{Epoch.representation}
-    \textbf{vodml-id: Epoch.representation} \newline
+    \subsubsection{DateTime.representation}
+    \textbf{vodml-id: DateTime.representation} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
-    Define the representation mode. The representation mode must comply with the \texttt{time-format} IVOA vocabulary.
+    Define the representation mode. The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{jd} or \texttt{mjd}. The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
 
-    \subsubsection{Epoch.value}
-    \textbf{vodml-id: Epoch.value} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \subsubsection{DateTime.dateTime}
+    \textbf{vodml-id: DateTime.dateTime} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
     \textbf{multiplicity: 1} \newline
-    The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent a date, which must be parsed, or a real value, which must be cast.
+    The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).
 
 \section{Photometric Properties}
 This section brings together all the classes that model the photometric properties.

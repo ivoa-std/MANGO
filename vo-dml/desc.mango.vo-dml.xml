@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-04-18T13:11:02</lastModified>
+  <lastModified>2025-05-02T09:24:52</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -104,19 +104,21 @@ rewriting rules that fix the issue.</description>
   </dataType>
 
   <dataType>
-    <vodml-id>Epoch</vodml-id>
-    <name>Epoch</name>
+    <vodml-id>DateTime</vodml-id>
+    <name>DateTime</name>
     <description>Datatype for timestamps and their representation. 
 Timestamps are modeled by a single value and a representation mode.
-There is no time scale associated with \texttt{mango:Epoch}. 
+There is no time scale associated with \texttt{mango:DateTime}. 
 The scale is either imposed by the representation mode or defined by the
 time coordinate system relevant for the host object,
-usually an instance of \texttt{mango:EpcohPosition}.</description>
+usually an instance of \texttt{mango:EpochPosition}.</description>
     <attribute>
-      <vodml-id>Epoch.representation</vodml-id>
+      <vodml-id>DateTime.representation</vodml-id>
       <name>representation</name>
       <description>Define the representation mode.
-The representation mode must comply with the \texttt{time-format} IVOA vocabulary. </description>
+The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{jd} or \texttt{mjd}.
+The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
+</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -126,13 +128,13 @@ The representation mode must comply with the \texttt{time-format} IVOA vocabular
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>Epoch.value</vodml-id>
-      <name>value</name>
+      <vodml-id>DateTime.dateTime</vodml-id>
+      <name>dateTime</name>
       <description>The timestamp value is always given as a string. 
 The way to process this string is given by the representation mode.
-It can represent a date, which must be parsed, or a real value, which must be cast.</description>
+It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).</description>
       <datatype>
-        <vodml-ref>ivoa:string</vodml-ref>
+        <vodml-ref>ivoa:datetime</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -815,14 +817,15 @@ In some cases the errors might conflict with the correlations:
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPosition.epoch</vodml-id>
-      <name>epoch</name>
-      <description>Position epoch expressed within the common time system (see \texttt{coords:Epoch})</description>
+      <vodml-id>EpochPosition.obsDate</vodml-id>
+      <name>obsDate</name>
+      <description>Observation date expressed within the common time system if present.
+This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system.</description>
       <datatype>
-        <vodml-ref>mango:Epoch</vodml-ref>
+        <vodml-ref>mango:DateTime</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
