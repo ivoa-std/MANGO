@@ -3,29 +3,29 @@
 This folder contains annotated VOTables that cover most of the MANGO use-cases:
 
 
-| Class                 | xtapdb | Gaia | datalink |
-|-----------------------|--------|------|----------|
-| MangoObject           | X      | X    | X        |
-| QueryOrigin           |        | X    |          |
-| EpochPosition         | X      | X    |          |
-| Brightness            | X      | X    |          |
-| Color                 | X      | X    |          |
-| FootPrint             |        |      | X        |
-| Status                | X      |      |          |
-| Label                 |        |      | X        |
-| BitField              |        |      |          |
-| PhysicalProperty      |        |      | X        |
-| DataLink              |        |      | X        |
-| PhotCal               | X      | X    |          |
-| PhotFilter            | X      | X    |          |
-| SpaceSys              | X      | X    |          |
-| TimeSys               | X      | X    |          |
-| PErrorSym1D           | X      | X    |          |
-| PErrorAsym1D          |        | X    |          |
-| APErrorSym2D          |        | X    |          |
-| Ellipse               |        |      |          |
-| AssociatedMangoObject |        |      |          |
-| AssociatedProperties  |        |      |          |
+| Class                 | xtapdb | Gaia | datalink | vizier_cs_I_239 |
+|-----------------------|--------|------|----------|-----------------|
+| MangoObject           | X      | X    | X        |                 |
+| QueryOrigin           |        | X    |          |                 |
+| EpochPosition         | X      | X    |          | X               |
+| Brightness            | X      | X    |          |                 |
+| Color                 | X      | X    |          |                 |
+| FootPrint             |        |      | X        |                 |
+| Status                | X      |      |          |                 |
+| Label                 |        |      | X        |                 |
+| BitField              |        |      |          |                 |
+| PhysicalProperty      |        |      | X        |                 |
+| DataLink              |        |      | X        |                 |
+| PhotCal               | X      | X    |          |                 |
+| PhotFilter            | X      | X    |          |                 |
+| SpaceSys              | X      | X    |          | X               |
+| TimeSys               | X      | X    |          |                 |
+| PErrorSym1D           | X      | X    |          |                 |
+| PErrorAsym1D          |        | X    |          |                 |
+| APErrorSym2D          |        | X    |          |                 |
+| Ellipse               |        |      |          |                 |
+| AssociatedMangoObject |        |      |          |                 |
+| AssociatedProperties  |        |      |          |                 |
 
 They can be validated against the model with the Mivot validator:
 
