@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-05-02T09:24:52</lastModified>
+  <lastModified>2025-05-05T19:49:26</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
