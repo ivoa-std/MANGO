@@ -1,0 +1,3 @@
+Extension of  \texttt{TimeInstant} for time expressed in Modified Julian Days. T(MJD) = T(JD) -
+2400000.5.
+This data type is duplicated from \cite{2022ivoa.spec.1004R}

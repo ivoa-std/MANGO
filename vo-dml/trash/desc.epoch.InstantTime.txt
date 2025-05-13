@@ -1,0 +1,6 @@
+Abstract data type which specifies a specific instant in time.
+All supported datatime representations are derived from it.
+We define three subtypes (ISOTime,
+JD, MJD) imported from the Coordinates datamodel and 2 MANGO native types (\texttt{Years} and \texttt{Seconds}),
+which allow users to explicitly identify the representation and interpretation of the TimeInstant.
+This data type is duplicated from \cite{2022ivoa.spec.1004R}

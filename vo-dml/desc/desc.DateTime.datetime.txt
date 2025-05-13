@@ -1,0 +1,3 @@
+The timestamp value is always given as a string. 
+The way to process this string is given by the representation mode.
+It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).

@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-04-03T09:01:20</lastModified>
+  <lastModified>2025-05-02T09:24:52</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -98,6 +98,46 @@ rewriting rules that fix the issue.</description>
       </datatype>
       <multiplicity>
         <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+  </dataType>
+
+  <dataType>
+    <vodml-id>DateTime</vodml-id>
+    <name>DateTime</name>
+    <description>Datatype for timestamps and their representation. 
+Timestamps are modeled by a single value and a representation mode.
+There is no time scale associated with \texttt{mango:DateTime}. 
+The scale is either imposed by the representation mode or defined by the
+time coordinate system relevant for the host object,
+usually an instance of \texttt{mango:EpochPosition}.</description>
+    <attribute>
+      <vodml-id>DateTime.representation</vodml-id>
+      <name>representation</name>
+      <description>Define the representation mode.
+The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{jd} or \texttt{mjd}.
+The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
+</description>
+      <datatype>
+        <vodml-ref>ivoa:string</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>DateTime.dateTime</vodml-id>
+      <name>dateTime</name>
+      <description>The timestamp value is always given as a string. 
+The way to process this string is given by the representation mode.
+It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).</description>
+      <datatype>
+        <vodml-ref>ivoa:datetime</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -457,41 +497,6 @@ Shape is serialized as a string.
   </objectType>
 
   <objectType>
-    <vodml-id>PhotometricProperty</vodml-id>
-    <name>PhotometricProperty</name>
-    <description>Super class for all photometric properties of the \texttt{MangoObject}.
-</description>
-    <extends>
-      <vodml-ref>mango:Property</vodml-ref>
-    </extends>
-    <attribute>
-      <vodml-id>PhotometricProperty.value</vodml-id>
-      <name>value</name>
-      <description>Value of the photometric property associated with a photometric calibration 
-as defined by the \texttt{PhotDM} model.</description>
-      <datatype>
-        <vodml-ref>ivoa:RealQuantity</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-    <attribute>
-      <vodml-id>PhotometricProperty.error</vodml-id>
-      <name>error</name>
-      <description>Error on the \texttt{PhotometricProperty}.</description>
-      <datatype>
-        <vodml-ref>mango:error.PropertyError</vodml-ref>
-      </datatype>
-      <multiplicity>
-        <minOccurs>1</minOccurs>
-        <maxOccurs>1</maxOccurs>
-      </multiplicity>
-    </attribute>
-  </objectType>
-
-  <objectType>
     <vodml-id>PhysicalProperty</vodml-id>
     <name>PhysicalProperty</name>
     <description>Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) 
@@ -537,8 +542,32 @@ The color is not an intrinsic property of the MANGO object,
 but a value relative to two filters or energy bands.
 </description>
     <extends>
-      <vodml-ref>mango:PhotometricProperty</vodml-ref>
+      <vodml-ref>mango:Property</vodml-ref>
     </extends>
+    <attribute>
+      <vodml-id>Color.value</vodml-id>
+      <name>value</name>
+      <description>Color value.</description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Color.error</vodml-id>
+      <name>error</name>
+      <description>Error on the \texttt{Color}.</description>
+      <datatype>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <composition>
       <vodml-id>Color.colorDef</vodml-id>
       <name>colorDef</name>
@@ -788,14 +817,15 @@ In some cases the errors might conflict with the correlations:
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPosition.epoch</vodml-id>
-      <name>epoch</name>
-      <description>Position epoch expressed within the common time system (see \texttt{coords:Epoch})</description>
+      <vodml-id>EpochPosition.obsDate</vodml-id>
+      <name>obsDate</name>
+      <description>Observation date expressed within the common time system if present.
+This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system.</description>
       <datatype>
-        <vodml-ref>coords:Epoch</vodml-ref>
+        <vodml-ref>mango:DateTime</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>1</minOccurs>
+        <minOccurs>0</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
@@ -1062,9 +1092,30 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <description>Observed brightness of the \texttt{MangoObject}.
 The distinction between fluxes and magnitudes is made by the unit.
 This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).</description>
-    <extends>
-      <vodml-ref>mango:PhotometricProperty</vodml-ref>
-    </extends>
+    <attribute>
+      <vodml-id>Brightness.value</vodml-id>
+      <name>value</name>
+      <description>Brightness value.</description>
+      <datatype>
+        <vodml-ref>ivoa:RealQuantity</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>1</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
+    <attribute>
+      <vodml-id>Brightness.error</vodml-id>
+      <name>error</name>
+      <description>Error on the \texttt{Brightness}.</description>
+      <datatype>
+        <vodml-ref>mango:error.PropertyError</vodml-ref>
+      </datatype>
+      <multiplicity>
+        <minOccurs>0</minOccurs>
+        <maxOccurs>1</maxOccurs>
+      </multiplicity>
+    </attribute>
     <reference>
       <vodml-id>Brightness.photCal</vodml-id>
       <name>photCal</name>
@@ -1291,7 +1342,7 @@ group (see \url{https://ivoa.net/documents/DataOrigin/index.html})</description>
       <attribute>
         <vodml-id>origin.Article.identifier</vodml-id>
         <name>identifier</name>
-        <description>Bibcode or DOI of the reference article</description>
+        <description>Identifer of the reference article</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>

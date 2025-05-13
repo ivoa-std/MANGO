@@ -1,0 +1,1 @@
+Extension of  \texttt{TimeInstant}  for time expressed in decimal year (e.g. 2012.75).

@@ -58,7 +58,7 @@ def insert_desc():
         desc_file = os.path.join(desc_path, ("desc." + vodmlid + ".txt"))
         if not os.path.exists(desc_file):
             print(f"desc file {desc_file} does not exist")
-            continue
+            sys.exit(1)
         with open(desc_file, "r") as read_desc:
             desc = read_desc.read()
             desc_ele.text = desc

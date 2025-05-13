@@ -1,0 +1,1 @@
+The Second coordinate value. This is dimensionless, with implied units in seconds.

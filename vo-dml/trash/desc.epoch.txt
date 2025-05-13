@@ -1,0 +1,5 @@
+The \texttt{epoch} package (fig \ref{fig:epoch}) groups the data types
+used by \texttt{mango:EpochPosition} epoch.
+The package is based on types duplicated from \cite{2022ivoa.spec.1004R}
+and extended with 2 Mango types (\texttt{Years} and \texttt{Seconds})
+All the concrete types are derived from \texttt{coords:InstanceTime}.

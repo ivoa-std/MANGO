@@ -37,7 +37,8 @@
 draft-background.*
 # Maven 
 target/
-
+__pycache__
+__cache__
 # eclipse project file
 .settings/
 .classpath
