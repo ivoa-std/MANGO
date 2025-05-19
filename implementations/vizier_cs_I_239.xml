@@ -53,8 +53,8 @@
             <ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" ref="t1_c13" unit="mas/yr" />
             <ATTRIBUTE dmrole="mango:EpochPosition.parallax" dmtype="ivoa:RealQuantity" ref="t1_c11" unit="mas" />
             <INSTANCE dmrole="mango:EpochPosition.obsDate" dmtype="mango:DateTime">
-                <ATTRIBUTE dmrole=mango:DateTime.representation" dmtype="ivoa:string" value="year" />
-                <ATTRIBUTE dmrole=mango:DateTime.dataTime" dmtype="ivoa:string" value="1991.250" unit="yr" />
+                <ATTRIBUTE dmrole="mango:DateTime.representation" dmtype="ivoa:string" value="year" />
+                <ATTRIBUTE dmrole="mango:DateTime.dateTime" dmtype="ivoa:datetime" value="1991.250" unit="yr" />
             </INSTANCE>
             <REFERENCE dmrole="mango:EpochPosition.spaceSys" dmref="SpaceFrame_ICRS" />
           </INSTANCE>

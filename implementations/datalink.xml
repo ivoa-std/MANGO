@@ -54,10 +54,10 @@
                   value="mango test implementation" />
               </INSTANCE>
 
-              <INSTANCE dmrole="" dmtype="mango:Shape">
-                <ATTRIBUTE dmrole="mango:Shape.shape" dmtype="ivoa:string" ref="s_region" />
-                <ATTRIBUTE dmrole="mango:Shape.serialization" dmtype="mango:ShapeSerialization" value="STC-S" />
-                <REFERENCE dmrole="mango:Shape.spaceSys" dmref="CoordSystem_ICRS_id" />
+              <INSTANCE dmrole="" dmtype="mango:Footprint">
+                <ATTRIBUTE dmrole="mango:Footprint.serialization" dmtype="ivoa:string" ref="s_region" />
+                <ATTRIBUTE dmrole="mango:Footprint.mode" dmtype="mango:FootprintSerialization" value="STC-S" />
+                <REFERENCE dmrole="mango:Footprint.spaceSys" dmref="CoordSystem_ICRS_id" />
               </INSTANCE>
 
               <INSTANCE dmrole="" dmtype="mango:PhysicalProperty">
