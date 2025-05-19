@@ -2,6 +2,15 @@
    <!-- Observed brightness of the \texttt{MangoObject}.
 The distinction between fluxes and magnitudes is made by the unit.
 This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1)." -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:Property.associatedProperties">
+      <INSTANCE dmtype="mango:Property"/>
+   </COLLECTION>
    <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
    <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PropertyError"/>
