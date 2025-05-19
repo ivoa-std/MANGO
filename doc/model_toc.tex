@@ -290,13 +290,13 @@ that have to interpret them.
 
   \subsection{DateTime}
     \label{sect:DateTime}
-    Datatype for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:DateTime}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpochPosition}.
+    Data type for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:DateTime}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpochPosition}.
 
     \subsubsection{DateTime.representation}
     \textbf{vodml-id: DateTime.representation} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
-    Define the representation mode. The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{jd} or \texttt{mjd}. The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
+    Define the representation mode. The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{year}, \texttt{jd} or \texttt{mjd}. The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
 
     \subsubsection{DateTime.dateTime}
     \textbf{vodml-id: DateTime.dateTime} \newline

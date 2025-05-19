@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-05-02T09:24:52</lastModified>
+  <lastModified>2025-05-19T16:09:29</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -106,17 +106,18 @@ rewriting rules that fix the issue.</description>
   <dataType>
     <vodml-id>DateTime</vodml-id>
     <name>DateTime</name>
-    <description>Datatype for timestamps and their representation. 
+    <description>Data type for timestamps and their representation. 
 Timestamps are modeled by a single value and a representation mode.
 There is no time scale associated with \texttt{mango:DateTime}. 
 The scale is either imposed by the representation mode or defined by the
 time coordinate system relevant for the host object,
-usually an instance of \texttt{mango:EpochPosition}.</description>
+usually an instance of \texttt{mango:EpochPosition}.
+</description>
     <attribute>
       <vodml-id>DateTime.representation</vodml-id>
       <name>representation</name>
       <description>Define the representation mode.
-The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{jd} or \texttt{mjd}.
+The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{year}, \texttt{jd} or \texttt{mjd}.
 The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
 </description>
       <datatype>
@@ -1092,6 +1093,9 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <description>Observed brightness of the \texttt{MangoObject}.
 The distinction between fluxes and magnitudes is made by the unit.
 This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).</description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
     <attribute>
       <vodml-id>Brightness.value</vodml-id>
       <name>value</name>
