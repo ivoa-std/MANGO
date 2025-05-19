@@ -25,7 +25,7 @@ This folder contains annotated VOTables that cover most of the MANGO use-cases:
 | APErrorSym2D          |        | X    |          |                 |
 | Ellipse               |        |      |          |                 |
 | AssociatedMangoObject |        |      |          |                 |
-| AssociatedProperties  |        |      |          |                 |
+| AssociatedProperties  | X      |      |          |                 |
 
 They can be validated against the model with the Mivot validator:
 

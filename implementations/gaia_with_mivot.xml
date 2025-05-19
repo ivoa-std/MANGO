@@ -183,8 +183,8 @@
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri" value="vocabulary#term"/>
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="term"/>
              </INSTANCE>
-             <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:PhotometricProperty.value" value="8.76"/>
-             <INSTANCE dmtype="mango:error.PErrorAsym1D" dmrole="mango:PhotometricProperty.error">
+             <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:Color.value" value="8.76"/>
+             <INSTANCE dmtype="mango:error.PErrorAsym1D" dmrole="mango:Color.error">
                <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.low" value="1"/>
                <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.high" value="3"/>
              </INSTANCE>
@@ -200,8 +200,8 @@
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri" value="https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#magnitude"/>
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="magnitude"/>
              </INSTANCE>
-             <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:PhotometricProperty.value" unit="mag" ref="GRVSmag"/>
-             <INSTANCE dmtype="mango:error.PErrorAsym1D" dmrole="mango:PhotometricProperty.error">
+             <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:Brightness.value" unit="mag" ref="GRVSmag"/>
+             <INSTANCE dmtype="mango:error.PErrorAsym1D" dmrole="mango:Brightness.error">
                <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.low" value="1"/>
                <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:error.PErrorAsym1D.high" value="3"/>
              </INSTANCE>
