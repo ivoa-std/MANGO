@@ -1,8 +1,9 @@
 # Reference Implementations
 
-This folder contains annotated VOTables that cover most of the MANGO use-cases:
+This folder contains working examples as annotated VOTables that cover most of the MANGO use-cases. 
+This Table lists all MANGO classes and in which project they are implemented:
 
-
+---------------------------------------------------------------------
 | Class                 | xtapdb | Gaia | datalink | vizier_cs_I_239 |
 |-----------------------|--------|------|----------|-----------------|
 | MangoObject           | X      | X    | X        |                 |
@@ -26,6 +27,7 @@ This folder contains annotated VOTables that cover most of the MANGO use-cases:
 | Ellipse               |        |      |          |                 |
 | AssociatedMangoObject |        |      |          |                 |
 | AssociatedProperties  | X      |      |          |                 |
+----------------------------------------------------------------------
 
 They can be validated against the model with the Mivot validator:
 
