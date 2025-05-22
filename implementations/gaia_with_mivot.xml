@@ -158,8 +158,8 @@
        <INSTANCE dmtype="coords:SpaceSys" dmid="_spaceframe_ICRS_BARYCENTER">
          <INSTANCE dmtype="coords:SpaceFrame" dmrole="coords:PhysicalCoordSys.frame">
            <ATTRIBUTE dmtype="ivoa:string" dmrole="coords:SpaceFrame.spaceRefFrame" value="ICRS"/>
-           <INSTANCE dmtype="coords:StdRefLocation" dmrole="coords:SpaceFrame.refPosition">
-             <ATTRIBUTE dmtype="ivoa:string" dmrole="coords:StdRefLocation.position" value="BARYCENTER"/>
+           <INSTANCE dmtype="coords:CustomRefLocation" dmrole="coords:SpaceFrame.refPosition">
+             <ATTRIBUTE dmtype="coords:Epoch" dmrole="coords:CustomRefLocation.epoch"  value="J2016.000"/>
            </INSTANCE>
          </INSTANCE>
        </INSTANCE>
