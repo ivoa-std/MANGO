@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-05-05T19:49:26</lastModified>
+  <lastModified>2025-05-19T16:09:29</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -1098,6 +1098,9 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
+    <extends>
+      <vodml-ref>mango:Property</vodml-ref>
+    </extends>
     <attribute>
       <vodml-id>Brightness.value</vodml-id>
       <name>value</name>
