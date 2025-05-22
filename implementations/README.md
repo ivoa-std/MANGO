@@ -10,7 +10,7 @@ This folder contains annotated VOTables that cover most of the MANGO use-cases:
 | EpochPosition         | X      | X    |          | X               |
 | Brightness            | X      | X    |          |                 |
 | Color                 | X      | X    |          |                 |
-| FootPrint             |        |      | X        |                 |
+| Footprint             |        |      | X        |                 |
 | Status                | X      |      |          |                 |
 | Label                 |        |      | X        |                 |
 | BitField              |        |      |          |                 |
