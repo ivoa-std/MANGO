@@ -18,8 +18,6 @@
   <DESCRIPTION>
    Gaia DR3 Part 1. Main source (Gaia Collaboration, 2022)
   </DESCRIPTION>
-  <COOSYS ID="H_2016.000" epoch="2016.000" system="ICRS"/>
-  <COOSYS ID="J2000" equinox="J2000" system="eq_FK5"/>
   <INFO ID="ivoid" name="ivoid" value="ivo://cds.vizier/i/355">IVOID of underlying data collection</INFO>
   <INFO ID="creator" name="creator" value="Gaia collaboration">First author or institution</INFO>
   <INFO ID="cites" name="cites" value="bibcode:2022yCat.1355....0G">Bibcode of the dataset</INFO>
@@ -29,11 +27,13 @@
   <INFO ID="publication_date" name="publication_date" value="2024-01-24">Date of first publication in the data centre</INFO>
   <INFO ID="rights_uri" name="rights_uri" value="https://cds.unistra.fr/vizier-org/licences_vizier.html">Licence URI</INFO>
   <INFO ID="matches" name="matches" value="5">matching records</INFO>
-  <INFO ID="Warning" name="Warning" value="No center provided++++"/>
-  <INFO ID="Warning" name="Warning" value="increase the precision for computed column 14"/>
-  <INFO ID="Warning" name="Warning" value="increase the precision for computed column 14"/>
-  <INFO ID="Warning" name="Warning" value="truncated result (maxtup=5)"/>
+  <INFO ID="Warning_1" name="Warning" value="No center provided++++"/>
+  <INFO ID="Warning_2" name="Warning" value="increase the precision for computed column 14"/>
+  <INFO ID="Warning_3" name="Warning" value="increase the precision for computed column 14"/>
+  <INFO ID="Warning_4" name="Warning" value="truncated result (maxtup=5)"/>
   <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OVERFLOW">value="truncated result (maxtup=5)"</INFO>
+  <COOSYS ID="H_2016.000" epoch="2016.000" system="ICRS"/>
+  <COOSYS ID="J2000" equinox="J2000" system="eq_FK5"/>
   <RESOURCE type="meta">
    <VODML xmlns="http://www.ivoa.net/xml/mivot">
      <REPORT status="OK"/>
@@ -158,8 +158,8 @@
        <INSTANCE dmtype="coords:SpaceSys" dmid="_spaceframe_ICRS_BARYCENTER">
          <INSTANCE dmtype="coords:SpaceFrame" dmrole="coords:PhysicalCoordSys.frame">
            <ATTRIBUTE dmtype="ivoa:string" dmrole="coords:SpaceFrame.spaceRefFrame" value="ICRS"/>
-           <INSTANCE dmtype="coords:StdRefLocation" dmrole="coords:SpaceFrame.refPosition">
-             <ATTRIBUTE dmtype="ivoa:string" dmrole="coords:StdRefLocation.position" value="BARYCENTER"/>
+           <INSTANCE dmtype="coords:CustomRefLocation" dmrole="coords:SpaceFrame.refPosition">
+             <ATTRIBUTE dmtype="coords:Epoch" dmrole="coords:CustomRefLocation.epoch"  value="J2016.000"/>
            </INSTANCE>
          </INSTANCE>
        </INSTANCE>

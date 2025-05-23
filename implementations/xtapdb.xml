@@ -229,14 +229,14 @@ FROM mergedentry"/>
         <INSTANCE dmrole="Phot:PhotometryFilter.spectralLocation" dmtype="Phot:SpectralLocation">
           <ATTRIBUTE dmrole="Phot:SpectralLocation.ucd" dmtype="Phot:UCD" value="em.wl.effective"/>
           <ATTRIBUTE dmrole="Phot:SpectralLocation.unitexpression" dmtype="ivoa:Unit" value="keV"/>
-          <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="8.25"/>
+          <ATTRIBUTE dmrole="Phot:SpectralLocation.value" dmtype="ivoa:real" value="6.1"/>
         </INSTANCE>
         <!-- Band width -->
         <INSTANCE dmrole="Phot:PhotometryFilter.bandwidth" dmtype="Phot:Bandwidth">
           <ATTRIBUTE dmrole="Phot:Bandwidth.ucd" dmtype="Phot:UCD" value="instr.bandwidth;stat.fwhm"/>
           <ATTRIBUTE dmrole="Phot:Bandwidth.unitexpression" dmtype="ivoa:Unit" value="keV"/>
-          <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="0.2"/>
-          <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="6.1"/>
+          <ATTRIBUTE dmrole="Phot:Bandwidth.extent" dmtype="ivoa:real" value="11.8"/>
+          <ATTRIBUTE dmrole="Phot:Bandwidth.start" dmtype="ivoa:real" value="0.2"/>
           <ATTRIBUTE dmrole="Phot:Bandwidth.stop" dmtype="ivoa:real" value="12.0"/>
         </INSTANCE>
         <!-- Transmission Curve -->
@@ -310,7 +310,7 @@ FROM mergedentry"/>
             <REFERENCE dmref="CoordSystem_ICRS_id" dmrole="mango:EpochPosition.spaceSys"/>
             <REFERENCE dmref="CoordSystem_TCB_id" dmrole="mango:EpochPosition.timeSys"/>
             <COLLECTION dmrole="mango:Property.associatedProperties">
-                <REFERENCE dmrole="mango:AssociatedMangoObject.mangoObject" dmref="Detection_Status" />
+                <REFERENCE dmref="Detection_Status" />
             </COLLECTION>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Color">
@@ -354,36 +354,42 @@ FROM mergedentry"/>
             </INSTANCE>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Brightness">
+            <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" ref="SC_EP_1_FLUX" unit="erg/cm**2/s" />
             <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PErrorSym1D">
               <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity" ref="SC_EP_1_FLUX_ERR"/>
             </INSTANCE>
             <REFERENCE dmref="CoordSystem_XMM_EB1_id" dmrole="mango:Brightness.photCal"/>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Brightness">
+            <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" ref="SC_EP_2_FLUX" unit="erg/cm**2/s" />
             <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PErrorSym1D">
               <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity" ref="SC_EP_2_FLUX_ERR"/>
             </INSTANCE>
             <REFERENCE dmref="CoordSystem_XMM_EB2_id" dmrole="mango:Brightness.photCal"/>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Brightness">
+            <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" ref="SC_EP_3_FLUX" unit="erg/cm**2/s" />
             <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PErrorSym1D">
               <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity" ref="SC_EP_3_FLUX_ERR"/>
             </INSTANCE>
             <REFERENCE dmref="CoordSystem_XMM_EB3_id" dmrole="mango:Brightness.photCal"/>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Brightness">
+             <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" ref="SC_EP_4_FLUX" unit="erg/cm**2/s" />
             <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PErrorSym1D">
               <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity" ref="SC_EP_4_FLUX_ERR"/>
             </INSTANCE>
             <REFERENCE dmref="CoordSystem_XMM_EB4_id" dmrole="mango:Brightness.photCal"/>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Brightness">
+            <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" ref="SC_EP_5_FLUX" unit="erg/cm**2/s" />
             <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PErrorSym1D">
               <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity" ref="SC_EP_5_FLUX_ERR"/>
             </INSTANCE>
             <REFERENCE dmref="CoordSystem_XMM_EB5_id" dmrole="mango:Brightness.photCal"/>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Brightness">
+            <ATTRIBUTE dmrole="mango:Brightness.value" dmtype="ivoa:RealQuantity" ref="SC_EP_8_FLUX" unit="erg/cm**2/s" />
             <INSTANCE dmrole="mango:Brightness.error" dmtype="mango:error.PErrorSym1D">
               <ATTRIBUTE dmrole="mango:error.PErrorSym1D.sigma" dmtype="ivoa:RealQuantity" ref="SC_EP_8_FLUX_ERR"/>
             </INSTANCE>
