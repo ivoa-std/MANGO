@@ -115,6 +115,16 @@ that have to interpret them.
     \caption{Class EpochPosition}
     \label{fig:EpochPosition}
     \end{figure}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/EpochPosition.png}
+    \caption{Class EpochPosition}
+    \label{fig:EpochPosition}
+    \end{figure}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/EpochPosition.png}
+    \caption{Class EpochPosition}
+    \label{fig:EpochPosition}
+    \end{figure}
     \label{sect:EpochPosition}
     This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the Astronomical Measurements Model \citep{2022ivoa.specQ1004R} that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated errors encapsulated into the \texttt{EpochPositionErrors} class. The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems model \citep{2022ivoa.spec.1004R} At a high level the properties map as follows: \begin{itemize} \item celestial position -> \texttt{meas:Position} \item proper motion -> \texttt{meas:ProperMotion} \item radial velocity -> \texttt{meas.Velocity} \item parallax -> no suitable counterpart at this time \end{itemize} All components use the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} All components have their own units which must be consistent with each other. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class. Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class. In some cases the errors might conflict with the correlations: \begin{itemize} \item \texttt{Ellipse} errors on position or proper motion must not be used together with the \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields. In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict with the correlations defined in \texttt{EpochPositionCorrelations}. \end{itemize}
 
@@ -546,6 +556,16 @@ It is recommended to use them for quantities that do not require the use of nati
     \caption{package error}
     \label{fig:error}
     \end{figure}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/error.png}
+    \caption{package error}
+    \label{fig:error}
+    \end{figure}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/error.png}
+    \caption{package error}
+    \label{fig:error}
+    \end{figure}
     The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. All these classes are derived from \texttt{meas:Uncertainty} to make them reusable by \texttt{meas:Measure} instances. Mango errors all have an attribute that specifies the confidence level
 
   \subsection{PropertyError (Abstract)}
@@ -629,6 +649,16 @@ It is recommended to use them for quantities that do not require the use of nati
     Error on the second dimension (declination in case of sky coordinates)
 
 \section{Package: origin}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/origin.png}
+    \caption{package origin}
+    \label{fig:origin}
+    \end{figure}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/origin.png}
+    \caption{package origin}
+    \label{fig:origin}
+    \end{figure}
     \begin{figure}[h]
     \includegraphics[width=1.0\textwidth]{../model/origin.png}
     \caption{package origin}
