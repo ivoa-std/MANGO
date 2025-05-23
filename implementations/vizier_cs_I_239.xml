@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VOTABLE version="1.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://www.ivoa.net/xml/VOTable/v1.5"
-  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.5">
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 https://ivoa.net/xml/VOTable/VOTable-1.5.xsd">
   <DESCRIPTION>
     VizieR Astronomical Server cds:8082
     Date: 2025-05-04T12:06:35 [V7.5]

@@ -310,7 +310,7 @@ FROM mergedentry"/>
             <REFERENCE dmref="CoordSystem_ICRS_id" dmrole="mango:EpochPosition.spaceSys"/>
             <REFERENCE dmref="CoordSystem_TCB_id" dmrole="mango:EpochPosition.timeSys"/>
             <COLLECTION dmrole="mango:Property.associatedProperties">
-                <REFERENCE dmrole="mango:AssociatedMangoObject.mangoObject" dmref="Detection_Status" />
+                <REFERENCE dmref="Detection_Status" />
             </COLLECTION>
           </INSTANCE>
           <INSTANCE dmrole="" dmtype="mango:Color">
