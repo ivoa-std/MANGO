@@ -25,6 +25,18 @@ All components use the same coordinate systems for both time and space coordinat
 \end{itemize}
 
 
+It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead
+of the \texttt{epoch} field of \texttt{coords:spaceSys}. 
+There are 2 reasons for this:
+\begin{itemize}
+   \item Using the epoch of \texttt{coords:spaceSys} requires to work with the
+         \texttt{coords:CustomRefLocation} class to carry the reference location.
+         This class does not support the standard reference locations such as e.g. BARYCENTER.
+   \item the observation date can be read in a column and therefore change with each data row.
+         In this case, it cannot be stored as an element of the space coordinate system
+         but as an \texttt{EPochPosition} attribute.
+
+
 All components have their own units which must be consistent with each other. 
 This consistency is not enforced by the model.
 

@@ -1,2 +1,2 @@
 Observation date expressed within the common time system if present.
-This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system.
+This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
