@@ -122,13 +122,13 @@ that have to interpret them.
     \textbf{vodml-id: EpochPosition.longitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
 
     \subsubsection{EpochPosition.latitude}
     \textbf{vodml-id: EpochPosition.latitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lat}.
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}).
 
     \subsubsection{EpochPosition.parallax}
     \textbf{vodml-id: EpochPosition.parallax} \newline
@@ -140,19 +140,19 @@ that have to interpret them.
     \textbf{vodml-id: EpochPosition.radialVelocity} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+    This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by the \texttt{coords} data model: The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 
     \subsubsection{EpochPosition.pmLongitude}
     \textbf{vodml-id: EpochPosition.pmLongitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
 
     \subsubsection{EpochPosition.pmLatitude}
     \textbf{vodml-id: EpochPosition.pmLatitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
 
     \subsubsection{EpochPosition.obsDate}
     \textbf{vodml-id: EpochPosition.obsDate} \newline
@@ -312,7 +312,7 @@ photometric filters are imported from \texttt{PhotDM}.
 
   \subsection{Brightness}
     \label{sect:Brightness}
-    Observed brightness of the \texttt{MangoObject}. The distinction between fluxes and magnitudes is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).
+    Observed brightness of the \texttt{MangoObject}. The purpose of this property is to gather a brightness value with its error and the its photometric calibration The distinction between fluxes and magnitudes is made by the unit. The photometric calibration is modeled by the \texttt{Phot} data model (1.1).
 
     \subsubsection{Brightness.value}
     \textbf{vodml-id: Brightness.value} \newline
@@ -334,7 +334,7 @@ photometric filters are imported from \texttt{PhotDM}.
 
   \subsection{Color}
     \label{sect:Color}
-    Property that describes a color of the \texttt{MangoObject}. The color is not an intrinsic property of the MANGO object, but a value relative to two filters or energy bands.
+    Property that describes a color of the \texttt{MangoObject}. The purpose of this property is to gather a color value with its error and the 2 related filters (high and low) The color can be given as a magnitude difference or an hardness ratio.
 
     \subsubsection{Color.value}
     \textbf{vodml-id: Color.value} \newline
