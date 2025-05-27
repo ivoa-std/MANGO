@@ -1,7 +1,7 @@
 <INSTANCE dmrole="" dmtype="mango:Color">
    <!-- Property that describes a color of the \texttt{MangoObject}.
-The color is not an intrinsic property of the MANGO object,
-but a value relative to two filters or energy bands.
+The purpose of this property is to gather a color value with its error and the 2 related filters (high and low)
+The color can be given as a magnitude difference or an hardness ratio.
 " -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
       <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->

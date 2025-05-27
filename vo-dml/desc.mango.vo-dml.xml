@@ -539,8 +539,8 @@ in \url{http://www.ivoa.net/rdf/processing-level}</description>
     <vodml-id>Color</vodml-id>
     <name>Color</name>
     <description>Property that describes a color of the \texttt{MangoObject}.
-The color is not an intrinsic property of the MANGO object,
-but a value relative to two filters or energy bands.
+The purpose of this property is to gather a color value with its error and the 2 related filters (high and low)
+The color can be given as a magnitude difference or an hardness ratio.
 </description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
@@ -744,7 +744,10 @@ In some cases the errors might conflict with the correlations:
     <attribute>
       <vodml-id>EpochPosition.longitude</vodml-id>
       <name>longitude</name>
-      <description>The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.</description>
+      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
+but applied to the \texttt{mango:EpochPosition} context.
+It matches the description given by \texttt{coords} data model:
+The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -756,7 +759,11 @@ In some cases the errors might conflict with the correlations:
     <attribute>
       <vodml-id>EpochPosition.latitude</vodml-id>
       <name>latitude</name>
-      <description>The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lat}.</description>
+      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
+but applied to the \texttt{mango:EpochPosition} context.
+It matches the description given by \texttt{coords} data model:
+The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}).
+</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -781,7 +788,10 @@ In some cases the errors might conflict with the correlations:
     <attribute>
       <vodml-id>EpochPosition.radialVelocity</vodml-id>
       <name>radialVelocity</name>
-      <description>The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+      <description>This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} 
+but applied to the \texttt{mango:EpochPosition} context.
+It matches the description given by the \texttt{coords} data model: 
+The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -794,7 +804,10 @@ In some cases the errors might conflict with the correlations:
     <attribute>
       <vodml-id>EpochPosition.pmLongitude</vodml-id>
       <name>pmLongitude</name>
-      <description>Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} 
+but applied to the \texttt{mango:EpochPosition} context.
+It matches the description given by \texttt{coords} data model: 
+Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -807,7 +820,10 @@ In some cases the errors might conflict with the correlations:
     <attribute>
       <vodml-id>EpochPosition.pmLatitude</vodml-id>
       <name>pmLatitude</name>
-      <description>Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} 
+but applied to the \texttt{mango:EpochPosition} context.
+It matches the description given by \texttt{coords} data model: 
+Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -1091,8 +1107,9 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <vodml-id>Brightness</vodml-id>
     <name>Brightness</name>
     <description>Observed brightness of the \texttt{MangoObject}.
+The purpose of this property is to gather a brightness value with its error and the its photometric calibration
 The distinction between fluxes and magnitudes is made by the unit.
-This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).</description>
+The photometric calibration is modeled by the \texttt{Phot} data model (1.1).</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
