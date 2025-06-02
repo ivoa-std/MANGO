@@ -733,7 +733,7 @@ There are 2 reasons for this:
    \item the observation date can be read in a column and therefore change with each data row.
          I this case, it cannot be stored as an element of the space coordinate system
          but as an \texttt{EPochPosition} attribute.
-
+\end{itemize}
 
 All components have their own units which must be consistent with each other. 
 This consistency is not enforced by the model.

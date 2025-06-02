@@ -1,6 +1,6 @@
 <INSTANCE dmrole="" dmtype="mango:Brightness">
    <!-- Observed brightness of the \texttt{MangoObject}.
-The purpose of this property is to gather a brightness value with its error and its photometric calibration
+The purpose of this property is to gather a brightness value with its error and the its photometric calibration
 The distinction between fluxes and magnitudes is made by the unit.
 The photometric calibration is modeled by the \texttt{Phot} data model (1.1)." -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
