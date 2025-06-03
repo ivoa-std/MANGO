@@ -19,6 +19,7 @@ on:
       - master
       - wd-v1.0
       - draft-0.1
+      - pr-1.0
 
 jobs:
   build:
