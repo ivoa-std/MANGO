@@ -53,8 +53,8 @@ This Table lists all MANGO classes and in which project they are implemented:
 | PErrorAsym1D          |        | X    |          |                 |
 | APErrorSym2D          |        | X    |          |                 |
 | Ellipse               |        |      |          |                 |
-| AssociatedMangoObject |        |      |          |                 |
 | AssociatedProperties  | X      |      |          |                 |
+| AssociatedMangoObject |        |      |          |                 |
 ----------------------------------------------------------------------
 
 They can be validated against the model with the Mivot validator:
