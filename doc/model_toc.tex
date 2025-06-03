@@ -116,19 +116,19 @@ that have to interpret them.
     \label{fig:EpochPosition}
     \end{figure}
     \label{sect:EpochPosition}
-    This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the Astronomical Measurements Model \citep{2022ivoa.specQ1004R} that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated errors encapsulated into the \texttt{EpochPositionErrors} class. The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems model \citep{2022ivoa.spec.1004R} At a high level the properties map as follows: \begin{itemize} \item celestial position -> \texttt{meas:Position} \item proper motion -> \texttt{meas:ProperMotion} \item radial velocity -> \texttt{meas.Velocity} \item parallax -> no suitable counterpart at this time \end{itemize} All components use the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} All components have their own units which must be consistent with each other. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class. Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class. In some cases the errors might conflict with the correlations: \begin{itemize} \item \texttt{Ellipse} errors on position or proper motion must not be used together with the \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields. In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict with the correlations defined in \texttt{EpochPositionCorrelations}. \end{itemize}
+    This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the Astronomical Measurements Model \citep{2022ivoa.specQ1004R} that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated errors encapsulated into the \texttt{EpochPositionErrors} class. The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems model \citep{2022ivoa.spec.1004R} At a high level the properties map as follows: \begin{itemize} \item celestial position -> \texttt{meas:Position} \item proper motion -> \texttt{meas:ProperMotion} \item radial velocity -> \texttt{meas.Velocity} \item parallax -> no suitable counterpart at this time \end{itemize} All components use the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:simeSys}. \end{itemize} It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead of the \texttt{epoch} field of \texttt{coords:spaceSys}. There are 2 reasons for this: \begin{itemize} \item Using the epoch of \texttt{coords:spaceSys} requires to work with the \texttt{coords:CustomRefLocation} class to carry the reference location. This class does not support the standard reference locations such as e.g. BARYCENTER. \item the observation date can be read in a column and therefore change with each data row. I this case, it cannot be stored as an element of the space coordinate system but as an \texttt{EPochPosition} attribute. \end{itemize} All components have their own units which must be consistent with each other. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class. Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class. In some cases the errors might conflict with the correlations: \begin{itemize} \item \texttt{Ellipse} errors on position or proper motion must not be used together with the \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields. In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict with the correlations defined in \texttt{EpochPositionCorrelations}. \end{itemize}
 
     \subsubsection{EpochPosition.longitude}
     \textbf{vodml-id: EpochPosition.longitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
 
     \subsubsection{EpochPosition.latitude}
     \textbf{vodml-id: EpochPosition.latitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lat}.
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}).
 
     \subsubsection{EpochPosition.parallax}
     \textbf{vodml-id: EpochPosition.parallax} \newline
@@ -140,25 +140,25 @@ that have to interpret them.
     \textbf{vodml-id: EpochPosition.radialVelocity} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    The measured Velocity along of the radius axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+    This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by the \texttt{coords} data model: The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 
     \subsubsection{EpochPosition.pmLongitude}
     \textbf{vodml-id: EpochPosition.pmLongitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
 
     \subsubsection{EpochPosition.pmLatitude}
     \textbf{vodml-id: EpochPosition.pmLatitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
 
     \subsubsection{EpochPosition.obsDate}
     \textbf{vodml-id: EpochPosition.obsDate} \newline
     \textbf{type: \hyperref[sect:DateTime]{mango:DateTime}} \newline
     \textbf{multiplicity: 0..1} \newline
-    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system.
+    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
 
     \subsubsection{EpochPosition.pmCosLat\_applied}
     \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
@@ -312,7 +312,7 @@ photometric filters are imported from \texttt{PhotDM}.
 
   \subsection{Brightness}
     \label{sect:Brightness}
-    Observed brightness of the \texttt{MangoObject}. The distinction between fluxes and magnitudes is made by the unit. This property should refer to a photometric calibration as defined by the \texttt{Phot} data model (1.1).
+    Observed brightness of the \texttt{MangoObject}. The purpose of this property is to gather a brightness value with its error and the its photometric calibration The distinction between fluxes and magnitudes is made by the unit. The photometric calibration is modeled by the \texttt{Phot} data model (1.1).
 
     \subsubsection{Brightness.value}
     \textbf{vodml-id: Brightness.value} \newline
@@ -334,7 +334,7 @@ photometric filters are imported from \texttt{PhotDM}.
 
   \subsection{Color}
     \label{sect:Color}
-    Property that describes a color of the \texttt{MangoObject}. The color is not an intrinsic property of the MANGO object, but a value relative to two filters or energy bands.
+    Property that describes a color of the \texttt{MangoObject}. The purpose of this property is to gather a color value with its error and the 2 related filters (high and low) The color can be given as a magnitude difference or an hardness ratio.
 
     \subsubsection{Color.value}
     \textbf{vodml-id: Color.value} \newline
