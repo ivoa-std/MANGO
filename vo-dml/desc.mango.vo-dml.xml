@@ -7,7 +7,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-05-19T16:09:29</lastModified>
+  <lastModified>2025-06-06T13:58:18</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -388,9 +388,9 @@ and/or quality factors.
   <objectType>
     <vodml-id>Status</vodml-id>
     <name>Status</name>
-    <description>Property representing a status defined by a integer number 
+    <description>Property representing a status defined by a string (numerical values must be down-casted) 
 that can only take on a defined number of values, each with its own description.
-Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.</description>
+</description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
     </extends>
@@ -399,7 +399,7 @@ Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 
       <name>status</name>
       <description>Actual value of the status</description>
       <datatype>
-        <vodml-ref>ivoa:integer</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -633,19 +633,6 @@ with a square transfert function.</description>
   </objectType>
 
   <objectType>
-    <vodml-id>BitField</vodml-id>
-    <name>BitField</name>
-    <description>Property for which each possible value is represented by a bit, 
-so that multiple states can be contained in the same integer value.
-The possible values are defined in the associated \texttt{StatusValues},
-which must correspond to a bit pattern (each value must be a power of 2).
-This constraint is not enforced by the model.</description>
-    <extends>
-      <vodml-ref>mango:Status</vodml-ref>
-    </extends>
-  </objectType>
-
-  <objectType>
     <vodml-id>StatusValues</vodml-id>
     <name>StatusValues</name>
     <description>Class holder for the list of the allowed values for the status. 
@@ -673,7 +660,7 @@ This constraint is not enforced by the model.</description>
       <name>value</name>
       <description>Allowed value for a \texttt{Status}</description>
       <datatype>
-        <vodml-ref>ivoa:integer</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>

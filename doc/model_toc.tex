@@ -426,11 +426,11 @@ It is recommended to use them for quantities that do not require the use of nati
 
   \subsection{Status}
     \label{sect:Status}
-    Property representing a status defined by a integer number that can only take on a defined number of values, each with its own description. Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.
+    Property representing a status defined by a string (numerical values must be down-casted) that can only take on a defined number of values, each with its own description.
 
     \subsubsection{Status.status}
     \textbf{vodml-id: Status.status} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Actual value of the status
 
@@ -456,7 +456,7 @@ It is recommended to use them for quantities that do not require the use of nati
 
     \subsubsection{StatusValue.value}
     \textbf{vodml-id: StatusValue.value} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Allowed value for a \texttt{Status}
 
@@ -467,8 +467,6 @@ It is recommended to use them for quantities that do not require the use of nati
     Free text description of the allowed value for a \texttt{Status}
 
   \subsection{BitField}
-    \label{sect:BitField}
-    Property for which each possible value is represented by a bit, so that multiple states can be contained in the same integer value. The possible values are defined in the associated \texttt{StatusValues}, which must correspond to a bit pattern (each value must be a power of 2). This constraint is not enforced by the model.
 
   \subsection{DataLink}
     \label{sect:DataLink}

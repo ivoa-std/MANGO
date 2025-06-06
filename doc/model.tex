@@ -58,10 +58,6 @@
       \textbf{multiplicity: 1} \newline
       Reference to the associated \texttt{MangoObject}.
 
-  \subsection{BitField}
-  \label{sect:BitField}
-    Property for which each possible value is represented by a bit, so that multiple states can be contained in the same integer value. The possible values are defined in the associated \texttt{StatusValues}, which must correspond to a bit pattern (each value must be a power of 2). This constraint is not enforced by the model.
-
   \subsection{Brightness}
   \label{sect:Brightness}
     Observed brightness of the \texttt{MangoObject}. The purpose of this property is to gather a brightness value with its error and the its photometric calibration The distinction between fluxes and magnitudes is made by the unit. The photometric calibration is modeled by the \texttt{Phot} data model (1.1).
@@ -459,11 +455,11 @@
 
   \subsection{Status}
   \label{sect:Status}
-    Property representing a status defined by a integer number that can only take on a defined number of values, each with its own description. Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.
+    Property representing a status defined by a string (numerical values must be down-casted) that can only take on a defined number of values, each with its own description.
 
     \subsubsection{Status.status}
       \textbf{vodml-id: Status.status} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
       Actual value of the status
 
@@ -479,7 +475,7 @@
 
     \subsubsection{StatusValue.value}
       \textbf{vodml-id: StatusValue.value} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
       Allowed value for a \texttt{Status}
 
