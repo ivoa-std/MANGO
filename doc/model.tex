@@ -356,7 +356,7 @@
 
   \subsection{Footprint}
   \label{sect:Footprint}
-    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Shape is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
+    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Footprint is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
 
     \subsubsection{Footprint.serialization}
       \textbf{vodml-id: Footprint.serialization} \newline
@@ -374,7 +374,7 @@
       \textbf{vodml-id: Footprint.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 1} \newline
-      Coordinate system that applies for the shape
+      Coordinate system that applies for the footprint
 
   \subsection{Label}
   \label{sect:Label}
@@ -518,7 +518,7 @@
   \subsection{FootprintSerialization}
   \label{sect:FootprintSerialization}
 
-  Enumeration of the supported serialization modes for the shapes
+  Enumeration of the supported serialization modes for the footprints
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -526,11 +526,11 @@
   \begin{itemize}
   
     \item[\textbf{SMOC}]: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+          \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{STC-S}]: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+          \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{POLYGON}]: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
+          \textbf{description:} Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
   \end{itemize}
   \normalsize
 

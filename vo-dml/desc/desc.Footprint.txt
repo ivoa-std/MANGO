@@ -1,5 +1,5 @@
 Description of the spatial extent of the MANGO object (e.g. for dust clouds).
-Shape is serialized as a string. 
+Footprint is serialized as a string. 
 \begin{itemize}
    \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration.
    \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference.

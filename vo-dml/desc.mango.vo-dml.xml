@@ -31,25 +31,25 @@
   <enumeration>
     <vodml-id>FootprintSerialization</vodml-id>
     <name>FootprintSerialization</name>
-    <description>Enumeration of the supported serialization modes for the shapes</description>
+    <description>Enumeration of the supported serialization modes for the footprints</description>
     <literal>
       <vodml-id>FootprintSerialization.SMOC</vodml-id>
       <name>SMOC</name>
-      <description>Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}.
+      <description>Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}.
 SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
 When using this serialisation, \texttt{spaceSys} can be ignored. </description>
     </literal>
     <literal>
       <vodml-id>FootprintSerialization.STC-S</vodml-id>
       <name>STC-S</name>
-      <description>Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
+      <description>Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
 SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
 When using this serialisation, \texttt{spaceSys} can be ignored. </description>
     </literal>
     <literal>
       <vodml-id>FootprintSerialization.POLYGON</vodml-id>
       <name>POLYGON</name>
-      <description>Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7.
+      <description>Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7.
 Using the polygon serialization requires the space coordinate system to be defined.</description>
     </literal>
   </enumeration>
@@ -450,7 +450,7 @@ of the \texttt{MangoObject} (e.g., Cataclysmic Variable) with the appropriate vo
     <vodml-id>Footprint</vodml-id>
     <name>Footprint</name>
     <description>Description of the spatial extent of the MANGO object (e.g. for dust clouds).
-Shape is serialized as a string. 
+Footprint is serialized as a string. 
 \begin{itemize}
    \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration.
    \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference.
@@ -486,7 +486,7 @@ Shape is serialized as a string.
     <reference>
       <vodml-id>Footprint.spaceSys</vodml-id>
       <name>spaceSys</name>
-      <description>Coordinate system that applies for the shape</description>
+      <description>Coordinate system that applies for the footprint</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>

@@ -1,1 +1,1 @@
-Enumeration of the supported serialization modes for the shapes
+Enumeration of the supported serialization modes for the footprints
