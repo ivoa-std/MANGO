@@ -1,6 +1,0 @@
-Extension of  \texttt{TimeInstant} for time expressed as a structured datetime string. The string repre-
-sentation of a datetime value should follow the FITS convention for representing dates (Hanish
-and Farris et al, 2001). The FITS standard is effectively ISO8601 format without the ’Z’ tag to
-indicate UTC: YYYY-MM-DD[’T’hh:mm:ss[.SSS]]. The TimeScale is provided in the associated
-TimeFrame.
-This data type is duplicated from \cite{2022ivoa.spec.1004R}
