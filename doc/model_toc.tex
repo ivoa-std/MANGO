@@ -304,11 +304,7 @@ that have to interpret them.
     \textbf{multiplicity: 1} \newline
     The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).
 
-\section{Photometric Properties}
-This section brings together all the classes that model the photometric properties.
-The definition of the photometric calibrations and the 
-photometric filters are imported from \texttt{PhotDM}. 
-  \subsection{PhotometricProperty}
+\section{Photometric and Spectroscopic Properties}
 
   \subsection{Brightness}
     \label{sect:Brightness}
@@ -430,11 +426,11 @@ It is recommended to use them for quantities that do not require the use of nati
 
   \subsection{Status}
     \label{sect:Status}
-    Property representing a status defined by a integer number that can only take on a defined number of values, each with its own description. Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.
+    Property representing a status defined by a string (numerical values must be down-casted) that can only take on a defined number of values, each with its own description.
 
     \subsubsection{Status.status}
     \textbf{vodml-id: Status.status} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Actual value of the status
 
@@ -460,7 +456,7 @@ It is recommended to use them for quantities that do not require the use of nati
 
     \subsubsection{StatusValue.value}
     \textbf{vodml-id: StatusValue.value} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Allowed value for a \texttt{Status}
 
@@ -471,8 +467,6 @@ It is recommended to use them for quantities that do not require the use of nati
     Free text description of the allowed value for a \texttt{Status}
 
   \subsection{BitField}
-    \label{sect:BitField}
-    Property for which each possible value is represented by a bit, so that multiple states can be contained in the same integer value. The possible values are defined in the associated \texttt{StatusValues}, which must correspond to a bit pattern (each value must be a power of 2). This constraint is not enforced by the model.
 
   \subsection{DataLink}
     \label{sect:DataLink}
@@ -504,7 +498,7 @@ It is recommended to use them for quantities that do not require the use of nati
 
   \subsection{Footprint}
     \label{sect:Footprint}
-    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Shape is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
+    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Footprint is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
 
     \subsubsection{Footprint.serialization}
     \textbf{vodml-id: Footprint.serialization} \newline
@@ -522,21 +516,21 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{vodml-id: Footprint.spaceSys} \newline
     \textbf{type: coords:SpaceSys} \newline
     \textbf{multiplicity: 1} \newline
-    Coordinate system that applies for the shape
+    Coordinate system that applies for the footprint
 
   \subsection{FootprintSerialization}
     \label{sect:FootprintSerialization}
-    Enumeration of the supported serialization modes for the shapes
+    Enumeration of the supported serialization modes for the footprints
     \noindent \underline{Enumeration Literals}
     \vspace{-\parsep}
     \small
     \begin{itemize}
     \item[\textbf{SMOC}]: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
-    \textbf{description:} Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+    \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{STC-S}]: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
-    \textbf{description:} Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+    \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{POLYGON}]: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
-    \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
+    \textbf{description:} Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
     \end{itemize}
     \normalsize
 

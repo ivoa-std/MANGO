@@ -10,7 +10,7 @@
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-05-19T16:09:29</lastModified>
+  <lastModified>2025-06-06T13:58:18</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -381,7 +381,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>ivoa:integer</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -625,17 +625,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>BitField</vodml-id>
-    <name>BitField</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <extends>
-      <vodml-ref>mango:Status</vodml-ref>
-    </extends>
-  </objectType>
-
-  <objectType>
     <vodml-id>StatusValues</vodml-id>
     <name>StatusValues</name>
     <description>
@@ -670,7 +659,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>ivoa:integer</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
