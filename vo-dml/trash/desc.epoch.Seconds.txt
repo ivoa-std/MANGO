@@ -1,1 +1,0 @@
-Extension of  \texttt{TimeInstant}  for time expressed in decimal seconds (e.g. UNIX time: 1765432987.7).

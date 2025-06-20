@@ -1,1 +1,0 @@
-The JD coordinate value. JD dates are dimensionless, with implied units in days.

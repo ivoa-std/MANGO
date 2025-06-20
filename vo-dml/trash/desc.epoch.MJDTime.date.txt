@@ -1,1 +1,0 @@
-The MJD coordinate value. MJD dates are dimensionless, with implied units in days.
