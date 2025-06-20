@@ -1,0 +1,24 @@
+<INSTANCE dmtype="mango:StatusValues" dmid="CoordSystem_SUM_FLAG_id" >
+    <COLLECTION dmrole="mango:StatusValues.values">
+      <INSTANCE dmrole="" dmtype="mango:StatusValue">
+         <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="0" />
+         <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Good Detection" />
+      </INSTANCE>
+      <INSTANCE dmrole="" dmtype="mango:StatusValue">
+         <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="1" />
+         <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Source parameters may be affected " />
+      </INSTANCE>
+      <INSTANCE dmrole="" dmtype="mango:StatusValue">
+         <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="2" />
+         <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Possibly spurious" />
+      </INSTANCE>
+      <INSTANCE dmrole="" dmtype="mango:StatusValue">
+         <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="3" />
+         <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Area where spurious detection may occur" />
+      </INSTANCE>
+      <INSTANCE dmrole="" dmtype="mango:StatusValue">
+         <ATTRIBUTE dmrole="mango:StatusValue.value" dmtype="ivoa:integer" value="4" />
+         <ATTRIBUTE dmrole="mango:StatusValue.description" dmtype="ivoa:string" value="Possibly spurious and area where spurious detection may occur" />
+      </INSTANCE>
+   </COLLECTION>
+</INSTANCE>
