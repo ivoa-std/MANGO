@@ -9,7 +9,7 @@
 \setlength\extrarowheight{2pt}
 
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
-\title{MANGO: A Model for ANnotating Generic Objects}
+\title{MANGO: Metadata ANnotation for Generic Objects}
 
 % see ivoatexDoc for what group names to use here
 \ivoagroup{DM}
@@ -116,8 +116,8 @@ Modeling data collected to study astronomical source objects has been a long ter
 DM working group and more generally for the IVOA.
 In the past years, there were some proposals to design a global model for sources \citep{wd:jesusdm}
 as well as for catalogs \citep{wd:catalog}.
-Other proposals, more model-agnostic, were focused on the data annotation in VOTables
-\citep{note:stcvot} \citep{note:seb}.
+Other proposals based on models (STC1.33, PhotDM1.0) that were not machine-readable, focused on data annotation in 
+VOTables \citep{note:stcvot} \citep{note:seb}.
 In this case the goal was no longer to design a source model but to provide a complete description of
 individual quantities (positions, velocity, fluxes, magnitudes…).
 None of these proposals has come to completion due to the complexity of the task.
@@ -169,8 +169,8 @@ UCD, VOUnits and Vocabularies are also re-used.
 \subsection{Requirements}
 
 From the above list of use-cases, we have identified 4 domains for which
-the model should provide added value: 1) nature of supported quantities 2) data description enhancement,
-3) description of quantities consisting of several columns and 4) connected quantities.
+the model should provide added value: 1) nature of supported quantities 2) enhancement of the data description,
+3) description of quantities consisting of several columns and 4) connection of different quantities.
 
 
 \begin{itemize}
@@ -223,7 +223,7 @@ the model should provide added value: 1) nature of supported quantities 2) data 
                 This feature is required to compare positions given by surveys with high astrometry accuracy such as GAIA.
        \end{itemize} 
          
-    \item Connected quantities : 
+    \item Connection of quantities : 
        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
            \item MANGO must be able to setup links between different properties of the same table. 
                  This can be relevant for instance for attaching detection likelihoods with source positions
@@ -244,7 +244,7 @@ the model should provide added value: 1) nature of supported quantities 2) data 
 \end{figure}
 
 
-The root class of the model \texttt{MANGOObject} which has only
+The root class of the model \texttt{MANGOObject} has only
 one mandatory attribute, an \texttt{identifier}.
 Identifiers should be unique within a collection, e.g. a data table, although 
 this feature is not required by the model.
@@ -289,7 +289,7 @@ In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
  \hline
  \texttt{EpochPosition} & Grouping of position with velocity and time & Parameters to solve the epoch propagation case\\  
  \hline
- \texttt{Magnitude} & Flux or Magnitude & many \\ 
+ \texttt{Brightness} & Flux or Magnitude & many \\ 
  \hline
  \texttt{Color} & Hardness ratio or magnitude ratio & many  \\ [1ex] 
  \hline
