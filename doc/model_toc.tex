@@ -94,7 +94,33 @@
     \textbf{multiplicity: 0..1} \newline
     Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
 
-\section{Epoch Position Properties}
+\section{Date Time Types}
+The abstract primitive type \texttt{ivoa:datetime} has been extended to include:
+types that cover the most commonly used serialisations of observation dates (see figure \ref{datetime}).
+
+\begin{figure}
+     \includegraphics[width=0.7\textwidth]{../model/date.png}
+     \caption{datetime}
+     \label{datetime}
+\end{figure}
+
+  \subsection{mjd}
+    \label{sect:mjd}
+    Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).
+
+  \subsection{jd}
+    \label{sect:jd}
+    Primitive type for observation dates expressed as a Julian Date (e.g. 25213).
+
+  \subsection{year}
+    \label{sect:year}
+    Primitive type for observation dates expressed as a year (e.g. 2015.5).
+
+  \subsection{iso}
+    \label{sect:iso}
+    Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+
+\section{Epoch Position Property}
 The emergence of missions such as Gaia \citep{2018A&A...616A...1G}, which are capable of 
 observing objects over long periods of time with very high astrometric accuracy,
 combined with great spectroscopic capabilities, making it possible to link star 3D positions
@@ -156,9 +182,9 @@ that have to interpret them.
 
     \subsubsection{EpochPosition.obsDate}
     \textbf{vodml-id: EpochPosition.obsDate} \newline
-    \textbf{type: \hyperref[sect:DateTime]{mango:DateTime}} \newline
-    \textbf{multiplicity: 0..1} \newline
-    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
+    \textbf{multiplicity: 1} \newline
+    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system (see the above). Figure \ref{datetime} shows up the hierarchy of the primitive types representing the observation dates.
 
     \subsubsection{EpochPosition.pmCosLat\_applied}
     \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
@@ -287,22 +313,6 @@ that have to interpret them.
     \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
     \textbf{multiplicity: 1} \newline
     Position error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
-
-  \subsection{DateTime}
-    \label{sect:DateTime}
-    Data type for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:DateTime}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpochPosition}.
-
-    \subsubsection{DateTime.representation}
-    \textbf{vodml-id: DateTime.representation} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    Define the representation mode. The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{year}, \texttt{jd} or \texttt{mjd}. The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
-
-    \subsubsection{DateTime.dateTime}
-    \textbf{vodml-id: DateTime.dateTime} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
-    \textbf{multiplicity: 1} \newline
-    The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).
 
 \section{Photometric and Spectroscopic Properties}
 

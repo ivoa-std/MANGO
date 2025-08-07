@@ -5,12 +5,17 @@
         "Property": {},
         "VocabularyTerm": {}
     },
-    "Epoch Position Properties (added)": {
-        "EpochPosition": {},
-        "EpochPositionCorrelations": {},
-        "EpochPositionErrors": {},
-        "DateTime": {}
-    },
+	"Date Time Types (added)": {
+		"mjd": {},
+	    "jd": {},
+		"year": {},
+		"iso": {}
+	},
+	"Epoch Position Property (added)": {
+	    "EpochPosition": {},
+	    "EpochPositionCorrelations": {},
+	    "EpochPositionErrors": {}
+	},
     "Photometric and Spectroscopic Properties (added)": {
         "Brightness": {},
         "Color": {},
