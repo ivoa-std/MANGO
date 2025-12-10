@@ -7,7 +7,7 @@ presentation, and usage.
 The value is always interpreted as a URI; relative URIs (Berners-Lee and
 Fielding et al., 2005) are completed using the base URI of the core DataLink
 vocabulary, http://www.ivoa.net/rdf/datalink/core. Terms from this
-vocabulary must always be written as relative URIs. This means that for
-concepts from the core vocabulary, the value in the semantics fieldz always
+vocabulary must always be written as relative URIs. 
+This means that for concepts from the core vocabulary, the value in the semantics fields always
 starts with a hash. (datalink1.1).
 The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).
