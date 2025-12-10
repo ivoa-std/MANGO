@@ -1,4 +1,4 @@
-This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
-but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by \texttt{coords} data model:
+This parameter corresponds to the longitude as described by the \texttt{coords} data model:
 The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:Position} 
+but applied to the \texttt{mango:EpochPosition} context.
