@@ -39,18 +39,5 @@ either by the developers or by the curators, to get the job done:
 Once these are available, the mapper module can use 1) and 3) to get the properties to be included 
 in the response and 2) to build the mapping block. 
 
-\subsection{ \emph{MANGOCore} Table}
-
-MANGO could also be used as a convenient way to find out what properties are available for the tables being served,
-or which tables come with the desired properties (e.g. give me all tables with both proper motion and G magnitude).
-
-This could be achieved with a \emph{MANGOCore} table located in the \emph{ivoa} schema. 
-This table would have one rows per exposed table and one (or more) columns per exposed property.
-The fact that the MANGO properties are exposed as open collections complicated the definition 
-of the \emph{MANGOCore} table, and at some point it will be necessary to choose which property 
-to expose (or not) with this table.
-This \emph{MANGOCore} implementation topic is beyond the scope of the present document but the concept
-is another valuable use of MANGO.  
-
 
 
