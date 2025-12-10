@@ -375,13 +375,13 @@ that have to interpret them.
   \subsection{ColorDefinition}
     \label{sect:ColorDefinition}
     Enumeration of the different types of colors supported by the model.
-    \noindent \underline{Enumeration Literals}
+    \newline \newline \noindent \underline{Enumeration Literals}
     \vspace{-\parsep}
     \small
     \begin{itemize}
-    \item[\textbf{ColorIndex}]: \textbf{vodml-id:} ColorDefinition.ColorIndex \newline
+    \item \textbf{ColorIndex}: \textbf{vodml-id:} ColorDefinition.ColorIndex \newline
     \textbf{description:} Difference of magnitudes: typically $M_B - M_v$
-    \item[\textbf{HardnessRatio}]: \textbf{vodml-id:} ColorDefinition.HardnessRatio \newline
+    \item \textbf{HardnessRatio}: \textbf{vodml-id:} ColorDefinition.HardnessRatio \newline
     \textbf{description:} Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) / (F_{EB2} + F_{EB1})$
     \end{itemize}
     \normalsize
@@ -521,15 +521,15 @@ It is recommended to use them for quantities that do not require the use of nati
   \subsection{FootprintSerialization}
     \label{sect:FootprintSerialization}
     Enumeration of the supported serialization modes for the footprints
-    \noindent \underline{Enumeration Literals}
+    \newline \newline \noindent \underline{Enumeration Literals}
     \vspace{-\parsep}
     \small
     \begin{itemize}
-    \item[\textbf{SMOC}]: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
+    \item \textbf{SMOC}: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
     \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
-    \item[\textbf{STC-S}]: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
+    \item \textbf{STC-S}: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
     \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
-    \item[\textbf{POLYGON}]: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
+    \item \textbf{POLYGON}: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
     \textbf{description:} Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
     \end{itemize}
     \normalsize
