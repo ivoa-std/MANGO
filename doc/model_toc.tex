@@ -1,7 +1,7 @@
 \pagebreak
 
 \section{Model: mango}
-    The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
+    The purpose of MANGO is to provide a higher level of description for multi-attribute properties. When used with MIVOT annotations, it enables tabular data to be represented as structured objects. This enables the metadata representation to be improved and complex quantities to be reconstructed from column values. Modelled properties can be linked to each other. MANGO also enables the origin of the data to be specified.
 
   \subsection{MangoObject}
     \label{sect:MangoObject}
@@ -56,15 +56,12 @@
   \subsection{Property}
     \label{sect:Property}
     Class holder for a \textit{flavor} of property’ ie: there should be a Property subclass for each \textit{flavor} of Property being hosted. The property types are not limited to “physical or calculated” (eg: flags, assigned labels) This class specifies both type and role of the property, and hosts the property instance itself.
-    \noindent \textbf{constraint} \newline
-    \indent    \textbf{detail: Property.One association at the time
-    }\newline
 
     \subsubsection{Property.semantics}
     \textbf{vodml-id: Property.semantics} \newline
     \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
     \textbf{multiplicity: 0..1} \newline
-    Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties. The semantics field contains a URI for a concept that describes the meaning of the property. This attribute is intended to be machine-readable and to assist automated link selection, presentation, and usage. The value is always interpreted as a URI; relative URIs (Berners-Lee and Fielding et al., 2005) are completed using the base URI of the core DataLink vocabulary, http://www.ivoa.net/rdf/datalink/core. Terms from this vocabulary must always be written as relative URIs. This means that for concepts from the core vocabulary, the value in the semantics fieldz always starts with a hash. (datalink1.1). The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).
+    Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties. The semantics field contains a URI for a concept that describes the meaning of the property. This attribute is intended to be machine-readable and to assist automated link selection, presentation, and usage. The value is always interpreted as a URI; relative URIs (Berners-Lee and Fielding et al., 2005) are completed using the base URI of the core DataLink vocabulary, \url{http://www.ivoa.net/rdf/datalink/core}. Terms from this vocabulary must always be written as relative URIs. This means that for concepts from the core vocabulary, the value in the semantics fields always starts with a hash. (datalink1.1). The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).
 
     \subsubsection{Property.description}
     \textbf{vodml-id: Property.description} \newline
@@ -94,12 +91,36 @@
     \textbf{multiplicity: 0..1} \newline
     Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
 
+\section{Date Time Types}
+The abstract primitive type \texttt{ivoa:datetime} has been extended to include:
+types that cover the most commonly used serialisations of observation dates (see figure \ref{datetime}).
+
+\begin{figure}
+     \includegraphics[width=0.7\textwidth]{../model/date.png}
+     \caption{datetime}
+     \label{datetime}
+\end{figure}
+  \subsection{mjd}
+    \label{sect:mjd}
+    Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).
+
+  \subsection{jd}
+    \label{sect:jd}
+    Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).
+
+  \subsection{year}
+    \label{sect:year}
+    Primitive type for observation dates expressed as a year (e.g. 2015.5).
+
+  \subsection{iso}
+    \label{sect:iso}
+    Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+
 \section{Epoch Position Properties}
-The emergence of missions such as Gaia \citep{2018A&A...616A...1G}, which are capable of 
-observing objects over long periods of time with very high astrometric accuracy,
-combined with great spectroscopic capabilities, making it possible to link star 3D positions
-with 3D velocities, thus defining a 6-dimensional astrometric solution,
-tagged with the epoch when the parameters were set. 
+Missions such as Gaia \citep{2018A&A...616A...1G} enable long-term observation of sources. 
+It provides very high astrometric accuracy and robust spectroscopic capabilities.
+These features together make it possible to link the three-dimensional positions of objects with their three-dimensional velocities.
+This creates a six-dimensional astrometric solution tagged with the epoch at which the parameters were set.
 
 The enormous scientific impact of this mission justifies the fact that the MANGO \texttt{EpochPostion}
 components are all based on these astrometric parameters and the way in which they are correlated.
@@ -122,13 +143,13 @@ that have to interpret them.
     \textbf{vodml-id: EpochPosition.longitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+    This parameter corresponds to the longitude as described by the \texttt{coords} data model: \textit{The longitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lon}). It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.latitude}
     \textbf{vodml-id: EpochPosition.latitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}).
+    This parameter corresponds to the latitude as described by the \texttt{coords} data model: \textit{The latitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lat}). It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model:
 
     \subsubsection{EpochPosition.parallax}
     \textbf{vodml-id: EpochPosition.parallax} \newline
@@ -140,28 +161,28 @@ that have to interpret them.
     \textbf{vodml-id: EpochPosition.radialVelocity} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by the \texttt{coords} data model: The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+    This parameter corresponds to the radial velocity as described by the \texttt{coords} data model: \textit{The measured Velocity along of the radial axis } (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}). It is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.pmLongitude}
     \textbf{vodml-id: EpochPosition.pmLongitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+    This parameter corresponds to the proper motion longitude as described by the \texttt{coords} data model: \textit{Velocity along the longitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.pmLatitude}
     \textbf{vodml-id: EpochPosition.pmLatitude} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
     \textbf{multiplicity: 1} \newline
-    This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+    This parameter corresponds to the proper motion latitude as described by the \texttt{coords} data model: \textit{Velocity along the latitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.obsDate}
     \textbf{vodml-id: EpochPosition.obsDate} \newline
-    \textbf{type: \hyperref[sect:DateTime]{mango:DateTime}} \newline
-    \textbf{multiplicity: 0..1} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
+    \textbf{multiplicity: 1} \newline
     Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
 
-    \subsubsection{EpochPosition.pmCosLat\_applied}
-    \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
+    \subsubsection{EpochPosition.pmCosLatApplied}
+    \textbf{vodml-id: EpochPosition.pmCosLatApplied} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
     \textbf{multiplicity: 1} \newline
     It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
@@ -288,24 +309,11 @@ that have to interpret them.
     \textbf{multiplicity: 1} \newline
     Position error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
 
-  \subsection{DateTime}
-    \label{sect:DateTime}
-    Data type for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:DateTime}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object, usually an instance of \texttt{mango:EpochPosition}.
-
-    \subsubsection{DateTime.representation}
-    \textbf{vodml-id: DateTime.representation} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    Define the representation mode. The supported values are \texttt{iso} or \texttt{dateformat} for ISO dates, \texttt{year}, \texttt{jd} or \texttt{mjd}. The list of supported values could be extended in the future with new endorsed \texttt{xtype} values.
-
-    \subsubsection{DateTime.dateTime}
-    \textbf{vodml-id: DateTime.dateTime} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
-    \textbf{multiplicity: 1} \newline
-    The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).
-
 \section{Photometric and Spectroscopic Properties}
-
+This section brings together all the classes that model
+brightness and color of the observed sources.
+The definition of the photometric calibrations and the 
+photometric filters are imported from \texttt{PhotDM}. 
   \subsection{Brightness}
     \label{sect:Brightness}
     Observed brightness of the \texttt{MangoObject}. The purpose of this property is to gather a brightness value with its error and the its photometric calibration The distinction between fluxes and magnitudes is made by the unit. The photometric calibration is modeled by the \texttt{Phot} data model (1.1).
@@ -465,36 +473,6 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
     Free text description of the allowed value for a \texttt{Status}
-
-  \subsection{BitField}
-
-  \subsection{DataLink}
-    \label{sect:DataLink}
-    This property describes static links pointing to some external data. This allows services that do not implement DataLink services to expose linked data as flattened DataLink (1.1) responses.
-
-    \subsubsection{DataLink.content\_type}
-    \textbf{vodml-id: DataLink.content\_type} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    mime type of the content the link returns (see DataLink 1.1)
-
-    \subsubsection{DataLink.access\_url}
-    \textbf{vodml-id: DataLink.access\_url} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
-    \textbf{multiplicity: 1} \newline
-    contains an URL for downloading a single resource. There is no restriction on the type of resource accessed by the links.
-
-    \subsubsection{DataLink.content\_qualifier}
-    \textbf{vodml-id: DataLink.content\_qualifier} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    Gives the nature of the thing or service that is returned by the link. The value is always interpreted as a URI. If the access\_url references a data product, the content\_qualifier field should define its product type . In this case the content qualifier value always starts with a hash completing the \url{http://www.ivoa.net/rdf/datalink/product-type} base URI. For \texttt{MangoObject} not linking to data products, content\_qualifier’s interpretation will be different, and the default vocabulary will be inappropriate. Full concept URIs will have to be used in this case. (DataLink 1.1)
-
-    \subsubsection{DataLink.local\_semantics}
-    \textbf{vodml-id: DataLink.local\_semantics} \newline
-    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
-    \textbf{multiplicity: 1} \newline
-    Allows for identification of corresponding rows for different IDs in the same DataLink service where the combination of semantics, content\_type and content\_qualifier is not sufficient to identify them (see DataLink 1.1).
 
   \subsection{Footprint}
     \label{sect:Footprint}

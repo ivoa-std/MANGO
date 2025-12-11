@@ -1,13 +1,15 @@
 <ns0:model xmlns:ns0="http://www.ivoa.net/xml/VODML/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
-  <description>The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
+  <description>The purpose of MANGO is to provide a higher level of description for multi-attribute properties.
+When used with MIVOT annotations, it enables tabular data to be represented as structured objects.
+This enables the metadata representation to be improved and complex quantities to be reconstructed from column values. Modelled properties can be linked to each other. MANGO also enables the origin of the data to be specified.
 </description>
   <uri />
   <title>Mango</title>
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-12-11T09:04:28</lastModified>
+  <lastModified>2025-12-11T13:52:24</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -380,11 +382,12 @@ This attribute is intended to be machine-readable and to assist automated link s
 presentation, and usage.
 The value is always interpreted as a URI; relative URIs (Berners-Lee and
 Fielding et al., 2005) are completed using the base URI of the core DataLink
-vocabulary, http://www.ivoa.net/rdf/datalink/core. Terms from this
+vocabulary, \url{http://www.ivoa.net/rdf/datalink/core}. Terms from this
 vocabulary must always be written as relative URIs. 
 This means that for concepts from the core vocabulary, the value in the semantics fields always
 starts with a hash. (datalink1.1).
-The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).</description>
+The semantics concept applies to a single property or to the set made of the property and
+its associated properties (e.g. position and flag).</description>
       <datatype>
         <vodml-ref>mango:VocabularyTerm</vodml-ref>
       </datatype>
@@ -783,7 +786,7 @@ In some cases the errors might conflict with the correlations:
       <vodml-id>EpochPosition.longitude</vodml-id>
       <name>longitude</name>
       <description>This parameter corresponds to the longitude as described by the \texttt{coords} data model:
-The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+\textit{The longitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lon}).
 It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:Position} 
 but applied to the \texttt{mango:EpochPosition} context.
 </description>
@@ -799,7 +802,7 @@ but applied to the \texttt{mango:EpochPosition} context.
       <vodml-id>EpochPosition.latitude</vodml-id>
       <name>latitude</name>
       <description>This parameter corresponds to the latitude as described by the \texttt{coords} data model:
-The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lat}).
+\textit{The latitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lat}).
 It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
 but applied to the \texttt{mango:EpochPosition} context.
 It matches the description given by \texttt{coords} data model:
@@ -829,7 +832,7 @@ It matches the description given by \texttt{coords} data model:
       <vodml-id>EpochPosition.radialVelocity</vodml-id>
       <name>radialVelocity</name>
       <description>This parameter corresponds to the radial velocity as described by the \texttt{coords} data model: 
-The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+\textit{The measured Velocity along of the radial axis } (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 It is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} 
 but applied to the \texttt{mango:EpochPosition} context.
 </description>
@@ -845,7 +848,7 @@ but applied to the \texttt{mango:EpochPosition} context.
       <vodml-id>EpochPosition.pmLongitude</vodml-id>
       <name>pmLongitude</name>
       <description>This parameter corresponds to the proper motion longitude as described by the \texttt{coords} data model:
-Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+\textit{Velocity along the longitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). 
 It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} 
 but applied to the \texttt{mango:EpochPosition} context.
 </description>
@@ -861,7 +864,7 @@ but applied to the \texttt{mango:EpochPosition} context.
       <vodml-id>EpochPosition.pmLatitude</vodml-id>
       <name>pmLatitude</name>
       <description>This parameter corresponds to the proper motion latitude as described by the \texttt{coords} data model:
-Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
+\textit{Velocity along the latitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). 
 It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} 
 but applied to the \texttt{mango:EpochPosition} context.
 </description>
