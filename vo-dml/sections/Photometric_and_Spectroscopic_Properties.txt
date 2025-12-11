@@ -1,3 +1,4 @@
-This section brings together all the classes that model the photometric properties.
+This section brings together all the classes that model
+brightness and color of the observed sources.
 The definition of the photometric calibrations and the 
 photometric filters are imported from \texttt{PhotDM}. 
