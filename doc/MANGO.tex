@@ -207,8 +207,9 @@ the model should provide added value: 1) nature of supported quantities 2) enhan
          
     \item Multi-columns quantities
        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-          \item MANGO must be able to provide an accurate description of properties which attributes are spread 
-                out on multiple columns (e.g. positions, errors).
+          \item	MANGO needs to provide accurate description of multi-attribute properties (e.g. positions, errors).
+				Whether these are stored in separate columns and need to be linked back is an implementation detail
+				that it’s being taken care by MIVOT. 
           \item MANGO must be able to describe errors with the most common shapes (symmetric values, correlation 
                 or covariance matrices, ellipses), all with different confidence levels. 
                 Such complex quantities cannot be reconstructed from simple field descriptions, but with a model
@@ -225,11 +226,12 @@ the model should provide added value: 1) nature of supported quantities 2) enhan
          
     \item Connection of quantities : 
        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-           \item MANGO must be able to setup links between different properties of the same table. 
+           \item MANGO must be able to setup links between different properties of the same MANGO object. 
                  This can be relevant for instance for attaching detection likelihoods with source positions
                  or to tag properties with timestamps.
-           \item MANGO must be able to link MANGO instances to each other, allowing for instance to connect one 
-                 source with all of its detections.
+           \item MANGO must be able to link different objects. For example,
+		         it should be possible to connect sources with their detections,
+				 with both being represented as separate MANGO objects.
         \end{itemize}   
 \end{itemize}
 
