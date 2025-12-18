@@ -1,4 +1,4 @@
-This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} 
+This parameter corresponds to the radial velocity as described by the \texttt{coords} data model: 
+\textit{The measured Velocity along of the radial axis } (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+It is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} 
 but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by the \texttt{coords} data model: 
-The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).

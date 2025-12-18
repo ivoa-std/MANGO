@@ -1,8 +1,7 @@
-The emergence of missions such as Gaia \citep{2018A&A...616A...1G}, which are capable of 
-observing objects over long periods of time with very high astrometric accuracy,
-combined with great spectroscopic capabilities, making it possible to link star 3D positions
-with 3D velocities, thus defining a 6-dimensional astrometric solution,
-tagged with the epoch when the parameters were set. 
+Missions such as Gaia \citep{2018A&A...616A...1G} enable long-term observation of sources. 
+It provides very high astrometric accuracy and robust spectroscopic capabilities.
+These features together make it possible to link the three-dimensional positions of objects with their three-dimensional velocities.
+This creates a six-dimensional astrometric solution tagged with the epoch at which the parameters were set.
 
 The enormous scientific impact of this mission justifies the fact that the MANGO \texttt{EpochPostion}
 components are all based on these astrometric parameters and the way in which they are correlated.

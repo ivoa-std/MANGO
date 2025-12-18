@@ -34,7 +34,7 @@
   %\end{center}
   %\end{figure}
 
-  The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
+  The purpose of MANGO is to provide a higher level of description for multi-attribute properties. When used with MIVOT annotations, it enables tabular data to be represented as structured objects. This enables the metadata representation to be improved and complex quantities to be reconstructed from column values. Modelled properties can be linked to each other. MANGO also enables the origin of the data to be specified.
 
   \subsection{AssociatedMangoObject}
   \label{sect:AssociatedMangoObject}
@@ -57,10 +57,6 @@
       \textbf{type: \hyperref[sect:MangoObject]{mango:MangoObject}} \newline
       \textbf{multiplicity: 1} \newline
       Reference to the associated \texttt{MangoObject}.
-
-  \subsection{BitField}
-  \label{sect:BitField}
-    Property for which each possible value is represented by a bit, so that multiple states can be contained in the same integer value. The possible values are defined in the associated \texttt{StatusValues}, which must correspond to a bit pattern (each value must be a power of 2). This constraint is not enforced by the model.
 
   \subsection{Brightness}
   \label{sect:Brightness}
@@ -170,7 +166,7 @@
       \textbf{vodml-id: DateTime.dateTime} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
       \textbf{multiplicity: 1} \newline
-      The timestamp value is always given as a string. The way to process this string is given by the representation mode. It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).
+      Data type for timestamps and their representation. Timestamps are modeled by a single value and a representation mode. There is no time scale associated with \texttt{mango:DateTime}. The scale is either imposed by the representation mode or defined by the time coordinate system relevant for the host object,
 
   \subsection{EpochPosition}
 
@@ -188,13 +184,13 @@
       \textbf{vodml-id: EpochPosition.longitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline
-      This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.
+      This parameter corresponds to the longitude as described by the \texttt{coords} data model: \textit{The longitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lon}). It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.latitude}
       \textbf{vodml-id: EpochPosition.latitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline
-      This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}).
+      This parameter corresponds to the latitude as described by the \texttt{coords} data model: \textit{The latitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lat}). It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model:
 
     \subsubsection{EpochPosition.parallax}
       \textbf{vodml-id: EpochPosition.parallax} \newline
@@ -206,28 +202,28 @@
       \textbf{vodml-id: EpochPosition.radialVelocity} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline
-      This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by the \texttt{coords} data model: The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+      This parameter corresponds to the radial velocity as described by the \texttt{coords} data model: \textit{The measured Velocity along of the radial axis } (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}). It is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.pmLongitude}
       \textbf{vodml-id: EpochPosition.pmLongitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline
-      This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+      This parameter corresponds to the proper motion longitude as described by the \texttt{coords} data model: \textit{Velocity along the longitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.pmLatitude}
       \textbf{vodml-id: EpochPosition.pmLatitude} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
       \textbf{multiplicity: 1} \newline
-      This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model: Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}).
+      This parameter corresponds to the proper motion latitude as described by the \texttt{coords} data model: \textit{Velocity along the latitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context.
 
     \subsubsection{EpochPosition.obsDate}
       \textbf{vodml-id: EpochPosition.obsDate} \newline
-      \textbf{type: \hyperref[sect:DateTime]{mango:DateTime}} \newline
-      \textbf{multiplicity: 0..1} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
+      \textbf{multiplicity: 1} \newline
       Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
 
-    \subsubsection{EpochPosition.pmCosLat\_applied}
-      \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
+    \subsubsection{EpochPosition.pmCosLatApplied}
+      \textbf{vodml-id: EpochPosition.pmCosLatApplied} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
       \textbf{multiplicity: 1} \newline
       It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
@@ -356,7 +352,7 @@
 
   \subsection{Footprint}
   \label{sect:Footprint}
-    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Shape is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{ShapeSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
+    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Footprint is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{FootprintSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
 
     \subsubsection{Footprint.serialization}
       \textbf{vodml-id: Footprint.serialization} \newline
@@ -374,7 +370,7 @@
       \textbf{vodml-id: Footprint.spaceSys} \newline
       \textbf{type: coords:SpaceSys} \newline
       \textbf{multiplicity: 1} \newline
-      Coordinate system that applies for the shape
+      Coordinate system that applies for the footprint
 
   \subsection{Label}
   \label{sect:Label}
@@ -434,16 +430,11 @@
   \label{sect:Property}
     Class holder for a \textit{flavor} of property’ ie: there should be a Property subclass for each \textit{flavor} of Property being hosted. The property types are not limited to “physical or calculated” (eg: flags, assigned labels) This class specifies both type and role of the property, and hosts the property instance itself.
 
-    \noindent \textbf{constraint} \newline
-    \indent    \textbf{detail: Property.One association at the time
- }\newline
-
-
     \subsubsection{Property.semantics}
       \textbf{vodml-id: Property.semantics} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 0..1} \newline
-      Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties. The semantics field contains a URI for a concept that describes the meaning of the property. This attribute is intended to be machine-readable and to assist automated link selection, presentation, and usage. The value is always interpreted as a URI; relative URIs (Berners-Lee and Fielding et al., 2005) are completed using the base URI of the core DataLink vocabulary, http://www.ivoa.net/rdf/datalink/core. Terms from this vocabulary must always be written as relative URIs. This means that for concepts from the core vocabulary, the value in the semantics fieldz always starts with a hash. (datalink1.1). The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).
+      Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties. The semantics field contains a URI for a concept that describes the meaning of the property. This attribute is intended to be machine-readable and to assist automated link selection, presentation, and usage. The value is always interpreted as a URI; relative URIs (Berners-Lee and Fielding et al., 2005) are completed using the base URI of the core DataLink vocabulary, \url{http://www.ivoa.net/rdf/datalink/core}. Terms from this vocabulary must always be written as relative URIs. This means that for concepts from the core vocabulary, the value in the semantics fields always starts with a hash. (datalink1.1). The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).
 
     \subsubsection{Property.description}
       \textbf{vodml-id: Property.description} \newline
@@ -459,11 +450,11 @@
 
   \subsection{Status}
   \label{sect:Status}
-    Property representing a status defined by a integer number that can only take on a defined number of values, each with its own description. Boolean status can be represented by \texttt{StatusValues} with 2 values e.g. 0 for False and 1 for True.
+    Property representing a status defined by a string (numerical values must be down-casted) that can only take on a defined number of values, each with its own description.
 
     \subsubsection{Status.status}
       \textbf{vodml-id: Status.status} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
       Actual value of the status
 
@@ -479,7 +470,7 @@
 
     \subsubsection{StatusValue.value}
       \textbf{vodml-id: StatusValue.value} \newline
-      \textbf{type: \hyperref[sect:ivoa]{ivoa:integer}} \newline
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
       Allowed value for a \texttt{Status}
 
@@ -515,10 +506,26 @@
       \textbf{multiplicity: 0..1} \newline
       Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
 
+  \subsection{year}
+  \label{sect:year}
+  Primitive type for observation dates expressed as a year (e.g. 2015.5).
+
+  \subsection{iso}
+  \label{sect:iso}
+  Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+
+  \subsection{mjd}
+  \label{sect:mjd}
+  Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).
+
+  \subsection{jd}
+  \label{sect:jd}
+  Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).
+
   \subsection{FootprintSerialization}
   \label{sect:FootprintSerialization}
 
-  Enumeration of the supported serialization modes for the shapes
+  Enumeration of the supported serialization modes for the footprints
 
   \noindent \underline{Enumeration Literals}
   \vspace{-\parsep}
@@ -526,11 +533,11 @@
   \begin{itemize}
   
     \item[\textbf{SMOC}]: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+          \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{STC-S}]: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+          \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
     \item[\textbf{POLYGON}]: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
-          \textbf{description:} Label indicating that the shape has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
+          \textbf{description:} Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
   \end{itemize}
   \normalsize
 

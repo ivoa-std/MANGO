@@ -5,14 +5,18 @@
         "Property": {},
         "VocabularyTerm": {}
     },
-    "Epoch Position Properties (added)": {
-        "EpochPosition": {},
-        "EpochPositionCorrelations": {},
-        "EpochPositionErrors": {},
-        "DateTime": {}
-    },
-    "Photometric Properties (added)": {
-        "PhotometricProperty": {},
+	"Date Time Types (added)": {
+		"mjd": {},
+	    "jd": {},
+		"year": {},
+		"iso": {}
+	},
+	"Epoch Position Properties (added)": {
+	    "EpochPosition": {},
+	    "EpochPositionCorrelations": {},
+	    "EpochPositionErrors": {}
+	},
+    "Photometric and Spectroscopic Properties (added)": {
         "Brightness": {},
         "Color": {},
         "ColorDef": {},
@@ -26,8 +30,6 @@
         "Status": {},
         "StatusValues": {},
         "StatusValue": {},
-        "BitField": {},
-        "DataLink": {},
         "Footprint": {},
         "FootprintSerialization": {}
     },

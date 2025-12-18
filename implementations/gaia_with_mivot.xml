@@ -197,7 +197,7 @@
            <INSTANCE dmtype="mango:Brightness">
              <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:Property.description" value="Grvs magnitude"/>
              <INSTANCE dmtype="mango:VocabularyTerm" dmrole="mango:Property.semantics">
-               <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri" value="https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#magnitude"/>
+               <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri" value="https://www.ivoa.net/rdf/uat#magnitude"/>
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="magnitude"/>
              </INSTANCE>
              <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:Brightness.value" unit="mag" ref="GRVSmag"/>
@@ -210,7 +210,7 @@
            <INSTANCE dmtype="mango:EpochPosition">
              <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:Property.description" value="6 parameters position"/>
              <INSTANCE dmtype="mango:VocabularyTerm" dmrole="mango:Property.semantics">
-               <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri" value="https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#astronomical-location"/>
+               <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri" value="https://www.ivoa.net/rdf/uat#astronomical-location"/>
                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="Astronomical location"/>
              </INSTANCE>
              <ATTRIBUTE dmtype="ivoa:RealQuantity" dmrole="mango:EpochPosition.longitude" unit="deg" ref="_RAJ2000"/>

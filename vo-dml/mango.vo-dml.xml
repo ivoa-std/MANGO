@@ -3,14 +3,16 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
-  <description>The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
+  <description>The purpose of MANGO is to provide a higher level of description for multi-attribute properties.
+When used with MIVOT annotations, it enables tabular data to be represented as structured objects.
+This enables the metadata representation to be improved and complex quantities to be reconstructed from column values. Modelled properties can be linked to each other. MANGO also enables the origin of the data to be specified.
 </description>
   <uri/>
   <title>Mango</title>
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-05-19T16:09:29</lastModified>
+  <lastModified>2025-12-11T13:52:24</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -31,6 +33,50 @@
     <url>https://ivoa.net/xml/VODML/Phot-v1.vodml.xml</url>
     <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
   </import>
+  <primitiveType>
+    <vodml-id>year</vodml-id>
+    <name>year</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>iso</vodml-id>
+    <name>iso</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>mjd</vodml-id>
+    <name>mjd</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>jd</vodml-id>
+    <name>jd</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
   <enumeration>
     <vodml-id>FootprintSerialization</vodml-id>
     <name>FootprintSerialization</name>
@@ -321,10 +367,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
     <name>Property</name>
     <description>Reference to a particular measure of the Source.
 This class is used to specify the type of the measure as well as its role.</description>
-    <constraint>
-      <description>One association at the time
-</description>
-    </constraint>
     <attribute>
       <vodml-id>Property.semantics</vodml-id>
       <name>semantics</name>
@@ -381,7 +423,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>ivoa:integer</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -625,17 +667,6 @@ As long as the vocabulary is not set, the possible values of this attribute are 
   </objectType>
 
   <objectType>
-    <vodml-id>BitField</vodml-id>
-    <name>BitField</name>
-    <description>
-          TODO : Missing description : please, update your UML model asap.
-        </description>
-    <extends>
-      <vodml-ref>mango:Status</vodml-ref>
-    </extends>
-  </objectType>
-
-  <objectType>
     <vodml-id>StatusValues</vodml-id>
     <name>StatusValues</name>
     <description>
@@ -670,7 +701,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>ivoa:integer</vodml-ref>
+        <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
       <multiplicity>
         <minOccurs>1</minOccurs>
@@ -791,16 +822,16 @@ As long as the vocabulary is not set, the possible values of this attribute are 
           TODO : Missing description : please, update your UML model asap.
         </description>
       <datatype>
-        <vodml-ref>mango:DateTime</vodml-ref>
+        <vodml-ref>ivoa:datetime</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>0</minOccurs>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPosition.pmCosLat_applied</vodml-id>
-      <name>pmCosLat_applied</name>
+      <vodml-id>EpochPosition.pmCosLatApplied</vodml-id>
+      <name>pmCosLatApplied</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>

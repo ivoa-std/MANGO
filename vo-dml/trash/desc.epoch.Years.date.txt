@@ -1,1 +1,0 @@
-The Year coordinate value. Year dates are dimensionless, with implied units in years.

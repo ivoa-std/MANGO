@@ -43,7 +43,7 @@
 
                 <INSTANCE dmtype="mango:VocabularyTerm" dmrole="mango:Property.semantics">
                   <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri"
-                    value="https://www.ivoa.net/rdf/datalink/core/2022-01-27/datalink.html#derivation" />
+                    value="https://www.ivoa.net/rdf/datalink/core#derivation" />
                   <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="derivation" />
                 </INSTANCE>
 

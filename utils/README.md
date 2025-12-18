@@ -22,3 +22,7 @@ The process is 3 steps:
 ```bash
 % ./builDoc.bash
 ```
+
+# Flow Chart
+
+<img width="865" alt="Screenshot 2025-06-19 at 15 29 06" src="https://github.com/user-attachments/assets/cc32dc81-adfa-46f8-9b20-c6b970f5a73d" />

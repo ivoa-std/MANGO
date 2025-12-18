@@ -1,4 +1,4 @@
-The main purpose of MANGO is to add an upper description level to the tabular data of query responses.
+The main purpose of MANGO is to add an higher description level to the tabular data of query responses.
 MANGO is not designed to replace the meta-data already present in query responses, but on the contrary, 
 to provide a model-aware layer with structured classes to interpret them and exploit them in client applications. 
 
@@ -9,7 +9,7 @@ that everything will be supported by this first version.
 %All the use-cases summarized below are detailed in appendix.
 
 \subsubsection{GAIA}
-The GAIA mission is producing the largest and more precise 3D map of our galaxy.
+The GAIA mission is producing the largest and most precise 3D map of our galaxy.
 The GAIA Astrometric Core Solution is able to provide the astrometry of more than 1
 billion sources by complex models and algorithms \citep{2012A&A...538A..78L}.
 Using a minimization problem approach, different detections identified on
@@ -38,10 +38,10 @@ of:
 
 \subsubsection{Euclid}
 The Euclid telescope has been designed to unveil some of the questions about the
-dark Universe, including dark matter and dark energy, what would include, f.i
+dark Universe, including dark matter and dark energy, what would include, for instance,
 quite accurate measurements of the expansion of the Universe.
 
-Euclid will mainly observe extragalactic objects providing, f.i information
+Euclid will mainly observe extragalactic objects providing, for instance, information
 about the shapes of galaxies, gravitational lensing, baryon acoustic oscillations
 and distances to galaxies using spectroscopic data.
 
@@ -66,6 +66,7 @@ Typical features for objects entail:
     \item correlation with other catalogues
     \item photometry (ground + satellite )
     \item morphology class
+    \item footprint
     \item redshift
     \item photometric redshift
 \end{itemize}
@@ -77,13 +78,12 @@ specific metadata or model.
 The use cases identified requires the following metadata:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 	\item the degree of confidence in the detection: exoplanets candidates
-w.r.t. confirmed ones, plus last update of the record content ;
+          with respect to confirmed ones, plus last update of the record content ;
 	\item the method used in the discovery (since it affects the available
-stellar system description parameters);
+          stellar system description parameters);
 	\item a set of stellar host characteristics (besides sky coordinates):
-activity, mass, type,
-metallicity, age, some systemic values, like the global RV (radial
-velocity) of the system, and so on;
+          activity, mass, type, metallicity, age, some systemic values,
+          like the global RV (radial velocity) of the system, and so on;
 	\item (exo-)planet parameters, like mass, orbital period, orbit's
 eccentricity, RV semi-amplitude, time at periastron (for RV detections)
 or central transit time (for transit method), longitude of periastron,
@@ -106,7 +106,7 @@ way to describe sources with:
 
 \subsubsection{X-ray Observatory Archives}
 
-The requirements for both Chandra (get more in appendix \ref{sec:chandra})
+The requirements for both Chandra
 and XMM-Newton \footnote{https://www.cosmos.esa.int/web/xmm-newton} science cases
 are combined in this use case.
 These 2 X-ray observatories have many common features that could take advantage of sharing the same model:
@@ -173,11 +173,11 @@ MANGO is not meant to replace the current management of the ViZier metadata, but
 to make those understandable/interoperable for a wide panel of VO-compliant clients.
 
 \subsubsection{Client Use-cases}
-Right now, the meta-data provided within the VOTable allow client software such Aladin or Topcat to run most 
+Right now, the meta-data provided within the VOTable allow client software such as Aladin or Topcat to run most 
 of the functionalities expected by the user, either for data analysis or plotting.
 This information is often inferred from UCDs, UTypes or column names. It can also be given by the user.
-Client applications do not require working with full model instances but in some cases models 
-can make it explicit how quantities in an input table relate to each other.
+Client applications do not require the use of full model instances, but in some cases,
+models can make explicit the relationships between quantities in an input table.
 
 Most cases are oriented towards interpretation of columns for visualization, e.g.:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
@@ -199,7 +199,7 @@ Most cases are oriented towards interpretation of columns for visualization, e.g
     \item does this table contain sky positions, or HEALPix tiles, or both?
     What's the best way to represent it on the sky?
 
-    \item what is the meaning of such URL found out in a table?s
+    \item what is the meaning of such URL found out in a tables?
 \end{itemize}
 
 But there are some other cases like:
@@ -209,15 +209,12 @@ But there are some other cases like:
      associated errors and correlation coefficients)
 
     \item what is the error ellipse/oid to use for a sky/Cartesian crossmatch
-    (what columns provide the relevant errors and, if available,
+    (which columns provide the relevant errors and, if available,
      correlations)
 \end{itemize}
 
 This usage shows that MANGO must be designed in a way that individual measurements or quantities
 can easily be identified as such and manipulated independently of the whole instance.
-
-This document does not recommend one approach over another.
-This is a matter for the data providers to decide.
 
 \subsubsection{Xmatch tool }
 The basic cross-match of two astronomical tables consists in associating pairs of sources -- one 
@@ -235,6 +232,6 @@ It may also take into account positional uncertainties to reject the statistical
 In the latter case (cross-match between two tables taking into account positional errors),
 the tool needs to retrieve the errors associated to the each position in each table.
 
-UCDs may help in identifying the errors associated to a positional columns, 
+UCDs may help in identifying the errors associated to positional columns, 
 %as shown in table
 but this is not sufficient for tables with more complex cases based on multi-parameter cases.
