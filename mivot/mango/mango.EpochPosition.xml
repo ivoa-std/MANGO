@@ -21,7 +21,7 @@ All components use the same coordinate systems for both time and space coordinat
 \begin{itemize}
    \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
    \item The space coordinate system is imported from \texttt{coords:spaceSys}.
-   \item The time coordinate system is imported from \texttt{coords:simeSys}.
+   \item The time coordinate system is imported from \texttt{coords:timeSys}.
 \end{itemize}
 
 
@@ -33,8 +33,8 @@ There are 2 reasons for this:
          \texttt{coords:CustomRefLocation} class to carry the reference location.
          This class does not support the standard reference locations such as e.g. BARYCENTER.
    \item the observation date can be read in a column and therefore change with each data row.
-         I this case, it cannot be stored as an element of the space coordinate system
-         but as an \texttt{EPochPosition} attribute.
+         In this case, it cannot be stored as an element of the space coordinate system
+         but as an \texttt{EpochPosition} attribute.
 \end{itemize}
 
 All components have their own units which must be consistent with each other. 
