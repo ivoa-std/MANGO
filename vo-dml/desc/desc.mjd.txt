@@ -1,0 +1,1 @@
+Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).

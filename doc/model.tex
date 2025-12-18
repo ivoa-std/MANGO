@@ -218,9 +218,9 @@
 
     \subsubsection{EpochPosition.obsDate}
       \textbf{vodml-id: EpochPosition.obsDate} \newline
-      \textbf{type: \hyperref[sect:DateTime]{mango:DateTime}} \newline
-      \textbf{multiplicity: 0..1} \newline
-      Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
+      \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
+      \textbf{multiplicity: 1} \newline
+      Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system (see the above). Figure \ref{datetime} shows up the hierarchy of the primitive types representing the observation dates.
 
     \subsubsection{EpochPosition.pmCosLat\_applied}
       \textbf{vodml-id: EpochPosition.pmCosLat\_applied} \newline
@@ -510,6 +510,22 @@
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 0..1} \newline
       Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the IUA vocabulary until the Registry WG introduced rewriting rules that fix the issue.
+
+  \subsection{year}
+  \label{sect:year}
+  Primitive type for observation dates expressed as a year (e.g. 2015.5).
+
+  \subsection{iso}
+  \label{sect:iso}
+  Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+
+  \subsection{mjd}
+  \label{sect:mjd}
+  Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).
+
+  \subsection{jd}
+  \label{sect:jd}
+  Primitive type for observation dates expressed as a Julian Date (e.g. 25213).
 
   \subsection{FootprintSerialization}
   \label{sect:FootprintSerialization}
