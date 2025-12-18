@@ -880,7 +880,10 @@ but applied to the \texttt{mango:EpochPosition} context.
       <vodml-id>EpochPosition.obsDate</vodml-id>
       <name>obsDate</name>
       <description>Observation date expressed within the common time system if present.
-This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).</description>
+This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system (see the above).
+Figure \ref{datetime} shows up the hierarchy of the primitive types representing the observation dates.
+
+</description>
       <datatype>
         <vodml-ref>ivoa:datetime</vodml-ref>
       </datatype>

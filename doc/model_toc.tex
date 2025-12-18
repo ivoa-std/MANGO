@@ -117,19 +117,7 @@ types that cover the most commonly used serialisations of observation dates (see
     Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
 
 \section{Epoch Position Properties}
-Missions such as Gaia \citep{2018A&A...616A...1G} enable long-term observation of sources. 
-It provides very high astrometric accuracy and robust spectroscopic capabilities.
-These features together make it possible to link the three-dimensional positions of objects with their three-dimensional velocities.
-This creates a six-dimensional astrometric solution tagged with the epoch at which the parameters were set.
 
-The enormous scientific impact of this mission justifies the fact that the MANGO \texttt{EpochPostion}
-components are all based on these astrometric parameters and the way in which they are correlated.
-
-This has resulted in a set of 23 parameters, which might lead
-to a very complex model, difficult to use in practice.
-For this reason, the parameters have been split in 3 flat subsets (position, correlations, errors)
- in order to facilitate the annotation process and the job of the clients
-that have to interpret them.
   \subsection{EpochPosition}
     \begin{figure}[h]
     \includegraphics[width=1.0\textwidth]{../model/EpochPosition.png}
@@ -179,7 +167,7 @@ that have to interpret them.
     \textbf{vodml-id: EpochPosition.obsDate} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
     \textbf{multiplicity: 1} \newline
-    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system(see the above).
+    Observation date expressed within the common time system if present. This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system (see the above). Figure \ref{datetime} shows up the hierarchy of the primitive types representing the observation dates.
 
     \subsubsection{EpochPosition.pmCosLatApplied}
     \textbf{vodml-id: EpochPosition.pmCosLatApplied} \newline
