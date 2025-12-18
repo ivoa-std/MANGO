@@ -18,7 +18,7 @@ on:
     branches:
       - master
       - wd-v1.0
-      - draft-0.1
+      - apps-review
       - pr-1.0
 
 jobs:

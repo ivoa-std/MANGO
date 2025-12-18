@@ -11,7 +11,7 @@
 		"year": {},
 		"iso": {}
 	},
-	"Epoch Position Property (added)": {
+	"Epoch Position Properties (added)": {
 	    "EpochPosition": {},
 	    "EpochPositionCorrelations": {},
 	    "EpochPositionErrors": {}
@@ -30,8 +30,6 @@
         "Status": {},
         "StatusValues": {},
         "StatusValue": {},
-        "BitField": {},
-        "DataLink": {},
         "Footprint": {},
         "FootprintSerialization": {}
     },

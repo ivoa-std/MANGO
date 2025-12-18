@@ -1,4 +1,4 @@
-This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} 
+This parameter corresponds to the proper motion longitude as described by the \texttt{coords} data model:
+\textit{Velocity along the longitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). 
+It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} 
 but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by \texttt{coords} data model: 
-Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 

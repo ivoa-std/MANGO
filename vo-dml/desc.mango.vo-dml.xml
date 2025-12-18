@@ -1,13 +1,15 @@
 <ns0:model xmlns:ns0="http://www.ivoa.net/xml/VODML/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 http://www.ivoa.net/xml/VODML/vo-dml-v1.xsd">
   <name>mango</name>
-  <description>The purpose of MANGO, which stands for MO-del for AN-notating G-eneric O-objects, is to add an upper level of description to the tabular data of query responses. It allows metadata to be extended, complex quantities to be reconstructed from column values, and properties to be linked. It also allows to specify the origin af the data.
+  <description>The purpose of MANGO is to provide a higher level of description for multi-attribute properties.
+When used with MIVOT annotations, it enables tabular data to be represented as structured objects.
+This enables the metadata representation to be improved and complex quantities to be reconstructed from column values. Modelled properties can be linked to each other. MANGO also enables the origin of the data to be specified.
 </description>
   <uri />
   <title>Mango</title>
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-08-07T10:20:59</lastModified>
+  <lastModified>2025-12-11T13:52:24</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -31,7 +33,8 @@
   <primitiveType>
     <vodml-id>year</vodml-id>
     <name>year</name>
-    <description>Primitive type for observation dates expressed as a year (e.g. 2015.5).</description>
+    <description>Primitive type for observation dates expressed as a year (e.g. 2015.5).
+</description>
     <extends>
       <vodml-ref>ivoa:datetime</vodml-ref>
     </extends>
@@ -40,7 +43,8 @@
   <primitiveType>
     <vodml-id>iso</vodml-id>
     <name>iso</name>
-    <description>Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").</description>
+    <description>Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+</description>
     <extends>
       <vodml-ref>ivoa:datetime</vodml-ref>
     </extends>
@@ -49,7 +53,8 @@
   <primitiveType>
     <vodml-id>mjd</vodml-id>
     <name>mjd</name>
-    <description>Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).</description>
+    <description>Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).
+</description>
     <extends>
       <vodml-ref>ivoa:datetime</vodml-ref>
     </extends>
@@ -58,7 +63,8 @@
   <primitiveType>
     <vodml-id>jd</vodml-id>
     <name>jd</name>
-    <description>Primitive type for observation dates expressed as a Julian Date (e.g. 25213).</description>
+    <description>Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).
+</description>
     <extends>
       <vodml-ref>ivoa:datetime</vodml-ref>
     </extends>
@@ -167,9 +173,12 @@ The list of supported values could be extended in the future with new endorsed \
     <attribute>
       <vodml-id>DateTime.dateTime</vodml-id>
       <name>dateTime</name>
-      <description>The timestamp value is always given as a string. 
-The way to process this string is given by the representation mode.
-It can represent an ISO date or a real value (e.g. for MJD mjd timestamps).</description>
+      <description>Data type for timestamps and their representation. 
+Timestamps are modeled by a single value and a representation mode.
+There is no time scale associated with \texttt{mango:DateTime}. 
+The scale is either imposed by the representation mode or defined by the
+time coordinate system relevant for the host object,
+</description>
       <datatype>
         <vodml-ref>ivoa:datetime</vodml-ref>
       </datatype>
@@ -362,10 +371,6 @@ them (see DataLink 1.1).</description>
 The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
 This class specifies both type and role of the  property, and hosts the property instance itself.
 </description>
-    <constraint>
-      <description>One association at the time
-</description>
-    </constraint>
     <attribute>
       <vodml-id>Property.semantics</vodml-id>
       <name>semantics</name>
@@ -377,11 +382,12 @@ This attribute is intended to be machine-readable and to assist automated link s
 presentation, and usage.
 The value is always interpreted as a URI; relative URIs (Berners-Lee and
 Fielding et al., 2005) are completed using the base URI of the core DataLink
-vocabulary, http://www.ivoa.net/rdf/datalink/core. Terms from this
-vocabulary must always be written as relative URIs. This means that for
-concepts from the core vocabulary, the value in the semantics fieldz always
+vocabulary, \url{http://www.ivoa.net/rdf/datalink/core}. Terms from this
+vocabulary must always be written as relative URIs. 
+This means that for concepts from the core vocabulary, the value in the semantics fields always
 starts with a hash. (datalink1.1).
-The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).</description>
+The semantics concept applies to a single property or to the set made of the property and
+its associated properties (e.g. position and flag).</description>
       <datatype>
         <vodml-ref>mango:VocabularyTerm</vodml-ref>
       </datatype>
@@ -779,10 +785,11 @@ In some cases the errors might conflict with the correlations:
     <attribute>
       <vodml-id>EpochPosition.longitude</vodml-id>
       <name>longitude</name>
-      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
+      <description>This parameter corresponds to the longitude as described by the \texttt{coords} data model:
+\textit{The longitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lon}).
+It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:Position} 
 but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by \texttt{coords} data model:
-The longitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}.</description>
+</description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
       </datatype>
@@ -794,10 +801,11 @@ The longitude of the Point, as a Quantity with angular units (see \texttt{coords
     <attribute>
       <vodml-id>EpochPosition.latitude</vodml-id>
       <name>latitude</name>
-      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
+      <description>This parameter corresponds to the latitude as described by the \texttt{coords} data model:
+\textit{The latitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lat}).
+It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} 
 but applied to the \texttt{mango:EpochPosition} context.
 It matches the description given by \texttt{coords} data model:
-The latitude of the Point, as a Quantity with angular units (see \texttt{coords:LonLatPoint.lon}).
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -823,10 +831,10 @@ The latitude of the Point, as a Quantity with angular units (see \texttt{coords:
     <attribute>
       <vodml-id>EpochPosition.radialVelocity</vodml-id>
       <name>radialVelocity</name>
-      <description>This parameter is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} 
+      <description>This parameter corresponds to the radial velocity as described by the \texttt{coords} data model: 
+\textit{The measured Velocity along of the radial axis } (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
+It is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} 
 but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by the \texttt{coords} data model: 
-The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}).
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -839,10 +847,10 @@ The measured Velocity along of the radial axis (see \texttt{meas:Velocity.coord}
     <attribute>
       <vodml-id>EpochPosition.pmLongitude</vodml-id>
       <name>pmLongitude</name>
-      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} 
+      <description>This parameter corresponds to the proper motion longitude as described by the \texttt{coords} data model:
+\textit{Velocity along the longitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). 
+It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} 
 but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by \texttt{coords} data model: 
-Velocity along the longitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -855,10 +863,10 @@ Velocity along the longitude axis in angular distance per unit time (see \texttt
     <attribute>
       <vodml-id>EpochPosition.pmLatitude</vodml-id>
       <name>pmLatitude</name>
-      <description>This parameter is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} 
+      <description>This parameter corresponds to the proper motion latitude as described by the \texttt{coords} data model:
+\textit{Velocity along the latitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). 
+It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} 
 but applied to the \texttt{mango:EpochPosition} context.
-It matches the description given by \texttt{coords} data model: 
-Velocity along the latitude axis in angular distance per unit time (see \texttt{meas:ProperMotion.coord}). 
 </description>
       <datatype>
         <vodml-ref>ivoa:RealQuantity</vodml-ref>
@@ -885,8 +893,8 @@ Figure \ref{datetime} shows up the hierarchy of the primitive types representing
       </multiplicity>
     </attribute>
     <attribute>
-      <vodml-id>EpochPosition.pmCosLat_applied</vodml-id>
-      <name>pmCosLat_applied</name>
+      <vodml-id>EpochPosition.pmCosLatApplied</vodml-id>
+      <name>pmCosLatApplied</name>
       <description>It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied
 by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position.
 We do not constrain the value to one form or the other in this model. Instead, this flag enables

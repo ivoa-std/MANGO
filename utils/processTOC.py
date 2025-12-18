@@ -17,6 +17,18 @@ toc_org_path = os.path.realpath(os.path.join(os.path.dirname(__file__), "toc.org
 vodml_path = os.path.join(base_path, "vo-dml")
 desc_path = os.path.join(vodml_path, "sections")
 
+def format_enum(text):
+    """
+    The original XSLT writes enum literals out of the box
+    This feature is override  here. 
+    """
+    print("Push enum literals back in the box")
+    formatted_text = ""
+    pattern = r"\\item\[(.*)\]"
+    replacement = r"\\item \1"
+    formatted_text = (re.sub(pattern, replacement, text))
+    return formatted_text.replace("\\noindent \\underline", "\\newline \\newline \\noindent \\underline")
+
 def extract_title(string):
     """
     return the (sub)section title extracted from the Latex tag
@@ -60,6 +72,8 @@ def get_content(searched_title):
                 if "subsub" in line:
                     current_content += "\n"
                 current_content += f"    {line}\n"
+                
+        
         return current_content
     
 def save_current_toc(): 
@@ -112,6 +126,7 @@ def main():
             new_text += "  \\subsection{" + subsection + "}\n"
             new_text += get_content(subsection.strip()) + "\n"
 
+    new_text = format_enum(new_text)
     # save the new document
     print(f"Write rearranged document in {tex_omodel_path}")
     with open(tex_omodel_path, "w") as output:

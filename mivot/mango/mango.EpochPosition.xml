@@ -68,7 +68,7 @@ In some cases the errors might conflict with the correlations:
    <ATTRIBUTE dmrole="mango:EpochPosition.pmLongitude" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:EpochPosition.pmLatitude" dmtype="ivoa:RealQuantity" unit="" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:EpochPosition.obsDate" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
-   <ATTRIBUTE dmrole="mango:EpochPosition.pmCosLat_applied" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:EpochPosition.pmCosLatApplied" dmtype="ivoa:boolean" unit="" ref="@@@@@" value=""/>
    <INSTANCE dmrole="mango:EpochPosition.errors" dmtype="mango:EpochPositionErrors">
       <!-- Class holder for the errors of the EpochPosition attributes" -->
       <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
