@@ -79,7 +79,7 @@ This enables the metadata representation to be improved and complex quantities t
       <name>SMOC</name>
       <description>Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}.
 SMOC should be in equatorial ICRS.
-This overrides \texttt{mango:FootPrint.spaceSys} reference which can be ignored when 
+This overrides \texttt{mango:Footprint.spaceSys} reference which can be ignored when 
 using this serialisation. </description>
     </literal>
     <literal>
@@ -87,7 +87,7 @@ using this serialisation. </description>
       <name>STC-S</name>
       <description>Label indicating that the footprint has been serialized as a STC-S string 
 (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
-The STC-S space coordinate system overrides the \texttt{mango:FootPrint.spaceSys}
+The STC-S space coordinate system overrides the \texttt{mango:Footprint.spaceSys}
 reference which can be ignored when using this serialisation. 
 Although the STC-S standard has been an IVOA draft for many years,
 it is still used by certain services, which justifies MANGO's support for it. </description>
@@ -369,7 +369,7 @@ semantics, content_type and content_qualifier is not sufficient (see DataLink 1.
   <objectType>
     <vodml-id>Property</vodml-id>
     <name>Property</name>
-    <description>Class holder for a \textit{flavor} of propert, i.e., there should be a Property subclass for each \textit{flavor} 
+    <description>Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} 
 of Property being hosted.
 The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
 This class specifies both type and role of the  property, and hosts the property instance itself.
@@ -743,16 +743,16 @@ All components use the same coordinate systems for both time and space coordinat
 
 \begin{itemize}
    \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
-   \item The space coordinate system is imported from \texttt{coords:spaceSys}.
-   \item The time coordinate system is imported from \texttt{coords:timeSys}.
+   \item The space coordinate system is imported from \texttt{coordsSpaceSys}.
+   \item The time coordinate system is imported from \texttt{coords:TimeSys}.
 \end{itemize}
 
 
 It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead
-of the \texttt{epoch} field of \texttt{coords:spaceSys}. 
+of the \texttt{epoch} field of \texttt{coords:SpaceSys}. 
 There are 2 reasons for this:
 \begin{itemize}
-   \item Using the epoch of \texttt{coords:spaceSys} requires to work with the
+   \item Using the epoch of \texttt{coords:SpaceSys} requires to work with the
          \texttt{coords:CustomRefLocation} class to carry the reference location.
          This class does not support the standard reference locations such as e.g. BARYCENTER.
    \item The observation date can be read in a column and therefore change with each data row.
