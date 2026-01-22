@@ -19,16 +19,16 @@ All components use the same coordinate systems for both time and space coordinat
 
 \begin{itemize}
    \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
-   \item The space coordinate system is imported from \texttt{coords:spaceSys}.
-   \item The time coordinate system is imported from \texttt{coords:timeSys}.
+   \item The space coordinate system is imported from \texttt{coordsSpaceSys}.
+   \item The time coordinate system is imported from \texttt{coords:TimeSys}.
 \end{itemize}
 
 
 It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead
-of the \texttt{epoch} field of \texttt{coords:spaceSys}. 
+of the \texttt{epoch} field of \texttt{coords:SpaceSys}. 
 There are 2 reasons for this:
 \begin{itemize}
-   \item Using the epoch of \texttt{coords:spaceSys} requires to work with the
+   \item Using the epoch of \texttt{coords:SpaceSys} requires to work with the
          \texttt{coords:CustomRefLocation} class to carry the reference location.
          This class does not support the standard reference locations such as e.g. BARYCENTER.
    \item The observation date can be read in a column and therefore change with each data row.
