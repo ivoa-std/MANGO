@@ -56,11 +56,11 @@ of the various sections) to have the box centered.
 
   <!-- DAL: x=655, y=155..435 -->
 <!--   <rec name="DALI" x="310" y="290" w="33"/> -->
-       <rec name="ADQL" x="250" y="160" w="37"/>
+<!--   <rec name="ADQL" x="250" y="160" w="37"/> -->
 
 <!--   <rec name="ConeSearch" x="665.5" y="155" w="69"/> -->
 <!--   <rec name="SSAP" x="682" y="180" w="36"/> -->
-<!--   <rec name="SLAP" x="682.5" y="205" w="35"/> -->
+<!--   <rec name="SLAP" x="682.5" y="205" w="35"/> s-->
 <!--   <rec name="SIAP" x="683.5" y="230" w="33"/> -->
 <!--  <rec name="TAP" x="686" y="255" w="28"/> -->  
 <!--   <prerec name="ObsVisSAP" x="665.5" y="330" w="66"/> -->

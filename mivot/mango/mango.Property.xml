@@ -1,5 +1,5 @@
 <INSTANCE dmrole="" dmtype="mango:Property">
-   <!-- Class holder for a \textit{flavor} of propert, i.e., there should be a Property subclass for each \textit{flavor} 
+   <!-- Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} 
 of Property being hosted.
 The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
 This class specifies both type and role of the  property, and hosts the property instance itself.

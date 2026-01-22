@@ -5,7 +5,7 @@ a description of the data origin and an identifier." -->
    <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <COLLECTION dmrole="mango:MangoObject.propertyDock">
       <INSTANCE dmrole="" dmtype="mango:Property">
-         <!-- Class holder for a \textit{flavor} of propert, i.e., there should be a Property subclass for each \textit{flavor} 
+         <!-- Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} 
 of Property being hosted.
 The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
 This class specifies both type and role of the  property, and hosts the property instance itself.
@@ -18,7 +18,7 @@ This class specifies both type and role of the  property, and hosts the property
          <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
          <COLLECTION dmrole="mango:Property.associatedProperties">
             <INSTANCE dmrole="mango:Property.associatedProperties" dmtype="mango:Property">
-               <!-- Class holder for a \textit{flavor} of propert, i.e., there should be a Property subclass for each \textit{flavor} 
+               <!-- Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} 
 of Property being hosted.
 The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
 This class specifies both type and role of the  property, and hosts the property instance itself.
@@ -52,7 +52,7 @@ a description of the data origin and an identifier." -->
             <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
             <COLLECTION dmrole="mango:MangoObject.propertyDock">
                <INSTANCE dmrole="" dmtype="mango:Property">
-                  <!-- Class holder for a \textit{flavor} of propert, i.e., there should be a Property subclass for each \textit{flavor} 
+                  <!-- Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} 
 of Property being hosted.
 The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
 This class specifies both type and role of the  property, and hosts the property instance itself.
