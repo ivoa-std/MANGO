@@ -1,14 +1,6 @@
 Reference to a semantic concept giving the nature of the property 
-or of the set made of the property and its associated properties.
+or of the set made of the property and its associated properties (e.g. position and flag).
 
-The semantics field contains a URI for a concept that describes the meaning of the property. 
-This attribute is intended to be machine-readable and to assist automated link selection,
-presentation, and usage.
-The value is always interpreted as a URI; relative URIs (Berners-Lee and
-Fielding et al., 2005) are completed using the base URI of the core DataLink
-vocabulary, \url{http://www.ivoa.net/rdf/datalink/core}. Terms from this
-vocabulary must always be written as relative URIs. 
-This means that for concepts from the core vocabulary, the value in the semantics fields always
-starts with a hash. (datalink1.1).
-The semantics concept applies to a single property or to the set made of the property and
-its associated properties (e.g. position and flag).
+This attribute is intended to be machine-readable and to assist automated property presentation, and usage.
+The value is always interpreted as a URI; relative URIs are completed using the base URI of the core UAT
+vocabulary, \url{http://www.ivoa.net/rdf/uat} (see \ref{sect:VocabularyTerm}). 

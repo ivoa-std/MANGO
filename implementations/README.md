@@ -9,7 +9,7 @@ This folder contains working examples as annotated VOTables that cover most of t
   - **query**: `SELECT TOP1 * FROM "public".mergedentry`
   - **format**: `application/x-votable+xml;content=mivot` 
   
-- **Gaia**:Vizier query response on the GAIA DR3 catalog. 
+- **Gaia**:VizieR query response on the GAIA DR3 catalog. 
   The VOTable has been annotated on by hand with the Pyvo MIVOT API.
   - **file**: `gaia_with_mivot.xml`
   - **service**: `https://vizier.cds.unistra.fr/viz-bin/votable` 
@@ -21,7 +21,7 @@ This folder contains working examples as annotated VOTables that cover most of t
   - **service**: `https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus` 
   - **query**: `SELECT  TOP 1  ivoa.ObsCore.obs_id,ivoa.ObsCore.s_region,ivoa.ObsCore.access_url FROM ivoa.ObsCore`
 
-- **vizier_cs_I_239**:Cone search response on the I/239 Vizier table. 
+- **vizier_cs_I_239**:Cone search response on the I/239 VizieR table. 
   The VOTable has been annotated on the flight by the server.
   - **file**: `vizier_cs_I_239.xml`
   - **service**: `https://cds/viz-bin/conesearch/V1.5/I/239/hip_main` 

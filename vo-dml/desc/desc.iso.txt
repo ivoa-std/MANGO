@@ -1,1 +1,1 @@
-Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+Primitive type for observation dates expressed as an ISO-8601 Date (e.g. "2025-08-07T09:29:14").

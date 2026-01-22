@@ -56,19 +56,19 @@ of the various sections) to have the box centered.
 
   <!-- DAL: x=655, y=155..435 -->
 <!--   <rec name="DALI" x="310" y="290" w="33"/> -->
-       <rec name="ADQL" x="250" y="160" w="37"/>
+<!--   <rec name="ADQL" x="250" y="160" w="37"/> -->
 
 <!--   <rec name="ConeSearch" x="665.5" y="155" w="69"/> -->
 <!--   <rec name="SSAP" x="682" y="180" w="36"/> -->
-<!--   <rec name="SLAP" x="682.5" y="205" w="35"/> -->
+<!--   <rec name="SLAP" x="682.5" y="205" w="35"/> s-->
 <!--   <rec name="SIAP" x="683.5" y="230" w="33"/> -->
-  <rec name="TAP" x="686" y="255" w="28"/>
+<!--  <rec name="TAP" x="686" y="255" w="28"/> -->  
 <!--   <prerec name="ObsVisSAP" x="665.5" y="330" w="66"/> -->
 <!--   <rec name="SimDAL" x="676" y="355" w="48"/> -->
 <!--   <rec name="VTP" x="684" y="380" w="30.5"/> -->
   <rec name="DataLink" x="628" y="405" w="53"/>
 <!--   <rec name="SODA" x="681" y="430" w="38"/> -->
-       <rec name="ObsCore" x="619" y="180" w="52"/>
+<!--   <rec name="ObsCore" x="619" y="180" w="52"/> -->       
 <!--   <rec name="EPN-TAP" x="617.5" y="205" w="55"/> -->
 <!--   <rec name="ObsLocTAP" x="612" y="230" w="66"/> -->
 
@@ -85,7 +85,7 @@ of the various sections) to have the box centered.
   <rec name="Meas" x="456" y="305" w="35"/>
   <rec name="Coords" x="501" y="305" w="44"/>
 <!--   <prerec name="Transform" x="465" y="330" w="60"/> -->
-  <prerec name="DatasetDM" x="490" y="380" w="65"/>
+<!--  <prerec name="DatasetDM" x="490" y="380" w="65"/> -->
 <!--     <prerec name="CubeDM" x="497" y="405" w="51"/> -->
   <rec name="ProvDM" x="571" y="330" w="48"/>
 
@@ -94,7 +94,7 @@ of the various sections) to have the box centered.
 <!--   <rec name="SSO" x="450" y="115" w="31"/> -->
 <!--   <rec name="VOSpace" x="173" y="455" w="54"/> -->
 <!--   <rec name="CDP" x="500" y="115" w="31"/> -->
-       <rec name="UWS" x="633.5" y="460" w="33"/>
+<!--   <rec name="UWS" x="633.5" y="460" w="33"/> -->
 <!--   <rec name="GMS" x="534" y="460" w="32"/> -->
 <!--   <rec name="VOSI" x="568" y="435" w="34"/> -->
 
