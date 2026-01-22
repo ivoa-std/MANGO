@@ -132,13 +132,13 @@
       \textbf{vodml-id: DataLink.content\_type} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      mime type of the content the link returns (see DataLink 1.1)
+      Provides the mime type of the content the link returns (see DataLink 1.1)
 
     \subsubsection{DataLink.access\_url}
       \textbf{vodml-id: DataLink.access\_url} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:anyURI}} \newline
       \textbf{multiplicity: 1} \newline
-      contains an URL for downloading a single resource. There is no restriction on the type of resource accessed by the links.
+      Contains an URL for downloading a single resource. There is no restriction on the type of resource accessed by the links.
 
     \subsubsection{DataLink.content\_qualifier}
       \textbf{vodml-id: DataLink.content\_qualifier} \newline
@@ -150,7 +150,7 @@
       \textbf{vodml-id: DataLink.local\_semantics} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      Allows for identification of corresponding rows for different IDs in the same DataLink service where the combination of semantics, content\_type and content\_qualifier is not sufficient to identify them (see DataLink 1.1).
+      Allows for link identification where the combination of semantics, content\_type and content\_qualifier is not sufficient (see DataLink 1.1).
 
   \subsection{DateTime}
   \label{sect:DateTime}
@@ -178,7 +178,7 @@
 
     
   \label{sect:EpochPosition}
-    This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the Astronomical Measurements Model \citep{2022ivoa.specQ1004R} that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated errors encapsulated into the \texttt{EpochPositionErrors} class. The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems model \citep{2022ivoa.spec.1004R} At a high level the properties map as follows: \begin{itemize} \item celestial position -> \texttt{meas:Position} \item proper motion -> \texttt{meas:ProperMotion} \item radial velocity -> \texttt{meas.Velocity} \item parallax -> no suitable counterpart at this time \end{itemize} All components use the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead of the \texttt{epoch} field of \texttt{coords:spaceSys}. There are 2 reasons for this: \begin{itemize} \item Using the epoch of \texttt{coords:spaceSys} requires to work with the \texttt{coords:CustomRefLocation} class to carry the reference location. This class does not support the standard reference locations such as e.g. BARYCENTER. \item the observation date can be read in a column and therefore change with each data row. In this case, it cannot be stored as an element of the space coordinate system but as an \texttt{EpochPosition} attribute. \end{itemize} All components have their own units which must be consistent with each other. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class. Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class. In some cases the errors might conflict with the correlations: \begin{itemize} \item \texttt{Ellipse} errors on position or proper motion must not be used together with the \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields. In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict with the correlations defined in \texttt{EpochPositionCorrelations}. \end{itemize}
+    This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the Astronomical Measurements Model \citep{2022ivoa.specQ1004R} that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated errors encapsulated into the \texttt{EpochPositionErrors} class. The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems model \citep{2022ivoa.spec.1004R} At a high level the properties map as follows: \begin{itemize} \item celestial position -> \texttt{meas:Position} \item proper motion -> \texttt{meas:ProperMotion} \item radial velocity -> \texttt{meas.Velocity} \item parallax -> no suitable counterpart at this time \end{itemize} All components use the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:spaceSys}. \item The time coordinate system is imported from \texttt{coords:timeSys}. \end{itemize} It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead of the \texttt{epoch} field of \texttt{coords:spaceSys}. There are 2 reasons for this: \begin{itemize} \item Using the epoch of \texttt{coords:spaceSys} requires to work with the \texttt{coords:CustomRefLocation} class to carry the reference location. This class does not support the standard reference locations such as e.g. BARYCENTER. \item The observation date can be read in a column and therefore change with each data row. In this case, it cannot be stored as an element of the space coordinate system but as an \texttt{EpochPosition} attribute. \end{itemize} All components have their own units which must be consistent with each other. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class. Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class. In some cases the errors might conflict with the correlations: \begin{itemize} \item \texttt{Ellipse} errors on position or proper motion must not be used together with the \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields. In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict with the correlations defined in \texttt{EpochPositionCorrelations}. \end{itemize}
 
     \subsubsection{EpochPosition.longitude}
       \textbf{vodml-id: EpochPosition.longitude} \newline
@@ -428,13 +428,13 @@
 
   \subsection{Property}
   \label{sect:Property}
-    Class holder for a \textit{flavor} of property. There should be a Property subclass for each \textit{flavor} of Property being hosted. The property types are not limited to “physical or calculated” (eg: flags, assigned labels) This class specifies both type and role of the property, and hosts the property instance itself.
+    Class holder for a \textit{flavor} of propert, i.e., there should be a Property subclass for each \textit{flavor} of Property being hosted. The property types are not limited to “physical or calculated” (eg: flags, assigned labels) This class specifies both type and role of the property, and hosts the property instance itself.
 
     \subsubsection{Property.semantics}
       \textbf{vodml-id: Property.semantics} \newline
       \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
       \textbf{multiplicity: 0..1} \newline
-      Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties. The semantics field contains a URI for a concept that describes the meaning of the property. This attribute is intended to be machine-readable and to assist automated link selection, presentation, and usage. The value is always interpreted as a URI; relative URIs (Berners-Lee and Fielding et al., 2005) are completed using the base URI of the core DataLink vocabulary, \url{http://www.ivoa.net/rdf/datalink/core}. Terms from this vocabulary must always be written as relative URIs. This means that for concepts from the core vocabulary, the value in the semantics fields always starts with a hash. (datalink1.1). The semantics concept applies to a single property or to the set made of the property and its associated properties (e.g. position and flag).
+      Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties (e.g. position and flag). This attribute is intended to be machine-readable and to assist automated property presentation, and usage. The value is always interpreted as a URI; relative URIs are completed using the base URI of the core UAT vocabulary, \url{http://www.ivoa.net/rdf/uat} (see \ref{sect:VocabularyTerm}).
 
     \subsubsection{Property.description}
       \textbf{vodml-id: Property.description} \newline
@@ -512,7 +512,7 @@
 
   \subsection{iso}
   \label{sect:iso}
-  Primitive type for observation dates expressed as an ISO Date (e.g. "2025-08-07T09:29:14").
+  Primitive type for observation dates expressed as an ISO-8601 Date (e.g. "2025-08-07T09:29:14").
 
   \subsection{mjd}
   \label{sect:mjd}
@@ -533,9 +533,9 @@
   \begin{itemize}
   
     \item[\textbf{SMOC}]: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
-          \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+          \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides \texttt{mango:FootPrint.spaceSys} reference which can be ignored when using this serialisation.
     \item[\textbf{STC-S}]: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
-          \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference). When using this serialisation, \texttt{spaceSys} can be ignored.
+          \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). The STC-S space coordinate system overrides the \texttt{mango:FootPrint.spaceSys} reference which can be ignored when using this serialisation. Although the STC-S standard has been an IVOA draft for many years, it is still used by certain services, which justifies MANGO's support for it.
     \item[\textbf{POLYGON}]: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
           \textbf{description:} Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
   \end{itemize}

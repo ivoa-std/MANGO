@@ -31,7 +31,7 @@ There are 2 reasons for this:
    \item Using the epoch of \texttt{coords:spaceSys} requires to work with the
          \texttt{coords:CustomRefLocation} class to carry the reference location.
          This class does not support the standard reference locations such as e.g. BARYCENTER.
-   \item the observation date can be read in a column and therefore change with each data row.
+   \item The observation date can be read in a column and therefore change with each data row.
          In this case, it cannot be stored as an element of the space coordinate system
          but as an \texttt{EpochPosition} attribute.
 \end{itemize}

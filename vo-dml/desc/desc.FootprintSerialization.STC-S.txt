@@ -1,3 +1,6 @@
-Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
-SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
-When using this serialisation, \texttt{spaceSys} can be ignored. 
+Label indicating that the footprint has been serialized as a STC-S string 
+(see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}).
+The STC-S space coordinate system overrides the \texttt{mango:FootPrint.spaceSys}
+reference which can be ignored when using this serialisation. 
+Although the STC-S standard has been an IVOA draft for many years,
+it is still used by certain services, which justifies MANGO's support for it. 

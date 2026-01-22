@@ -1,3 +1,4 @@
 Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}.
-SMOC should be in equatorial ICRS. This overrides the attached space coordinate system (\texttt{spaceSys} reference).
-When using this serialisation, \texttt{spaceSys} can be ignored. 
+SMOC should be in equatorial ICRS.
+This overrides \texttt{mango:FootPrint.spaceSys} reference which can be ignored when 
+using this serialisation. 

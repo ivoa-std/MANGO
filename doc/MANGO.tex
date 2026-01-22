@@ -157,7 +157,8 @@ The way complex quantities are built is described by MANGO but no longer by the 
 \end{figure}
 
 Fig.~\ref{fig:archdiag} shows the role this document plays within the
-IVOA architecture \citep{2010ivoa.rept.1123A}. This model reuses existing data models like Measure and Coords, and PhotDM. Implementations can use the TAP protocol and distribute data model instances in VOTable. 
+IVOA architecture \citep{2010ivoa.rept.1123A}. This model reuses existing data models like Measure and Coords, and PhotDM.
+Implementations can use DAL protocols (e.g. TAP, Simple Cone Search) and distribute data model instances in VOTable. 
 UCD, VOUnits and Vocabularies are also re-used.  
 
 \section{Representing observed astronomical objects : Use Cases and  Requirements}
@@ -242,22 +243,22 @@ the model should provide added value: 1) nature of supported quantities 2) enhan
 \begin{figure}
      \includegraphics[width=1.0\textwidth]{../model/overview.png}
      \caption{Model overview}
-     \label{overview}
+     \label{fig:overview}
 \end{figure}
 
-
-The root class of the model \texttt{MANGOObject} has only
+The model architecture is shown in Fig \ref{fig:overview}. 
+The root class, \texttt{MangoObject}, has only
 one mandatory attribute, an \texttt{identifier}.
 Identifiers should be unique within a collection, e.g. a data table, although 
 this feature is not required by the model.
 
-In addition to its identifier, \texttt{MANGOObject} objects have 2 components:
+In addition to its identifier, \texttt{MangoObject} objects have 2 components:
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 
-  \item \texttt{dataOrigin} (origin of the \texttt{MANGOObject}) : The structure of this class is based on
+  \item \texttt{dataOrigin} (origin of the \texttt{MangoObject}) : The structure of this class is based on
         the recommendations of the DCP interest group \footnote{https://ivoa.net/documents/DataOrigin/index.html}.
-  \item \texttt{propertyDock} (place holder for all the \texttt{MANGOObject} properties) :
+  \item \texttt{propertyDock} (place holder for all the \texttt{MangoObject} properties) :
         This is an open-ended collection.
         Mango properties inherit from the base class \texttt{Property},
         which contains everything necessary to identify both their nature and their role.

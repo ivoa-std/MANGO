@@ -64,13 +64,13 @@
 
 
 
-  <svg x="686" y="255"><rect height="18" x="0" y="0" width="28" class="rec"/><text class="doclabel" y="12.5" x="14">TAP</text></svg>
+  
 
 
 
   <svg x="628" y="405"><rect height="18" x="0" y="0" width="53" class="rec"/><text class="doclabel" y="12.5" x="26.5">DataLink</text></svg>
 
-       <svg x="619" y="180"><rect height="18" x="0" y="0" width="52" class="rec"/><text class="doclabel" y="12.5" x="26">ObsCore</text></svg>
+       
 
 
 
@@ -87,7 +87,7 @@
   <svg x="456" y="305"><rect height="18" x="0" y="0" width="35" class="rec"/><text class="doclabel" y="12.5" x="17.5">Meas</text></svg>
   <svg x="501" y="305"><rect height="18" x="0" y="0" width="44" class="rec"/><text class="doclabel" y="12.5" x="22">Coords</text></svg>
 
-  <svg x="490" y="380"><rect height="18" x="0" y="0" width="65" class="prerec"/><text class="doclabel" y="12.5" x="32.5">DatasetDM</text></svg>
+
 
   <svg x="571" y="330"><rect height="18" x="0" y="0" width="48" class="rec"/><text class="doclabel" y="12.5" x="24">ProvDM</text></svg>
 
@@ -96,7 +96,7 @@
 
 
 
-       <svg x="633.5" y="460"><rect height="18" x="0" y="0" width="33" class="rec"/><text class="doclabel" y="12.5" x="16.5">UWS</text></svg>
+
 
 
 
