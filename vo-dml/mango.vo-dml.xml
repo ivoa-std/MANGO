@@ -12,7 +12,7 @@ This enables the metadata representation to be improved and complex quantities t
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-12-11T13:52:24</lastModified>
+  <lastModified>2026-01-28T13:16:49</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -228,8 +228,8 @@ The format is free.</description>
       </multiplicity>
     </composition>
     <reference>
-      <vodml-id>MangoObject.associatedMangoObjects</vodml-id>
-      <name>associatedMangoObjects</name>
+      <vodml-id>MangoObject.mangoObjects</vodml-id>
+      <name>mangoObjects</name>
       <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -881,7 +881,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>0</minOccurs>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </reference>
@@ -895,7 +895,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <vodml-ref>coords:TimeSys</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>0</minOccurs>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </reference>

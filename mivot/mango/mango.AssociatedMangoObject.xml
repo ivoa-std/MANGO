@@ -29,7 +29,7 @@ This class specifies both type and role of the  property, and hosts the property
             </COLLECTION>
          </INSTANCE>
       </COLLECTION>
-      <COLLECTION dmrole="mango:MangoObject.associatedMangoObjects">
+      <COLLECTION dmrole="mango:MangoObject.mangoObjects">
          <INSTANCE dmtype="mango:AssociatedMangoObject"/>
       </COLLECTION>
       <INSTANCE dmrole="mango:MangoObject.queryOrigin" dmtype="mango:origin.QueryOrigin">
