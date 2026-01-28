@@ -228,8 +228,9 @@ The format is free.</description>
     <reference>
       <vodml-id>MangoObject.mangoObjects</vodml-id>
       <name>mangoObjects</name>
-      <description>Abstract reference to a particular dataset associated to the MANGO entity.
-This class is used to specify the type of the associated dataset as well as its role.</description>
+      <description>Reference to particular datasets (\texttt{mango:MangoObject} instances) that are associated with
+the MANGO object via \texttt{mango:AssociatedMangoObject} instances.
+</description>
       <datatype>
         <vodml-ref>mango:AssociatedMangoObject</vodml-ref>
       </datatype>
