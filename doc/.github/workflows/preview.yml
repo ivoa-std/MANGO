@@ -16,7 +16,8 @@ env:
 on:
   push:
     branches:
-      - master
+      - pr-1.0
+      - brigita_review
 
 jobs:
   build:
