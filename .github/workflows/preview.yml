@@ -16,9 +16,7 @@ env:
 on:
   push:
     branches:
-      - master
-      - wd-v1.0
-      - dal-review
+      - brigita_review
       - pr-1.0
 
 jobs:

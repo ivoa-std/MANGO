@@ -292,9 +292,9 @@ In addition to its identifier, \texttt{MangoObject} objects have 2 components:
  \hline
  \texttt{EpochPosition} & Grouping of position with velocity and time & Parameters to solve the epoch propagation case\\  
  \hline
- \texttt{Brightness} & Flux or Magnitude & many \\ 
+ \texttt{Brightness} & Flux or Magnitude & Object magnitude along with photometric calibration.  \\ 
  \hline
- \texttt{Color} & Hardness ratio or magnitude ratio & many  \\ [1ex] 
+ \texttt{Color} & Hardness ratio or magnitude ratio & XMM-Newton hardness ratio, along with descriptions of the related energy bands. \\ [1ex] 
  \hline
  \texttt{DataLink} & Flat representation of DataLink responses & Links to associated data given as column values\\ [1ex] 
  \hline
@@ -303,10 +303,10 @@ In addition to its identifier, \texttt{MangoObject} objects have 2 components:
 \label{table:properties}
 \end{center}
  \end{table}
-This initial release supports a limited list of property types, listed in table \ref{table:properties}, that address the most common use cases.
+This initial release supports a limited list of property types, listed in table \ref{table:properties},
+that address the most common use cases.
 
-All of these components are described in alphabetical order in the next section. 
-
+These components are all described individually in the following sections.
 
 \subsubsection{Property Identification}
 Since the set of properties associated with a particular instance is not defined by the model,

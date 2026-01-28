@@ -9,7 +9,7 @@ This enables the metadata representation to be improved and complex quantities t
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2025-12-11T13:52:24</lastModified>
+  <lastModified>2026-01-28T13:16:49</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -226,10 +226,11 @@ The format is free.</description>
       </multiplicity>
     </composition>
     <reference>
-      <vodml-id>MangoObject.associatedMangoObjects</vodml-id>
-      <name>associatedMangoObjects</name>
-      <description>Abstract reference to a particular dataset associated to the MANGO entity.
-This class is used to specify the type of the associated dataset as well as its role.</description>
+      <vodml-id>MangoObject.mangoObjects</vodml-id>
+      <name>mangoObjects</name>
+      <description>Reference to particular datasets (\texttt{mango:MangoObject} instances) that are associated with
+the MANGO object via \texttt{mango:AssociatedMangoObject} instances.
+</description>
       <datatype>
         <vodml-ref>mango:AssociatedMangoObject</vodml-ref>
       </datatype>
@@ -935,7 +936,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>0</minOccurs>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </reference>
@@ -947,7 +948,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
         <vodml-ref>coords:TimeSys</vodml-ref>
       </datatype>
       <multiplicity>
-        <minOccurs>0</minOccurs>
+        <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </reference>
