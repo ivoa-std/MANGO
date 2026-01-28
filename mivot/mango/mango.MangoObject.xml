@@ -36,8 +36,8 @@ This class specifies both type and role of the  property, and hosts the property
          </COLLECTION>
       </INSTANCE>
    </COLLECTION>
-   <COLLECTION dmrole="mango:MangoObject.associatedMangoObjects">
-      <INSTANCE dmrole="mango:MangoObject.associatedMangoObjects" dmtype="mango:AssociatedMangoObject">
+   <COLLECTION dmrole="mango:MangoObject.mangoObjects">
+      <INSTANCE dmrole="mango:MangoObject.mangoObjects" dmtype="mango:AssociatedMangoObject">
          <!-- This class gives the role of a link associating 2 \texttt{MangoObject} together." -->
          <INSTANCE dmrole="mango:AssociatedMangoObject.semantics" dmtype="mango:VocabularyTerm">
             <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
@@ -68,7 +68,7 @@ This class specifies both type and role of the  property, and hosts the property
                   </COLLECTION>
                </INSTANCE>
             </COLLECTION>
-            <COLLECTION dmrole="mango:MangoObject.associatedMangoObjects">
+            <COLLECTION dmrole="mango:MangoObject.mangoObjects">
                <INSTANCE dmtype="mango:AssociatedMangoObject"/>
             </COLLECTION>
             <INSTANCE dmrole="mango:MangoObject.queryOrigin" dmtype="mango:origin.QueryOrigin">
