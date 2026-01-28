@@ -1,24 +1,24 @@
-The main purpose of MANGO is to add an higher description level to the tabular data of query responses.
-MANGO is not designed to replace the meta-data already present in query responses, but on the contrary, 
-to provide a model-aware layer with structured classes to interpret them and exploit them in client applications. 
+The main purpose of MANGO is to add a higher description level to the tabular data of query responses.
+MANGO is not designed to replace the metadata already present in query responses, but on the contrary, 
+to provide a model-aware layer with structured classes to interpret and to exploit them in client applications. 
 
 Uses-cases have been collected since 2019 from representatives of various astronomical 
-missions, archive designers and tools developers.
+missions, archive designers, and tools developers.
 The call for contribution was totally open. This gave a good picture of the needs but we do not pretend 
 that everything will be supported by this first version.
 %All the use-cases summarized below are detailed in appendix.
 
-\subsubsection{GAIA}
-The GAIA mission is producing the largest and most precise 3D map of our galaxy.
-The GAIA Astrometric Core Solution is able to provide the astrometry of more than 1
+\subsubsection{Gaia}
+The Gaia mission is producing the largest and most precise 3D map of our galaxy.
+The Gaia Astrometric Core Solution is able to provide the astrometry of more than 1
 billion sources by complex models and algorithms \citep{2012A&A...538A..78L}.
 Using a minimization problem approach, different detections identified on
 different scans can be associated to the appropriate astronomical source. Some of the
 properties would be direct measurements on single scans (e.g. positions or
 magnitudes). Other properties like radial velocity (measured in redshift
-units) are also obtained at integration time of the scans.
+units) are obtained at integration time of the scans.
 
-A non-exhaustive list of properties required for GAIA use cases would be composed
+A non-exhaustive list of properties required for Gaia use cases would be composed
 of:
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
@@ -38,16 +38,16 @@ of:
 
 \subsubsection{Euclid}
 The Euclid telescope has been designed to unveil some of the questions about the
-dark Universe, including dark matter and dark energy, what would include, for instance,
+dark Universe, including dark matter and dark energy, which would include, for instance,
 quite accurate measurements of the expansion of the Universe.
 
-Euclid will mainly observe extragalactic objects providing, for instance, information
-about the shapes of galaxies, gravitational lensing, baryon acoustic oscillations
+Euclid mainly observes extragalactic objects providing, for instance, information
+about the shapes of galaxies, gravitational lensing, baryon acoustic oscillations,
 and distances to galaxies using spectroscopic data.
 
 For this mission, and apart from the common metadata provided for extra galactic
 sources into astronomical catalogues, a good support for object taxonomy and
-shapes of objects will be required. As known due to general relativity effects,
+shapes of objects is required. As known due to general relativity effects,
 shapes of far galaxies could be deformed due to gravitational lensing effects,
 producing convergence (visual displacements on the position) and rear (deformation
 of the shape) effects. All these metadata should be ready for annotations and,
@@ -64,7 +64,7 @@ Typical features for objects entail:
     \item identifier
     \item sky position
     \item correlation with other catalogues
-    \item photometry (ground + satellite )
+    \item photometry (ground + satellite)
     \item morphology class
     \item footprint
     \item redshift
@@ -72,22 +72,22 @@ Typical features for objects entail:
 \end{itemize}
 
 \subsubsection{Exoplanets}
-Annotation of (exo-)planetary records in catalogues requires some
+Annotation of exoplanetary records in catalogues requires some
 specific metadata or model.
 
 The use cases identified requires the following metadata:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 	\item the degree of confidence in the detection: exoplanets candidates
-          with respect to confirmed ones, plus last update of the record content ;
+          with respect to confirmed ones, plus last update of the record content;
 	\item the method used in the discovery (since it affects the available
           stellar system description parameters);
 	\item a set of stellar host characteristics (besides sky coordinates):
           activity, mass, type, metallicity, age, some systemic values,
           like the global RV (radial velocity) of the system, and so on;
-	\item (exo-)planet parameters, like mass, orbital period, orbit's
-eccentricity, RV semi-amplitude, time at periastron (for RV detections)
-or central transit time (for transit method), longitude of periastron,
-and so on.
+	\item exoplanet parameters, like mass, orbital period, orbital
+          eccentricity, RV semi-amplitude, time at periastron (for RV detections)
+          or central transit time (for transit detections), longitude of periastron,
+          and so on.
 \end{itemize}
  
  
@@ -95,7 +95,7 @@ and so on.
 The ViaLactea Knowledge Base (VLKB, see \cite{2016SPIE.9913E..0HM}) is a set of data
 resources and services built up to study the star formation regions and
 processes in the Milky Way. Besides 2-D images and 3-D radial velocity
-cubes, the VLKB exposes a bunch of source catalogues.
+cubes, the VLKB exposes a number of source catalogues.
 A model that supports description of such catalogues will need a
 way to describe sources with:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
@@ -107,9 +107,9 @@ way to describe sources with:
 \subsubsection{X-ray Observatory Archives}
 
 The requirements for both Chandra
-and XMM-Newton \footnote{https://www.cosmos.esa.int/web/xmm-newton} science cases
+and XMM-Newton\footnote{https://www.cosmos.esa.int/web/xmm-newton} science cases
 are combined in this use case.
-These 2 X-ray observatories have many common features that could take advantage of sharing the same model:
+These two X-ray observatories have many common features and could take advantage of a shared model:
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item Both work as photon counters with a good time resolution.
@@ -117,20 +117,20 @@ These 2 X-ray observatories have many common features that could take advantage 
           Therefore, the metadata must refer to instrumental parameters that are needed to
           understand the data well.
     \item Both observatories work in pointed mode and provide the community with sets of products per observation.
-    \item Observation-level data are periodically merged into catalog of detections, 
+    \item Observation-level data are periodically merged into a catalogue of detections, 
           which is a very important scientific product,
           but individual observations are equally important and are used directly for analysis. 
-     \item Detection catalogs are merged into source catalogs, and it is important to be able to
+     \item Detection catalogues are merged into source catalogues, and it is important to be able to
            associate sources with their detections.
-     \item Equally important, given the more than 2 decades that both spacecraft are flying,
-           is the ability to correlate catalog data with time.
+     \item Equally important, given the more than two decades of operation for both spacecraft,
+           is the ability to correlate catalogue data with time.
      \item X-ray data reveal quantities that are usually not well supported by the VO: 
            \begin{itemize}
-               \item energy bands
-               \item hardness ratio
-               \item Flags that are very important for understanding the source detections.
-               \item Complex errors (asymmetric, ellipse)
-               \item model-based data (flux, spectra) 
+               \item energy bands;
+               \item hardness ratio;
+               \item flags that are very important for understanding the source detections;
+               \item complex errors (asymmetric, ellipse);
+               \item model-based data (flux, spectra).
            \end{itemize}
     \item X-ray data are often analyzed in conjunction with data from other domains, 
           This is made easier if they all have the same way of describing the quantities of interest.
@@ -159,11 +159,11 @@ These 2 X-ray observatories have many common features that could take advantage 
 
 % ============================================
 
-\subsubsection{VizieR catalog archive}
-VizieR provides science ready catalogs coming from space agencies or articles from the astronomical journals, covering number of different science cases.
+\subsubsection{VizieR catalogue archive}
+VizieR provides science ready catalogues coming from space agencies or articles from the astronomical journals, covering number of different science cases.
 Published data encompass a very large set of measures (position, photometry, redshift, source type, etc.)
 depending on their origin.
-They can result from  observations, simulations, models or catalog compilations.
+They can result from  observations, simulations, models, or catalogue compilations.
 Individual VizieR tables can contain data all related to one source (e.g. time series of positions or magnitudes) or to a set of sources (one row per source) or a mix of both.
 
 The MANGO model must be able to provide a standard representation of most of the metadata contained 
@@ -173,28 +173,28 @@ MANGO is not meant to replace the current management of the VizieR metadata, but
 to make those understandable/interoperable for a wide panel of VO-compliant clients.
 
 \subsubsection{Client Use-cases}
-Right now, the meta-data provided within the VOTable allow client software such as Aladin or Topcat to run most 
+Right now, the metadata provided within the VOTable allow client software such as Aladin or Topcat to run most 
 of the functionalities expected by the user, either for data analysis or plotting.
-This information is often inferred from UCDs, UTypes or column names. It can also be given by the user.
+This information is often inferred from UCDs, UTypes, or column names. It can also be provided by the user.
 Client applications do not require the use of full model instances, but in some cases,
-models can make explicit the relationships between quantities in an input table.
+models can make the relationships explicit between quantities in an input table.
 
 Most cases are oriented towards interpretation of columns for visualization, e.g.:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item what is the sky position for this row
-    (what columns contain latitude and longitude, and what sky system are they in)
+    (what columns contain latitude and longitude, and what sky system are they in);
 
      \item what +/-ERR error bars should I plot for these points
-    (what column is a simple error for column A)
+    (what column is a simple error for column A);
 
     \item what error ellipses should I plot for these sky positions
     (what columns provide ra\_error, dec\_error, ra\_dec\_corr,
-     or how can I derive those from columns that do exist)
+     or how can I derive those from columns that do exist);
 
     \item where do I get the grid information for a column containing
     a vector of samples so I can label the X axis of a spectrogram
     (what column or parameter contains an axis vector matching
-     the sample vectors)
+     the sample vectors);
 
     \item does this table contain sky positions, or HEALPix tiles, or both?
     What's the best way to represent it on the sky?
@@ -203,17 +203,18 @@ Most cases are oriented towards interpretation of columns for visualization, e.g
 \end{itemize}
 
 But there are some other cases like:
+
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
     \item how do I propagate this sky position to a future epoch
     (what columns contain pmra, pmdec, and maybe all the
-     associated errors and correlation coefficients)
+     associated errors and correlation coefficients);
 
     \item what is the error ellipse/oid to use for a sky/Cartesian crossmatch
     (which columns provide the relevant errors and, if available,
-     correlations)
+     correlations);
 \end{itemize}
 
-This usage shows that MANGO must be designed in a way that individual measurements or quantities
+This usage shows that MANGO must be designed in a way that individual measurements and quantities
 can easily be identified as such and manipulated independently of the whole instance.
 
 \subsubsection{Xmatch tool }
@@ -223,7 +224,7 @@ from each table -- fulfilling a given angular distance based criterion.
 
 More generally, a cross-match is the association of sources from different tables given their 
 proximity in an astrometric (but also possibly photometric, statistical, ...) parameter
-space \citep{2017A&A...597A..89P} .
+space \citep{2017A&A...597A..89P}.
 
 If proper motions (plus parallax and radial velocities) are available, the cross-match tool 
 may propagate the positions of each table to a common epoch.
