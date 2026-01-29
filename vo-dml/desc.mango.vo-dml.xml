@@ -744,7 +744,7 @@ All components use the same coordinate systems for both time and space coordinat
 
 \begin{itemize}
    \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
-   \item The space coordinate system is imported from \texttt{coordsSpaceSys}.
+   \item The space coordinate system is imported from \texttt{coords:SpaceSys}.
    \item The time coordinate system is imported from \texttt{coords:TimeSys}.
 \end{itemize}
 
