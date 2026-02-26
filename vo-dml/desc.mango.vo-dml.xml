@@ -123,7 +123,7 @@ Using the polygon serialization requires the space coordinate system to be defin
     <attribute>
       <vodml-id>VocabularyTerm.uri</vodml-id>
       <name>uri</name>
-      <description>URI the vocabulary term</description>
+      <description>URI of the vocabulary term</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
       </datatype>
@@ -137,7 +137,7 @@ Using the polygon serialization requires the space coordinate system to be defin
       <name>label</name>
       <description>Label attached to the vocabulary term.
 This is necessary because the URI may not contain any explicit label.
-This was the case for the IUA vocabulary until the Registry WG introduced 
+This was the case for the UAT vocabulary until the Registry WG introduced 
 rewriting rules that fix the issue.</description>
       <datatype>
         <vodml-ref>ivoa:string</vodml-ref>
@@ -579,7 +579,7 @@ in \url{http://www.ivoa.net/rdf/processing-level}</description>
     <name>Color</name>
     <description>Property that describes a color of the \texttt{MangoObject}.
 The purpose of this property is to gather a color value with its error and the 2 related filters (high and low)
-The color can be given as a magnitude difference or an hardness ratio.
+The color can be given as a magnitude difference or a hardness ratio.
 </description>
     <extends>
       <vodml-ref>mango:Property</vodml-ref>
@@ -630,7 +630,7 @@ The color can be given as a magnitude difference or an hardness ratio.
     <description>Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio)
 and the filters on which the color is based. 
 In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} 
-with a square transfert function.</description>
+with a square transfer function.</description>
     <attribute>
       <vodml-id>ColorDef.definition</vodml-id>
       <name>definition</name>
@@ -646,7 +646,8 @@ with a square transfert function.</description>
     <reference>
       <vodml-id>ColorDef.high</vodml-id>
       <name>high</name>
-      <description>Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding the higher band of the color.
+      <description>Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding 
+to the higher band of the color.
 </description>
       <datatype>
         <vodml-ref>Phot:PhotometryFilter</vodml-ref>
@@ -659,7 +660,7 @@ with a square transfert function.</description>
     <reference>
       <vodml-id>ColorDef.low</vodml-id>
       <name>low</name>
-      <description>Reference to the \texttt{Phot:PhotometryFilter} corresponding the lower band for that color.
+      <description>Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower band for that color.
 </description>
       <datatype>
         <vodml-ref>Phot:PhotometryFilter</vodml-ref>
@@ -693,7 +694,7 @@ with a square transfert function.</description>
   <objectType>
     <vodml-id>StatusValue</vodml-id>
     <name>StatusValue</name>
-    <description>Value allowed for a status; contain the value with a free text description.</description>
+    <description>Value allowed for a status; contains the value with a free text description.</description>
     <attribute>
       <vodml-id>StatusValue.value</vodml-id>
       <name>value</name>
@@ -729,7 +730,7 @@ with a square transfert function.</description>
  It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated 
  errors encapsulated into the \texttt{EpochPositionErrors} class. 
  The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems 
- model \citep{2022ivoa.spec.1004R}
+ model \citep{2022ivoa.spec.1004R}.
  
 At a high level the properties map as follows:
 \begin{itemize}
@@ -931,7 +932,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <reference>
       <vodml-id>EpochPosition.spaceSys</vodml-id>
       <name>spaceSys</name>
-      <description>System that applies the space coordinates.</description>
+      <description>System that applies to the space coordinates.</description>
       <datatype>
         <vodml-ref>coords:SpaceSys</vodml-ref>
       </datatype>
@@ -943,7 +944,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <reference>
       <vodml-id>EpochPosition.timeSys</vodml-id>
       <name>timeSys</name>
-      <description>System that applies the time coordinates (the epoch).</description>
+      <description>System that applies to the time coordinates (the epoch).</description>
       <datatype>
         <vodml-ref>coords:TimeSys</vodml-ref>
       </datatype>
@@ -1150,7 +1151,7 @@ providers to convey whether or not the factor has been applied (see \texttt{meas
     <vodml-id>Brightness</vodml-id>
     <name>Brightness</name>
     <description>Observed brightness of the \texttt{MangoObject}.
-The purpose of this property is to gather a brightness value with its error and the its photometric calibration
+The purpose of this property is to gather a brightness value with its error and its photometric calibration
 The distinction between fluxes and magnitudes is made by the unit.
 The photometric calibration is modeled by the \texttt{Phot} data model (1.1).</description>
     <extends>
@@ -1203,7 +1204,7 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
     <description>The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. 
 All these classes are derived from \texttt{meas:Uncertainty} to make
 them reusable by \texttt{meas:Measure} instances. Mango errors all 
-have an attribute that specifies the confidence level</description>
+have an attribute that specifies the confidence level.</description>
     <dataType abstract="true">
       <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
@@ -1227,7 +1228,7 @@ The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).</d
         <vodml-id>error.PropertyError.distribution</vodml-id>
         <name>distribution</name>
         <description>Statistical distribution of the error. 
-The Value can a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).</description>
+The Value can be a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1295,7 +1296,7 @@ This is not enforced by the model. The definition of the ellipse attribute is im
       <attribute>
         <vodml-id>error.PErrorEllipse.angle</vodml-id>
         <name>angle</name>
-        <description>In theory, this is the angle between the North Polar Cape (NPC) and the major axis. 
+        <description>In theory, this is the angle between the North Celestial Pole (NCP) and the major axis. 
 This angle must be positive taking into account that angles are positive from North to the East. 
 The angle has its own unit.
 In practice, the angle definition is this used by the mapped data set. 
@@ -1386,7 +1387,7 @@ It is usually the angle between the major axis and the north axis (negative alon
     <name>origin</name>
     <description>Package grouping together all the components needed to model the origin of the \texttt{MangoObject} (fig \ref{fig:origin}).
 The design of the package complies with the work of the DCP interest 
-group (see \url{https://ivoa.net/documents/DataOrigin/index.html})</description>
+group (see \url{https://ivoa.net/documents/DataOrigin/index.html}).</description>
     <objectType>
       <vodml-id>origin.Article</vodml-id>
       <name>Article</name>
@@ -1461,7 +1462,7 @@ group (see \url{https://ivoa.net/documents/DataOrigin/index.html})</description>
       <attribute>
         <vodml-id>origin.DataOrigin.creators</vodml-id>
         <name>creators</name>
-        <description>Person(s) mainly involved in the creation of the resource, generally the author</description>
+        <description>Person(s) mainly involved in the creation of the resource, generally the author(s).</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1523,7 +1524,7 @@ group (see \url{https://ivoa.net/documents/DataOrigin/index.html})</description>
         <vodml-id>origin.DataOrigin.rights_uri</vodml-id>
         <name>rights_uri</name>
         <description>Licence URI. Following Registry practice, this should come from SPDX (\url{https://spdx.org/licenses}),
-though Creative Commons URLs (\url{https://creativecommons.org are also admitted}).</description>
+though Creative Commons URLs (\url{https://creativecommons.org}) are also admitted.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
@@ -1592,7 +1593,8 @@ though Creative Commons URLs (\url{https://creativecommons.org are also admitted
         <name>request</name>
         <description>Full request URL including a query string. 
 For the simple protocols,put the url-encoded form of the query parameters. 
-For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format is free for others request types.</description>
+For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL.
+The format is free for other request types.</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>

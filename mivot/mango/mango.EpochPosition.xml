@@ -5,7 +5,7 @@
  It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated 
  errors encapsulated into the \texttt{EpochPositionErrors} class. 
  The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems 
- model \citep{2022ivoa.spec.1004R}
+ model \citep{2022ivoa.spec.1004R}.
  
 At a high level the properties map as follows:
 \begin{itemize}
@@ -20,7 +20,7 @@ All components use the same coordinate systems for both time and space coordinat
 
 \begin{itemize}
    \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
-   \item The space coordinate system is imported from \texttt{coordsSpaceSys}.
+   \item The space coordinate system is imported from \texttt{coords:SpaceSys}.
    \item The time coordinate system is imported from \texttt{coords:TimeSys}.
 \end{itemize}
 

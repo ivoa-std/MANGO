@@ -4,7 +4,7 @@
  It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated 
  errors encapsulated into the \texttt{EpochPositionErrors} class. 
  The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems 
- model \citep{2022ivoa.spec.1004R}
+ model \citep{2022ivoa.spec.1004R}.
  
 At a high level the properties map as follows:
 \begin{itemize}

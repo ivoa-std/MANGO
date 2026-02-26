@@ -1,2 +1,2 @@
 Statistical distribution of the error. 
-The Value can a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).
+The Value can be a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).
