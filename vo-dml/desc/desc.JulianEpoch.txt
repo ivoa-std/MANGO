@@ -1,0 +1,6 @@
+A continuous measure based on a Julian year of exactly 365.25 days
+($JulianEpoch = 2000 + \frac{jd - 2451545.0}{365.25}$). 
+For approximate purposes this resembles the fractional number of years AD represented by the date.
+Can be represented by prefixing a 'J'; J2000.0 is defined as 2000 January 1.5 in the 
+TT timescale. 
+(see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}). 

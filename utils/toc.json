@@ -8,7 +8,9 @@
 	"Date Time Types (added)": {
 		"mjd": {},
 	    "jd": {},
-		"year": {},
+		"DecimalYear": {},
+		"JulianEpoch": {},
+		"BesselianEpoch": {},
 		"iso": {}
 	},
 	"Epoch Position Properties (added)": {

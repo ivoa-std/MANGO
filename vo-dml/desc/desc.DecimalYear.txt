@@ -1,0 +1,4 @@
+Fractional number of years AD represented by the date. 2000.0, or equivalently 1999.99recurring, 
+is midnight at the start of the first of January 2000. Because of leap years,
+the size of a unit depends on what year it is in 
+(see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}). 

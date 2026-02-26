@@ -506,9 +506,9 @@
       \textbf{multiplicity: 0..1} \newline
       Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the UAT vocabulary until the Registry WG introduced rewriting rules that fix the issue.
 
-  \subsection{year}
-  \label{sect:year}
-  Primitive type for observation dates expressed as a year (e.g. 2015.5).
+  \subsection{DecimalYear}
+  \label{sect:DecimalYear}
+  Fractional number of years AD represented by the date. 2000.0, or equivalently 1999.99recurring, is midnight at the start of the first of January 2000. Because of leap years, the size of a unit depends on what year it is in (see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}).
 
   \subsection{iso}
   \label{sect:iso}
@@ -521,6 +521,14 @@
   \subsection{jd}
   \label{sect:jd}
   Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).
+
+  \subsection{JulianEpoch}
+  \label{sect:JulianEpoch}
+  A continuous measure based on a Julian year of exactly 365.25 days ($JulianEpoch = 2000 + \frac{jd - 2451545.0}{365.25}$). For approximate purposes this resembles the fractional number of years AD represented by the date. Can be represented by prefixing a 'J'; J2000.0 is defined as 2000 January 1.5 in the TT timescale. (see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}).
+
+  \subsection{BesselianEpoch}
+  \label{sect:BesselianEpoch}
+  A continuous measure based on a tropical year of about 365.2422 days ($BesselianEpoch = 1900.0 + \frac{jd - 2415020.31352}{365.242198781}$). For approximate purposes this resembles the fractional number of years AD represented by the date. Can be represented by prefixing a 'B'. (see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}).
 
   \subsection{FootprintSerialization}
   \label{sect:FootprintSerialization}
