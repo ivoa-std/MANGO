@@ -290,10 +290,7 @@ FROM mergedentry"/>
           <INSTANCE dmrole="" dmtype="mango:EpochPosition">
             <ATTRIBUTE dmrole="mango:EpochPosition.longitude" dmtype="ivoa:RealQuantity" ref="SC_RA" unit="deg"/>
             <ATTRIBUTE dmrole="mango:EpochPosition.latitude" dmtype="ivoa:RealQuantity" ref="SC_DEC" unit="deg"/>
-            <INSTANCE dmrole="mango:EpochPosition.obsDate" dmtype="mango:DateTime">
-              <ATTRIBUTE dmrole="mango:DateTime.representation" dmtype="ivoa:string" value="mjd"/>
-              <ATTRIBUTE dmrole="mango:DateTime.dateTime" dmtype="ivoa:datetime" ref="MJD_FIRST" unit="d"/>
-            </INSTANCE>
+            <ATTRIBUTE dmrole="mango:EpochPosition.obsDate" dmtype="mango:mjd" ref="MJD_FIRST"/>
             <ATTRIBUTE dmrole="mango:EpochPosition.pmCosLat_applied" dmtype="ivoa:boolean" value="true"/>
             <INSTANCE dmrole="mango:EpochPosition.errors" dmtype="mango:EpochPositionErrors">
               <INSTANCE dmrole="mango:EpochPositionErrors.properMotion" dmtype="mango:error.PErrorSym2D">

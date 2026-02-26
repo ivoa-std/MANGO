@@ -12,7 +12,7 @@ This enables the metadata representation to be improved and complex quantities t
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2026-01-28T13:16:49</lastModified>
+  <lastModified>2026-02-26T14:48:02</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -34,8 +34,8 @@ This enables the metadata representation to be improved and complex quantities t
     <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
   </import>
   <primitiveType>
-    <vodml-id>year</vodml-id>
-    <name>year</name>
+    <vodml-id>DecimalYear</vodml-id>
+    <name>DecimalYear</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>
@@ -69,6 +69,28 @@ This enables the metadata representation to be improved and complex quantities t
   <primitiveType>
     <vodml-id>jd</vodml-id>
     <name>jd</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>JulianEpoch</vodml-id>
+    <name>JulianEpoch</name>
+    <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>BesselianEpoch</vodml-id>
+    <name>BesselianEpoch</name>
     <description>
           TODO : Missing description : please, update your UML model asap.
         </description>

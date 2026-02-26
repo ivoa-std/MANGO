@@ -9,7 +9,7 @@ This enables the metadata representation to be improved and complex quantities t
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2026-01-28T13:16:49</lastModified>
+  <lastModified>2026-02-26T14:48:02</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -31,10 +31,12 @@ This enables the metadata representation to be improved and complex quantities t
     <documentationURL>https://ivoa.net/documents/PHOTDM/20221101/index.html</documentationURL>
   </import>
   <primitiveType>
-    <vodml-id>year</vodml-id>
-    <name>year</name>
-    <description>Primitive type for observation dates expressed as a year (e.g. 2015.5).
-</description>
+    <vodml-id>DecimalYear</vodml-id>
+    <name>DecimalYear</name>
+    <description>Fractional number of years AD represented by the date. 2000.0, or equivalently 1999.99recurring, 
+is midnight at the start of the first of January 2000. Because of leap years,
+the size of a unit depends on what year it is in 
+(see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}). </description>
     <extends>
       <vodml-ref>ivoa:datetime</vodml-ref>
     </extends>
@@ -65,6 +67,34 @@ This enables the metadata representation to be improved and complex quantities t
     <name>jd</name>
     <description>Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).
 </description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>JulianEpoch</vodml-id>
+    <name>JulianEpoch</name>
+    <description>A continuous measure based on a Julian year of exactly 365.25 days
+($JulianEpoch = 2000 + \frac{jd - 2451545.0}{365.25}$). 
+For approximate purposes this resembles the fractional number of years AD represented by the date.
+Can be represented by prefixing a 'J'; J2000.0 is defined as 2000 January 1.5 in the 
+TT timescale. 
+(see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}). 
+</description>
+    <extends>
+      <vodml-ref>ivoa:datetime</vodml-ref>
+    </extends>
+  </primitiveType>
+
+  <primitiveType>
+    <vodml-id>BesselianEpoch</vodml-id>
+    <name>BesselianEpoch</name>
+    <description>A continuous measure based on a tropical year of about 365.2422 days
+($BesselianEpoch = 1900.0 + \frac{jd - 2415020.31352}{365.242198781}$).
+For approximate purposes this resembles the fractional number of years AD represented by the date.
+Can be represented by prefixing a 'B'. 
+(see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}). </description>
     <extends>
       <vodml-ref>ivoa:datetime</vodml-ref>
     </extends>
