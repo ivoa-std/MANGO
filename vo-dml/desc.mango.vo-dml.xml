@@ -107,7 +107,7 @@ Using the polygon serialization requires the space coordinate system to be defin
     <literal>
       <vodml-id>ColorDefinition.ColorIndex</vodml-id>
       <name>ColorIndex</name>
-      <description>Difference of magnitudes: typically $M_B - M_v$</description>
+      <description>Difference of magnitudes: typically $M_B - M_V$</description>
     </literal>
     <literal>
       <vodml-id>ColorDefinition.HardnessRatio</vodml-id>
@@ -647,7 +647,7 @@ with a square transfer function.</description>
       <vodml-id>ColorDef.high</vodml-id>
       <name>high</name>
       <description>Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding 
-to the higher band of the color.
+to the higher energy band of the color (lower mean wavelength).
 </description>
       <datatype>
         <vodml-ref>Phot:PhotometryFilter</vodml-ref>
@@ -660,7 +660,8 @@ to the higher band of the color.
     <reference>
       <vodml-id>ColorDef.low</vodml-id>
       <name>low</name>
-      <description>Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower band for that color.
+      <description>Reference to the \texttt{Phot:PhotometryFilter} corresponding 
+to the lower energy band for that color (larger mean wavelength).
 </description>
       <datatype>
         <vodml-ref>Phot:PhotometryFilter</vodml-ref>
@@ -1391,7 +1392,7 @@ group (see \url{https://ivoa.net/documents/DataOrigin/index.html}).</description
     <objectType>
       <vodml-id>origin.Article</vodml-id>
       <name>Article</name>
-      <description>Reference article for the \texttt{MangoObject}</description>
+      <description>Reference article for the \texttt{MangoObject}, usually a bibcode or DOI</description>
       <attribute>
         <vodml-id>origin.Article.editor</vodml-id>
         <name>editor</name>
@@ -1407,7 +1408,7 @@ group (see \url{https://ivoa.net/documents/DataOrigin/index.html}).</description
       <attribute>
         <vodml-id>origin.Article.identifier</vodml-id>
         <name>identifier</name>
-        <description>Identifer of the reference article</description>
+        <description>Identifier of the reference article</description>
         <datatype>
           <vodml-ref>ivoa:string</vodml-ref>
         </datatype>
