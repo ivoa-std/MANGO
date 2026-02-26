@@ -1,1 +1,2 @@
-Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower band for that color.
+Reference to the \texttt{Phot:PhotometryFilter} corresponding 
+to the lower energy band for that color (larger mean wavelength).

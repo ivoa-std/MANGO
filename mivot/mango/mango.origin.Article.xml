@@ -1,5 +1,5 @@
 <INSTANCE dmrole="" dmtype="mango:origin.Article">
-   <!-- Reference article for the \texttt{MangoObject}" -->
+   <!-- Reference article for the \texttt{MangoObject}, usually a bibcode or DOI" -->
    <ATTRIBUTE dmrole="mango:origin.Article.editor" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:origin.Article.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
 </INSTANCE>

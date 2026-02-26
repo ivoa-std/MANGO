@@ -98,7 +98,7 @@ This class specifies both type and role of the  property, and hosts the property
                      <ATTRIBUTE dmrole="mango:origin.DataOrigin.rights_uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
                      <COLLECTION dmrole="mango:origin.DataOrigin.articles">
                         <INSTANCE dmrole="mango:origin.DataOrigin.articles" dmtype="mango:origin.Article">
-                           <!-- Reference article for the \texttt{MangoObject}" -->
+                           <!-- Reference article for the \texttt{MangoObject}, usually a bibcode or DOI" -->
                            <ATTRIBUTE dmrole="mango:origin.Article.editor" dmtype="ivoa:string" ref="@@@@@" value=""/>
                            <ATTRIBUTE dmrole="mango:origin.Article.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
                         </INSTANCE>

@@ -116,13 +116,13 @@
       \textbf{vodml-id: ColorDef.high} \newline
       \textbf{type: Phot:PhotometryFilter} \newline
       \textbf{multiplicity: 1} \newline
-      Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding to the higher band of the color.
+      Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding to the higher energy band of the color (lower mean wavelength).
 
     \subsubsection{ColorDef.low}
       \textbf{vodml-id: ColorDef.low} \newline
       \textbf{type: Phot:PhotometryFilter} \newline
       \textbf{multiplicity: 1} \newline
-      Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower band for that color.
+      Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower energy band for that color (larger mean wavelength).
 
   \subsection{DataLink}
   \label{sect:DataLink}
@@ -553,7 +553,7 @@
   \begin{itemize}
   
     \item[\textbf{ColorIndex}]: \textbf{vodml-id:} ColorDefinition.ColorIndex \newline
-          \textbf{description:} Difference of magnitudes: typically $M_B - M_v$
+          \textbf{description:} Difference of magnitudes: typically $M_B - M_V$
     \item[\textbf{HardnessRatio}]: \textbf{vodml-id:} ColorDefinition.HardnessRatio \newline
           \textbf{description:} Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) / (F_{EB2} + F_{EB1})$
   \end{itemize}
@@ -682,7 +682,7 @@
 
   \subsection{Article}
   \label{sect:origin.Article}
-    Reference article for the \texttt{MangoObject}
+    Reference article for the \texttt{MangoObject}, usually a bibcode or DOI
 
     \subsubsection{Article.editor}
       \textbf{vodml-id: origin.Article.editor} \newline
@@ -694,7 +694,7 @@
       \textbf{vodml-id: origin.Article.identifier} \newline
       \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
       \textbf{multiplicity: 1} \newline
-      Identifer of the reference article
+      Identifier of the reference article
 
   \subsection{DataOrigin}
   \label{sect:origin.DataOrigin}

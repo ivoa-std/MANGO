@@ -360,13 +360,13 @@ photometric filters are imported from \texttt{PhotDM}.
     \textbf{vodml-id: ColorDef.high} \newline
     \textbf{type: Phot:PhotometryFilter} \newline
     \textbf{multiplicity: 1} \newline
-    Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding to the higher band of the color.
+    Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding to the higher energy band of the color (lower mean wavelength).
 
     \subsubsection{ColorDef.low}
     \textbf{vodml-id: ColorDef.low} \newline
     \textbf{type: Phot:PhotometryFilter} \newline
     \textbf{multiplicity: 1} \newline
-    Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower band for that color.
+    Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower energy band for that color (larger mean wavelength).
 
   \subsection{ColorDefinition}
     \label{sect:ColorDefinition}
@@ -376,7 +376,7 @@ photometric filters are imported from \texttt{PhotDM}.
     \small
     \begin{itemize}
     \item \textbf{ColorIndex}: \textbf{vodml-id:} ColorDefinition.ColorIndex \newline
-    \textbf{description:} Difference of magnitudes: typically $M_B - M_v$
+    \textbf{description:} Difference of magnitudes: typically $M_B - M_V$
     \item \textbf{HardnessRatio}: \textbf{vodml-id:} ColorDefinition.HardnessRatio \newline
     \textbf{description:} Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) / (F_{EB2} + F_{EB1})$
     \end{itemize}
@@ -720,7 +720,7 @@ It is recommended to use them for quantities that do not require the use of nati
 
   \subsection{Article}
     \label{sect:origin.Article}
-    Reference article for the \texttt{MangoObject}
+    Reference article for the \texttt{MangoObject}, usually a bibcode or DOI
 
     \subsubsection{Article.editor}
     \textbf{vodml-id: origin.Article.editor} \newline
@@ -732,5 +732,5 @@ It is recommended to use them for quantities that do not require the use of nati
     \textbf{vodml-id: origin.Article.identifier} \newline
     \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
     \textbf{multiplicity: 1} \newline
-    Identifer of the reference article
+    Identifier of the reference article
 
