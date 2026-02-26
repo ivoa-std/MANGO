@@ -21,7 +21,7 @@ tex_model_path = os.path.join(doc_path, "model.tex")
 image = r"""\1 \2 }
   \\begin{figure}[h]
     \\includegraphics[width=1.0\\textwidth]{../model/\2.png}
-    \\caption{package \2}
+    \\caption{\2 package}
     \\label{fig:\2}
   \\end{figure}\n
 """
