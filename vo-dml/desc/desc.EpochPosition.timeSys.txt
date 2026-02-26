@@ -1,1 +1,1 @@
-System that applies the time coordinates (the epoch).
+System that applies to the time coordinates (the epoch).
