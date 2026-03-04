@@ -9,7 +9,7 @@ This enables the metadata representation to be improved and complex quantities t
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2026-02-26T14:48:02</lastModified>
+  <lastModified>2026-03-04T09:51:16</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -255,10 +255,10 @@ The format is free.</description>
         <maxOccurs>-1</maxOccurs>
       </multiplicity>
     </composition>
-    <reference>
+    <composition>
       <vodml-id>MangoObject.mangoObjects</vodml-id>
       <name>mangoObjects</name>
-      <description>Reference to particular datasets (\texttt{mango:MangoObject} instances) that are associated with
+      <description>Collection of particular datasets (\texttt{mango:MangoObject} instances) that are associated with
 the MANGO object via \texttt{mango:AssociatedMangoObject} instances.
 </description>
       <datatype>
@@ -268,11 +268,11 @@ the MANGO object via \texttt{mango:AssociatedMangoObject} instances.
         <minOccurs>0</minOccurs>
         <maxOccurs>-1</maxOccurs>
       </multiplicity>
-    </reference>
+    </composition>
     <reference>
       <vodml-id>MangoObject.queryOrigin</vodml-id>
       <name>queryOrigin</name>
-      <description>Reference to the description of the origin of the \texttt{MangoObject}.
+      <description>Reference to the description of the origin of the dataset to which the \texttt{MangoObject} belongs.
 </description>
       <datatype>
         <vodml-ref>mango:origin.QueryOrigin</vodml-ref>
@@ -383,7 +383,7 @@ semantics, content_type and content_qualifier is not sufficient (see DataLink 1.
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
-    <composition>
+    <reference>
       <vodml-id>AssociatedMangoObject.mangoObject</vodml-id>
       <name>mangoObject</name>
       <description>Reference to the associated \texttt{MangoObject}.</description>
@@ -394,7 +394,7 @@ semantics, content_type and content_qualifier is not sufficient (see DataLink 1.
         <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
+    </reference>
   </objectType>
 
   <objectType>
@@ -785,9 +785,8 @@ It is recommended to use the \texttt{ObsDate} field to store the epoch of the ob
 of the \texttt{epoch} field of \texttt{coords:SpaceSys}. 
 There are 2 reasons for this:
 \begin{itemize}
-   \item Using the epoch of \texttt{coords:SpaceSys} requires to work with the
-         \texttt{coords:CustomRefLocation} class to carry the reference location.
-         This class does not support the standard reference locations such as e.g. BARYCENTER.
+   \item The epoch of \texttt{coords:SpaceSys} is for the epoch of the reference location position,
+         not for the measurement epoch.
    \item The observation date can be read in a column and therefore change with each data row.
          In this case, it cannot be stored as an element of the space coordinate system
          but as an \texttt{EpochPosition} attribute.
@@ -909,7 +908,6 @@ but applied to the \texttt{mango:EpochPosition} context.
       <vodml-id>EpochPosition.obsDate</vodml-id>
       <name>obsDate</name>
       <description>Observation date expressed within the common time system if present.
-This attribute, if set, supersedes the epoch possibly given with the spatial coordinate system (see the above).
 Figure \ref{datetime} shows up the hierarchy of the primitive types representing the observation dates.
 
 </description>
@@ -1233,15 +1231,11 @@ It must be an instance of \texttt{photdm:PhotCal}.</description>
     <vodml-id>error</vodml-id>
     <name>error</name>
     <description>The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. 
-All these classes are derived from \texttt{meas:Uncertainty} to make
-them reusable by \texttt{meas:Measure} instances. Mango errors all 
-have an attribute that specifies the confidence level.</description>
+Mango errors all have an attribute that specifies the confidence level.</description>
     <dataType abstract="true">
       <vodml-id>error.PropertyError</vodml-id>
       <name>PropertyError</name>
-      <description>Root (abstract) class of the errors that can be attached to a MANGO property. 
-The class inherits from \texttt{meas:uncertainty} in order to be usable in the context 
-of properties based on \texttt{Measures} classes.</description>
+      <description>Root (abstract) class of the errors that can be attached to a MANGO property. </description>
       <attribute>
         <vodml-id>error.PropertyError.confidenceLevel</vodml-id>
         <name>confidenceLevel</name>

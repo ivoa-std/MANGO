@@ -1,2 +1,2 @@
-Reference to particular datasets (\texttt{mango:MangoObject} instances) that are associated with
+Collection of particular datasets (\texttt{mango:MangoObject} instances) that are associated with
 the MANGO object via \texttt{mango:AssociatedMangoObject} instances.
