@@ -16,7 +16,7 @@ env:
 on:
   push:
     branches:
-      - brigita_review
+      - final-review
       - pr-1.0
 
 jobs:
