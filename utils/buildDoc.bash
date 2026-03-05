@@ -20,7 +20,7 @@ which mivot-snippet-model
 if [[ $? -eq 0 ]]; then
     [ -e ../mivot/mango ] && rm -rf ../mivot/mango
 	cp ../vo-dml/desc.mango.vo-dml.xml ./mango.vo-dml.xml
-	mivot-snippet-model file://`pwd`/mango.vo-dml.xml `pwd`/../mivot/
+	#mivot-snippet-model file://`pwd`/mango.vo-dml.xml `pwd`/../mivot/
 	if [ $? -ne 0 ]; then
 		echo "error in snippet building"
   		exit 1

@@ -12,7 +12,7 @@ This enables the metadata representation to be improved and complex quantities t
   <author>Laurent Michel, Fran??ois Bonnarel, Gilles Landais, Mireille Louys, Marco Molinaro, Jesue Salgado</author>
   <version>1.0</version>
   <previousVersion>0.0</previousVersion>
-  <lastModified>2026-02-26T14:48:02</lastModified>
+  <lastModified>2026-03-04T09:51:16</lastModified>
   <import>
     <name>ivoa</name>
     <url>http://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml</url>
@@ -249,7 +249,7 @@ The format is free.</description>
         <maxOccurs>-1</maxOccurs>
       </multiplicity>
     </composition>
-    <reference>
+    <composition>
       <vodml-id>MangoObject.mangoObjects</vodml-id>
       <name>mangoObjects</name>
       <description>
@@ -262,7 +262,7 @@ The format is free.</description>
         <minOccurs>0</minOccurs>
         <maxOccurs>-1</maxOccurs>
       </multiplicity>
-    </reference>
+    </composition>
     <reference>
       <vodml-id>MangoObject.queryOrigin</vodml-id>
       <name>queryOrigin</name>
@@ -370,10 +370,12 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <maxOccurs>1</maxOccurs>
       </multiplicity>
     </attribute>
-    <composition>
+    <reference>
       <vodml-id>AssociatedMangoObject.mangoObject</vodml-id>
       <name>mangoObject</name>
-      <description>Composition link pointing on one MANGO instance associated with the source.</description>
+      <description>
+          TODO : Missing description : please, update your UML model asap.
+        </description>
       <datatype>
         <vodml-ref>mango:MangoObject</vodml-ref>
       </datatype>
@@ -381,7 +383,7 @@ As long as the vocabulary is not set, the possible values of this attribute are 
         <minOccurs>1</minOccurs>
         <maxOccurs>1</maxOccurs>
       </multiplicity>
-    </composition>
+    </reference>
   </objectType>
 
   <objectType>
