@@ -1,11 +1,11 @@
 <INSTANCE dmrole="" dmtype="mango:Label">
-   <!-- Free text label seen as \texttt{MangoObject} property. 
-The meaning of the label must match the property \texttt{semantics} attribute. 
-This rule is not enforced by the model. 
-For example, the Label property can be used to associate the sky object class
-of the \texttt{MangoObject} (e.g., Cataclysmic Variable) with the appropriate vocabulary." -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
-      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
       <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
       <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
    </INSTANCE>

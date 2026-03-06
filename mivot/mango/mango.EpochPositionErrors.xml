@@ -1,5 +1,5 @@
 <INSTANCE dmrole="" dmtype="mango:EpochPositionErrors">
-   <!-- Class holder for the errors of the EpochPosition attributes" -->
+   <!-- Class for the error attached to a EpochPosition. The component in this class represent the errors of individual parameters as well as errors due to the parameter correlations." -->
    <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:EpochPositionErrors.parallax" dmtype="mango:error.PropertyError"/>
    <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->

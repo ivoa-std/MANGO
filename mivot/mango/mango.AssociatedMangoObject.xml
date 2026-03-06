@@ -1,50 +1,11 @@
 <INSTANCE dmrole="" dmtype="mango:AssociatedMangoObject">
-   <!-- This class gives the role of a link associating 2 \texttt{MangoObject} together." -->
+   <!-- Reference to another MANGO instance that is part of the associated data." -->
    <INSTANCE dmrole="mango:AssociatedMangoObject.semantics" dmtype="mango:VocabularyTerm">
-      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
       <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
       <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
    </INSTANCE>
    <ATTRIBUTE dmrole="mango:AssociatedMangoObject.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <INSTANCE dmrole="mango:AssociatedMangoObject.mangoObject" dmtype="mango:MangoObject">
-      <!-- Central model class: applied to a data table, each row can be modelled as a \texttt{MangoObject} instance.
-Each \texttt{MangoObject} hosts a collection of physical or calculated parameters,
-a description of the data origin and an identifier." -->
-      <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="@@@@@" value=""/>
-      <COLLECTION dmrole="mango:MangoObject.propertyDock">
-         <INSTANCE dmrole="" dmtype="mango:Property">
-            <!-- Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} 
-of Property being hosted.
-The property types are not limited to &#8220;physical or calculated&#8221; (eg: flags, assigned labels)
-This class specifies both type and role of the  property, and hosts the property instance itself.
-" -->
-            <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
-               <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
-               <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
-               <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
-            </INSTANCE>
-            <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
-            <COLLECTION dmrole="mango:Property.associatedProperties">
-               <INSTANCE dmtype="mango:Property"/>
-            </COLLECTION>
-         </INSTANCE>
-      </COLLECTION>
-      <COLLECTION dmrole="mango:MangoObject.mangoObjects">
-         <INSTANCE dmtype="mango:AssociatedMangoObject"/>
-      </COLLECTION>
-      <INSTANCE dmrole="mango:MangoObject.queryOrigin" dmtype="mango:origin.QueryOrigin">
-         <!-- Description of the query the  \texttt{MangoObject} results from." -->
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.publisher" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.server_software" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.service_protocol" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.request" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.request_date" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.query" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.contact" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <ATTRIBUTE dmrole="mango:origin.QueryOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
-         <COLLECTION dmrole="mango:origin.QueryOrigin.dataOrigin">
-            <INSTANCE dmtype="mango:origin.DataOrigin"/>
-         </COLLECTION>
-      </INSTANCE>
-   </INSTANCE>
 </INSTANCE>

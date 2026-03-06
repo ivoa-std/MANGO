@@ -1,11 +1,7 @@
 <INSTANCE dmrole="" dmtype="mango:DateTime">
-   <!-- Data type for timestamps and their representation. 
-Timestamps are modeled by a single value and a representation mode.
-There is no time scale associated with \texttt{mango:DateTime}. 
-The scale is either imposed by the representation mode or defined by the
-time coordinate system relevant for the host object,
-usually an instance of \texttt{mango:EpochPosition}.
-" -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <ATTRIBUTE dmrole="mango:DateTime.representation" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:DateTime.dateTime" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
 </INSTANCE>

@@ -1,10 +1,11 @@
 <INSTANCE dmrole="" dmtype="mango:Color">
-   <!-- Property that describes a color of the \texttt{MangoObject}.
-The purpose of this property is to gather a color value with its error and the 2 related filters (high and low)
-The color can be given as a magnitude difference or a hardness ratio.
-" -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
-      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
       <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
       <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
    </INSTANCE>
@@ -16,11 +17,12 @@ The color can be given as a magnitude difference or a hardness ratio.
    <!-- Replace by an INSTANCE of a derived classes of error.PropertyError if applicable. -->
    <INSTANCE dmrole="mango:Color.error" dmtype="mango:error.PropertyError"/>
    <INSTANCE dmrole="mango:Color.colorDef" dmtype="mango:ColorDef">
-      <!-- Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio)
-and the filters on which the color is based. 
-In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} 
-with a square transfer function." -->
-      <!-- Enumeration of the different types of colors supported by the model. -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+         -->
       <!-- Enumeration datatype: supported values are ColorIndex HardnessRatio  -->
       <ATTRIBUTE dmrole="mango:ColorDef.definition" dmtype="mango:ColorDefinition" value="OneOf ColorIndex HardnessRatio "/>
       <INSTANCE dmrole="mango:ColorDef.high" dmtype="Phot:PhotometryFilter"/>
