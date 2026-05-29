@@ -781,7 +781,7 @@ All components use the same coordinate systems for both time and space coordinat
 \end{itemize}
 
 
-It is recommended to use the \texttt{ObsDate} field to store the epoch of the observation instead
+It is recommended to use the \texttt{obsDate} field to store the epoch of the observation instead
 of the \texttt{epoch} field of \texttt{coords:SpaceSys}. 
 There are 2 reasons for this:
 \begin{itemize}
