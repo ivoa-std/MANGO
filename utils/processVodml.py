@@ -111,7 +111,8 @@ def set_date():
     content = ""
     with open(make_path) as read_file:
         content = read_file.read()
-
+    # REC patch
+    isodate = "2026-04-29"
     content = re.sub("(DOCDATE =) [0-9\-]+", f"\\1 {isodate}", content)
 
     with open(make_path, "w") as write_file:
