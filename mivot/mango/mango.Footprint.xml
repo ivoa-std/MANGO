@@ -1,12 +1,11 @@
 <INSTANCE dmrole="" dmtype="mango:Footprint">
-   <!-- Description of the spatial extent of the MANGO object (e.g. for dust clouds).
-Footprint is serialized as a string. 
-\begin{itemize}
-   \item The supported serialization modes are listed in the \texttt{FootprintSerialization} enumeration.
-   \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference.
-\end{itemize}" -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
-      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
       <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
       <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
    </INSTANCE>
@@ -15,7 +14,9 @@ Footprint is serialized as a string.
       <INSTANCE dmtype="mango:Property"/>
    </COLLECTION>
    <ATTRIBUTE dmrole="mango:Footprint.serialization" dmtype="ivoa:string" ref="@@@@@" value=""/>
-   <!-- Enumeration of the supported serialization modes for the footprints -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+         -->
    <!-- Enumeration datatype: supported values are SMOC STC-S POLYGON  -->
    <ATTRIBUTE dmrole="mango:Footprint.mode" dmtype="mango:FootprintSerialization" value="OneOf SMOC STC-S POLYGON "/>
    <INSTANCE dmrole="mango:Footprint.spaceSys" dmtype="coords:SpaceSys"/>

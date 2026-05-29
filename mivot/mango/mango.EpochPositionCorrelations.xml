@@ -1,5 +1,7 @@
 <INSTANCE dmrole="" dmtype="mango:EpochPositionCorrelations">
-   <!-- Class holder for the correlation coefficients between the \texttt{EpochPosition} components." -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.longitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.latitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:EpochPositionCorrelations.pmLongitudeParallax" dmtype="ivoa:real" unit="" ref="@@@@@" value=""/>

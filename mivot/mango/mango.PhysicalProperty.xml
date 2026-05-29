@@ -1,10 +1,11 @@
 <INSTANCE dmrole="" dmtype="mango:PhysicalProperty">
-   <!-- Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) 
-as defined in the \texttt{Astronomical Measurements Model}.
-
-" -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
-      <!-- Class holder for a term of a standardized vocabulary that applies to a property." -->
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
       <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
       <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
    </INSTANCE>

@@ -1,6 +1,7 @@
 <INSTANCE dmrole="" dmtype="mango:origin.DataOrigin">
-   <!-- Class representing the description of the origin of the queried dataset.
-" -->
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
    <ATTRIBUTE dmrole="mango:origin.DataOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:origin.DataOrigin.reference_url" dmtype="ivoa:string" ref="@@@@@" value=""/>
    <ATTRIBUTE dmrole="mango:origin.DataOrigin.resource_version" dmtype="ivoa:string" ref="@@@@@" value=""/>
