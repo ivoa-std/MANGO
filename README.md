@@ -65,9 +65,11 @@ This will prevent your work to be overridden by some script.
    
 If you want to contribute, please have a look at this workflow or ask the editor. 
 
-# PDF preview
+# Status
 
-The PDF preview can be seen [here](https://github.com/ivoa-std/MANGO/releases/download/auto-pdf-preview/MANGO-draft.pdf) thanks to the ADQL team who has written a workflow generating it automatically.
+The latest stable version is [REC-1.0](https://www.ivoa.net/Documents/MANGO/index.html)
+
+The most recent PDF preview can be seen [here](https://github.com/ivoa-std/MANGO/releases/download/auto-pdf-preview/MANGO-draft.pdf) thanks to the ADQL team who has written a workflow generating it automatically.
 
 # Licence
 
