@@ -1,0 +1,1 @@
+Root (abstract) class of the errors that can be attached to a MANGO property. 

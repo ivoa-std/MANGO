@@ -1,0 +1,7 @@
+<INSTANCE dmrole="" dmtype="mango:DateTime">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <ATTRIBUTE dmrole="mango:DateTime.representation" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:DateTime.dateTime" dmtype="ivoa:datetime" unit="" ref="@@@@@" value=""/>
+</INSTANCE>

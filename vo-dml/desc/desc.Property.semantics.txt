@@ -1,0 +1,6 @@
+Reference to a semantic concept giving the nature of the property 
+or of the set made of the property and its associated properties (e.g. position and flag).
+
+This attribute is intended to be machine-readable and to assist automated property presentation, and usage.
+The value is always interpreted as a URI; relative URIs are completed using the base URI of the core UAT
+vocabulary, \url{http://www.ivoa.net/rdf/uat} (see \ref{sect:VocabularyTerm}). 

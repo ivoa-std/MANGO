@@ -1,0 +1,8 @@
+This section brings together all the classes needed to operate a hook on 
+objects imported from the \texttt{Measurements} data model \citep{2022ivoa.specQ1004R}. 
+The Measurements model contains 6 classes that model simple physical quantities 
+ (Position, Time, Velocity, Polarisation, ProperMotion, GenericMeasure) in a very versatile way,
+supporting many coordinate systems and a wide variety of errors.
+
+It is recommended to use them for quantities that do not require the use of native MANGO classes.
+

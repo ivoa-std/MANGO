@@ -1,0 +1,1 @@
+This class gives the role of a link associating 2 \texttt{MangoObject} together.

@@ -1,0 +1,8 @@
+The abstract primitive type \texttt{ivoa:datetime} has been extended to include:
+types that cover the most commonly used serialisations of observation dates (see figure \ref{datetime}).
+
+\begin{figure}
+     \includegraphics[width=0.7\textwidth]{../model/date.png}
+     \caption{datetime}
+     \label{datetime}
+\end{figure}

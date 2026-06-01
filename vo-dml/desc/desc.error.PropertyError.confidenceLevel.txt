@@ -1,0 +1,2 @@
+Confidence level of the error. 
+The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).

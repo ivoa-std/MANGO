@@ -1,0 +1,5 @@
+In theory, this is the angle between the North Celestial Pole (NCP) and the major axis. 
+This angle must be positive taking into account that angles are positive from North to the East. 
+The angle has its own unit.
+In practice, the angle definition is this used by the mapped data set. 
+It is usually the angle between the major axis and the north axis (negative along of the clockwise direction).

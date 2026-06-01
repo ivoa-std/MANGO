@@ -1,0 +1,2 @@
+The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. 
+Mango errors all have an attribute that specifies the confidence level.

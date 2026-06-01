@@ -1,0 +1,3 @@
+Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) 
+as defined in the \texttt{Astronomical Measurements Model}.
+

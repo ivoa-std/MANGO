@@ -1,0 +1,11 @@
+<INSTANCE dmrole="" dmtype="mango:AssociatedMangoObject">
+   <!-- Reference to another MANGO instance that is part of the associated data." -->
+   <INSTANCE dmrole="mango:AssociatedMangoObject.semantics" dmtype="mango:VocabularyTerm">
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:AssociatedMangoObject.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>

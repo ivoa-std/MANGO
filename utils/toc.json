@@ -1,0 +1,50 @@
+{
+    "Model: mango ": {
+        "MangoObject": {},
+        "AssociatedMangoObject": {},
+        "Property": {},
+        "VocabularyTerm": {}
+    },
+	"Date Time Types (added)": {
+		"mjd": {},
+	    "jd": {},
+		"DecimalYear": {},
+		"JulianEpoch": {},
+		"BesselianEpoch": {},
+		"iso": {}
+	},
+	"Epoch Position Properties (added)": {
+	    "EpochPosition": {},
+	    "EpochPositionCorrelations": {},
+	    "EpochPositionErrors": {}
+	},
+    "Photometric and Spectroscopic Properties (added)": {
+        "Brightness": {},
+        "Color": {},
+        "ColorDef": {},
+        "ColorDefinition": {}
+    },
+    "Physical Properties (added)": {
+        "PhysicalProperty": {}
+    },
+    "Other Properties (added)": {
+        "Label": {},
+        "Status": {},
+        "StatusValues": {},
+        "StatusValue": {},
+        "Footprint": {},
+        "FootprintSerialization": {}
+    },
+    "Package: error ": {
+        "PropertyError (Abstract)": {},
+        "PErrorSym1D": {},
+        "PErrorAsym1D": {},
+        "PErrorEllipse": {},
+        "PErrorSym2D": {}
+    },
+    "Package: origin ": {
+        "QueryOrigin": {},
+        "DataOrigin": {},
+        "Article": {}
+    }
+}

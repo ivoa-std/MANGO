@@ -1,0 +1,2 @@
+Property representing a status defined by a string (numerical values must be down-casted) 
+that can only take on a defined number of values, each with its own description.

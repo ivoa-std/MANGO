@@ -1,0 +1,23 @@
+<INSTANCE dmrole="" dmtype="mango:Footprint">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:Property.associatedProperties">
+      <INSTANCE dmtype="mango:Property"/>
+   </COLLECTION>
+   <ATTRIBUTE dmrole="mango:Footprint.serialization" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+         -->
+   <!-- Enumeration datatype: supported values are SMOC STC-S POLYGON  -->
+   <ATTRIBUTE dmrole="mango:Footprint.mode" dmtype="mango:FootprintSerialization" value="OneOf SMOC STC-S POLYGON "/>
+   <INSTANCE dmrole="mango:Footprint.spaceSys" dmtype="coords:SpaceSys"/>
+</INSTANCE>

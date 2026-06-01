@@ -7,10 +7,11 @@
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{ifthen}
-\RequirePackage{doc}
 \RequirePackage{listings}
+\RequirePackage{textcomp}
 \RequirePackage{paralist}
 \RequirePackage{url}
+\RequirePackage[nottoc]{tocbibind}
 \RequirePackage[labelfont=it]{caption}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
@@ -28,6 +29,12 @@
 \RequirePackage{natbib}
 \bibliographystyle{ivoatex/ivoa}
 
+% people usually want to cut and paste from our listings, so keep
+% lstlistings from mangling quotes.
+\lstset{upquote=true}
+
+\urlstyle{same}
+
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.7}
 \renewcommand{\textfraction}{0.1}
@@ -39,7 +46,12 @@
 
 %%%%%%%%%%%%%%%%%%% Metadata definition macros
 
-\newcommand{\ivoagroup}[1]{\def\ivo@group{#1}}
+\newcommand{\ivoagroup}[2][WG]{%
+	\def\ivo@group{#2}%
+	\ifthenelse{\equal{#1}{IG}}
+		{\gdef\gr@uptype{Interest Group}}
+		{\gdef\gr@uptype{Working Group}}
+}
 
 % these are accumulators for sequences
 \def\previ@usversions{}
@@ -126,28 +138,28 @@
     \Large\color{ivoacolor}\quad\textsl{\textsf{\textbf{V}irtual}} \\
     \Large\color{ivoacolor}\quad\textsl{\textsf{\textbf{O}bservatory}} \\
     \Large\color{ivoacolor}\textsl{\textsf{\textbf{A}lliance}}}}\hfil}
- 
+
  	\vskip 1.4cm
  	\begin{sloppypar}\raggedright
   \LARGE\color{ivoacolor}\sffamily\bfseries \@title\par
   \end{sloppypar}
 
 	\bigskip
-  \noindent{\LARGE\color{ivoacolor}\sffamily\bfseries 
+  \noindent{\LARGE\color{ivoacolor}\sffamily\bfseries
   	Version \ivoaDocversion}
 	\medskip
   \titlehe@d{\expandedDoctype{\ivoaDoctype} \ivoaDocdate}%
 
 
   \begin{bigdescription}
-    \item[Working group]
+    \item[\gr@uptype]
     	\ivo@group
 
     \item[This version]
-    	\currentDocURL
+    	\currentDocRef
 
     \item[Latest version]
-    	\latestDocURL
+    	\latestDocRef
 
     \item[Previous versions]
 			\begin{compactitem}[]
@@ -239,12 +251,12 @@
  		{This is an IVOA Proposed Endorsed Note for review by IVOA
       members and other interested parties. It is appropriate to
       reference this document only as a Proposed Endorsed Note that
-      is under review and may change before it is endorsed or may  
-      not be endorsed. 
+      is under review and may change before it is endorsed or may
+      not be endorsed.
  		}
  	{\ifthenelse{\equal{#1}{EN}}
  		{This document is an IVOA Endorsed Note. It has been reviewed  and endorsed
- 			by the IVOA Technical Coordination Group as a stable, citable document 
+ 			by the IVOA Technical Coordination Group as a stable, citable document
  			which constitutes valuable information for the IVOA community and
  			beyond.
  		}
@@ -258,20 +270,20 @@
      attention to the specification and to promote its
      widespread deployment. This enhances the functionality and
      interoperability inside the Astronomical Community.}
-		{UNKNOWN DOCUMENT (fix DOCTYPE)}}}}}}\par
+		{UNKNOWN DOCUMENT TYPE (fix DOCTYPE)}}}}}}\par
 	A list of current IVOA Recommendations and other technical documents
-	can be found at \href{http://www.ivoa.net/documents/
-	}{http://www.ivoa.net/documents/}.}
+	can be found in the IVOA document
+	repository\footnotemark\footnotetext{\url{https://www.ivoa.net/documents/}}.}
 
-
-\newcommand\currentBaseURL % 
-	{http://www.ivoa.net/documents/\ivoaDocname/\ivoaDocdatecode}
-\newcommand\currentDocURL % URL of this document's landing page
-	{\href{\currentBaseURL}{\currentBaseURL}}
-\newcommand\latestDocURL 
-	% URL of a potential successor to the document's landing page
-	{\href{http://www.ivoa.net/documents/\ivoaDocname}
-		{http://www.ivoa.net/documents/\ivoaDocname}}
+% legacy definition when ivoatexmeta.tex does not yet define it
+\newcommand{\ivoaBaseURL}{https://www.ivoa.net/documents/\ivoaDocname}
+\newcommand\currentDocURL %
+	{\ivoaBaseURL/\ivoaDocdatecode}
+\newcommand\currentDocRef % formatted reference to this document's landing page
+	{\href{\currentDocURL}{\currentDocURL}}
+\newcommand\latestDocRef
+	% formatted reference to a potential successor to the document's landing page
+	{\href{\ivoaBaseURL}{\ivoaBaseURL}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Styling various item
@@ -337,12 +349,24 @@
 
 \newcommand{\xmlel}[1]{{\ttfamily\itshape #1}}
 \newcommand{\vorent}[1]{\textsc{#1}}
+\def\ucd{\st@rtucd\re@lucd}
+\def\re@lucd#1{\sl#1\@nducd}
+\begingroup
+% let LaTeX break UCD componds and at dots and semicolons in UCDs
+\gdef\bre@kabledot{.\hskip0pt}
+\gdef\bre@kablesemicolon{;\hskip0pt}
+\catcode`\.=\active\catcode`\;=\active
+\gdef\st@rtucd{\begingroup
+  \catcode`\.=\active\let.=\bre@kabledot
+  \catcode`\;=\active\let;=\bre@kablesemicolon}
+\gdef\@nducd{\endgroup}
+\endgroup
 
 \newcommand{\sptablerule}{\noalign{\vspace{2pt}}\hline\noalign{\vspace{2pt}}}
 
 \newcommand{\ivoatex}{\mbox{\textsc{Ivoa}\TeX}}
 
-\newcommand{\auxiliaryurl}[1]{\href{\currentBaseURL/#1}{\currentBaseURL/#1}}
+\newcommand{\auxiliaryurl}[1]{\href{\currentDocURL/#1}{\currentDocURL/#1}}
 
 \chardef\dquote'042
 
@@ -357,4 +381,5 @@
 
 \makeatother
 
+\input aas_macros.tex
 \input ivoatexmeta.tex

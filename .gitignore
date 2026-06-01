@@ -33,10 +33,12 @@
 *.fdb_latexmk
 *.fls
 *.gz
+*.pyc
 draft-background.*
 # Maven 
 target/
-
+__pycache__
+__cache__
 # eclipse project file
 .settings/
 .classpath
@@ -50,3 +52,11 @@ target/
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+*.pdf
+
+.pydevproject
+*.html
+
+trash/*
+exercise*
+test-date/*

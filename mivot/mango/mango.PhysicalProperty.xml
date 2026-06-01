@@ -1,0 +1,18 @@
+<INSTANCE dmrole="" dmtype="mango:PhysicalProperty">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <INSTANCE dmrole="mango:Property.semantics" dmtype="mango:VocabularyTerm">
+      <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+      <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   </INSTANCE>
+   <ATTRIBUTE dmrole="mango:Property.description" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:Property.associatedProperties">
+      <INSTANCE dmtype="mango:Property"/>
+   </COLLECTION>
+   <ATTRIBUTE dmrole="mango:PhysicalProperty.calibrationLevel" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <INSTANCE dmrole="mango:PhysicalProperty.measure" dmtype="meas:Measure"/>
+</INSTANCE>

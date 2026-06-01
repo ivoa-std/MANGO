@@ -1,0 +1,1 @@
+Contains the open-ended collection of the \texttt{MangoObject} properties (physical, calculated or assigned).

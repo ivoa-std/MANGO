@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This VOtable results from an on purpose query on the Obscore table of https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/ It 
+  illustrates the mapping of the following classes: - Footprint - DataLink The mapping has been done by hand -->
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  version="1.4">
+  <RESOURCE type="results">
+    <INFO name="QUERY_STATUS" value="OK" />
+    <INFO name="QUERY_TIMESTAMP" value="2025-03-27T12:18:10.187" />
+    <INFO name="QUERY"
+      value="SELECT  TOP 1  ivoa.ObsCore.obs_id,ivoa.ObsCore.s_region,ivoa.ObsCore.access_url&#xA;FROM ivoa.ObsCore" />
+
+    <RESOURCE type="meta">
+      <VODML xmlns="http://www.ivoa.net/xml/mivot">
+        <REPORT status="OK">Hand-made annotation</REPORT>
+        <MODEL name="ivoa" url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
+        <MODEL name="mango"
+          url="https://raw.githubusercontent.com/ivoa-std/MANGO/refs/heads/wd-v1.0/vo-dml/mango.vo-dml.xml" />
+        <MODEL name="Phot" url="https://ivoa.net/xml/VODML/Phot-v1.vodml.xml" />
+        <MODEL name="coords" url="https://ivoa.net/xml/VODML/Coords-v1.vo-dml.xml" />
+        <!-- The GLOBALS block contains all objects with a scope covering all data. This is typically the case for the coordinate 
+          Systems -->
+        <GLOBALS>
+          <INSTANCE dmid="CoordSystem_ICRS_id" dmrole="" dmtype="coords:SpaceSys">
+            <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
+              <ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS" />
+            </INSTANCE>
+          </INSTANCE>
+
+        </GLOBALS>
+
+        <!-- This block maps the data of the table identified as "Results" -->
+        <TEMPLATES tableref="Results">
+          <!-- The table contain a set of Mango instances, this is why we have COLLECTION at the top level -->
+          <INSTANCE dmtype="mango:MangoObject">
+            <!-- Collection of the complex data attached to the source -->
+            <ATTRIBUTE dmrole="mango:MangoObject.identifier" dmtype="ivoa:string" ref="obs_id" />
+            <!-- Collection of the parameters attached to the source Each child INSTANCE maps one parameter -->
+            <COLLECTION dmrole="mango:MangoObject.propertyDock">
+
+              <INSTANCE dmrole="" dmtype="mango:DataLink">
+                <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:Property.description"
+                  value="download sdss:sdss/spectro/redux/26/spectra/1567/spec-1567-53172-0240.fits" />
+
+                <INSTANCE dmtype="mango:VocabularyTerm" dmrole="mango:Property.semantics">
+                  <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.uri"
+                    value="https://www.ivoa.net/rdf/datalink/core#derivation" />
+                  <ATTRIBUTE dmtype="ivoa:string" dmrole="mango:VocabularyTerm.label" value="derivation" />
+                </INSTANCE>
+
+                <ATTRIBUTE dmrole="mango:DataLink.content_type" dmtype="ivoa:string" value="application/fits" />
+                <ATTRIBUTE dmrole="mango:DataLink.access_url" dmtype="ivoa:anyURI" ref="access_url" />
+                <ATTRIBUTE dmrole="mango:DataLink.content_qualifier" dmtype="ivoa:string" value="#spectrum" />
+                <ATTRIBUTE dmrole="mango:DataLink.local_semantics" dmtype="ivoa:string"
+                  value="mango test implementation" />
+              </INSTANCE>
+
+              <INSTANCE dmrole="" dmtype="mango:Footprint">
+                <ATTRIBUTE dmrole="mango:Footprint.serialization" dmtype="ivoa:string" ref="s_region" />
+                <ATTRIBUTE dmrole="mango:Footprint.mode" dmtype="mango:FootprintSerialization" value="STC-S" />
+                <REFERENCE dmrole="mango:Footprint.spaceSys" dmref="CoordSystem_ICRS_id" />
+              </INSTANCE>
+
+              <INSTANCE dmrole="" dmtype="mango:PhysicalProperty">
+                <ATTRIBUTE dmrole="mango:PhysicalProperty.calibrationLevel" dmtype="ivoa:string" value="2" />
+                <INSTANCE dmrole="mango:PhysicalProperty.measure" dmtype="meas:Position">
+                  <INSTANCE dmrole="meas:Position.coord" dmtype="coords:LonLatPoint">
+                    <ATTRIBUTE dmrole="coords:LonLatPoint.lon" dmtype="ivoa:RealQuantity" ref="s_ra" unit="deg" />
+                    <ATTRIBUTE dmrole="coords:LonLatPoint.lat" dmtype="ivoa:RealQuantity" ref="s_dec" unit="deg" />
+                    <REFERENCE dmrole="coords:Coordinate.coordSys" dmref="CoordSystem_ICRS_id" />
+                  </INSTANCE>
+                </INSTANCE>
+              </INSTANCE>
+            </COLLECTION>
+          </INSTANCE>
+        </TEMPLATES>
+      </VODML>
+    </RESOURCE>
+
+    <TABLE>
+      <FIELD name="obs_id" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:DataID.observationID">
+        <DESCRIPTION>internal dataset identifier</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_region" datatype="char" arraysize="*" ucd="pos.outline;obs.field"
+        utype="obscore:Char.SpatialAxis.Coverage.Support.Area" xtype="adql:REGION">
+        <DESCRIPTION>region bounded by observation</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_url" datatype="char" arraysize="*" ucd="meta.ref.url" utype="obscore:Access.Reference"
+        xtype="clob">
+        <DESCRIPTION>URL to download the data</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_ra" datatype="double" ucd="pos.eq.ra" unit="deg"
+        utype="obscore:Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1">
+        <DESCRIPTION>RA of central coordinates</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_dec" datatype="double" ucd="pos.eq.dec" unit="deg"
+        utype="obscore:Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2">
+        <DESCRIPTION>DEC of central coordinates</DESCRIPTION>
+      </FIELD>
+      <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>spec-1567-53172-0240</TD>
+            <TD>polygon 253.91545077 18.4452506667 253.91632923 18.4452506667 253.91632923 18.4444173333 253.91545077
+              18.4444173333</TD>
+            <TD>https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2ops/datalink?ID=ivo%3A%2F%2Fcadc.nrc.ca%2FSDSS%3Fspec-1567-53172-0240%2Fspec-1567-53172-0240</TD>
+            <TD>253.91589000126893</TD>
+            <TD>18.444833998847557</TD>
+          </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+    <INFO name="placeholder" value="ignore" />
+  </RESOURCE>
+</VOTABLE>

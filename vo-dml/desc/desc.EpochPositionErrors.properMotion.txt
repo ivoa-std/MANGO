@@ -1,0 +1,1 @@
+ Proper motion error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.

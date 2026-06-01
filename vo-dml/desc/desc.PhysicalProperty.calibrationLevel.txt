@@ -1,0 +1,2 @@
+Calibration level of the property as defined 
+in \url{http://www.ivoa.net/rdf/processing-level}

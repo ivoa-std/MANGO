@@ -1,0 +1,1 @@
+Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).

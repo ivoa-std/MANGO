@@ -1,0 +1,19 @@
+<INSTANCE dmrole="" dmtype="mango:origin.DataOrigin">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.reference_url" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.resource_version" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:origin.DataOrigin.creators">
+</COLLECTION>
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.cites" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:origin.DataOrigin.is_derived_from">
+</COLLECTION>
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.original_date" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.rights" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.DataOrigin.rights_uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:origin.DataOrigin.articles">
+      <INSTANCE dmtype="mango:origin.Article"/>
+   </COLLECTION>
+</INSTANCE>

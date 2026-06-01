@@ -1,0 +1,2 @@
+Reference to the physical definition of the color (can be either a  difference of magnitudes or a hardness ratio).
+

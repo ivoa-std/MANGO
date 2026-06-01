@@ -1,0 +1,2 @@
+Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding 
+to the higher energy band of the color (lower mean wavelength).

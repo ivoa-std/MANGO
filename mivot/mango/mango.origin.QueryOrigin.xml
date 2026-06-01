@@ -1,0 +1,16 @@
+<INSTANCE dmrole="" dmtype="mango:origin.QueryOrigin">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.publisher" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.server_software" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.service_protocol" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.request" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.request_date" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.query" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.contact" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:origin.QueryOrigin.ivoid" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <COLLECTION dmrole="mango:origin.QueryOrigin.dataOrigin">
+      <INSTANCE dmtype="mango:origin.DataOrigin"/>
+   </COLLECTION>
+</INSTANCE>

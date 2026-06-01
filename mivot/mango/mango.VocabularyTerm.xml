@@ -1,0 +1,7 @@
+<INSTANCE dmrole="" dmtype="mango:VocabularyTerm">
+   <!-- 
+          TODO : Missing description : please, update your UML model asap.
+        " -->
+   <ATTRIBUTE dmrole="mango:VocabularyTerm.uri" dmtype="ivoa:string" ref="@@@@@" value=""/>
+   <ATTRIBUTE dmrole="mango:VocabularyTerm.label" dmtype="ivoa:string" ref="@@@@@" value=""/>
+</INSTANCE>

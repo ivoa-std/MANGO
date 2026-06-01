@@ -1,0 +1,744 @@
+\pagebreak
+
+\section{Model: mango}
+    The purpose of MANGO is to provide a higher level of description for multi-attribute properties. When used with MIVOT annotations, it enables tabular data to be represented as structured objects. This enables the metadata representation to be improved and complex quantities to be reconstructed from column values. Modelled properties can be linked to each other. MANGO also enables the origin of the data to be specified.
+
+  \subsection{MangoObject}
+    \label{sect:MangoObject}
+    Central model class: applied to a data table, each row can be modelled as a \texttt{MangoObject} instance. Each \texttt{MangoObject} hosts a collection of physical or calculated parameters, a description of the data origin and an identifier.
+
+    \subsubsection{MangoObject.identifier}
+    \textbf{vodml-id: MangoObject.identifier} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Unique identifier of the \texttt{MangoObject}. The uniqueness of that identifier is not managed by the model. The format is free.
+
+    \subsubsection{MangoObject.propertyDock}
+    \textbf{vodml-id: MangoObject.propertyDock} \newline
+    \textbf{type: \hyperref[sect:Property]{mango:Property}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Contains the open-ended collection of the \texttt{MangoObject} properties (physical, calculated or assigned).
+
+    \subsubsection{MangoObject.mangoObjects}
+    \textbf{vodml-id: MangoObject.mangoObjects} \newline
+    \textbf{type: \hyperref[sect:AssociatedMangoObject]{mango:AssociatedMangoObject}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Collection of particular datasets (\texttt{mango:MangoObject} instances) that are associated with the MANGO object via \texttt{mango:AssociatedMangoObject} instances.
+
+    \subsubsection{MangoObject.queryOrigin}
+    \textbf{vodml-id: MangoObject.queryOrigin} \newline
+    \textbf{type: \hyperref[sect:origin.QueryOrigin]{mango:origin.QueryOrigin}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Reference to the description of the origin of the dataset to which the \texttt{MangoObject} belongs.
+
+  \subsection{AssociatedMangoObject}
+    \label{sect:AssociatedMangoObject}
+    This class gives the role of a link associating 2 \texttt{MangoObject} together.
+
+    \subsubsection{AssociatedMangoObject.semantics}
+    \textbf{vodml-id: AssociatedMangoObject.semantics} \newline
+    \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
+    \textbf{multiplicity: 1} \newline
+    Semantic concept giving the nature of the data association.
+
+    \subsubsection{AssociatedMangoObject.description}
+    \textbf{vodml-id: AssociatedMangoObject.description} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Free text description of the data association
+
+    \subsubsection{AssociatedMangoObject.mangoObject}
+    \textbf{vodml-id: AssociatedMangoObject.mangoObject} \newline
+    \textbf{type: \hyperref[sect:MangoObject]{mango:MangoObject}} \newline
+    \textbf{multiplicity: 1} \newline
+    Reference to the associated \texttt{MangoObject}.
+
+  \subsection{Property}
+    \label{sect:Property}
+    Class holder for a \textit{flavor} of property, i.e., there should be a Property subclass for each \textit{flavor} of Property being hosted. The property types are not limited to “physical or calculated” (eg: flags, assigned labels) This class specifies both type and role of the property, and hosts the property instance itself.
+
+    \subsubsection{Property.semantics}
+    \textbf{vodml-id: Property.semantics} \newline
+    \textbf{type: \hyperref[sect:VocabularyTerm]{mango:VocabularyTerm}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Reference to a semantic concept giving the nature of the property or of the set made of the property and its associated properties (e.g. position and flag). This attribute is intended to be machine-readable and to assist automated property presentation, and usage. The value is always interpreted as a URI; relative URIs are completed using the base URI of the core UAT vocabulary, \url{http://www.ivoa.net/rdf/uat} (see \ref{sect:VocabularyTerm}).
+
+    \subsubsection{Property.description}
+    \textbf{vodml-id: Property.description} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Free text description of the property or of the set made of the property and its associated properties.
+
+    \subsubsection{Property.associatedProperties}
+    \textbf{vodml-id: Property.associatedProperties} \newline
+    \textbf{type: \hyperref[sect:Property]{mango:Property}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Open-ended collection of MANGO properties associated with the \texttt{MangoObject}. These relationships are typically used to associate physical properties with time stamps and/or quality factors.
+
+  \subsection{VocabularyTerm}
+    \label{sect:VocabularyTerm}
+    Class holder for a term of a standardized vocabulary that applies to a property.
+
+    \subsubsection{VocabularyTerm.uri}
+    \textbf{vodml-id: VocabularyTerm.uri} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    URI of the vocabulary term
+
+    \subsubsection{VocabularyTerm.label}
+    \textbf{vodml-id: VocabularyTerm.label} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Label attached to the vocabulary term. This is necessary because the URI may not contain any explicit label. This was the case for the UAT vocabulary until the Registry WG introduced rewriting rules that fix the issue.
+
+\section{Date Time Types}
+The abstract primitive type \texttt{ivoa:datetime} has been extended to include:
+types that cover the most commonly used serialisations of observation dates (see figure \ref{datetime}).
+
+\begin{figure}
+     \includegraphics[width=0.7\textwidth]{../model/date.png}
+     \caption{datetime}
+     \label{datetime}
+\end{figure}
+  \subsection{mjd}
+    \label{sect:mjd}
+    Primitive type for observation dates expressed as a Modified Julian Date (e.g. 60288.8).
+
+  \subsection{jd}
+    \label{sect:jd}
+    Primitive type for observation dates expressed as a Julian Date (e.g. 2460895.1).
+
+  \subsection{DecimalYear}
+    \label{sect:DecimalYear}
+    Fractional number of years AD represented by the date. 2000.0, or equivalently 1999.99recurring, is midnight at the start of the first of January 2000. Because of leap years, the size of a unit depends on what year it is in (see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}).
+
+  \subsection{JulianEpoch}
+    \label{sect:JulianEpoch}
+    A continuous measure based on a Julian year of exactly 365.25 days ($JulianEpoch = 2000 + \frac{jd - 2451545.0}{365.25}$). For approximate purposes this resembles the fractional number of years AD represented by the date. Can be represented by prefixing a 'J'; J2000.0 is defined as 2000 January 1.5 in the TT timescale. (see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}).
+
+  \subsection{BesselianEpoch}
+    \label{sect:BesselianEpoch}
+    A continuous measure based on a tropical year of about 365.2422 days ($BesselianEpoch = 1900.0 + \frac{jd - 2415020.31352}{365.242198781}$). For approximate purposes this resembles the fractional number of years AD represented by the date. Can be represented by prefixing a 'B'. (see \url{https://www.star.bris.ac.uk/~mbt/topcat/sun253/sun253.html#Times}).
+
+  \subsection{iso}
+    \label{sect:iso}
+    Primitive type for observation dates expressed as an ISO-8601 Date (e.g. "2025-08-07T09:29:14").
+
+\section{Epoch Position Properties}
+
+  \subsection{EpochPosition}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/EpochPosition.png}
+    \caption{Class EpochPosition}
+    \label{fig:EpochPosition}
+    \end{figure}
+    \label{sect:EpochPosition}
+    This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the Astronomical Measurements Model \citep{2022ivoa.specQ1004R} that have been put together to form a consistent description of the position of an object moving over time. It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated errors encapsulated into the \texttt{EpochPositionErrors} class. The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems model \citep{2022ivoa.spec.1004R}. At a high level the properties map as follows: \begin{itemize} \item celestial position -> \texttt{meas:Position} \item proper motion -> \texttt{meas:ProperMotion} \item radial velocity -> \texttt{meas.Velocity} \item parallax -> no suitable counterpart at this time \end{itemize} All components use the same coordinate systems for both time and space coordinates. \begin{itemize} \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements. \item The space coordinate system is imported from \texttt{coords:SpaceSys}. \item The time coordinate system is imported from \texttt{coords:TimeSys}. \end{itemize} It is recommended to use the \texttt{obsDate} field to store the epoch of the observation instead of the \texttt{epoch} field of \texttt{coords:SpaceSys}. There are 2 reasons for this: \begin{itemize} \item The epoch of \texttt{coords:SpaceSys} is for the epoch of the reference location position, not for the measurement epoch. \item The observation date can be read in a column and therefore change with each data row. In this case, it cannot be stored as an element of the space coordinate system but as an \texttt{EpochPosition} attribute. \end{itemize} All components have their own units which must be consistent with each other. This consistency is not enforced by the model. Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class. Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class. In some cases the errors might conflict with the correlations: \begin{itemize} \item \texttt{Ellipse} errors on position or proper motion must not be used together with the \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields. In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict with the correlations defined in \texttt{EpochPositionCorrelations}. \end{itemize}
+
+    \subsubsection{EpochPosition.longitude}
+    \textbf{vodml-id: EpochPosition.longitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    This parameter corresponds to the longitude as described by the \texttt{coords} data model: \textit{The longitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lon}). It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context.
+
+    \subsubsection{EpochPosition.latitude}
+    \textbf{vodml-id: EpochPosition.latitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    This parameter corresponds to the latitude as described by the \texttt{coords} data model: \textit{The latitude of the Point, as a Quantity with angular units} (see \texttt{coords:LonLatPoint.lat}). It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:Position} but applied to the \texttt{mango:EpochPosition} context. It matches the description given by \texttt{coords} data model:
+
+    \subsubsection{EpochPosition.parallax}
+    \textbf{vodml-id: EpochPosition.parallax} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    The measured parallax in the coordinate system of the \texttt{EpochPosition} instance.
+
+    \subsubsection{EpochPosition.radialVelocity}
+    \textbf{vodml-id: EpochPosition.radialVelocity} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    This parameter corresponds to the radial velocity as described by the \texttt{coords} data model: \textit{The measured Velocity along of the radial axis } (see \texttt{meas:Velocity.coord} in \cite{2022ivoa.spec.1004R}). It is a clone of the \texttt{coords:Coords.point} component of \texttt{meas:Velocity} but applied to the \texttt{mango:EpochPosition} context.
+
+    \subsubsection{EpochPosition.pmLongitude}
+    \textbf{vodml-id: EpochPosition.pmLongitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    This parameter corresponds to the proper motion longitude as described by the \texttt{coords} data model: \textit{Velocity along the longitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). It is a clone of the \texttt{coords:LonLatPoint.lon} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context.
+
+    \subsubsection{EpochPosition.pmLatitude}
+    \textbf{vodml-id: EpochPosition.pmLatitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    This parameter corresponds to the proper motion latitude as described by the \texttt{coords} data model: \textit{Velocity along the latitude axis in angular distance per unit time} (see \texttt{meas:ProperMotion.coord}). It is a clone of the \texttt{coords:LonLatPoint.lat} component of \texttt{meas:ProperMotion} but applied to the \texttt{mango:EpochPosition} context.
+
+    \subsubsection{EpochPosition.obsDate}
+    \textbf{vodml-id: EpochPosition.obsDate} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:datetime}} \newline
+    \textbf{multiplicity: 1} \newline
+    Observation date expressed within the common time system if present. Figure \ref{datetime} shows up the hierarchy of the primitive types representing the observation dates.
+
+    \subsubsection{EpochPosition.pmCosLatApplied}
+    \textbf{vodml-id: EpochPosition.pmCosLatApplied} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
+    \textbf{multiplicity: 1} \newline
+    It is common, though not universal, practice to quote longitudinal proper motion pre-multiplied by cos(latitude) so that the magnitude of the quantity is not affected by its longitudinal position. We do not constrain the value to one form or the other in this model. Instead, this flag enables providers to convey whether or not the factor has been applied (see \texttt{meas:ProperMotion.cosLat\_applied})
+
+    \subsubsection{EpochPosition.errors}
+    \textbf{vodml-id: EpochPosition.errors} \newline
+    \textbf{type: \hyperref[sect:EpochPositionErrors]{mango:EpochPositionErrors}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Reference to the combined errors of the \texttt{EpochPosition} components.
+
+    \subsubsection{EpochPosition.correlations}
+    \textbf{vodml-id: EpochPosition.correlations} \newline
+    \textbf{type: \hyperref[sect:EpochPositionCorrelations]{mango:EpochPositionCorrelations}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Reference to the correlations between the \texttt{EpochPosition} components.
+
+    \subsubsection{EpochPosition.spaceSys}
+    \textbf{vodml-id: EpochPosition.spaceSys} \newline
+    \textbf{type: coords:SpaceSys} \newline
+    \textbf{multiplicity: 1} \newline
+    System that applies to the space coordinates.
+
+    \subsubsection{EpochPosition.timeSys}
+    \textbf{vodml-id: EpochPosition.timeSys} \newline
+    \textbf{type: coords:TimeSys} \newline
+    \textbf{multiplicity: 1} \newline
+    System that applies to the time coordinates (the epoch).
+
+  \subsection{EpochPositionCorrelations}
+    \label{sect:EpochPositionCorrelations}
+    Class holder for the correlation coefficients between the \texttt{EpochPosition} components.
+
+    \subsubsection{EpochPositionCorrelations.longitudeParallax}
+    \textbf{vodml-id: EpochPositionCorrelations.longitudeParallax} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position longitude and the parallax
+
+    \subsubsection{EpochPositionCorrelations.latitudeParallax}
+    \textbf{vodml-id: EpochPositionCorrelations.latitudeParallax} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position latitude and the parallax
+
+    \subsubsection{EpochPositionCorrelations.pmLongitudeParallax}
+    \textbf{vodml-id: EpochPositionCorrelations.pmLongitudeParallax} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the proper motion longitude and the parallax
+
+    \subsubsection{EpochPositionCorrelations.pmLatitudeParallax}
+    \textbf{vodml-id: EpochPositionCorrelations.pmLatitudeParallax} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the proper motion latitude and the parallax
+
+    \subsubsection{EpochPositionCorrelations.longitudeLatitude}
+    \textbf{vodml-id: EpochPositionCorrelations.longitudeLatitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position longitude and the position latitude
+
+    \subsubsection{EpochPositionCorrelations.pmLongitudePmLatitude}
+    \textbf{vodml-id: EpochPositionCorrelations.pmLongitudePmLatitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the proper motion longitude and the proper motion latitude
+
+    \subsubsection{EpochPositionCorrelations.latitudePmLatitude}
+    \textbf{vodml-id: EpochPositionCorrelations.latitudePmLatitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position latitude and the proper motion latitude
+
+    \subsubsection{EpochPositionCorrelations.latitudePmLongitude}
+    \textbf{vodml-id: EpochPositionCorrelations.latitudePmLongitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position latitude and the proper motion longitude
+
+    \subsubsection{EpochPositionCorrelations.longitudePmLatitude}
+    \textbf{vodml-id: EpochPositionCorrelations.longitudePmLatitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position longitude and the proper motion latitude
+
+    \subsubsection{EpochPositionCorrelations.longitudePmLongitude}
+    \textbf{vodml-id: EpochPositionCorrelations.longitudePmLongitude} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Correlation (or covariance) coefficient between the position longitude and the proper motion longitude
+
+    \subsubsection{EpochPositionCorrelations.isCovariance}
+    \textbf{vodml-id: EpochPositionCorrelations.isCovariance} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:boolean}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Boolean telling whether the correlations must be interpreted as covariance or as correlation coefficients.
+
+  \subsection{EpochPositionErrors}
+    \label{sect:EpochPositionErrors}
+    Class holder for the errors of the EpochPosition attributes
+
+    \subsubsection{EpochPositionErrors.parallax}
+    \textbf{vodml-id: EpochPositionErrors.parallax} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 1} \newline
+    Parallax error. This error is meant to be symmetrical in the current model version.
+
+    \subsubsection{EpochPositionErrors.radialVelocity}
+    \textbf{vodml-id: EpochPositionErrors.radialVelocity} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 1} \newline
+    Error in the radial velocity. This error is meant to be symmetrical in the current model version.
+
+    \subsubsection{EpochPositionErrors.properMotion}
+    \textbf{vodml-id: EpochPositionErrors.properMotion} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 1} \newline
+    Proper motion error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
+
+    \subsubsection{EpochPositionErrors.position}
+    \textbf{vodml-id: EpochPositionErrors.position} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 1} \newline
+    Position error; can be an \texttt{Ellipse} or a \texttt{Symmetrical2D}.
+
+\section{Photometric and Spectroscopic Properties}
+This section brings together all the classes that model
+brightness and color of the observed sources.
+The definition of the photometric calibrations and the 
+photometric filters are imported from \texttt{PhotDM}. 
+  \subsection{Brightness}
+    \label{sect:Brightness}
+    Observed brightness of the \texttt{MangoObject}. The purpose of this property is to gather a brightness value with its error and its photometric calibration The distinction between fluxes and magnitudes is made by the unit. The photometric calibration is modeled by the \texttt{Phot} data model (1.1).
+
+    \subsubsection{Brightness.value}
+    \textbf{vodml-id: Brightness.value} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Brightness value.
+
+    \subsubsection{Brightness.error}
+    \textbf{vodml-id: Brightness.error} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Error on the \texttt{Brightness}.
+
+    \subsubsection{Brightness.photCal}
+    \textbf{vodml-id: Brightness.photCal} \newline
+    \textbf{type: Phot:PhotCal} \newline
+    \textbf{multiplicity: 1} \newline
+    Photometric calibration that applies to the photometric property. It must be an instance of \texttt{photdm:PhotCal}.
+
+  \subsection{Color}
+    \label{sect:Color}
+    Property that describes a color of the \texttt{MangoObject}. The purpose of this property is to gather a color value with its error and the 2 related filters (high and low) The color can be given as a magnitude difference or a hardness ratio.
+
+    \subsubsection{Color.value}
+    \textbf{vodml-id: Color.value} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Color value.
+
+    \subsubsection{Color.error}
+    \textbf{vodml-id: Color.error} \newline
+    \textbf{type: \hyperref[sect:error.PropertyError]{mango:error.PropertyError}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Error on the \texttt{Color}.
+
+    \subsubsection{Color.colorDef}
+    \textbf{vodml-id: Color.colorDef} \newline
+    \textbf{type: \hyperref[sect:ColorDef]{mango:ColorDef}} \newline
+    \textbf{multiplicity: 1} \newline
+    Reference to the physical definition of the color (can be either a difference of magnitudes or a hardness ratio).
+
+  \subsection{ColorDef}
+    \label{sect:ColorDef}
+    Physical color definition giving the way a color is calculated (magnitude difference or hardness ratio) and the filters on which the color is based. In case of hardness ratio, the energy bands might be modeled as instances of \texttt{Phot:PhotometryFilter} with a square transfer function.
+
+    \subsubsection{ColorDef.definition}
+    \textbf{vodml-id: ColorDef.definition} \newline
+    \textbf{type: \hyperref[sect:ColorDefinition]{mango:ColorDefinition}} \newline
+    \textbf{multiplicity: 1} \newline
+    Attribute giving the way the color is calculated (magnitude difference or hardness ratio).
+
+    \subsubsection{ColorDef.high}
+    \textbf{vodml-id: ColorDef.high} \newline
+    \textbf{type: Phot:PhotometryFilter} \newline
+    \textbf{multiplicity: 1} \newline
+    Reference to the \texttt{Phot:PhotometryFilter} \citep{2022ivoa.spec.1101S} corresponding to the higher energy band of the color (lower mean wavelength).
+
+    \subsubsection{ColorDef.low}
+    \textbf{vodml-id: ColorDef.low} \newline
+    \textbf{type: Phot:PhotometryFilter} \newline
+    \textbf{multiplicity: 1} \newline
+    Reference to the \texttt{Phot:PhotometryFilter} corresponding to the lower energy band for that color (larger mean wavelength).
+
+  \subsection{ColorDefinition}
+    \label{sect:ColorDefinition}
+    Enumeration of the different types of colors supported by the model.
+    \newline \newline \noindent \underline{Enumeration Literals}
+    \vspace{-\parsep}
+    \small
+    \begin{itemize}
+    \item \textbf{ColorIndex}: \textbf{vodml-id:} ColorDefinition.ColorIndex \newline
+    \textbf{description:} Difference of magnitudes: typically $M_B - M_V$
+    \item \textbf{HardnessRatio}: \textbf{vodml-id:} ColorDefinition.HardnessRatio \newline
+    \textbf{description:} Normalized ratio of fluxes: $(F_{EB2} - F_{EB1}) / (F_{EB2} + F_{EB1})$
+    \end{itemize}
+    \normalsize
+
+\section{Physical Properties}
+This section brings together all the classes needed to operate a hook on 
+objects imported from the \texttt{Measurements} data model \citep{2022ivoa.specQ1004R}. 
+The Measurements model contains 6 classes that model simple physical quantities 
+ (Position, Time, Velocity, Polarisation, ProperMotion, GenericMeasure) in a very versatile way,
+supporting many coordinate systems and a wide variety of errors.
+
+It is recommended to use them for quantities that do not require the use of native MANGO classes.
+
+
+  \subsection{PhysicalProperty}
+    \label{sect:PhysicalProperty}
+    Holder for any quantity that can be modeled by measure classes (Position, Time , Velocity, Polarization, ProperMotion, GenericMeasure) as defined in the \texttt{Astronomical Measurements Model}.
+
+    \subsubsection{PhysicalProperty.calibrationLevel}
+    \textbf{vodml-id: PhysicalProperty.calibrationLevel} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Calibration level of the property as defined in \url{http://www.ivoa.net/rdf/processing-level}
+
+    \subsubsection{PhysicalProperty.measure}
+    \textbf{vodml-id: PhysicalProperty.measure} \newline
+    \textbf{type: meas:Measure} \newline
+    \textbf{multiplicity: 1} \newline
+    Instance of \texttt{Astronomical Measurements Model} that holds the Property value(s).
+
+\section{Other Properties}
+
+  \subsection{Label}
+    \label{sect:Label}
+    Free text label seen as \texttt{MangoObject} property. The meaning of the label must match the property \texttt{semantics} attribute. This rule is not enforced by the model. For example, the Label property can be used to associate the sky object class of the \texttt{MangoObject} (e.g., Cataclysmic Variable) with the appropriate vocabulary.
+
+    \subsubsection{Label.text}
+    \textbf{vodml-id: Label.text} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Text of label property of the MANGO object.
+
+  \subsection{Status}
+    \label{sect:Status}
+    Property representing a status defined by a string (numerical values must be down-casted) that can only take on a defined number of values, each with its own description.
+
+    \subsubsection{Status.status}
+    \textbf{vodml-id: Status.status} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Actual value of the status
+
+    \subsubsection{Status.allowedValues}
+    \textbf{vodml-id: Status.allowedValues} \newline
+    \textbf{type: \hyperref[sect:StatusValues]{mango:StatusValues}} \newline
+    \textbf{multiplicity: 1} \newline
+    List of the allowed values for the status. Each value has its own free text description.
+
+  \subsection{StatusValues}
+    \label{sect:StatusValues}
+    Class holder for the list of the allowed values for the status.
+
+    \subsubsection{StatusValues.values}
+    \textbf{vodml-id: StatusValues.values} \newline
+    \textbf{type: \hyperref[sect:StatusValue]{mango:StatusValue}} \newline
+    \textbf{multiplicity: 1..*} \newline
+    List of the allowed values for the status; each value has its own textual description.
+
+  \subsection{StatusValue}
+    \label{sect:StatusValue}
+    Value allowed for a status; contains the value with a free text description.
+
+    \subsubsection{StatusValue.value}
+    \textbf{vodml-id: StatusValue.value} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Allowed value for a \texttt{Status}
+
+    \subsubsection{StatusValue.description}
+    \textbf{vodml-id: StatusValue.description} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Free text description of the allowed value for a \texttt{Status}
+
+  \subsection{Footprint}
+    \label{sect:Footprint}
+    Description of the spatial extent of the MANGO object (e.g. for dust clouds). Footprint is serialized as a string. \begin{itemize} \item The supported serialization modes are listed in the \texttt{FootprintSerialization} enumeration. \item If the space coordinate system is not embedded in the serialization mode, it can be defined by the \texttt{spaceSys} reference. \end{itemize}
+
+    \subsubsection{Footprint.serialization}
+    \textbf{vodml-id: Footprint.serialization} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    String serialization of the spatial extension of the \texttt{MangoObject}
+
+    \subsubsection{Footprint.mode}
+    \textbf{vodml-id: Footprint.mode} \newline
+    \textbf{type: \hyperref[sect:FootprintSerialization]{mango:FootprintSerialization}} \newline
+    \textbf{multiplicity: 1} \newline
+    Serialization mode of the spatial extension of the \texttt{MangoObject} \newline
+
+    \subsubsection{Footprint.spaceSys}
+    \textbf{vodml-id: Footprint.spaceSys} \newline
+    \textbf{type: coords:SpaceSys} \newline
+    \textbf{multiplicity: 1} \newline
+    Coordinate system that applies for the footprint
+
+  \subsection{FootprintSerialization}
+    \label{sect:FootprintSerialization}
+    Enumeration of the supported serialization modes for the footprints
+    \newline \newline \noindent \underline{Enumeration Literals}
+    \vspace{-\parsep}
+    \small
+    \begin{itemize}
+    \item \textbf{SMOC}: \textbf{vodml-id:} FootprintSerialization.SMOC \newline
+    \textbf{description:} Label indicating that the footprint has been serialized as a SMOC \citep{2022ivoa.spec.0727F}. SMOC should be in equatorial ICRS. This overrides \texttt{mango:Footprint.spaceSys} reference which can be ignored when using this serialisation.
+    \item \textbf{STC-S}: \textbf{vodml-id:} FootprintSerialization.STC-S \newline
+    \textbf{description:} Label indicating that the footprint has been serialized as a STC-S string (see \url{https://www.ivoa.net/documents/STC-S/20130917/index.html}). The STC-S space coordinate system overrides the \texttt{mango:Footprint.spaceSys} reference which can be ignored when using this serialisation. Although the STC-S standard has been an IVOA draft for many years, it is still used by certain services, which justifies MANGO's support for it.
+    \item \textbf{POLYGON}: \textbf{vodml-id:} FootprintSerialization.POLYGON \newline
+    \textbf{description:} Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7. Using the polygon serialization requires the space coordinate system to be defined.
+    \end{itemize}
+    \normalsize
+
+\section{Package: error}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/error.png}
+    \caption{error package}
+    \label{fig:error}
+    \end{figure}
+    The \texttt{error} package (fig \ref{fig:error}) groups the MANGO built-in error classes. Mango errors all have an attribute that specifies the confidence level.
+
+  \subsection{PropertyError (Abstract)}
+    \label{sect:error.PropertyError}
+    Root (abstract) class of the errors that can be attached to a MANGO property.
+
+    \subsubsection{PropertyError.confidenceLevel}
+    \textbf{vodml-id: error.PropertyError.confidenceLevel} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:real}} \newline
+    \textbf{multiplicity: 1} \newline
+    Confidence level of the error. The confidence level must be in $[0, 1]$ (not enforced by the VO-DML schema).
+
+    \subsubsection{PropertyError.distribution}
+    \textbf{vodml-id: error.PropertyError.distribution} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Statistical distribution of the error. The Value can be a vocabulary URI (e.g. \url{https://www.ivoa.net/rdf/uat/2024-06-25/uat.html#poisson-distribution}).
+
+  \subsection{PErrorSym1D}
+    \label{sect:error.PErrorSym1D}
+    Symmetrical error for 1D parameters
+
+    \subsubsection{PErrorSym1D.sigma}
+    \textbf{vodml-id: error.PErrorSym1D.sigma} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Amplitude of the symmetrical error on a one-dimensional parameter
+
+  \subsection{PErrorAsym1D}
+    \label{sect:error.PErrorAsym1D}
+    Asymmetrical error for 1D parameters
+
+    \subsubsection{PErrorAsym1D.high}
+    \textbf{vodml-id: error.PErrorAsym1D.high} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    High limit for the asymmetrical error for 1D parameters
+
+    \subsubsection{PErrorAsym1D.low}
+    \textbf{vodml-id: error.PErrorAsym1D.low} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Low limit for the asymmetrical error for 1D parameters
+
+  \subsection{PErrorEllipse}
+    \label{sect:error.PErrorEllipse}
+    Elliptic error for 2D parameters such as sky positions. Major axis and minor axis have their own units, which must be the same for both. This is not enforced by the model. The definition of the ellipse attribute is imported from \texttt{coords:Ellipse}.
+
+    \subsubsection{PErrorEllipse.semiMajorAxis}
+    \textbf{vodml-id: error.PErrorEllipse.semiMajorAxis} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Half of the ellipse major axis
+
+    \subsubsection{PErrorEllipse.semiMinorAxis}
+    \textbf{vodml-id: error.PErrorEllipse.semiMinorAxis} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Half of the ellipse minor axis
+
+    \subsubsection{PErrorEllipse.angle}
+    \textbf{vodml-id: error.PErrorEllipse.angle} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    In theory, this is the angle between the North Celestial Pole (NCP) and the major axis. This angle must be positive taking into account that angles are positive from North to the East. The angle has its own unit. In practice, the angle definition is this used by the mapped data set. It is usually the angle between the major axis and the north axis (negative along of the clockwise direction).
+
+  \subsection{PErrorSym2D}
+    \label{sect:error.PErrorSym2D}
+    Symmetrical error for 2D quantities.
+
+    \subsubsection{PErrorSym2D.sigma1}
+    \textbf{vodml-id: error.PErrorSym2D.sigma1} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Error on the first dimension (right ascension in case of sky coordinates)
+
+    \subsubsection{PErrorSym2D.sigma2}
+    \textbf{vodml-id: error.PErrorSym2D.sigma2} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:RealQuantity}} \newline
+    \textbf{multiplicity: 1} \newline
+    Error on the second dimension (declination in case of sky coordinates)
+
+\section{Package: origin}
+    \begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{../model/origin.png}
+    \caption{origin package}
+    \label{fig:origin}
+    \end{figure}
+    Package grouping together all the components needed to model the origin of the \texttt{MangoObject} (fig \ref{fig:origin}). The design of the package complies with the work of the DCP interest group (see \url{https://ivoa.net/documents/DataOrigin/index.html}).
+
+  \subsection{QueryOrigin}
+    \label{sect:origin.QueryOrigin}
+    Description of the query the \texttt{MangoObject} results from.
+
+    \subsubsection{QueryOrigin.publisher}
+    \textbf{vodml-id: origin.QueryOrigin.publisher} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Data center that produced the \texttt{MangoObject}.
+
+    \subsubsection{QueryOrigin.server\_software}
+    \textbf{vodml-id: origin.QueryOrigin.server\_software} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 0..1} \newline
+    Version of the software that produced the \texttt{MangoObject} instance.
+
+    \subsubsection{QueryOrigin.service\_protocol}
+    \textbf{vodml-id: origin.QueryOrigin.service\_protocol} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    IVOID \citep{2007ivoa.spec.0314P} of the protocol through which the data was retrieved.
+
+    \subsubsection{QueryOrigin.request}
+    \textbf{vodml-id: origin.QueryOrigin.request} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Full request URL including a query string. For the simple protocols,put the url-encoded form of the query parameters. For TAP queries, use the /sync UWS \citep{2016ivoa.spec.1024H} URL. The format is free for other request types.
+
+    \subsubsection{QueryOrigin.request\_date}
+    \textbf{vodml-id: origin.QueryOrigin.request\_date} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Query execution date
+
+    \subsubsection{QueryOrigin.query}
+    \textbf{vodml-id: origin.QueryOrigin.query} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Input query in a formal language such as ADQL \citep{2023ivoa.spec.1215M}
+
+    \subsubsection{QueryOrigin.contact}
+    \textbf{vodml-id: origin.QueryOrigin.contact} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Email or URL to contact the publisher
+
+    \subsubsection{QueryOrigin.ivoid}
+    \textbf{vodml-id: origin.QueryOrigin.ivoid} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    IVOID of the service that provided the result set.
+
+    \subsubsection{QueryOrigin.dataOrigin}
+    \textbf{vodml-id: origin.QueryOrigin.dataOrigin} \newline
+    \textbf{type: \hyperref[sect:origin.DataOrigin]{mango:origin.DataOrigin}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Description of the origin of the data to which the query was applied.
+
+  \subsection{DataOrigin}
+    \label{sect:origin.DataOrigin}
+    Class representing the description of the origin of the queried dataset.
+
+    \subsubsection{DataOrigin.ivoid}
+    \textbf{vodml-id: origin.DataOrigin.ivoid} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    IVOID of the underlying data collection
+
+    \subsubsection{DataOrigin.reference\_url}
+    \textbf{vodml-id: origin.DataOrigin.reference\_url} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Dataset landing page
+
+    \subsubsection{DataOrigin.resource\_version}
+    \textbf{vodml-id: origin.DataOrigin.resource\_version} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Dataset version
+
+    \subsubsection{DataOrigin.creators}
+    \textbf{vodml-id: origin.DataOrigin.creators} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Person(s) mainly involved in the creation of the resource, generally the author(s).
+
+    \subsubsection{DataOrigin.cites}
+    \textbf{vodml-id: origin.DataOrigin.cites} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Identifier (IVOID, DOI or Bibcode) of a second Resource using relation of type \texttt{cites} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
+
+    \subsubsection{DataOrigin.is\_derived\_from}
+    \textbf{vodml-id: origin.DataOrigin.is\_derived\_from} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Identifiers (IVOID, DOI or Bibcode) of a second resource using relation of type \texttt{is\_derived\_from} (\url{https://www.ivoa.net/rdf/voresource/relationship\_type/})
+
+    \subsubsection{DataOrigin.original\_date}
+    \textbf{vodml-id: origin.DataOrigin.original\_date} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Date of the original resource from which the MANGO object is derived
+
+    \subsubsection{DataOrigin.rights}
+    \textbf{vodml-id: origin.DataOrigin.rights} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Reference to the rights that apply to the data.
+
+    \subsubsection{DataOrigin.rights\_uri}
+    \textbf{vodml-id: origin.DataOrigin.rights\_uri} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Licence URI. Following Registry practice, this should come from SPDX (\url{https://spdx.org/licenses}), though Creative Commons URLs (\url{https://creativecommons.org}) are also admitted.
+
+    \subsubsection{DataOrigin.articles}
+    \textbf{vodml-id: origin.DataOrigin.articles} \newline
+    \textbf{type: \hyperref[sect:origin.Article]{mango:origin.Article}} \newline
+    \textbf{multiplicity: 0..*} \newline
+    Reference to the articles from which the data originates.
+
+  \subsection{Article}
+    \label{sect:origin.Article}
+    Reference article for the \texttt{MangoObject}, usually a bibcode or DOI
+
+    \subsubsection{Article.editor}
+    \textbf{vodml-id: origin.Article.editor} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Name of the article editor
+
+    \subsubsection{Article.identifier}
+    \textbf{vodml-id: origin.Article.identifier} \newline
+    \textbf{type: \hyperref[sect:ivoa]{ivoa:string}} \newline
+    \textbf{multiplicity: 1} \newline
+    Identifier of the reference article
+

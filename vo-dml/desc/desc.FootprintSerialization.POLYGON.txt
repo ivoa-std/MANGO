@@ -1,0 +1,2 @@
+Label indicating that the footprint has been serialized as a polygon as defined in \cite{2017ivoa.spec.0517D} section 3.3.7.
+Using the polygon serialization requires the space coordinate system to be defined.

@@ -1,0 +1,1 @@
+Error on the second dimension (declination in case of sky coordinates)

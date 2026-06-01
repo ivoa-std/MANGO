@@ -1,0 +1,1 @@
+Attribute giving the way the color is calculated (magnitude difference or hardness ratio).

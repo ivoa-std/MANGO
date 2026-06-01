@@ -1,0 +1,51 @@
+ This class (fig \ref{fig:EpochPosition}) is a flattened view of objects/concepts from the 
+ Astronomical Measurements Model  \citep{2022ivoa.specQ1004R} that have been put together 
+ to form a consistent description of the position of an object moving over time. 
+ It consists of a celestial position, a proper motion, a radial velocity and a parallax and their associated 
+ errors encapsulated into the \texttt{EpochPositionErrors} class. 
+ The values of these properties are pulled from the underlying Astronomical Coordinates and Coordinate Systems 
+ model \citep{2022ivoa.spec.1004R}.
+ 
+At a high level the properties map as follows:
+\begin{itemize}
+    \item celestial position -> \texttt{meas:Position}
+    \item  proper motion -> \texttt{meas:ProperMotion}
+    \item  radial velocity -> \texttt{meas.Velocity}
+    \item  parallax -> no suitable counterpart at this time
+\end{itemize}
+
+
+All components use the same coordinate systems for both time and space coordinates.
+
+\begin{itemize}
+   \item Both position and proper motion reuse \texttt{coords:LonLatPoint} elements.
+   \item The space coordinate system is imported from \texttt{coords:SpaceSys}.
+   \item The time coordinate system is imported from \texttt{coords:TimeSys}.
+\end{itemize}
+
+
+It is recommended to use the \texttt{obsDate} field to store the epoch of the observation instead
+of the \texttt{epoch} field of \texttt{coords:SpaceSys}. 
+There are 2 reasons for this:
+\begin{itemize}
+   \item The epoch of \texttt{coords:SpaceSys} is for the epoch of the reference location position,
+         not for the measurement epoch.
+   \item The observation date can be read in a column and therefore change with each data row.
+         In this case, it cannot be stored as an element of the space coordinate system
+         but as an \texttt{EpochPosition} attribute.
+\end{itemize}
+
+All components have their own units which must be consistent with each other. 
+This consistency is not enforced by the model.
+
+Possible correlations between \texttt{EpochPosition} parameters are handled by the \texttt{EpochPositionCorrelations} class.
+Errors along the different axes are grouped in the \texttt{EpochPositionErrors} class.
+
+In some cases the errors might conflict with the correlations:
+
+\begin{itemize}
+   \item \texttt{Ellipse} errors on position or proper motion must not be used together with the 
+         \texttt{longitudeLatitude} (or \texttt{pmLongitudePmLatitude}) correlation fields.
+         In fact, using elliptical errors implies a correlation between the two spatial axes which must not conflict
+         with the correlations defined in \texttt{EpochPositionCorrelations}.
+\end{itemize}
